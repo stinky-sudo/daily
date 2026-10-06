@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Stinky's Daily</title>
+<style>
+  :root{
+    --bg:#F2F2F7; --card:#FFFFFF; --fill:#F2F2F7; --fill2:#E9E9EE;
+    --l1:#000000; --l2:#6C6C70; --l3:#AEAEB2; --sep:#E5E5EA;
+    --red:#FF3B30; --orange:#FF9500; --yellow:#FFCC00; --green:#34C759;
+    --teal:#30B0C7; --blue:#007AFF; --indigo:#5856D6; --purple:#AF52DE; --gold:#E0A800;
+    --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --r:24px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg);font-family:var(--font);color:var(--l1);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+  body{padding-bottom:env(safe-area-inset-bottom,0px)}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;border:0;background:none;color:inherit;cursor:pointer;padding:0}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:10px}
+  .app{max-width:430px;margin:0 auto;padding-bottom:40px}
+
+  /* ---------- Hero (light lock screen) ---------- */
+  .hero{position:relative;overflow:hidden;padding:42px 16px 22px;border-radius:0 0 36px 36px;
+    background:
+      radial-gradient(120% 80% at 10% 0%,#FFD9E4 0%,rgba(255,217,228,0) 60%),
+      radial-gradient(110% 90% at 100% 10%,#CFE3FF 0%,rgba(207,227,255,0) 60%),
+      radial-gradient(120% 90% at 50% 100%,#E6DAFF 0%,rgba(230,218,255,0) 70%),
+      #F7F4FF;}
+  .hero-date{text-align:center;font-size:17px;font-weight:600;color:#4B4372;letter-spacing:-.2px}
+  .hero-time{text-align:center;font-size:104px;line-height:108px;font-weight:200;letter-spacing:-4px;color:#221C46;font-variant-numeric:tabular-nums}
+  .hero-greet{text-align:center;font-size:15px;color:#5E5785}
+  .hero-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+  .glass{background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);
+    border:1px solid rgba(255,255,255,.8);border-radius:20px;padding:12px 14px;box-shadow:0 6px 20px rgba(60,40,140,.08)}
+  .glass .k{font-size:13px;font-weight:600;color:#5E5785}
+  .glass .k.red{color:var(--red)}
+  .glass .big{font-size:30px;font-weight:300;letter-spacing:-1px;line-height:36px;color:#221C46}
+  .glass .t{font-size:16px;font-weight:600;line-height:21px;padding-top:4px;color:#221C46}
+  .glass .s{font-size:13px;color:#5E5785;padding-top:2px}
+
+  /* ---------- Section dock ---------- */
+  .dock{position:sticky;top:0;z-index:10;padding:10px 16px;margin-top:14px;
+    background:rgba(242,242,247,.82);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+  .dock-inner{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:2px}
+  .dock-inner::-webkit-scrollbar{display:none}
+  .dock a{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;width:52px}
+  .dock .ic{width:44px;height:44px;border-radius:12px;font-size:22px}
+  .dock .lbl{font-size:10.5px;color:var(--l2);white-space:nowrap;max-width:56px;overflow:hidden;text-overflow:ellipsis}
+  .dock a.on .lbl{color:var(--l1);font-weight:600}
+
+  .ic{display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:28px;height:28px;border-radius:8px;font-size:15px;color:#fff;
+    background:var(--c);background-image:linear-gradient(160deg,rgba(255,255,255,.28),rgba(255,255,255,0) 60%)}
+
+  /* ---------- Widgets ---------- */
+  .group-title{padding:22px 28px 0;font-size:22px;font-weight:700;letter-spacing:-.4px}
+  .widget{margin:12px 16px 0;background:var(--card);border-radius:var(--r);padding:16px 16px 4px;
+    box-shadow:0 1px 0 rgba(0,0,0,.02);scroll-margin-top:90px;position:relative;overflow:hidden}
+  .widget::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--c);opacity:.9}
+  .w-head{display:flex;align-items:center;gap:10px}
+  .w-title{font-size:17px;font-weight:600;letter-spacing:-.2px;flex:1}
+  .w-meta{font-size:13px;color:var(--l2)}
+  .w-meta b{color:var(--c);font-weight:600}
+
+  .row{padding:14px 0 16px;border-top:.5px solid var(--sep)}
+  .row:first-child{border-top:0}
+  .rows{margin-top:4px}
+  .it-title{font-size:16px;font-weight:600;line-height:21px;letter-spacing:-.2px}
+  .it-blurb{padding-top:6px;font-size:15px;line-height:21px;color:var(--l2)}
+  .it-src{padding-top:10px;font-size:12px;color:var(--l3)}
+  .acts{display:flex;flex-wrap:wrap;gap:6px;padding-top:10px}
+  .pill{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:999px;background:var(--fill);
+    font-size:13px;font-weight:600;color:var(--c);transition:background .15s}
+  .pill:active{background:var(--fill2)}
+  .pill.solid{background:var(--c);color:#fff}
+  .pill.done{color:var(--l2)}
+  .row.is-done .it-title,.row.is-done .it-blurb{opacity:.38}
+  .row.is-done .it-title{text-decoration:line-through;text-decoration-color:var(--l3)}
+  .row.is-done .pill.done{color:var(--green)}
+
+  /* calendar */
+  .ev{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:.5px solid var(--sep)}
+  .ev:first-child{border-top:0}
+  .ev .bar{width:4px;align-self:stretch;border-radius:2px;background:var(--ec)}
+  .ev .n{flex:1;font-size:15px;font-weight:600}
+  .ev .tm{font-size:14px;color:var(--l2);white-space:nowrap}
+  .ev.past .n,.ev.past .tm{color:var(--l3)}
+  .soon-h{padding:14px 0 6px;font-size:13px;font-weight:600;color:var(--l2)}
+  .soon{padding-bottom:14px;font-size:15px;line-height:23px}
+  .soon span{color:var(--dc)}
+
+  /* radar */
+  .rad{display:flex;gap:12px;padding:14px 0;border-top:.5px solid var(--sep)}
+  .rad:first-child{border-top:0}
+  .tile{flex:0 0 48px;height:52px;border-radius:12px;background:var(--fill);display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .tile .m{font-size:11px;font-weight:700;color:var(--tc)}
+  .tile .d{font-size:22px;font-weight:300;line-height:24px}
+  .rad .x{flex:1;min-width:0}
+  .rad .x .it-blurb{font-size:14px;line-height:19px;padding-top:3px}
+  .countdown{font-size:12px;color:var(--tc);font-weight:600;padding-top:5px}
+
+  /* book ahead */
+  .ahead{margin:2px 0 16px;background:var(--fill);border-radius:16px;padding:14px}
+  .ahead .k{font-size:13px;font-weight:600;color:var(--c)}
+
+  /* podcasts */
+  .pod{display:flex;gap:12px;padding:14px 0;border-top:.5px solid var(--sep)}
+  .pod:first-child{border-top:0}
+  .art{flex:0 0 64px;height:64px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:800;font-size:20px;letter-spacing:-.5px;background:linear-gradient(145deg,var(--a1),var(--a2));box-shadow:0 4px 12px rgba(0,0,0,.08)}
+  .pod .show{font-size:12px;font-weight:600;color:var(--c)}
+  .pod .show i{font-style:normal;color:var(--l3);font-weight:400;margin-left:6px}
+
+  /* btc */
+  .pts{list-style:none;margin:10px 0 0;padding:0}
+  .pts li{position:relative;padding:0 0 8px 18px;font-size:15px;line-height:22px}
+  .pts li::before{content:"";position:absolute;left:2px;top:8px;width:7px;height:7px;border-radius:50%;background:var(--c)}
+
+  /* something different */
+  .diff{margin:12px 16px 0;border-radius:var(--r);padding:20px;color:#2B1F00;scroll-margin-top:90px;
+    background:radial-gradient(120% 120% at 0% 0%,#FFE680 0%,#FFD43B 40%,#F2B705 100%);box-shadow:0 10px 30px rgba(224,168,0,.25)}
+  .diff .k{font-size:14px;font-weight:600;color:#6B5000}
+  .diff h3{margin:10px 0 0;font-size:26px;line-height:30px;font-weight:700;letter-spacing:-.6px}
+  .diff p{margin:10px 0 0;font-size:15px;line-height:22px;color:#4A3800}
+  .diff .acts .pill{background:rgba(43,31,0,.9);color:#FFE680}
+  .diff .acts .pill.ghost{background:rgba(255,255,255,.45);color:#2B1F00}
+
+  .foot{text-align:center;padding:30px 24px 10px;font-size:12px;line-height:18px;color:var(--l3)}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;
+    background:rgba(28,28,30,.92);color:#fff;font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;transition:.25s}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+  html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+<div class="app" id="app"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =========================================================
+   CONTENT — the morning script only needs to rewrite DATA.
+   Everything below is sample content.
+   ========================================================= */
+const DATA = {
+  edition: "2026-10-06",
+  weather: { place:"Mountain View", emoji:"☀️", hi:78, lo:55, cond:"Clear all day" },
+  day: {
+    events: [
+      { start:"09:30", end:"09:45", title:"Team standup", color:"red" },
+      { start:"12:00", end:"13:00", title:"Lunch block", color:"green" },
+      { start:"18:30", end:"19:30", title:"Gym", color:"blue" }
+    ],
+    soon: [
+      { label:"Thu, Oct 8 — Dentist, 8:00 AM", color:"orange" },
+      { label:"Sat, Oct 17 — Rent due reminder", color:"purple" }
+    ]
+  },
+  radar: [
+    { date:"2026-10-08", title:"Draconid meteor shower", desc:"Short, modest shower. Best right after dusk, away from city lights.", url:"https://www.timeanddate.com/astronomy/meteor-shower/", color:"teal" },
+    { date:"2026-10-14", title:"Starship flight test window", desc:"SpaceX targets another integrated flight from Starbase.", url:"https://www.spacex.com/launches/", color:"orange" },
+    { date:"2026-10-21", title:"Orionid meteor shower peak", desc:"Debris from Halley’s Comet. Up to ~20 per hour before dawn.", url:"https://www.timeanddate.com/astronomy/meteor-shower/", color:"teal" },
+    { date:"2026-10-24", title:"Lakers vs. Warriors", desc:"Early-season rivalry game at Chase Center.", url:"https://www.nba.com/lakers/schedule", color:"purple" }
+  ],
+  bay: {
+    range:"Oct 10–11",
+    items: [
+      { id:"bay1", title:"Sunset Sound System — Sunday open-air party", blurb:"Long-running SF house collective throws daytime sets outdoors. Bring layers; the fog shows up around 5.", src:"sunsetsf.org", date:"Sun, Oct 11", url:"https://www.sunsetsf.org/" },
+      { id:"bay2", title:"Off the Grid at Fort Mason", blurb:"Food trucks, live music, and bay views on Friday nights through the fall.", src:"offthegrid.com", date:"Fri, Oct 9", url:"https://offthegrid.com/" }
+    ],
+    ahead: { title:"Melodic techno night, The Midway", when:"Sat, Nov 14", note:"Tickets on sale now", url:"https://themidwaysf.com/" }
+  },
+  robotics: [
+    { id:"rob1", title:"Figure shares new Helix footage of multi-robot logistics", blurb:"A new video shows two humanoids handing packages to each other on a conveyor line without scripted choreography. Worth watching for how the model handles timing between robots.", src:"figure.ai", date:"Oct 4, 2026", url:"https://www.figure.ai/news", ask:"Explain in simple terms how one VLA model can coordinate two humanoid robots at once." },
+    { id:"rob2", title:"Paper: scaling laws for robot foundation models", blurb:"Researchers measure how manipulation performance improves with more teleoperation data versus more compute. The short version: data diversity matters more than raw hours.", src:"arXiv", date:"Oct 3, 2026", url:"https://arxiv.org/list/cs.RO/recent", ask:"Summarize what scaling laws mean for robot foundation models, for a non-researcher." }
+  ],
+  pods: [
+    { id:"pod1", show:"Lex Fridman", initials:"LF", a1:"#FF5E57", a2:"#B8336A", ep:"#4xx – Guest name", desc:"Three hours on where embodied AI is headed and what still breaks.", date:"Oct 4", url:"https://lexfridman.com/podcast/" },
+    { id:"pod2", show:"Modern Wisdom", initials:"MW", a1:"#3A8DFF", a2:"#1D4FA8", ep:"Episode title here", desc:"Why discipline beats motivation, with a sports psychologist.", date:"Oct 5", url:"https://chriswillx.com/podcast/" }
+  ],
+  btc: {
+    points:["Still frames this as a mid-cycle cool-off, not a top.","Watching the bull market support band as the line that matters.","Expects altcoins to keep bleeding against BTC for now.","Says patience through Q4 historically pays off."],
+    src:"Into The Cryptoverse", date:"Oct 4, 2026", url:"https://www.youtube.com/@intothecryptoverse"
+  },
+  ai: [
+    { id:"ai1", title:"Anthropic publishes new research on interpretability", blurb:"A readable write-up on tracing how a model reaches an answer step by step. The diagrams alone are worth the click.", src:"anthropic.com", date:"Oct 2, 2026", url:"https://www.anthropic.com/research", ask:"What is mechanistic interpretability, explained simply?" },
+    { id:"ai2", title:"Paul Graham: a new essay on taste", blurb:"A short essay arguing taste can be learned and is mostly about noticing. Five minutes, one idea.", src:"paulgraham.com", date:"Oct 1, 2026", url:"https://paulgraham.com/articles.html" }
+  ],
+  different: { title:"The Antikythera mechanism: a 2,000-year-old computer", blurb:"A shoebox of bronze gears pulled from a shipwreck that predicted eclipses and tracked the planets. Nothing comparable shows up again for over a thousand years.", url:"https://www.nature.com/articles/s41598-021-84310-w", ask:"Tell me the story of the Antikythera mechanism and how it was decoded." }
+};
+
+/* =========================================================
+   APP
+   ========================================================= */
+const C = { red:"var(--red)", orange:"var(--orange)", yellow:"var(--yellow)", green:"var(--green)", teal:"var(--teal)", blue:"var(--blue)", indigo:"var(--indigo)", purple:"var(--purple)", gold:"var(--gold)" };
+const SECTIONS = [
+  { id:"day", name:"Today", emoji:"📅", c:C.red },
+  { id:"radar", name:"Radar", emoji:"🗓️", c:C.orange },
+  { id:"bay", name:"Weekend", emoji:"🌉", c:C.teal },
+  { id:"robotics", name:"Robotics", emoji:"🤖", c:C.indigo },
+  { id:"pods", name:"Listen", emoji:"🎙️", c:C.purple },
+  { id:"btc", name:"BTC", emoji:"₿", c:C.orange },
+  { id:"ai", name:"AI", emoji:"🧠", c:C.blue },
+  { id:"diff", name:"Different", emoji:"🎲", c:C.gold }
+];
+const esc = s => String(s).replace(/[&<>"]/g, m => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[m]));
+const ext = (url, label, cls="") => `<a class="pill ${cls}" href="${esc(url)}" target="_blank" rel="noopener">${label}</a>`;
+const askUrl = q => "https://claude.ai/new?q=" + encodeURIComponent(q);
+const gUrl = q => "https://www.google.com/search?q=" + encodeURIComponent(q);
+
+// done-state (per edition, per viewer)
+const KEY = "stinkys-daily-done-" + DATA.edition;
+let done = {};
+try { done = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e) { done = {}; }
+const saveDone = () => { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch(e) {} };
+
+const toMin = t => { const [h,m] = t.split(":").map(Number); return h*60+m; };
+const fmt12 = t => { let [h,m] = t.split(":").map(Number); const ap = h>=12?"PM":"AM"; h = h%12||12; return `${h}:${String(m).padStart(2,"0")} ${ap}`; };
+const nowMin = () => { const d = new Date(); return d.getHours()*60 + d.getMinutes(); };
+
+function item(it, extraActs=true){
+  const acts = [ext(it.url,"Open")];
+  if (extraActs) acts.push(ext(gUrl(it.title),"Google"));
+  if (it.ask) acts.push(ext(askUrl(it.ask),"Ask Claude"));
+  acts.push(`<button class="pill done" data-done="${it.id}" aria-pressed="${!!done[it.id]}">${done[it.id] ? "✓ Done" : "Mark done"}</button>`);
+  return `<div class="row ${done[it.id]?"is-done":""}" data-row="${it.id}">
+    <div class="it-title">${esc(it.title)}</div>
+    <div class="it-blurb">${esc(it.blurb)}</div>
+    <div class="it-src">${esc(it.src)} &nbsp;|&nbsp; ${esc(it.date)}</div>
+    <div class="acts">${acts.join("")}</div></div>`;
+}
+function widget(sec, meta, body){
+  return `<section class="widget" id="${sec.id}" style="--c:${sec.c}">
+    <div class="w-head"><div class="ic" aria-hidden="true">${sec.emoji}</div><div class="w-title">${sec.title||sec.name}</div><div class="w-meta">${meta||""}</div></div>
+    <div class="rows">${body}</div></section>`;
+}
+const S = Object.fromEntries(SECTIONS.map(s => [s.id, s]));
+S.day.title="Your day"; S.radar.title="Events radar"; S.bay.title="Bay Area this weekend";
+S.robotics.title="Humanoid robotics"; S.pods.title="Podcasts & YouTube"; S.btc.title="Benjamin Cowen’s latest"; S.ai.title="AI & tech";
+
+function upNext(){
+  const n = nowMin();
+  const ev = DATA.day.events.find(e => toMin(e.end) > n);
+  return ev ? { k:"Up next", t:ev.title, s:`${fmt12(ev.start)} – ${fmt12(ev.end)}` } : { k:"All clear", t:"Nothing left today", s:"Enjoy the evening" };
+}
+function daysUntil(iso){
+  const t = new Date(iso + "T00:00:00"); const d = new Date(); d.setHours(0,0,0,0);
+  return Math.round((t - d) / 86400000);
+}
+
+function render(){
+  const now = new Date();
+  const h = now.getHours();
+  const greet = h < 12 ? "Good morning, Stinky" : h < 17 ? "Good afternoon, Stinky" : "Good evening, Stinky";
+  const u = upNext(); const w = DATA.weather;
+  const dateStr = now.toLocaleDateString("en-US",{ weekday:"long", month:"long", day:"numeric" });
+  const timeStr = now.toLocaleTimeString("en-US",{ hour:"numeric", minute:"2-digit" }).replace(/\s?[AP]M/,"");
+
+  const n = nowMin();
+  const evs = DATA.day.events.map(e => `<div class="ev ${toMin(e.end) <= n ? "past":""}" style="--ec:${C[e.color]}"><div class="bar"></div><div class="n">${esc(e.title)}</div><div class="tm">${fmt12(e.start)}</div></div>`).join("");
+  const soon = DATA.day.soon.length ? `<div class="soon-h">Next two weeks</div><div class="soon">${DATA.day.soon.map(s => `<div><span style="--dc:${C[s.color]}">●</span>&nbsp; ${esc(s.label)}</div>`).join("")}</div>` : "";
+  const left = DATA.day.events.filter(e => toMin(e.end) > n).length;
+
+  const radar = DATA.radar.map(r => {
+    const d = new Date(r.date + "T00:00:00"); const dd = daysUntil(r.date);
+    const cd = dd < 0 ? "Passed" : dd === 0 ? "Today" : dd === 1 ? "Tomorrow" : `In ${dd} days`;
+    return `<a class="rad" href="${esc(r.url)}" target="_blank" rel="noopener" style="--tc:${C[r.color]}">
+      <div class="tile"><div class="m">${d.toLocaleDateString("en-US",{month:"short"})}</div><div class="d">${d.getDate()}</div></div>
+      <div class="x"><div class="it-title">${esc(r.title)}</div><div class="it-blurb">${esc(r.desc)}</div><div class="countdown">${cd}</div></div></a>`;
+  }).join("");
+
+  const a = DATA.bay.ahead;
+  const bay = DATA.bay.items.map(i => item(i)).join("") + (a ? `<div class="ahead"><div class="k">🎟️ Coming up — book ahead</div>
+    <div class="it-title" style="padding-top:8px">${esc(a.title)}</div><div class="it-blurb" style="padding-top:2px;font-size:14px">${esc(a.when)} &nbsp;|&nbsp; ${esc(a.note)}</div>
+    <div class="acts">${ext(a.url,"Get tickets","solid")}</div></div>` : "");
+
+  const pods = DATA.pods.map(p => `<a class="pod" href="${esc(p.url)}" target="_blank" rel="noopener">
+    <div class="art" style="--a1:${p.a1};--a2:${p.a2}">${esc(p.initials)}</div>
+    <div style="flex:1;min-width:0"><div class="show">${esc(p.show)}<i>${esc(p.date)}</i></div>
+    <div class="it-title" style="padding-top:2px">${esc(p.ep)}</div><div class="it-blurb" style="font-size:14px;line-height:19px;padding-top:3px">${esc(p.desc)}</div></div></a>`).join("");
+
+  const b = DATA.btc;
+  const btc = `<ul class="pts">${b.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+    <div class="it-src" style="padding-top:2px">${esc(b.src)} &nbsp;|&nbsp; ${esc(b.date)}</div>
+    <div class="acts" style="padding-bottom:16px">${ext(b.url,"Watch")}${ext(askUrl("Explain Benjamin Cowen’s bull market support band in simple terms."),"Ask Claude")}</div>`;
+
+  const robotsLeft = DATA.robotics.filter(i => !done[i.id]).length;
+  const aiLeft = DATA.ai.filter(i => !done[i.id]).length;
+  const dif = DATA.different;
+
+  document.getElementById("app").innerHTML = `
+  <header class="hero">
+    <div class="hero-date">${dateStr}</div>
+    <div class="hero-time" id="clock">${timeStr}</div>
+    <div class="hero-greet">${greet}</div>
+    <div class="hero-row">
+      <div class="glass"><div class="k">${esc(w.place)}</div><div class="big">${w.emoji} ${w.hi}°</div><div class="s">${esc(w.cond)} &nbsp;L ${w.lo}°</div></div>
+      <a class="glass" href="#day"><div class="k red">${u.k}</div><div class="t">${esc(u.t)}</div><div class="s">${u.s}</div></a>
+    </div>
+  </header>
+  <nav class="dock" aria-label="Sections"><div class="dock-inner">
+    ${SECTIONS.map(s => `<a href="#${s.id}" data-nav="${s.id}"><div class="ic" style="--c:${s.c}">${s.emoji}</div><div class="lbl">${s.name}</div></a>`).join("")}
+  </div></nav>
+
+  ${widget(S.day, `<b>${left}</b> left today`, evs + soon)}
+  ${widget(S.radar, "Plan ahead", radar)}
+  ${widget(S.bay, DATA.bay.range, bay)}
+  <div class="group-title">The reading</div>
+  ${widget(S.robotics, `<b>${robotsLeft}</b> unread`, DATA.robotics.map(i => item(i)).join(""))}
+  ${widget(S.pods, "Last 48 hrs", pods)}
+  ${widget(S.btc, "", btc)}
+  ${widget(S.ai, `<b>${aiLeft}</b> unread`, DATA.ai.map(i => item(i)).join(""))}
+  <section class="diff" id="diff">
+    <div class="k">🎲 Something different</div>
+    <h3>${esc(dif.title)}</h3><p>${esc(dif.blurb)}</p>
+    <div class="acts" style="padding-top:16px">${ext(dif.url,"Open")}${dif.ask ? ext(askUrl(dif.ask),"Ask Claude","ghost") : ""}</div>
+  </section>
+  <div class="foot">Stinky’s Daily refreshes every morning at 7.</div>`;
+  watchSections();
+}
+
+// toggle done (event delegation)
+document.addEventListener("click", e => {
+  const btn = e.target.closest("[data-done]"); if (!btn) return;
+  const id = btn.dataset.done; done[id] = !done[id]; if (!done[id]) delete done[id];
+  saveDone(); const y = window.scrollY; render(); window.scrollTo(0, y);
+  toast(done[id] ? "Marked done" : "Marked unread");
+});
+let tt; function toast(msg){ const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 1400); }
+
+// highlight current section in dock
+let io;
+function watchSections(){
+  if (io) io.disconnect();
+  if (!("IntersectionObserver" in window)) return;
+  io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) {
+      document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === en.target.id));
+      const on = document.querySelector(`[data-nav="${en.target.id}"]`);
+      if (on) { const d = on.parentElement; d.scrollTo({ left: on.offsetLeft - d.clientWidth/2 + on.clientWidth/2, behavior:"smooth" }); }
+    }});
+  }, { rootMargin:"-40% 0px -55% 0px" });
+  SECTIONS.forEach(s => { const el = document.getElementById(s.id); if (el) io.observe(el); });
+}
+
+render();
+// live clock; re-render each minute so "up next" and countdowns stay fresh
+setInterval(() => { const y = window.scrollY; render(); window.scrollTo(0, y); }, 60000);
+</script>
+</body>
+</html>
