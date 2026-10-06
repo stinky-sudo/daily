@@ -7,132 +7,135 @@
 <title>Stinky's Daily</title>
 <style>
   :root{
-    --bg:#F2F2F7; --card:#FFFFFF; --fill:#F2F2F7; --fill2:#E9E9EE;
-    --l1:#000000; --l2:#6C6C70; --l3:#AEAEB2; --sep:#E5E5EA;
-    --red:#FF3B30; --orange:#FF9500; --yellow:#FFCC00; --green:#34C759;
-    --teal:#30B0C7; --blue:#007AFF; --indigo:#5856D6; --purple:#AF52DE; --gold:#E0A800;
+    --bg:#F2F2F7;
     --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --r:24px;
+    --r:26px;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{margin:0;background:var(--bg);font-family:var(--font);color:var(--l1);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+  html,body{margin:0;background:var(--bg);font-family:var(--font);color:#000;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
   body{padding-bottom:env(safe-area-inset-bottom,0px)}
   a{color:inherit;text-decoration:none}
   button{font:inherit;border:0;background:none;color:inherit;cursor:pointer;padding:0}
-  :focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:10px}
+  :focus-visible{outline:3px solid #007AFF;outline-offset:2px;border-radius:12px}
   .app{max-width:430px;margin:0 auto;padding-bottom:40px}
+  svg.logo{display:block;flex:0 0 auto}
 
-  /* ---------- Hero (light lock screen) ---------- */
-  .hero{position:relative;overflow:hidden;padding:42px 16px 22px;border-radius:0 0 36px 36px;
+  /* ---------- Hero: fades to pure white at the top ---------- */
+  .hero{position:relative;padding:40px 16px 34px;
     background:
-      radial-gradient(120% 80% at 10% 0%,#FFD9E4 0%,rgba(255,217,228,0) 60%),
-      radial-gradient(110% 90% at 100% 10%,#CFE3FF 0%,rgba(207,227,255,0) 60%),
-      radial-gradient(120% 90% at 50% 100%,#E6DAFF 0%,rgba(230,218,255,0) 70%),
-      #F7F4FF;}
-  .hero-date{text-align:center;font-size:17px;font-weight:600;color:#4B4372;letter-spacing:-.2px}
-  .hero-time{text-align:center;font-size:104px;line-height:108px;font-weight:200;letter-spacing:-4px;color:#221C46;font-variant-numeric:tabular-nums}
-  .hero-greet{text-align:center;font-size:15px;color:#5E5785}
-  .hero-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
-  .glass{background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);
-    border:1px solid rgba(255,255,255,.8);border-radius:20px;padding:12px 14px;box-shadow:0 6px 20px rgba(60,40,140,.08)}
-  .glass .k{font-size:13px;font-weight:600;color:#5E5785}
-  .glass .k.red{color:var(--red)}
-  .glass .big{font-size:30px;font-weight:300;letter-spacing:-1px;line-height:36px;color:#221C46}
-  .glass .t{font-size:16px;font-weight:600;line-height:21px;padding-top:4px;color:#221C46}
+      linear-gradient(to bottom,#FFFFFF 0%,rgba(255,255,255,.85) 18%,rgba(255,255,255,0) 52%),
+      linear-gradient(to bottom,rgba(242,242,247,0) 70%,var(--bg) 100%),
+      radial-gradient(90% 70% at 8% 62%,#FFD3E1 0%,rgba(255,211,225,0) 70%),
+      radial-gradient(80% 70% at 96% 52%,#C9DEFF 0%,rgba(201,222,255,0) 70%),
+      radial-gradient(90% 60% at 50% 88%,#E4D6FF 0%,rgba(228,214,255,0) 75%),
+      #FFFFFF;}
+  .hero-date{font-size:15px;font-weight:600;color:#7A7396;padding:0 6px}
+  .hero-greet{font-size:38px;line-height:42px;font-weight:800;letter-spacing:-1.2px;color:#1E1940;padding:4px 6px 0}
+  .hero-sub{font-size:15px;line-height:21px;color:#5E5785;padding:8px 6px 0}
+  .hero-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+  .glass{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);
+    border:1px solid rgba(255,255,255,.9);border-radius:20px;padding:12px 14px;box-shadow:0 8px 24px rgba(60,40,140,.08)}
+  .glass .k{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#5E5785}
+  .glass .big{font-size:30px;font-weight:300;letter-spacing:-1px;line-height:36px;color:#1E1940}
+  .glass .t{font-size:16px;font-weight:600;line-height:21px;padding-top:4px;color:#1E1940}
   .glass .s{font-size:13px;color:#5E5785;padding-top:2px}
 
   /* ---------- Section dock ---------- */
-  .dock{position:sticky;top:0;z-index:10;padding:10px 16px;margin-top:14px;
-    background:rgba(242,242,247,.82);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+  .dock{position:sticky;top:0;z-index:10;padding:10px 16px;background:rgba(242,242,247,.84);
+    -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
   .dock-inner{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:2px}
   .dock-inner::-webkit-scrollbar{display:none}
-  .dock a{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;width:52px}
-  .dock .ic{width:44px;height:44px;border-radius:12px;font-size:22px}
-  .dock .lbl{font-size:10.5px;color:var(--l2);white-space:nowrap;max-width:56px;overflow:hidden;text-overflow:ellipsis}
-  .dock a.on .lbl{color:var(--l1);font-weight:600}
+  .dock a{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;width:54px}
+  .dock .ic{width:46px;height:46px;border-radius:13px;font-size:22px;box-shadow:0 3px 10px rgba(0,0,0,.08)}
+  .dock .lbl{font-size:10.5px;color:#6C6C70;white-space:nowrap}
+  .dock a.on .lbl{color:#000;font-weight:600}
+  .ic{display:flex;align-items:center;justify-content:center;flex:0 0 auto;background:var(--g)}
+  .ic.white{background:#fff}
 
-  .ic{display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:28px;height:28px;border-radius:8px;font-size:15px;color:#fff;
-    background:var(--c);background-image:linear-gradient(160deg,rgba(255,255,255,.28),rgba(255,255,255,0) 60%)}
-
-  /* ---------- Widgets ---------- */
-  .group-title{padding:22px 28px 0;font-size:22px;font-weight:700;letter-spacing:-.4px}
-  .widget{margin:12px 16px 0;background:var(--card);border-radius:var(--r);padding:16px 16px 4px;
-    box-shadow:0 1px 0 rgba(0,0,0,.02);scroll-margin-top:90px;position:relative;overflow:hidden}
-  .widget::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--c);opacity:.9}
-  .w-head{display:flex;align-items:center;gap:10px}
-  .w-title{font-size:17px;font-weight:600;letter-spacing:-.2px;flex:1}
-  .w-meta{font-size:13px;color:var(--l2)}
-  .w-meta b{color:var(--c);font-weight:600}
-
-  .row{padding:14px 0 16px;border-top:.5px solid var(--sep)}
+  /* ---------- Full-color cards (the "Something different" style everywhere) ---------- */
+  .card{position:relative;margin:14px 16px 0;border-radius:var(--r);padding:18px 18px 6px;color:var(--ink);
+    background:var(--g);box-shadow:0 10px 28px var(--sh);scroll-margin-top:96px;overflow:hidden}
+  .card .head{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--sub)}
+  .card .head .meta{margin-left:auto;font-weight:500}
+  .card .head .meta b{font-weight:700;color:var(--ink)}
+  .card .hdr-ic{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .card h2{margin:8px 0 2px;font-size:26px;line-height:30px;font-weight:800;letter-spacing:-.7px}
+  .rows{margin-top:6px}
+  .row{padding:14px 0 16px;border-top:1px solid var(--line)}
   .row:first-child{border-top:0}
-  .rows{margin-top:4px}
-  .it-title{font-size:16px;font-weight:600;line-height:21px;letter-spacing:-.2px}
-  .it-blurb{padding-top:6px;font-size:15px;line-height:21px;color:var(--l2)}
-  .it-src{padding-top:10px;font-size:12px;color:var(--l3)}
-  .acts{display:flex;flex-wrap:wrap;gap:6px;padding-top:10px}
-  .pill{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:999px;background:var(--fill);
-    font-size:13px;font-weight:600;color:var(--c);transition:background .15s}
-  .pill:active{background:var(--fill2)}
-  .pill.solid{background:var(--c);color:#fff}
-  .pill.done{color:var(--l2)}
-  .row.is-done .it-title,.row.is-done .it-blurb{opacity:.38}
-  .row.is-done .it-title{text-decoration:line-through;text-decoration-color:var(--l3)}
-  .row.is-done .pill.done{color:var(--green)}
+  .it-title{font-size:17px;font-weight:700;line-height:22px;letter-spacing:-.3px}
+  .it-blurb{padding-top:6px;font-size:15px;line-height:22px;color:var(--body)}
+  .it-src{padding-top:9px;font-size:12px;color:var(--sub);font-weight:500}
+  .acts{display:flex;flex-wrap:wrap;gap:7px;padding-top:12px}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;font-size:13.5px;font-weight:600;
+    background:rgba(255,255,255,.5);color:var(--ink);transition:transform .12s,background .15s}
+  .pill:active{transform:scale(.96)}
+  .pill.solid{background:var(--ink);color:var(--hi)}
+  .pill svg{width:16px;height:16px}
+  .row.is-done .it-title,.row.is-done .it-blurb{opacity:.4}
+  .row.is-done .it-title{text-decoration:line-through}
+  .pill.done[aria-pressed="true"]{background:var(--ink);color:var(--hi)}
+  .tile-glass{background:rgba(255,255,255,.42);border-radius:16px}
 
   /* calendar */
-  .ev{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:.5px solid var(--sep)}
+  .ev{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
   .ev:first-child{border-top:0}
-  .ev .bar{width:4px;align-self:stretch;border-radius:2px;background:var(--ec)}
-  .ev .n{flex:1;font-size:15px;font-weight:600}
-  .ev .tm{font-size:14px;color:var(--l2);white-space:nowrap}
-  .ev.past .n,.ev.past .tm{color:var(--l3)}
-  .soon-h{padding:14px 0 6px;font-size:13px;font-weight:600;color:var(--l2)}
-  .soon{padding-bottom:14px;font-size:15px;line-height:23px}
-  .soon span{color:var(--dc)}
+  .ev .bar{width:4px;align-self:stretch;border-radius:2px;background:var(--ink);opacity:.75}
+  .ev .n{flex:1;font-size:16px;font-weight:600}
+  .ev .tm{font-size:14px;color:var(--body);white-space:nowrap}
+  .ev.past{opacity:.42}
+  .soon{margin:6px 0 16px;padding:12px 14px}
+  .soon .h{font-size:13px;font-weight:600;color:var(--sub);padding-bottom:6px}
+  .soon .l{font-size:15px;line-height:24px}
 
   /* radar */
-  .rad{display:flex;gap:12px;padding:14px 0;border-top:.5px solid var(--sep)}
+  .rad{display:flex;gap:12px;padding:14px 0 16px;border-top:1px solid var(--line)}
   .rad:first-child{border-top:0}
-  .tile{flex:0 0 48px;height:52px;border-radius:12px;background:var(--fill);display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .tile .m{font-size:11px;font-weight:700;color:var(--tc)}
-  .tile .d{font-size:22px;font-weight:300;line-height:24px}
+  .date{flex:0 0 50px;height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .date .m{font-size:11px;font-weight:700;color:var(--sub)}
+  .date .d{font-size:24px;font-weight:300;line-height:26px}
   .rad .x{flex:1;min-width:0}
-  .rad .x .it-blurb{font-size:14px;line-height:19px;padding-top:3px}
-  .countdown{font-size:12px;color:var(--tc);font-weight:600;padding-top:5px}
-
-  /* book ahead */
-  .ahead{margin:2px 0 16px;background:var(--fill);border-radius:16px;padding:14px}
-  .ahead .k{font-size:13px;font-weight:600;color:var(--c)}
+  .rad .it-blurb{font-size:14px;line-height:20px;padding-top:3px}
+  .cd{display:inline-block;margin-top:7px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.5);font-size:12px;font-weight:700}
 
   /* podcasts */
-  .pod{display:flex;gap:12px;padding:14px 0;border-top:.5px solid var(--sep)}
+  .pod{display:flex;gap:12px;padding:14px 0 16px;border-top:1px solid var(--line)}
   .pod:first-child{border-top:0}
   .art{flex:0 0 64px;height:64px;border-radius:14px;display:flex;align-items:center;justify-content:center;
-    color:#fff;font-weight:800;font-size:20px;letter-spacing:-.5px;background:linear-gradient(145deg,var(--a1),var(--a2));box-shadow:0 4px 12px rgba(0,0,0,.08)}
-  .pod .show{font-size:12px;font-weight:600;color:var(--c)}
-  .pod .show i{font-style:normal;color:var(--l3);font-weight:400;margin-left:6px}
+    color:#fff;font-weight:800;font-size:20px;letter-spacing:-.5px;background:linear-gradient(145deg,var(--a1),var(--a2));box-shadow:0 4px 12px rgba(0,0,0,.12)}
+  .pod .show{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--sub)}
 
-  /* btc */
-  .pts{list-style:none;margin:10px 0 0;padding:0}
-  .pts li{position:relative;padding:0 0 8px 18px;font-size:15px;line-height:22px}
-  .pts li::before{content:"";position:absolute;left:2px;top:8px;width:7px;height:7px;border-radius:50%;background:var(--c)}
+  /* btc + lists */
+  .pts{list-style:none;margin:8px 0 0;padding:0}
+  .pts li{position:relative;padding:0 0 9px 18px;font-size:15px;line-height:22px}
+  .pts li::before{content:"";position:absolute;left:2px;top:8px;width:7px;height:7px;border-radius:50%;background:var(--ink);opacity:.7}
 
-  /* something different */
-  .diff{margin:12px 16px 0;border-radius:var(--r);padding:20px;color:#2B1F00;scroll-margin-top:90px;
-    background:radial-gradient(120% 120% at 0% 0%,#FFE680 0%,#FFD43B 40%,#F2B705 100%);box-shadow:0 10px 30px rgba(224,168,0,.25)}
-  .diff .k{font-size:14px;font-weight:600;color:#6B5000}
-  .diff h3{margin:10px 0 0;font-size:26px;line-height:30px;font-weight:700;letter-spacing:-.6px}
-  .diff p{margin:10px 0 0;font-size:15px;line-height:22px;color:#4A3800}
-  .diff .acts .pill{background:rgba(43,31,0,.9);color:#FFE680}
-  .diff .acts .pill.ghost{background:rgba(255,255,255,.45);color:#2B1F00}
+  /* vocab */
+  .word{font-family:"New York","Iowan Old Style",Georgia,serif;font-size:40px;line-height:44px;font-weight:700;letter-spacing:-.5px;margin-top:10px}
+  .pron{font-size:15px;color:var(--sub);padding-top:4px}
+  .pos{display:inline-block;margin-left:6px;font-style:italic}
+  .def{font-size:16px;line-height:23px;padding-top:10px}
+  .ex{margin-top:12px;padding:12px 14px;font-size:15px;line-height:22px;color:var(--body);font-style:italic}
 
-  .foot{text-align:center;padding:30px 24px 10px;font-size:12px;line-height:18px;color:var(--l3)}
+  /* spanish */
+  .phrase{font-size:30px;line-height:34px;font-weight:800;letter-spacing:-.6px;margin-top:10px}
+  .flash{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+  .fc{min-height:74px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    transition:transform .35s,background .2s}
+  .fc .es{font-size:15px;font-weight:700}
+  .fc .en{font-size:13px;color:var(--body);padding-top:4px;opacity:0;transition:opacity .25s}
+  .fc .hint{font-size:11px;color:var(--sub);padding-top:4px}
+  .fc.open{background:rgba(255,255,255,.72)}
+  .fc.open .en{opacity:1}
+  .fc.open .hint{display:none}
+
+  .group-title{padding:26px 28px 0;font-size:22px;font-weight:800;letter-spacing:-.5px}
+  .foot{text-align:center;padding:30px 24px 10px;font-size:12px;line-height:18px;color:#AEAEB2}
   .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;
     background:rgba(28,28,30,.92);color:#fff;font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;transition:.25s}
   .toast.show{opacity:1;transform:translate(-50%,0)}
-  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
   html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -149,36 +152,41 @@ const DATA = {
   weather: { place:"Mountain View", emoji:"☀️", hi:78, lo:55, cond:"Clear all day" },
   day: {
     events: [
-      { start:"09:30", end:"09:45", title:"Team standup", color:"red" },
-      { start:"12:00", end:"13:00", title:"Lunch block", color:"green" },
-      { start:"18:30", end:"19:30", title:"Gym", color:"blue" }
+      { start:"09:30", end:"09:45", title:"Team standup" },
+      { start:"12:00", end:"13:00", title:"Lunch block" },
+      { start:"18:30", end:"19:30", title:"Gym" }
     ],
-    soon: [
-      { label:"Thu, Oct 8 — Dentist, 8:00 AM", color:"orange" },
-      { label:"Sat, Oct 17 — Rent due reminder", color:"purple" }
-    ]
+    soon: [ "Thu, Oct 8 — Dentist, 8:00 AM", "Sat, Oct 17 — Rent due reminder" ]
   },
   radar: [
-    { date:"2026-10-08", title:"Draconid meteor shower", desc:"Short, modest shower. Best right after dusk, away from city lights.", url:"https://www.timeanddate.com/astronomy/meteor-shower/", color:"teal" },
-    { date:"2026-10-14", title:"Starship flight test window", desc:"SpaceX targets another integrated flight from Starbase.", url:"https://www.spacex.com/launches/", color:"orange" },
-    { date:"2026-10-21", title:"Orionid meteor shower peak", desc:"Debris from Halley’s Comet. Up to ~20 per hour before dawn.", url:"https://www.timeanddate.com/astronomy/meteor-shower/", color:"teal" },
-    { date:"2026-10-24", title:"Lakers vs. Warriors", desc:"Early-season rivalry game at Chase Center.", url:"https://www.nba.com/lakers/schedule", color:"purple" }
+    { date:"2026-10-08", title:"Draconid meteor shower", desc:"Short, modest shower. Best right after dusk, away from city lights.", url:"https://www.timeanddate.com/astronomy/meteor-shower/",
+      cal:{ start:"2026-10-08T19:30", end:"2026-10-08T21:30", location:"Somewhere dark — e.g. Mt. Hamilton Rd", tips:"Look north toward Draco right after dusk. Give your eyes 20 min to adjust and skip the phone screen." } },
+    { date:"2026-10-14", title:"Starship flight test window", desc:"SpaceX targets another integrated flight from Starbase.", url:"https://www.spacex.com/launches/",
+      cal:{ allDay:true, tips:"Launch windows slip often. Check SpaceX on X the morning of for the exact T-0. Livestream starts ~30 min before." } },
+    { date:"2026-10-21", title:"Orionid meteor shower peak", desc:"Debris from Halley’s Comet. Up to ~20 per hour before dawn.", url:"https://www.timeanddate.com/astronomy/meteor-shower/",
+      cal:{ start:"2026-10-22T03:30", end:"2026-10-22T05:30", location:"Dark sky spot, e.g. Skyline Blvd", tips:"Best in the hours before dawn. Face east/southeast toward Orion. Bring a blanket and something warm." } },
+    { date:"2026-10-24", title:"Lakers vs. Warriors", desc:"Early-season rivalry game at Chase Center.", url:"https://www.nba.com/lakers/schedule",
+      cal:{ start:"2026-10-24T19:30", end:"2026-10-24T22:00", location:"Chase Center, San Francisco", tips:"Caltrain to 4th & King, then a 15-min walk or Muni T line. Prices drop a bit the day of on resale." } }
   ],
   bay: {
     range:"Oct 10–11",
     items: [
-      { id:"bay1", title:"Sunset Sound System — Sunday open-air party", blurb:"Long-running SF house collective throws daytime sets outdoors. Bring layers; the fog shows up around 5.", src:"sunsetsf.org", date:"Sun, Oct 11", url:"https://www.sunsetsf.org/" },
-      { id:"bay2", title:"Off the Grid at Fort Mason", blurb:"Food trucks, live music, and bay views on Friday nights through the fall.", src:"offthegrid.com", date:"Fri, Oct 9", url:"https://offthegrid.com/" }
+      { id:"bay1", title:"Sunset Sound System — Sunday open-air party", blurb:"Long-running SF house collective throws daytime sets outdoors. Bring layers; the fog shows up around 5.", src:"sunsetsf.org", date:"Sun, Oct 11", url:"https://www.sunsetsf.org/",
+        cal:{ start:"2026-10-11T14:00", end:"2026-10-11T19:00", location:"San Francisco (location posted day-of)", tips:"Free, outdoors, location drops on their site/IG the morning of. Bring layers and water." } },
+      { id:"bay2", title:"Off the Grid at Fort Mason", blurb:"Food trucks, live music, and bay views on Friday nights through the fall.", src:"offthegrid.com", date:"Fri, Oct 9", url:"https://offthegrid.com/",
+        cal:{ start:"2026-10-09T17:00", end:"2026-10-09T21:00", location:"Fort Mason Center, San Francisco", tips:"Cash-free. Lines are shortest before 6 PM. Parking fills fast — rideshare or Caltrain + Muni." } }
     ],
-    ahead: { title:"Melodic techno night, The Midway", when:"Sat, Nov 14", note:"Tickets on sale now", url:"https://themidwaysf.com/" }
+    ahead: { title:"Melodic techno night, The Midway", when:"Sat, Nov 14", note:"Tickets on sale now", url:"https://themidwaysf.com/",
+      cal:{ start:"2026-11-14T21:00", end:"2026-11-15T02:00", location:"The Midway, 900 Marin St, San Francisco", tips:"Buy early — tiers sell out. Last Caltrain leaves before close, so plan a ride home." } }
   },
   robotics: [
     { id:"rob1", title:"Figure shares new Helix footage of multi-robot logistics", blurb:"A new video shows two humanoids handing packages to each other on a conveyor line without scripted choreography. Worth watching for how the model handles timing between robots.", src:"figure.ai", date:"Oct 4, 2026", url:"https://www.figure.ai/news", ask:"Explain in simple terms how one VLA model can coordinate two humanoid robots at once." },
     { id:"rob2", title:"Paper: scaling laws for robot foundation models", blurb:"Researchers measure how manipulation performance improves with more teleoperation data versus more compute. The short version: data diversity matters more than raw hours.", src:"arXiv", date:"Oct 3, 2026", url:"https://arxiv.org/list/cs.RO/recent", ask:"Summarize what scaling laws mean for robot foundation models, for a non-researcher." }
   ],
   pods: [
-    { id:"pod1", show:"Lex Fridman", initials:"LF", a1:"#FF5E57", a2:"#B8336A", ep:"#4xx – Guest name", desc:"Three hours on where embodied AI is headed and what still breaks.", date:"Oct 4", url:"https://lexfridman.com/podcast/" },
-    { id:"pod2", show:"Modern Wisdom", initials:"MW", a1:"#3A8DFF", a2:"#1D4FA8", ep:"Episode title here", desc:"Why discipline beats motivation, with a sports psychologist.", date:"Oct 5", url:"https://chriswillx.com/podcast/" }
+    { id:"pod1", platform:"spotify", show:"Lex Fridman Podcast", initials:"LF", a1:"#FF5E57", a2:"#B8336A", ep:"#4xx – Guest name", desc:"Three hours on where embodied AI is headed and what still breaks.", date:"Oct 4", url:"https://open.spotify.com/show/2MAi0BvDc6GTFvKFPXnkCL" },
+    { id:"pod2", platform:"spotify", show:"Modern Wisdom", initials:"MW", a1:"#3A8DFF", a2:"#1D4FA8", ep:"Episode title here", desc:"Why discipline beats motivation, with a sports psychologist.", date:"Oct 5", url:"https://open.spotify.com/show/2ACsNQBKQTxYlTI8Bl6RcB" },
+    { id:"pod3", platform:"youtube", show:"Channel 5", initials:"C5", a1:"#FFB000", a2:"#E24E1B", ep:"New episode title", desc:"Andrew Callaghan takes the mic somewhere unexpected.", date:"Oct 5", url:"https://www.youtube.com/@channel5YouTube" }
   ],
   btc: {
     points:["Still frames this as a mid-cycle cool-off, not a top.","Watching the bull market support band as the line that matters.","Expects altcoins to keep bleeding against BTC for now.","Says patience through Q4 historically pays off."],
@@ -188,27 +196,84 @@ const DATA = {
     { id:"ai1", title:"Anthropic publishes new research on interpretability", blurb:"A readable write-up on tracing how a model reaches an answer step by step. The diagrams alone are worth the click.", src:"anthropic.com", date:"Oct 2, 2026", url:"https://www.anthropic.com/research", ask:"What is mechanistic interpretability, explained simply?" },
     { id:"ai2", title:"Paul Graham: a new essay on taste", blurb:"A short essay arguing taste can be learned and is mostly about noticing. Five minutes, one idea.", src:"paulgraham.com", date:"Oct 1, 2026", url:"https://paulgraham.com/articles.html" }
   ],
+  vocab: { word:"Apophenia", pron:"ap·uh·FEE·nee·uh", pos:"noun",
+    def:"The tendency to see meaningful patterns or connections in random or unrelated things.",
+    ex:"Staring at the BTC chart long enough, he admitted, was mostly an exercise in apophenia.",
+    origin:"From Greek apophainein, “to make manifest.” Coined by psychiatrist Klaus Conrad in 1958." },
+  spanish: { phrase:"¿Qué onda?", pron:"keh OHN-dah", meaning:"What’s up? / What’s going on?",
+    note:"Casual Mexican Spanish. Literally “what wave?” Use it with friends, not your boss.",
+    reply:"Nada, aquí nomás. — Nothing, just here.",
+    cards:[ { es:"la onda", en:"the vibe / wave" }, { es:"chido", en:"cool (Mexico)" }, { es:"ahorita", en:"in a bit (maybe)" } ] },
   different: { title:"The Antikythera mechanism: a 2,000-year-old computer", blurb:"A shoebox of bronze gears pulled from a shipwreck that predicted eclipses and tracked the planets. Nothing comparable shows up again for over a thousand years.", url:"https://www.nature.com/articles/s41598-021-84310-w", ask:"Tell me the story of the Antikythera mechanism and how it was decoded." }
 };
 
 /* =========================================================
-   APP
+   LOGOS (official marks, inline so they work inside an iframe)
    ========================================================= */
-const C = { red:"var(--red)", orange:"var(--orange)", yellow:"var(--yellow)", green:"var(--green)", teal:"var(--teal)", blue:"var(--blue)", indigo:"var(--indigo)", purple:"var(--purple)", gold:"var(--gold)" };
+const LOGO = {
+  youtube:(s=18)=>`<svg class="logo" width="${s*1.4}" height="${s}" viewBox="0 0 28 20" aria-label="YouTube"><rect width="28" height="20" rx="5.6" fill="#FF0000"/><path d="M11.2 5.7v8.6l7.4-4.3z" fill="#FFF"/></svg>`,
+  spotify:(s=18)=>`<svg class="logo" width="${s}" height="${s}" viewBox="0 0 24 24" aria-label="Spotify"><circle cx="12" cy="12" r="12" fill="#1ED760"/><g fill="none" stroke="#000" stroke-linecap="round"><path d="M5.6 9.1c4-1.25 9.3-.9 12.9 1.2" stroke-width="2"/><path d="M6.3 12.5c3.4-1 7.7-.6 10.6 1.15" stroke-width="1.65"/><path d="M7 15.7c2.8-.75 5.9-.5 8.3.9" stroke-width="1.35"/></g></svg>`,
+  gcal:(s=24)=>`<svg class="logo" width="${s}" height="${s}" viewBox="0 0 48 48" aria-label="Google Calendar"><path d="M37 11H11v26h26z" fill="#FFF"/><path d="M37 48l11-11H37z" fill="#EA4335"/><path d="M48 11H37v26h11z" fill="#FBBC04"/><path d="M37 37H11v11h26z" fill="#34A853"/><path d="M0 37v7a4 4 0 0 0 4 4h7V37z" fill="#188038"/><path d="M48 11V4a4 4 0 0 0-4-4h-7v11z" fill="#1967D2"/><path d="M37 0H4a4 4 0 0 0-4 4v33h11V11h26z" fill="#4285F4"/><text x="24" y="32.5" text-anchor="middle" font-family="Product Sans,Google Sans,Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#4285F4">31</text></svg>`,
+  bitcoin:(s=24)=>`<svg class="logo" width="${s}" height="${s}" viewBox="0 0 64 64" aria-label="Bitcoin"><circle cx="32" cy="32" r="32" fill="#F7931A"/><g transform="rotate(14 32 32)" fill="#FFF"><rect x="27" y="13" width="3.6" height="7" rx="1"/><rect x="34" y="13" width="3.6" height="7" rx="1"/><rect x="27" y="44" width="3.6" height="7" rx="1"/><rect x="34" y="44" width="3.6" height="7" rx="1"/><path d="M21 18h15.5c5.5 0 9 3 9 7.4 0 3-1.7 5.3-4.4 6.2 3.4.8 5.6 3.5 5.6 6.9 0 5-3.9 8.5-10 8.5H21v-4.6h3.6V22.6H21zm9.4 4.6v7.4h5.2c2.4 0 3.9-1.4 3.9-3.7s-1.5-3.7-3.9-3.7zm0 11.6v8.2h5.9c2.7 0 4.3-1.5 4.3-4.1s-1.6-4.1-4.3-4.1z"/></g></svg>`
+};
+
+/* =========================================================
+   THEMES — every card uses the full-color gradient style
+   ========================================================= */
+const T = {
+  day:      { g:"radial-gradient(120% 120% at 0% 0%,#DDE9FF 0%,#9EC0FF 42%,#6A97F2 100%)", ink:"#0B1D47", sub:"#24407D", body:"#1C3266", hi:"#DDE9FF", sh:"rgba(66,133,244,.28)" },
+  radar:    { g:"radial-gradient(120% 120% at 0% 0%,#FFDCD8 0%,#FF9E95 42%,#F2685D 100%)", ink:"#3D0B07", sub:"#7A2A22", body:"#5A1A13", hi:"#FFDCD8", sh:"rgba(255,59,48,.24)" },
+  bay:      { g:"radial-gradient(120% 120% at 0% 0%,#D4F6FA 0%,#8DE0EC 42%,#42C1D7 100%)", ink:"#04333B", sub:"#0F5763", body:"#0A444E", hi:"#D4F6FA", sh:"rgba(48,176,199,.28)" },
+  robotics: { g:"radial-gradient(120% 120% at 0% 0%,#E3E2FF 0%,#B2AFFF 42%,#7F7BF0 100%)", ink:"#15134A", sub:"#33307E", body:"#252266", hi:"#E3E2FF", sh:"rgba(88,86,214,.28)" },
+  pods:     { g:"radial-gradient(120% 120% at 0% 0%,#F3DFFF 0%,#D9A6F7 42%,#B26AE4 100%)", ink:"#300E47", sub:"#5B2A7C", body:"#461C64", hi:"#F3DFFF", sh:"rgba(175,82,222,.28)" },
+  btc:      { g:"radial-gradient(120% 120% at 0% 0%,#FFE8C7 0%,#FFBE6B 42%,#F7931A 100%)", ink:"#3A2000", sub:"#6E4300", body:"#553300", hi:"#FFE8C7", sh:"rgba(247,147,26,.30)" },
+  ai:       { g:"radial-gradient(120% 120% at 0% 0%,#D9F3FF 0%,#99DBFF 42%,#4FB6EE 100%)", ink:"#042C44", sub:"#104C70", body:"#0B3D5A", hi:"#D9F3FF", sh:"rgba(50,173,230,.28)" },
+  vocab:    { g:"radial-gradient(120% 120% at 0% 0%,#DBF8E1 0%,#99E6AC 42%,#4FC771 100%)", ink:"#0A3216", sub:"#1B5A2D", body:"#134622", hi:"#DBF8E1", sh:"rgba(52,199,89,.28)" },
+  spanish:  { g:"radial-gradient(120% 120% at 0% 0%,#FFDCE6 0%,#FFA2BD 42%,#F2668F 100%)", ink:"#3F0718", sub:"#7A1E3A", body:"#5C1229", hi:"#FFDCE6", sh:"rgba(255,45,85,.24)" },
+  diff:     { g:"radial-gradient(120% 120% at 0% 0%,#FFE680 0%,#FFD43B 40%,#F2B705 100%)", ink:"#2B1F00", sub:"#6B5000", body:"#4A3800", hi:"#FFE680", sh:"rgba(224,168,0,.28)" }
+};
+const themeStyle = id => { const t = T[id]; return `--g:${t.g};--ink:${t.ink};--sub:${t.sub};--body:${t.body};--hi:${t.hi};--sh:${t.sh};--line:${t.ink}1F`; };
+
 const SECTIONS = [
-  { id:"day", name:"Today", emoji:"📅", c:C.red },
-  { id:"radar", name:"Radar", emoji:"🗓️", c:C.orange },
-  { id:"bay", name:"Weekend", emoji:"🌉", c:C.teal },
-  { id:"robotics", name:"Robotics", emoji:"🤖", c:C.indigo },
-  { id:"pods", name:"Listen", emoji:"🎙️", c:C.purple },
-  { id:"btc", name:"BTC", emoji:"₿", c:C.orange },
-  { id:"ai", name:"AI", emoji:"🧠", c:C.blue },
-  { id:"diff", name:"Different", emoji:"🎲", c:C.gold }
+  { id:"day",      name:"Today",    title:"Your day",               icon:()=>LOGO.gcal(30), white:true },
+  { id:"radar",    name:"Radar",    title:"Events radar",           icon:()=>"🗓️" },
+  { id:"bay",      name:"Weekend",  title:"Bay Area this weekend",  icon:()=>"🌉" },
+  { id:"vocab",    name:"Word",     title:"Word of the day",        icon:()=>"📖" },
+  { id:"spanish",  name:"Español",  title:"Quick Spanish",          icon:()=>"🇲🇽" },
+  { id:"robotics", name:"Robotics", title:"Humanoid robotics",      icon:()=>"🤖" },
+  { id:"pods",     name:"Listen",   title:"Podcasts & YouTube",     icon:()=>"🎙️" },
+  { id:"btc",      name:"BTC",      title:"Benjamin Cowen’s latest",icon:()=>LOGO.bitcoin(46), bare:true },
+  { id:"ai",       name:"AI",       title:"AI & tech",              icon:()=>"🧠" },
+  { id:"diff",     name:"Different",title:"Something different",    icon:()=>"🎲" }
 ];
+const S = Object.fromEntries(SECTIONS.map(s => [s.id, s]));
+
+/* =========================================================
+   HELPERS
+   ========================================================= */
 const esc = s => String(s).replace(/[&<>"]/g, m => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[m]));
 const ext = (url, label, cls="") => `<a class="pill ${cls}" href="${esc(url)}" target="_blank" rel="noopener">${label}</a>`;
 const askUrl = q => "https://claude.ai/new?q=" + encodeURIComponent(q);
 const gUrl = q => "https://www.google.com/search?q=" + encodeURIComponent(q);
+
+// Google Calendar "add event" link, with helpful details baked into the description
+function calUrl(title, cal, link){
+  const z = s => s.replace(/[-:]/g,"");
+  let dates;
+  if (cal.allDay || !cal.start){
+    const d = (cal.date || cal.start || "").slice(0,10);
+    const n = new Date(d + "T00:00:00"); n.setDate(n.getDate()+1);
+    const nx = `${n.getFullYear()}${String(n.getMonth()+1).padStart(2,"0")}${String(n.getDate()).padStart(2,"0")}`;
+    dates = `${z(d)}/${nx}`;
+  } else {
+    dates = `${z(cal.start)}00/${z(cal.end || cal.start)}00`;
+  }
+  const details = [cal.tips ? "💡 " + cal.tips : "", link ? "🔗 " + link : "", "Added from Stinky’s Daily"].filter(Boolean).join("\n\n");
+  const p = new URLSearchParams({ action:"TEMPLATE", text:title, dates, details, ctz:"America/Los_Angeles" });
+  if (cal.location) p.set("location", cal.location);
+  return "https://calendar.google.com/calendar/render?" + p.toString();
+}
+const calPill = (title, cal, link) => ext(calUrl(title, cal, link), `${LOGO.gcal(16)}Add to calendar`);
 
 // done-state (per edition, per viewer)
 const KEY = "stinkys-daily-done-" + DATA.edition;
@@ -219,135 +284,177 @@ const saveDone = () => { try { localStorage.setItem(KEY, JSON.stringify(done)); 
 const toMin = t => { const [h,m] = t.split(":").map(Number); return h*60+m; };
 const fmt12 = t => { let [h,m] = t.split(":").map(Number); const ap = h>=12?"PM":"AM"; h = h%12||12; return `${h}:${String(m).padStart(2,"0")} ${ap}`; };
 const nowMin = () => { const d = new Date(); return d.getHours()*60 + d.getMinutes(); };
+const daysUntil = iso => { const t = new Date(iso + "T00:00:00"); const d = new Date(); d.setHours(0,0,0,0); return Math.round((t - d)/86400000); };
 
-function item(it, extraActs=true){
-  const acts = [ext(it.url,"Open")];
-  if (extraActs) acts.push(ext(gUrl(it.title),"Google"));
+function doneBtn(id){ return `<button class="pill done" data-done="${id}" aria-pressed="${!!done[id]}">${done[id] ? "✓ Done" : "Mark done"}</button>`; }
+
+function item(it){
+  const acts = [ext(it.url,"Open","solid"), ext(gUrl(it.title),"Google")];
+  if (it.cal) acts.push(calPill(it.title, it.cal, it.url));
   if (it.ask) acts.push(ext(askUrl(it.ask),"Ask Claude"));
-  acts.push(`<button class="pill done" data-done="${it.id}" aria-pressed="${!!done[it.id]}">${done[it.id] ? "✓ Done" : "Mark done"}</button>`);
-  return `<div class="row ${done[it.id]?"is-done":""}" data-row="${it.id}">
+  acts.push(doneBtn(it.id));
+  return `<div class="row ${done[it.id]?"is-done":""}">
     <div class="it-title">${esc(it.title)}</div>
     <div class="it-blurb">${esc(it.blurb)}</div>
     <div class="it-src">${esc(it.src)} &nbsp;|&nbsp; ${esc(it.date)}</div>
     <div class="acts">${acts.join("")}</div></div>`;
 }
-function widget(sec, meta, body){
-  return `<section class="widget" id="${sec.id}" style="--c:${sec.c}">
-    <div class="w-head"><div class="ic" aria-hidden="true">${sec.emoji}</div><div class="w-title">${sec.title||sec.name}</div><div class="w-meta">${meta||""}</div></div>
+
+function card(id, meta, body, opts={}){
+  const s = S[id];
+  const ic = s.white || s.bare ? `<span class="hdr-ic">${s.id==="day" ? LOGO.gcal(22) : LOGO.bitcoin(22)}</span>` : `<span class="hdr-ic">${s.icon()}</span>`;
+  return `<section class="card" id="${id}" style="${themeStyle(id)}">
+    <div class="head">${ic}<span>${esc(s.title)}</span><span class="meta">${meta||""}</span></div>
+    ${opts.h2 ? `<h2>${opts.h2}</h2>` : ""}
     <div class="rows">${body}</div></section>`;
 }
-const S = Object.fromEntries(SECTIONS.map(s => [s.id, s]));
-S.day.title="Your day"; S.radar.title="Events radar"; S.bay.title="Bay Area this weekend";
-S.robotics.title="Humanoid robotics"; S.pods.title="Podcasts & YouTube"; S.btc.title="Benjamin Cowen’s latest"; S.ai.title="AI & tech";
 
-function upNext(){
-  const n = nowMin();
-  const ev = DATA.day.events.find(e => toMin(e.end) > n);
-  return ev ? { k:"Up next", t:ev.title, s:`${fmt12(ev.start)} – ${fmt12(ev.end)}` } : { k:"All clear", t:"Nothing left today", s:"Enjoy the evening" };
-}
-function daysUntil(iso){
-  const t = new Date(iso + "T00:00:00"); const d = new Date(); d.setHours(0,0,0,0);
-  return Math.round((t - d) / 86400000);
+let speechOK = "speechSynthesis" in window;
+function speak(text, lang){
+  if (!speechOK) return toast("Audio isn’t available here");
+  try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = lang; u.rate = .9; speechSynthesis.speak(u); }
+  catch(e){ toast("Audio isn’t available here"); }
 }
 
+/* =========================================================
+   RENDER
+   ========================================================= */
 function render(){
-  const now = new Date();
-  const h = now.getHours();
+  const now = new Date(); const h = now.getHours();
   const greet = h < 12 ? "Good morning, Stinky" : h < 17 ? "Good afternoon, Stinky" : "Good evening, Stinky";
-  const u = upNext(); const w = DATA.weather;
   const dateStr = now.toLocaleDateString("en-US",{ weekday:"long", month:"long", day:"numeric" });
-  const timeStr = now.toLocaleTimeString("en-US",{ hour:"numeric", minute:"2-digit" }).replace(/\s?[AP]M/,"");
-
-  const n = nowMin();
-  const evs = DATA.day.events.map(e => `<div class="ev ${toMin(e.end) <= n ? "past":""}" style="--ec:${C[e.color]}"><div class="bar"></div><div class="n">${esc(e.title)}</div><div class="tm">${fmt12(e.start)}</div></div>`).join("");
-  const soon = DATA.day.soon.length ? `<div class="soon-h">Next two weeks</div><div class="soon">${DATA.day.soon.map(s => `<div><span style="--dc:${C[s.color]}">●</span>&nbsp; ${esc(s.label)}</div>`).join("")}</div>` : "";
+  const n = nowMin(); const w = DATA.weather;
+  const next = DATA.day.events.find(e => toMin(e.end) > n);
   const left = DATA.day.events.filter(e => toMin(e.end) > n).length;
+  const unreadAll = [...DATA.robotics, ...DATA.ai, ...DATA.bay.items].filter(i => !done[i.id]).length;
 
+  // Your day
+  const evs = DATA.day.events.map(e => `<div class="ev ${toMin(e.end) <= n ? "past":""}"><div class="bar"></div><div class="n">${esc(e.title)}</div><div class="tm">${fmt12(e.start)}</div></div>`).join("");
+  const soon = DATA.day.soon.length ? `<div class="soon tile-glass"><div class="h">Next two weeks</div>${DATA.day.soon.map(s => `<div class="l">${esc(s)}</div>`).join("")}</div>` : "";
+  const dayBody = evs + soon + `<div class="acts" style="padding:0 0 16px">${ext("https://calendar.google.com/calendar/r/day","Open Google Calendar","solid")}</div>`;
+
+  // Radar
   const radar = DATA.radar.map(r => {
     const d = new Date(r.date + "T00:00:00"); const dd = daysUntil(r.date);
     const cd = dd < 0 ? "Passed" : dd === 0 ? "Today" : dd === 1 ? "Tomorrow" : `In ${dd} days`;
-    return `<a class="rad" href="${esc(r.url)}" target="_blank" rel="noopener" style="--tc:${C[r.color]}">
-      <div class="tile"><div class="m">${d.toLocaleDateString("en-US",{month:"short"})}</div><div class="d">${d.getDate()}</div></div>
-      <div class="x"><div class="it-title">${esc(r.title)}</div><div class="it-blurb">${esc(r.desc)}</div><div class="countdown">${cd}</div></div></a>`;
+    const cal = Object.assign({ date:r.date }, r.cal || { allDay:true });
+    return `<div class="rad"><div class="date tile-glass"><div class="m">${d.toLocaleDateString("en-US",{month:"short"})}</div><div class="d">${d.getDate()}</div></div>
+      <div class="x"><div class="it-title" style="font-size:16px">${esc(r.title)}</div><div class="it-blurb">${esc(r.desc)}</div><span class="cd">${cd}</span>
+      <div class="acts">${calPill(r.title, cal, r.url)}${ext(r.url,"Details")}</div></div></div>`;
   }).join("");
 
+  // Bay
   const a = DATA.bay.ahead;
-  const bay = DATA.bay.items.map(i => item(i)).join("") + (a ? `<div class="ahead"><div class="k">🎟️ Coming up — book ahead</div>
-    <div class="it-title" style="padding-top:8px">${esc(a.title)}</div><div class="it-blurb" style="padding-top:2px;font-size:14px">${esc(a.when)} &nbsp;|&nbsp; ${esc(a.note)}</div>
-    <div class="acts">${ext(a.url,"Get tickets","solid")}</div></div>` : "");
+  const bay = DATA.bay.items.map(item).join("") + (a ? `<div class="tile-glass" style="margin:2px 0 16px;padding:14px">
+      <div style="font-size:13px;font-weight:700;color:var(--sub)">🎟️ Coming up — book ahead</div>
+      <div class="it-title" style="padding-top:6px">${esc(a.title)}</div>
+      <div class="it-blurb" style="padding-top:2px;font-size:14px">${esc(a.when)} &nbsp;|&nbsp; ${esc(a.note)}</div>
+      <div class="acts">${ext(a.url,"Get tickets","solid")}${a.cal ? calPill(a.title, a.cal, a.url) : ""}</div></div>` : "");
 
-  const pods = DATA.pods.map(p => `<a class="pod" href="${esc(p.url)}" target="_blank" rel="noopener">
-    <div class="art" style="--a1:${p.a1};--a2:${p.a2}">${esc(p.initials)}</div>
-    <div style="flex:1;min-width:0"><div class="show">${esc(p.show)}<i>${esc(p.date)}</i></div>
-    <div class="it-title" style="padding-top:2px">${esc(p.ep)}</div><div class="it-blurb" style="font-size:14px;line-height:19px;padding-top:3px">${esc(p.desc)}</div></div></a>`).join("");
+  // Vocab
+  const v = DATA.vocab;
+  const vocab = `<div class="word">${esc(v.word)}</div>
+    <div class="pron">${esc(v.pron)}<span class="pos">${esc(v.pos)}</span></div>
+    <div class="def">${esc(v.def)}</div>
+    <div class="ex tile-glass">“${esc(v.ex)}”</div>
+    ${v.origin ? `<div class="it-src" style="padding-top:12px">${esc(v.origin)}</div>` : ""}
+    <div class="acts" style="padding-bottom:18px"><button class="pill solid" data-say="${esc(v.word)}" data-lang="en-US">🔊 Hear it</button>${ext(askUrl(`Give me 3 natural example sentences using the word "${v.word}", plus 2 synonyms.`),"Ask Claude")}${ext("https://www.merriam-webster.com/dictionary/"+encodeURIComponent(v.word.toLowerCase()),"Dictionary")}</div>`;
 
+  // Spanish
+  const sp = DATA.spanish;
+  const spanish = `<div class="phrase">${esc(sp.phrase)}</div>
+    <div class="pron">${esc(sp.pron)}</div>
+    <div class="def">${esc(sp.meaning)}</div>
+    <div class="it-blurb">${esc(sp.note)}</div>
+    <div class="ex tile-glass" style="font-style:normal"><b>Reply:</b> ${esc(sp.reply)}</div>
+    <div class="flash">${sp.cards.map((c,i) => `<button class="fc tile-glass" data-fc="${i}" aria-expanded="false"><span class="es">${esc(c.es)}</span><span class="en">${esc(c.en)}</span><span class="hint">Tap to reveal</span></button>`).join("")}</div>
+    <div class="acts" style="padding-bottom:18px"><button class="pill solid" data-say="${esc(sp.phrase)}" data-lang="es-MX">🔊 Hear it</button>${ext(askUrl(`Teach me a 2-minute Spanish mini-lesson built around "${sp.phrase}" with a short practice dialogue.`),"Practice with Claude")}</div>`;
+
+  // Pods
+  const pods = DATA.pods.map(p => {
+    const yt = p.platform === "youtube";
+    return `<div class="pod"><div class="art" style="--a1:${p.a1};--a2:${p.a2}">${esc(p.initials)}</div>
+      <div style="flex:1;min-width:0"><div class="show">${yt ? LOGO.youtube(12) : LOGO.spotify(14)}${esc(p.show)} &nbsp;<span style="font-weight:500">${esc(p.date)}</span></div>
+      <div class="it-title" style="font-size:16px;padding-top:3px">${esc(p.ep)}</div><div class="it-blurb" style="font-size:14px;line-height:20px;padding-top:3px">${esc(p.desc)}</div>
+      <div class="acts">${ext(p.url, yt ? `${LOGO.youtube(13)}Watch` : `${LOGO.spotify(16)}Listen`, "")}</div></div></div>`;
+  }).join("");
+
+  // BTC
   const b = DATA.btc;
   const btc = `<ul class="pts">${b.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
     <div class="it-src" style="padding-top:2px">${esc(b.src)} &nbsp;|&nbsp; ${esc(b.date)}</div>
-    <div class="acts" style="padding-bottom:16px">${ext(b.url,"Watch")}${ext(askUrl("Explain Benjamin Cowen’s bull market support band in simple terms."),"Ask Claude")}</div>`;
+    <div class="acts" style="padding-bottom:18px">${ext(b.url,`${LOGO.youtube(13)}Watch`,"")}${ext(askUrl("Explain Benjamin Cowen’s bull market support band in simple terms."),"Ask Claude")}</div>`;
 
-  const robotsLeft = DATA.robotics.filter(i => !done[i.id]).length;
-  const aiLeft = DATA.ai.filter(i => !done[i.id]).length;
   const dif = DATA.different;
+  const robLeft = DATA.robotics.filter(i => !done[i.id]).length;
+  const aiLeft = DATA.ai.filter(i => !done[i.id]).length;
 
   document.getElementById("app").innerHTML = `
   <header class="hero">
     <div class="hero-date">${dateStr}</div>
-    <div class="hero-time" id="clock">${timeStr}</div>
     <div class="hero-greet">${greet}</div>
+    <div class="hero-sub">${unreadAll} things worth a look today.</div>
     <div class="hero-row">
       <div class="glass"><div class="k">${esc(w.place)}</div><div class="big">${w.emoji} ${w.hi}°</div><div class="s">${esc(w.cond)} &nbsp;L ${w.lo}°</div></div>
-      <a class="glass" href="#day"><div class="k red">${u.k}</div><div class="t">${esc(u.t)}</div><div class="s">${u.s}</div></a>
+      <a class="glass" href="#day"><div class="k">${LOGO.gcal(14)}${next ? "Up next" : "All clear"}</div>
+        <div class="t">${next ? esc(next.title) : "Nothing left today"}</div><div class="s">${next ? `${fmt12(next.start)} – ${fmt12(next.end)}` : "Enjoy the evening"}</div></a>
     </div>
   </header>
   <nav class="dock" aria-label="Sections"><div class="dock-inner">
-    ${SECTIONS.map(s => `<a href="#${s.id}" data-nav="${s.id}"><div class="ic" style="--c:${s.c}">${s.emoji}</div><div class="lbl">${s.name}</div></a>`).join("")}
+    ${SECTIONS.map(s => `<a href="#${s.id}" data-nav="${s.id}"><div class="ic ${s.white?"white":""}" style="${s.bare||s.white ? "background:#fff" : themeStyle(s.id)}">${s.icon()}</div><div class="lbl">${s.name}</div></a>`).join("")}
   </div></nav>
 
-  ${widget(S.day, `<b>${left}</b> left today`, evs + soon)}
-  ${widget(S.radar, "Plan ahead", radar)}
-  ${widget(S.bay, DATA.bay.range, bay)}
+  ${card("day", `<b>${left}</b> left today`, dayBody)}
+  ${card("radar", "Plan ahead", radar)}
+  ${card("bay", DATA.bay.range, bay)}
+  ${card("vocab", "", vocab)}
+  ${card("spanish", "", spanish)}
   <div class="group-title">The reading</div>
-  ${widget(S.robotics, `<b>${robotsLeft}</b> unread`, DATA.robotics.map(i => item(i)).join(""))}
-  ${widget(S.pods, "Last 48 hrs", pods)}
-  ${widget(S.btc, "", btc)}
-  ${widget(S.ai, `<b>${aiLeft}</b> unread`, DATA.ai.map(i => item(i)).join(""))}
-  <section class="diff" id="diff">
-    <div class="k">🎲 Something different</div>
-    <h3>${esc(dif.title)}</h3><p>${esc(dif.blurb)}</p>
-    <div class="acts" style="padding-top:16px">${ext(dif.url,"Open")}${dif.ask ? ext(askUrl(dif.ask),"Ask Claude","ghost") : ""}</div>
+  ${card("robotics", `<b>${robLeft}</b> unread`, DATA.robotics.map(item).join(""))}
+  ${card("pods", "Last 48 hrs", pods)}
+  ${card("btc", "", btc)}
+  ${card("ai", `<b>${aiLeft}</b> unread`, DATA.ai.map(item).join(""))}
+  <section class="card" id="diff" style="${themeStyle("diff")};padding-bottom:22px">
+    <div class="head"><span class="hdr-ic">🎲</span><span>Something different</span></div>
+    <h2>${esc(dif.title)}</h2>
+    <div class="it-blurb" style="padding-top:10px">${esc(dif.blurb)}</div>
+    <div class="acts" style="padding-top:16px">${ext(dif.url,"Open","solid")}${dif.ask ? ext(askUrl(dif.ask),"Ask Claude") : ""}</div>
   </section>
   <div class="foot">Stinky’s Daily refreshes every morning at 7.</div>`;
   watchSections();
 }
 
-// toggle done (event delegation)
+/* =========================================================
+   INTERACTION
+   ========================================================= */
 document.addEventListener("click", e => {
-  const btn = e.target.closest("[data-done]"); if (!btn) return;
-  const id = btn.dataset.done; done[id] = !done[id]; if (!done[id]) delete done[id];
-  saveDone(); const y = window.scrollY; render(); window.scrollTo(0, y);
-  toast(done[id] ? "Marked done" : "Marked unread");
+  const d = e.target.closest("[data-done]");
+  if (d){ const id = d.dataset.done; done[id] = !done[id]; if (!done[id]) delete done[id]; saveDone(); keepScroll(render); toast(done[id] ? "Marked done" : "Marked unread"); return; }
+  const say = e.target.closest("[data-say]");
+  if (say){ speak(say.dataset.say, say.dataset.lang); return; }
+  const fc = e.target.closest("[data-fc]");
+  if (fc){ const open = fc.classList.toggle("open"); fc.setAttribute("aria-expanded", open); }
 });
+function keepScroll(fn){ const y = window.scrollY; fn(); window.scrollTo(0, y); }
 let tt; function toast(msg){ const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 1400); }
 
-// highlight current section in dock
 let io;
 function watchSections(){
   if (io) io.disconnect();
   if (!("IntersectionObserver" in window)) return;
   io = new IntersectionObserver(entries => {
-    entries.forEach(en => { if (en.isIntersecting) {
+    entries.forEach(en => { if (!en.isIntersecting) return;
       document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === en.target.id));
       const on = document.querySelector(`[data-nav="${en.target.id}"]`);
-      if (on) { const d = on.parentElement; d.scrollTo({ left: on.offsetLeft - d.clientWidth/2 + on.clientWidth/2, behavior:"smooth" }); }
-    }});
+      if (on){ const d = on.parentElement; d.scrollTo({ left: on.offsetLeft - d.clientWidth/2 + on.clientWidth/2, behavior:"smooth" }); }
+    });
   }, { rootMargin:"-40% 0px -55% 0px" });
   SECTIONS.forEach(s => { const el = document.getElementById(s.id); if (el) io.observe(el); });
 }
 
 render();
-// live clock; re-render each minute so "up next" and countdowns stay fresh
-setInterval(() => { const y = window.scrollY; render(); window.scrollTo(0, y); }, 60000);
+// refresh greeting, "up next" and countdowns every few minutes
+setInterval(() => keepScroll(render), 5*60*1000);
 </script>
 </body>
 </html>
