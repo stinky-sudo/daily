@@ -7,507 +7,347 @@
 <title>Stinky's Daily</title>
 <style>
   :root{
+    --bg:#F2F2F7; --card:#FFFFFF; --fill:#F2F2F7; --fill2:#E9E9EE;
+    --l1:#000000; --l2:#6C6C70; --l3:#AEAEB2; --sep:#E5E5EA;
+    --red:#FF3B30; --orange:#FF9500; --yellow:#FFCC00; --green:#34C759;
+    --teal:#30B0C7; --blue:#007AFF; --indigo:#5856D6; --purple:#AF52DE; --gold:#E0A800;
     --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --ink:#0B0B0F; --ink2:#55555C; --ink3:#8E8E95; --hair:#ECECF0;
-    /* size system — every logo uses one of these */
-    --logo-xs:14px; --logo-sm:18px; --logo-md:22px; --tile:36px; --tile-r:10px;
+    --r:24px;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{margin:0;background:#FFFFFF;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+  html,body{margin:0;background:var(--bg);font-family:var(--font);color:var(--l1);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
   body{padding-bottom:env(safe-area-inset-bottom,0px)}
   a{color:inherit;text-decoration:none}
   button{font:inherit;border:0;background:none;color:inherit;cursor:pointer;padding:0}
-  :focus-visible{outline:2px solid var(--a,#1A73E8);outline-offset:2px;border-radius:10px}
-  .app{max-width:430px;margin:0 auto;padding:0 0 48px}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:10px}
+  .app{max-width:430px;margin:0 auto;padding-bottom:40px}
 
-  /* logos: fixed square boxes, contain-fit, so every mark reads the same size */
-  .lg{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
-  .lg img,.lg svg{width:100%;height:100%;object-fit:contain;display:block}
-  .lg.xs{width:var(--logo-xs);height:var(--logo-xs)}
-  .lg.sm{width:var(--logo-sm);height:var(--logo-sm)}
-  .lg.md{width:var(--logo-md);height:var(--logo-md)}
+  /* ---------- Hero (light lock screen) ---------- */
+  .hero{position:relative;overflow:hidden;padding:42px 16px 22px;border-radius:0 0 36px 36px;
+    background:
+      radial-gradient(120% 80% at 10% 0%,#FFD9E4 0%,rgba(255,217,228,0) 60%),
+      radial-gradient(110% 90% at 100% 10%,#CFE3FF 0%,rgba(207,227,255,0) 60%),
+      radial-gradient(120% 90% at 50% 100%,#E6DAFF 0%,rgba(230,218,255,0) 70%),
+      #F7F4FF;}
+  .hero-date{text-align:center;font-size:17px;font-weight:600;color:#4B4372;letter-spacing:-.2px}
+  .hero-time{text-align:center;font-size:104px;line-height:108px;font-weight:200;letter-spacing:-4px;color:#221C46;font-variant-numeric:tabular-nums}
+  .hero-greet{text-align:center;font-size:15px;color:#5E5785}
+  .hero-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+  .glass{background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);
+    border:1px solid rgba(255,255,255,.8);border-radius:20px;padding:12px 14px;box-shadow:0 6px 20px rgba(60,40,140,.08)}
+  .glass .k{font-size:13px;font-weight:600;color:#5E5785}
+  .glass .k.red{color:var(--red)}
+  .glass .big{font-size:30px;font-weight:300;letter-spacing:-1px;line-height:36px;color:#221C46}
+  .glass .t{font-size:16px;font-weight:600;line-height:21px;padding-top:4px;color:#221C46}
+  .glass .s{font-size:13px;color:#5E5785;padding-top:2px}
 
-  /* ---------- header ---------- */
-  .top{padding:22px 20px 6px}
-  .top .d{font-size:13px;font-weight:600;color:var(--ink3)}
-  .top h1{margin:2px 0 0;font-size:22px;line-height:28px;font-weight:700;letter-spacing:-.4px}
-  .glance{display:flex;gap:8px;padding:14px 20px 4px;overflow-x:auto;scrollbar-width:none}
-  .glance::-webkit-scrollbar{display:none}
-  .chipx{flex:0 0 auto;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:12px;border:1px solid var(--hair);font-size:14px;font-weight:600;background:#fff}
-  .chipx small{font-size:12.5px;color:var(--ink2);font-weight:500}
+  /* ---------- Section dock ---------- */
+  .dock{position:sticky;top:0;z-index:10;padding:10px 16px;margin-top:14px;
+    background:rgba(242,242,247,.82);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+  .dock-inner{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:2px}
+  .dock-inner::-webkit-scrollbar{display:none}
+  .dock a{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;width:52px}
+  .dock .ic{width:44px;height:44px;border-radius:12px;font-size:22px}
+  .dock .lbl{font-size:10.5px;color:var(--l2);white-space:nowrap;max-width:56px;overflow:hidden;text-overflow:ellipsis}
+  .dock a.on .lbl{color:var(--l1);font-weight:600}
 
-  /* ---------- section nav ---------- */
-  .nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:border-color .2s}
-  .nav.stuck{border-bottom-color:var(--hair)}
-  .nav-in{display:flex;gap:6px;padding:10px 16px;overflow-x:auto;scrollbar-width:none}
-  .nav-in::-webkit-scrollbar{display:none}
-  .nav a{flex:0 0 auto;display:flex;align-items:center;gap:6px;height:32px;padding:0 12px 0 9px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink2);border:1px solid var(--hair);background:#fff;transition:background .15s,color .15s,border-color .15s}
-  .nav a .em{width:var(--logo-sm);text-align:center;font-size:14px;line-height:1}
-  .nav a.on{background:var(--t);color:var(--a);border-color:var(--l)}
+  .ic{display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:28px;height:28px;border-radius:8px;font-size:15px;color:#fff;
+    background:var(--c);background-image:linear-gradient(160deg,rgba(255,255,255,.28),rgba(255,255,255,0) 60%)}
 
-  /* ---------- sections ---------- */
-  .sec{margin:18px 16px 0;border-radius:22px;background:var(--t);scroll-margin-top:64px;overflow:hidden}
-  .sh{display:flex;align-items:center;gap:12px;padding:14px 14px 10px}
-  .tile{width:var(--tile);height:var(--tile);border-radius:var(--tile-r);display:flex;align-items:center;justify-content:center;background:var(--a);color:#fff;font-size:18px;flex:0 0 auto}
-  .tile.brand{background:#fff;box-shadow:0 0 0 1px var(--l)}
-  .sh h2{margin:0;font-size:18px;line-height:22px;font-weight:700;letter-spacing:-.3px}
-  .sh p{margin:1px 0 0;font-size:12.5px;color:var(--ink2)}
-  .sh .r{margin-left:auto;white-space:nowrap;flex:0 0 auto;font-size:12px;font-weight:700;color:var(--a);background:#fff;border-radius:999px;padding:4px 9px;box-shadow:0 0 0 1px var(--l)}
-  .list{margin:0 8px 8px;background:#fff;border-radius:16px;box-shadow:0 0 0 1px var(--l)}
-  .it{padding:14px 14px 14px;border-top:1px solid var(--hair)}
-  .it:first-child{border-top:0}
-  .hide{display:none!important}
-  .it .k{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--ink3)}
-  .it .k .src{color:var(--a)}
-  .it h3{margin:5px 0 0;font-size:16px;line-height:21px;font-weight:650;font-weight:600;letter-spacing:-.25px}
-  .it p{margin:5px 0 0;font-size:14.5px;line-height:20.5px;color:var(--ink2)}
-  .it.done h3,.it.done p{color:var(--ink3)}
-  .it.done h3{text-decoration:line-through;text-decoration-color:#C7C7CC}
-  .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
-  .b{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:600;background:var(--t);color:var(--a);transition:transform .1s}
-  .b:active{transform:scale(.96)}
-  .b.pri{background:var(--a);color:#fff}
-  .b.brand{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--l)}
-  .b.ok{background:#fff;color:var(--ink2);box-shadow:inset 0 0 0 1px var(--hair)}
-  .b.chk[aria-pressed="true"]{background:var(--ink);color:#fff}
-  .more{display:block;width:100%;padding:12px;border-top:1px solid var(--hair);font-size:13.5px;font-weight:600;color:var(--a);text-align:center}
+  /* ---------- Widgets ---------- */
+  .group-title{padding:22px 28px 0;font-size:22px;font-weight:700;letter-spacing:-.4px}
+  .widget{margin:12px 16px 0;background:var(--card);border-radius:var(--r);padding:16px 16px 4px;
+    box-shadow:0 1px 0 rgba(0,0,0,.02);scroll-margin-top:90px;position:relative;overflow:hidden}
+  .widget::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--c);opacity:.9}
+  .w-head{display:flex;align-items:center;gap:10px}
+  .w-title{font-size:17px;font-weight:600;letter-spacing:-.2px;flex:1}
+  .w-meta{font-size:13px;color:var(--l2)}
+  .w-meta b{color:var(--c);font-weight:600}
+
+  .row{padding:14px 0 16px;border-top:.5px solid var(--sep)}
+  .row:first-child{border-top:0}
+  .rows{margin-top:4px}
+  .it-title{font-size:16px;font-weight:600;line-height:21px;letter-spacing:-.2px}
+  .it-blurb{padding-top:6px;font-size:15px;line-height:21px;color:var(--l2)}
+  .it-src{padding-top:10px;font-size:12px;color:var(--l3)}
+  .acts{display:flex;flex-wrap:wrap;gap:6px;padding-top:10px}
+  .pill{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:999px;background:var(--fill);
+    font-size:13px;font-weight:600;color:var(--c);transition:background .15s}
+  .pill:active{background:var(--fill2)}
+  .pill.solid{background:var(--c);color:#fff}
+  .pill.done{color:var(--l2)}
+  .row.is-done .it-title,.row.is-done .it-blurb{opacity:.38}
+  .row.is-done .it-title{text-decoration:line-through;text-decoration-color:var(--l3)}
+  .row.is-done .pill.done{color:var(--green)}
 
   /* calendar */
-  .day{display:flex;gap:12px;padding:12px 14px;border-top:1px solid var(--hair)}
-  .day:first-child{border-top:0}
-  .dt{flex:0 0 44px;text-align:center}
-  .dt .w{font-size:11px;font-weight:700;color:var(--a)}
-  .dt .n{font-size:22px;line-height:26px;font-weight:600;letter-spacing:-.5px}
-  .dt.today .n{color:#fff;background:var(--a);border-radius:999px;width:34px;height:34px;line-height:34px;margin:2px auto 0;font-size:18px}
-  .evs{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
-  .ev{display:block;padding:8px 10px;border-radius:10px;background:var(--t);border-left:3px solid var(--a)}
-  .ev .t{font-size:14.5px;font-weight:600;line-height:19px}
-  .ev .m{font-size:12.5px;color:var(--ink2);padding-top:2px}
-  .empty{font-size:14px;color:var(--ink3);padding:8px 0}
-  .note{margin:0 8px 8px;padding:12px 14px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px var(--l);font-size:14px;line-height:20px}
-  .note b{color:var(--a)}
+  .ev{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:.5px solid var(--sep)}
+  .ev:first-child{border-top:0}
+  .ev .bar{width:4px;align-self:stretch;border-radius:2px;background:var(--ec)}
+  .ev .n{flex:1;font-size:15px;font-weight:600}
+  .ev .tm{font-size:14px;color:var(--l2);white-space:nowrap}
+  .ev.past .n,.ev.past .tm{color:var(--l3)}
+  .soon-h{padding:14px 0 6px;font-size:13px;font-weight:600;color:var(--l2)}
+  .soon{padding-bottom:14px;font-size:15px;line-height:23px}
+  .soon span{color:var(--dc)}
 
   /* radar */
-  .rad{display:flex;gap:12px}
-  .rad .dt{flex:0 0 44px;height:48px;border-radius:12px;background:var(--t);display:flex;flex-direction:column;justify-content:center}
-  .rad .dt .n{font-size:19px;line-height:22px}
+  .rad{display:flex;gap:12px;padding:14px 0;border-top:.5px solid var(--sep)}
+  .rad:first-child{border-top:0}
+  .tile{flex:0 0 48px;height:52px;border-radius:12px;background:var(--fill);display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .tile .m{font-size:11px;font-weight:700;color:var(--tc)}
+  .tile .d{font-size:22px;font-weight:300;line-height:24px}
   .rad .x{flex:1;min-width:0}
-  .rad h3{margin-top:0}
-  .cd{font-size:12px;font-weight:700;color:var(--a)}
+  .rad .x .it-blurb{font-size:14px;line-height:19px;padding-top:3px}
+  .countdown{font-size:12px;color:var(--tc);font-weight:600;padding-top:5px}
 
-  /* media rows */
-  .med{display:flex;gap:12px}
-  .thumb{flex:0 0 112px;height:63px;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(145deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px}
-  .thumb .du{position:absolute;right:5px;bottom:5px;font-size:10.5px;font-weight:700;background:rgba(0,0,0,.72);padding:1px 5px;border-radius:4px}
-  .cover{flex:0 0 63px;height:63px;border-radius:10px;background:linear-gradient(145deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px}
-  .med .x{flex:1;min-width:0}
-  .med h3{margin-top:0;font-size:15px;line-height:20px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .med .s{font-size:12.5px;color:var(--ink2);padding-top:3px}
+  /* book ahead */
+  .ahead{margin:2px 0 16px;background:var(--fill);border-radius:16px;padding:14px}
+  .ahead .k{font-size:13px;font-weight:600;color:var(--c)}
+
+  /* podcasts */
+  .pod{display:flex;gap:12px;padding:14px 0;border-top:.5px solid var(--sep)}
+  .pod:first-child{border-top:0}
+  .art{flex:0 0 64px;height:64px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:800;font-size:20px;letter-spacing:-.5px;background:linear-gradient(145deg,var(--a1),var(--a2));box-shadow:0 4px 12px rgba(0,0,0,.08)}
+  .pod .show{font-size:12px;font-weight:600;color:var(--c)}
+  .pod .show i{font-style:normal;color:var(--l3);font-weight:400;margin-left:6px}
 
   /* btc */
-  .price{display:flex;align-items:flex-end;justify-content:space-between;margin:0 8px 8px;padding:14px;background:#fff;border-radius:16px;box-shadow:0 0 0 1px var(--l)}
-  .price .v{font-size:30px;line-height:34px;font-weight:700;letter-spacing:-1px;font-variant-numeric:tabular-nums}
-  .price .c{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
-  .price .c.up{color:#1E9E50}.price .c.dn{color:#E5372C}
-  .price small{display:block;font-size:12px;color:var(--ink3);font-weight:500}
-  .pts{margin:0;padding:0;list-style:none}
-  .pts li{position:relative;padding:0 0 8px 16px;font-size:14.5px;line-height:20.5px}
-  .pts li:last-child{padding-bottom:0}
-  .pts li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--a)}
+  .pts{list-style:none;margin:10px 0 0;padding:0}
+  .pts li{position:relative;padding:0 0 8px 18px;font-size:15px;line-height:22px}
+  .pts li::before{content:"";position:absolute;left:2px;top:8px;width:7px;height:7px;border-radius:50%;background:var(--c)}
 
-  /* something different: full-colour feature card */
-  .feat{margin:18px 16px 0;border-radius:22px;padding:20px;color:#2B1F00;scroll-margin-top:64px;
-    background:radial-gradient(120% 120% at 0% 0%,#FFE680 0%,#FFD43B 42%,#F2B705 100%)}
-  .feat .k{font-size:13px;font-weight:700;color:#6B5000}
-  .feat h3{margin:8px 0 0;font-size:24px;line-height:28px;font-weight:800;letter-spacing:-.6px}
-  .feat p{margin:8px 0 0;font-size:15px;line-height:22px;color:#4A3800}
-  .feat .b{background:rgba(255,255,255,.55);color:#2B1F00}
-  .feat .b.pri{background:#2B1F00;color:#FFE680}
+  /* something different */
+  .diff{margin:12px 16px 0;border-radius:var(--r);padding:20px;color:#2B1F00;scroll-margin-top:90px;
+    background:radial-gradient(120% 120% at 0% 0%,#FFE680 0%,#FFD43B 40%,#F2B705 100%);box-shadow:0 10px 30px rgba(224,168,0,.25)}
+  .diff .k{font-size:14px;font-weight:600;color:#6B5000}
+  .diff h3{margin:10px 0 0;font-size:26px;line-height:30px;font-weight:700;letter-spacing:-.6px}
+  .diff p{margin:10px 0 0;font-size:15px;line-height:22px;color:#4A3800}
+  .diff .acts .pill{background:rgba(43,31,0,.9);color:#FFE680}
+  .diff .acts .pill.ghost{background:rgba(255,255,255,.45);color:#2B1F00}
 
-  /* learning */
-  .word{font-family:"New York","Iowan Old Style",Georgia,serif;font-size:32px;line-height:36px;font-weight:700}
-  .pron{font-size:13.5px;color:var(--ink2);padding-top:3px}
-  .quote{margin-top:10px;padding:10px 12px;border-radius:12px;background:var(--t);font-size:14px;line-height:20px;color:var(--ink2)}
-  .phrase{font-size:26px;line-height:30px;font-weight:700;letter-spacing:-.5px}
-  .fcs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
-  .fc{min-height:64px;padding:8px 6px;border-radius:12px;background:var(--t);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-  .fc .es{font-size:14px;font-weight:700;color:var(--a)}
-  .fc .en{font-size:12px;color:var(--ink2);padding-top:3px;display:none}
-  .fc .h{font-size:10.5px;color:var(--ink3);padding-top:3px}
-  .fc.open .en{display:block}.fc.open .h{display:none}
-
-  .grp{padding:28px 22px 0;font-size:13px;font-weight:700;color:var(--ink3)}
-  .foot{text-align:center;padding:30px 24px 0;font-size:12px;color:var(--ink3)}
-  .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:rgba(20,20,22,.92);color:#fff;font-size:13.5px;font-weight:600;padding:9px 15px;border-radius:999px;transition:.22s}
+  .foot{text-align:center;padding:30px 24px 10px;font-size:12px;line-height:18px;color:var(--l3)}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;
+    background:rgba(28,28,30,.92);color:#fff;font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;transition:.25s}
   .toast.show{opacity:1;transform:translate(-50%,0)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
   html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <div class="app" id="app"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script>
 /* =========================================================
-   CONTENT. The morning routine rewrites DATA.
-   Calendar = real (pulled Oct 6). News/media = sample placeholders.
+   CONTENT — the morning script only needs to rewrite DATA.
+   Everything below is sample content.
    ========================================================= */
 const DATA = {
-  edition:"2026-10-06",
-  weatherFallback:{ emoji:"☀️", hi:78, lo:55, cond:"Clear" },
-
-  calendar:{
-    note:"<b>Friday heads-up:</b> you land at SFO at 5:29 PM (AA, likely Terminal 2) and Dean & Jack land at 5:50 PM (United, Terminal 3). Same airport, about 20 minutes apart.",
-    events:[
-      { title:"☄️ Draconid Meteor Shower Peak (Dallas)", start:"2026-10-08T17:45:00-07:00", end:"2026-10-08T20:30:00-07:00", loc:"Dallas, TX", tz:"CT", url:"https://www.google.com/calendar/event?eid=NzZsczJ1M3VmdWoxbzAydnB2cmY5Y3FyNDQgcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"🎬 Avatar: The Last Airbender — In Theaters", allDay:true, date:"2026-10-09", url:"https://www.google.com/calendar/event?eid=aGcxdm1oc2dlbmd1NWo4ZjdqaWdrdGVzZTQgcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"✈️ Flight Home — AA DFW→SFO", start:"2026-10-09T13:33:00-07:00", end:"2026-10-09T17:29:00-07:00", loc:"DFW", tz:"CT", url:"https://www.google.com/calendar/event?eid=ZTJwdnBzNDZscXAxNjk2b202cXN1cGUzZWMgcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"Dean & Jack Fly In — CMH → SFO (UA1354)", start:"2026-10-09T12:41:00-07:00", end:"2026-10-09T17:50:00-07:00", loc:"SFO", url:"https://www.google.com/calendar/event?eid=dDRuOWExazAwbXRlOHJ0NzRsb2lzMGMxaWMgcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"Dean Visit?", allDay:true, date:"2026-10-10", endDate:"2026-10-11", url:"https://www.google.com/calendar/event?eid=dGIyMGVxNmFrNjEwZ2pkbjMzbGlrdW83OTggcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"✈️ SF Fleet Week — Blue Angels Air Show", start:"2026-10-10T12:00:00-07:00", end:"2026-10-11T16:00:00-07:00", loc:"SF waterfront", url:"https://www.google.com/calendar/event?eid=bXJtYjllZGlhOWZyanZpYjY0aWoxbm90b28gcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"🤝 Patrick Friendiversary", allDay:true, date:"2026-10-12", url:"https://calendar.google.com/calendar/r/day/2026/10/12" },
-      { title:"Dean & Jack Fly Out — SFO → CMH (UA1160)", start:"2026-10-12T21:30:00-07:00", end:"2026-10-13T02:21:00-07:00", loc:"SFO", url:"https://www.google.com/calendar/event?eid=MGhmOWJxYzVjcXVidW9zNzhzaHZxN2wxdGcgcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"📱 Apple Smart Home Launch (rumored)", allDay:true, date:"2026-10-13", url:"https://www.google.com/calendar/event?eid=dmNiNmNvbXBvZ2NiMnAwNG92MXNibWUxMXMgcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"Starship flight test window", allDay:true, date:"2026-10-14", url:"https://www.google.com/calendar/event?eid=ZWRrbHA2OTRpMjBkNHAyMG8xbDRtdDBhYzggcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"🏕️ Yosemite Pines Booking Opens — 7 AM SHARP", start:"2026-10-15T06:55:00-07:00", end:"2026-10-15T07:25:00-07:00", url:"https://calendar.google.com/calendar/r/day/2026/10/15" },
-      { title:"🎃 Half Moon Bay Pumpkin Festival", start:"2026-10-17T09:00:00-07:00", end:"2026-10-17T17:00:00-07:00", loc:"Half Moon Bay", url:"https://www.google.com/calendar/event?eid=bzAwbjk5MGo4N2ZyajdzZzFyb3A1dW5wbmMgcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"🎉 Adventure Club Anniversary", allDay:true, date:"2026-10-19", url:"https://calendar.google.com/calendar/r/day/2026/10/19" },
-      { title:"🎵 Doja Cat @ Chase Center", start:"2026-10-19T19:30:00-07:00", end:"2026-10-19T22:30:00-07:00", loc:"Chase Center", url:"https://www.google.com/calendar/event?eid=NGo1MWdnbWc0dGhybzc5NGQ5cnB1YTRwMDggcnVkeWxhbmdlbmthbXBAbQ" },
-      { title:"Cancel Apple TV", start:"2026-10-20T12:00:00-07:00", end:"2026-10-20T15:00:00-07:00", url:"https://www.google.com/calendar/event?eid=YmtiZjAyazloZ2hzY2ZsNHBwYTlwamY4cGcgcnVkeWxhbmdlbmthbXBAbQ" }
+  edition: "2026-10-06",
+  weather: { place:"Mountain View", emoji:"☀️", hi:78, lo:55, cond:"Clear all day" },
+  day: {
+    events: [
+      { start:"09:30", end:"09:45", title:"Team standup", color:"red" },
+      { start:"12:00", end:"13:00", title:"Lunch block", color:"green" },
+      { start:"18:30", end:"19:30", title:"Gym", color:"blue" }
+    ],
+    soon: [
+      { label:"Thu, Oct 8 — Dentist, 8:00 AM", color:"orange" },
+      { label:"Sat, Oct 17 — Rent due reminder", color:"purple" }
     ]
   },
-
-  /* onCal:true = already on Google Calendar, so the button says so instead of adding a duplicate */
-  radar:[
-    { date:"2026-10-08", title:"Draconid meteor shower", desc:"Gentle shower, near new Moon. Best right after dark — no late night needed.", url:"https://www.timeanddate.com/astronomy/meteor-shower/draconid.html", onCal:true },
-    { date:"2026-10-09", title:"Avatar: The Last Airbender (animated film)", desc:"The adult Aang movie hits theaters.", url:"https://www.imdb.com/find/?q=avatar%20the%20last%20airbender%202026", onCal:true },
-    { date:"2026-10-10", title:"SF Fleet Week — Blue Angels", desc:"Free air show between the Golden Gate and Alcatraz. Marina Green is the classic spot.", url:"https://fleetweeksf.org/", onCal:true },
-    { date:"2026-10-13", title:"Apple smart home launch (rumored)", desc:"Hub with a screen, new HomePod mini. Likely a press-release drop, not a keynote.", url:"https://www.macrumors.com/", onCal:true },
-    { date:"2026-10-21", title:"Lakers vs. Warriors — season opener", desc:"Opening night on ESPN, 7:00 PM PT.", url:"https://www.nba.com/schedule", onCal:true },
-    { date:"2026-10-22", title:"Orionid meteor shower peak", desc:"Halley’s Comet debris, ~20/hr. Wait for moonset around 3 AM.", url:"https://starwalk.space/en/news/orionid-meteor-shower", onCal:true },
-    { date:"2026-10-24", title:"UFC 333 — Abu Dhabi", desc:"Numbered card. Main card lands late morning/afternoon in the US.", url:"https://www.ufc.com/events", onCal:true },
-    { date:"2026-11-12", title:"Northern Taurid meteor shower", desc:"Slow, bright fireballs. Low rates, but the ones you see are memorable.", url:"https://www.timeanddate.com/astronomy/meteor-shower/taurids.html",
-      cal:{ start:"2026-11-12T21:00", end:"2026-11-12T23:30", location:"Dark sky spot, e.g. Skyline Blvd (Hwy 35)", tips:"Taurids are known for slow fireballs. Look east after 9 PM. Rates are low (~5/hr) so give it a solid hour. Check lightpollutionmap.info for a darker spot." } },
-    { date:"2026-11-17", title:"Leonid meteor shower peak", desc:"Fast meteors from Comet Tempel–Tuttle. Best after midnight.", url:"https://www.timeanddate.com/astronomy/meteor-shower/leonid.html",
-      cal:{ start:"2026-11-18T01:00", end:"2026-11-18T05:00", location:"Dark sky spot, e.g. Mt. Hamilton Rd", tips:"Best after midnight once Leo rises in the east. Dress for the 40s, bring a reclining chair, no screens for 20 min so your eyes adapt." } }
+  radar: [
+    { date:"2026-10-08", title:"Draconid meteor shower", desc:"Short, modest shower. Best right after dusk, away from city lights.", url:"https://www.timeanddate.com/astronomy/meteor-shower/", color:"teal" },
+    { date:"2026-10-14", title:"Starship flight test window", desc:"SpaceX targets another integrated flight from Starbase.", url:"https://www.spacex.com/launches/", color:"orange" },
+    { date:"2026-10-21", title:"Orionid meteor shower peak", desc:"Debris from Halley’s Comet. Up to ~20 per hour before dawn.", url:"https://www.timeanddate.com/astronomy/meteor-shower/", color:"teal" },
+    { date:"2026-10-24", title:"Lakers vs. Warriors", desc:"Early-season rivalry game at Chase Center.", url:"https://www.nba.com/lakers/schedule", color:"purple" }
   ],
-
-  bay:{ range:"Sat–Sun, Oct 10–11", items:[
-    { id:"bay1", title:"Fleet Week air show — best viewing spots", blurb:"Marina Green and Crissy Field get packed by noon. Fort Mason’s upper lawn and Aquatic Park are calmer with nearly the same view.", src:"fleetweeksf.org", date:"Oct 10–11", url:"https://fleetweeksf.org/", onCal:true },
-    { id:"bay2", title:"Sunday open-air house party", blurb:"A daytime outdoor set from an SF house collective. Location usually drops the morning of. Bring layers.", src:"Sample", date:"Sun, Oct 11", url:"https://www.sunsetsf.org/", cal:{ start:"2026-10-11T14:00", end:"2026-10-11T19:00", location:"San Francisco (posted day-of)", tips:"Free and outdoors. Check their site/IG that morning for the location. Fog rolls in around 5 — bring a layer." } },
-    { id:"bay3", title:"Off the Grid at Fort Mason", blurb:"Food trucks and live music on Friday nights. Easy pre-weekend plan after the airport run.", src:"offthegrid.com", date:"Fri, Oct 9", url:"https://offthegrid.com/", cal:{ start:"2026-10-09T18:30", end:"2026-10-09T21:00", location:"Fort Mason Center, San Francisco", tips:"Card only. Lines are shortest before 6:30 PM. Parking fills fast during Fleet Week." } },
-    { id:"bay4", title:"Ferry Building farmers market", blurb:"Saturday morning is the big one. Go early, then walk the Embarcadero toward the air show.", src:"ferrybuildingmarketplace.com", date:"Sat, Oct 10", url:"https://www.ferrybuildingmarketplace.com/farmers-market/", cal:{ start:"2026-10-10T08:00", end:"2026-10-10T11:00", location:"Ferry Building, San Francisco", tips:"Arrive before 9 for the best stalls. Pair with a walk up the Embarcadero to catch the Blue Angels later." } },
-    { id:"bay5", title:"Late-night techno at a SoMa club", blurb:"Sample listing for the electronic/house slot. The real version pulls from venue calendars.", src:"Sample", date:"Sat, Oct 10", url:"https://ra.co/events/us/sanfrancisco" }
-  ], ahead:[
-    { title:"Melodic techno night at The Midway", when:"Sat, Nov 14", url:"https://themidwaysf.com/", cal:{ start:"2026-11-14T21:00", end:"2026-11-15T02:00", location:"The Midway, 900 Marin St, San Francisco", tips:"Buy early — price tiers sell out. Last Caltrain leaves before close; plan a ride home." } },
-    { title:"House headliner at Bill Graham Civic", when:"Fri, Dec 4", url:"https://www.billgrahamcivic.com/", cal:{ start:"2026-12-04T20:00", end:"2026-12-04T23:59", location:"Bill Graham Civic Auditorium, San Francisco", tips:"GA floor fills by 9. Civic Center BART is right outside." } }
-  ]},
-
-  robotics:[
-    { id:"r1", title:"New multi-robot logistics demo from a humanoid lab", blurb:"Two humanoids hand packages to each other on a conveyor line with no scripted choreography. The interesting part is how timing between robots is handled.", src:"Sample", date:"Oct 5", url:"https://www.figure.ai/news", ask:"Explain how one VLA model could coordinate two humanoid robots at once, simply." },
-    { id:"r2", title:"Paper: scaling laws for robot foundation models", blurb:"Measures how manipulation success grows with teleop data versus compute. Data diversity beats raw hours.", src:"arXiv · sample", date:"Oct 3", url:"https://arxiv.org/list/cs.RO/recent", ask:"What do scaling laws mean for robot foundation models? Explain for a non-researcher." },
-    { id:"r3", title:"Humanoid startup closes a large Series B", blurb:"Funding earmarked for a pilot fleet in warehouses next year. A signal of where investors think deployment is heading.", src:"Sample", date:"Oct 2", url:"https://techcrunch.com/category/robotics/" },
-    { id:"r4", title:"Dexterous hands: tactile sensing gets cheaper", blurb:"A new fingertip sensor design cuts cost by an order of magnitude. Touch is still the bottleneck for fine manipulation.", src:"IEEE Spectrum · sample", date:"Oct 1", url:"https://spectrum.ieee.org/topic/robotics/", ask:"Why is touch sensing so hard for robot hands?" },
-    { id:"r5", title:"Explainer: what ‘sim-to-real’ actually means", blurb:"Why robots trained in simulation stumble in the real world, and the tricks labs use to close the gap.", src:"Sample", date:"Sep 30", url:"https://spectrum.ieee.org/topic/robotics/" },
-    { id:"r6", title:"Car factory extends humanoid pilot to a second line", blurb:"Moving from a single station to a full line is the step that matters. Watch for uptime numbers.", src:"Sample", date:"Sep 29", url:"https://www.therobotreport.com/" }
+  bay: {
+    range:"Oct 10–11",
+    items: [
+      { id:"bay1", title:"Sunset Sound System — Sunday open-air party", blurb:"Long-running SF house collective throws daytime sets outdoors. Bring layers; the fog shows up around 5.", src:"sunsetsf.org", date:"Sun, Oct 11", url:"https://www.sunsetsf.org/" },
+      { id:"bay2", title:"Off the Grid at Fort Mason", blurb:"Food trucks, live music, and bay views on Friday nights through the fall.", src:"offthegrid.com", date:"Fri, Oct 9", url:"https://offthegrid.com/" }
+    ],
+    ahead: { title:"Melodic techno night, The Midway", when:"Sat, Nov 14", note:"Tickets on sale now", url:"https://themidwaysf.com/" }
+  },
+  robotics: [
+    { id:"rob1", title:"Figure shares new Helix footage of multi-robot logistics", blurb:"A new video shows two humanoids handing packages to each other on a conveyor line without scripted choreography. Worth watching for how the model handles timing between robots.", src:"figure.ai", date:"Oct 4, 2026", url:"https://www.figure.ai/news", ask:"Explain in simple terms how one VLA model can coordinate two humanoid robots at once." },
+    { id:"rob2", title:"Paper: scaling laws for robot foundation models", blurb:"Researchers measure how manipulation performance improves with more teleoperation data versus more compute. The short version: data diversity matters more than raw hours.", src:"arXiv", date:"Oct 3, 2026", url:"https://arxiv.org/list/cs.RO/recent", ask:"Summarize what scaling laws mean for robot foundation models, for a non-researcher." }
   ],
-  ai:[
-    { id:"a1", title:"New interpretability research: tracing a model’s reasoning", blurb:"A readable write-up on following how a model reaches an answer step by step. The diagrams are worth the click.", src:"anthropic.com · sample", date:"Oct 2", url:"https://www.anthropic.com/research", ask:"What is mechanistic interpretability, explained simply?" },
-    { id:"a2", title:"Frontier lab ships a faster reasoning model", blurb:"Same quality on hard benchmarks at a fraction of the latency. Speed is becoming the main competitive axis.", src:"Sample", date:"Oct 3", url:"https://openai.com/news/" },
-    { id:"a3", title:"DeepMind on world models for embodied agents", blurb:"How learned simulators could let robots ‘imagine’ outcomes before acting.", src:"deepmind.google · sample", date:"Oct 1", url:"https://deepmind.google/discover/blog/", ask:"What is a world model in AI, and why do robotics people care?" },
-    { id:"a4", title:"Open-weights model tops a coding leaderboard", blurb:"Closes much of the gap with closed models on agentic coding tasks.", src:"Sample", date:"Sep 30", url:"https://huggingface.co/blog" },
-    { id:"a5", title:"Paul Graham: an essay on taste", blurb:"Argues taste can be learned and is mostly about noticing. Five minutes, one idea.", src:"paulgraham.com · sample", date:"Oct 1", url:"https://paulgraham.com/articles.html" },
-    { id:"a6", title:"Naval on leverage in the age of agents", blurb:"A short thread on code and media as permissionless leverage, updated for AI agents.", src:"Sample", date:"Sep 29", url:"https://nav.al/" }
+  pods: [
+    { id:"pod1", show:"Lex Fridman", initials:"LF", a1:"#FF5E57", a2:"#B8336A", ep:"#4xx – Guest name", desc:"Three hours on where embodied AI is headed and what still breaks.", date:"Oct 4", url:"https://lexfridman.com/podcast/" },
+    { id:"pod2", show:"Modern Wisdom", initials:"MW", a1:"#3A8DFF", a2:"#1D4FA8", ep:"Episode title here", desc:"Why discipline beats motivation, with a sports psychologist.", date:"Oct 5", url:"https://chriswillx.com/podcast/" }
   ],
-  tech:[
-    { id:"t1", title:"Apple’s rumored smart home hub: what to expect", blurb:"A ~6-inch screen hub and new HomePod mini reportedly land Oct 13. Could be a ready-made wall display for an info board.", src:"MacRumors · sample", date:"Oct 5", url:"https://www.macrumors.com/" },
-    { id:"t2", title:"M6 Macs reportedly due this month", blurb:"Expected as a quiet press-release launch rather than an event.", src:"Sample", date:"Oct 4", url:"https://www.macrumors.com/" },
-    { id:"t3", title:"Next-gen AR glasses get a developer kit", blurb:"Lighter frames, better battery. Still a developer-first product.", src:"The Verge · sample", date:"Oct 3", url:"https://www.theverge.com/tech" },
-    { id:"t4", title:"Chipmaker unveils a new AI accelerator", blurb:"Claims big gains in inference efficiency. Supply, not specs, is the story to watch.", src:"Sample", date:"Oct 2", url:"https://www.theverge.com/tech" },
-    { id:"t5", title:"Starship: next flight test targets mid-October", blurb:"Dates slip often — treat any window as tentative until SpaceX posts T-0.", src:"spacex.com · sample", date:"Oct 1", url:"https://www.spacex.com/launches/" },
-    { id:"t6", title:"Satellite-to-phone texting expands to more carriers", blurb:"Dead-zone coverage is becoming a default feature, not a premium add-on.", src:"Sample", date:"Sep 30", url:"https://www.theverge.com/tech" }
+  btc: {
+    points:["Still frames this as a mid-cycle cool-off, not a top.","Watching the bull market support band as the line that matters.","Expects altcoins to keep bleeding against BTC for now.","Says patience through Q4 historically pays off."],
+    src:"Into The Cryptoverse", date:"Oct 4, 2026", url:"https://www.youtube.com/@intothecryptoverse"
+  },
+  ai: [
+    { id:"ai1", title:"Anthropic publishes new research on interpretability", blurb:"A readable write-up on tracing how a model reaches an answer step by step. The diagrams alone are worth the click.", src:"anthropic.com", date:"Oct 2, 2026", url:"https://www.anthropic.com/research", ask:"What is mechanistic interpretability, explained simply?" },
+    { id:"ai2", title:"Paul Graham: a new essay on taste", blurb:"A short essay arguing taste can be learned and is mostly about noticing. Five minutes, one idea.", src:"paulgraham.com", date:"Oct 1, 2026", url:"https://paulgraham.com/articles.html" }
   ],
-  youtube:[
-    { id:"y1", channel:"Figure", title:"Helix: new behaviors in the warehouse", dur:"3:42", date:"Oct 5", c1:"#2B2B2B", c2:"#000000", initials:"F", url:"https://www.youtube.com/@figureai" },
-    { id:"y2", channel:"Channel 5 with Andrew Callaghan", title:"New episode — sample title", dur:"28:10", date:"Oct 5", c1:"#FFB000", c2:"#E24E1B", initials:"C5", url:"https://www.youtube.com/@channel5YouTube" },
-    { id:"y3", channel:"Lex Fridman", title:"Full episode video — sample title", dur:"3:02:14", date:"Oct 4", c1:"#3A3A3A", c2:"#111111", initials:"LF", url:"https://www.youtube.com/@lexfridman" },
-    { id:"y4", channel:"Chris Williamson", title:"Modern Wisdom clip — sample title", dur:"14:55", date:"Oct 4", c1:"#1D4FA8", c2:"#0B2A5B", initials:"MW", url:"https://www.youtube.com/@ChrisWillx" },
-    { id:"y5", channel:"Figure", title:"Behind the scenes: robot pilot ops", dur:"6:20", date:"Oct 2", c1:"#2B2B2B", c2:"#000000", initials:"F", url:"https://www.youtube.com/@figureai" }
-  ],
-  spotify:[
-    { id:"s1", show:"Lex Fridman Podcast", title:"#4xx — sample guest", desc:"Where embodied AI is headed and what still breaks.", len:"3 hr 2 min", date:"Oct 4", c1:"#FF5E57", c2:"#B8336A", initials:"LF", url:"https://open.spotify.com/show/2MAi0BvDc6GTFvKFPXnkCL" },
-    { id:"s2", show:"Modern Wisdom", title:"Why discipline beats motivation", desc:"With a sports psychologist.", len:"1 hr 48 min", date:"Oct 5", c1:"#3A8DFF", c2:"#1D4FA8", initials:"MW", url:"https://open.spotify.com/show/2ACsNQBKQTxYlTI8Bl6RcB" },
-    { id:"s3", show:"Modern Wisdom", title:"The science of better sleep", desc:"Practical, unglamorous fixes.", len:"1 hr 32 min", date:"Oct 2", c1:"#3A8DFF", c2:"#1D4FA8", initials:"MW", url:"https://open.spotify.com/show/2ACsNQBKQTxYlTI8Bl6RcB" },
-    { id:"s4", show:"Lex Fridman Podcast", title:"#4xx — sample guest", desc:"History, power, and technology.", len:"2 hr 40 min", date:"Sep 30", c1:"#FF5E57", c2:"#B8336A", initials:"LF", url:"https://open.spotify.com/show/2MAi0BvDc6GTFvKFPXnkCL" },
-    { id:"s5", show:"Modern Wisdom", title:"Lessons from 1,000 episodes", desc:"A highlights episode.", len:"2 hr 5 min", date:"Sep 28", c1:"#3A8DFF", c2:"#1D4FA8", initials:"MW", url:"https://open.spotify.com/show/2ACsNQBKQTxYlTI8Bl6RcB" }
-  ],
-  btc:{ fallbackPrice:null, thesisDate:"Oct 4", points:[
-      "Frames this as a mid-cycle cool-off, not a top.",
-      "Watching the bull market support band as the line that matters.",
-      "Expects altcoins to keep bleeding against BTC for now.",
-      "Says patience through Q4 has historically paid off." ],
-    videos:[
-      { id:"b1", title:"Bitcoin: the line in the sand — sample", dur:"18:40", date:"Oct 4", url:"https://www.youtube.com/@intothecryptoverse" },
-      { id:"b2", title:"Altcoin season? Not yet — sample", dur:"22:05", date:"Oct 2", url:"https://www.youtube.com/@intothecryptoverse" },
-      { id:"b3", title:"Q4 seasonality explained — sample", dur:"15:12", date:"Sep 30", url:"https://www.youtube.com/@intothecryptoverse" } ] },
-  different:{ title:"The Antikythera mechanism: a 2,000-year-old computer", blurb:"A shoebox of bronze gears from a shipwreck that predicted eclipses and tracked the planets. Nothing comparable shows up for another thousand years.", url:"https://www.nature.com/articles/s41598-021-84310-w", ask:"Tell me the story of the Antikythera mechanism and how it was decoded." },
-  vocab:{ word:"Apophenia", pron:"ap·uh·FEE·nee·uh  ·  noun", def:"The tendency to see meaningful patterns or connections in random or unrelated things.", ex:"Staring at the BTC chart long enough, he admitted, was mostly an exercise in apophenia." },
-  spanish:{ phrase:"¿Qué onda?", pron:"keh OHN-dah", meaning:"What’s up? / What’s going on?", note:"Casual Mexican Spanish — friends, not your boss. Reply: “Nada, aquí nomás.” (Nothing, just here.)",
-    cards:[ { es:"la onda", en:"the vibe" }, { es:"chido", en:"cool" }, { es:"ahorita", en:"in a bit" } ] }
+  different: { title:"The Antikythera mechanism: a 2,000-year-old computer", blurb:"A shoebox of bronze gears pulled from a shipwreck that predicted eclipses and tracked the planets. Nothing comparable shows up again for over a thousand years.", url:"https://www.nature.com/articles/s41598-021-84310-w", ask:"Tell me the story of the Antikythera mechanism and how it was decoded." }
 };
 
 /* =========================================================
-   OFFICIAL LOGOS — hosted in Drive (public), with an inline SVG
-   fallback so nothing ever shows a broken image.
+   APP
    ========================================================= */
-const DRIVE = { youtube:"1O8Pzvqn9HI3BtmZXFIE3P0iT-JwSPwou", spotify:"1TYOhHCBE_KbxiWzGp4rycJiXcedPJtbT", gcal:"1QCoTg6KaSBw3LYb01Okat99mqNngFgf6", bitcoin:"1sikB7LH9OZA55Rvo6bI0CShI0W_VX8Q3" };
-const SVG = {
-  youtube:`<svg viewBox="0 0 28 28"><rect y="4" width="28" height="20" rx="5.6" fill="#FF0000"/><path d="M11.2 9.7v8.6l7.4-4.3z" fill="#FFF"/></svg>`,
-  spotify:`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1ED760"/><g fill="none" stroke="#000" stroke-linecap="round"><path d="M5.6 9.1c4-1.25 9.3-.9 12.9 1.2" stroke-width="2"/><path d="M6.3 12.5c3.4-1 7.7-.6 10.6 1.15" stroke-width="1.65"/><path d="M7 15.7c2.8-.75 5.9-.5 8.3.9" stroke-width="1.35"/></g></svg>`,
-  gcal:`<svg viewBox="0 0 48 48"><path d="M37 11H11v26h26z" fill="#FFF"/><path d="M37 48l11-11H37z" fill="#EA4335"/><path d="M48 11H37v26h11z" fill="#FBBC04"/><path d="M37 37H11v11h26z" fill="#34A853"/><path d="M0 37v7a4 4 0 0 0 4 4h7V37z" fill="#188038"/><path d="M48 11V4a4 4 0 0 0-4-4h-7v11z" fill="#1967D2"/><path d="M37 0H4a4 4 0 0 0-4 4v33h11V11h26z" fill="#4285F4"/><text x="24" y="32.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#4285F4">31</text></svg>`,
-  bitcoin:`<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#F7931A"/><g transform="rotate(14 32 32)" fill="#FFF"><rect x="27" y="13" width="3.6" height="7" rx="1"/><rect x="34" y="13" width="3.6" height="7" rx="1"/><rect x="27" y="44" width="3.6" height="7" rx="1"/><rect x="34" y="44" width="3.6" height="7" rx="1"/><path d="M21 18h15.5c5.5 0 9 3 9 7.4 0 3-1.7 5.3-4.4 6.2 3.4.8 5.6 3.5 5.6 6.9 0 5-3.9 8.5-10 8.5H21v-4.6h3.6V22.6H21zm9.4 4.6v7.4h5.2c2.4 0 3.9-1.4 3.9-3.7s-1.5-3.7-3.9-3.7zm0 11.6v8.2h5.9c2.7 0 4.3-1.5 4.3-4.1s-1.6-4.1-4.3-4.1z"/></g></svg>`
-};
-const logo = (name, size="sm") => `<span class="lg ${size}"><img src="https://lh3.googleusercontent.com/d/${DRIVE[name]}=s256" alt="${name}" data-logo="${name}" data-try="0" decoding="async"></span>`;
-// fallback chain: lh3 → drive thumbnail → inline SVG
-document.addEventListener("error", e => {
-  const img = e.target; if (!(img instanceof HTMLImageElement) || !img.dataset.logo) return;
-  const name = img.dataset.logo, n = +img.dataset.try;
-  if (n === 0){ img.dataset.try = "1"; img.src = `https://drive.google.com/thumbnail?id=${DRIVE[name]}&sz=w256`; }
-  else { img.outerHTML = SVG[name]; }
-}, true);
-
-/* =========================================================
-   SECTIONS — one accent per section; tint and hairline derive from it
-   ========================================================= */
+const C = { red:"var(--red)", orange:"var(--orange)", yellow:"var(--yellow)", green:"var(--green)", teal:"var(--teal)", blue:"var(--blue)", indigo:"var(--indigo)", purple:"var(--purple)", gold:"var(--gold)" };
 const SECTIONS = [
-  { id:"cal",      name:"Calendar", title:"Google Calendar",     a:"#1A73E8", brand:"gcal" },
-  { id:"radar",    name:"Radar",    title:"Events radar",        a:"#0E9BB0", em:"🗓️" },
-  { id:"bay",      name:"Weekend",  title:"Bay Area this weekend",a:"#E8336A", em:"🌉" },
-  { id:"robotics", name:"Robotics", title:"Humanoid robotics",   a:"#5856D6", em:"🤖" },
-  { id:"ai",       name:"AI",       title:"AI",                  a:"#A24BD6", em:"🧠" },
-  { id:"tech",     name:"Tech",     title:"Tech news",           a:"#3A3A40", em:"💻" },
-  { id:"youtube",  name:"YouTube",  title:"YouTube",             a:"#E00000", brand:"youtube" },
-  { id:"spotify",  name:"Spotify",  title:"Spotify",             a:"#1AA34A", brand:"spotify" },
-  { id:"btc",      name:"Bitcoin",  title:"Bitcoin",             a:"#E8850C", brand:"bitcoin" },
-  { id:"diff",     name:"Different",title:"Something different", a:"#C99700", em:"🎲" },
-  { id:"vocab",    name:"Word",     title:"Word of the day",     a:"#8C6A43", em:"📖" },
-  { id:"spanish",  name:"Español",  title:"Quick Spanish",       a:"#00704A", em:"🇲🇽" }
+  { id:"day", name:"Today", emoji:"📅", c:C.red },
+  { id:"radar", name:"Radar", emoji:"🗓️", c:C.orange },
+  { id:"bay", name:"Weekend", emoji:"🌉", c:C.teal },
+  { id:"robotics", name:"Robotics", emoji:"🤖", c:C.indigo },
+  { id:"pods", name:"Listen", emoji:"🎙️", c:C.purple },
+  { id:"btc", name:"BTC", emoji:"₿", c:C.orange },
+  { id:"ai", name:"AI", emoji:"🧠", c:C.blue },
+  { id:"diff", name:"Different", emoji:"🎲", c:C.gold }
 ];
-const S = Object.fromEntries(SECTIONS.map(s => [s.id, s]));
-const vars = s => `--a:${s.a};--t:${s.a}0F;--l:${s.a}24`;
-
-/* =========================================================
-   HELPERS
-   ========================================================= */
-const TZ = "America/Los_Angeles";
-const esc = s => String(s ?? "").replace(/[&<>"]/g, m => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[m]));
-const ext = (url, label, cls="") => `<a class="b ${cls}" href="${esc(url)}" target="_blank" rel="noopener">${label}</a>`;
+const esc = s => String(s).replace(/[&<>"]/g, m => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[m]));
+const ext = (url, label, cls="") => `<a class="pill ${cls}" href="${esc(url)}" target="_blank" rel="noopener">${label}</a>`;
 const askUrl = q => "https://claude.ai/new?q=" + encodeURIComponent(q);
 const gUrl = q => "https://www.google.com/search?q=" + encodeURIComponent(q);
-const dayKey = d => d.toLocaleDateString("en-CA",{ timeZone:TZ });
-const fmtTime = d => d.toLocaleTimeString("en-US",{ hour:"numeric", minute:"2-digit", timeZone:TZ });
-const fmtTZ = (d,z) => d.toLocaleTimeString("en-US",{ hour:"numeric", minute:"2-digit", timeZone:z });
-const todayKey = () => dayKey(new Date());
-const daysUntil = iso => Math.round((new Date(iso+"T12:00:00") - new Date(todayKey()+"T12:00:00"))/86400000);
 
-function calUrl(title, cal, link, date){
-  const z = s => s.replace(/[-:]/g,"");
-  let dates;
-  if (!cal.start){ const n = new Date(date+"T12:00:00"); n.setDate(n.getDate()+1); dates = `${z(date)}/${n.toISOString().slice(0,10).replace(/-/g,"")}`; }
-  else dates = `${z(cal.start)}00/${z(cal.end||cal.start)}00`;
-  const details = [cal.tips ? "💡 TIPS\n" + cal.tips : "", link ? "🔗 LINK\n" + link : "", "Added from Stinky’s Daily"].filter(Boolean).join("\n\n");
-  const p = new URLSearchParams({ action:"TEMPLATE", text:title, dates, details, ctz:TZ });
-  if (cal.location) p.set("location", cal.location);
-  return "https://calendar.google.com/calendar/render?" + p.toString();
-}
-function calBtn(x, date){
-  if (x.onCal) return `<span class="b ok">${logo("gcal","xs")}On your calendar</span>`;
-  if (!x.cal) return "";
-  return ext(calUrl(x.title, x.cal, x.url, date), `${logo("gcal","xs")}Add to calendar`,"brand");
-}
-
+// done-state (per edition, per viewer)
 const KEY = "stinkys-daily-done-" + DATA.edition;
-let done = {}; try { done = JSON.parse(localStorage.getItem(KEY)||"{}")||{}; } catch(e){}
-const save = () => { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch(e){} };
-const doneBtn = id => `<button class="b chk" data-done="${id}" aria-pressed="${!!done[id]}">${done[id] ? "✓ Done" : "Mark done"}</button>`;
-let expanded = {};
+let done = {};
+try { done = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e) { done = {}; }
+const saveDone = () => { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch(e) {} };
 
-function section(id, sub, right, body){
-  const s = S[id];
-  const tile = s.brand ? `<div class="tile brand">${logo(s.brand,"md")}</div>` : `<div class="tile">${s.em}</div>`;
-  return `<section class="sec" id="${id}" style="${vars(s)}">
-    <div class="sh">${tile}<div><h2>${esc(s.title)}</h2>${sub ? `<p>${sub}</p>` : ""}</div>${right ? `<span class="r">${right}</span>` : ""}</div>
-    ${body}</section>`;
-}
-function list(id, rows, show=3){
-  const open = expanded[id]; const extra = rows.length - show;
-  return `<div class="list">${rows.map((r,i) => r.replace('class="', `class="${!open && i>=show ? "hide " : ""}`)).join("")}
-    ${extra > 0 ? `<button class="more" data-more="${id}">${open ? "Show less" : `Show ${extra} more`}</button>` : ""}</div>`;
-}
-function news(it){
-  const acts = [ext(it.url,"Read","pri"), ext(gUrl(it.title),"Google")];
+const toMin = t => { const [h,m] = t.split(":").map(Number); return h*60+m; };
+const fmt12 = t => { let [h,m] = t.split(":").map(Number); const ap = h>=12?"PM":"AM"; h = h%12||12; return `${h}:${String(m).padStart(2,"0")} ${ap}`; };
+const nowMin = () => { const d = new Date(); return d.getHours()*60 + d.getMinutes(); };
+
+function item(it, extraActs=true){
+  const acts = [ext(it.url,"Open")];
+  if (extraActs) acts.push(ext(gUrl(it.title),"Google"));
   if (it.ask) acts.push(ext(askUrl(it.ask),"Ask Claude"));
-  acts.push(doneBtn(it.id));
-  return `<div class="it ${done[it.id]?"done":""}"><div class="k"><span class="src">${esc(it.src)}</span><span>${esc(it.date)}</span></div>
-    <h3>${esc(it.title)}</h3><p>${esc(it.blurb)}</p><div class="acts">${acts.join("")}</div></div>`;
+  acts.push(`<button class="pill done" data-done="${it.id}" aria-pressed="${!!done[it.id]}">${done[it.id] ? "✓ Done" : "Mark done"}</button>`);
+  return `<div class="row ${done[it.id]?"is-done":""}" data-row="${it.id}">
+    <div class="it-title">${esc(it.title)}</div>
+    <div class="it-blurb">${esc(it.blurb)}</div>
+    <div class="it-src">${esc(it.src)} &nbsp;|&nbsp; ${esc(it.date)}</div>
+    <div class="acts">${acts.join("")}</div></div>`;
+}
+function widget(sec, meta, body){
+  return `<section class="widget" id="${sec.id}" style="--c:${sec.c}">
+    <div class="w-head"><div class="ic" aria-hidden="true">${sec.emoji}</div><div class="w-title">${sec.title||sec.name}</div><div class="w-meta">${meta||""}</div></div>
+    <div class="rows">${body}</div></section>`;
+}
+const S = Object.fromEntries(SECTIONS.map(s => [s.id, s]));
+S.day.title="Your day"; S.radar.title="Events radar"; S.bay.title="Bay Area this weekend";
+S.robotics.title="Humanoid robotics"; S.pods.title="Podcasts & YouTube"; S.btc.title="Benjamin Cowen’s latest"; S.ai.title="AI & tech";
+
+function upNext(){
+  const n = nowMin();
+  const ev = DATA.day.events.find(e => toMin(e.end) > n);
+  return ev ? { k:"Up next", t:ev.title, s:`${fmt12(ev.start)} – ${fmt12(ev.end)}` } : { k:"All clear", t:"Nothing left today", s:"Enjoy the evening" };
+}
+function daysUntil(iso){
+  const t = new Date(iso + "T00:00:00"); const d = new Date(); d.setHours(0,0,0,0);
+  return Math.round((t - d) / 86400000);
 }
 
-/* =========================================================
-   RENDER
-   ========================================================= */
-let live = { wx:null, btc:null };
 function render(){
-  const now = new Date(); const h = +now.toLocaleString("en-US",{ hour:"numeric", hour12:false, timeZone:TZ });
+  const now = new Date();
+  const h = now.getHours();
   const greet = h < 12 ? "Good morning, Stinky" : h < 17 ? "Good afternoon, Stinky" : "Good evening, Stinky";
-  const dateStr = now.toLocaleDateString("en-US",{ weekday:"long", month:"long", day:"numeric", timeZone:TZ });
-  const wx = live.wx || DATA.weatherFallback;
+  const u = upNext(); const w = DATA.weather;
+  const dateStr = now.toLocaleDateString("en-US",{ weekday:"long", month:"long", day:"numeric" });
+  const timeStr = now.toLocaleTimeString("en-US",{ hour:"numeric", minute:"2-digit" }).replace(/\s?[AP]M/,"");
 
-  /* calendar: group by day, today + next 14 days */
-  const tk = todayKey();
-  const evs = DATA.calendar.events.map(e => {
-    const s = e.allDay ? null : new Date(e.start), en = e.allDay ? null : new Date(e.end);
-    return { ...e, s, en, key: e.allDay ? e.date : dayKey(s) };
-  }).filter(e => e.key >= tk && daysUntil(e.key) <= 14 && !(e.en && e.en < now))
-    .sort((a,b) => a.key.localeCompare(b.key) || (a.allDay ? -1 : b.allDay ? 1 : a.s - b.s));
-  const byDay = {}; evs.forEach(e => (byDay[e.key] = byDay[e.key] || []).push(e));
-  const keys = [tk, ...Object.keys(byDay).filter(k => k !== tk)].slice(0, 99);
-  const next = evs.find(e => !e.allDay && e.s > now);
-  const dayRows = keys.map(k => {
-    const d = new Date(k+"T12:00:00"); const items = byDay[k] || [];
-    const body = items.length ? items.map(e => `<a class="ev" href="${esc(e.url)}" target="_blank" rel="noopener"><div class="t">${esc(e.title)}</div>
-      <div class="m">${e.allDay ? (e.endDate ? "All weekend" : "All day") : (e.tz === "CT" ? `${fmtTZ(e.s,"America/Chicago")} – ${fmtTZ(e.en,"America/Chicago")} CT` : `${fmtTime(e.s)} – ${fmtTime(e.en)}`)}${e.loc ? `  |  ${esc(e.loc)}` : ""}</div></a>`).join("")
-      : `<div class="empty">Nothing scheduled</div>`;
-    return `<div class="day it"><div class="dt ${k===tk?"today":""}"><div class="w">${k===tk ? "TODAY" : d.toLocaleDateString("en-US",{weekday:"short"}).toUpperCase()}</div><div class="n">${d.getDate()}</div></div><div class="evs">${body}</div></div>`;
-  });
-  const calBody = (DATA.calendar.note ? `<div class="note">${DATA.calendar.note}</div>` : "") + list("cal", dayRows, 5) +
-    `<div class="acts" style="padding:0 14px 14px;margin:0">${ext("https://calendar.google.com/calendar/r/week",`${logo("gcal","xs")}Open Google Calendar`,"brand")}</div>`;
+  const n = nowMin();
+  const evs = DATA.day.events.map(e => `<div class="ev ${toMin(e.end) <= n ? "past":""}" style="--ec:${C[e.color]}"><div class="bar"></div><div class="n">${esc(e.title)}</div><div class="tm">${fmt12(e.start)}</div></div>`).join("");
+  const soon = DATA.day.soon.length ? `<div class="soon-h">Next two weeks</div><div class="soon">${DATA.day.soon.map(s => `<div><span style="--dc:${C[s.color]}">●</span>&nbsp; ${esc(s.label)}</div>`).join("")}</div>` : "";
+  const left = DATA.day.events.filter(e => toMin(e.end) > n).length;
 
-  /* radar */
-  const radRows = DATA.radar.filter(r => daysUntil(r.date) >= 0).map(r => {
-    const d = new Date(r.date+"T12:00:00"), dd = daysUntil(r.date);
-    const cd = dd === 0 ? "Today" : dd === 1 ? "Tomorrow" : `In ${dd} days`;
-    return `<div class="it"><div class="rad"><div class="dt"><div class="w">${d.toLocaleDateString("en-US",{month:"short"}).toUpperCase()}</div><div class="n">${d.getDate()}</div></div>
-      <div class="x"><div class="cd">${cd}</div><h3>${esc(r.title)}</h3><p>${esc(r.desc)}</p><div class="acts">${calBtn(r, r.date)}${ext(r.url,"Details")}</div></div></div></div>`;
-  });
+  const radar = DATA.radar.map(r => {
+    const d = new Date(r.date + "T00:00:00"); const dd = daysUntil(r.date);
+    const cd = dd < 0 ? "Passed" : dd === 0 ? "Today" : dd === 1 ? "Tomorrow" : `In ${dd} days`;
+    return `<a class="rad" href="${esc(r.url)}" target="_blank" rel="noopener" style="--tc:${C[r.color]}">
+      <div class="tile"><div class="m">${d.toLocaleDateString("en-US",{month:"short"})}</div><div class="d">${d.getDate()}</div></div>
+      <div class="x"><div class="it-title">${esc(r.title)}</div><div class="it-blurb">${esc(r.desc)}</div><div class="countdown">${cd}</div></div></a>`;
+  }).join("");
 
-  /* bay */
-  const bayRows = DATA.bay.items.map(it => `<div class="it ${done[it.id]?"done":""}"><div class="k"><span class="src">${esc(it.src)}</span><span>${esc(it.date)}</span></div>
-      <h3>${esc(it.title)}</h3><p>${esc(it.blurb)}</p><div class="acts">${ext(it.url,"Details","pri")}${calBtn(it, it.cal ? it.cal.start.slice(0,10) : "")}${doneBtn(it.id)}</div></div>`);
-  const ahead = `<div class="list" style="margin-top:0">${DATA.bay.ahead.map(a => `<div class="it"><div class="k"><span class="src">🎟️ Book ahead</span><span>${esc(a.when)}</span></div><h3>${esc(a.title)}</h3>
-      <div class="acts">${ext(a.url,"Get tickets","pri")}${calBtn(a, a.cal.start.slice(0,10))}</div></div>`).join("")}</div>`;
+  const a = DATA.bay.ahead;
+  const bay = DATA.bay.items.map(i => item(i)).join("") + (a ? `<div class="ahead"><div class="k">🎟️ Coming up — book ahead</div>
+    <div class="it-title" style="padding-top:8px">${esc(a.title)}</div><div class="it-blurb" style="padding-top:2px;font-size:14px">${esc(a.when)} &nbsp;|&nbsp; ${esc(a.note)}</div>
+    <div class="acts">${ext(a.url,"Get tickets","solid")}</div></div>` : "");
 
-  /* youtube */
-  const ytRows = DATA.youtube.map(v => `<div class="it ${done[v.id]?"done":""}"><a class="med" href="${esc(v.url)}" target="_blank" rel="noopener">
-      <div class="thumb" style="--c1:${v.c1};--c2:${v.c2}">${esc(v.initials)}<span class="du">${esc(v.dur)}</span></div>
-      <div class="x"><h3>${esc(v.title)}</h3><div class="s">${esc(v.channel)}  |  ${esc(v.date)}</div></div></a>
-      <div class="acts">${ext(v.url,`${logo("youtube","xs")}Watch`,"brand")}${doneBtn(v.id)}</div></div>`);
+  const pods = DATA.pods.map(p => `<a class="pod" href="${esc(p.url)}" target="_blank" rel="noopener">
+    <div class="art" style="--a1:${p.a1};--a2:${p.a2}">${esc(p.initials)}</div>
+    <div style="flex:1;min-width:0"><div class="show">${esc(p.show)}<i>${esc(p.date)}</i></div>
+    <div class="it-title" style="padding-top:2px">${esc(p.ep)}</div><div class="it-blurb" style="font-size:14px;line-height:19px;padding-top:3px">${esc(p.desc)}</div></div></a>`).join("");
 
-  /* spotify */
-  const spRows = DATA.spotify.map(p => `<div class="it ${done[p.id]?"done":""}"><a class="med" href="${esc(p.url)}" target="_blank" rel="noopener">
-      <div class="cover" style="--c1:${p.c1};--c2:${p.c2}">${esc(p.initials)}</div>
-      <div class="x"><h3>${esc(p.title)}</h3><div class="s">${esc(p.show)}  |  ${esc(p.len)}  |  ${esc(p.date)}</div></div></a>
-      <div class="acts">${ext(p.url,`${logo("spotify","xs")}Play on Spotify`,"brand")}${doneBtn(p.id)}</div></div>`);
+  const b = DATA.btc;
+  const btc = `<ul class="pts">${b.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+    <div class="it-src" style="padding-top:2px">${esc(b.src)} &nbsp;|&nbsp; ${esc(b.date)}</div>
+    <div class="acts" style="padding-bottom:16px">${ext(b.url,"Watch")}${ext(askUrl("Explain Benjamin Cowen’s bull market support band in simple terms."),"Ask Claude")}</div>`;
 
-  /* btc */
-  const b = DATA.btc, px = live.btc;
-  const price = `<div class="price"><div><small>BTC / USD${px ? "  |  live" : ""}</small><div class="v">${px ? "$" + Math.round(px.usd).toLocaleString("en-US") : "—"}</div></div>
-      ${px ? `<div class="c ${px.chg >= 0 ? "up" : "dn"}">${px.chg >= 0 ? "▲" : "▼"} ${Math.abs(px.chg).toFixed(2)}%<small style="text-align:right">24h</small></div>` : `<div class="c" style="color:var(--ink3)">Loading…</div>`}</div>`;
-  const thesis = `<div class="it"><div class="k"><span class="src">Benjamin Cowen’s current take</span><span>${esc(b.thesisDate)}</span></div><ul class="pts" style="margin-top:8px">${b.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
-      <div class="acts">${ext(askUrl("Explain Benjamin Cowen’s bull market support band in simple terms."),"Ask Claude")}</div></div>`;
-  const btcVids = b.videos.map(v => `<div class="it"><div class="k"><span class="src">Into The Cryptoverse</span><span>${esc(v.date)}  |  ${esc(v.dur)}</span></div><h3>${esc(v.title)}</h3>
-      <div class="acts">${ext(v.url,`${logo("youtube","xs")}Watch`,"brand")}</div></div>`);
-  const btcBody = price + `<div class="list">${thesis}${btcVids.join("")}</div>`;
-
-  /* learning */
-  const v = DATA.vocab, sp = DATA.spanish;
-  const vocab = `<div class="list"><div class="it"><div class="word">${esc(v.word)}</div><div class="pron">${esc(v.pron)}</div><p style="color:var(--ink)">${esc(v.def)}</p><div class="quote">“${esc(v.ex)}”</div>
-      <div class="acts"><button class="b pri" data-say="${esc(v.word)}" data-lang="en-US">🔊 Hear it</button>${ext(askUrl(`Give me 3 natural example sentences using "${v.word}", plus 2 synonyms.`),"Ask Claude")}${ext("https://www.merriam-webster.com/dictionary/"+encodeURIComponent(v.word.toLowerCase()),"Dictionary")}</div></div></div>`;
-  const spanish = `<div class="list"><div class="it"><div class="phrase">${esc(sp.phrase)}</div><div class="pron">${esc(sp.pron)}</div><p style="color:var(--ink)">${esc(sp.meaning)}</p><p>${esc(sp.note)}</p>
-      <div class="fcs">${sp.cards.map((c,i) => `<button class="fc" data-fc="${i}" aria-expanded="false"><span class="es">${esc(c.es)}</span><span class="en">${esc(c.en)}</span><span class="h">Tap</span></button>`).join("")}</div>
-      <div class="acts"><button class="b pri" data-say="${esc(sp.phrase)}" data-lang="es-MX">🔊 Hear it</button>${ext(askUrl(`Teach me a 2-minute Spanish mini-lesson around "${sp.phrase}" with a short practice dialogue.`),"Practice with Claude")}</div></div></div>`;
-
-  const unread = arr => arr.filter(i => !done[i.id]).length;
+  const robotsLeft = DATA.robotics.filter(i => !done[i.id]).length;
+  const aiLeft = DATA.ai.filter(i => !done[i.id]).length;
   const dif = DATA.different;
 
   document.getElementById("app").innerHTML = `
-  <header class="top"><div class="d">${dateStr}</div><h1>${greet}</h1></header>
-  <div class="glance">
-    <div class="chipx">${wx.emoji} ${wx.hi}° <small>/ ${wx.lo}°  ${esc(wx.cond)}  |  Mountain View</small></div>
-    <a class="chipx" href="#cal">${logo("gcal","sm")}${next ? `${esc(next.title.replace(/^\S+\s/,"").slice(0,26))}` : "Nothing next"} <small>${next ? next.s.toLocaleDateString("en-US",{weekday:"short",timeZone:TZ}) + " " + fmtTime(next.s) : ""}</small></a>
-    <a class="chipx" href="#btc">${logo("bitcoin","sm")}${px ? "$" + Math.round(px.usd).toLocaleString("en-US") : "BTC"} ${px ? `<small style="color:${px.chg>=0?"#1E9E50":"#E5372C"}">${px.chg>=0?"+":""}${px.chg.toFixed(1)}%</small>` : ""}</a>
-  </div>
-  <nav class="nav" id="nav"><div class="nav-in">${SECTIONS.map(s => `<a href="#${s.id}" data-nav="${s.id}" style="${vars(s)}">${s.brand ? logo(s.brand,"sm") : `<span class="em">${s.em}</span>`}${s.name}</a>`).join("")}</div></nav>
+  <header class="hero">
+    <div class="hero-date">${dateStr}</div>
+    <div class="hero-time" id="clock">${timeStr}</div>
+    <div class="hero-greet">${greet}</div>
+    <div class="hero-row">
+      <div class="glass"><div class="k">${esc(w.place)}</div><div class="big">${w.emoji} ${w.hi}°</div><div class="s">${esc(w.cond)} &nbsp;L ${w.lo}°</div></div>
+      <a class="glass" href="#day"><div class="k red">${u.k}</div><div class="t">${esc(u.t)}</div><div class="s">${u.s}</div></a>
+    </div>
+  </header>
+  <nav class="dock" aria-label="Sections"><div class="dock-inner">
+    ${SECTIONS.map(s => `<a href="#${s.id}" data-nav="${s.id}"><div class="ic" style="--c:${s.c}">${s.emoji}</div><div class="lbl">${s.name}</div></a>`).join("")}
+  </div></nav>
 
-  ${section("cal", "Today and the next two weeks", evs.length ? `${evs.length} events` : "", calBody)}
-  ${section("radar", "Flagged early so you can plan", `${radRows.length}`, list("radar", radRows, 4))}
-  ${section("bay", DATA.bay.range, `${DATA.bay.items.length + DATA.bay.ahead.length}`, list("bay", bayRows, 3) + ahead)}
-  <div class="grp">The reading</div>
-  ${section("robotics", "Demos, papers, funding", `${unread(DATA.robotics)} new`, list("robotics", DATA.robotics.map(news)))}
-  ${section("ai", "Labs, research, sharp thinkers", `${unread(DATA.ai)} new`, list("ai", DATA.ai.map(news)))}
-  ${section("tech", "Launches and gadgets", `${unread(DATA.tech)} new`, list("tech", DATA.tech.map(news)))}
-  <div class="grp">Watch &amp; listen</div>
-  ${section("youtube", "Figure, Channel 5, Lex, Chris W.", `${unread(DATA.youtube)} new`, list("youtube", ytRows))}
-  ${section("spotify", "Lex Fridman, Modern Wisdom", `${unread(DATA.spotify)} new`, list("spotify", spRows))}
-  ${section("btc", "Price + Benjamin Cowen", "", btcBody)}
-  <section class="feat" id="diff"><div class="k">🎲 Something different</div><h3>${esc(dif.title)}</h3><p>${esc(dif.blurb)}</p>
-    <div class="acts" style="margin-top:14px">${ext(dif.url,"Open","pri")}${ext(askUrl(dif.ask),"Ask Claude")}</div></section>
-  <div class="grp">Learn something</div>
-  ${section("vocab", "", "", vocab)}
-  ${section("spanish", "", "", spanish)}
+  ${widget(S.day, `<b>${left}</b> left today`, evs + soon)}
+  ${widget(S.radar, "Plan ahead", radar)}
+  ${widget(S.bay, DATA.bay.range, bay)}
+  <div class="group-title">The reading</div>
+  ${widget(S.robotics, `<b>${robotsLeft}</b> unread`, DATA.robotics.map(i => item(i)).join(""))}
+  ${widget(S.pods, "Last 48 hrs", pods)}
+  ${widget(S.btc, "", btc)}
+  ${widget(S.ai, `<b>${aiLeft}</b> unread`, DATA.ai.map(i => item(i)).join(""))}
+  <section class="diff" id="diff">
+    <div class="k">🎲 Something different</div>
+    <h3>${esc(dif.title)}</h3><p>${esc(dif.blurb)}</p>
+    <div class="acts" style="padding-top:16px">${ext(dif.url,"Open")}${dif.ask ? ext(askUrl(dif.ask),"Ask Claude","ghost") : ""}</div>
+  </section>
   <div class="foot">Stinky’s Daily refreshes every morning at 7.</div>`;
-  watch();
+  watchSections();
 }
 
-/* =========================================================
-   LIVE DATA (weather + BTC). Fails quietly to fallbacks.
-   ========================================================= */
-const WX = { 0:["☀️","Clear"],1:["🌤","Mostly clear"],2:["⛅","Partly cloudy"],3:["☁️","Cloudy"],45:["🌫","Fog"],48:["🌫","Fog"],51:["🌦","Drizzle"],53:["🌦","Drizzle"],55:["🌦","Drizzle"],61:["🌧","Rain"],63:["🌧","Rain"],65:["🌧","Heavy rain"],80:["🌦","Showers"],81:["🌧","Showers"],82:["🌧","Showers"],95:["🌩","Storms"] };
-async function loadLive(){
-  try {
-    const r = await fetch("https://api.open-meteo.com/v1/forecast?latitude=37.3861&longitude=-122.0839&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FLos_Angeles&forecast_days=1");
-    const j = await r.json(); const c = WX[j.daily.weather_code[0]] || ["🌤","Fair"];
-    live.wx = { emoji:c[0], cond:c[1], hi:Math.round(j.daily.temperature_2m_max[0]), lo:Math.round(j.daily.temperature_2m_min[0]) };
-  } catch(e){}
-  try {
-    const r = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true");
-    const j = await r.json(); live.btc = { usd:j.bitcoin.usd, chg:j.bitcoin.usd_24h_change };
-  } catch(e){}
-  keep(render);
-}
-
-/* =========================================================
-   INTERACTION
-   ========================================================= */
-function keep(fn){ const y = window.scrollY; fn(); window.scrollTo(0, y); }
+// toggle done (event delegation)
 document.addEventListener("click", e => {
-  const d = e.target.closest("[data-done]");
-  if (d){ const id = d.dataset.done; done[id] ? delete done[id] : (done[id] = 1); save(); keep(render); toast(done[id] ? "Marked done" : "Marked unread"); return; }
-  const m = e.target.closest("[data-more]");
-  if (m){ expanded[m.dataset.more] = !expanded[m.dataset.more]; keep(render); return; }
-  const s = e.target.closest("[data-say]");
-  if (s){ try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(s.dataset.say); u.lang = s.dataset.lang; u.rate = .9; speechSynthesis.speak(u); } catch(err){ toast("Audio isn’t available here"); } return; }
-  const f = e.target.closest("[data-fc]");
-  if (f){ f.setAttribute("aria-expanded", f.classList.toggle("open")); }
+  const btn = e.target.closest("[data-done]"); if (!btn) return;
+  const id = btn.dataset.done; done[id] = !done[id]; if (!done[id]) delete done[id];
+  saveDone(); const y = window.scrollY; render(); window.scrollTo(0, y);
+  toast(done[id] ? "Marked done" : "Marked unread");
 });
-let tt; function toast(t){ const el = document.getElementById("toast"); el.textContent = t; el.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => el.classList.remove("show"), 1300); }
+let tt; function toast(msg){ const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 1400); }
 
+// highlight current section in dock
 let io;
-function watch(){
-  const nav = document.getElementById("nav");
+function watchSections(){
   if (io) io.disconnect();
   if (!("IntersectionObserver" in window)) return;
-  io = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) return;
-    document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === en.target.id));
-    const on = document.querySelector(`[data-nav="${en.target.id}"]`);
-    if (on){ const p = on.parentElement; p.scrollTo({ left:on.offsetLeft - p.clientWidth/2 + on.clientWidth/2, behavior:"smooth" }); }
-  }), { rootMargin:"-35% 0px -60% 0px" });
+  io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) {
+      document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === en.target.id));
+      const on = document.querySelector(`[data-nav="${en.target.id}"]`);
+      if (on) { const d = on.parentElement; d.scrollTo({ left: on.offsetLeft - d.clientWidth/2 + on.clientWidth/2, behavior:"smooth" }); }
+    }});
+  }, { rootMargin:"-40% 0px -55% 0px" });
   SECTIONS.forEach(s => { const el = document.getElementById(s.id); if (el) io.observe(el); });
-  const top = nav.offsetTop;
-  window.onscroll = () => nav.classList.toggle("stuck", window.scrollY >= top - 1);
 }
 
-render(); loadLive();
-setInterval(() => keep(render), 5*60*1000);
+render();
+// live clock; re-render each minute so "up next" and countdowns stay fresh
+setInterval(() => { const y = window.scrollY; render(); window.scrollTo(0, y); }, 60000);
 </script>
 </body>
 </html>
