@@ -803,7 +803,7 @@ function wxInfo(code,isDay=1){
    ================================================================= */
 const LIST_KEYS=["channels","podcasts","stocks","crypto","artists"];
 function lists(){const l=LS.get("sd-lists",null);return{...CONFIG.lists,...(l&&l.lists||{})}}
-const backend=()=>LS.get("sd-backend","")||CONFIG.backend||"";
+const backend=()=>CONFIG.backend||LS.get("sd-backend","")||"";
 async function be(params,ms){const u=new URL(backend());Object.entries(params).forEach(([k,v])=>u.searchParams.set(k,v));const r=await jsonp(u.toString(),ms||15000);if(!r||r.ok===false)throw new Error((r&&r.error)||"no response");return r}
 let syncT;
 function setList(k,arr){const cur=LS.get("sd-lists",null)||{updated:0,lists:{}};cur.lists={...lists(),[k]:arr};cur.updated=Date.now();cur.dirty=true;LS.set("sd-lists",cur);clearTimeout(syncT);syncT=setTimeout(syncUp,600)}
