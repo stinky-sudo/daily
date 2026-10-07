@@ -492,7 +492,7 @@ const CONFIG={
   tz:"America/Los_Angeles",
   home:{name:"Mountain View",lat:37.3861,lon:-122.0839},
   youtube:{apiKey:"AIzaSyAlhdRMk6fTh5NraV0bRvUAnVLd16RT4JE",perChannel:2,maxAgeDays:14,cacheMinutes:60},
-  backend:"",
+  backend:"https://script.google.com/macros/s/AKfycbzFzyy8P5IcIZR_bQSwRyB26Wv5M8u_GJKcqHUlJXURRth0T116xAatbjFoZ7vIs9Es/exec",
   podcastMaxAgeDays:3,
   lists:{
     channels:["@mkbhd","@channel5YouTube","@figureai"],
@@ -1342,9 +1342,8 @@ function settingsHTML(){
  <div class="set-g" id="set-lists">${LIST_KEYS.map(listEditor).join("")}<div class="set-pad"><div class="status ${sync[0]}" id="sync-status"><i></i><span>${esc(sync[1])}</span></div></div></div>
  <div class="set-l">Live market data and sync</div>
  <div class="set-g"><div class="set-pad">
-  <div class="set-t">Backend link</div><div class="set-s">Paste the web app URL from your Stinky's Daily Apps Script. It powers live stock prices, every chart range, and syncing your lists.</div>
-  <div class="inp-row"><input class="inp" id="be-url" type="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${bu?"Linked on this device":"https://script.google.com/macros/s/…/exec"}" aria-label="Backend URL"><button class="btn pri press" data-act="be-save">Save</button></div>
-  <div class="status ${mk[0]}"><i></i><span>${esc(mk[1])}</span>${LS.get("sd-backend","")?`<button style="margin-left:auto;color:var(--down);font-weight:600" data-act="be-clear">Remove</button>`:""}</div>
+  <div class="set-t">Backend</div><div class="set-s">Your Stinky's Daily Apps Script, built into the page. It powers live stock prices, every chart range, and syncing your lists.</div>
+  <div class="status ${mk[0]}"><i></i><span>${esc(mk[1])}</span></div>
  </div></div>
  <div class="set-l">YouTube</div>
  <div class="set-g"><div class="set-pad"><div class="status ${ytst[0]}" style="margin-top:0"><i></i><span>${esc(ytst[1])}</span></div>
