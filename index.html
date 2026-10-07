@@ -499,10 +499,145 @@ h1,h2,h3,p{margin:0}
 .ptr.spin svg{animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-@media (min-width:700px){
-  .vid{flex-basis:calc(50% - 6px)}
-  .greet{font-size:48px}
+
+/* ============================================================
+   WIDE SCREENS — iPad (768+) and laptop (1024+).
+   Phone layout above is untouched; everything here only kicks in
+   when there's room. Breakpoints:
+     ≥768   iPad portrait / iPhone landscape: two-column page
+     ≥1024  iPad landscape / MacBook: wider canvas, 3-up rails
+   ============================================================ */
+body{overflow-x:clip}
+.app{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+.only-wide{display:none!important}
+.rail-wrap{position:relative}
+.rail-nav{display:none}
+
+@media (min-width:768px){
+  :root{--g:24px}
+  .only-wide{display:flex!important}
+  .app{max-width:1040px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+  .app>*{grid-column:1/-1}
+
+  /* hero: sky card left, glance tiles stacked right */
+  .hero{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);column-gap:14px;align-items:stretch}
+  .hero-top,.greet{grid-column:1/-1}
+  .greet{font-size:50px;margin:8px 0 22px}
+  .sky{display:flex;flex-direction:column;min-height:236px}
+  .sky-plot{margin-top:auto;padding-top:12px;height:116px}
+  .glance{grid-template-columns:1fr;grid-auto-rows:1fr;margin-top:0;gap:10px}
+  .glance .gl:not(.next){display:flex;flex-direction:column;justify-content:center}
+  .gl.next{grid-column:auto}
+
+  /* nav: centred pills, background bleeds edge to edge when stuck */
+  .nav-in a:first-child{margin-left:auto}
+  .nav-in a:last-child{margin-right:auto}
+  .nav.stuck{background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .nav::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;z-index:-1;background:var(--nav);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);box-shadow:0 1px 0 var(--line);opacity:0;transition:opacity .2s;pointer-events:none}
+  .nav.stuck::before{opacity:1}
+
+  /* Calendar | Try Today side by side */
+  #s-cal{grid-column:1;padding-right:calc(var(--g)/2)}
+  #s-tip{grid-column:2;padding-left:calc(var(--g)/2)}
+  #s-cal:has(+ #s-tip[hidden]){grid-column:1/-1;padding-right:var(--g)}
+  #s-cal[hidden]+#s-tip{grid-column:1/-1;padding-left:var(--g)}
+  .sec{padding-top:36px}
+
+  /* Markets: crypto | stocks, stock idea full width below */
+  #s-mkt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+  #s-mkt>.sh{grid-column:1/-1;margin-bottom:-2px}
+  #s-mkt>.card{margin:0!important}
+  #pick-card{grid-column:1/-1}
+  .pick{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:28px;align-items:start}
+  .pick>.pick-k{grid-column:1/-1}
+  .pick>.pick-h{grid-column:1;grid-row:2}
+  .pick>.chart{grid-column:1;grid-row:3;height:150px}
+  .pick>.pchips{grid-column:1;grid-row:4}
+  .pick>dl{grid-column:2;grid-row:2/5;margin-top:12px}
+  .pick>.pick-risk{grid-column:2;grid-row:5}
+  .pick>.acts{grid-column:2;grid-row:6}
+
+  /* News: two columns of stories */
+  .chips{flex-wrap:wrap;overflow:visible}
+  #s-news>.card{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  #s-news .nw:nth-child(-n+2){border-top:0}
+  #s-news .nw:nth-child(odd):not(:only-child){border-right:1px solid var(--line)}
+
+  /* Watch + Listen rails: two cards per view with a peek */
+  .vid{flex-basis:calc(50% - 30px)}
+
+  /* Weekend: this weekend | book ahead */
+  #s-wknd{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px;align-items:start}
+  #s-wknd>.sh{grid-column:1/-1}
+  #s-wknd>.sub-h{margin:4px 4px 10px}
+  #s-wknd>.wk-now-h{grid-column:1;grid-row:2}
+  #s-wknd>.wk-now{grid-column:1;grid-row:3/span 2}
+  #s-wknd>.wk-ahead-h{grid-column:2;grid-row:2}
+  #s-wknd>.wk-ahead{grid-column:2;grid-row:3}
+  #s-wknd>.watching{grid-column:2;grid-row:4}
+
+  /* Learn: word | Spanish side by side */
+  #s-learn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+  #s-learn>.sh{grid-column:1/-1;margin-bottom:-2px}
+  .lw+.lw{margin-top:0}
+
+  .feat{padding:28px 28px 26px}
+  .feat p{max-width:64ch}
+  .foot{padding-top:44px}
+
+  /* sheets become a centred panel instead of a bottom sheet */
+  .sheet-p{top:50%;bottom:auto;left:50%;right:auto;width:min(560px,calc(100% - 48px));max-height:min(86vh,880px);max-height:min(86dvh,880px);border-radius:26px;padding:20px 24px 24px;opacity:0;transform:translate(-50%,-47%) scale(.98);transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .2s;box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
+  .sheet.show .sheet-p{opacity:1;transform:translate(-50%,-50%)}
+  .sheet-p .grab{display:none}
 }
+
+@media (min-width:1024px){
+  :root{--g:28px}
+  .app{max-width:1200px}
+  .greet{font-size:58px}
+  .greet br{display:none}
+  .hero{column-gap:16px}
+  .sky{min-height:252px}
+  .chart{height:196px}
+  #st-chart{height:184px!important}
+  .pick>.chart{height:170px}
+  #s-mkt,#s-learn{gap:16px}
+  #s-wknd{column-gap:16px}
+
+  /* rails: three cards per view, with arrow buttons on pointer devices */
+  .vid{flex-basis:calc((100% - 24px)/3)}
+  .feat{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:32px;align-items:end;padding:32px 34px 30px}
+  .feat>small,.feat>h3,.feat>p{grid-column:1}
+  .feat>.acts{grid-column:2;grid-row:1/4;margin-top:0}
+  .feat h3{font-size:32px}
+}
+
+/* mouse / trackpad niceties */
+@media (hover:hover) and (pointer:fine){
+  .press:active{transform:none}
+  .btn:not(.pri):hover,.mini:not(.on):hover,.chip:not(.on):hover,.nav-in a:not(.on):hover,.seg button:not(.on):hover,.hc:not(.on):hover,.more:hover,.icon-btn:hover{background:var(--fill-2)}
+  .btn.pri:hover{opacity:.88}
+  .ix:not(.on):hover{background:var(--fill)}
+  .nw:hover h3,.dsc:hover h3,.ev-x:hover .ev-t{color:var(--link)}
+  .vid{transition:transform .2s ease,box-shadow .2s ease}
+  .vid:hover{transform:translateY(-3px);box-shadow:0 1px 2px rgba(16,20,28,.05),0 18px 40px -22px rgba(16,20,28,.4)}
+  .gl{transition:transform .2s ease}
+  .gl:hover{transform:translateY(-2px)}
+  .hist{scrollbar-width:thin}
+  .hist::-webkit-scrollbar{display:block;height:6px}
+  .hist::-webkit-scrollbar-thumb{background:var(--fill-2);border-radius:3px}
+}
+@media (min-width:768px) and (hover:hover) and (pointer:fine){
+  .rail-nav{display:grid;place-items:center;position:absolute;top:calc(50% - 30px);width:40px;height:40px;border-radius:50%;background:var(--surface);color:var(--ink);box-shadow:0 2px 10px rgba(0,0,0,.18);z-index:3;transition:opacity .2s,transform .12s}
+  .rail-nav svg{width:18px;height:18px}
+  .rail-nav.prev{left:calc(-1*var(--g)/2 - 6px)}
+  .rail-nav.prev svg{transform:rotate(90deg)}
+  .rail-nav.next{right:calc(-1*var(--g)/2 - 6px)}
+  .rail-nav.next svg{transform:rotate(-90deg)}
+  .rail-nav:hover{transform:scale(1.06)}
+  .rail-nav[disabled]{opacity:0;pointer-events:none}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}
@@ -876,7 +1011,7 @@ function renderHero(){
  const b=cxNow("BTC"),bq=S.cx.q.BTC,sp=stkQuote("^GSPC"),spSer=stkSeries("^GSPC","1D")||stkSeries("^GSPC","1M");
  $("#hero").innerHTML=`
   <div class="hero-top"><div class="hero-date">${esc(date)}</div><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div>
-  <h1 class="greet">${greet},<br>Stinky.</h1>
+  <h1 class="greet">${greet},<br> Stinky.</h1>
   <div class="sky ${info.o?"overcast":""}" data-phase="${phase}">
    <div class="sky-top"><button class="sky-loc press ${geo?"":"off"}" data-act="geo" aria-label="${geo?"Using your location. Tap to switch back to "+esc(CONFIG.home.name):"Tap to use your current location"}">${geo?I.loc:I.locOff}<span>${esc(locName)}</span></button>${w?`<span class="sky-upd">Updated ${esc(fmtLocalTime(new Date(w.at)))}</span>`:""}</div>
    <div class="sky-row">
@@ -1210,12 +1345,14 @@ function renderMarkets(){
    NEWS
    ================================================================= */
 const savedNews=()=>LS.get("sd-saved",[]);
+const WIDE=matchMedia("(min-width:768px)");
+const newsN=()=>WIDE.matches?6:5;
 function renderNews(){
  const el=$("#s-news");const sv=savedNews();const svIds=new Set(sv.map(n=>n.id+"|"+n.url));
  const tags=["All",...new Set(DATA.news.map(n=>n.tag))];
  const isSaved=S.news.tag==="Saved";
  const list=isSaved?sv.slice().sort((a,b)=>(b.savedAt||0)-(a.savedAt||0)):DATA.news.filter(n=>S.news.tag==="All"||n.tag===S.news.tag);
- const show=S.news.open||isSaved?list.length:Math.min(list.length,5);
+ const N=newsN();const show=S.news.open||isSaved?list.length:Math.min(list.length,N);
  el.innerHTML=`<div class="sh"><h2>News</h2><span class="aux">${isSaved?`${list.length} saved`:`${list.length} stories`}</span></div>
  <div class="chips noscroll" role="tablist">${tags.map(t=>`<button class="chip press ${t===S.news.tag?"on":""}" data-tag="${esc(t)}" role="tab" aria-selected="${t===S.news.tag}">${esc(t)}</button>`).join("")}${sv.length?`<button class="chip press ${isSaved?"on":""}" data-tag="Saved" role="tab" aria-selected="${isSaved}">${I.saved}Saved ${sv.length}</button>`:""}</div>
  <div class="card">${list.length?list.slice(0,show).map(n=>{const on=svIds.has(n.id+"|"+n.url);return`<article class="nw">
@@ -1224,7 +1361,7 @@ function renderNews(){
    <p>${esc(n.blurb)}</p>
    <div class="nw-acts">${askBtn(n.ask||`Tell me more about this story and why it matters: "${n.title}" (${n.url})`)}<button class="mini press ${on?"on":""}" data-save="${esc(n.id)}" data-url="${esc(n.url)}" aria-pressed="${on}">${on?I.saved+"Saved":I.save+"Save"}</button></div>
   </article>`}).join(""):`<div class="nw"><p>Nothing saved yet.</p></div>`}</div>
- ${!isSaved&&list.length>5?`<button class="more press ${S.news.open?"open":""}" data-act="news-more">${S.news.open?"Show fewer":`Show ${list.length-5} more`}${I.chev}</button>`:""}`;
+ ${!isSaved&&list.length>N?`<button class="more press ${S.news.open?"open":""}" data-act="news-more">${S.news.open?"Show fewer":`Show ${list.length-N} more`}${I.chev}</button>`:""}`;
 }
 function toggleSave(id,url){let sv=savedNews();const i=sv.findIndex(n=>n.id===id&&n.url===url);if(i>=0){sv.splice(i,1);toast("Removed from saved")}else{const n=DATA.news.find(x=>x.id===id&&x.url===url);if(!n)return;sv.unshift({...n,savedAt:Date.now()});sv=sv.slice(0,60);toast("Saved for later")}LS.set("sd-saved",sv);if(S.news.tag==="Saved"&&!sv.length)S.news.tag="All";renderNews()}
 
@@ -1261,13 +1398,15 @@ function mediaCard(v,kind){
 }
 function railHTML(id,items,kind,empty){
  if(!items.length)return`<div class="card"><div class="empty-row">${esc(empty)}</div></div>`;
- return`<div class="rail noscroll" id="${id}">${items.map(v=>mediaCard(v,kind)).join("")}</div><div class="dots" id="${id}-dots">${items.length>1?items.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join(""):""}</div>`;
+ return`<div class="rail-wrap"><button class="rail-nav prev" data-rail="${id}" data-dir="-1" aria-label="Previous" disabled>${I.chev}</button><div class="rail noscroll" id="${id}">${items.map(v=>mediaCard(v,kind)).join("")}</div><button class="rail-nav next" data-rail="${id}" data-dir="1" aria-label="Next">${I.chev}</button></div><div class="dots" id="${id}-dots">${items.length>1?items.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join(""):""}</div>`;
 }
 function bindRail(id){
  const rail=$("#"+id);if(!rail)return;
- rail.addEventListener("scroll",()=>{const cards=rail.children;if(!cards.length)return;const w=cards[0].offsetWidth+12;const i=Math.round(rail.scrollLeft/w);$$(`#${id}-dots i`).forEach((d,j)=>d.classList.toggle("on",j===i))},{passive:true});
+ const sync=()=>{const cards=rail.children;if(!cards.length)return;const w=cards[0].offsetWidth+12;const i=Math.round(rail.scrollLeft/w);$$(`#${id}-dots i`).forEach((d,j)=>d.classList.toggle("on",j===i));railArrows(rail)};
+ rail.addEventListener("scroll",sync,{passive:true});requestAnimationFrame(()=>railArrows(rail));
  $$("img[data-vid]",rail).forEach(img=>{const fix=()=>{if(img.dataset.fb||!img.dataset.vid)return;img.dataset.fb=1;img.src=`https://i.ytimg.com/vi/${img.dataset.vid}/hqdefault.jpg`};img.addEventListener("error",fix);img.addEventListener("load",()=>{if(img.naturalWidth&&img.naturalWidth<200)fix()})});
 }
+function railArrows(rail){const w=rail.closest(".rail-wrap");if(!w)return;const max=rail.scrollWidth-rail.clientWidth-4;const p=$(".rail-nav.prev",w),n=$(".rail-nav.next",w);if(p)p.disabled=rail.scrollLeft<=4;if(n)n.disabled=rail.scrollLeft>=max;const d=$("#"+rail.id+"-dots");if(d)d.style.visibility=max<=0?"hidden":""}
 const ytSugg=()=>(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.handle&&!inList("channels",d.handle));
 function ytItems(){
  const live=S.yt.source==="live"&&S.yt.items;
@@ -1328,9 +1467,10 @@ function renderWeekend(){
  const ahead=(b.ahead||[]).filter(a=>a.match==="list"?arts.some(x=>norm(x)===norm(a.artist)):!a.like||arts.some(x=>norm(x)===norm(a.like))).sort((x,y)=>x.date.localeCompare(y.date));
  const calBtn=it=>it.cal?`<a class="btn press" href="${esc(calUrl(it.title,it.cal,it.url))}" target="_blank" rel="noopener"><span style="width:15px;height:15px;display:inline-flex">${I.gcal}</span>Add to calendar</a>`:"";
  el.innerHTML=`<div class="sh"><h2>This Weekend</h2><span class="aux">Bay Area · ${esc(b.range)}</span></div>
- <div class="card">${b.items.slice().sort((x,y)=>x.date.localeCompare(y.date)).map(it=>`<article class="wk"><div class="wk-d"><small>${esc(it.dateLabel||fmtKey(it.date,{weekday:"short"}))}</small><b class="num">${esc(fmtKey(it.date,{day:"numeric"}))}</b></div><div class="wk-x"><h3>${esc(it.title)}</h3><p>${esc(it.blurb)}</p>${it.cal&&it.cal.tips?`<div class="wk-tip">${I.tip}<span>${esc(it.cal.tips)}</span></div>`:""}<div class="wk-acts"><a class="btn pri press" href="${esc(it.url)}" target="_blank" rel="noopener">Details</a>${calBtn(it)}</div></div></article>`).join("")}</div>
- <div class="sub-h">Book ahead<button data-act="settings-artists">Your artists</button></div>
- ${ahead.length?`<div class="card">${ahead.map(a=>`<article class="wk"><div class="wk-d"><small>${esc(fmtKey(a.date,{month:"short"}))}</small><b class="num">${esc(fmtKey(a.date,{day:"numeric"}))}</b></div><div class="wk-x"><h3>${esc(a.title)}</h3>${a.match==="list"?`<span class="tagc list">${I.check.replace("<svg",'<svg width="12" height="12"')}On your list</span>`:`<span class="tagc">Sounds like ${esc(a.like)}</span>`}${a.why?`<p>${esc(a.why)}</p>`:""}${a.cal&&a.cal.tips?`<div class="wk-tip">${I.tip}<span>${esc(a.cal.tips)}</span></div>`:""}<div class="wk-acts"><a class="btn pri press" href="${esc(a.url)}" target="_blank" rel="noopener">Get tickets</a>${calBtn(a)}</div></div></article>`).join("")}</div>`:`<div class="card"><div class="wk"><p style="margin:0">No Bay Area shows found for your artists right now.</p></div></div>`}
+ <div class="sub-h wk-now-h only-wide">Around the Bay<span>${b.items.length} picks</span></div>
+ <div class="card wk-now">${b.items.slice().sort((x,y)=>x.date.localeCompare(y.date)).map(it=>`<article class="wk"><div class="wk-d"><small>${esc(it.dateLabel||fmtKey(it.date,{weekday:"short"}))}</small><b class="num">${esc(fmtKey(it.date,{day:"numeric"}))}</b></div><div class="wk-x"><h3>${esc(it.title)}</h3><p>${esc(it.blurb)}</p>${it.cal&&it.cal.tips?`<div class="wk-tip">${I.tip}<span>${esc(it.cal.tips)}</span></div>`:""}<div class="wk-acts"><a class="btn pri press" href="${esc(it.url)}" target="_blank" rel="noopener">Details</a>${calBtn(it)}</div></div></article>`).join("")}</div>
+ <div class="sub-h wk-ahead-h">Book ahead<button data-act="settings-artists">Your artists</button></div>
+ ${ahead.length?`<div class="card wk-ahead">${ahead.map(a=>`<article class="wk"><div class="wk-d"><small>${esc(fmtKey(a.date,{month:"short"}))}</small><b class="num">${esc(fmtKey(a.date,{day:"numeric"}))}</b></div><div class="wk-x"><h3>${esc(a.title)}</h3>${a.match==="list"?`<span class="tagc list">${I.check.replace("<svg",'<svg width="12" height="12"')}On your list</span>`:`<span class="tagc">Sounds like ${esc(a.like)}</span>`}${a.why?`<p>${esc(a.why)}</p>`:""}${a.cal&&a.cal.tips?`<div class="wk-tip">${I.tip}<span>${esc(a.cal.tips)}</span></div>`:""}<div class="wk-acts"><a class="btn pri press" href="${esc(a.url)}" target="_blank" rel="noopener">Get tickets</a>${calBtn(a)}</div></div></article>`).join("")}</div>`:`<div class="card wk-ahead"><div class="wk"><p style="margin:0">No Bay Area shows found for your artists right now.</p></div></div>`}
  <p class="watching">${b.aheadNote?esc(b.aheadNote)+" ":""}Watching ${esc(arts.slice(0,4).join(", "))}${arts.length>4?` and ${arts.length-4} more`:""}.</p>`;
 }
 
@@ -1473,6 +1613,7 @@ document.addEventListener("click",async e=>{
   if(act==="be-save"){const v=($("#be-url").value||"").trim();if(!/^https:\/\/script\.google(usercontent)?\.com\//.test(v)){toast("That doesn't look like an Apps Script link");return}LS.set("sd-backend",v);S.st.err="";S.sync={state:"",at:0};refreshSettings();toast("Connecting…");try{await be({fn:"ping"});toast("Backend connected")}catch(err){S.st.err=err.message;toast("Couldn't reach it: "+err.message)}await Promise.all([loadStQuotes(),syncDown()]);loadStSeries(stList()[S.st.sel],S.st.range).then(drawSt).catch(()=>{});refreshSettings();return}
   if(act==="be-clear"){LS.del("sd-backend");S.st.q={};S.st.series={};S.st.err="";S.st.at=0;S.sync={state:"",at:0};renderStocks();renderPick();refreshSettings();toast("Backend removed");return}
  }
+ const rn=t.closest("[data-rail]");if(rn){const r=$("#"+rn.dataset.rail);if(r){const c=r.children[0];const step=c?(c.offsetWidth+12)*Math.max(1,Math.floor((r.clientWidth+12)/(c.offsetWidth+12))):r.clientWidth;r.scrollBy({left:+rn.dataset.dir*step,behavior:"smooth"})}return}
  const rh=t.closest("[data-rh]");if(rh&&(/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1))){e.preventDefault();const web=rh.href;let left=false;const off=()=>{if(document.hidden)left=true};document.addEventListener("visibilitychange",off);location.href="robinhood://instrument/?symbol="+encodeURIComponent(rh.dataset.rh);setTimeout(()=>{document.removeEventListener("visibilitychange",off);if(!left&&!document.hidden)window.open(web,"_blank")},1600);return}
  const la=t.closest("[data-list-add]");if(la){const k=la.dataset.listAdd;const inp=$("#li-"+k);const ok=addToList(k,inp&&inp.value);if(ok)toast("Added");else if(inp&&inp.value)toast("Already on the list");return}
  const ld=t.closest("[data-list-del]");if(ld){removeFromList(ld.dataset.listDel,ld.dataset.v);return}
@@ -1506,8 +1647,11 @@ function observe(){
  $$("[data-sec]").forEach(s=>io2.observe(s));
 }
 
+/* breakpoint: news count changes between phone and wide layouts */
+WIDE.addEventListener?.("change",()=>{renderNews();$$(".rail").forEach(railArrows)});
+
 /* resize */
-let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(redrawCharts,120)});
+let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{redrawCharts();$$(".rail").forEach(railArrows)},120)});
 matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>{applyTheme();redrawCharts()});
 
 /* pull to refresh (home-screen apps have no browser refresh) */
