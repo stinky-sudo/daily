@@ -228,7 +228,7 @@ h1,h2,h3,p{margin:0}
 .ma.on i{background:var(--c)}
 .ma b{font-weight:600;color:var(--ink-2)}
 .seg{display:flex;background:var(--fill);border-radius:12px;padding:3px;margin-top:10px}
-.seg button{flex:1;height:30px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.seg button{flex:1;min-width:0;height:30px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
 .seg button.on{background:var(--seg-on);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
 .stats dt{font-size:12.5px;color:var(--ink-3);font-weight:500}
@@ -331,6 +331,41 @@ h1,h2,h3,p{margin:0}
 .bec svg{width:13px;height:13px;flex:0 0 auto;margin-top:2px;color:var(--link)}
 .dsc-acts{position:relative;z-index:1;display:flex;gap:6px;margin-top:9px}
 
+/* watch + listen cards */
+.vid{position:relative}
+.vid-b{display:flex;flex-direction:column;flex:1;min-height:200px;padding:12px 15px 14px}
+.vid-ch{min-width:0}
+.vid-ch .ava{flex:0 0 auto}
+.vid-ch b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.vid-ch .sep{flex:0 0 auto;white-space:nowrap}
+.ava.sqa{border-radius:6px}
+.vid .nodesc{font-style:italic;color:var(--ink-3)}
+.vid .bec{margin-top:7px}
+.vid-f{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:12px}
+.open-in{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.open-in svg{width:16px;height:16px}
+.mini.fol.on{background:var(--fill);color:var(--ink)}
+.sugg{pointer-events:none;position:absolute;left:9px;top:9px;display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#fff;background:rgba(43,94,240,.94);padding:3px 8px;border-radius:7px;z-index:1}
+.sugg svg{width:11px;height:11px}
+.pth{background:#1d1d22}
+.pth .bgb{position:absolute;inset:-24px;width:calc(100% + 48px);height:calc(100% + 48px);object-fit:cover;filter:blur(22px) brightness(.62) saturate(1.2)}
+.pth .sq{position:absolute;left:50%;top:50%;height:76%;width:auto;aspect-ratio:1;object-fit:cover;transform:translate(-50%,-50%);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.empty-row{padding:16px;font-size:14.5px;color:var(--ink-3)}
+/* crypto SMAs */
+.smas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.sma{background:var(--fill);border-radius:14px;padding:10px 11px}
+.sma small{display:block;font-size:11.5px;font-weight:700;color:var(--ink-3);letter-spacing:.01em}
+.sma b{display:block;font-size:15.5px;font-weight:700;margin-top:3px}
+.sma span{display:block;font-size:12px;font-weight:600;margin-top:2px;color:var(--ink-3)}
+.sma span.up{color:var(--up)}.sma span.down{color:var(--down)}
+/* stock pick chips */
+.pchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.pchip{font-size:12.5px;padding:5px 9px;border-radius:999px;background:var(--fill);color:var(--ink-2)}
+.pchip b{color:var(--ink);font-weight:700}
+.pchip.good{background:rgba(10,148,85,.12);color:var(--up)}
+.pchip.good b{color:var(--up)}
+.pick-risk{font-size:13px;line-height:1.45;color:var(--ink-3);margin-top:10px}
+.pick-risk b{color:var(--ink-2)}
 /* listen */
 .pod{position:relative;display:flex;gap:14px;padding:15px 16px;border-top:1px solid var(--line)}
 .pod:first-child{border-top:0}
@@ -491,7 +526,7 @@ h1,h2,h3,p{margin:0}
 const CONFIG={
   tz:"America/Los_Angeles",
   home:{name:"Mountain View",lat:37.3861,lon:-122.0839},
-  youtube:{apiKey:"AIzaSyAlhdRMk6fTh5NraV0bRvUAnVLd16RT4JE",perChannel:2,maxAgeDays:14,cacheMinutes:60},
+  youtube:{apiKey:"AIzaSyAlhdRMk6fTh5NraV0bRvUAnVLd16RT4JE",perChannel:2,maxAgeDays:3,cacheMinutes:60},
   backend:"https://script.google.com/macros/s/AKfycbzFzyy8P5IcIZR_bQSwRyB26Wv5M8u_GJKcqHUlJXURRth0T116xAatbjFoZ7vIs9Es/exec",
   podcastMaxAgeDays:3,
   lists:{
@@ -515,13 +550,14 @@ const CONFIG={
      cat is one of Energy, Sleep, Calm, Move, Focus, Mind, Fuel.
    - markets.tickers: one per stock in the lists, Yahoo symbols (^GSPC…),
      {sym,name,value,chg,pct,ytd,closes:[[YYYY-MM-DD,close],…~1 month]}.
-   - pick: today's stock to look at {sym,name,sector,close,pct,asOf,offHigh,why,risk,watch,closes,history[]}.
+   - pick: a buy-rated stock idea {sym,name,theme,close,pct,asOf,what,why,risk,rating:{label,buy,total},target,hi52,closes,history[]}.
    - btc: Benjamin Cowen's latest take.
    - news[]: {id,tag,title,blurb,src,domain,date,url,ask?}
-   - youtube[]: recent uploads from the channel list (the page also loads these live).
-   - spotify[]: episodes from the podcast list released in the last 3 days,
+   - youtube[]: uploads from the channel list in the last 3 days (the page also loads these live).
+   - spotify[]: episodes from the podcast list released in the last 3 days, exact titles,
      {show,title,desc,published,secs,art,url:"https://open.spotify.com/episode/…"}.
-   - discover: {youtube:[…],spotify:[…]} new-creator picks with a `because` line.
+   - discover.youtube: suggested channels {handle,channel,because}; the page shows their uploads
+     from the last 3 days. discover.spotify: episodes from new shows released in the last 3 days.
    - bay: {range,items[] (new every day), ahead[] (artist list + similar), aheadNote}
    - vocab[] / spanish[]: today first, then the previous 6 days.
    ================================================================= */
@@ -558,12 +594,13 @@ markets:{
   {sym:"TSLA",name:"Tesla",value:380.68,chg:1.95,pct:0.51,ytd:-15.35,closes:[["2026-09-08",368.16],["2026-09-09",367.81],["2026-09-10",363.56],["2026-09-11",365.44],["2026-09-14",358.97],["2026-09-15",356.58],["2026-09-16",358.08],["2026-09-17",366.20],["2026-09-18",364.27],["2026-09-21",375.30],["2026-09-22",378.90],["2026-09-23",380.12],["2026-09-24",377.94],["2026-09-25",372.11],["2026-09-28",357.45],["2026-09-29",352.84],["2026-09-30",354.81],["2026-10-01",354.11],["2026-10-02",370.59],["2026-10-05",378.73],["2026-10-06",380.68]]}
  ]
 },
-pick:{sym:"LW",name:"Lamb Weston",sector:"Consumer staples",close:47.91,pct:7.49,asOf:"2026-10-06",offHigh:"About 29% below its 52-week high of $67.07",
- why:"It beat fiscal Q1 estimates on Oct 6 (adjusted EPS $0.75 vs. about $0.59) and raised full-year guidance, with North American volume up 7%. Even after a roughly 16% four-day bounce it trades near 15x forward earnings with a 3.2% dividend. Activist investor Starboard is involved, and management says everything is on the table for the weak international business.",
- risk:"Prices are still slipping, international profit fell by more than half, and management flagged new input and freight inflation. Most analysts rate it a Hold.",
- watch:"Price-target changes after the beat, the Nov 6 ex-dividend date, and the international restructuring plan.",
- closes:[["2026-09-08",49.40],["2026-09-09",48.13],["2026-09-10",47.32],["2026-09-11",47.85],["2026-09-14",48.26],["2026-09-15",47.09],["2026-09-16",47.53],["2026-09-17",46.46],["2026-09-18",46.67],["2026-09-21",47.29],["2026-09-22",46.36],["2026-09-23",45.04],["2026-09-24",44.37],["2026-09-25",43.58],["2026-09-28",43.18],["2026-09-29",43.27],["2026-09-30",41.69],["2026-10-01",41.18],["2026-10-02",43.60],["2026-10-05",44.57],["2026-10-06",47.91]],
- history:[{date:"2026-10-07",sym:"LW",price:47.91}]
+pick:{sym:"VRT",name:"Vertiv",theme:"AI data center infrastructure",close:253.14,pct:-0.19,asOf:"2026-10-06",
+ what:"Vertiv makes the power and cooling equipment that keeps data centers running: backup power systems, power distribution, and the liquid cooling that dense AI server racks now need. It also sells prefabricated modular data center units.",
+ why:"Every new AI data center needs far more power and cooling per rack, and Vertiv is one of the few suppliers working at that scale. It also works with Nvidia on reference designs for its AI systems. Bank of America added it to its US 1 List of top ideas on Sept 30, BMO started coverage at Outperform on Oct 3, and the stock still trades about a third below its 52-week high.",
+ risk:"It swings hard with AI-spending sentiment, and GLJ Research started coverage at Sell this week, arguing 2027 profits will come in below estimates.",
+ rating:{label:"Strong Buy",buy:26,total:31},target:337.43,hi52:379.94,
+ closes:[["2026-09-08",290.83],["2026-09-09",262.89],["2026-09-10",248.13],["2026-09-11",257.06],["2026-09-14",237.39],["2026-09-15",234.61],["2026-09-16",239.41],["2026-09-17",241.49],["2026-09-18",249.39],["2026-09-21",250.86],["2026-09-22",253.46],["2026-09-23",248.78],["2026-09-24",245.30],["2026-09-25",253.28],["2026-09-28",244.04],["2026-09-29",248.34],["2026-09-30",241.31],["2026-10-01",246.12],["2026-10-02",252.18],["2026-10-05",253.62],["2026-10-06",253.14]],
+ history:[{date:"2026-10-07",sym:"VRT",price:253.14},{date:"2026-10-07",sym:"LW",price:47.91}]
 },
 btc:{
  source:"Benjamin Cowen",
@@ -583,26 +620,27 @@ news:[
  {id:"n9",tag:"Tech",title:"SpaceX seeks $40 billion in debt to buy Nvidia chips",blurb:"Apollo is leading the financing: roughly $10B in bank loans plus $30B of investment-grade debt, per the Financial Times.",src:"Reuters",domain:"reuters.com",date:"2026-10-06",url:"https://www.reuters.com/business/media-telecom/spacex-seeks-40-billion-buy-nvidia-chips-ft-reports-2026-10-06/"}
 ],
 youtube:[
- {id:"",channel:"Channel 5",title:"Inside America's Largest Twins Gathering",desc:"Andrew Callaghan at Twins Days in Twinsburg, Ohio, the world's biggest yearly meetup of twins.",published:"2026-10-04",dur:"15 min",url:"https://www.youtube.com/@channel5YouTube/search?query=Inside%20America%27s%20Largest%20Twins%20Gathering",c1:"#5B4A2E",c2:"#141210"},
- {id:"3iRUwVzRDZQ",channel:"MKBHD",title:"Xiaomi 18 Fold: How Does This Happen?",desc:"Hands-on with Xiaomi's new foldable, the one people keep mistaking for an iPhone Duo.",published:"2026-10-02",dur:"11 min",url:"https://www.youtube.com/watch?v=3iRUwVzRDZQ"},
- {id:"uGIfeC7sdqQ",channel:"Channel 5",title:"Gathering of the Juggalos",desc:"Callaghan spends a weekend with Insane Clown Posse fans at their annual festival.",published:"2026-09-30",dur:"39 min",url:"https://www.youtube.com/watch?v=uGIfeC7sdqQ"},
- {id:"e1q-TuHdc4Y",channel:"MKBHD",title:"Dear YouTube!",desc:"Marques on YouTube's new video A/B testing feature and what it changes for creators.",published:"2026-09-30",dur:"12 min",url:"https://www.youtube.com/watch?v=e1q-TuHdc4Y"}
+ {id:"",channel:"Channel 5 with Andrew Callaghan",handle:"@channel5YouTube",title:"Return of the Hoff Twins",desc:"",published:"2026-10-04",dur:"14:37",url:"https://www.youtube.com/@channel5YouTube/videos",c1:"#5B4A2E",c2:"#141210"}
 ],
 spotify:[
- {show:"Moonshots with Peter Diamandis",title:"Google X's Astro Teller: The $1B Bet No CEO Will Back, Moonshots 3x Cheaper in 16 Yrs, and Clean Water at 1¢/L | EP #300",desc:"X's Captain of Moonshots on how the lab filters thousands of ideas into a few breakthroughs, and why ambitious bets keep getting cheaper.",published:"2026-10-05",secs:2348,art:"https://i.scdn.co/image/ab67656300005f1fa02c90a6b5db36bbc1748635",url:"https://open.spotify.com/episode/5u41TgllFsc44q8u7O9hnF"},
+ {show:"Moonshots with Peter Diamandis",title:"Google X's Astro Teller: The $1B Bet No CEO Will Back, Moonshots 3x Cheaper in 16 Yrs, and Clean Water at 1¢/L| EP #300",desc:"X's Captain of Moonshots on how the lab filters thousands of ideas into a few breakthroughs, and why ambitious bets keep getting cheaper.",published:"2026-10-05",secs:2348,art:"https://i.scdn.co/image/ab67656300005f1fa02c90a6b5db36bbc1748635",url:"https://open.spotify.com/episode/5u41TgllFsc44q8u7O9hnF"},
  {show:"Modern Wisdom",title:"4 Men Share How They Hit Rock Bottom (and got out) - Dr K, Joe Hudson & Connor Beaton - #1159",desc:"Dr K, Joe Hudson and Connor Beaton on hitting bottom, the shame underneath it, and what actually gets people climbing again.",published:"2026-10-05",secs:8459,art:"https://i.scdn.co/image/ab67656300005f1f694f39dcae458d92b3f82ef7",url:"https://open.spotify.com/episode/35Zr3hFyBFLWYyxPBgEECQ"}
 ],
 discover:{
  youtube:[
-  {id:"e2zjpCqTmyo",channel:"ColdFusion",handle:"@ColdFusion",title:"Why is AI Suddenly Hacking Everything?",published:"2026-10-01",dur:"21 min",desc:"A tight documentary on AI agents starting to misbehave, and how the big labs are trying to rein them in.",because:"Because you like Moonshots' AI futurism. This is the sober counterweight.",url:"https://www.youtube.com/watch?v=e2zjpCqTmyo"},
-  {id:"JsBZOcqZerk",channel:"Veritasium",handle:"@veritasium",title:"The Insane Real Engineering of the Nazi Enigma Machine",published:"2026-09-21",dur:"48 min",desc:"How the Enigma's rotors and plugboard actually worked, and how Bletchley Park cracked it.",because:"Because you like MKBHD's hardware deep dives, applied to a 1940s machine.",url:"https://www.youtube.com/watch?v=JsBZOcqZerk"}
+  {handle:"@Mrwhosetheboss",channel:"Mrwhosetheboss",because:"Because you like MKBHD: fast, punchy phone and gadget breakdowns with a lot of personality."},
+  {handle:"@CleoAbram",channel:"Cleo Abram",because:"Because you work in robotics and like Moonshots: optimistic, beautifully made explainers on big tech bets."},
+  {handle:"@ColdFusion",channel:"ColdFusion",because:"Because you like Moonshots' AI futurism. This is the sober, documentary-style counterweight."},
+  {handle:"@aiexplained-official",channel:"AI Explained",because:"Because you follow AI closely: careful, paper-level breakdowns of each new model."},
+  {handle:"@Dave2D",channel:"Dave2D",because:"Because you like MKBHD's reviews, with calmer, design-focused takes."},
+  {handle:"@veritasium",channel:"Veritasium",because:"Because you like MKBHD's deep dives, applied to science and engineering."}
  ],
  spotify:[
-  {show:"Dwarkesh Podcast",title:"Noam Brown – Agent swarms, alignment, & recursive self-improvement",published:"2026-09-17",secs:4810,art:"https://i.scdn.co/image/ab67656300005f1fec6420b46053b5d1786dbe05",desc:"OpenAI's Noam Brown on multi-agent systems, what the math breakthroughs say about automating AI research, and how we'd know models are aligned.",because:"Because you like Moonshots. Same topics, but deeper and more technical, from people inside the labs.",url:"https://open.spotify.com/episode/3ngDaNm2UVDH0BsMUYVwcG"},
-  {show:"Founders",title:"#435 Mark Zuckerberg's Empire",published:"2026-09-28",secs:2456,art:"https://i.scdn.co/image/ab67656300005f1f6e9e6f6b20ff4b7b5b0cee75",desc:"David Senra on a new Zuckerberg biography: the empire mindset, the MMA obsession and the never-stop work style.",because:"Because you like Modern Wisdom's episodes on drive and discipline. There's a UFC thread too.",url:"https://open.spotify.com/episode/4OvTgKqT118Nh1TJmBtiMl"}
+  {show:"Founders",title:"#436 Ari Emanuel's Autobiography",published:"2026-10-05",secs:4170,art:"https://i.scdn.co/image/ab67656300005f1f6e9e6f6b20ff4b7b5b0cee75",desc:"What David Senra learned from Ari Emanuel's autobiography, Roll the Calls.",because:"Because you like Moonshots' founder stories: one biography per episode on how great builders actually operate.",url:"https://open.spotify.com/episode/2u2sPFpTFK6acQ1CDE2qv1"},
+  {show:"The Diary Of A CEO with Steven Bartlett",title:"Dana White: This Generation Thinks You Can Build A Business From Home, It's Impossible!",published:"2026-10-05",secs:5304,art:"https://i.scdn.co/image/ab67656300005f1f53361974bcf009a60f40a20b",desc:"The UFC president on growing a struggling $2 million fight promotion into a global league, hiring killers, and taking big risks.",because:"Because you like Modern Wisdom and follow the UFC: long-form interviews with high performers.",url:"https://open.spotify.com/episode/7mMA1Pi5bOGUerind8zazb"}
  ]
 },
-discoverLog:["@ColdFusion","@veritasium","Dwarkesh Podcast","Founders"],
+discoverLog:["@ColdFusion","@veritasium","Dwarkesh Podcast","Founders","@Mrwhosetheboss","@CleoAbram","@aiexplained-official","@Dave2D","The Diary Of A CEO with Steven Bartlett"],
 bay:{range:"Oct 9–11",items:[
  {id:"b1",title:"626 Night Market in Pleasanton",blurb:"A big Asian night market at the Alameda County Fairgrounds with 200-plus food, shopping and game stalls. An easy way to eat your way through an evening with Dean and Jack.",src:"626nightmarket.com",date:"2026-10-09",dateLabel:"Fri–Sun",url:"https://626nightmarket.com/city/pleasanton",cal:{start:"2026-10-11T15:00",end:"2026-10-11T20:00",location:"Alameda County Fairgrounds, 2005 Valley Ave, Pleasanton",tips:"Buy the $8 entry and $15 parking online. Food lines are shortest right at the 3 PM opening."}},
  {id:"b2",title:"Sharks vs. Oilers at SAP Center",blurb:"A 1 PM game: Macklin Celebrini's Sharks against Connor McDavid's Oilers. Close to home and an easy outing with visitors.",src:"nhl.com",date:"2026-10-10",url:"https://www.nhl.com/sharks/schedule",cal:{start:"2026-10-10T13:00",end:"2026-10-10T15:30",location:"SAP Center, 525 W Santa Clara St, San Jose",tips:"Caltrain from Mountain View to Diridon skips event parking. Resale seats started around $80."}},
@@ -775,12 +813,12 @@ async function syncDown(){if(!backend())return;try{const r=await be({fn:"config"
 /* =================================================================
    STATE
    ================================================================= */
-const SECTIONS=[["cal","Calendar"],["tip","Try today"],["mkt","Markets"],["news","News"],["watch","Watch"],["listen","Listen"],["wknd","Weekend"],["diff","Something different"],["learn","Learn"]];
+const SECTIONS=[["cal","Calendar"],["tip","Try Today"],["mkt","Markets"],["news","News"],["watch","Watch"],["listen","Listen"],["wknd","Weekend"],["diff","Something different"],["learn","Learn"]];
 const S={
  hidden:new Set(LS.get("sd-hidden",[])),
  wx:null,
  cx:{sel:LS.get("sd-cx-sel","BTC"),range:LS.get("sd-cx-range","1M"),q:{},live:{},series:{},daily:{},err:false,ws:null,liveOn:false,ma:LS.get("sd-ma",{m50:true,m200:true,bmsb:false})},
- st:{sel:0,range:LS.get("sd-st-range","1M"),q:{},series:{},err:"",at:0},
+ st:{sel:0,range:LS.get("sd-st-range","1M"),q:{},series:{},rerr:{},err:"",at:0},
  news:{tag:"All",open:false},
  yt:{items:null,source:"seed",updated:0,error:""},
  learn:{v:null,s:null},
@@ -911,7 +949,7 @@ function renderCal(){
  const el=$("#s-cal");const tk=todayKey();const days=[tk,addDays(tk,1),addDays(tk,2)];const now=new Date();
  const inDay=(e,k)=>e.allDay?(e.date<=k&&(e.endDate?addDays(e.endDate,-1):e.date)>=k&&(e.date===k||k===tk)):e.key===k||(k===tk&&e.key<tk&&e.en>now);
  const groups=days.map((k,i)=>{const items=EVENTS.filter(e=>inDay(e,k));const lab=i===0?"Today":i===1?"Tomorrow":fmtKey(k,{weekday:"long"});return`<div class="grp"><div class="grp-h"><b>${esc(lab)}</b><span>${esc(fmtKey(k,{weekday:i<2?"short":undefined,month:"short",day:"numeric"}))}</span></div>${items.length?items.map(e=>{const p=splitEmoji(e.title);const past=!e.allDay&&e.en<now;const bd=e.kind==="birthday";const who=bd?p.t.replace(/['’]s birthday$/i,"").trim():"";return`<div class="ev ${past?"past":""}"><a class="ev-ic" href="${esc(e.url)}" target="_blank" rel="noopener">${bd?"🎂":p.e?esc(p.e):I.cal}</a><a class="ev-x" href="${esc(e.url)}" target="_blank" rel="noopener"><div class="ev-t">${esc(p.t)}</div><div class="ev-m">${esc(evWhen(e))}${e.loc?` · ${esc(e.loc)}`:""}</div></a>${bd?`<a class="mini press" href="sms:&body=${encodeURIComponent("Happy birthday, "+who+"! 🎉")}">${I.msg}Text</a>`:""}</div>`}).join(""):`<div class="empty">Nothing scheduled.</div>`}</div>`}).join("");
- el.innerHTML=`<div class="sh"><h2><span class="h-ic">${I.gcal}</span>Calendar</h2><a class="aux" href="https://calendar.google.com/calendar/r/week" target="_blank" rel="noopener">Open</a></div>
+ el.innerHTML=`<div class="sh"><h2><span class="h-ic">${I.gcal}</span>Calendar</h2><a class="aux" href="https://calendar.google.com/calendar/r/month" target="_blank" rel="noopener">Open</a></div>
  ${DATA.calendar.summary?`<div class="sum"><div class="sum-k">${I.spark}Next 3 days</div><p>${esc(DATA.calendar.summary)}</p></div>`:""}
  <div class="card agenda">${groups}</div>`;
 }
@@ -923,7 +961,7 @@ function todaysTip(){if(DATA.tip&&DATA.tip.title)return DATA.tip;return TIPS[(ed
 function renderTip(){
  const t=todaysTip();const st=TIPI[t.cat]||TIPI.Energy;
  const q=t.ask||`Coach me on this habit for today: "${t.title}". Why does it work, and how do I make it stick?`;
- $("#s-tip").innerHTML=`<div class="sh"><h2>Try today</h2><span class="aux">${esc(t.mins||"")}</span></div>
+ $("#s-tip").innerHTML=`<div class="sh"><h2>Try Today</h2><span class="aux">${esc(t.mins||"")}</span></div>
  <div class="tipc" style="--tipbg:${st.bg}">
   <div class="tip-top"><span class="tip-ic">${st.ic}</span><div><small>${esc(t.cat)}</small><h3>${esc(t.title)}</h3></div></div>
   <p>${esc(t.why)}</p>
@@ -975,9 +1013,9 @@ function drawChart(host,pts,o){
   host.addEventListener("pointerup",end);host.addEventListener("pointercancel",end);host.addEventListener("pointerleave",end);
  }
 }
-const RANGES={"1D":1,"1W":7,"1M":30,"3M":90,"1Y":365};
-const RLBL={"1D":"Past 24 hours","1W":"Past week","1M":"Past month","3M":"Past 3 months","1Y":"Past year"};
-function ptLabel(t,r){if(typeof t==="string")return fmtKey(t,{month:"short",day:"numeric",year:r==="1Y"?"numeric":undefined});const d=new Date(t);if(r==="1D")return fmtLocalTime(d);if(r==="1W")return d.toLocaleString("en-US",{weekday:"short",hour:"numeric"});return d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:r==="1Y"?"numeric":undefined})}
+const RANGES={"1D":1,"1W":7,"1M":30,"3M":90,"1Y":365,"All":"max"};
+const RLBL={"1D":"Past 24 hours","1W":"Past week","1M":"Past month","3M":"Past 3 months","1Y":"Past year","All":"All time"};
+function ptLabel(t,r){if(r==="All")return(typeof t==="string"?keyDate(t):new Date(t)).toLocaleDateString("en-US",{month:"short",year:"numeric"});if(typeof t==="string")return fmtKey(t,{month:"short",day:"numeric",year:r==="1Y"?"numeric":undefined});const d=new Date(t);if(r==="1D")return fmtLocalTime(d);if(r==="1W")return d.toLocaleString("en-US",{weekday:"short",hour:"numeric"});return d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:r==="1Y"?"numeric":undefined})}
 
 /* =================================================================
    MARKETS — crypto
@@ -999,10 +1037,15 @@ async function loadCxQuotes(){
 function thin(p,n=220){const step=Math.ceil(p.length/n);return step>1?p.filter((_,i)=>i%step===0||i===p.length-1):p}
 async function loadCxSeries(s,r){
  const k=s+"|"+r;if(S.cx.series[k])return;const ck="sd-cx-s-"+k,c=LS.get(ck,null);
- if(c&&Date.now()-c.t<(r==="1D"?5:15)*6e4){S.cx.series[k]=c.v;return}
- const id=coinId(s);if(!id)throw new Error("unknown coin");
- const res=await fetch(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${RANGES[r]}`);if(!res.ok)throw new Error("cg "+res.status);
- const j=await res.json();const p=thin((j.prices||[]).map(([t,v])=>({t,v})));
+ if(c&&Date.now()-c.t<(r==="1D"?5:r==="All"?720:15)*6e4){S.cx.series[k]=c.v;return}
+ let p=null;
+ if(r==="All"&&backend()){try{const j=await be({fn:"chart",s:s+"-USD",r:"ALL"});if(j.v>=2&&j.pts&&j.pts.length>12)p=j.pts.map(([t,v])=>({t:t*1000,v}))}catch(e){}}
+ if(!p){
+  const id=coinId(s);if(!id)throw new Error("unknown coin");
+  const res=await fetch(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${RANGES[r]}`);
+  if(!res.ok)throw new Error(r==="All"?"needs-backend":"cg "+res.status);
+  const j=await res.json();p=thin((j.prices||[]).map(([t,v])=>({t,v})));
+ }
  S.cx.series[k]=p;LS.set(ck,{t:Date.now(),v:p});
 }
 async function loadCxDaily(s){
@@ -1015,23 +1058,25 @@ async function loadCxDaily(s){
 }
 function sma(a,n){const out=[];let s=0;for(let i=0;i<a.length;i++){s+=a[i].v;if(i>=n)s-=a[i-n].v;if(i>=n-1)out.push({t:a[i].t,v:s/n})}return out}
 function ema(a,n){const out=[];const k=2/(n+1);let e=null;for(let i=0;i<a.length;i++){e=e==null?a[i].v:a[i].v*k+e*(1-k);if(i>=n-1)out.push({t:a[i].t,v:e})}return out}
-function cxMAs(s){const d=S.cx.daily[s];if(!d||d.length<60)return null;return{m50:sma(d,50),m200:d.length>=200?sma(d,200):[],sm:d.length>=140?sma(d,140):[],em:d.length>=147?ema(d,147):[]}}
-const last=a=>a&&a.length?a[a.length-1].v:null;
+function cxSMAs(s){const d=S.cx.daily[s];if(!d||d.length<50)return null;const out={};[50,100,200].forEach(n=>{if(d.length>=n){let t=0;for(let i=d.length-n;i<d.length;i++)t+=d[i].v;out[n]=t/n}});return out}
 function renderCrypto(){
  const host=$("#cx-card");if(!host)return;const s=S.cx.sel;const n=cxNow(s);
- const showMA=["1M","3M","1Y"].includes(S.cx.range);const mas=cxMAs(s);const ma=S.cx.ma;
  host.innerHTML=`<div class="mk">
   <div class="mk-head"><span class="logo coin-lg">${coinIcon(s)}</span><div><div class="mk-name">${esc(coinName(s))}</div><div class="mk-sub">${esc(s)} / USD</div></div><span class="live ${S.cx.liveOn?"":"off"}" id="cx-live"><i></i>${S.cx.liveOn?"Live":n?"Delayed":"Offline"}</span></div>
-  <div class="px num" id="cx-px" data-px-head>${n?usd(n.price):"—"}</div>
+  <div class="px num" id="cx-px">${n?usd(n.price):"—"}</div>
   <div class="chg num" id="cx-chg"></div>
   <div class="chart" id="cx-chart"></div>
-  ${showMA?`<div class="mas" id="cx-mas">${[["m50","50D",mas&&last(mas.m50),"--ma1"],["m200","200D",mas&&last(mas.m200),"--ma2"],["bmsb","Bull band",null,"--band-line"]].map(([k,l,v,c])=>`<button class="ma press ${ma[k]?"on":""}" data-ma="${k}" style="--c:var(${c})" aria-pressed="${!!ma[k]}"><i></i>${l}${v?` <b class="num">${usd(v,v>=1000?0:undefined)}</b>`:""}</button>`).join("")}</div>`:""}
   <div class="seg" role="tablist" aria-label="Chart range">${Object.keys(RANGES).map(r=>`<button role="tab" aria-selected="${r===S.cx.range}" class="${r===S.cx.range?"on":""}" data-cx-range="${r}">${r}</button>`).join("")}</div>
+  <div class="smas" id="cx-smas" aria-label="Simple moving averages"></div>
   <dl class="stats" id="cx-stats"></dl>
  </div>
  <div class="rows">${cxList().map(x=>{const q=cxNow(x),sp=(S.cx.q[x]||{}).spark;return`<button class="ix ${x===s?"on":""}" data-cx="${x}" aria-pressed="${x===s}"><span class="ix-n"><span class="coin">${coinIcon(x)}</span><div><b>${esc(coinName(x))}</b><span>${esc(x)}</span></div></span>${spark(sp)}<span class="ix-v"><b class="num" data-px="${x}">${q?usd(q.price):"—"}</b><span class="pill num ${q?(q.pct<0?"dn":""):"na"}" data-pill="${x}">${q?pct(q.pct):"—"}</span></span></button>`}).join("")}</div>
  ${s==="BTC"&&DATA.btc?`<div class="take" style="margin-top:12px"><div class="take-h"><b>${esc(DATA.btc.source)}'s take</b><span>${esc(fmtKey(DATA.btc.summaryDate,{month:"short",day:"numeric"}))}</span></div><p>${esc(DATA.btc.summary)}</p><div class="acts"><a class="btn press" href="${esc(DATA.btc.sourceUrl)}" target="_blank" rel="noopener"><span style="width:18px;display:inline-flex">${I.yt}</span>Into the Cryptoverse</a>${askBtn("Based on Benjamin Cowen's recent analysis, what's happening with Bitcoin right now and what should I watch for?","Ask Claude","btn")}</div></div>`:""}`;
  requestAnimationFrame(drawCx);
+}
+function renderSMAs(){
+ const el=$("#cx-smas");if(!el)return;const s=S.cx.sel,m=cxSMAs(s),n=cxNow(s);
+ el.innerHTML=[50,100,200].map(k=>{const v=m&&m[k];const d=v&&n?(n.price-v)/v*100:null;return`<div class="sma"><small>${k}-day SMA</small><b class="num">${v?usd(v,v>=1000?0:undefined):"—"}</b><span class="num ${d==null?"":d>=0?"up":"down"}">${d==null?(m?"Not enough data":"Loading…"):`${Math.abs(d).toFixed(1)}% ${d>=0?"above":"below"}`}</span></div>`}).join("");
 }
 function setCxHead(pt,first){
  const pxEl=$("#cx-px"),chEl=$("#cx-chg");if(!pxEl)return;const s=S.cx.sel,r=S.cx.range,ser=S.cx.series[s+"|"+r],n=cxNow(s);
@@ -1040,18 +1085,16 @@ function setCxHead(pt,first){
  pxEl.textContent=price?usd(price):"—";
  let c=null,p=null;
  if(r==="1D"&&n&&n.pct!=null){p=n.pct;c=n.chg!=null?n.chg:price-price/(1+p/100)}else if(ser&&ser.length>1&&price){c=price-ser[0].v;p=c/ser[0].v*100}
- chEl.innerHTML=c==null?`<span class="lbl">${S.cx.err?"Couldn't reach CoinGecko. Pull down to retry.":"Loading…"}</span>`:`<span class="${c>=0?"up":"down"}">${sgn(c)}${usd(Math.abs(c))} (${pct(p)})</span><span class="lbl">${RLBL[r]}</span>`;
+ chEl.innerHTML=c==null?`<span class="lbl">${S.cx.err?"Couldn't load this range.":"Loading…"}</span>`:`<span class="${c>=0?"up":"down"}">${sgn(c)}${usd(Math.abs(c))} (${pct(p)})</span><span class="lbl">${RLBL[r]}</span>`;
 }
 function drawCx(){
  const host=$("#cx-chart");if(!host)return;const s=S.cx.sel,r=S.cx.range;let ser=S.cx.series[s+"|"+r];
  if(ser&&ser.length){const n=cxNow(s);if(n&&n.live&&ser[ser.length-1].t<Date.now()-6e4)ser=ser.concat([{t:Date.now(),v:n.price}])}
- const mas=cxMAs(s),ma=S.cx.ma,showMA=["1M","3M","1Y"].includes(r);const ov=[];let band=null;
- if(showMA&&mas){if(ma.m50)ov.push({pts:mas.m50,color:cssVar("--ma1")});if(ma.m200&&mas.m200.length)ov.push({pts:mas.m200,color:cssVar("--ma2")});if(ma.bmsb&&mas.sm.length&&mas.em.length)band={hi:mas.em,lo:mas.sm,line:cssVar("--band-line")}}
- drawChart(host,ser,{timeX:true,overlays:ov,band,fmt:v=>usd(v,v>=1000?0:undefined),label:coinName(s)+" price chart",empty:S.cx.err?"Couldn't reach CoinGecko. Pull down to retry.":"Loading chart…",onScrub:(p,f)=>setCxHead(p,f)});
- setCxHead(null);
+ const emsg=S.cx.err==="needs-backend"?"The all-time chart needs the updated backend script.":S.cx.err?"Couldn't load this range. Pull down to retry.":"Loading chart…";
+ drawChart(host,ser,{timeX:true,fmt:v=>usd(v,v>=1000?0:undefined),label:coinName(s)+" price chart",empty:emsg,onScrub:(p,f)=>setCxHead(p,f)});
+ setCxHead(null);renderSMAs();
  const n=cxNow(s),q=S.cx.q[s],st=$("#cx-stats");
  if(st){const rows=[];if(n){rows.push(["24h high",usd(n.hi)],["24h low",usd(n.lo)])}if(q){rows.push(["Market cap",big(q.mcap)],["From all-time high",q.ath>=-0.05?"At the high":sgn(q.ath)+Math.abs(q.ath).toFixed(1)+"%"])}
-  if(mas&&n){const a=last(mas.m200),b=last(mas.m50);if(b)rows.push(["vs 50-day avg",pct((n.price-b)/b*100)]);if(a)rows.push(["vs 200-day avg",pct((n.price-a)/a*100)])}
   st.innerHTML=rows.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd class="num">${esc(v)}</dd></div>`).join("");st.style.display=rows.length?"":"none"}
 }
 let tickQ=new Set(),tickRaf=0,lastTick={};
@@ -1079,7 +1122,7 @@ async function loadCx(){
  const qOk=S.cx.qAt&&Date.now()-S.cx.qAt<3*6e4&&cxList().every(s=>S.cx.q[s]);
  try{await resolveCoins();await Promise.all([qOk?null:loadCxQuotes(),loadCxSeries(S.cx.sel,S.cx.range)]);S.cx.err=false}catch(e){S.cx.err=true}
  renderCrypto();renderHero();
- loadCxDaily(S.cx.sel).then(()=>{if(["1M","3M","1Y"].includes(S.cx.range))renderCrypto()}).catch(()=>{});
+ loadCxDaily(S.cx.sel).then(renderSMAs).catch(()=>{});
 }
 
 /* =================================================================
@@ -1099,8 +1142,10 @@ async function loadStQuotes(){
 }
 async function loadStSeries(s,r){
  if(!backend()||r==="1D")return;const k=s+"|"+r;if(S.st.series[k])return;
- const ck="sd-st-"+k,c=LS.get(ck,null);if(c&&Date.now()-c.t<(r==="1W"?15:120)*6e4){S.st.series[k]=c.v;return}
- const j=await be({fn:"chart",s,r});if(j.pts&&j.pts.length>1){const v=j.pts.map(([t,x])=>({t:t*1000,v:x}));S.st.series[k]=v;LS.set(ck,{t:Date.now(),v})}
+ const ck="sd-st-"+k,c=LS.get(ck,null);if(c&&Date.now()-c.t<(r==="1W"?15:r==="All"?720:120)*6e4){S.st.series[k]=c.v;return}
+ const j=await be({fn:"chart",s,r:r==="All"?"ALL":r});
+ if(r==="All"&&!(j.v>=2)){S.st.rerr[k]="The all-time chart needs the updated backend script.";return}
+ if(j.pts&&j.pts.length>1){const v=j.pts.map(([t,x])=>({t:t*1000,v:x}));S.st.series[k]=v;LS.set(ck,{t:Date.now(),v})}
 }
 function renderStocks(){
  const host=$("#st-card");if(!host)return;const m=DATA.markets;const list=stList();if(S.st.sel>=list.length)S.st.sel=0;const s=list[S.st.sel];
@@ -1130,20 +1175,26 @@ function drawSt(){
  const host=$("#st-chart");if(!host)return;const s=stList()[S.st.sel],r=S.st.range;let ser=stkSeries(s,r);const q=S.st.q[s];
  if(ser&&ser.length&&q&&q.p!=null&&r!=="1D"&&typeof ser[ser.length-1].t==="number"&&q.t*1000>ser[ser.length-1].t+6e4)ser=ser.concat([{t:q.t*1000,v:q.p}]);
  const need=!ser&&!backend();
- drawChart(host,ser,{base:r==="1D"&&q?q.pc:undefined,fmt:v=>num(v,v>=1000?0:2),label:stName(s)+" chart",emptyHtml:need?`<span>Live prices and the 1D, 3M and 1Y views need the market data link.</span><button class="btn press" data-act="settings">Set it up</button>`:esc(S.st.err?"Couldn't load this range.":"Loading…"),onScrub:(p,f)=>setStHead(p,f)});
+ drawChart(host,ser,{base:r==="1D"&&q?q.pc:undefined,fmt:v=>num(v,v>=1000?0:2),label:stName(s)+" chart",emptyHtml:need?`<span>This view needs the market data backend.</span>`:esc(S.st.rerr[s+"|"+r]||(S.st.err?"Couldn't load this range.":"Loading…")),onScrub:(p,f)=>setStHead(p,f)});
  setStHead(null);
 }
 
 /* stock pick */
 function renderPick(){
  const host=$("#pick-card");if(!host)return;const p=DATA.pick;if(!p){host.remove();return}
- const q=stkQuote(p.sym);const ser=stkSeries(p.sym,"3M")||stkSeries(p.sym,"1M");
+ const q=stkQuote(p.sym);const ser=stkSeries(p.sym,"3M")||stkSeries(p.sym,"1M");const px=q?q.price:p.close;
+ const chips=[];
+ if(p.rating)chips.push(`<span class="pchip good"><b>${esc(p.rating.label)}</b>${p.rating.buy&&p.rating.total?` · ${p.rating.buy} of ${p.rating.total} say buy`:""}</span>`);
+ if(p.target&&px)chips.push(`<span class="pchip"><b>Avg target ${usd(p.target,0)}</b> · ${pct((p.target-px)/px*100).replace(/\.\d\d%/,m=>m.slice(0,2)+"%")} upside</span>`);
+ if(p.hi52&&px)chips.push(`<span class="pchip">${px>=p.hi52*.98?"<b>At its 52-week high</b>":`<b>${Math.round((1-px/p.hi52)*100)}% below</b> its 52-week high`}</span>`);
  host.innerHTML=`<div class="pick">
-  <div class="pick-k"><span>Stock to look at</span><span>An idea to research, not advice</span></div>
-  <div class="pick-h"><span class="tkr">${esc(p.sym)}</span><div style="min-width:0"><b>${esc(p.name)}</b><span>${esc(p.sector)}</span></div><div class="pick-px"><b class="num">${q?usd(q.price,2):"—"}</b><div class="num ${q&&q.pct>=0?"up":"down"}" style="font-size:13.5px;font-weight:600">${q?pct(q.pct):""}</div></div></div>
+  <div class="pick-k"><span>Stock to look at</span><span>A research idea, not advice</span></div>
+  <div class="pick-h"><span class="tkr">${esc(p.sym)}</span><div style="min-width:0"><b>${esc(p.name)}</b><span>${esc(p.theme||p.sector||"")}</span></div><div class="pick-px"><b class="num">${q?usd(q.price,2):"—"}</b><div class="num ${q&&q.pct>=0?"up":"down"}" style="font-size:13.5px;font-weight:600">${q?pct(q.pct):""}</div></div></div>
   <div class="chart" id="pick-chart"></div>
-  <dl><div><dt>Why look now</dt><dd>${esc(p.why)}</dd></div>${p.offHigh?`<div><dt>Where it sits</dt><dd>${esc(p.offHigh)}.</dd></div>`:""}<div><dt>The risk</dt><dd>${esc(p.risk)}</dd></div><div><dt>What to watch</dt><dd>${esc(p.watch)}</dd></div></dl>
-  <div class="acts"><a class="btn pri press" href="https://robinhood.com/us/en/stocks/${encodeURIComponent(p.sym)}/" target="_blank" rel="noopener"><span class="rh">${I.rh}</span>Open in Robinhood</a>${askBtn(`Give me the bull case and the bear case for ${p.name} (${p.sym}) at about ${usd(q?q.price:p.close,2)}. Context: ${p.why} Risks: ${p.risk}`,"Ask Claude","btn")}</div>
+  ${chips.length?`<div class="pchips">${chips.join("")}</div>`:""}
+  <dl><div><dt>What they do</dt><dd>${esc(p.what||"")}</dd></div><div><dt>Why it's a buy idea</dt><dd>${esc(p.why)}</dd></div></dl>
+  ${p.risk?`<p class="pick-risk"><b>Main risk:</b> ${esc(p.risk)}</p>`:""}
+  <div class="acts"><a class="btn pri press" data-rh="${esc(p.sym)}" href="https://robinhood.com/us/en/stocks/${encodeURIComponent(p.sym)}/" target="_blank" rel="noopener"><span class="rh">${I.rh}</span>Open in Robinhood</a>${askBtn(`Give me the bull case and the bear case for ${p.name} (${p.sym}) at about ${usd(px,2)}. What they do: ${p.what||""} Why analysts like it: ${p.why}`,"Ask Claude","btn")}</div>
  </div>`;
  requestAnimationFrame(()=>{const h=$("#pick-chart");if(h)drawChart(h,ser,{fmt:v=>usd(v,2),label:p.name+" chart",onScrub:()=>{}})});
 }
@@ -1181,53 +1232,73 @@ function toggleSave(id,url){let sv=savedNews();const i=sv.findIndex(n=>n.id===id
    WATCH (YouTube)
    ================================================================= */
 const ytKey=()=>LS.get("sd-yt-key","")||CONFIG.youtube.apiKey||"";
-function vidCard(v){
- const dur=v.secs?clock(v.secs):v.dur||"";
- const th=v.thumb||(v.id?`https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`:"");
- const thumb=th?`<img src="${esc(th)}" alt="" loading="lazy" data-vid="${esc(v.id||"")}">`:`<div class="ph" style="--c1:${v.c1||"#3A3F4A"};--c2:${v.c2||"#121317"}"><span class="ph-yt">${I.yt}</span><strong>${esc(v.channel)}</strong><small>New upload</small></div>`;
- const ava=v.avatar?`<img class="ava" src="${esc(v.avatar)}" alt="">`:`<span class="ava">${esc(v.channel.replace(/[^A-Za-z0-9]/g,"").slice(0,2).toUpperCase())}</span>`;
- const meta=[ago(v.published),v.views?compactViews(v.views):""].filter(Boolean).join(", ");
- return`<a class="vid press" href="${esc(v.url)}" target="_blank" rel="noopener"><div class="vid-th">${thumb}${dur?`<span class="dur num">${esc(dur)}</span>`:""}</div><div class="vid-b"><div class="vid-ch">${ava}<b>${esc(v.channel)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp2">${esc(v.title)}</h3>${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:""}</div></a>`;
-}
 const compactViews=n=>n>=1e6?(n/1e6).toFixed(n>=1e7?0:1)+"M views":n>=1e3?Math.round(n/1e3)+"K views":n+" views";
-function inList(k,v){return lists()[k].some(x=>String(x).toLowerCase()===String(v).toLowerCase())}
-function discRow(d,kind){
- const yt=kind==="yt";const href=d.url;const key=yt?"channels":"podcasts";const val=yt?d.handle:d.show;const following=val&&inList(key,val);
- const th=yt?`<div class="dsc-th"><img src="https://i.ytimg.com/vi/${esc(d.id)}/mqdefault.jpg" alt="" loading="lazy">${d.dur?`<span class="dur">${esc(d.dur)}</span>`:""}</div>`:`<div class="dsc-th sq"><img src="${esc(d.art)}" alt="" loading="lazy"></div>`;
- return`<article class="dsc">${th}<div class="dsc-x"><div class="dsc-ch">${esc(yt?d.channel:d.show)}</div><h3 class="clamp2"><a class="stretch" href="${esc(href)}" target="_blank" rel="noopener">${esc(d.title)}</a></h3>${d.because?`<div class="bec">${I.spark}<span>${esc(d.because)}</span></div>`:""}<div class="dsc-acts">${val?`<button class="mini press ${following?"on":""}" data-follow="${key}" data-v="${esc(val)}">${following?I.check+"Following":I.plus+"Follow"}</button>`:""}<span class="mini" style="background:none;padding:0 4px;color:var(--ink-3)">${yt?esc(ago(d.published)):esc(durShort(d.secs))+" · "+esc(ago(d.published))}</span></div></div></article>`;
+const norm=s=>String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,40);
+const showMatch=(show,list)=>list.some(x=>{const a=norm(x),b=norm(show);return a&&b&&(a.includes(b)||b.includes(a))});
+function inList(k,v){return k==="podcasts"?showMatch(v,lists().podcasts):lists()[k].some(x=>String(x).toLowerCase()===String(v).toLowerCase())}
+/* Watch and Listen only show things released in the last few days, newest first. */
+const ageDays=p=>{const t=toDate(p);return isNaN(t)?99:dayDiff(dayKey(t),todayKey())};
+const isFresh=p=>ageDays(p)<=CONFIG.youtube.maxAgeDays;
+const byNewest=(a,b)=>toDate(b.published)-toDate(a.published);
+function followBtn(key,val,on){return val?`<button class="mini press fol ${on?"on":""}" data-follow="${key}" data-v="${esc(val)}" aria-pressed="${on}">${on?I.check+"Following":I.plus+"Follow"}</button>`:""}
+function mediaCard(v,kind){
+ const yt=kind==="yt";
+ const sug=v.sugg?`<span class="sugg">${I.spark}New to you</span>`:"";
+ let thumb,ava,chan,meta,on,val;
+ if(yt){
+  const th=v.thumb||(v.id?`https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`:"");
+  const dur=v.secs?clock(v.secs):v.dur||"";
+  thumb=`<div class="vid-th">${th?`<img src="${esc(th)}" alt="" loading="lazy" data-vid="${esc(v.id||"")}">`:`<div class="ph" style="--c1:${v.c1||"#3A3F4A"};--c2:${v.c2||"#121317"}"><span class="ph-yt">${I.yt}</span><strong>${esc(v.channel)}</strong></div>`}${dur?`<span class="dur num">${esc(dur)}</span>`:""}${sug}</div>`;
+  ava=v.avatar?`<img class="ava" src="${esc(v.avatar)}" alt="">`:`<span class="ava">${esc(String(v.channel).replace(/[^A-Za-z0-9]/g,"").slice(0,2).toUpperCase())}</span>`;
+  chan=v.channel;meta=[ago(v.published),v.views?compactViews(v.views):""].filter(Boolean).join(" · ");
+  val=v.handle||"";on=val?inList("channels",val):!v.sugg;
+ }else{
+  thumb=`<div class="vid-th pth"><img class="bgb" src="${esc(v.art)}" alt="" loading="lazy"><img class="sq" src="${esc(v.art)}" alt="" loading="lazy">${v.secs?`<span class="dur num">${esc(durShort(v.secs))}</span>`:""}${sug}</div>`;
+  ava=`<img class="ava sqa" src="${esc(v.art)}" alt="">`;
+  chan=v.show;meta=ago(v.published);val=v.show;on=showMatch(v.show,lists().podcasts);
+ }
+ return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp3"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.sugg&&v.because?`<div class="bec">${I.spark}<span>${esc(v.because)}</span></div>`:""}${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${followBtn(yt?"channels":"podcasts",val,on)}${yt?`<span class="open-in">${I.yt}YouTube</span>`:`<span class="open-in">${I.spotify}Spotify</span>`}</div></div></article>`;
+}
+function railHTML(id,items,kind,empty){
+ if(!items.length)return`<div class="card"><div class="empty-row">${esc(empty)}</div></div>`;
+ return`<div class="rail noscroll" id="${id}">${items.map(v=>mediaCard(v,kind)).join("")}</div><div class="dots" id="${id}-dots">${items.length>1?items.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join(""):""}</div>`;
+}
+function bindRail(id){
+ const rail=$("#"+id);if(!rail)return;
+ rail.addEventListener("scroll",()=>{const cards=rail.children;if(!cards.length)return;const w=cards[0].offsetWidth+12;const i=Math.round(rail.scrollLeft/w);$$(`#${id}-dots i`).forEach((d,j)=>d.classList.toggle("on",j===i))},{passive:true});
+ $$("img[data-vid]",rail).forEach(img=>{const fix=()=>{if(img.dataset.fb||!img.dataset.vid)return;img.dataset.fb=1;img.src=`https://i.ytimg.com/vi/${img.dataset.vid}/hqdefault.jpg`};img.addEventListener("error",fix);img.addEventListener("load",()=>{if(img.naturalWidth&&img.naturalWidth<200)fix()})});
+}
+const ytSugg=()=>(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.handle&&!inList("channels",d.handle));
+function ytItems(){
+ const live=S.yt.source==="live"&&S.yt.items;
+ const items=live?S.yt.items:[...(DATA.youtube||[]),...(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.id&&d.title).map(d=>({...d,sugg:true}))];
+ return items.filter(v=>isFresh(v.published)).sort(byNewest);
 }
 function renderWatch(){
- const el=$("#s-watch");const items=S.yt.items&&S.yt.items.length?S.yt.items:DATA.youtube;
- const disc=DATA.discover&&DATA.discover.youtube||[];
- el.innerHTML=`<div class="sh"><h2><span class="h-ic yt">${I.yt}</span>Watch</h2><span class="aux">${items.length} new</span></div>
- <div class="rail noscroll" id="yt-rail">${items.map(vidCard).join("")}</div>
- <div class="dots" id="yt-dots">${items.length>1?items.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join(""):""}</div>
- ${S.yt.error&&!S.yt.items?`<p class="foot-note" style="text-align:center">YouTube didn't respond (${esc(S.yt.error)}). Showing this morning's picks.</p>`:""}
- ${disc.length?`<div class="sub-h">New to you<span>Picked from what you watch</span></div><div class="card">${disc.map(d=>discRow(d,"yt")).join("")}</div>`:""}`;
- const rail=$("#yt-rail");
- rail.addEventListener("scroll",()=>{const cards=rail.children;if(!cards.length)return;const w=cards[0].offsetWidth+12;const i=Math.round(rail.scrollLeft/w);$$("#yt-dots i").forEach((d,j)=>d.classList.toggle("on",j===i))},{passive:true});
- $$("img[data-vid]",rail).forEach(img=>{const fix=()=>{if(img.dataset.fb)return;img.dataset.fb=1;img.src=`https://i.ytimg.com/vi/${img.dataset.vid}/hqdefault.jpg`};img.addEventListener("error",fix);img.addEventListener("load",()=>{if(img.naturalWidth&&img.naturalWidth<200)fix()})});
+ const el=$("#s-watch");const items=ytItems();
+ el.innerHTML=`<div class="sh"><h2><span class="h-ic yt">${I.yt}</span>Watch</h2><button class="aux" data-act="settings-list" data-k="channels">Your channels</button></div>
+ ${railHTML("yt-rail",items,"yt",S.yt.error&&!S.yt.items?`YouTube didn't respond (${S.yt.error}).`:"Nothing new from your channels in the last 3 days.")}`;
+ bindRail("yt-rail");
 }
 async function yt(path,params){const u=new URL("https://www.googleapis.com/youtube/v3/"+path);Object.entries({...params,key:ytKey()}).forEach(([k,v])=>u.searchParams.set(k,v));const r=await fetch(u);const j=await r.json();if(j.error)throw new Error((j.error.errors&&j.error.errors[0]&&j.error.errors[0].reason)||j.error.message||"error");return j}
 async function ytChannel(handle){const ck="sd-ytc-"+handle.toLowerCase();const c=LS.get(ck,null);if(c&&c.id)return c;const j=await yt("channels",{part:"snippet,contentDetails",forHandle:handle});const it=j.items&&j.items[0];if(!it)throw new Error("not found");const v={id:it.id,title:it.snippet.title,avatar:(it.snippet.thumbnails&&(it.snippet.thumbnails.default||{}).url)||"",uploads:it.contentDetails.relatedPlaylists.uploads};LS.set(ck,v);return v}
 function pickDesc(t){if(!t)return"";const bad=/https?:|www\.|sponsor|%\s*off|\bcode\b|subscribe|merch|patreon|instagram|twitter|tiktok|discord|affiliate|follow (me|us)|#\w|^@|^[-—_=]+$/i;const s=t.split(/\n+/).map(x=>x.trim()).find(x=>x.length>24&&!bad.test(x));return s?clip(s,170):""}
-const norm=s=>String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,40);
 async function loadYouTube(force){
  if(!ytKey())return;
- const chs=lists().channels;const sig=chs.join(",").toLowerCase();const cache=LS.get("sd-yt-cache",null);
+ const chs=lists().channels,sg=ytSugg();
+ const sig=(chs.join(",")+"|"+sg.map(d=>d.handle).join(",")+"|v3").toLowerCase();const cache=LS.get("sd-yt-cache",null);
  if(cache&&cache.sig===sig){S.yt={items:cache.items,source:"live",updated:cache.t,error:""};renderWatch();if(!force&&Date.now()-cache.t<CONFIG.youtube.cacheMinutes*6e4)return}
  try{
-  const chans=(await Promise.all(chs.map(h=>ytChannel(h).catch(()=>null)))).filter(Boolean);
-  if(!chans.length)throw new Error("no channels found");
-  const lists_=await Promise.all(chans.map(async ch=>{let j;try{j=await yt("playlistItems",{part:"contentDetails",maxResults:"6",playlistId:"UULF"+ch.id.slice(2)})}catch(e){j=await yt("playlistItems",{part:"contentDetails",maxResults:"8",playlistId:ch.uploads})}return(j.items||[]).map(i=>({vid:i.contentDetails.videoId,ch}))}));
-  const flat=lists_.flat();if(!flat.length)throw new Error("no uploads");
-  const vj=await yt("videos",{part:"snippet,contentDetails,statistics",id:flat.map(f=>f.vid).join(",")});
-  const by={};(vj.items||[]).forEach(v=>by[v.id]=v);
-  const curated={};DATA.youtube.forEach(v=>{if(v.id)curated[v.id]=v.desc;curated["t"+norm(v.title)]=v.desc});
-  let all=flat.map(f=>{const v=by[f.vid];if(!v)return null;const secs=isoSecs(v.contentDetails.duration);if(secs<90)return null;const th=v.snippet.thumbnails||{};return{id:f.vid,channel:f.ch.title,avatar:f.ch.avatar,title:v.snippet.title,desc:curated[f.vid]||curated["t"+norm(v.snippet.title)]||pickDesc(v.snippet.description),published:v.snippet.publishedAt,secs,views:+((v.statistics||{}).viewCount)||0,thumb:(th.maxres||th.standard||th.high||th.medium||{}).url||"",url:"https://www.youtube.com/watch?v="+f.vid}}).filter(Boolean).sort((a,b)=>Date.parse(b.published)-Date.parse(a.published));
-  const cutoff=Date.now()-CONFIG.youtube.maxAgeDays*864e5,per={};
-  let items=all.filter(x=>Date.parse(x.published)>=cutoff).filter(x=>(per[x.channel]=(per[x.channel]||0)+1)<=CONFIG.youtube.perChannel);
-  if(!items.length)items=all.slice(0,4);
+  const fol=(await Promise.all(chs.map(h=>ytChannel(h).then(c=>({...c,handle:h})).catch(()=>null)))).filter(Boolean);
+  const sug=(await Promise.all(sg.map(d=>ytChannel(d.handle).then(c=>({...c,handle:d.handle,because:d.because,sugg:true})).catch(()=>null)))).filter(Boolean);
+  const chans=fol.concat(sug);if(!chans.length)throw new Error("no channels found");
+  const lsts=await Promise.all(chans.map(async ch=>{let j;try{j=await yt("playlistItems",{part:"contentDetails",maxResults:ch.sugg?"4":"6",playlistId:"UULF"+ch.id.slice(2)})}catch(e){try{j=await yt("playlistItems",{part:"contentDetails",maxResults:"6",playlistId:ch.uploads})}catch(e2){j={items:[]}}}return(j.items||[]).map(i=>({vid:i.contentDetails.videoId,ch}))}));
+  const flat=lsts.flat();const by={};
+  for(let i=0;i<flat.length;i+=50){const vj=await yt("videos",{part:"snippet,contentDetails,statistics",id:flat.slice(i,i+50).map(f=>f.vid).join(",")});(vj.items||[]).forEach(v=>by[v.id]=v)}
+  const curated={};(DATA.youtube||[]).concat(DATA.discover&&DATA.discover.youtube||[]).forEach(v=>{if(v.id&&v.desc)curated[v.id]=v.desc});
+  const all=flat.map(f=>{const v=by[f.vid];if(!v)return null;const secs=isoSecs(v.contentDetails.duration);if(secs<90)return null;const th=v.snippet.thumbnails||{};return{id:f.vid,channel:f.ch.title,handle:f.ch.handle,avatar:f.ch.avatar,sugg:!!f.ch.sugg,because:f.ch.because||"",title:v.snippet.title,desc:curated[f.vid]||pickDesc(v.snippet.description),published:v.snippet.publishedAt,secs,views:+((v.statistics||{}).viewCount)||0,thumb:(th.maxres||th.standard||th.high||th.medium||{}).url||"",url:"https://www.youtube.com/watch?v="+f.vid}}).filter(Boolean).filter(x=>isFresh(x.published)).sort(byNewest);
+  const per={};let nSug=0;
+  const items=all.filter(x=>{const c=(per[x.handle]=(per[x.handle]||0)+1);if(x.sugg){if(c>1||nSug>=2)return false;nSug++;return true}return c<=CONFIG.youtube.perChannel});
   S.yt={items,source:"live",updated:Date.now(),error:""};LS.set("sd-yt-cache",{t:Date.now(),sig,items});
  }catch(e){S.yt.error=String(e.message||e).slice(0,60);if(!S.yt.items)S.yt.source="seed"}
  renderWatch();
@@ -1236,20 +1307,17 @@ async function loadYouTube(force){
 /* =================================================================
    LISTEN (Spotify; exact episode links from the morning run)
    ================================================================= */
-const cleanTitle=t=>String(t||"").replace(/\s*\|\s*(MOONSHOTS[^|]*)$/i,"").replace(/\s*[|\-–]\s*(EP\s*)?#\d+\s*(\|.*)?$/i,"").replace(/\s*#\d+\s*$/,"").trim();
-const showMatch=(show,list)=>list.some(x=>{const a=norm(x),b=norm(show);return a&&b&&(a.includes(b)||b.includes(a))});
+function spItems(){
+ const pl=lists().podcasts;
+ const fol=(DATA.spotify||[]).filter(p=>showMatch(p.show,pl));
+ const sug=(DATA.discover&&DATA.discover.spotify||[]).filter(p=>!showMatch(p.show,pl)).map(p=>({...p,sugg:true}));
+ return fol.concat(sug).filter(p=>isFresh(p.published)).sort(byNewest);
+}
 function renderListen(){
- const el=$("#s-listen");const maxAge=CONFIG.podcastMaxAgeDays;const tk=todayKey();const pl=lists().podcasts;
- const items=(DATA.spotify||[]).filter(p=>showMatch(p.show,pl)&&dayDiff(dayKey(toDate(p.published)),tk)<=maxAge).sort((a,b)=>toDate(b.published)-toDate(a.published));
- const disc=DATA.discover&&DATA.discover.spotify||[];
- const total=items.reduce((a,p)=>a+(p.secs||0),0);
- el.innerHTML=`<div class="sh"><h2><span class="h-ic">${I.spotify}</span>Listen</h2><span class="aux">${items.length?`${items.length} new · ${esc(durText(total))}`:"Last 3 days"}</span></div>
- <div class="card">${items.length?items.map(p=>`<article class="pod">
-  <img class="cv" src="${esc(p.art)}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
-  <div class="pod-x"><div class="pod-show">${esc(p.show)}</div><h3 class="clamp2"><a class="stretch" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(cleanTitle(p.title))}</a></h3>${p.desc?`<p class="clamp2">${esc(p.desc)}</p>`:""}
-  <div class="pod-meta"><span class="sp">${I.spotify}Play</span><span class="num">${esc(durShort(p.secs))}</span><span>${esc(ago(p.published))}</span></div></div>
- </article>`).join(""):`<div class="pod"><p style="margin:0">Nothing new from your shows in the last ${maxAge} days.</p></div>`}</div>
- ${disc.length?`<div class="sub-h">New to you<span>Shows you don't follow yet</span></div><div class="card">${disc.map(d=>discRow(d,"sp")).join("")}</div>`:""}`;
+ const el=$("#s-listen");const items=spItems();
+ el.innerHTML=`<div class="sh"><h2><span class="h-ic">${I.spotify}</span>Listen</h2><button class="aux" data-act="settings-list" data-k="podcasts">Your podcasts</button></div>
+ ${railHTML("sp-rail",items,"sp","Nothing new from your shows in the last 3 days.")}`;
+ bindRail("sp-rail");
 }
 
 /* =================================================================
@@ -1373,7 +1441,7 @@ function addToList(k,v){v=normItem(k,v);if(!v)return false;const l=lists()[k].sl
 function removeFromList(k,v){setList(k,lists()[k].filter(x=>x!==v));listsChanged([k])}
 function listsChanged(keys){
  if(keys.includes("channels")){LS.del("sd-yt-cache");loadYouTube(true);renderWatch()}
- if(keys.includes("podcasts")){renderListen();renderWatch()}
+ if(keys.includes("podcasts"))renderListen();
  if(keys.includes("stocks")){S.st.sel=0;renderStocks();loadStQuotes()}
  if(keys.includes("crypto")){if(!cxList().includes(S.cx.sel))S.cx.sel=cxList()[0]||"BTC";stopWs();renderCrypto();loadCx().then(startWs)}
  if(keys.includes("artists"))renderWeekend();
@@ -1391,6 +1459,7 @@ document.addEventListener("click",async e=>{
  const a=t.closest("[data-act]");
  if(a){const act=a.dataset.act;
   if(act==="settings"){openSheet(settingsHTML());return}
+  if(act==="settings-list"){const k=a.dataset.k;openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-"+k);if(el)el.scrollIntoView({block:"start"})});return}
   if(act==="settings-artists"){openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-artists");if(el)el.scrollIntoView({block:"center"})});return}
   if(act==="close-sheet"){closeSheet();return}
   if(act==="review"){S.review={kind:"v",order:null};openSheet(reviewHTML());bindDeck();return}
@@ -1404,15 +1473,19 @@ document.addEventListener("click",async e=>{
   if(act==="be-save"){const v=($("#be-url").value||"").trim();if(!/^https:\/\/script\.google(usercontent)?\.com\//.test(v)){toast("That doesn't look like an Apps Script link");return}LS.set("sd-backend",v);S.st.err="";S.sync={state:"",at:0};refreshSettings();toast("Connecting…");try{await be({fn:"ping"});toast("Backend connected")}catch(err){S.st.err=err.message;toast("Couldn't reach it: "+err.message)}await Promise.all([loadStQuotes(),syncDown()]);loadStSeries(stList()[S.st.sel],S.st.range).then(drawSt).catch(()=>{});refreshSettings();return}
   if(act==="be-clear"){LS.del("sd-backend");S.st.q={};S.st.series={};S.st.err="";S.st.at=0;S.sync={state:"",at:0};renderStocks();renderPick();refreshSettings();toast("Backend removed");return}
  }
+ const rh=t.closest("[data-rh]");if(rh&&(/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1))){e.preventDefault();const web=rh.href;let left=false;const off=()=>{if(document.hidden)left=true};document.addEventListener("visibilitychange",off);location.href="robinhood://instrument/?symbol="+encodeURIComponent(rh.dataset.rh);setTimeout(()=>{document.removeEventListener("visibilitychange",off);if(!left&&!document.hidden)window.open(web,"_blank")},1600);return}
  const la=t.closest("[data-list-add]");if(la){const k=la.dataset.listAdd;const inp=$("#li-"+k);const ok=addToList(k,inp&&inp.value);if(ok)toast("Added");else if(inp&&inp.value)toast("Already on the list");return}
  const ld=t.closest("[data-list-del]");if(ld){removeFromList(ld.dataset.listDel,ld.dataset.v);return}
- const fo=t.closest("[data-follow]");if(fo){e.preventDefault();const k=fo.dataset.follow,v=fo.dataset.v;if(inList(k,v)){removeFromList(k,lists()[k].find(x=>x.toLowerCase()===v.toLowerCase()));toast("Removed "+v)}else{addToList(k,v);toast(`Added ${v} to your ${k==="channels"?"channels":"podcasts"}`)}renderWatch();renderListen();return}
+ const fo=t.closest("[data-follow]");if(fo){e.preventDefault();e.stopPropagation();const k=fo.dataset.follow,v=fo.dataset.v;const was=fo.classList.contains("on");
+  if(was){const cur=lists()[k];const hit=k==="podcasts"?cur.find(x=>showMatch(v,[x])):cur.find(x=>x.toLowerCase()===v.toLowerCase());if(hit)setList(k,cur.filter(x=>x!==hit));toast("Unfollowed "+v)}
+  else{const nv=normItem(k,v);if(!inList(k,nv))setList(k,lists()[k].concat([nv]));toast("Following "+v)}
+  if(k==="channels")LS.del("sd-yt-cache");
+  $$(`[data-follow="${k}"]`).forEach(b=>{if(b.dataset.v.toLowerCase()!==v.toLowerCase())return;b.classList.toggle("on",!was);b.setAttribute("aria-pressed",!was);b.innerHTML=!was?I.check+"Following":I.plus+"Follow"});refreshSettings();return}
  const th=t.closest("[data-theme-set]");if(th){LS.set("sd-theme",th.dataset.themeSet);applyTheme();$$("[data-theme-set]").forEach(b=>b.classList.toggle("on",b===th));redrawCharts();renderHero();return}
  const rv=t.closest("[data-rev]");if(rv){S.review={kind:rv.dataset.rev,order:null};$("#sheet-p").innerHTML=`<div class="grab"></div>`+reviewHTML();bindDeck();return}
- const cr=t.closest("[data-cx-range]");if(cr){S.cx.range=cr.dataset.cxRange;LS.set("sd-cx-range",S.cx.range);renderCrypto();try{await loadCxSeries(S.cx.sel,S.cx.range);S.cx.err=false}catch(err){S.cx.err=true}if(["1M","3M","1Y"].includes(S.cx.range))await loadCxDaily(S.cx.sel).catch(()=>{});renderCrypto();return}
+ const cr=t.closest("[data-cx-range]");if(cr){S.cx.range=cr.dataset.cxRange;LS.set("sd-cx-range",S.cx.range);S.cx.err=false;renderCrypto();try{await loadCxSeries(S.cx.sel,S.cx.range);S.cx.err=false}catch(err){S.cx.err=err.message==="needs-backend"?"needs-backend":true}renderCrypto();return}
  const cp=t.closest("[data-cx-pick]");if(cp&&S.cx.sel!==cp.dataset.cxPick){S.cx.sel=cp.dataset.cxPick;renderCrypto()}
- const cx=t.closest("[data-cx]");if(cx){S.cx.sel=cx.dataset.cx;LS.set("sd-cx-sel",S.cx.sel);renderCrypto();try{await loadCxSeries(S.cx.sel,S.cx.range);S.cx.err=false}catch(err){S.cx.err=true}renderCrypto();loadCxDaily(S.cx.sel).then(()=>renderCrypto()).catch(()=>{});return}
- const mb=t.closest("[data-ma]");if(mb){const k=mb.dataset.ma;S.cx.ma[k]=!S.cx.ma[k];LS.set("sd-ma",S.cx.ma);mb.classList.toggle("on",S.cx.ma[k]);mb.setAttribute("aria-pressed",S.cx.ma[k]);drawCx();return}
+ const cx=t.closest("[data-cx]");if(cx){S.cx.sel=cx.dataset.cx;LS.set("sd-cx-sel",S.cx.sel);renderCrypto();try{await loadCxSeries(S.cx.sel,S.cx.range);S.cx.err=false}catch(err){S.cx.err=err.message==="needs-backend"?"needs-backend":true}renderCrypto();loadCxDaily(S.cx.sel).then(renderSMAs).catch(()=>{});return}
  const sr=t.closest("[data-st-range]");if(sr){S.st.range=sr.dataset.stRange;LS.set("sd-st-range",S.st.range);$$("[data-st-range]").forEach(b=>{b.classList.toggle("on",b===sr);b.setAttribute("aria-selected",b===sr)});drawSt();try{await loadStSeries(stList()[S.st.sel],S.st.range)}catch(err){S.st.err=err.message}drawSt();return}
  const si=t.closest("[data-st]");if(si){S.st.sel=+si.dataset.st;renderStocks();try{await loadStSeries(stList()[S.st.sel],S.st.range)}catch(err){}drawSt();return}
  const tg=t.closest("[data-tag]");if(tg){S.news.tag=tg.dataset.tag;S.news.open=false;renderNews();return}
