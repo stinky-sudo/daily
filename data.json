@@ -1,351 +1,739 @@
 {
-  "edition": "2026-10-16",
-  "updated": "2026-10-16T22:10:00-07:00",
-  "weatherFallback": {
-    "hi": 93,
-    "lo": 56,
-    "cond": "Sunny",
-    "code": 0
-  },
-  "calendar": {
-    "summary": "Flight lands tonight. Pumpkin Festival tomorrow in Half Moon Bay.",
-    "events": [
-      {
-        "title": "✈️ Flight to San Jose (WN 3282)",
-        "start": "2026-10-16T19:05:00-07:00",
-        "end": "2026-10-16T20:15:00-07:00",
-        "loc": "Ontario ONT → San Jose SJC",
-        "url": "https://www.google.com/calendar/event?eid=NWo4YzhzcTBjczluN2YxZHJrdnRwamwzb3MgcnVkeWxhbmdlbmthbXBAbQ"
-      },
-      {
-        "title": "🎃 Half Moon Bay Pumpkin Festival",
-        "start": "2026-10-17T09:00:00-07:00",
-        "end": "2026-10-17T17:00:00-07:00",
-        "loc": "Main Street, Half Moon Bay",
-        "url": "https://www.google.com/calendar/event?eid=bzAwbjk5MGo4N2ZyajdzZzFyb3A1dW5wbmMgcnVkeWxhbmdlbmthbXBAbQ"
-      }
-    ]
-  },
-  "tip": {
-    "cat": "Focus",
-    "title": "Use the two-minute rule for small tasks",
-    "mins": "2 min",
-    "why": "Quick tasks that linger on a to-do list create mental overhead. Knocking them out immediately frees working memory.",
-    "how": [
-      "If a task takes less than two minutes, do it the moment it comes up.",
-      "For tasks that seem small but keep getting deferred, set a phone timer for two minutes and start."
-    ],
-    "src": "Getting Things Done – David Allen",
-    "url": "https://gettingthingsdone.com/what-is-gtd/",
-    "ask": "What small tasks am I putting off right now?"
-  },
-  "tipLog": [
-    "Dim the lights two hours before bed",
-    "Use the two-minute rule for small tasks"
+ "edition": "2026-10-17",
+ "updated": "2026-10-17T06:30:00-07:00",
+ "weatherFallback": {
+  "hi": 86,
+  "lo": 54,
+  "cond": "Sunny",
+  "code": 0
+ },
+ "calendar": {
+  "summary": "Pumpkin Festival in Half Moon Bay today — go early, it's going to be hot (mid-80s). Quiet Sunday. Monday is your Adventure Club anniversary, and Doja Cat at Chase Center that night.",
+  "events": [
+   {
+    "title": "🎃 Half Moon Bay Pumpkin Festival",
+    "start": "2026-10-17T09:00:00-07:00",
+    "end": "2026-10-17T17:00:00-07:00",
+    "loc": "Main Street, Half Moon Bay",
+    "url": "https://www.google.com/calendar/event?eid=bzAwbjk5MGo4N2ZyajdzZzFyb3A1dW5wbmMgcnVkeWxhbmdlbmthbXBAbQ"
+   },
+   {
+    "title": "🎉 Adventure Club Anniversary",
+    "allDay": true,
+    "date": "2026-10-19",
+    "url": "https://www.google.com/calendar/event?eid=NjBxbTRjaG42NHIzY2I5bzZjczNjYjlrYzVpM2liOW82Z3IzMmI5aTZoaDY2bzlvNjFpNjJwMzFjNF8yMDI2MTAxOSBydWR5bGFuZ2Vua2FtcEBt"
+   },
+   {
+    "title": "🎵 Doja Cat @ Chase Center",
+    "start": "2026-10-19T19:30:00-07:00",
+    "end": "2026-10-19T22:30:00-07:00",
+    "loc": "Chase Center, San Francisco",
+    "url": "https://www.google.com/calendar/event?eid=NGo1MWdnbWc0dGhybzc5NGQ5cnB1YTRwMDggcnVkeWxhbmdlbmthbXBAbQ"
+   }
+  ]
+ },
+ "tip": {
+  "cat": "Fuel",
+  "title": "Pre-hydrate before a hot day out",
+  "mins": "2 min",
+  "why": "It's heading for the mid-80s on the coast today. Starting the day already hydrated (with some salt) holds up far better than trying to catch up once you're thirsty in a crowd.",
+  "how": [
+   "Drink about 16 oz of water with a pinch of salt or an electrolyte packet before you leave.",
+   "Bring a refillable bottle and sip every 20–30 minutes while you're walking around."
   ],
-  "markets": {
-    "asOf": "2026-10-16",
-    "headline": "Tech sell-off drags Nasdaq down 2% as AI bubble fears mount.",
-    "points": [
-      "S&P Tech sector fell over 3%; CoreWeave's $50B debt pile spooked investors.",
-      "Energy led gains as oil climbed. Tesla rose after its Roadster reveal but couldn't lift the broader market.",
-      "Hotter CPI data pushed Treasury yields higher, adding pressure."
-    ],
-    "tickers": [
-      {
-        "sym": "^GSPC",
-        "name": "S&P 500",
-        "value": 7659.44,
-        "chg": -84.80,
-        "pct": -1.09,
-        "ytd": 11.89,
-        "closes": [
-          ["2026-10-12", 7807.24],
-          ["2026-10-13", 7830.15],
-          ["2026-10-14", 7790.50],
-          ["2026-10-15", 7744.06],
-          ["2026-10-16", 7659.44]
-        ]
-      },
-      {
-        "sym": "^IXIC",
-        "name": "Nasdaq",
-        "value": 26140.03,
-        "chg": -573.00,
-        "pct": -2.14,
-        "ytd": 12.45,
-        "closes": [
-          ["2026-10-12", 27245.90],
-          ["2026-10-13", 27310.05],
-          ["2026-10-14", 27050.20],
-          ["2026-10-15", 26713.03],
-          ["2026-10-16", 26140.03]
-        ]
-      },
-      {
-        "sym": "^DJI",
-        "name": "Dow Jones",
-        "value": 52002.41,
-        "chg": -175.28,
-        "pct": -0.34,
-        "ytd": 13.62,
-        "closes": [
-          ["2026-10-12", 51850.55],
-          ["2026-10-13", 51920.30],
-          ["2026-10-14", 51780.00],
-          ["2026-10-15", 52177.69],
-          ["2026-10-16", 52002.41]
-        ]
-      },
-      {
-        "sym": "^RUT",
-        "name": "Russell 2000",
-        "value": 2719.57,
-        "chg": -47.55,
-        "pct": -1.72,
-        "ytd": 5.80,
-        "closes": [
-          ["2026-10-12", 2794.48],
-          ["2026-10-13", 2810.30],
-          ["2026-10-14", 2785.10],
-          ["2026-10-15", 2767.12],
-          ["2026-10-16", 2719.57]
-        ]
-      },
-      {
-        "sym": "TSLA",
-        "name": "Tesla",
-        "value": 373.64,
-        "chg": 6.64,
-        "pct": 1.81,
-        "ytd": -16.93,
-        "closes": [
-          ["2026-10-12", 365.20],
-          ["2026-10-13", 368.50],
-          ["2026-10-14", 370.10],
-          ["2026-10-15", 367.00],
-          ["2026-10-16", 373.64]
-        ]
-      }
-    ]
-  },
-  "pick": {
-    "sym": "CRWV",
-    "name": "CoreWeave",
-    "theme": "AI cloud infrastructure and GPU-as-a-service",
-    "close": 38.50,
-    "pct": -11.82,
-    "asOf": "2026-10-16",
-    "what": "CoreWeave provides GPU cloud infrastructure purpose-built for AI workloads.",
-    "why": "Dropped nearly 12% today on debt concerns — worth watching whether the sell-off is overdone. An idea to research, not a recommendation.",
-    "risk": "Roughly $50 billion in debt. If AI spending cools, servicing that load gets very hard.",
-    "rating": {
-      "label": "Mixed",
-      "buy": 8,
-      "total": 15
-    },
-    "target": 55.00,
-    "hi52": 72.40,
+  "src": "CDC heat guidance",
+  "url": "https://www.cdc.gov/heat-health/about/index.html",
+  "ask": "I'll be outside at a crowded festival in mid-80s heat all day. How should I plan water, food and shade?"
+ },
+ "tipLog": [
+  "Dim the lights two hours before bed",
+  "Pre-hydrate before a hot day out"
+ ],
+ "markets": {
+  "asOf": "2026-10-16",
+  "headline": "Tech sell-off sank the Nasdaq 2.1% Friday as AI-spending worries mounted.",
+  "points": [
+   "The S&P tech sector fell more than 3%; CoreWeave dropped about 12% on concern over its roughly $50B in debt.",
+   "Energy was the one bright spot as oil climbed. Tesla popped premarket on its Roadster reveal but closed down 2.1%.",
+   "A hotter CPI print pushed Treasury yields higher, adding pressure."
+  ],
+  "tickers": [
+   {
+    "sym": "^GSPC",
+    "name": "S&P 500",
+    "value": 7659.44,
+    "chg": -84.41,
+    "pct": -1.09,
     "closes": [
-      ["2026-10-12", 48.20],
-      ["2026-10-13", 46.80],
-      ["2026-10-14", 45.10],
-      ["2026-10-15", 43.65],
-      ["2026-10-16", 38.50]
-    ],
-    "history": [
-      {"date": "2026-10-09", "sym": "MRVL", "price": 275.35},
-      {"date": "2026-10-16", "sym": "CRWV", "price": 38.50}
+     [
+      "2026-10-12",
+      7807.24
+     ],
+     [
+      "2026-10-15",
+      7744.06
+     ],
+     [
+      "2026-10-16",
+      7659.44
+     ]
     ]
+   },
+   {
+    "sym": "^IXIC",
+    "name": "Nasdaq",
+    "value": 26140.03,
+    "chg": -571.63,
+    "pct": -2.14,
+    "closes": [
+     [
+      "2026-10-12",
+      27245.9
+     ],
+     [
+      "2026-10-15",
+      26713.03
+     ],
+     [
+      "2026-10-16",
+      26140.03
+     ]
+    ]
+   },
+   {
+    "sym": "^DJI",
+    "name": "Dow Jones",
+    "value": 52002.41,
+    "chg": -177.41,
+    "pct": -0.34,
+    "closes": [
+     [
+      "2026-10-12",
+      51850.55
+     ],
+     [
+      "2026-10-15",
+      52177.69
+     ],
+     [
+      "2026-10-16",
+      52002.41
+     ]
+    ]
+   },
+   {
+    "sym": "^RUT",
+    "name": "Russell 2000",
+    "value": 2719.57,
+    "chg": -47.6,
+    "pct": -1.72,
+    "closes": [
+     [
+      "2026-10-12",
+      2794.48
+     ],
+     [
+      "2026-10-16",
+      2719.57
+     ]
+    ]
+   },
+   {
+    "sym": "TSLA",
+    "name": "Tesla",
+    "value": 354.72,
+    "chg": -7.72,
+    "pct": -2.13,
+    "closes": [
+     [
+      "2026-10-15",
+      362.44
+     ],
+     [
+      "2026-10-16",
+      354.72
+     ]
+    ]
+   }
+  ]
+ },
+ "pick": {
+  "sym": "CRWV",
+  "name": "CoreWeave",
+  "theme": "AI cloud infrastructure — GPUs as a service",
+  "close": 61.39,
+  "pct": -11.91,
+  "asOf": "2026-10-16",
+  "what": "CoreWeave rents out large fleets of Nvidia GPUs to AI labs and hyperscalers that need training and inference capacity.",
+  "why": "It's down about 60% from its 52-week high after Friday's 12% drop, and several analysts are calling the debt fears overdone and the sell-off a buying chance. An idea to research, not a recommendation.",
+  "risk": "Roughly $50B of debt and a few very large customers. If AI spending slows, that debt load gets hard to carry.",
+  "rating": {
+   "label": "Buy",
+   "total": 41
   },
-  "btc": {
-    "source": "Benjamin Cowen",
-    "sourceUrl": "https://beincrypto.com/benjamin-cowen-memo-q4-bitcoin-bottom/",
-    "summary": "Cowen's July memo projects a Q4 2026 Bitcoin bottom near $44,000, citing midterm-year seasonality and declining ETF holdings. MVRV Z-Score at 0.395 — wants it below zero for a durable bottom.",
-    "summaryDate": "2026-10-16"
+  "target": 140.58,
+  "hi52": 150.4,
+  "closes": [
+   [
+    "2026-10-15",
+    69.69
+   ],
+   [
+    "2026-10-16",
+    61.39
+   ]
+  ],
+  "history": [
+   {
+    "date": "2026-10-09",
+    "sym": "MRVL",
+    "price": 275.35
+   },
+   {
+    "date": "2026-10-16",
+    "sym": "CRWV",
+    "price": 61.39
+   }
+  ]
+ },
+ "btc": {
+  "source": "Benjamin Cowen",
+  "sourceUrl": "https://beincrypto.com/benjamin-cowen-memo-q4-bitcoin-bottom/",
+  "dateLabel": "Summer memo",
+  "summary": "Cowen expects the cycle bottom to land in Q4 2026, with an illustrative path toward the mid-$40Ks. He wants the MVRV Z-score below zero and two weekly closes above the 50-week average before calling a durable bottom.",
+  "summaryDate": "2026-10-16"
+ },
+ "news": [
+  {
+   "id": "n1",
+   "tag": "Markets",
+   "title": "Wall Street is lining up to defend CoreWeave after its 12% plunge",
+   "blurb": "The Nasdaq fell 2.1% Friday on AI-spending jitters, with CoreWeave's debt load at the center. Several analysts said the selloff went too far.",
+   "src": "CNBC",
+   "domain": "cnbc.com",
+   "date": "2026-10-16",
+   "url": "https://www.cnbc.com/2026/10/16/coreweave-stock-selloff-analysts.html",
+   "ask": "Is the AI infrastructure buildout getting ahead of real demand? Walk me through the CoreWeave bull and bear case."
   },
-  "news": [
-    {
-      "id": "n1",
-      "tag": "Tesla",
-      "title": "Tesla unveils flying Roadster with SpaceX cold-gas thrusters",
-      "blurb": "Musk showed the Roadster performing jumps, rolls, and a controlled landing at SpaceX's McGregor facility. Compressed air thrusters enable brief flight and hovering.",
-      "src": "TheStreet",
-      "domain": "thestreet.com",
-      "date": "2026-10-16",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026",
-      "ask": "How practical are cold-gas thrusters in a consumer vehicle?"
-    },
-    {
-      "id": "n2",
-      "tag": "Markets",
-      "title": "AI bubble fears mount as CoreWeave debt hits $50 billion",
-      "blurb": "The Nasdaq sank 2.14% as investors questioned whether AI revenue can justify massive infrastructure spending. CoreWeave, with ~$50B in debt, fell nearly 12%.",
-      "src": "TheStreet",
-      "domain": "thestreet.com",
-      "date": "2026-10-16",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026",
-      "ask": "Is the AI infrastructure buildout outpacing actual demand?"
-    },
-    {
-      "id": "n3",
-      "tag": "Robotics",
-      "title": "Humanoid robots enter real-world manufacturing deployments in 2026",
-      "blurb": "Figure AI, Tesla Optimus, and Boston Dynamics are moving humanoid robots from labs into commercial manufacturing settings.",
-      "src": "AF.NET",
-      "domain": "af.net",
-      "date": "2026-10-16",
-      "url": "https://af.net/realtime/humanoid-robots-begin-real-world-manufacturing-deployments-in-2026/",
-      "ask": "Which manufacturing tasks are humanoids actually doing right now?"
-    }
-  ],
-  "youtube": [],
-  "spotify": [],
-  "discover": {
-    "youtube": [],
-    "spotify": []
+  {
+   "id": "n2",
+   "tag": "Tesla",
+   "title": "Tesla's new Roadster hovers on SpaceX cold-gas thrusters",
+   "blurb": "Musk showed the car jumping, rolling and landing at SpaceX's McGregor test site. The stock jumped premarket but finished the day lower.",
+   "src": "TheStreet",
+   "domain": "thestreet.com",
+   "date": "2026-10-16",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026",
+   "ask": "How practical are cold-gas thrusters on a road car?"
   },
-  "discoverLog": [
-    "@matthew_berman",
-    "Huberman Lab"
-  ],
-  "bay": {
-    "range": "Oct 16–18",
-    "items": [
-      {
-        "id": "b1",
-        "title": "ScHoolboy Q – 10 Years of Blank Face LP",
-        "blurb": "ScHoolboy Q celebrates 10 years of Blank Face LP at the Fox Theater in Oakland tonight.",
-        "src": "onestowatch.com",
-        "date": "2026-10-16",
-        "dateLabel": "Fri night",
-        "url": "https://www.ticketmaster.com/schoolboy-q-10-years-of-blank-oakland-california-10-16-2026/event/1C0064FDE6DD6CF8",
-        "cal": {
-          "start": "2026-10-16T20:00",
-          "end": "2026-10-16T23:00",
-          "location": "Fox Theater, 1807 Telegraph Ave, Oakland, CA 94612",
-          "tips": "Doors at 7 PM."
-        }
-      },
-      {
-        "id": "b2",
-        "title": "Vulfpeck at Greek Theatre",
-        "blurb": "Funk favorites Vulfpeck with Jackie Evans at the Greek Theatre in Berkeley tonight.",
-        "src": "onestowatch.com",
-        "date": "2026-10-16",
-        "dateLabel": "Fri night",
-        "url": "https://www.ticketmaster.com/vulfpeck-berkeley-california-10-16-2026/event/1C006490D3AC2A3D",
-        "cal": {
-          "start": "2026-10-16T20:00",
-          "end": "2026-10-16T23:00",
-          "location": "Greek Theatre, 2001 Gayley Rd, Berkeley, CA 94720",
-          "tips": "Outdoor venue — layer up."
-        }
-      },
-      {
-        "id": "b3",
-        "title": "🎃 Half Moon Bay Pumpkin Festival",
-        "blurb": "Giant pumpkin weigh-off, live music, food, and art. 250K+ attendees — classic Bay Area fall day trip.",
-        "src": "miramarevents.com",
-        "date": "2026-10-17",
-        "dateLabel": "Sat",
-        "url": "https://www.miramarevents.com/pumpkinfest/",
-        "cal": {
-          "start": "2026-10-17T09:00",
-          "end": "2026-10-17T17:00",
-          "location": "Main Street, Half Moon Bay, CA",
-          "tips": "Free admission. Arrive early — parking fills fast. 30 min from Palo Alto."
-        }
-      },
-      {
-        "id": "b4",
-        "title": "Rush – Fifty Something at SAP Center",
-        "blurb": "Rush performs at SAP Center in San Jose on Saturday night.",
-        "src": "onestowatch.com",
-        "date": "2026-10-17",
-        "dateLabel": "Sat night",
-        "url": "https://www.ticketmaster.com/rush-fifty-something-san-jose-california-10-17-2026/event/1C006355EC78A84D",
-        "cal": {
-          "start": "2026-10-17T19:30",
-          "end": "2026-10-17T23:00",
-          "location": "SAP Center, 525 W Santa Clara St, San Jose, CA 95113",
-          "tips": "Doors 6:30 PM."
-        }
-      }
-    ],
-    "ahead": [
-      {
-        "title": "Sammy Virji with Sam Gellaitry",
-        "artist": "Sam Gellaitry",
-        "match": "list",
-        "date": "2026-11-13",
-        "url": "https://www.cowpalace.com/event/sammy-virji/",
-        "cal": {
-          "start": "2026-11-13T19:00",
-          "end": "2026-11-13T23:30",
-          "location": "Cow Palace, Daly City, CA",
-          "tips": "18+; doors 7 PM."
-        }
-      },
-      {
-        "title": "Chris Lake at Tahoe Live",
-        "artist": "Chris Lake",
-        "match": "list",
-        "date": "2026-12-11",
-        "url": "https://www.jambase.com/band/chris-lake/tour-dates",
-        "cal": {
-          "start": "2026-12-11T21:00",
-          "end": "2026-12-12T02:00",
-          "location": "Tahoe Live, Olympic Valley, CA",
-          "tips": "Not Bay Area proper, but closest CA date."
-        }
-      }
-    ],
-    "aheadNote": "No confirmed Bay Area dates found for Don Toliver, Slander, or Kanye West. Tyler's Chromakopia tour hit Oakland (Feb 24) and SF (Mar 5) — already passed."
+  {
+   "id": "n3",
+   "tag": "Movies",
+   "title": "'Street Fighter' opens to a 38% on Rotten Tomatoes",
+   "blurb": "Critics are cool on the Jason Momoa and Noah Centineo reboot, but it's still tracking for a $20–37M opening weekend.",
+   "src": "World of Reel",
+   "domain": "worldofreel.com",
+   "date": "2026-10-15",
+   "url": "https://www.worldofreel.com/blog/2026/10/15/street-fighter-kod-by-critics-with-38-on-rotten-tomatoes-45-on-metacritic-still-aims-for-a-30m-opening"
   },
-  "bayLog": [
-    "Bart Skils at Public Works",
-    "ScHoolboy Q – 10 Years of Blank Face LP",
-    "Vulfpeck at Greek Theatre",
-    "Half Moon Bay Pumpkin Festival",
-    "Rush – Fifty Something at SAP Center"
-  ],
-  "different": {
-    "title": "There's a high-pitched hum that only young people can hear",
-    "blurb": "The 'Mosquito' device emits a 17.4 kHz tone audible to most people under 25 but inaudible to most adults over 30, due to age-related hearing loss called presbycusis. It was originally designed to deter loitering teenagers — but teens repurposed the frequency as a ringtone teachers can't hear.",
-    "url": "https://en.wikipedia.org/wiki/The_Mosquito",
-    "ask": "At what age does hearing loss at 17 kHz typically become noticeable?"
-  },
-  "vocab": [
-    {
-      "date": "2026-10-16",
-      "word": "Recondite",
-      "pron": "REK-un-dyte",
-      "pos": "adjective",
-      "def": "Little known or difficult to understand; obscure.",
-      "ex": "The professor's recondite lecture on 12th-century Mongolian trade routes left half the class glazed over.",
-      "cards": [
-        {"f": "Root", "b": "Latin reconditus, hidden away"},
-        {"f": "Synonym", "b": "arcane, abstruse, esoteric"}
-      ]
-    }
-  ],
-  "spanish": [
-    {
-      "date": "2026-10-16",
-      "phrase": "Me da igual",
-      "pron": "meh dah ee-GWAHL",
-      "reg": "Universal · casual",
-      "meaning": "I don't care / It's all the same to me",
-      "note": "Neutral — not rude, just indifferent. Use when you genuinely have no preference.",
-      "cards": [
-        {"es": "No me importa", "en": "I don't mind"},
-        {"es": "Como quieras", "en": "Whatever you want"}
-      ]
-    }
-  ],
-  "learnLog": {
-    "words": ["Peripatetic", "Recondite"],
-    "phrases": ["¡Aguas!", "Me da igual"]
+  {
+   "id": "n4",
+   "tag": "Robotics",
+   "title": "Humanoid robots are moving from pilots into real factory work",
+   "blurb": "A roundup of where Figure, Tesla Optimus and Boston Dynamics are deploying humanoids on production lines this year.",
+   "src": "AF.NET",
+   "domain": "af.net",
+   "date": "2026-10-16",
+   "url": "https://af.net/realtime/humanoid-robots-begin-real-world-manufacturing-deployments-in-2026/",
+   "ask": "Which manufacturing tasks are humanoids actually doing in production right now?"
   }
+ ],
+ "youtube": [],
+ "spotify": [
+  {
+   "show": "Modern Wisdom",
+   "title": "Father Of Quantum Computing: How To Think Like A Genius - David Deutsch - #1164",
+   "desc": "Chris Williamson talks with physicist David Deutsch.",
+   "published": "2026-10-17",
+   "secs": 4296,
+   "url": "https://open.spotify.com/episode/69Jw755pM1muaAOBSUa0ni"
+  },
+  {
+   "show": "The Diary Of A CEO with Steven Bartlett",
+   "title": "Most Replayed Moment: Christian vs Atheist - Is Faith A Human Creation?",
+   "desc": "",
+   "published": "2026-10-16",
+   "secs": 1730,
+   "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
+   "url": "https://open.spotify.com/episode/6oZNCcg2aLDawlq8q54xv5"
+  },
+  {
+   "show": "Modern Wisdom",
+   "title": "9 Harsh Truths No One Wants To Admit - Shaan Puri - #1163",
+   "desc": "",
+   "published": "2026-10-15",
+   "secs": 5892,
+   "url": "https://open.spotify.com/episode/26dN2RxBO27iMZKRR7KOVa"
+  },
+  {
+   "show": "The Diary Of A CEO with Steven Bartlett",
+   "title": "Phone Addiction Scientist: Doing This Gives You An Hour Back Every Day! | Dr Sahar Yousef",
+   "desc": "",
+   "published": "2026-10-15",
+   "secs": 8032,
+   "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
+   "url": "https://open.spotify.com/episode/53uMEodXNOGRNrNFiBF7dR"
+  },
+  {
+   "show": "Moonshots with Peter Diamandis",
+   "title": "OpenAI Bulk-Solves 722 Math Problems, Anthropic's Cruelty Policy, and Elon's Quadrillion-Dollar SpaceX | EP #302",
+   "desc": "",
+   "published": "2026-10-15",
+   "secs": 7197,
+   "url": "https://open.spotify.com/episode/1KULS18PboRuRfgz4lRX0J"
+  },
+  {
+   "show": "Huberman Lab",
+   "title": "Essentials: Neuralink & Technologies to Enhance Human Brains | Dr. Matt MacDougall",
+   "desc": "",
+   "published": "2026-10-15",
+   "secs": 2046,
+   "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
+   "url": "https://open.spotify.com/episode/2dU4eSIyzyN4HaRLG4yiCc"
+  }
+ ],
+ "discover": {
+  "youtube": [],
+  "spotify": []
+ },
+ "discoverLog": [
+  "@matthew_berman",
+  "Huberman Lab"
+ ],
+ "bay": {
+  "range": "Oct 17–18",
+  "items": [
+   {
+    "id": "b1",
+    "title": "Half Moon Bay Art & Pumpkin Festival",
+    "where": "Main Street, Half Moon Bay",
+    "blurb": "Giant pumpkin weigh-off, live music, food and art along Main Street. Huge crowds — 250K+ over the weekend.",
+    "date": "2026-10-17",
+    "endDate": "2026-10-18",
+    "free": true,
+    "url": "https://pumpkinfest.miramarevents.com/",
+    "cal": {
+     "start": "2026-10-17T09:00",
+     "end": "2026-10-17T17:00",
+     "location": "Main Street, Half Moon Bay, CA",
+     "tips": "Hwy 92 backs up badly — leave before 9, or park at the coastside shuttle lots."
+    }
+   },
+   {
+    "id": "b2",
+    "title": "WNBA Finals Game 1: Dream at Valkyries",
+    "where": "Chase Center, San Francisco",
+    "blurb": "The Valkyries host Atlanta to open the Finals.",
+    "date": "2026-10-17",
+    "url": "https://www.chasecenter.com/events",
+    "tickets": "https://www.ticketmaster.com/search?q=Golden%20State%20Valkyries",
+    "cal": {
+     "start": "2026-10-17T12:30",
+     "end": "2026-10-17T15:00",
+     "location": "Chase Center, 1 Warriors Way, San Francisco, CA",
+     "tips": "12:30 PM tip-off. Muni T line drops you right at the arena."
+    }
+   },
+   {
+    "id": "b3",
+    "title": "Bay Area Science Festival Discovery Day",
+    "where": "UCSF Mission Bay, San Francisco",
+    "blurb": "Hands-on science exhibits, demos and talks — free and outdoors.",
+    "date": "2026-10-17",
+    "free": true,
+    "url": "https://www.google.com/search?q=Bay+Area+Science+Festival+Discovery+Day+2026",
+    "cal": {
+     "start": "2026-10-17T11:00",
+     "end": "2026-10-17T16:00",
+     "location": "UCSF Mission Bay, San Francisco, CA",
+     "tips": "Free, 11 AM–4 PM."
+    }
+   },
+   {
+    "id": "b4",
+    "title": "Epik High — 3.0 North American Tour",
+    "where": "Fox Theater, Oakland",
+    "blurb": "The Korean hip-hop trio brings its 3.0 tour to the Fox.",
+    "date": "2026-10-18",
+    "url": "https://www.ticketmaster.com/epik-high-30-north-american-tour-oakland-california-10-18-2026/event/1C0064C32FD1C9C5",
+    "cal": {
+     "start": "2026-10-18T19:30",
+     "end": "2026-10-18T22:30",
+     "location": "Fox Theater, 1807 Telegraph Ave, Oakland, CA",
+     "tips": "Doors 6:30 PM."
+    }
+   },
+   {
+    "id": "b5",
+    "title": "Dinosaur Jr. at the Castro Theatre",
+    "where": "Castro Theatre, San Francisco",
+    "blurb": "J Mascis and co. on their fall tour, with Stef Chura opening, in the restored Castro.",
+    "date": "2026-10-18",
+    "url": "https://www.ticketmaster.com/dinosaur-jr-fall-tour-2026-with-san-francisco-california-10-18-2026/event/1C0064DAEB6D2C42",
+    "cal": {
+     "start": "2026-10-18T19:00",
+     "end": "2026-10-18T22:30",
+     "location": "Castro Theatre, 429 Castro St, San Francisco, CA",
+     "tips": "Loud — bring earplugs."
+    }
+   }
+  ]
+ },
+ "bayLog": [
+  "Bart Skils at Public Works",
+  "ScHoolboy Q – 10 Years of Blank Face LP",
+  "Vulfpeck at Greek Theatre",
+  "Half Moon Bay Pumpkin Festival",
+  "Rush – Fifty Something at SAP Center",
+  "WNBA Finals Game 1",
+  "Bay Area Science Festival",
+  "Epik High",
+  "Dinosaur Jr."
+ ],
+ "shows": {
+  "note": "No Bay Area dates right now for Don Toliver, Slander or Kanye West.",
+  "items": [
+   {
+    "artist": "Sam Gellaitry",
+    "title": "Sammy Virji with Sam Gellaitry",
+    "date": "2026-11-13",
+    "time": "19:00",
+    "venue": "Cow Palace",
+    "city": "Daly City",
+    "match": "list",
+    "url": "https://www.cowpalace.com/event/sammy-virji/",
+    "cal": {
+     "start": "2026-11-13T19:00",
+     "end": "2026-11-13T23:30",
+     "location": "Cow Palace, Daly City, CA",
+     "tips": "18+; doors 7 PM."
+    }
+   },
+   {
+    "artist": "Tyler, The Creator",
+    "artists": [
+     "Tyler, The Creator",
+     "Don Toliver"
+    ],
+    "title": "Camp Flog Gnaw Carnival",
+    "date": "2026-11-14",
+    "venue": "Dodger Stadium",
+    "city": "Los Angeles",
+    "match": "list",
+    "trip": true,
+    "soldOut": true,
+    "why": "Tyler headlines his own festival, with Don Toliver near the top of the bill — two of your artists in one weekend. Tyler's only U.S. show this year.",
+    "price": "Sold out — waitlist open",
+    "url": "https://campfloggnaw.com/",
+    "cal": {
+     "date": "2026-11-14",
+     "tips": "Runs Nov 14–15."
+    }
+   },
+   {
+    "artist": "Chris Lake",
+    "title": "Chris Lake at Tahoe Live",
+    "date": "2026-12-11",
+    "time": "21:00",
+    "venue": "Tahoe Live",
+    "city": "Olympic Valley",
+    "match": "list",
+    "trip": true,
+    "url": "https://www.jambase.com/band/chris-lake/tour-dates",
+    "cal": {
+     "start": "2026-12-11T21:00",
+     "end": "2026-12-12T01:00",
+     "location": "Olympic Valley, CA",
+     "tips": "Closest Chris Lake date — about 3.5 hrs from the Bay."
+    }
+   },
+   {
+    "artist": "Dom Dolla",
+    "title": "Dom Dolla & Disclosure",
+    "date": "2026-10-17",
+    "time": "20:00",
+    "venue": "Pier 48, Shed A",
+    "city": "San Francisco",
+    "match": "like",
+    "like": "Chris Lake",
+    "why": "Big tech-house night on the waterfront — same lane as Chris Lake.",
+    "price": "Resale from ~$180",
+    "url": "https://www.eventworld.com/dom-dolla-and-disclosure-san-francisco-tickets-10-17-2026/event/583055",
+    "cal": {
+     "start": "2026-10-17T20:00",
+     "end": "2026-10-18T01:00",
+     "location": "Pier 48, San Francisco, CA",
+     "tips": "Doors 8 PM."
+    }
+   },
+   {
+    "artist": "Virtual Riot",
+    "title": "Virtual Riot",
+    "date": "2026-12-12",
+    "venue": "San Jose Civic",
+    "city": "San Jose",
+    "match": "like",
+    "like": "Slander",
+    "url": "https://www.jambase.com/show/virtual-riot-san-jose-civic-20261212",
+    "cal": {
+     "date": "2026-12-12"
+    }
+   },
+   {
+    "artist": "SVDDEN DEATH",
+    "title": "SVDDEN DEATH",
+    "date": "2026-12-12",
+    "venue": "The Midway",
+    "city": "San Francisco",
+    "match": "like",
+    "like": "Slander",
+    "url": "https://www.jambase.com/show/svdden-death-the-midway-20261212",
+    "cal": {
+     "date": "2026-12-12"
+    }
+   },
+   {
+    "artist": "Illenium",
+    "title": "Illenium — two nights",
+    "date": "2026-12-30",
+    "venue": "Bill Graham Civic Auditorium",
+    "city": "San Francisco",
+    "match": "like",
+    "like": "Slander",
+    "why": "Dec 30 and New Year's Eve. Melodic bass, very close to Slander's sound.",
+    "url": "https://www.jambase.com/show/illenium-bill-graham-civic-auditorium-20261230",
+    "cal": {
+     "date": "2026-12-30",
+     "tips": "Also NYE, Dec 31."
+    }
+   },
+   {
+    "artist": "RÜFÜS DU SOL",
+    "title": "RÜFÜS DU SOL with Dixon",
+    "date": "2027-01-03",
+    "venue": "Pier 80 Warehouse",
+    "city": "San Francisco",
+    "match": "like",
+    "like": "Chris Lake",
+    "url": "https://www.jambase.com/show/rufus-du-sol-pier-80-warehouse-20270103",
+    "cal": {
+     "date": "2027-01-03"
+    }
+   }
+  ]
+ },
+ "movies": {
+  "now": [
+   {
+    "title": "Whalefall",
+    "genre": "Survival thriller",
+    "rating": "PG-13",
+    "score": 79,
+    "released": "2026-10-16",
+    "blurb": "A young diver gets swallowed by a sperm whale and has an hour of air to get out. Josh Brolin, Austin Abrams; Brian Duffield directs."
+   },
+   {
+    "title": "Street Fighter",
+    "genre": "Action",
+    "runtime": 119,
+    "score": 38,
+    "released": "2026-10-16",
+    "blurb": "Chun-Li recruits estranged fighters Ryu and Ken for a tournament with a hidden agenda. Jason Momoa, Noah Centineo."
+   },
+   {
+    "title": "The Social Reckoning",
+    "genre": "Drama",
+    "score": 54,
+    "released": "2026-10-09",
+    "blurb": "Aaron Sorkin's follow-up to The Social Network, with Jeremy Allen White."
+   },
+   {
+    "title": "Other Mommy",
+    "genre": "Horror",
+    "rating": "R",
+    "score": 19,
+    "released": "2026-10-09",
+    "blurb": "Jessica Chastain in a double role. Last weekend's #1 at the box office."
+   },
+   {
+    "title": "Digger",
+    "genre": "Dark comedy",
+    "rating": "R",
+    "released": "2026-10-02",
+    "blurb": "Tom Cruise and Sandra Hüller in Alejandro González Iñárritu's new film."
+   },
+   {
+    "title": "Verity",
+    "genre": "Thriller",
+    "rating": "R",
+    "released": "2026-10-02",
+    "blurb": "Anne Hathaway and Dakota Johnson in the Colleen Hoover adaptation."
+   },
+   {
+    "title": "Resident Evil",
+    "genre": "Horror",
+    "released": "2026-09-18",
+    "blurb": "Still pulling crowds in its fifth week — $138M so far."
+   }
+  ],
+  "soon": [
+   {
+    "title": "Clayface",
+    "genre": "DC · Horror",
+    "date": "2026-10-23",
+    "blurb": "DC Studios' body-horror take on the Batman villain."
+   },
+   {
+    "title": "Godzilla Minus Zero",
+    "genre": "Monster",
+    "date": "2026-11-06",
+    "blurb": "Takashi Yamazaki's sequel to the Oscar-winning Godzilla Minus One."
+   },
+   {
+    "title": "The Hunger Games: Sunrise on the Reaping",
+    "genre": "Sci-fi",
+    "date": "2026-11-20",
+    "big": true,
+    "blurb": "Haymitch's Games, 24 years before Katniss."
+   },
+   {
+    "title": "Focker-in-Law",
+    "genre": "Comedy",
+    "date": "2026-11-25",
+    "blurb": "Ben Stiller and Robert De Niro, back for Thanksgiving."
+   },
+   {
+    "title": "Avengers: Doomsday",
+    "genre": "Marvel",
+    "date": "2026-12-18",
+    "big": true,
+    "blurb": "Robert Downey Jr. returns as Doctor Doom."
+   },
+   {
+    "title": "Dune: Part Three",
+    "genre": "Sci-fi",
+    "date": "2026-12-18",
+    "big": true,
+    "blurb": "Denis Villeneuve closes the trilogy — same day as Avengers."
+   },
+   {
+    "title": "Jumanji: Open World",
+    "genre": "Adventure",
+    "date": "2026-12-25",
+    "blurb": "The third Jumanji with Dwayne Johnson and Kevin Hart."
+   }
+  ]
+ },
+ "different": {
+  "title": "There's a high-pitched hum that only young people can hear",
+  "blurb": "The 'Mosquito' device emits a 17.4 kHz tone audible to most people under 25 but inaudible to most adults over 30, due to age-related hearing loss called presbycusis. It was originally designed to deter loitering teenagers — but teens repurposed the frequency as a ringtone teachers can't hear.",
+  "url": "https://en.wikipedia.org/wiki/The_Mosquito",
+  "ask": "At what age does hearing loss at 17 kHz typically become noticeable?"
+ },
+ "vocab": [
+  {
+   "date": "2026-10-17",
+   "word": "Liminal",
+   "pron": "LIM-uh-nul",
+   "pos": "adjective",
+   "def": "Relating to a threshold or transitional stage; in between.",
+   "ex": "That liminal stretch between landing and getting home always feels oddly timeless.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin limen, threshold"
+    },
+    {
+     "f": "Related",
+     "b": "subliminal"
+    },
+    {
+     "f": "Use it for",
+     "b": "airports, 3 a.m., the week between jobs"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-16",
+   "word": "Recondite",
+   "pron": "REK-un-dyte",
+   "pos": "adjective",
+   "def": "Little known or difficult to understand; obscure.",
+   "ex": "The professor's recondite lecture on 12th-century Mongolian trade routes left half the class glazed over.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin reconditus, hidden away"
+    },
+    {
+     "f": "Synonym",
+     "b": "arcane, abstruse, esoteric"
+    }
+   ]
+  }
+ ],
+ "spanish": [
+  {
+   "date": "2026-10-17",
+   "phrase": "¡Qué calor!",
+   "pron": "keh kah-LOR",
+   "reg": "Universal · casual",
+   "meaning": "It's so hot!",
+   "note": "The go-to complaint on a hot day. Add 'hace' for a full sentence: Hace mucho calor.",
+   "cards": [
+    {
+     "es": "Tengo sed",
+     "en": "I'm thirsty"
+    },
+    {
+     "es": "A la sombra",
+     "en": "In the shade"
+    },
+    {
+     "es": "Un agua, por favor",
+     "en": "A water, please"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-16",
+   "phrase": "Me da igual",
+   "pron": "meh dah ee-GWAHL",
+   "reg": "Universal · casual",
+   "meaning": "I don't care / It's all the same to me",
+   "note": "Neutral — not rude, just indifferent. Use when you genuinely have no preference.",
+   "cards": [
+    {
+     "es": "No me importa",
+     "en": "I don't mind"
+    },
+    {
+     "es": "Como quieras",
+     "en": "Whatever you want"
+    }
+   ]
+  }
+ ],
+ "learnLog": {
+  "words": [
+   "Peripatetic",
+   "Recondite",
+   "Liminal"
+  ],
+  "phrases": [
+   "¡Aguas!",
+   "Me da igual",
+   "¡Qué calor!"
+  ]
+ }
 }
