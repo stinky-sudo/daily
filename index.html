@@ -450,6 +450,11 @@ h1,h2,h3,p{margin:0}
 /* footer */
 .foot{text-align:center;padding:34px var(--g) 0;font-size:13px;color:var(--ink-3);line-height:1.6}
 .foot b{color:var(--ink-2);font-weight:600}
+.ver{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--fill)}
+.ver svg{width:12px;height:12px}
+.ver.ok{color:var(--up)}
+.ver.new{background:var(--link);color:#fff}
+.ver.pend{color:var(--ink-2)}
 
 /* ============================================================
    SHEETS
@@ -1026,6 +1031,8 @@ async function fetchData(){try{const r=await fetch('data.json?v='+Date.now());if
 /* =================================================================
    HELPERS
    ================================================================= */
+/* BUILD: when this version of the page was published. Stamped automatically on every push. */
+const BUILD="2026-10-17T09:10:28-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
@@ -2042,7 +2049,21 @@ function renderLearn(){
 /* =================================================================
    FOOTER
    ================================================================= */
-function renderFoot(){const u=new Date(DATA.updated);$("#foot").innerHTML=`<div><b>Stinky's Daily No. ${editionNo()}</b></div><div>Updated ${esc(u.toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:TZ}))} at ${esc(fmtTime(u))}</div>`}
+function renderFoot(){
+ const u=new Date(DATA.updated),b=new Date(BUILD);const when=d=>d.toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:TZ})+", "+fmtTime(d);
+ const v=S.ver||{};const st=v.state==="new"?`<button class="ver new" data-act="refresh">Newer version ready · tap to load</button>`:v.state==="pending"?`<span class="ver pend">A newer version is publishing…</span>`:v.state==="ok"?`<span class="ver ok">${I.check}Latest version</span>`:"";
+ $("#foot").innerHTML=`<div><b>Stinky's Daily No. ${editionNo()}</b></div><div>Data updated ${esc(when(u))}</div><div>App version ${esc(when(b))}</div>${st?`<div style="margin-top:6px">${st}</div>`:""}`}
+/* Am I on the newest version? Compare this page's BUILD with the one GitHub Pages is serving right now,
+   and with the newest commit on GitHub (which can be a minute or two ahead of Pages). */
+async function checkVersion(){
+ try{
+  const r=await fetch(SELF+"?vcheck="+Date.now(),{cache:"no-store"});const t=await r.text();const m=/const BUILD="([^"]+)"/.exec(t);
+  if(m&&Date.parse(m[1])>Date.parse(BUILD)){S.ver={state:"new"};return renderFoot()}
+  let gh=null;try{const g=await fetch("https://api.github.com/repos/stinky-sudo/daily/commits?path=index.html&per_page=1");if(g.ok){const j=await g.json();gh=j[0]&&j[0].commit&&Date.parse(j[0].commit.committer.date)}}catch(e){}
+  S.ver={state:gh&&gh>Date.parse(BUILD)+3*6e4?"pending":"ok"};
+ }catch(e){S.ver=null}
+ renderFoot();
+}
 
 /* =================================================================
    SHEETS
@@ -2219,6 +2240,7 @@ function loadLive(){
  loadWeather().catch(()=>{});
  loadCx().then(startWs);
  loadYouTube(false);
+ checkVersion();
  loadCowen();
  loadSpotify(false).then(loadSpArt);
  loadMovies(false);
@@ -2226,6 +2248,7 @@ function loadLive(){
 }
 /* timers: weather every 10 min, stocks every minute, crypto fallback poll */
 setInterval(()=>{if(!document.hidden)loadWeather().catch(()=>{})},10*6e4);
+setInterval(()=>{if(!document.hidden)checkVersion()},5*6e4);
 setInterval(()=>{if(!document.hidden&&backend())loadStQuotes()},60e3);
 setInterval(()=>{if(!document.hidden&&!S.cx.liveOn)loadCxQuotes().then(()=>cxList().forEach(applyTick)).catch(()=>{});if(!document.hidden&&!S.cx.ws)startWs()},60e3);
 /* the readouts follow the live loaders */
