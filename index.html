@@ -1048,7 +1048,7 @@ const big=v=>v>=1e12?"$"+(v/1e12).toFixed(2)+"T":v>=1e9?"$"+(v/1e9).toFixed(1)+"
 function relDay(k){const n=dayDiff(todayKey(),k);if(n===0)return"Today";if(n===1)return"Tomorrow";if(n===-1)return"Yesterday";if(n>1&&n<7)return fmtKey(k,{weekday:"long"});return fmtKey(k,{weekday:"short",month:"short",day:"numeric"})}
 function ago(s){const t=toDate(s).getTime();if(isNaN(t))return"";if(/^\d{4}-\d{2}-\d{2}$/.test(s)){const n=dayDiff(s,todayKey());return n<=0?"Today":n===1?"Yesterday":n<7?n+" days ago":fmtKey(s,{month:"short",day:"numeric"})}const m=(Date.now()-t)/6e4;if(m<60)return Math.max(1,Math.round(m))+" min ago";const h=m/60;if(h<24&&!/^\d{4}-\d{2}-\d{2}$/.test(s))return Math.round(h)+" hr ago";const k=dayKey(new Date(t));const n=dayDiff(k,todayKey());if(n<=0)return"Today";if(n===1)return"Yesterday";if(n<7)return n+" days ago";return fmtKey(k,{month:"short",day:"numeric"})}
 function durText(secs){if(!secs)return"";const t=Math.round(secs/60),h=Math.floor(t/60),m=t%60;return h?`${h} hr${m?` ${m} min`:""}`:`${m} min`}
-function durShort(secs){if(!secs)return"";const t=Math.round(secs/60),h=Math.floor(t/60),m=t%60;return h?`${h}h ${m}m`:`${m}m`}
+function durShort(secs){if(!secs)return"";const t=Math.round(secs/60),h=Math.floor(t/60),m=t%60;return h?`${h}h${m?` ${m}m`:""}`:`${m}m`}
 function clock(secs){const h=Math.floor(secs/3600),m=Math.floor(secs%3600/60),s=secs%60;return(h?h+":"+String(m).padStart(2,"0"):m)+":"+String(s).padStart(2,"0")}
 function isoSecs(iso){const m=/P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/.exec(iso||"");if(!m)return 0;return(+m[1]||0)*86400+(+m[2]||0)*3600+(+m[3]||0)*60+(+m[4]||0)}
 const cssVar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
