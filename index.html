@@ -1677,7 +1677,7 @@ function mkLive(){const{k,s}=S.mk;if(k==="cx")return S.cx.liveOn?["Live",""]:cxN
 function renderMkt(){
  const host=$("#mk-card");if(!host)return;mkValid();const{k,s}=S.mk;const rh=rhLink(k,s);const lv=mkLive();
  host.innerHTML=`<div class="mk">
-  <div class="mk-head">${mkLogo(k,s).replace('class="coin','class="coin lgc')}<div style="min-width:0"><div class="mk-name">${esc(mkName(k,s))}</div><div class="mk-sub">${esc(k==="cx"?s+" / USD":s.startsWith("^")?"Index":s)}${k==="pick"?" · idea to research":""}</div></div>
+  <div class="mk-head">${mkLogo(k,s).replace('class="coin','class="coin lgc')}<div style="min-width:0"><div class="mk-name">${esc(mkName(k,s))}</div><div class="mk-sub">${esc(k==="cx"?s+" / USD":s.startsWith("^")?"Index":s)}${k==="pick"?" · suggested":""}</div></div>
    <span class="live ${lv[1]}" id="mk-live"><i></i>${esc(lv[0])}</span>${rh?`<a class="ib press" ${rh.sym?`data-rh="${esc(rh.sym)}"`:""} href="${esc(rh.u)}" target="_blank" rel="noopener" aria-label="${esc(rh.t)}" data-tip="${esc(rh.t)}">${I.rh}</a>`:""}</div>
   <div class="px num" id="mk-px">—</div>
   <div class="chg num" id="mk-chg"></div>
@@ -1692,7 +1692,7 @@ function renderMkList(){
  const row=(k,x)=>{const q=mkNow(k,x);const sp=k==="cx"?(S.cx.q[x]||{}).spark:((stkSeries(x,"1D")||stkSeries(x,"1M"))||[]).map(p=>p.v);const on=k===sk&&x===ss;
   return`<button class="ix ${on?"on":""}" data-mk="${k}|${esc(x)}" aria-pressed="${on}"><span class="ix-n">${mkLogo(k,x)}<div><b>${esc(mkName(k,x))}</b><span>${esc(k==="cx"?x:x.startsWith("^")?"Index":x)}</span></div></span>${spark(sp)}<span class="ix-v"><b class="num" ${k==="cx"?`data-px="${esc(x)}"`:""}>${q?mkFmtPx(k,x,q.price):"—"}</b><span class="pill num ${q?(q.pct<0?"dn":""):"na"}" ${k==="cx"?`data-pill="${esc(x)}"`:""}>${q?pct(q.pct):"—"}</span></span></button>`};
  const grp=(t,rows)=>rows.length?`<div class="ix-g">${esc(t)}</div>${rows.join("")}`:"";
- el.innerHTML=grp("Stocks & indexes",stList().map(x=>row("st",x)))+grp("Crypto",cxList().map(x=>row("cx",x)))+(DATA.pick?grp("Idea to research",[row("pick",DATA.pick.sym)]):"");
+ el.innerHTML=grp("Stocks & indexes",stList().map(x=>row("st",x)))+grp("Crypto",cxList().map(x=>row("cx",x)))+(DATA.pick?grp("Suggested",[row("pick",DATA.pick.sym)]):"");
 }
 function setMkHead(pt,first){
  const pxEl=$("#mk-px"),chEl=$("#mk-chg");if(!pxEl)return;const{k,s}=S.mk,r=S.mk.range;
@@ -1935,8 +1935,7 @@ function renderShows(){
  el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-artists">Your artists</button></div>
  <div class="grp-t">Your artists<span>${mine.length} ${mine.length===1?"show":"shows"}</span></div>
  ${mine.length?cols(mine.map(row)):`<div class="card"><div class="empty-row">No upcoming dates for your artists nearby.</div></div>`}
- ${like.length?`<div class="grp-t">Sounds like your list<span>${like.length} ${like.length===1?"show":"shows"}</span></div>${cols(like.map(row))}`:""}
- <p class="note">${DATA.shows&&DATA.shows.note?esc(DATA.shows.note)+" ":""}Watching ${esc(arts.slice(0,4).join(", "))}${arts.length>4?` and ${arts.length-4} more`:""}.</p>`;
+ ${like.length?`<div class="grp-t">Suggested<span>${like.length} ${like.length===1?"show":"shows"}</span></div>${cols(like.map(row))}`:""}`;
 }
 
 /* ACTIVITY — placeholder until the Fitbit Air feed is hooked up */
