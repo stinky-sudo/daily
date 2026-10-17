@@ -8,11 +8,28 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Daily">
-<meta name="theme-color" content="#F1F2F4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#081230">
 <meta name="format-detection" content="telephone=no">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
 <title>Stinky's Daily</title>
+<script>
+/* Home Screen web apps on recent iOS draw a solid band behind the status bar instead of letting the
+   page run underneath it (a WebKit regression since iOS 26.1). The band takes its colour from the
+   page as it first loads, so before anything paints, work out the sky's top colour for right now and
+   hand it to theme-color and the root background. The band then reads as the top of the sky. */
+(function(){try{
+ var RS=[[440,1035],[420,1065],[430,1150],[400,1175],[365,1205],[350,1230],[360,1230],[385,1205],[410,1160],[435,1115],[410,1025],[435,1015]];
+ var d=new Date(),n=d.getHours()*60+d.getMinutes(),r=RS[d.getMonth()],rise=r[0],set=r[1];
+ var ph=n<rise-45||n>set+70?"night":n<rise+70?"dawn":n<set-90?"day":n<set+15?"golden":"dusk";
+ var TOP={night:"#081230",dawn:"#3B58A6",day:"#1A59CB",golden:"#3A59AC",dusk:"#141B45"};
+ var FIX={sand:"#EEE5D6",ink:"#000000",white:"#FFFFFF",spgreen:"#1ED760",ytred:"#FF1A4B"};
+ var m="live";try{m=JSON.parse(localStorage.getItem("sd-bg"))||"live"}catch(e){}
+ var c=FIX[m]||TOP[ph];
+ window.__skyBoot={rise:rise,set:set,tc:c};
+ document.documentElement.style.setProperty("--tc",c);document.documentElement.style.background=c;
+ var ms=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<ms.length;i++)ms[i].content=c;
+}catch(e){}})();
+</script>
 <style>
 /* ============================================================
    TOKENS
@@ -832,15 +849,21 @@ html{background:var(--tc,#1A59CB)}
 .sw-b{font-size:11px;gap:5px;min-width:0}
 .sw-b i{border-radius:12px}
 
+/* Safari 26 / Chrome-on-iOS tint element: Safari no longer uses theme-color meta; it samples
+   fixed elements near the viewport edge. This invisible strip gives it the exact bg color. */
+.tint{position:fixed;top:-4px;left:0;width:100%;height:12px;z-index:0;background-color:var(--tc,#1A59CB);pointer-events:none}
+
 /* status bar: the page runs underneath it (black-translucent), so the sky shows behind the clock.
-   A soft band in the sky's own top colour keeps the time readable once you scroll. */
+   A soft band in the sky's own top colour keeps the time readable once you scroll.
+   display:none when not scrolled so Safari doesn't sample the gradient. */
 .sbar{height:calc(env(safe-area-inset-top) + 16px);background:linear-gradient(180deg,color-mix(in srgb,var(--tc,#1A59CB) 92%,transparent) 0%,color-mix(in srgb,var(--tc,#1A59CB) 70%,transparent) 55%,transparent 100%);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)}
-.sbar{opacity:0;transition:opacity .25s ease}
-body.scrolled .sbar{opacity:1}
+.sbar{display:none}
+body.scrolled .sbar{display:block}
 
 </style>
 </head>
 <body>
+<div class="tint" aria-hidden="true"></div>
 <div class="sbar" aria-hidden="true"></div>
 <div class="ptr" id="ptr" aria-hidden="true"></div>
 <main class="app" id="app"></main>
@@ -1093,11 +1116,11 @@ const SKYI={
 const rng=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
 function hm(str){const t=String(str).split("T")[1]||"00:00";const[h,m]=t.split(":").map(Number);return h*60+m}
 function hmLabel(str){const m=hm(str);const h=Math.floor(m/60),mm=m%60;return`${h%12||12}:${String(mm).padStart(2,"0")} ${h<12?"AM":"PM"}`}
-function skyMins(){const w=S.wx;if(w)return{n:hm(w.now),rise:hm(w.sunrise),set:hm(w.sunset)};const d=new Date();return{n:d.getHours()*60+d.getMinutes(),rise:430,set:1110}}
+function skyMins(){const w=S.wx;if(w)return{n:hm(w.now),rise:hm(w.sunrise),set:hm(w.sunset)};const d=new Date();const b=window.__skyBoot||{rise:430,set:1110};return{n:d.getHours()*60+d.getMinutes(),rise:b.rise,set:b.set}}
 function skyPhase(){const{n,rise,set}=skyMins();return n<rise-45||n>set+70?"night":n<rise+70?"dawn":n<set-90?"day":n<set+15?"golden":"dusk"}
 function skyCond(code){const c=+code;if(c===2)return"partly";if(c===3)return"overcast";if(c===45||c===48)return"fog";if(c>=51&&c<=67||c>=80&&c<=82)return"rain";if(c>=71&&c<=77)return"snow";if(c>=95)return"storm";return""}
 const SKY_TOP={night:"#081230",dawn:"#3B58A6",day:"#1A59CB",golden:"#3A59AC",dusk:"#141B45"};
-function setTC(c){$$('meta[name="theme-color"]').forEach(m=>{m.content=c})}
+function setTC(c){const m=$('meta[name="theme-color"]');if(m)m.content=c;document.documentElement.style.background=c}
 function buildSky(){const r=rng(hash("sky"+ED));$("#stars").innerHTML=Array.from({length:60},()=>`<i style="left:${(r()*100).toFixed(2)}%;top:${(r()*60).toFixed(2)}%;--s:${(1+r()*1.5).toFixed(1)}px;--o:${(.3+r()*.6).toFixed(2)}"></i>`).join("");
  $("#clouds").innerHTML=[[8,6,46,13],[52,3,40,11],[26,20,52,15],[70,24,38,12],[-6,34,44,14],[58,44,46,13]].map(([x,y,w,h])=>`<i style="left:${x}%;top:${y}%;width:${w}vmax;height:${h}vmax"></i>`).join("")}
 /* the sky follows Mountain View: phase from the real sunrise and sunset, the glow where the sun or moon is, the weather code for clouds, fog or rain */
@@ -1105,14 +1128,13 @@ function paintSky(){
  const sf=$("#skyfield");if(!sf)return;const mode=bgMode();const fixed=SKY_GRAD[mode];const ph=fixed?mode:skyPhase();sf.dataset.phase=ph;
  const c=mode==="live"?skyCond(S.wx?S.wx.cur.code:(DATA.weatherFallback.code??0)):"";sf.className="skyfield"+(c?" c-"+c:"");
  const B=BG_ALL.find(b=>b.id===mode)||{};const root=document.documentElement;
- root.classList.toggle("bg-plain",mode==="plain");root.classList.toggle("bg-lite",!!B.lite);
- sf.dataset.bg=mode;sf.classList.toggle("custom",!!B.bg);sf.classList.toggle("has-stars",!!B.stars);sf.style.background=B.bg||"";
+ root.classList.toggle("bg-lite",!!B.lite);
+ sf.dataset.bg=mode;sf.classList.toggle("custom",!!B.bg);sf.style.background=B.bg||"";
  if(B.bg){root.style.setProperty("--tc",B.tc);setTC(B.tc);return}
- if(mode==="plain"){const t=cssVar("--bg")||"#F1F2F4";root.style.setProperty("--tc",t);setTC(t);return}
  const{n,rise,set}=skyMins();const day=n>=rise&&n<=set;
  const p=day?(n-rise)/((set-rise)||1):(((n-set)+1440)%1440)/(((rise-set)+1440)%1440||1);
  const g=$("#glow");g.style.setProperty("--gx",(10+p*80).toFixed(1)+"%");g.style.setProperty("--gy",(day?50-Math.sin(Math.PI*p)*40:30-Math.sin(Math.PI*p)*16).toFixed(1)+"%");
- document.documentElement.style.setProperty("--tc",SKY_TOP[ph]);setTC(SKY_TOP[ph]);
+ {document.documentElement.style.setProperty("--tc",SKY_TOP[ph]);setTC(SKY_TOP[ph])}
 }
 function renderHero(){
  if(!$("#home"))return;const now=new Date(),h=now.getHours();
@@ -1152,51 +1174,20 @@ function renderWxRail(){
 }
 /* background options. Sky ones follow (or pin) the time of day; the rest are flat looks.
    lite:true means a light background, so the list switches to dark ink. */
-const NOISE="url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .09 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")";
-const GRID=(a,s)=>`linear-gradient(rgba(255,255,255,${a}) 1px,transparent 1px) 0 0/${s}px ${s}px,linear-gradient(90deg,rgba(255,255,255,${a}) 1px,transparent 1px) 0 0/${s}px ${s}px`;
+
 const BG_GROUPS=[
- ["Sky",[
-  {id:"live",l:"Live"},
-  {id:"dawn",l:"Dawn"},{id:"day",l:"Day"},{id:"golden",l:"Golden"},{id:"dusk",l:"Dusk"},{id:"night",l:"Night"},
-  {id:"fog",l:"Fog",tc:"#9AA6B4",lite:1,bg:"radial-gradient(120% 40% at 50% 100%,rgba(255,255,255,.7),transparent 70%),linear-gradient(176deg,#97A3B2,#C6CED7 55%,#E2E6EB)"},
-  {id:"storm",l:"Storm",tc:"#151A26",bg:"radial-gradient(60% 30% at 70% 8%,rgba(170,190,255,.22),transparent 70%),linear-gradient(176deg,#151A26,#262E3E 55%,#3A4354)"}]],
- ["Mood",[
-  {id:"aurora",l:"Aurora",stars:1,tc:"#050A1C",bg:"radial-gradient(80% 55% at 18% 12%,rgba(64,224,170,.42),transparent 62%),radial-gradient(70% 55% at 88% 28%,rgba(140,90,255,.5),transparent 62%),radial-gradient(90% 60% at 50% 100%,rgba(40,120,200,.32),transparent 70%),linear-gradient(176deg,#050A1C,#0B1433 60%,#111838)"},
-  {id:"mesh",l:"Mesh",tc:"#3A2D6B",bg:"radial-gradient(60% 45% at 12% 18%,#FF6B9A,transparent 62%),radial-gradient(55% 45% at 88% 12%,#6B8BFF,transparent 62%),radial-gradient(60% 55% at 75% 78%,#FFB36B,transparent 62%),radial-gradient(60% 55% at 18% 88%,#3FD6B4,transparent 62%),#3A2D6B"},
-  {id:"vapor",l:"Vapor",tc:"#1B0B3A",bg:"linear-gradient(176deg,#1B0B3A,#5B1E7A 45%,#E8508A 82%,#FFB46B)"},
-  {id:"ember",l:"Ember",tc:"#14070A",bg:"radial-gradient(90% 55% at 50% 108%,#FF5A1F,transparent 66%),linear-gradient(176deg,#14070A,#3A0E12 60%,#5C1A0E)"},
-  {id:"ocean",l:"Deep sea",tc:"#03141F",bg:"radial-gradient(80% 50% at 50% -5%,rgba(90,200,255,.38),transparent 64%),linear-gradient(176deg,#03141F,#062B3E 55%,#0A4057)"},
-  {id:"grain",l:"Grain",tc:"#17151C",bg:NOISE+",radial-gradient(90% 60% at 20% 0%,#3B3550,transparent 70%),linear-gradient(176deg,#1D1B24,#0E0D12)"},
-  {id:"graphite",l:"Graphite",tc:"#1B1D22",bg:"radial-gradient(120% 70% at 50% 0%,#2C3038,transparent 70%),linear-gradient(176deg,#1B1D22,#0B0C0E)"},
-  {id:"plain",l:"Plain"}]],
- ["Brand",[
-  {id:"yt",l:"YouTube",tc:"#0F0F0F",bg:"radial-gradient(90% 55% at 88% -4%,rgba(255,0,51,.5),transparent 62%),linear-gradient(176deg,#1A1A1A,#0F0F0F)"},
-  {id:"ytred",l:"YT Red",tc:"#FF1A4B",bg:"linear-gradient(176deg,#FF1A4B,#C4001F 60%,#7A0013)"},
-  {id:"sp",l:"Spotify",tc:"#121212",bg:"radial-gradient(90% 55% at 12% -4%,rgba(30,215,96,.45),transparent 62%),linear-gradient(176deg,#1F1F1F,#121212)"},
-  {id:"spgreen",l:"Sp Green",tc:"#1ED760",bg:"linear-gradient(176deg,#1ED760,#139A44 60%,#0B5A2A)"},
-  {id:"btc",l:"Satoshi",tc:"#1C1408",bg:"radial-gradient(80% 55% at 82% 2%,rgba(247,147,26,.55),transparent 62%),linear-gradient(176deg,#1C1408,#0D0A05)"},
-  {id:"gcal",l:"Calendar",tc:"#1A73E8",bg:"radial-gradient(70% 45% at 85% 100%,rgba(251,188,4,.35),transparent 65%),radial-gradient(60% 45% at 10% 90%,rgba(52,168,83,.35),transparent 65%),linear-gradient(176deg,#1A73E8,#1557B0 60%,#0C3A80)"},
-  {id:"robin",l:"Robinhood",tc:"#0B0B0B",bg:"radial-gradient(80% 50% at 80% 0%,rgba(204,255,0,.32),transparent 62%),linear-gradient(176deg,#141414,#0B0B0B)"},
-  {id:"clay",l:"Clay",tc:"#D97757",bg:"linear-gradient(176deg,#D97757,#B9573A 60%,#7A3422)"}]],
- ["Solid",[
-  {id:"midnight",l:"Midnight",tc:"#0E1A33",bg:"#0E1A33"},
-  {id:"forest",l:"Forest",tc:"#10291F",bg:"#10291F"},
-  {id:"plum",l:"Plum",tc:"#2A1533",bg:"#2A1533"},
-  {id:"slate",l:"Slate",tc:"#2B323C",bg:"#2B323C"},
-  {id:"ink",l:"Black",tc:"#000000",bg:"#000"},
+ ["Sky",[{id:"live",l:"Live"}]],
+ ["Color",[
   {id:"sand",l:"Sand",tc:"#EEE5D6",bg:"#EEE5D6",lite:1},
-  {id:"mist",l:"Mist",tc:"#DCE4EC",bg:"#DCE4EC",lite:1},
-  {id:"paper",l:"Paper",tc:"#FAFAF7",bg:"#FAFAF7",lite:1}]],
- ["Pattern",[
-  {id:"blueprint",l:"Blueprint",tc:"#0E2E56",bg:GRID(.075,28)+","+GRID(.035,7)+",linear-gradient(176deg,#123A6B,#0B2547)"},
-  {id:"dots",l:"Dot grid",tc:"#14161A",bg:"radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.5px) 0 0/18px 18px,linear-gradient(176deg,#1A1C21,#0C0D10)"},
-  {id:"terminal",l:"Terminal",tc:"#030806",bg:"repeating-linear-gradient(0deg,rgba(0,255,140,.045) 0 1px,transparent 1px 3px),radial-gradient(120% 80% at 50% 0%,#0B2A1C,transparent 70%),#030806"},
-  {id:"graph",l:"Graph paper",tc:"#F4F1EA",lite:1,bg:"linear-gradient(rgba(40,90,200,.12) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,rgba(40,90,200,.12) 1px,transparent 1px) 0 0/24px 24px,#F4F1EA"}]]
+  {id:"ink",l:"Black",tc:"#000000",bg:"#000000"},
+  {id:"white",l:"White",tc:"#FFFFFF",bg:"#FFFFFF",lite:1},
+  {id:"spgreen",l:"Spotify",tc:"#1ED760",bg:"#1ED760",lite:1},
+  {id:"ytred",l:"YouTube",tc:"#FF1A4B",bg:"#FF1A4B"}]]
 ];
 const BG_ALL=BG_GROUPS.flatMap(g=>g[1]);
 const SKY_GRAD={night:"linear-gradient(176deg,#081230,#16245A 55%,#323E79)",dawn:"linear-gradient(176deg,#3B58A6,#B3779C 60%,#F0A27E)",day:"linear-gradient(176deg,#1A59CB,#3A82E4 55%,#86B9F2)",golden:"linear-gradient(176deg,#3A59AC,#C46F8C 58%,#F2A35D)",dusk:"linear-gradient(176deg,#141B45,#493B7C 58%,#985A8D)"};
 const bgMode=()=>{const m=LS.get("sd-bg","live");return BG_ALL.some(b=>b.id===m)?m:"live"};
-function bgSwatch(b){if(b.id==="live")return SKY_GRAD[skyPhase()];if(SKY_GRAD[b.id])return SKY_GRAD[b.id];if(b.id==="plain")return"var(--bg)";return b.bg}
+function bgSwatch(b){if(b.id==="live")return SKY_GRAD[skyPhase()];return b.bg}
 function renderBgPop(){const m=bgMode();$("#bgpop").innerHTML=BG_GROUPS.map(([g,list])=>`<div class="bgh">${esc(g)}</div>`+list.map(b=>`<button class="sw-b press ${b.id===m?"on":""}" data-bg="${b.id}" aria-pressed="${b.id===m}" title="${esc(b.l)}"><i style="background:${esc(bgSwatch(b))}"></i>${esc(b.l)}</button>`).join("")).join("")}
 function toggleBgPop(force){const p=$("#bgpop"),b=$('[data-act="bg"]');const show=force!=null?force:p.hidden;if(show)renderBgPop();p.hidden=!show;if(b)b.setAttribute("aria-expanded",String(show))}
 
