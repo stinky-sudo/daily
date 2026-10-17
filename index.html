@@ -1056,11 +1056,11 @@ function calUrl(title,cal,link){const z=s=>s.replace(/[-:]/g,"");const dates=cal
 function jsonp(url,ms=9000){return new Promise((res,rej)=>{const cb="__sd"+Math.random().toString(36).slice(2);const s=document.createElement("script");const done=()=>{clearTimeout(t);try{delete window[cb]}catch(e){window[cb]=undefined}s.remove()};const t=setTimeout(()=>{done();rej(new Error("timeout"))},ms);window[cb]=d=>{done();res(d)};s.onerror=()=>{done();rej(new Error("network"))};s.src=url+(url.includes("?")?"&":"?")+"callback="+cb;document.head.appendChild(s)})}
 /* "not interested": hides one specific item (a video, episode, movie, show, event or artist) for good
    on this device. It never unfollows anyone, so suggestions from that creator keep coming. */
-const DISM=()=>LS.get("sd-dismissed",{});
-const isDis=k=>!!DISM()[k];
+const DISM=()=>{const d=cfg().dismissed,o={};for(const k in d)if(d[k]>0)o[k]=d[k];return o};
+const isDis=k=>(cfg().dismissed[k]||0)>0;
 const dxBtn=(k,sec,label)=>`<button class="dx press" data-dx="${esc(k)}" data-dxs="${sec}" data-dxl="${esc(clip(label||"",40))}" aria-label="Not interested — hide this" data-tip="Not interested">${I.close}</button>`;
 const DX_RENDER={watch:()=>renderWatch(),listen:()=>renderListen(),movies:()=>renderMovies(),shows:()=>renderShows(),bay:()=>renderBay()};
-function dismiss(k,sec,label){const d=DISM();d[k]=Date.now();LS.set("sd-dismissed",d);(DX_RENDER[sec]||(()=>{}))();renderTeasers();toast("Hidden"+(label?": "+label:""),()=>{const d=DISM();delete d[k];LS.set("sd-dismissed",d);(DX_RENDER[sec]||(()=>{}))();renderTeasers()})}
+function dismiss(k,sec,label){cfgSet(c=>c.dismissed[k]=Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers();toast("Hidden"+(label?": "+label:""),()=>{cfgSet(c=>c.dismissed[k]=-Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers()})}
 /* lay rows out as one card on phones, two independent columns on wide screens (each only as tall as it needs) */
 function cols(rows){if(!WIDE.matches||rows.length<2)return`<div class="card">${rows.join("")}</div>`;const a=[],b=[];rows.forEach((h,i)=>(i%2?b:a).push(h));return`<div class="cols2"><div class="card">${a.join("")}</div><div class="card">${b.join("")}</div></div>`}
 /* icon-only actions: every follow-up is a round icon with a tooltip + aria-label */
@@ -1186,20 +1186,91 @@ function wxInfo(code,isDay=1){
    LISTS + BACKEND (settings that feed the morning report)
    ================================================================= */
 const LIST_KEYS=["channels","podcasts","stocks","crypto","artists"];
-function lists(){const l=LS.get("sd-lists",null);return{...CONFIG.lists,...(l&&l.lists||{})}}
 const backend=()=>CONFIG.backend||LS.get("sd-backend","")||"";
 async function be(params,ms){const u=new URL(backend());Object.entries(params).forEach(([k,v])=>u.searchParams.set(k,v));const r=await jsonp(u.toString(),ms||15000);if(!r||r.ok===false)throw new Error((r&&r.error)||"no response");return r}
-let syncT;
-function setList(k,arr){const cur=LS.get("sd-lists",null)||{updated:0,lists:{}};cur.lists={...lists(),[k]:arr};cur.updated=Date.now();cur.dirty=true;LS.set("sd-lists",cur);clearTimeout(syncT);syncT=setTimeout(syncUp,600)}
-async function syncUp(){if(!backend())return;const cur=LS.get("sd-lists",null);if(!cur)return;try{const r=await be({fn:"save",data:JSON.stringify({lists:cur.lists})});cur.dirty=false;cur.updated=(r.config&&r.config.updated)||cur.updated;LS.set("sd-lists",cur);S.sync={state:"ok",at:Date.now()}}catch(e){S.sync={state:"err",msg:e.message}}refreshSettings()}
-async function syncDown(){if(!backend())return;try{const r=await be({fn:"config"});const rc=r.config;const cur=LS.get("sd-lists",null);if(cur&&cur.dirty){await syncUp();return}if(rc&&rc.lists&&(!cur||(rc.updated||0)>(cur.updated||0))){LS.set("sd-lists",{updated:rc.updated||Date.now(),lists:rc.lists,dirty:false});listsChanged(LIST_KEYS)}else if(!rc){await syncUp();return}S.sync={state:"ok",at:Date.now()}}catch(e){S.sync={state:"err",msg:e.message}}refreshSettings()}
+
+/* =================================================================
+   SETTINGS SYNC — one config shared by every device (a file in the Daily
+   Drive folder, kept by the backend; the morning routine reads it too).
+   Each setting carries its own timestamp, so changes made on different
+   devices merge instead of overwriting each other: the newer change to
+   the same setting wins. Hidden items and saved stories keep "removed"
+   markers (negative timestamps) so removals travel between devices too.
+   Synced: your lists, theme, which sections show, hidden items, saved stories.
+   Not synced (per device on purpose): location, chart picks, open section.
+   ================================================================= */
+const PREF_KEYS=["theme","hidden"];
+const cfgEmpty=()=>({v:3,lists:{},listsAt:{},prefs:{},prefsAt:{},dismissed:{},saved:{}});
+let _cfg=null;
+function cfg(){
+ if(_cfg)return _cfg;
+ let c=LS.get("sd-cfg",null);
+ if(!c||c.v!==3){ /* first run on this device: carry over what was stored the old way */
+  c=cfgEmpty();const l=LS.get("sd-lists",null);
+  if(l&&l.lists){c.lists=l.lists;Object.keys(l.lists).forEach(k=>c.listsAt[k]=l.updated||1)}
+  const th=LS.get("sd-theme",null);if(th){c.prefs.theme=th;c.prefsAt.theme=1}
+  const hd=LS.get("sd-hidden",null);if(hd){c.prefs.hidden=hd;c.prefsAt.hidden=1}
+  Object.entries(LS.get("sd-dismissed",{})).forEach(([k,t])=>c.dismissed[k]=t);
+  LS.get("sd-saved",[]).forEach(n=>{c.saved[n.id+"|"+n.url]={t:n.savedAt||1,n}});
+  c.dirty=true;LS.set("sd-cfg",c);
+ }
+ return _cfg=c;
+}
+function cfgSet(fn){const c=cfg();fn(c);c.dirty=true;LS.set("sd-cfg",c);queuePush()}
+function lists(){return{...CONFIG.lists,...cfg().lists}}
+function setList(k,arr){cfgSet(c=>{c.lists[k]=arr;c.listsAt[k]=Date.now()})}
+const pref=(k,d)=>k in cfg().prefs?cfg().prefs[k]:d;
+function setPref(k,v){cfgSet(c=>{c.prefs[k]=v;c.prefsAt[k]=Date.now()});if(k==="theme")LS.set("sd-theme",v)}
+/* the same merge the backend runs, so both sides always agree */
+function mergeCfg(a,b){
+ const o=cfgEmpty();
+ LIST_KEYS.forEach(k=>{const ta=a.lists&&a.lists[k]?(a.listsAt[k]||0):-1,tb=b.lists&&b.lists[k]?(b.listsAt[k]||0):-1;if(ta<0&&tb<0)return;const w=tb>ta?b:a;o.lists[k]=w.lists[k];o.listsAt[k]=Math.max(ta,tb,0)});
+ PREF_KEYS.forEach(k=>{const ta=a.prefs&&k in a.prefs?(a.prefsAt[k]||0):-1,tb=b.prefs&&k in b.prefs?(b.prefsAt[k]||0):-1;if(ta<0&&tb<0)return;const w=tb>ta?b:a;o.prefs[k]=w.prefs[k];o.prefsAt[k]=Math.max(ta,tb,0)});
+ [a.dismissed||{},b.dismissed||{}].forEach(d=>Object.keys(d).forEach(k=>{const c=o.dismissed[k];if(c==null||Math.abs(d[k])>Math.abs(c))o.dismissed[k]=d[k]}));
+ [a.saved||{},b.saved||{}].forEach(d=>Object.keys(d).forEach(k=>{const c=o.saved[k];if(!c||Math.abs(d[k].t)>Math.abs(c.t))o.saved[k]=d[k]}));
+ return o;
+}
+const canon=o=>JSON.stringify(o,(k,v)=>v&&typeof v==="object"&&!Array.isArray(v)?Object.keys(v).sort().reduce((r,x)=>(r[x]=v[x],r),{}):v);
+const cfgSig=c=>canon({l:c.lists,la:c.listsAt,p:c.prefs,pa:c.prefsAt,d:c.dismissed,s:c.saved});
+/* take what the server has, keep anything newer here, and redraw whatever changed */
+function adoptCfg(remote){
+ if(!remote)return;remote={...cfgEmpty(),...remote};
+ const old=cfg(),m=mergeCfg(old,remote);m.dirty=cfgSig(m)!==cfgSig(remote);
+ const listsBefore=canon(old.lists),changed=cfgSig(m)!==cfgSig(old);
+ _cfg=m;LS.set("sd-cfg",m);if(m.prefs.theme)LS.set("sd-theme",m.prefs.theme);
+ if(changed&&S.booted){
+  applyTheme();S.hidden=new Set(pref("hidden",[]));renderNav();
+  if(canon(m.lists)!==listsBefore)listsChanged(LIST_KEYS.filter(k=>canon(old.lists[k])!==canon(m.lists[k])));
+  Object.values(DX_RENDER).forEach(f=>f());renderNews();renderTeasers();
+ }
+ if(m.dirty)queuePush();
+}
+let pushT;function queuePush(){clearTimeout(pushT);pushT=setTimeout(pushCfg,700)}
+async function pushCfg(){
+ if(!backend())return;const c=cfg();if(!c.dirty)return;const{dirty,...body}=c;const data=JSON.stringify(body);
+ try{
+  let r=null;
+  try{const res=await fetch(backend(),{method:"POST",body:data});r=await res.json()}catch(e){r=null}
+  if(!r&&data.length<6000)r=await be({fn:"save",data}); /* older backend without doPost */
+  if(!r||r.ok===false)throw new Error((r&&r.error)||"no response");
+  if(r.config&&r.config.v===3)adoptCfg(r.config);else{c.dirty=false;LS.set("sd-cfg",c)}
+  S.sync={state:"ok",at:Date.now()};
+ }catch(e){S.sync={state:"err",msg:e.message}}
+ refreshSettings();
+}
+async function pullCfg(){
+ if(!backend())return;
+ try{const r=await be({fn:"config"});if(r.config&&r.config.v===3)adoptCfg(r.config);else if(r.config&&r.config.lists){adoptCfg({lists:r.config.lists,listsAt:Object.fromEntries(Object.keys(r.config.lists).map(k=>[k,r.config.updated||0]))});cfg().dirty=true;queuePush()}else{cfg().dirty=true;queuePush()}S.sync={state:"ok",at:Date.now()}}
+ catch(e){S.sync={state:"err",msg:e.message}}
+ refreshSettings();
+}
 
 /* =================================================================
    STATE
    ================================================================= */
 const SECTIONS=[["cal","Calendar"],["tip","Try Today"],["mkt","Markets"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["act","Activity"],["diff","Something different"],["learn","Learn"]];
 const S={
- hidden:new Set(LS.get("sd-hidden",[])),
+ hidden:new Set(pref("hidden",[])),
  wx:null,
  cx:{sel:LS.get("sd-cx-sel","BTC"),range:LS.get("sd-cx-range","1M"),q:{},live:{},series:{},daily:{},err:false,ws:null,liveOn:false,ma:LS.get("sd-ma",{m50:true,m200:true,bmsb:false})},
  st:{sel:0,range:LS.get("sd-st-range","1M"),q:{},series:{},rerr:{},err:"",at:0},
@@ -1675,7 +1746,7 @@ function renderMarkets(){
 /* =================================================================
    NEWS
    ================================================================= */
-const savedNews=()=>LS.get("sd-saved",[]);
+const savedNews=()=>Object.values(cfg().saved).filter(x=>x.t>0&&x.n).map(x=>({...x.n,savedAt:x.t})).sort((a,b)=>b.savedAt-a.savedAt);
 const WIDE=matchMedia("(min-width:768px)");
 const newsN=()=>WIDE.matches?6:5;
 function renderNews(){
@@ -1694,7 +1765,7 @@ function renderNews(){
   </article>`}).join(""):`<div class="nw"><p>Nothing saved yet.</p></div>`}</div>
  ${!isSaved&&list.length>N?`<button class="more press ${S.news.open?"open":""}" data-act="news-more">${S.news.open?"Show fewer":`Show ${list.length-N} more`}${I.chev}</button>`:""}`;
 }
-function toggleSave(id,url){let sv=savedNews();const i=sv.findIndex(n=>n.id===id&&n.url===url);if(i>=0){sv.splice(i,1);toast("Removed from saved")}else{const n=DATA.news.find(x=>x.id===id&&x.url===url);if(!n)return;sv.unshift({...n,savedAt:Date.now()});sv=sv.slice(0,60);toast("Saved for later")}LS.set("sd-saved",sv);if(S.news.tag==="Saved"&&!sv.length)S.news.tag="All";renderNews()}
+function toggleSave(id,url){const k=id+"|"+url;const cur=cfg().saved[k];if(cur&&cur.t>0){cfgSet(c=>c.saved[k]={t:-Date.now()});toast("Removed from saved")}else{const n=DATA.news.find(x=>x.id===id&&x.url===url)||(cur&&cur.n);if(!n)return;cfgSet(c=>c.saved[k]={t:Date.now(),n});toast("Saved for later")}if(S.news.tag==="Saved"&&!savedNews().length)S.news.tag="All";renderNews()}
 
 /* =================================================================
    WATCH (YouTube)
@@ -1779,7 +1850,8 @@ async function loadYouTube(force){
    ================================================================= */
 function spItems(){
  const pl=lists().podcasts;
- const fol=(DATA.spotify||[]).filter(p=>showMatch(p.show,pl));
+ const live=S.sp&&S.sp.length?S.sp.filter(x=>showMatch(x.asked||x.name,pl)).flatMap(x=>(x.episodes||[]).map(ep=>({...ep,show:x.name}))):null;
+ const fol=live&&live.length?live:(DATA.spotify||[]).filter(p=>showMatch(p.show,pl));
  const sug=(DATA.discover&&DATA.discover.spotify||[]).filter(p=>!showMatch(p.show,pl)).map(p=>({...p,sugg:true}));
  return fol.concat(sug).filter(p=>isFresh(p.published)&&!isDis("sp:"+p.url)).sort(byNewest);
 }
@@ -1793,6 +1865,16 @@ function renderListen(){
 }
 /* Spotify's oEmbed endpoint gives cover art for any episode or artist link, no key needed */
 async function spArt(url){const u=String(url).split("?")[0];const m=LS.get("sd-sp-art",{});if(m[u]!=null)return m[u];try{const r=await fetch("https://open.spotify.com/oembed?url="+encodeURIComponent(u));if(!r.ok)return null;const j=await r.json();m[u]=j.thumbnail_url||"";LS.set("sd-sp-art",m);return m[u]}catch(e){return null}}
+/* podcasts + artist photos come live from Spotify through the backend */
+async function loadSpotify(force){
+ const names=lists().podcasts,sig=names.join("|");const c=LS.get("sd-sp",null);
+ if(c&&c.sig===sig){S.sp=c.v;renderListen();if(!force&&Date.now()-c.t<20*6e4)return}
+ if(!backend()||!names.length)return;
+ try{const r=await be({fn:"podcasts",n:sig},25000);S.sp=r.shows||[];S.spErr="";LS.set("sd-sp",{t:Date.now(),sig,v:S.sp})}catch(e){S.spErr=e.message}
+ try{const arts=(DATA.discover&&DATA.discover.artists||[]);const ids=arts.map(a=>(/artist\/([A-Za-z0-9]{22})/.exec(a.url)||[])[1]).filter(Boolean);
+  if(ids.length){const r=await be({fn:"artists",ids:ids.join(",")},20000);arts.forEach(a=>{const id=(/artist\/([A-Za-z0-9]{22})/.exec(a.url)||[])[1];const x=id&&r.a&&r.a[id];if(x&&x.img)a.img=x.img})}}catch(e){}
+ renderListen();refreshSettings();
+}
 async function loadSpArt(){
  const eps=[...(DATA.spotify||[]),...(DATA.discover&&DATA.discover.spotify||[])].filter(p=>!p.art&&p.url);const arts=(DATA.discover&&DATA.discover.artists||[]).filter(a=>!a.img&&a.url);
  if(!eps.length&&!arts.length)return;
@@ -1861,23 +1943,12 @@ function renderMovies(){
  ${soon.length?`<div class="grp-t">Coming soon<span>${soon.length}</span></div>${cols(soon.map(x=>`<article class="ev2">${poster(x,true)}<div class="ev2-x"><div class="chips2" style="margin:0 0 6px">${cdChip(x.date,null,"Opens ")}<span class="cd">${esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</span>${x.big?`<span class="tagc list">Big one</span>`:""}</div><h3>${esc(x.title)}</h3>${x.genre?`<div class="where">${esc(x.genre)}</div>`:""}${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,x.presale?"Pre-sale tickets":"Tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${calBtn("🎬 "+x.title+" opens",{date:x.date,tips:x.blurb||""},tixUrl(x))}</div></div>${dxBtn("mv:"+x.title,"movies",x.title)}</article>`))}`:""}
  ${!now.length&&!soon.length?`<div class="card"><div class="empty-row">No movies listed today.</div></div>`:""}`;
 }
-/* Movies come live from TMDB when you add a free key in Settings; otherwise from the morning data,
-   with posters looked up on Wikipedia. */
-const tmdbKey=()=>LS.get("sd-tmdb-key","")||CONFIG.tmdbKey||"";
-async function tmdb(path,params={}){const k=tmdbKey();const u=new URL("https://api.themoviedb.org/3/"+path);Object.entries({language:"en-US",region:"US",...params}).forEach(([a,b])=>u.searchParams.set(a,b));const bearer=k.length>60;if(!bearer)u.searchParams.set("api_key",k);const r=await fetch(u,bearer?{headers:{Authorization:"Bearer "+k}}:{});if(!r.ok)throw new Error("TMDB "+r.status);return r.json()}
+/* Movies come live from TMDB through the backend (when a TMDB_KEY script property is set);
+   otherwise from the morning data, with posters looked up on Wikipedia. */
 async function loadMovies(force){
- if(tmdbKey()){
-  const c=LS.get("sd-tmdb",null);if(!force&&c&&Date.now()-c.t<6*36e5){S.mv=c.v}
-  else try{
-   const[g,np,up]=await Promise.all([tmdb("genre/movie/list"),tmdb("movie/now_playing"),tmdb("movie/upcoming")]);
-   const G={};(g.genres||[]).forEach(x=>G[x.id]=x.name);const tk=todayKey();
-   const map=m=>({title:m.title,genre:(m.genre_ids||[]).slice(0,2).map(i=>G[i]).filter(Boolean).join(" · "),released:m.release_date,date:m.release_date,tmdb:m.vote_count>=20?m.vote_average:null,blurb:clip(m.overview,150),poster:m.poster_path?"https://image.tmdb.org/t/p/w342"+m.poster_path:""});
-   const now=(np.results||[]).filter(m=>m.release_date<=tk).slice(0,10).map(map);
-   const soon=(up.results||[]).filter(m=>m.release_date>tk).sort((a,b)=>a.release_date.localeCompare(b.release_date)).slice(0,10).map(map);
-   const big=new Set(((DATA.movies||{}).soon||[]).filter(x=>x.big).map(x=>norm(x.title)));soon.forEach(x=>{if(big.has(norm(x.title)))x.big=true});
-   S.mv={now,soon};LS.set("sd-tmdb",{t:Date.now(),v:S.mv});
-  }catch(e){toast("Couldn't reach TMDB ("+e.message+")")}
- }
+ const c=LS.get("sd-mv",null);
+ if(!force&&c&&Date.now()-c.t<3*36e5)S.mv=c.v;
+ else if(backend()){try{const r=await be({fn:"movies"},25000);if(r.now){const big=new Set(((DATA.movies||{}).soon||[]).filter(x=>x.big).map(x=>norm(x.title)));(r.soon||[]).forEach(x=>{if(big.has(norm(x.title)))x.big=true});S.mv={now:r.now,soon:r.soon||[]};S.mvErr="";LS.set("sd-mv",{t:Date.now(),v:S.mv})}}catch(e){S.mvErr=e.message}}
  renderMovies();renderTeasers();
  if(!S.mv)loadPosters();
 }
@@ -1955,7 +2026,7 @@ function listEditor(k){const m=LIST_META[k];return`<div class="set-pad" id="le-$
  <div class="inp-row"><input class="inp" id="li-${k}" placeholder="${esc(m.ph)}" autocomplete="off" autocapitalize="${k==="artists"||k==="podcasts"?"words":"off"}" spellcheck="false" aria-label="Add to ${esc(m.t)}" enterkeyhint="done"><button class="btn press" data-list-add="${k}">Add</button></div></div>`}
 function settingsHTML(){
  const t=LS.get("sd-theme","auto"),bu=backend(),stored=!!LS.get("sd-yt-key","");
- const sync=!bu?["","Saved on this phone. Connect the backend below to send these to the morning report."]:S.sync.state==="ok"?["ok","Synced with the morning report."]:S.sync.state==="err"?["err","Couldn't sync: "+S.sync.msg]:["","Syncing…"];
+ const sync=!bu?["","Saved on this device only."]:S.sync.state==="ok"?["ok","Synced across your devices"+(S.sync.at?" · "+fmtLocalTime(new Date(S.sync.at)):"")+"."]:S.sync.state==="err"?["err","Couldn't sync: "+S.sync.msg]:["","Syncing…"];
  const mk=!bu?["","Not connected. Stocks show the morning's closing numbers."]:S.st.err?["err","Couldn't reach it: "+S.st.err]:S.st.at?["ok","Connected. Prices updated "+fmtLocalTime(new Date(S.st.at))+"."]:["","Connecting…"];
  const ytst=S.yt.error?["err","Last check failed: "+S.yt.error]:S.yt.source==="live"?["ok","Live. Updated "+fmtLocalTime(new Date(S.yt.updated))+"."]:["","Checking for new uploads…"];
  return`<div class="sheet-h"><h3 id="sheet-title">Settings</h3><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
@@ -1973,10 +2044,10 @@ function settingsHTML(){
   <div class="inp-row"><input class="inp" id="yt-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${stored?"Custom key saved":"Built-in key active. Paste to override"}" aria-label="YouTube API key"><button class="btn press" data-act="yt-save">Save</button></div>
   ${stored?`<div class="status"><span>Using your custom key.</span><button style="margin-left:auto;color:var(--down);font-weight:600" data-act="yt-clear">Remove</button></div>`:""}
  </div></div>
- <div class="set-l">Movies</div>
- <div class="set-g"><div class="set-pad"><div class="set-s" style="margin-top:0">Add a free TMDB key to load what's playing and coming soon live, with posters and audience scores. Get one at <a href="https://www.themoviedb.org/settings/api" target="_blank" rel="noopener" style="color:var(--link);font-weight:600">themoviedb.org/settings/api</a>.</div>
-  <div class="inp-row"><input class="inp" id="tmdb-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${tmdbKey()?"Key saved":"Paste your TMDB API key or read token"}" aria-label="TMDB API key"><button class="btn press" data-act="tmdb-save">Save</button></div>
-  ${tmdbKey()?`<div class="status ${S.mv?"ok":""}"><i></i><span>${S.mv?"Live from TMDB.":"Key saved."}</span><button style="margin-left:auto;color:var(--down);font-weight:600" data-act="tmdb-clear">Remove</button></div>`:""}
+ <div class="set-l">Spotify and movies</div>
+ <div class="set-g"><div class="set-pad">
+  <div class="status ${S.sp&&S.sp.length?"ok":S.spErr?"err":""}" style="margin-top:0"><i></i><span>${S.sp&&S.sp.length?"Spotify: live episodes from "+S.sp.length+" shows.":S.spErr?"Spotify: "+esc(S.spErr):"Spotify: connecting…"}</span></div>
+  <div class="status ${S.mv?"ok":""}"><i></i><span>${S.mv?"Movies: live from TMDB.":S.mvErr==="no-key"?"Movies: add a TMDB_KEY script property in your backend for live listings.":S.mvErr?"Movies: "+esc(S.mvErr):"Movies: from the morning report."}</span></div>
  </div></div>
  <div class="set-l">Sections</div>
  <div class="set-g">${SECTIONS.map(([id,l])=>`<label class="set-r"><span>${esc(l)}</span><input type="checkbox" class="sw" data-sec-toggle="${id}" ${S.hidden.has(id)?"":"checked"}></label>`).join("")}</div>
@@ -2001,7 +2072,7 @@ function addToList(k,v){v=normItem(k,v);if(!v)return false;const l=lists()[k].sl
 function removeFromList(k,v){setList(k,lists()[k].filter(x=>x!==v));listsChanged([k])}
 function listsChanged(keys){
  if(keys.includes("channels")){LS.del("sd-yt-cache");loadYouTube(true);renderWatch()}
- if(keys.includes("podcasts"))renderListen();
+ if(keys.includes("podcasts")){renderListen();loadSpotify(true)}
  if(keys.includes("stocks")){S.st.sel=0;renderStocks();loadStQuotes()}
  if(keys.includes("crypto")){if(!cxList().includes(S.cx.sel))S.cx.sel=cxList()[0]||"BTC";stopWs();renderCrypto();loadCx().then(startWs)}
  if(keys.includes("artists"))renderShows();
@@ -2029,7 +2100,7 @@ document.addEventListener("click",async e=>{
   if(act==="settings-artists"){openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-artists");if(el)el.scrollIntoView({block:"center"})});return}
   if(act==="close-sheet"){closeSheet();return}
   if(act==="undo"){const u=toastUndo;toastUndo=null;$("#toast").classList.remove("show");if(u)u();return}
-  if(act==="restore-hidden"){LS.del("sd-dismissed");Object.values(DX_RENDER).forEach(f=>f());renderTeasers();refreshSettings();toast("Everything's back");return}
+  if(act==="restore-hidden"){const now=Date.now();cfgSet(c=>{for(const k in c.dismissed)if(c.dismissed[k]>0)c.dismissed[k]=-now});Object.values(DX_RENDER).forEach(f=>f());renderTeasers();refreshSettings();toast("Everything's back");return}
   if(act==="tmdb-save"){const v=($("#tmdb-key").value||"").trim();if(!v){toast("Paste a key first");return}LS.set("sd-tmdb-key",v);LS.del("sd-tmdb");toast("Loading movies…");await loadMovies(true);refreshSettings();return}
   if(act==="tmdb-clear"){LS.del("sd-tmdb-key");LS.del("sd-tmdb");S.mv=null;renderMovies();renderTeasers();refreshSettings();toast("TMDB key removed");return}
   if(act==="review"){S.review={kind:"v",order:null};openSheet(reviewHTML());bindDeck();return}
@@ -2040,7 +2111,7 @@ document.addEventListener("click",async e=>{
   if(act==="geo"){const on=!LS.get("sd-geo",false);if(on&&!navigator.geolocation){toast("Location isn't available here");return}LS.set("sd-geo",on);toast(on?"Finding your location…":"Back to "+CONFIG.home.name);loadWeather().then(()=>{if(on&&S.wx&&!S.wx.loc.here){LS.set("sd-geo",false);toast("Location is off for this app");renderHero()}}).catch(()=>toast("Couldn't load the weather"));return}
   if(act==="yt-save"){const v=($("#yt-key").value||"").trim();if(!v){toast("Paste a key first");return}LS.set("sd-yt-key",v);LS.del("sd-yt-cache");S.yt={items:null,source:"seed",updated:0,error:""};toast("Key saved");await loadYouTube(true);refreshSettings();return}
   if(act==="yt-clear"){LS.del("sd-yt-key");LS.del("sd-yt-cache");S.yt={items:null,source:"seed",updated:0,error:""};loadYouTube(true);refreshSettings();toast("Using the built-in key");return}
-  if(act==="be-save"){const v=($("#be-url").value||"").trim();if(!/^https:\/\/script\.google(usercontent)?\.com\//.test(v)){toast("That doesn't look like an Apps Script link");return}LS.set("sd-backend",v);S.st.err="";S.sync={state:"",at:0};refreshSettings();toast("Connecting…");try{await be({fn:"ping"});toast("Backend connected")}catch(err){S.st.err=err.message;toast("Couldn't reach it: "+err.message)}await Promise.all([loadStQuotes(),syncDown()]);loadStSeries(stList()[S.st.sel],S.st.range).then(drawSt).catch(()=>{});refreshSettings();return}
+  if(act==="be-save"){const v=($("#be-url").value||"").trim();if(!/^https:\/\/script\.google(usercontent)?\.com\//.test(v)){toast("That doesn't look like an Apps Script link");return}LS.set("sd-backend",v);S.st.err="";S.sync={state:"",at:0};refreshSettings();toast("Connecting…");try{await be({fn:"ping"});toast("Backend connected")}catch(err){S.st.err=err.message;toast("Couldn't reach it: "+err.message)}await Promise.all([loadStQuotes(),pullCfg()]);loadStSeries(stList()[S.st.sel],S.st.range).then(drawSt).catch(()=>{});refreshSettings();return}
   if(act==="be-clear"){LS.del("sd-backend");S.st.q={};S.st.series={};S.st.err="";S.st.at=0;S.sync={state:"",at:0};renderStocks();renderPick();refreshSettings();toast("Backend removed");return}
  }
  const rn=t.closest("[data-rail]");if(rn){const r=$("#"+rn.dataset.rail);if(r){const c=r.children[0];const step=c?(c.offsetWidth+12)*Math.max(1,Math.floor((r.clientWidth+12)/(c.offsetWidth+12))):r.clientWidth;r.scrollBy({left:+rn.dataset.dir*step,behavior:"smooth"})}return}
@@ -2053,7 +2124,7 @@ document.addEventListener("click",async e=>{
   if(k==="channels")LS.del("sd-yt-cache");
   if(k==="artists")renderShows();
   $$(`[data-follow="${k}"]`).forEach(b=>{if(b.dataset.v.toLowerCase()!==v.toLowerCase())return;b.classList.toggle("on",!was);b.setAttribute("aria-pressed",!was);b.innerHTML=!was?I.check:I.plus;b.dataset.tip=!was?"Following · tap to unfollow":"Follow";b.setAttribute("aria-label",!was?"Following":"Follow")});refreshSettings();return}
- const th=t.closest("[data-theme-set]");if(th){LS.set("sd-theme",th.dataset.themeSet);applyTheme();$$("[data-theme-set]").forEach(b=>b.classList.toggle("on",b===th));redrawCharts();renderHero();return}
+ const th=t.closest("[data-theme-set]");if(th){setPref("theme",th.dataset.themeSet);applyTheme();$$("[data-theme-set]").forEach(b=>b.classList.toggle("on",b===th));redrawCharts();renderHero();return}
  const rv=t.closest("[data-rev]");if(rv){S.review={kind:rv.dataset.rev,order:null};$("#sheet-p").innerHTML=`<div class="grab"></div>`+reviewHTML();bindDeck();return}
  const dxb=t.closest("[data-dx]");if(dxb){e.preventDefault();e.stopPropagation();dismiss(dxb.dataset.dx,dxb.dataset.dxs,dxb.dataset.dxl);return}
  const mr=t.closest("[data-mk-range]");if(mr){S.mk.range=mr.dataset.mkRange;LS.set("sd-mk-range",S.mk.range);syncRanges();$$("[data-mk-range]").forEach(b=>{b.classList.toggle("on",b===mr);b.setAttribute("aria-selected",b===mr)});drawMk();await loadMkSeries();return}
@@ -2065,16 +2136,7 @@ document.addEventListener("click",async e=>{
  const sp=t.closest("[data-say]");if(sp){say(sp.dataset.say,sp.dataset.lang);return}
 });
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#sheet").classList.contains("open"))closeSheet();if(e.key==="Enter"&&e.target.id&&e.target.id.startsWith("li-")){const b=$(`[data-list-add="${e.target.id.slice(3)}"]`);if(b)b.click()}});
-document.addEventListener("change",e=>{const c=e.target.closest("[data-sec-toggle]");if(c){const id=c.dataset.secToggle;c.checked?S.hidden.delete(id):S.hidden.add(id);LS.set("sd-hidden",[...S.hidden]);renderNav();observe()}});
-
-/* nav: stuck state + active section */
-let io1,io2;
-function observe(){
- io1&&io1.disconnect();io2&&io2.disconnect();
- io1=new IntersectionObserver(([en])=>$("#nav").classList.toggle("stuck",!en.isIntersecting),{rootMargin:`-${Math.round(parseFloat(getComputedStyle($(".sbar")).height)||0)}px 0px 0px 0px`});io1.observe($("#nav-sentinel"));
- io2=new IntersectionObserver(ens=>{ens.forEach(en=>{if(en.isIntersecting){const id=en.target.dataset.sec;$$("#nav-in a").forEach(a=>{const on=a.dataset.nav===id;a.classList.toggle("on",on);if(on){const p=$("#nav-in");const x=a.offsetLeft-(p.clientWidth-a.offsetWidth)/2;p.scrollTo({left:x,behavior:"smooth"})}})}})},{rootMargin:"-40% 0px -55% 0px"});
- $$("[data-sec]").forEach(s=>io2.observe(s));
-}
+document.addEventListener("change",e=>{const c=e.target.closest("[data-sec-toggle]");if(c){const id=c.dataset.secToggle;c.checked?S.hidden.delete(id):S.hidden.add(id);setPref("hidden",[...S.hidden]);renderNav()}});
 
 /* breakpoint: news count changes between phone and wide layouts */
 WIDE.addEventListener?.("change",()=>{renderNews();renderBay();renderShows();renderMovies();$$(".rail").forEach(railArrows)});
@@ -2097,7 +2159,7 @@ const SELF=location.href.split("#")[0].split("?")[0];
 const loadedDay=todayKey();
 function fresh(){location.replace(SELF+"?v="+Date.now())}
 let hiddenAt=0;
-document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"){hiddenAt=Date.now();stopWs();return}const away=hiddenAt?Date.now()-hiddenAt:0;if(away>10*6e4||todayKey()!==loadedDay)fresh();else{startWs();if(away>60e3){renderHero();loadLive()}}});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"){hiddenAt=Date.now();stopWs();return}const away=hiddenAt?Date.now()-hiddenAt:0;if(away>10*6e4||todayKey()!==loadedDay)fresh();else{startWs();if(away>60e3){renderHero();loadLive()}else if(away>5e3)pullCfg()}});
 addEventListener("pageshow",e=>{if(e.persisted)fresh()});
 try{if(ED<todayKey()&&sessionStorage.getItem("sd-retry")!==todayKey()){sessionStorage.setItem("sd-retry",todayKey());fresh()}}catch(e){}
 
@@ -2108,9 +2170,9 @@ function loadLive(){
  loadWeather().catch(()=>{});
  loadCx().then(startWs);
  loadYouTube(false);
- loadSpArt();
+ loadSpotify(false).then(loadSpArt);
  loadMovies(false);
- if(backend()){loadStQuotes().then(()=>{if(!isCx())return loadMkSeries()}).catch(()=>{});syncDown()}
+ if(backend()){loadStQuotes().then(()=>{if(!isCx())return loadMkSeries()}).catch(()=>{});pullCfg()}
 }
 /* timers: weather every 10 min, stocks every minute, crypto fallback poll */
 setInterval(()=>{if(!document.hidden)loadWeather().catch(()=>{})},10*6e4);
