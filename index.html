@@ -1855,7 +1855,8 @@ function spItems(){
  const live=S.sp&&S.sp.length?S.sp.filter(x=>showMatch(x.asked||x.name,pl)).flatMap(x=>(x.episodes||[]).map(ep=>({...ep,show:x.name}))):null;
  const fol=live&&live.length?live:(DATA.spotify||[]).filter(p=>showMatch(p.show,pl));
  const sug=(DATA.discover&&DATA.discover.spotify||[]).filter(p=>!showMatch(p.show,pl)).map(p=>({...p,sugg:true}));
- return fol.concat(sug).filter(p=>isFresh(p.published)&&!isDis("sp:"+p.url)).sort(byNewest);
+ const oe=LS.get("sd-sp-art",{});
+ return fol.concat(sug).filter(p=>isFresh(p.published)&&!isDis("sp:"+p.url)).map(p=>{const a=oe[String(p.url).split("?")[0]];return a?{...p,art:a}:p}).sort(byNewest);
 }
 function artistItems(){return(DATA.discover&&DATA.discover.artists||[]).filter(a=>!isDis("art:"+a.name))}
 function renderListen(){
@@ -1878,9 +1879,9 @@ async function loadSpotify(force){
  renderListen();refreshSettings();
 }
 async function loadSpArt(){
- const eps=[...(DATA.spotify||[]),...(DATA.discover&&DATA.discover.spotify||[])].filter(p=>!p.art&&p.url);const arts=(DATA.discover&&DATA.discover.artists||[]).filter(a=>!a.img&&a.url);
+ const oe=LS.get("sd-sp-art",{});const eps=spItems().filter(p=>p.url&&oe[String(p.url).split("?")[0]]==null);const arts=(DATA.discover&&DATA.discover.artists||[]).filter(a=>!a.img&&a.url);
  if(!eps.length&&!arts.length)return;
- await Promise.all([...eps.map(async p=>{const a=await spArt(p.url);if(a)p.art=a}),...arts.map(async a=>{const i=await spArt(a.url);if(i)a.img=i})]);
+ await Promise.all([...eps.map(p=>spArt(p.url)),...arts.map(async a=>{const i=await spArt(a.url);if(i)a.img=i})]);
  renderListen();
 }
 
@@ -2074,7 +2075,7 @@ function addToList(k,v){v=normItem(k,v);if(!v)return false;const l=lists()[k].sl
 function removeFromList(k,v){setList(k,lists()[k].filter(x=>x!==v));listsChanged([k])}
 function listsChanged(keys){
  if(keys.includes("channels")){LS.del("sd-yt-cache");loadYouTube(true);renderWatch()}
- if(keys.includes("podcasts")){renderListen();loadSpotify(true)}
+ if(keys.includes("podcasts")){renderListen();loadSpotify(true).then(loadSpArt)}
  if(keys.includes("stocks")){S.st.sel=0;renderStocks();loadStQuotes()}
  if(keys.includes("crypto")){if(!cxList().includes(S.cx.sel))S.cx.sel=cxList()[0]||"BTC";stopWs();renderCrypto();loadCx().then(startWs)}
  if(keys.includes("artists"))renderShows();
