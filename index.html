@@ -912,6 +912,10 @@ html{background:var(--bg)}
 .ix-g:first-child{border-top:0}
 .mk-list{margin-top:12px}
 .mk .take{margin:14px 0 0}
+.cw-new{display:flex;gap:11px;align-items:center;margin-top:12px;padding:8px;border-radius:12px;background:var(--surface)}
+.cw-new img{width:88px;aspect-ratio:16/9;object-fit:cover;border-radius:8px;flex:0 0 auto;background:var(--fill)}
+.cw-new small{display:block;font-size:12px;font-weight:600;color:var(--ink-3)}
+.cw-new b{font-size:14px;font-weight:650;line-height:1.3;margin-top:2px}
 .mk .smas{margin-top:14px}
 .mv-pts{margin:8px 0 0;padding-left:18px;font-size:14px;line-height:1.45;color:var(--ink-2)}
 .mv-pts li+li{margin-top:5px}
@@ -1716,7 +1720,9 @@ function renderMkCtx(){
   h+=`<div class="smas">${[50,100,200].map(x=>{const v=m&&m[x];const d=v&&n?(n.price-v)/v*100:null;return`<div class="sma"><small>${x}-day avg</small><b class="num">${v?usd(v,v>=1000?0:undefined):"—"}</b><span class="num ${d==null?"":d>=0?"up":"down"}">${d==null?(m?"Not enough data":"Loading…"):`${Math.abs(d).toFixed(1)}% ${d>=0?"above":"below"}`}</span></div>`}).join("")}</div>`;
   const rows=[];if(n&&n.hi)rows.push(["24h high",usd(n.hi)],["24h low",usd(n.lo)]);if(q&&q.mcap)rows.push(["Market cap",big(q.mcap)],["From all-time high",q.ath>=-0.05?"At the high":sgn(q.ath)+Math.abs(q.ath).toFixed(1)+"%"]);
   if(rows.length)h+=`<dl class="stats">${rows.map(([a,b])=>`<div><dt>${esc(a)}</dt><dd class="num">${esc(b)}</dd></div>`).join("")}</dl>`;
-  if(s==="BTC"&&DATA.btc)h+=`<div class="take"><div class="take-h"><b>${esc(DATA.btc.source)}'s take</b><span>${esc(DATA.btc.dateLabel||fmtKey(DATA.btc.summaryDate,{month:"short",day:"numeric"}))}</span></div><p>${esc(DATA.btc.summary)}</p><div class="acts">${ib(DATA.btc.sourceUrl,/youtu/.test(DATA.btc.sourceUrl)?I.yt:favImg(domainOf(DATA.btc.sourceUrl)),"Read "+DATA.btc.source+"'s take")}${askBtn("Based on Benjamin Cowen's recent analysis, what's happening with Bitcoin right now and what should I watch for?")}</div></div>`;
+  if(s==="BTC"&&DATA.btc){const lv=S.cowen;const newer=lv&&lv.published&&dayKey(new Date(lv.published))>DATA.btc.summaryDate;
+   h+=`<div class="take"><div class="take-h"><b>${esc(DATA.btc.source)}'s take</b><span>From his ${esc(fmtKey(DATA.btc.summaryDate,{month:"short",day:"numeric"}))} video · ${esc(ago(DATA.btc.summaryDate).toLowerCase())}</span></div><p>${esc(DATA.btc.summary)}</p>
+   ${lv?`<a class="cw-new" href="${esc(lv.url)}" target="_blank" rel="noopener"><img src="${esc(lv.thumb)}" alt="" loading="lazy"><span><small>${newer?"Newer video":"Latest video"} · ${esc(ago(lv.published))}</small><b class="clamp2">${esc(lv.title)}</b></span></a>`:""}<div class="acts">${ib(DATA.btc.sourceUrl,/youtu/.test(DATA.btc.sourceUrl)?I.yt:favImg(domainOf(DATA.btc.sourceUrl)),"Read "+DATA.btc.source+"'s take")}${askBtn(S.cowen?`Benjamin Cowen just posted "${S.cowen.title}" (${S.cowen.url}). What is his current take on Bitcoin, and what should I watch for?`:"Based on Benjamin Cowen's most recent analysis, what's happening with Bitcoin right now and what should I watch for?")}</div></div>`}
  }else if(k==="pick"){
   const p=DATA.pick,q=stkQuote(p.sym),px=q?q.price:p.close;const chips=[];
   if(p.rating)chips.push(`<span class="pchip good"><b>${esc(p.rating.label)}</b>${p.rating.total?` · ${p.rating.buy?p.rating.buy+" of ":""}${p.rating.total} analysts`:""}</span>`);
@@ -1826,6 +1832,16 @@ function renderWatch(){
 async function yt(path,params){const u=new URL("https://www.googleapis.com/youtube/v3/"+path);Object.entries({...params,key:ytKey()}).forEach(([k,v])=>u.searchParams.set(k,v));const r=await fetch(u);const j=await r.json();if(j.error)throw new Error((j.error.errors&&j.error.errors[0]&&j.error.errors[0].reason)||j.error.message||"error");return j}
 async function ytChannel(handle){const ck="sd-ytc-"+handle.toLowerCase();const c=LS.get(ck,null);if(c&&c.id)return c;const j=await yt("channels",{part:"snippet,contentDetails",forHandle:handle});const it=j.items&&j.items[0];if(!it)throw new Error("not found");const v={id:it.id,title:it.snippet.title,avatar:(it.snippet.thumbnails&&(it.snippet.thumbnails.default||{}).url)||"",uploads:it.contentDetails.relatedPlaylists.uploads};LS.set(ck,v);return v}
 function pickDesc(t){if(!t)return"";const bad=/https?:|www\.|sponsor|%\s*off|\bcode\b|subscribe|merch|patreon|instagram|twitter|tiktok|discord|affiliate|follow (me|us)|#\w|^@|^[-—_=]+$/i;const s=t.split(/\n+/).map(x=>x.trim()).find(x=>x.length>24&&!bad.test(x));return s?clip(s,170):""}
+/* Ben Cowen's newest upload, straight from YouTube, so the Bitcoin take always shows what he said last */
+async function loadCowen(){
+ const h=(DATA.btc&&DATA.btc.channel)||"@intothecryptoverse";const c=LS.get("sd-cowen",null);
+ if(c&&Date.now()-c.t<60*6e4){S.cowen=c.v;renderMkCtx();return}
+ if(!ytKey())return;
+ try{const ch=await ytChannel(h);const j=await yt("playlistItems",{part:"snippet",maxResults:"5",playlistId:"UULF"+ch.id.slice(2)}).catch(()=>yt("playlistItems",{part:"snippet",maxResults:"5",playlistId:ch.uploads}));
+  const it=(j.items||[]).map(i=>i.snippet).filter(x=>x&&x.resourceId).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt))[0];
+  if(it){const th=it.thumbnails||{};S.cowen={title:it.title,published:it.publishedAt,url:"https://www.youtube.com/watch?v="+it.resourceId.videoId,thumb:(th.medium||th.high||th.default||{}).url||""};LS.set("sd-cowen",{t:Date.now(),v:S.cowen});renderMkCtx()}
+ }catch(e){}
+}
 async function loadYouTube(force){
  if(!ytKey())return;
  const chs=lists().channels,sg=ytSugg();
@@ -2173,6 +2189,7 @@ function loadLive(){
  loadWeather().catch(()=>{});
  loadCx().then(startWs);
  loadYouTube(false);
+ loadCowen();
  loadSpotify(false).then(loadSpArt);
  loadMovies(false);
  if(backend()){loadStQuotes().then(()=>{if(!isCx())return loadMkSeries()}).catch(()=>{});pullCfg()}

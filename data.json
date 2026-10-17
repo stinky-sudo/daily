@@ -198,10 +198,10 @@
  },
  "btc": {
   "source": "Benjamin Cowen",
-  "sourceUrl": "https://beincrypto.com/benjamin-cowen-memo-q4-bitcoin-bottom/",
-  "dateLabel": "Summer memo",
-  "summary": "Cowen expects the cycle bottom to land in Q4 2026, with an illustrative path toward the mid-$40Ks. He wants the MVRV Z-score below zero and two weekly closes above the 50-week average before calling a durable bottom.",
-  "summaryDate": "2026-10-16"
+  "channel": "@intothecryptoverse",
+  "sourceUrl": "https://www.youtube.com/watch?v=FVcHFIPVI40",
+  "summaryDate": "2026-10-05",
+  "summary": "Cowen has flipped: he now says Bitcoin matches every past bear-market bottom (a low and rebound, then back above the 20-week and 50-week averages) and that he can't recall this setup failing. \"I'd rather just sit back and say, all right, I'm wrong.\" He thinks the cycle low was set in the summer, and that even a pullback to $85K–$90K wouldn't make a new low. The main risk he's watching is a stock-market correction, plus the 10-year yield (~5.3%), which he expects to peak before mid-November, and the Oct 28 Fed meeting as a possible peak-fear moment."
  },
  "news": [
   {
