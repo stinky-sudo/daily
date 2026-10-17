@@ -933,12 +933,12 @@ html{background:var(--bg)}
 .ev2 .dx{top:12px;right:12px;background:var(--fill);color:var(--ink-3);-webkit-backdrop-filter:none;backdrop-filter:none}
 .ev2{padding-right:46px}
 .mv{position:relative}
-@media (hover:hover) and (pointer:fine){.dx{opacity:0}.vid:hover .dx,.mv:hover .dx,.ev2:hover .dx,.art:hover .dx,.dx:focus-visible{opacity:.95}.ev2 .dx:hover{color:var(--ink)}}
+@media (hover:hover) and (pointer:fine){.dx{opacity:.45}.vid:hover .dx,.mv:hover .dx,.ev2:hover .dx,.art:hover .dx,.dx:focus-visible{opacity:.95}.ev2 .dx:hover{color:var(--ink)}}
 .toast.act{pointer-events:auto;display:flex;align-items:center;gap:14px}
 .toast button{color:var(--link);font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:3px}
 /* new artists */
 .arts{display:flex;gap:14px;overflow-x:auto;margin:0 calc(-1*var(--g));padding:2px var(--g) 6px;align-items:flex-start}
-.art{position:relative;flex:0 0 150px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.art{position:relative;flex:0 0 132px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .art .av{position:relative;width:112px;height:112px;border-radius:50%;overflow:hidden;background:linear-gradient(150deg,hsl(var(--h) 50% 38%),hsl(calc(var(--h) + 40) 55% 16%));display:grid;place-items:center;color:#fff;font-family:var(--display);font-size:34px;font-weight:700;box-shadow:var(--shadow)}
 .art .av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .art b{font-size:14.5px;font-weight:650;margin-top:9px;line-height:1.2}
@@ -1064,9 +1064,9 @@ function jsonp(url,ms=9000){return new Promise((res,rej)=>{const cb="__sd"+Math.
    on this device. It never unfollows anyone, so suggestions from that creator keep coming. */
 const DISM=()=>{const d=cfg().dismissed,o={};for(const k in d)if(d[k]>0)o[k]=d[k];return o};
 const isDis=k=>(cfg().dismissed[k]||0)>0;
-const dxBtn=(k,sec,label)=>`<button class="dx press" data-dx="${esc(k)}" data-dxs="${sec}" data-dxl="${esc(clip(label||"",40))}" aria-label="Not interested — hide this" data-tip="Not interested">${I.close}</button>`;
+const dxBtn=(k,sec,label)=>{const sug=/^(ytch|spshow|art):/.test(k);return`<button class="dx press" data-dx="${esc(k)}" data-dxs="${sec}" data-dxl="${esc(clip(label||"",40))}" aria-label="${sug?"Stop suggesting this":"Not interested — hide this"}" data-tip="${sug?"Stop suggesting":"Not interested"}">${I.close}</button>`};
 const DX_RENDER={watch:()=>renderWatch(),listen:()=>renderListen(),movies:()=>renderMovies(),shows:()=>renderShows(),bay:()=>renderBay()};
-function dismiss(k,sec,label){cfgSet(c=>c.dismissed[k]=Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers();toast("Hidden"+(label?": "+label:""),()=>{cfgSet(c=>c.dismissed[k]=-Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers()})}
+function dismiss(k,sec,label){cfgSet(c=>c.dismissed[k]=Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers();toast((/^(ytch|spshow|art):/.test(k)?"Won't suggest "+(label||"this")+" again":"Hidden"+(label?": "+label:"")),()=>{cfgSet(c=>c.dismissed[k]=-Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers()})}
 /* lay rows out as one card on phones, two independent columns on wide screens (each only as tall as it needs) */
 function cols(rows){if(!WIDE.matches||rows.length<2)return`<div class="card">${rows.join("")}</div>`;const a=[],b=[];rows.forEach((h,i)=>(i%2?b:a).push(h));return`<div class="cols2"><div class="card">${a.join("")}</div><div class="card">${b.join("")}</div></div>`}
 /* icon-only actions: every follow-up is a round icon with a tooltip + aria-label */
@@ -1805,7 +1805,7 @@ function mediaCard(v,kind){
   ava=v.art?`<img class="ava sqa" src="${esc(v.art)}" alt="">`:`<span class="ava sqa" style="background:hsl(${hue(v.show)} 45% 30%);color:#fff">${esc(String(v.show).replace(/^The /,"").slice(0,1))}</span>`;
   chan=v.show;meta=ago(v.published);val=v.show;on=showMatch(v.show,lists().podcasts);
  }
- return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp3"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.sugg&&v.because?`<div class="bec">${I.spark}<span>${esc(v.because)}</span></div>`:""}${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${yt?`<span class="open-in yt" title="Opens in YouTube">${I.yt}</span>`:`<span class="open-in" title="Opens in Spotify">${I.spotify}</span>`}${followBtn(yt?"channels":"podcasts",val,on)}</div></div>${dxBtn((yt?"yt:"+v.id:"sp:"+v.url),yt?"watch":"listen",v.title)}</article>`;
+ return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp3"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.sugg&&v.because?`<div class="bec">${I.spark}<span>${esc(v.because)}</span></div>`:""}${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${yt?`<span class="open-in yt" title="Opens in YouTube">${I.yt}</span>`:`<span class="open-in" title="Opens in Spotify">${I.spotify}</span>`}${followBtn(yt?"channels":"podcasts",val,on)}</div></div>${v.sugg?dxBtn(yt?"ytch:"+norm(v.handle||v.channel):"spshow:"+norm(v.show),yt?"watch":"listen",yt?v.channel:v.show):dxBtn((yt?"yt:"+v.id:"sp:"+v.url),yt?"watch":"listen",v.title)}</article>`;
 }
 function railHTML(id,items,kind,empty){
  if(!items.length)return`<div class="card"><div class="empty-row">${esc(empty)}</div></div>`;
@@ -1818,11 +1818,11 @@ function bindRail(id){
  $$("img[data-vid]",rail).forEach(img=>{const fix=()=>{if(img.dataset.fb||!img.dataset.vid)return;img.dataset.fb=1;img.src=`https://i.ytimg.com/vi/${img.dataset.vid}/hqdefault.jpg`};img.addEventListener("error",fix);img.addEventListener("load",()=>{if(img.naturalWidth&&img.naturalWidth<200)fix()})});
 }
 function railArrows(rail){const w=rail.closest(".rail-wrap");if(!w)return;const max=rail.scrollWidth-rail.clientWidth-4;const p=$(".rail-nav.prev",w),n=$(".rail-nav.next",w);if(p)p.disabled=rail.scrollLeft<=4;if(n)n.disabled=rail.scrollLeft>=max;const d=$("#"+rail.id+"-dots");if(d)d.style.visibility=max<=0?"hidden":""}
-const ytSugg=()=>(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.handle&&!inList("channels",d.handle));
+const ytSugg=()=>(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.handle&&!inList("channels",d.handle)&&!isDis("ytch:"+norm(d.handle)));
 function ytItems(){
  const live=S.yt.source==="live"&&S.yt.items;
  const items=live?S.yt.items:[...(DATA.youtube||[]),...(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.id&&d.title).map(d=>({...d,sugg:true}))];
- return items.filter(v=>isFresh(v.published)&&!isDis("yt:"+v.id)).sort(byNewest);
+ return items.filter(v=>isFresh(v.published)&&!isDis("yt:"+v.id)&&!(v.sugg&&(isDis("ytch:"+norm(v.handle||""))||isDis("ytch:"+norm(v.channel||""))))).sort(byNewest);
 }
 function renderWatch(){
  const el=$("#s-watch");const items=ytItems();
@@ -1871,7 +1871,7 @@ function spItems(){
  const pl=lists().podcasts;
  const live=S.sp&&S.sp.length?S.sp.filter(x=>showMatch(x.asked||x.name,pl)).flatMap(x=>(x.episodes||[]).map(ep=>({...ep,show:x.name}))):null;
  const fol=live&&live.length?live:(DATA.spotify||[]).filter(p=>showMatch(p.show,pl));
- const sug=(DATA.discover&&DATA.discover.spotify||[]).filter(p=>!showMatch(p.show,pl)).map(p=>({...p,sugg:true}));
+ const sug=(DATA.discover&&DATA.discover.spotify||[]).filter(p=>!showMatch(p.show,pl)&&!isDis("spshow:"+norm(p.show))).map(p=>({...p,sugg:true}));
  const oe=LS.get("sd-sp-art",{});
  return fol.concat(sug).filter(p=>isFresh(p.published)&&!isDis("sp:"+p.url)).map(p=>{const a=oe[String(p.url).split("?")[0]];return a?{...p,art:a}:p}).sort(byNewest);
 }
@@ -1880,7 +1880,7 @@ function renderListen(){
  const el=$("#s-listen");const items=spItems();const arts=artistItems();
  el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-list" data-k="podcasts">Your podcasts</button></div>
  ${railHTML("sp-rail",items,"sp","Nothing new from your shows in the last 3 days.")}
- ${arts.length?`<div class="grp-t" style="margin-top:22px">New artists for you<button data-act="settings-artists">Your artists</button></div><div class="arts noscroll">${arts.map(a=>`<div class="art"><a class="av" style="--h:${hue(a.name)}" href="${esc(a.url)}" target="_blank" rel="noopener" aria-label="${esc(a.name)} on Spotify">${esc(a.name.slice(0,1))}${a.img?`<img src="${esc(a.img)}" alt="" loading="lazy">`:""}</a><b>${esc(a.name)}</b><small>${esc(a.because||"")}</small><div class="acts">${ib(a.url,I.spotify,"Open on Spotify")}${gBtn(a.name+" musician")}${followBtn("artists",a.name,inList("artists",a.name))}</div>${dxBtn("art:"+a.name,"listen",a.name)}</div>`).join("")}</div>`:""}`;
+ ${arts.length?`<div class="grp-t" style="margin-top:22px">New artists for you<button data-act="settings-artists">Your artists</button></div><div class="arts noscroll">${arts.map(a=>`<div class="art"><a class="av" style="--h:${hue(a.name)}" href="${esc(a.url)}" target="_blank" rel="noopener" aria-label="${esc(a.name)} on Spotify">${esc(a.name.slice(0,1))}${a.img?`<img src="${esc(a.img)}" alt="" loading="lazy">`:""}</a><b>${esc(a.name)}</b><small>${esc(a.because||"")}</small><div class="acts">${ib(a.url,I.spotify,"Open on Spotify")}${followBtn("artists",a.name,inList("artists",a.name))}</div>${dxBtn("art:"+a.name,"listen",a.name)}</div>`).join("")}</div>`:""}`;
  bindRail("sp-rail");
 }
 /* Spotify's oEmbed endpoint gives cover art for any episode or artist link, no key needed */
