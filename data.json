@@ -1,237 +1,275 @@
 {
-  "edition": "2026-10-09",
-  "updated": "2026-10-09T13:22:24-07:00",
+  "edition": "2026-10-16",
+  "updated": "2026-10-16T22:10:00-07:00",
   "weatherFallback": {
-    "hi": 81,
-    "lo": 59,
+    "hi": 93,
+    "lo": 56,
     "cond": "Sunny",
     "code": 0
   },
   "calendar": {
-    "summary": "Flight home today, dinner on Castro tonight. Air show Saturday, Monterey Sunday.",
+    "summary": "Flight lands tonight. Pumpkin Festival tomorrow in Half Moon Bay.",
     "events": [
       {
-        "title": "✈️ Flight Home — AA DFW→SFO",
-        "start": "2026-10-09T13:33:00-07:00",
-        "end": "2026-10-09T17:29:00-07:00",
-        "loc": "Dallas/Fort Worth International Airport (DFW)",
-        "tz": "CT",
-        "endTz": "PT",
-        "url": "https://www.google.com/calendar/event?eid=example1"
+        "title": "✈️ Flight to San Jose (WN 3282)",
+        "start": "2026-10-16T19:05:00-07:00",
+        "end": "2026-10-16T20:15:00-07:00",
+        "loc": "Ontario ONT → San Jose SJC",
+        "url": "https://www.google.com/calendar/event?eid=NWo4YzhzcTBjczluN2YxZHJrdnRwamwzb3MgcnVkeWxhbmdlbmthbXBAbQ"
       },
       {
-        "title": "🍜 Dinner on Castro St",
-        "start": "2026-10-09T19:45:00-07:00",
-        "end": "2026-10-09T21:30:00-07:00",
-        "loc": "Castro Street, Mountain View, CA",
-        "url": "https://www.google.com/calendar/event?eid=example2"
+        "title": "🎃 Half Moon Bay Pumpkin Festival",
+        "start": "2026-10-17T09:00:00-07:00",
+        "end": "2026-10-17T17:00:00-07:00",
+        "loc": "Main Street, Half Moon Bay",
+        "url": "https://www.google.com/calendar/event?eid=bzAwbjk5MGo4N2ZyajdzZzFyb3A1dW5wbmMgcnVkeWxhbmdlbmthbXBAbQ"
       }
     ]
   },
   "tip": {
-    "cat": "Sleep",
-    "title": "Dim the lights two hours before bed",
-    "mins": "5 min",
-    "why": "Light in the evening slows melatonin release.",
+    "cat": "Focus",
+    "title": "Use the two-minute rule for small tasks",
+    "mins": "2 min",
+    "why": "Quick tasks that linger on a to-do list create mental overhead. Knocking them out immediately frees working memory.",
     "how": [
-      "Turn off overhead lights and use one low, warm lamp.",
-      "Turn screen brightness all the way down."
+      "If a task takes less than two minutes, do it the moment it comes up.",
+      "For tasks that seem small but keep getting deferred, set a phone timer for two minutes and start."
     ],
-    "src": "Sleep Foundation",
-    "url": "https://www.sleepfoundation.org/bedroom-environment/light-and-sleep",
-    "ask": "How should I time light and bedtime tonight?"
+    "src": "Getting Things Done – David Allen",
+    "url": "https://gettingthingsdone.com/what-is-gtd/",
+    "ask": "What small tasks am I putting off right now?"
   },
   "tipLog": [
-    "Dim the lights two hours before bed"
+    "Dim the lights two hours before bed",
+    "Use the two-minute rule for small tasks"
   ],
   "markets": {
-    "asOf": "2026-10-09",
-    "headline": "Stocks rose Friday as tech recovered.",
+    "asOf": "2026-10-16",
+    "headline": "Tech sell-off drags Nasdaq down 2% as AI bubble fears mount.",
     "points": [
-      "Chip and AI shares bounced after Thursday's selloff."
+      "S&P Tech sector fell over 3%; CoreWeave's $50B debt pile spooked investors.",
+      "Energy led gains as oil climbed. Tesla rose after its Roadster reveal but couldn't lift the broader market.",
+      "Hotter CPI data pushed Treasury yields higher, adding pressure."
     ],
     "tickers": [
       {
         "sym": "^GSPC",
         "name": "S&P 500",
-        "value": 7811.51,
-        "chg": 46.15,
-        "pct": 0.59,
-        "ytd": 14.11,
+        "value": 7659.44,
+        "chg": -84.80,
+        "pct": -1.09,
+        "ytd": 11.89,
         "closes": [
-          [
-            "2026-10-05",
-            7773.95
-          ],
-          [
-            "2026-10-06",
-            7818.93
-          ],
-          [
-            "2026-10-07",
-            7801.77
-          ],
-          [
-            "2026-10-08",
-            7765.36
-          ],
-          [
-            "2026-10-09",
-            7811.51
-          ]
+          ["2026-10-12", 7807.24],
+          ["2026-10-13", 7830.15],
+          ["2026-10-14", 7790.50],
+          ["2026-10-15", 7744.06],
+          ["2026-10-16", 7659.44]
+        ]
+      },
+      {
+        "sym": "^IXIC",
+        "name": "Nasdaq",
+        "value": 26140.03,
+        "chg": -573.00,
+        "pct": -2.14,
+        "ytd": 12.45,
+        "closes": [
+          ["2026-10-12", 27245.90],
+          ["2026-10-13", 27310.05],
+          ["2026-10-14", 27050.20],
+          ["2026-10-15", 26713.03],
+          ["2026-10-16", 26140.03]
+        ]
+      },
+      {
+        "sym": "^DJI",
+        "name": "Dow Jones",
+        "value": 52002.41,
+        "chg": -175.28,
+        "pct": -0.34,
+        "ytd": 13.62,
+        "closes": [
+          ["2026-10-12", 51850.55],
+          ["2026-10-13", 51920.30],
+          ["2026-10-14", 51780.00],
+          ["2026-10-15", 52177.69],
+          ["2026-10-16", 52002.41]
+        ]
+      },
+      {
+        "sym": "^RUT",
+        "name": "Russell 2000",
+        "value": 2719.57,
+        "chg": -47.55,
+        "pct": -1.72,
+        "ytd": 5.80,
+        "closes": [
+          ["2026-10-12", 2794.48],
+          ["2026-10-13", 2810.30],
+          ["2026-10-14", 2785.10],
+          ["2026-10-15", 2767.12],
+          ["2026-10-16", 2719.57]
         ]
       },
       {
         "sym": "TSLA",
         "name": "Tesla",
-        "value": 382.7,
-        "chg": 7.7,
-        "pct": 2.05,
-        "ytd": -14.9,
+        "value": 373.64,
+        "chg": 6.64,
+        "pct": 1.81,
+        "ytd": -16.93,
         "closes": [
-          [
-            "2026-10-05",
-            378.73
-          ],
-          [
-            "2026-10-06",
-            380.68
-          ],
-          [
-            "2026-10-07",
-            377.81
-          ],
-          [
-            "2026-10-08",
-            375
-          ],
-          [
-            "2026-10-09",
-            382.7
-          ]
+          ["2026-10-12", 365.20],
+          ["2026-10-13", 368.50],
+          ["2026-10-14", 370.10],
+          ["2026-10-15", 367.00],
+          ["2026-10-16", 373.64]
         ]
       }
     ]
   },
   "pick": {
-    "sym": "MRVL",
-    "name": "Marvell Technology",
-    "theme": "Custom AI chips and data center networking",
-    "close": 275.35,
-    "pct": 0.27,
-    "asOf": "2026-10-09",
-    "what": "Marvell designs data infrastructure chips.",
-    "why": "Raised fiscal 2028 revenue outlook. An idea to research, not a recommendation.",
-    "risk": "Revenue leans on a few hyperscaler customers.",
+    "sym": "CRWV",
+    "name": "CoreWeave",
+    "theme": "AI cloud infrastructure and GPU-as-a-service",
+    "close": 38.50,
+    "pct": -11.82,
+    "asOf": "2026-10-16",
+    "what": "CoreWeave provides GPU cloud infrastructure purpose-built for AI workloads.",
+    "why": "Dropped nearly 12% today on debt concerns — worth watching whether the sell-off is overdone. An idea to research, not a recommendation.",
+    "risk": "Roughly $50 billion in debt. If AI spending cools, servicing that load gets very hard.",
     "rating": {
-      "label": "Strong Buy",
-      "buy": 42,
-      "total": 46
+      "label": "Mixed",
+      "buy": 8,
+      "total": 15
     },
-    "target": 337.99,
-    "hi52": 329.88,
+    "target": 55.00,
+    "hi52": 72.40,
     "closes": [
-      [
-        "2026-10-05",
-        271.25
-      ],
-      [
-        "2026-10-06",
-        287.01
-      ],
-      [
-        "2026-10-07",
-        284.68
-      ],
-      [
-        "2026-10-08",
-        274.6
-      ],
-      [
-        "2026-10-09",
-        275.35
-      ]
+      ["2026-10-12", 48.20],
+      ["2026-10-13", 46.80],
+      ["2026-10-14", 45.10],
+      ["2026-10-15", 43.65],
+      ["2026-10-16", 38.50]
     ],
     "history": [
-      {
-        "date": "2026-10-09",
-        "sym": "MRVL",
-        "price": 275.35
-      }
+      {"date": "2026-10-09", "sym": "MRVL", "price": 275.35},
+      {"date": "2026-10-16", "sym": "CRWV", "price": 38.50}
     ]
   },
   "btc": {
     "source": "Benjamin Cowen",
-    "sourceUrl": "https://www.youtube.com/watch?v=se6UlLbDTEo",
-    "summary": "Cowen says he has not given up on Q4 weakness.",
-    "summaryDate": "2026-10-08"
+    "sourceUrl": "https://beincrypto.com/benjamin-cowen-memo-q4-bitcoin-bottom/",
+    "summary": "Cowen's July memo projects a Q4 2026 Bitcoin bottom near $44,000, citing midterm-year seasonality and declining ETF holdings. MVRV Z-Score at 0.395 — wants it below zero for a durable bottom.",
+    "summaryDate": "2026-10-16"
   },
   "news": [
     {
       "id": "n1",
+      "tag": "Tesla",
+      "title": "Tesla unveils flying Roadster with SpaceX cold-gas thrusters",
+      "blurb": "Musk showed the Roadster performing jumps, rolls, and a controlled landing at SpaceX's McGregor facility. Compressed air thrusters enable brief flight and hovering.",
+      "src": "TheStreet",
+      "domain": "thestreet.com",
+      "date": "2026-10-16",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026",
+      "ask": "How practical are cold-gas thrusters in a consumer vehicle?"
+    },
+    {
+      "id": "n2",
+      "tag": "Markets",
+      "title": "AI bubble fears mount as CoreWeave debt hits $50 billion",
+      "blurb": "The Nasdaq sank 2.14% as investors questioned whether AI revenue can justify massive infrastructure spending. CoreWeave, with ~$50B in debt, fell nearly 12%.",
+      "src": "TheStreet",
+      "domain": "thestreet.com",
+      "date": "2026-10-16",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026",
+      "ask": "Is the AI infrastructure buildout outpacing actual demand?"
+    },
+    {
+      "id": "n3",
       "tag": "Robotics",
-      "title": "Boston Dynamics explains its redesigned four-finger humanoid hand",
-      "blurb": "Boston Dynamics detailed a new hand with 13 directly actuated degrees of freedom.",
-      "src": "The Robot Report",
-      "domain": "therobotreport.com",
-      "date": "2026-10-09",
-      "url": "https://www.therobotreport.com/boston-dynamics-gives-more-insight-into-its-redesigned-humanoid-hand/",
-      "ask": "What do you give up in dexterity by going from five fingers to four?"
+      "title": "Humanoid robots enter real-world manufacturing deployments in 2026",
+      "blurb": "Figure AI, Tesla Optimus, and Boston Dynamics are moving humanoid robots from labs into commercial manufacturing settings.",
+      "src": "AF.NET",
+      "domain": "af.net",
+      "date": "2026-10-16",
+      "url": "https://af.net/realtime/humanoid-robots-begin-real-world-manufacturing-deployments-in-2026/",
+      "ask": "Which manufacturing tasks are humanoids actually doing right now?"
     }
   ],
   "youtube": [],
-  "spotify": [
-    {
-      "show": "The Diary Of A CEO with Steven Bartlett",
-      "title": "Most Replayed Moment: AI Is Changing How Teams Work Forever",
-      "desc": "Nick Hanauer and Daniel Priestley debate AI and work.",
-      "published": "2026-10-09",
-      "secs": 1241,
-      "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
-      "url": "https://open.spotify.com/episode/2t1ukb8PzskpqTEG3M09G0"
-    }
-  ],
+  "spotify": [],
   "discover": {
-    "youtube": [
-      {
-        "handle": "@matthew_berman",
-        "channel": "Matthew Berman",
-        "because": "Near-daily AI model breakdowns."
-      }
-    ],
-    "spotify": [
-      {
-        "show": "Huberman Lab",
-        "title": "Essentials: Manage Stress & Build Resilience",
-        "published": "2026-10-08",
-        "secs": 2082,
-        "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
-        "desc": "UCSF's Elissa Epel on stress and resilience.",
-        "because": "Shorter, science-first episodes.",
-        "url": "https://open.spotify.com/episode/0N5BtJYtIGnoGYOnGqWnci"
-      }
-    ]
+    "youtube": [],
+    "spotify": []
   },
   "discoverLog": [
     "@matthew_berman",
     "Huberman Lab"
   ],
   "bay": {
-    "range": "Oct 9–11",
+    "range": "Oct 16–18",
     "items": [
       {
         "id": "b1",
-        "title": "Bart Skils at Public Works",
-        "blurb": "Dutch techno DJ Bart Skils headlines Saturday night.",
-        "src": "publicsf.com",
-        "date": "2026-10-10",
-        "dateLabel": "Sat night",
-        "url": "https://www.tixr.com/groups/publicsf/events/bart-skils-208460",
+        "title": "ScHoolboy Q – 10 Years of Blank Face LP",
+        "blurb": "ScHoolboy Q celebrates 10 years of Blank Face LP at the Fox Theater in Oakland tonight.",
+        "src": "onestowatch.com",
+        "date": "2026-10-16",
+        "dateLabel": "Fri night",
+        "url": "https://www.ticketmaster.com/schoolboy-q-10-years-of-blank-oakland-california-10-16-2026/event/1C0064FDE6DD6CF8",
         "cal": {
-          "start": "2026-10-10T21:00",
-          "end": "2026-10-11T02:00",
-          "location": "Public Works, 161 Erie St, San Francisco, CA 94103",
-          "tips": "21+ with ID."
+          "start": "2026-10-16T20:00",
+          "end": "2026-10-16T23:00",
+          "location": "Fox Theater, 1807 Telegraph Ave, Oakland, CA 94612",
+          "tips": "Doors at 7 PM."
+        }
+      },
+      {
+        "id": "b2",
+        "title": "Vulfpeck at Greek Theatre",
+        "blurb": "Funk favorites Vulfpeck with Jackie Evans at the Greek Theatre in Berkeley tonight.",
+        "src": "onestowatch.com",
+        "date": "2026-10-16",
+        "dateLabel": "Fri night",
+        "url": "https://www.ticketmaster.com/vulfpeck-berkeley-california-10-16-2026/event/1C006490D3AC2A3D",
+        "cal": {
+          "start": "2026-10-16T20:00",
+          "end": "2026-10-16T23:00",
+          "location": "Greek Theatre, 2001 Gayley Rd, Berkeley, CA 94720",
+          "tips": "Outdoor venue — layer up."
+        }
+      },
+      {
+        "id": "b3",
+        "title": "🎃 Half Moon Bay Pumpkin Festival",
+        "blurb": "Giant pumpkin weigh-off, live music, food, and art. 250K+ attendees — classic Bay Area fall day trip.",
+        "src": "miramarevents.com",
+        "date": "2026-10-17",
+        "dateLabel": "Sat",
+        "url": "https://www.miramarevents.com/pumpkinfest/",
+        "cal": {
+          "start": "2026-10-17T09:00",
+          "end": "2026-10-17T17:00",
+          "location": "Main Street, Half Moon Bay, CA",
+          "tips": "Free admission. Arrive early — parking fills fast. 30 min from Palo Alto."
+        }
+      },
+      {
+        "id": "b4",
+        "title": "Rush – Fifty Something at SAP Center",
+        "blurb": "Rush performs at SAP Center in San Jose on Saturday night.",
+        "src": "onestowatch.com",
+        "date": "2026-10-17",
+        "dateLabel": "Sat night",
+        "url": "https://www.ticketmaster.com/rush-fifty-something-san-jose-california-10-17-2026/event/1C006355EC78A84D",
+        "cal": {
+          "start": "2026-10-17T19:30",
+          "end": "2026-10-17T23:00",
+          "location": "SAP Center, 525 W Santa Clara St, San Jose, CA 95113",
+          "tips": "Doors 6:30 PM."
         }
       }
     ],
@@ -248,65 +286,66 @@
           "location": "Cow Palace, Daly City, CA",
           "tips": "18+; doors 7 PM."
         }
+      },
+      {
+        "title": "Chris Lake at Tahoe Live",
+        "artist": "Chris Lake",
+        "match": "list",
+        "date": "2026-12-11",
+        "url": "https://www.jambase.com/band/chris-lake/tour-dates",
+        "cal": {
+          "start": "2026-12-11T21:00",
+          "end": "2026-12-12T02:00",
+          "location": "Tahoe Live, Olympic Valley, CA",
+          "tips": "Not Bay Area proper, but closest CA date."
+        }
       }
     ],
-    "aheadNote": "No confirmed Bay Area dates found for Don Toliver, Chris Lake, Kanye West or Tyler The Creator."
+    "aheadNote": "No confirmed Bay Area dates found for Don Toliver, Slander, or Kanye West. Tyler's Chromakopia tour hit Oakland (Feb 24) and SF (Mar 5) — already passed."
   },
   "bayLog": [
-    "Bart Skils at Public Works"
+    "Bart Skils at Public Works",
+    "ScHoolboy Q – 10 Years of Blank Face LP",
+    "Vulfpeck at Greek Theatre",
+    "Half Moon Bay Pumpkin Festival",
+    "Rush – Fifty Something at SAP Center"
   ],
   "different": {
-    "title": "Earth ran its own nuclear reactors two billion years ago",
-    "blurb": "In 1972, French analysts found uranium from the Oklo deposit in Gabon was short on uranium-235, tracing back to natural fission reactors.",
-    "url": "https://www.scientificamerican.com/article/ancient-nuclear-reactor/",
-    "ask": "How did scientists rule out other explanations for Oklo's missing uranium-235?"
+    "title": "There's a high-pitched hum that only young people can hear",
+    "blurb": "The 'Mosquito' device emits a 17.4 kHz tone audible to most people under 25 but inaudible to most adults over 30, due to age-related hearing loss called presbycusis. It was originally designed to deter loitering teenagers — but teens repurposed the frequency as a ringtone teachers can't hear.",
+    "url": "https://en.wikipedia.org/wiki/The_Mosquito",
+    "ask": "At what age does hearing loss at 17 kHz typically become noticeable?"
   },
   "vocab": [
     {
-      "date": "2026-10-09",
-      "word": "Peripatetic",
-      "pron": "pair-uh-puh-TET-ik",
+      "date": "2026-10-16",
+      "word": "Recondite",
+      "pron": "REK-un-dyte",
       "pos": "adjective",
-      "def": "Traveling from place to place.",
-      "ex": "After a peripatetic week, his suitcase never fully got unpacked.",
+      "def": "Little known or difficult to understand; obscure.",
+      "ex": "The professor's recondite lecture on 12th-century Mongolian trade routes left half the class glazed over.",
       "cards": [
-        {
-          "f": "Root",
-          "b": "Greek peripatein, to walk up and down"
-        },
-        {
-          "f": "Opposite",
-          "b": "sedentary"
-        }
+        {"f": "Root", "b": "Latin reconditus, hidden away"},
+        {"f": "Synonym", "b": "arcane, abstruse, esoteric"}
       ]
     }
   ],
   "spanish": [
     {
-      "date": "2026-10-09",
-      "phrase": "¡Aguas!",
-      "pron": "AH-gwahs",
-      "reg": "Mexico · casual",
-      "meaning": "Watch out! Heads up!",
-      "note": "Shouted to warn someone.",
+      "date": "2026-10-16",
+      "phrase": "Me da igual",
+      "pron": "meh dah ee-GWAHL",
+      "reg": "Universal · casual",
+      "meaning": "I don't care / It's all the same to me",
+      "note": "Neutral — not rude, just indifferent. Use when you genuinely have no preference.",
       "cards": [
-        {
-          "es": "cuidado",
-          "en": "careful"
-        },
-        {
-          "es": "ojo",
-          "en": "keep an eye out"
-        }
+        {"es": "No me importa", "en": "I don't mind"},
+        {"es": "Como quieras", "en": "Whatever you want"}
       ]
     }
   ],
   "learnLog": {
-    "words": [
-      "Peripatetic"
-    ],
-    "phrases": [
-      "¡Aguas!"
-    ]
+    "words": ["Peripatetic", "Recondite"],
+    "phrases": ["¡Aguas!", "Me da igual"]
   }
 }
