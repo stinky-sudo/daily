@@ -1,0 +1,312 @@
+{
+  "edition": "2026-10-09",
+  "updated": "2026-10-09T13:22:24-07:00",
+  "weatherFallback": {
+    "hi": 81,
+    "lo": 59,
+    "cond": "Sunny",
+    "code": 0
+  },
+  "calendar": {
+    "summary": "Flight home today, dinner on Castro tonight. Air show Saturday, Monterey Sunday.",
+    "events": [
+      {
+        "title": "✈️ Flight Home — AA DFW→SFO",
+        "start": "2026-10-09T13:33:00-07:00",
+        "end": "2026-10-09T17:29:00-07:00",
+        "loc": "Dallas/Fort Worth International Airport (DFW)",
+        "tz": "CT",
+        "endTz": "PT",
+        "url": "https://www.google.com/calendar/event?eid=example1"
+      },
+      {
+        "title": "🍜 Dinner on Castro St",
+        "start": "2026-10-09T19:45:00-07:00",
+        "end": "2026-10-09T21:30:00-07:00",
+        "loc": "Castro Street, Mountain View, CA",
+        "url": "https://www.google.com/calendar/event?eid=example2"
+      }
+    ]
+  },
+  "tip": {
+    "cat": "Sleep",
+    "title": "Dim the lights two hours before bed",
+    "mins": "5 min",
+    "why": "Light in the evening slows melatonin release.",
+    "how": [
+      "Turn off overhead lights and use one low, warm lamp.",
+      "Turn screen brightness all the way down."
+    ],
+    "src": "Sleep Foundation",
+    "url": "https://www.sleepfoundation.org/bedroom-environment/light-and-sleep",
+    "ask": "How should I time light and bedtime tonight?"
+  },
+  "tipLog": [
+    "Dim the lights two hours before bed"
+  ],
+  "markets": {
+    "asOf": "2026-10-09",
+    "headline": "Stocks rose Friday as tech recovered.",
+    "points": [
+      "Chip and AI shares bounced after Thursday's selloff."
+    ],
+    "tickers": [
+      {
+        "sym": "^GSPC",
+        "name": "S&P 500",
+        "value": 7811.51,
+        "chg": 46.15,
+        "pct": 0.59,
+        "ytd": 14.11,
+        "closes": [
+          [
+            "2026-10-05",
+            7773.95
+          ],
+          [
+            "2026-10-06",
+            7818.93
+          ],
+          [
+            "2026-10-07",
+            7801.77
+          ],
+          [
+            "2026-10-08",
+            7765.36
+          ],
+          [
+            "2026-10-09",
+            7811.51
+          ]
+        ]
+      },
+      {
+        "sym": "TSLA",
+        "name": "Tesla",
+        "value": 382.7,
+        "chg": 7.7,
+        "pct": 2.05,
+        "ytd": -14.9,
+        "closes": [
+          [
+            "2026-10-05",
+            378.73
+          ],
+          [
+            "2026-10-06",
+            380.68
+          ],
+          [
+            "2026-10-07",
+            377.81
+          ],
+          [
+            "2026-10-08",
+            375
+          ],
+          [
+            "2026-10-09",
+            382.7
+          ]
+        ]
+      }
+    ]
+  },
+  "pick": {
+    "sym": "MRVL",
+    "name": "Marvell Technology",
+    "theme": "Custom AI chips and data center networking",
+    "close": 275.35,
+    "pct": 0.27,
+    "asOf": "2026-10-09",
+    "what": "Marvell designs data infrastructure chips.",
+    "why": "Raised fiscal 2028 revenue outlook. An idea to research, not a recommendation.",
+    "risk": "Revenue leans on a few hyperscaler customers.",
+    "rating": {
+      "label": "Strong Buy",
+      "buy": 42,
+      "total": 46
+    },
+    "target": 337.99,
+    "hi52": 329.88,
+    "closes": [
+      [
+        "2026-10-05",
+        271.25
+      ],
+      [
+        "2026-10-06",
+        287.01
+      ],
+      [
+        "2026-10-07",
+        284.68
+      ],
+      [
+        "2026-10-08",
+        274.6
+      ],
+      [
+        "2026-10-09",
+        275.35
+      ]
+    ],
+    "history": [
+      {
+        "date": "2026-10-09",
+        "sym": "MRVL",
+        "price": 275.35
+      }
+    ]
+  },
+  "btc": {
+    "source": "Benjamin Cowen",
+    "sourceUrl": "https://www.youtube.com/watch?v=se6UlLbDTEo",
+    "summary": "Cowen says he has not given up on Q4 weakness.",
+    "summaryDate": "2026-10-08"
+  },
+  "news": [
+    {
+      "id": "n1",
+      "tag": "Robotics",
+      "title": "Boston Dynamics explains its redesigned four-finger humanoid hand",
+      "blurb": "Boston Dynamics detailed a new hand with 13 directly actuated degrees of freedom.",
+      "src": "The Robot Report",
+      "domain": "therobotreport.com",
+      "date": "2026-10-09",
+      "url": "https://www.therobotreport.com/boston-dynamics-gives-more-insight-into-its-redesigned-humanoid-hand/",
+      "ask": "What do you give up in dexterity by going from five fingers to four?"
+    }
+  ],
+  "youtube": [],
+  "spotify": [
+    {
+      "show": "The Diary Of A CEO with Steven Bartlett",
+      "title": "Most Replayed Moment: AI Is Changing How Teams Work Forever",
+      "desc": "Nick Hanauer and Daniel Priestley debate AI and work.",
+      "published": "2026-10-09",
+      "secs": 1241,
+      "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
+      "url": "https://open.spotify.com/episode/2t1ukb8PzskpqTEG3M09G0"
+    }
+  ],
+  "discover": {
+    "youtube": [
+      {
+        "handle": "@matthew_berman",
+        "channel": "Matthew Berman",
+        "because": "Near-daily AI model breakdowns."
+      }
+    ],
+    "spotify": [
+      {
+        "show": "Huberman Lab",
+        "title": "Essentials: Manage Stress & Build Resilience",
+        "published": "2026-10-08",
+        "secs": 2082,
+        "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
+        "desc": "UCSF's Elissa Epel on stress and resilience.",
+        "because": "Shorter, science-first episodes.",
+        "url": "https://open.spotify.com/episode/0N5BtJYtIGnoGYOnGqWnci"
+      }
+    ]
+  },
+  "discoverLog": [
+    "@matthew_berman",
+    "Huberman Lab"
+  ],
+  "bay": {
+    "range": "Oct 9–11",
+    "items": [
+      {
+        "id": "b1",
+        "title": "Bart Skils at Public Works",
+        "blurb": "Dutch techno DJ Bart Skils headlines Saturday night.",
+        "src": "publicsf.com",
+        "date": "2026-10-10",
+        "dateLabel": "Sat night",
+        "url": "https://www.tixr.com/groups/publicsf/events/bart-skils-208460",
+        "cal": {
+          "start": "2026-10-10T21:00",
+          "end": "2026-10-11T02:00",
+          "location": "Public Works, 161 Erie St, San Francisco, CA 94103",
+          "tips": "21+ with ID."
+        }
+      }
+    ],
+    "ahead": [
+      {
+        "title": "Sammy Virji with Sam Gellaitry",
+        "artist": "Sam Gellaitry",
+        "match": "list",
+        "date": "2026-11-13",
+        "url": "https://www.cowpalace.com/event/sammy-virji/",
+        "cal": {
+          "start": "2026-11-13T19:00",
+          "end": "2026-11-13T23:30",
+          "location": "Cow Palace, Daly City, CA",
+          "tips": "18+; doors 7 PM."
+        }
+      }
+    ],
+    "aheadNote": "No confirmed Bay Area dates found for Don Toliver, Chris Lake, Kanye West or Tyler The Creator."
+  },
+  "bayLog": [
+    "Bart Skils at Public Works"
+  ],
+  "different": {
+    "title": "Earth ran its own nuclear reactors two billion years ago",
+    "blurb": "In 1972, French analysts found uranium from the Oklo deposit in Gabon was short on uranium-235, tracing back to natural fission reactors.",
+    "url": "https://www.scientificamerican.com/article/ancient-nuclear-reactor/",
+    "ask": "How did scientists rule out other explanations for Oklo's missing uranium-235?"
+  },
+  "vocab": [
+    {
+      "date": "2026-10-09",
+      "word": "Peripatetic",
+      "pron": "pair-uh-puh-TET-ik",
+      "pos": "adjective",
+      "def": "Traveling from place to place.",
+      "ex": "After a peripatetic week, his suitcase never fully got unpacked.",
+      "cards": [
+        {
+          "f": "Root",
+          "b": "Greek peripatein, to walk up and down"
+        },
+        {
+          "f": "Opposite",
+          "b": "sedentary"
+        }
+      ]
+    }
+  ],
+  "spanish": [
+    {
+      "date": "2026-10-09",
+      "phrase": "¡Aguas!",
+      "pron": "AH-gwahs",
+      "reg": "Mexico · casual",
+      "meaning": "Watch out! Heads up!",
+      "note": "Shouted to warn someone.",
+      "cards": [
+        {
+          "es": "cuidado",
+          "en": "careful"
+        },
+        {
+          "es": "ojo",
+          "en": "keep an eye out"
+        }
+      ]
+    }
+  ],
+  "learnLog": {
+    "words": [
+      "Peripatetic"
+    ],
+    "phrases": [
+      "¡Aguas!"
+    ]
+  }
+}
