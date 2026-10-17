@@ -360,6 +360,8 @@ h1,h2,h3,p{margin:0}
 .pth .bgb{position:absolute;inset:-24px;width:calc(100% + 48px);height:calc(100% + 48px);object-fit:cover;filter:blur(22px) brightness(.62) saturate(1.2)}
 .pth .sq{position:absolute;left:50%;top:50%;height:76%;width:auto;aspect-ratio:1;object-fit:cover;transform:translate(-50%,-50%);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .empty-row{padding:16px;font-size:14.5px;color:var(--ink-3)}
+.pth.wide .bgb{display:none}
+.pth.wide .sq{left:0;top:0;width:100%;height:100%;aspect-ratio:auto;transform:none;border-radius:0;box-shadow:none;object-fit:cover}
 /* crypto SMAs */
 .smas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
 .sma{background:var(--fill);border-radius:14px;padding:10px 11px}
@@ -1792,7 +1794,7 @@ function mediaCard(v,kind){
   chan=v.channel;meta=[ago(v.published),v.views?compactViews(v.views):""].filter(Boolean).join(" · ");
   val=v.handle||"";on=val?inList("channels",val):!v.sugg;
  }else{
-  thumb=v.art?`<div class="vid-th pth"><img class="bgb" src="${esc(v.art)}" alt="" loading="lazy"><img class="sq" src="${esc(v.art)}" alt="" loading="lazy">${v.secs?`<span class="dur num">${esc(durShort(v.secs))}</span>`:""}${sug}</div>`:`<div class="vid-th"><div class="pcv" style="--h:${hue(v.show)}">${I.spotify}<strong>${esc(v.show)}</strong></div>${v.secs?`<span class="dur num">${esc(durShort(v.secs))}</span>`:""}${sug}</div>`;
+  thumb=v.art?`<div class="vid-th pth"><img class="bgb" src="${esc(v.art)}" alt="" loading="lazy"><img class="sq" src="${esc(v.art)}" alt="" loading="lazy" onload="if(this.naturalWidth/this.naturalHeight>1.2)this.parentNode.classList.add('wide')">${v.secs?`<span class="dur num">${esc(durShort(v.secs))}</span>`:""}${sug}</div>`:`<div class="vid-th"><div class="pcv" style="--h:${hue(v.show)}">${I.spotify}<strong>${esc(v.show)}</strong></div>${v.secs?`<span class="dur num">${esc(durShort(v.secs))}</span>`:""}${sug}</div>`;
   ava=v.art?`<img class="ava sqa" src="${esc(v.art)}" alt="">`:`<span class="ava sqa" style="background:hsl(${hue(v.show)} 45% 30%);color:#fff">${esc(String(v.show).replace(/^The /,"").slice(0,1))}</span>`;
   chan=v.show;meta=ago(v.published);val=v.show;on=showMatch(v.show,lists().podcasts);
  }
@@ -1867,10 +1869,10 @@ function renderListen(){
 async function spArt(url){const u=String(url).split("?")[0];const m=LS.get("sd-sp-art",{});if(m[u]!=null)return m[u];try{const r=await fetch("https://open.spotify.com/oembed?url="+encodeURIComponent(u));if(!r.ok)return null;const j=await r.json();m[u]=j.thumbnail_url||"";LS.set("sd-sp-art",m);return m[u]}catch(e){return null}}
 /* podcasts + artist photos come live from Spotify through the backend */
 async function loadSpotify(force){
- const names=lists().podcasts,sig=names.join("|");const c=LS.get("sd-sp",null);
- if(c&&c.sig===sig){S.sp=c.v;renderListen();if(!force&&Date.now()-c.t<20*6e4)return}
+ const names=lists().podcasts,sig=names.join("|");const c=LS.get("sd-sp2",null);
+ if(c&&c.sig===sig&&c.v&&c.v.length){S.sp=c.v;renderListen();if(!force&&Date.now()-c.t<20*6e4)return}
  if(!backend()||!names.length)return;
- try{const r=await be({fn:"podcasts",n:sig},25000);S.sp=r.shows||[];S.spErr="";LS.set("sd-sp",{t:Date.now(),sig,v:S.sp})}catch(e){S.spErr=e.message}
+ try{const r=await be({fn:"podcasts",n:sig},25000);if(!r.shows)throw new Error("backend needs the new version deployed");S.sp=r.shows;S.spErr="";if(S.sp.length)LS.set("sd-sp2",{t:Date.now(),sig,v:S.sp})}catch(e){S.spErr=e.message}
  try{const arts=(DATA.discover&&DATA.discover.artists||[]);const ids=arts.map(a=>(/artist\/([A-Za-z0-9]{22})/.exec(a.url)||[])[1]).filter(Boolean);
   if(ids.length){const r=await be({fn:"artists",ids:ids.join(",")},20000);arts.forEach(a=>{const id=(/artist\/([A-Za-z0-9]{22})/.exec(a.url)||[])[1];const x=id&&r.a&&r.a[id];if(x&&x.img)a.img=x.img})}}catch(e){}
  renderListen();refreshSettings();
