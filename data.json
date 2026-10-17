@@ -304,7 +304,49 @@
  ],
  "discover": {
   "youtube": [],
-  "spotify": []
+  "spotify": [],
+  "artists": [
+   {
+    "name": "Mau P",
+    "because": "Like Chris Lake",
+    "url": "https://open.spotify.com/artist/0w1sbtZVQoK6GzV4A4OkCv"
+   },
+   {
+    "name": "Odd Mob",
+    "because": "Like Chris Lake",
+    "url": "https://open.spotify.com/artist/4qLwtWhlhyAoQ4S9mSrDW9"
+   },
+   {
+    "name": "Dylan Matthew",
+    "because": "Like Slander",
+    "url": "https://open.spotify.com/artist/6d0ZjIp5L7Ygy2l02HskRX"
+   },
+   {
+    "name": "SABAI",
+    "because": "Like Slander",
+    "url": "https://open.spotify.com/artist/4OaSyxqlkp7aVpAZwF02QZ"
+   },
+   {
+    "name": "piri",
+    "because": "Like Sam Gellaitry",
+    "url": "https://open.spotify.com/artist/4DpmPt7gfAAq7WEx0E1X8s"
+   },
+   {
+    "name": "KAYTRANADA",
+    "because": "Like Sam Gellaitry",
+    "url": "https://open.spotify.com/artist/6qgnBH6iDM91ipVXv28OMu"
+   },
+   {
+    "name": "Matroda",
+    "because": "Like Chris Lake",
+    "url": "https://open.spotify.com/artist/45lcbTsX07JWzmTIjcdyBz"
+   },
+   {
+    "name": "Metro Boomin",
+    "because": "Like Don Toliver",
+    "url": "https://open.spotify.com/artist/0iEtIxbK0KxaSlF7G42ZOp"
+   }
+  ]
  },
  "discoverLog": [
   "@matthew_berman",

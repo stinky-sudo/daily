@@ -795,7 +795,7 @@ html{background:var(--bg)}
 .it-t>:first-child{margin-left:auto}
 .src-l{font-size:13px;font-weight:600;opacity:.8;margin-left:4px}
 .open-in svg{width:18px;height:18px}
-.vid-f .ib.fol{margin-right:auto}
+
 @media (min-width:768px){
   .it-ic{width:38px;height:38px;border-radius:11px}
   .it-ic svg{width:20px;height:20px}
@@ -812,12 +812,10 @@ html{background:var(--bg)}
 /* icon-only action buttons */
 .acts,.wk-acts,.nw-acts,.dsc-acts{align-items:center}
 .ib{position:relative;flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:inline-grid;place-items:center;background:var(--fill);color:var(--ink);transition:background .15s,transform .12s}
-.ib svg,.ib img{width:19px;height:19px;display:block}
+.ib svg,.ib img{width:20px;height:20px;display:block}
 .ib img{border-radius:4px}
-.ib.lg svg{width:21px;height:21px}
+.ib img.lgo{border-radius:0;object-fit:contain}
 .ib.pri{background:var(--ink);color:var(--bg)}
-.ib.sm{width:34px;height:34px}
-.ib.sm svg,.ib.sm img{width:17px;height:17px}
 .ib.on{background:var(--fill-2)}
 .ib:active{transform:scale(.92)}
 .tipc .ib,.feat .ib{background:rgba(255,255,255,.18);color:#fff}
@@ -895,6 +893,62 @@ html{background:var(--bg)}
 .pcv{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:14px;color:#fff;background:linear-gradient(150deg,hsl(var(--h) 50% 34%),hsl(calc(var(--h) + 40) 55% 14%))}
 .pcv svg{width:26px;height:26px}
 .pcv strong{font-family:var(--display);font-size:22px;line-height:1.05;letter-spacing:-.02em;font-weight:700}
+
+/* v7 */
+.lgo{display:block;width:100%;height:100%;object-fit:contain}
+.it-ic.logo img{width:26px;height:26px}
+.it-ic.logo.yt img{width:28px;height:20px}
+@media (min-width:768px){.it-ic.logo img{width:32px;height:32px}.it-ic.logo.yt img{width:34px;height:24px}}
+.open-in img{width:22px;height:22px}
+.open-in.yt img{width:26px;height:18px}
+.pcv img{width:28px;height:28px}
+.mk-head .ib{margin-left:6px}
+.mk-head .coin.lgc{width:34px;height:34px;font-size:12px}
+.ix-n .coin.idx{color:var(--ink-2)}.ix-n .coin.idx svg{width:15px;height:15px}
+.ix-n .coin.tk{font-size:9.5px;letter-spacing:.02em;color:var(--ink)}
+.ix-g{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);padding:14px 16px 6px;border-top:1px solid var(--line)}
+.ix-g:first-child{border-top:0}
+.mk-list{margin-top:12px}
+.mk .take{margin:14px 0 0}
+.mk .smas{margin-top:14px}
+.mv-pts{margin:8px 0 0;padding-left:18px;font-size:14px;line-height:1.45;color:var(--ink-2)}
+.mv-pts li+li{margin-top:5px}
+.ctx-pick{margin-top:14px}
+.ctx-pick dl{margin:12px 0 0;display:grid;gap:10px}
+.ctx-pick dt{font-size:12.5px;font-weight:700;color:var(--ink-3)}
+.ctx-pick dd{margin:2px 0 0;font-size:14.5px;line-height:1.45}
+.ctx-pick .acts{display:flex;gap:8px;margin-top:12px}
+@media (min-width:768px){#s-mkt{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)!important}}
+/* compact, content-height layouts */
+.rail{align-items:flex-start}
+.vid-b{min-height:0!important}
+.mv-rail{align-items:start}
+.cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+/* dismiss */
+.dx{position:absolute;top:8px;right:8px;z-index:3;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.5);color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:.9;transition:opacity .15s,transform .12s}
+.dx svg{width:12px;height:12px}
+.dx:active{transform:scale(.9)}
+.ev2 .dx{top:12px;right:12px;background:var(--fill);color:var(--ink-3);-webkit-backdrop-filter:none;backdrop-filter:none}
+.ev2{padding-right:46px}
+.mv{position:relative}
+@media (hover:hover) and (pointer:fine){.dx{opacity:0}.vid:hover .dx,.mv:hover .dx,.ev2:hover .dx,.art:hover .dx,.dx:focus-visible{opacity:.95}.ev2 .dx:hover{color:var(--ink)}}
+.toast.act{pointer-events:auto;display:flex;align-items:center;gap:14px}
+.toast button{color:var(--link);font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:3px}
+/* new artists */
+.arts{display:flex;gap:14px;overflow-x:auto;margin:0 calc(-1*var(--g));padding:2px var(--g) 6px;align-items:flex-start}
+.art{position:relative;flex:0 0 132px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.art .av{position:relative;width:112px;height:112px;border-radius:50%;overflow:hidden;background:linear-gradient(150deg,hsl(var(--h) 50% 38%),hsl(calc(var(--h) + 40) 55% 16%));display:grid;place-items:center;color:#fff;font-family:var(--display);font-size:34px;font-weight:700;box-shadow:var(--shadow)}
+.art .av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.art b{font-size:14.5px;font-weight:650;margin-top:9px;line-height:1.2}
+.art small{font-size:12px;color:var(--ink-3);margin-top:2px;line-height:1.3}
+.art .acts{display:flex;gap:6px;margin-top:9px}
+.art .dx{top:0;right:4px}
+/* activity placeholder */
+.ph-card{display:flex;gap:14px;align-items:center;padding:18px}
+.ph-card .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#E8336D;color:#fff;flex:0 0 auto}
+.ph-card .ic svg{width:24px;height:24px}
+.ph-card b{font-size:16px}
+.ph-card p{font-size:14px;color:var(--ink-2);margin-top:3px;line-height:1.4}
 
 /* Safari 26 / Chrome-on-iOS tint element */
 .tint{position:fixed;top:-4px;left:0;width:100%;height:12px;z-index:0;background-color:var(--bg);pointer-events:none}
@@ -1000,6 +1054,15 @@ const favicon=d=>`https://www.google.com/s2/favicons?domain=${encodeURIComponent
 const splitEmoji=t=>{const m=/^(\p{Extended_Pictographic}(?:️|‍\p{Extended_Pictographic})*)\s*/u.exec(t);return m?{e:m[1],t:t.slice(m[0].length)}:{e:"",t}};
 function calUrl(title,cal,link){const z=s=>s.replace(/[-:]/g,"");const dates=cal.start?`${z(cal.start)}00/${z(cal.end||cal.start)}00`:`${z(cal.date)}/${z(addDays(cal.date,1))}`;const d=[cal.tips?"Tip: "+cal.tips:"",link?"Details: "+link:"","Added from Stinky's Daily"].filter(Boolean).join("\n\n");const p=new URLSearchParams({action:"TEMPLATE",text:title,dates,details:d,ctz:TZ});if(cal.location)p.set("location",cal.location);return"https://calendar.google.com/calendar/render?"+p}
 function jsonp(url,ms=9000){return new Promise((res,rej)=>{const cb="__sd"+Math.random().toString(36).slice(2);const s=document.createElement("script");const done=()=>{clearTimeout(t);try{delete window[cb]}catch(e){window[cb]=undefined}s.remove()};const t=setTimeout(()=>{done();rej(new Error("timeout"))},ms);window[cb]=d=>{done();res(d)};s.onerror=()=>{done();rej(new Error("network"))};s.src=url+(url.includes("?")?"&":"?")+"callback="+cb;document.head.appendChild(s)})}
+/* "not interested": hides one specific item (a video, episode, movie, show, event or artist) for good
+   on this device. It never unfollows anyone, so suggestions from that creator keep coming. */
+const DISM=()=>LS.get("sd-dismissed",{});
+const isDis=k=>!!DISM()[k];
+const dxBtn=(k,sec,label)=>`<button class="dx press" data-dx="${esc(k)}" data-dxs="${sec}" data-dxl="${esc(clip(label||"",40))}" aria-label="Not interested — hide this" data-tip="Not interested">${I.close}</button>`;
+const DX_RENDER={watch:()=>renderWatch(),listen:()=>renderListen(),movies:()=>renderMovies(),shows:()=>renderShows(),bay:()=>renderBay()};
+function dismiss(k,sec,label){const d=DISM();d[k]=Date.now();LS.set("sd-dismissed",d);(DX_RENDER[sec]||(()=>{}))();renderTeasers();toast("Hidden"+(label?": "+label:""),()=>{const d=DISM();delete d[k];LS.set("sd-dismissed",d);(DX_RENDER[sec]||(()=>{}))();renderTeasers()})}
+/* lay rows out as one card on phones, two independent columns on wide screens (each only as tall as it needs) */
+function cols(rows){if(!WIDE.matches||rows.length<2)return`<div class="card">${rows.join("")}</div>`;const a=[],b=[];rows.forEach((h,i)=>(i%2?b:a).push(h));return`<div class="cols2"><div class="card">${a.join("")}</div><div class="card">${b.join("")}</div></div>`}
 /* icon-only actions: every follow-up is a round icon with a tooltip + aria-label */
 const ib=(href,icon,tip,cls="")=>`<a class="ib press ${cls}" href="${esc(href)}" target="_blank" rel="noopener" aria-label="${esc(tip)}" data-tip="${esc(tip)}">${icon}</a>`;
 const ibBtn=(attrs,icon,tip,cls="")=>`<button class="ib press ${cls}" ${attrs} aria-label="${esc(tip)}" data-tip="${esc(tip)}">${icon}</button>`;
@@ -1061,6 +1124,10 @@ const I={
  chart:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18 9.5 12l4 3.5L20 8"/><path d="M15 8h5v5"/></svg>`,
  bulb:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2h5c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3z"/></svg>`
 };
+/* brand logos live in the repo as SVG files */
+const logoImg=f=>`<img class="lgo" src="${f}" alt="" draggable="false">`;
+Object.assign(I,{gcal:logoImg("Google_Calendar_icon_(2026).svg"),yt:logoImg("YouTube_full-color_icon_(2017).svg"),spotify:logoImg("Spotify_icon.svg"),btc:logoImg("Bitcoin%20(1).svg"),rh:logoImg("robinhood.svg"),claude:logoImg("Claude-ai-icon.svg"),
+ pulse:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></svg>`});
 const TIPI={
  Energy:{bg:"linear-gradient(150deg,#F2A03D 0%,#E5603A 52%,#B8395A 100%)",ic:`<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="#fff"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>`},
  Sleep:{bg:"linear-gradient(150deg,#2B3A86 0%,#3D2F7A 55%,#5B3B87 100%)",ic:`<svg viewBox="0 0 24 24" fill="#fff"><path d="M20 14.6A8.5 8.5 0 1 1 9.4 4a7 7 0 0 0 10.6 10.6z"/></svg>`},
@@ -1130,12 +1197,13 @@ async function syncDown(){if(!backend())return;try{const r=await be({fn:"config"
 /* =================================================================
    STATE
    ================================================================= */
-const SECTIONS=[["cal","Calendar"],["tip","Try Today"],["mkt","Markets"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["diff","Something different"],["learn","Learn"]];
+const SECTIONS=[["cal","Calendar"],["tip","Try Today"],["mkt","Markets"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["act","Activity"],["diff","Something different"],["learn","Learn"]];
 const S={
  hidden:new Set(LS.get("sd-hidden",[])),
  wx:null,
  cx:{sel:LS.get("sd-cx-sel","BTC"),range:LS.get("sd-cx-range","1M"),q:{},live:{},series:{},daily:{},err:false,ws:null,liveOn:false,ma:LS.get("sd-ma",{m50:true,m200:true,bmsb:false})},
  st:{sel:0,range:LS.get("sd-st-range","1M"),q:{},series:{},rerr:{},err:"",at:0},
+ mk:{...LS.get("sd-mk-sel",{k:"cx",s:"BTC"}),range:LS.get("sd-mk-range","1M")},
  news:{tag:"All",open:false},
  yt:{items:null,source:"seed",updated:0,error:""},
  learn:{v:null,s:null},
@@ -1159,14 +1227,14 @@ function initData(){
 /* =================================================================
    SHELL — a list of sections on the sky. Each row opens in place.
    ================================================================= */
-const ITEMS=[["cal","Calendar"],["mkt","Markets"],["tip","Try Today"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["learn","Learn"],["diff","Something different"]];
+const ITEMS=[["cal","Calendar"],["mkt","Markets"],["tip","Try Today"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["act","Activity"],["learn","Learn"],["diff","Something different"]];
 /* the icon beside each row name */
 function rowIcon(id){
  if(id==="cal")return`<span class="it-ic logo" aria-hidden="true">${I.gcal}</span>`;
  if(id==="watch")return`<span class="it-ic logo yt" aria-hidden="true">${I.yt}</span>`;
  if(id==="listen")return`<span class="it-ic logo" aria-hidden="true">${I.spotify}</span>`;
  if(id==="tip"){const t=todaysTip(),st=TIPI[t.cat]||TIPI.Energy;return`<span class="it-ic tinted" style="background:${st.bg}" aria-hidden="true">${st.ic}</span>`}
- const m={mkt:["chart","#0A9455"],news:["news","#2B5EF0"],bay:["pin","#E8590C"],shows:["mic","#9B4DFF"],movies:["film","#DD3B35"],learn:["book","#4C46D6"],diff:["spark","#1E2E61"]}[id];
+ const m={mkt:["chart","#0A9455"],news:["news","#2B5EF0"],bay:["pin","#E8590C"],shows:["mic","#9B4DFF"],movies:["film","#DD3B35"],act:["pulse","#E8336D"],learn:["book","#4C46D6"],diff:["spark","#1E2E61"]}[id];
  return m?`<span class="it-ic tinted" style="background:${m[1]}" aria-hidden="true">${I[m[0]]}</span>`:"";
 }
 function shell(){
@@ -1177,10 +1245,10 @@ function shell(){
   <footer class="foot" id="foot"></footer>
  </div>`;
 }
-const RENDER={cal:()=>renderCal(),mkt:()=>renderMarkets(),tip:()=>renderTip(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),learn:()=>renderLearn(),diff:()=>renderDiff()};
+const RENDER={cal:()=>renderCal(),mkt:()=>renderMarkets(),tip:()=>renderTip(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),act:()=>renderAct(),learn:()=>renderLearn(),diff:()=>renderDiff()};
 function renderNav(){ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=S.hidden.has(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false)}})}
 function observe(){}
-function renderAll(){renderCal();renderTip();renderMarkets();renderNews();renderWatch();renderListen();renderBay();renderShows();renderMovies();renderDiff();renderLearn();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
+function renderAll(){renderCal();renderTip();renderMarkets();renderNews();renderWatch();renderListen();renderBay();renderShows();renderMovies();renderAct();renderDiff();renderLearn();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
 
 /* =================================================================
    HERO + SKY
@@ -1267,6 +1335,7 @@ function teaser(id){
  if(id==="bay"){const it=bayItems();if(!it.length)return tx("Nothing picked yet","q");const f=it[0];return mo(esc(until(f.date,f.cal&&f.cal.start&&f.cal.start.slice(11)).l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
  if(id==="shows"){const it=showItems();if(!it.length)return tx("No shows for your artists yet","q");const f=it[0];return mo(esc(until(f.date,f.time).l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
  if(id==="movies"){const m=DATA.movies||{};const now=m.now||[],soon=(m.soon||[]).filter(x=>x.date>=todayKey());if(!now.length&&!soon.length)return tx("Nothing listed","q");return (now.length?mo(`${now.length} playing`)+tx(esc(now[0].title)):"")+(soon.length?kk("Next")+tx(esc(soon[0].title)+" · "+esc(until(soon[0].date).l.replace(/^In /,"")),"q"):"")}
+ if(id==="act")return tx("Fitbit Air · coming soon","q");
  if(id==="learn"){const v=VOCAB[VOCAB.length-1],s=SPAN[SPAN.length-1];return (v?tx(esc(v.word),"ser"):"")+(s?`<span class="tx ser" lang="es">${esc(s.phrase)}</span>`:"")}
  if(id==="diff"){return tx(esc(DATA.different.title))}
  return "";
@@ -1464,54 +1533,15 @@ async function loadCxDaily(s){
 function sma(a,n){const out=[];let s=0;for(let i=0;i<a.length;i++){s+=a[i].v;if(i>=n)s-=a[i-n].v;if(i>=n-1)out.push({t:a[i].t,v:s/n})}return out}
 function ema(a,n){const out=[];const k=2/(n+1);let e=null;for(let i=0;i<a.length;i++){e=e==null?a[i].v:a[i].v*k+e*(1-k);if(i>=n-1)out.push({t:a[i].t,v:e})}return out}
 function cxSMAs(s){const d=S.cx.daily[s];if(!d||d.length<50)return null;const out={};[50,100,200].forEach(n=>{if(d.length>=n){let t=0;for(let i=d.length-n;i<d.length;i++)t+=d[i].v;out[n]=t/n}});return out}
-function renderCrypto(){
- const host=$("#cx-card");if(!host)return;const s=S.cx.sel;const n=cxNow(s);
- host.innerHTML=`<div class="mk">
-  <div class="mk-head"><span class="logo coin-lg">${coinIcon(s)}</span><div><div class="mk-name">${esc(coinName(s))}</div><div class="mk-sub">${esc(s)} / USD</div></div><span class="live ${S.cx.liveOn?"":"off"}" id="cx-live"><i></i>${S.cx.liveOn?"Live":n?"Delayed":"Offline"}</span></div>
-  <div class="px num" id="cx-px">${n?usd(n.price):"—"}</div>
-  <div class="chg num" id="cx-chg"></div>
-  <div class="chart" id="cx-chart"></div>
-  <div class="seg" role="tablist" aria-label="Chart range">${Object.keys(RANGES).map(r=>`<button role="tab" aria-selected="${r===S.cx.range}" class="${r===S.cx.range?"on":""}" data-cx-range="${r}">${r}</button>`).join("")}</div>
-  <div class="smas" id="cx-smas" aria-label="Simple moving averages"></div>
-  <dl class="stats" id="cx-stats"></dl>
- </div>
- <div class="rows">${cxList().map(x=>{const q=cxNow(x),sp=(S.cx.q[x]||{}).spark;return`<button class="ix ${x===s?"on":""}" data-cx="${x}" aria-pressed="${x===s}"><span class="ix-n"><span class="coin">${coinIcon(x)}</span><div><b>${esc(coinName(x))}</b><span>${esc(x)}</span></div></span>${spark(sp)}<span class="ix-v"><b class="num" data-px="${x}">${q?usd(q.price):"—"}</b><span class="pill num ${q?(q.pct<0?"dn":""):"na"}" data-pill="${x}">${q?pct(q.pct):"—"}</span></span></button>`}).join("")}</div>
- ${s==="BTC"&&DATA.btc?`<div class="take" style="margin-top:12px"><div class="take-h"><b>${esc(DATA.btc.source)}'s take</b><span>${esc(DATA.btc.dateLabel||fmtKey(DATA.btc.summaryDate,{month:"short",day:"numeric"}))}</span></div><p>${esc(DATA.btc.summary)}</p><div class="acts">${ib(DATA.btc.sourceUrl,/youtu/.test(DATA.btc.sourceUrl)?I.yt:favImg(domainOf(DATA.btc.sourceUrl)),"Read "+DATA.btc.source+"'s take")}${askBtn("Based on Benjamin Cowen's recent analysis, what's happening with Bitcoin right now and what should I watch for?")}</div></div>`:""}`;
- requestAnimationFrame(drawCx);
-}
-function renderSMAs(){
- const el=$("#cx-smas");if(!el)return;const s=S.cx.sel,m=cxSMAs(s),n=cxNow(s);
- el.innerHTML=[50,100,200].map(k=>{const v=m&&m[k];const d=v&&n?(n.price-v)/v*100:null;return`<div class="sma"><small>${k}-day SMA</small><b class="num">${v?usd(v,v>=1000?0:undefined):"—"}</b><span class="num ${d==null?"":d>=0?"up":"down"}">${d==null?(m?"Not enough data":"Loading…"):`${Math.abs(d).toFixed(1)}% ${d>=0?"above":"below"}`}</span></div>`}).join("");
-}
-function setCxHead(pt,first){
- const pxEl=$("#cx-px"),chEl=$("#cx-chg");if(!pxEl)return;const s=S.cx.sel,r=S.cx.range,ser=S.cx.series[s+"|"+r],n=cxNow(s);
- if(pt){const c=pt.v-first.v,p=c/first.v*100;pxEl.textContent=usd(pt.v);chEl.innerHTML=`<span class="${c>=0?"up":"down"}">${sgn(c)}${usd(Math.abs(c))} (${pct(p)})</span><span class="lbl">${esc(ptLabel(pt.t,r))}</span>`;return}
- const price=n?n.price:ser&&ser.length?ser[ser.length-1].v:null;
- pxEl.textContent=price?usd(price):"—";
- let c=null,p=null;
- if(r==="1D"&&n&&n.pct!=null){p=n.pct;c=n.chg!=null?n.chg:price-price/(1+p/100)}else if(ser&&ser.length>1&&price){c=price-ser[0].v;p=c/ser[0].v*100}
- chEl.innerHTML=c==null?`<span class="lbl">${S.cx.err?"Couldn't load this range.":"Loading…"}</span>`:`<span class="${c>=0?"up":"down"}">${sgn(c)}${usd(Math.abs(c))} (${pct(p)})</span><span class="lbl">${RLBL[r]}</span>`;
-}
-function drawCx(){
- const host=$("#cx-chart");if(!host)return;const s=S.cx.sel,r=S.cx.range;let ser=S.cx.series[s+"|"+r];
- if(ser&&ser.length){const n=cxNow(s);if(n&&n.live&&ser[ser.length-1].t<Date.now()-6e4)ser=ser.concat([{t:Date.now(),v:n.price}])}
- const emsg=S.cx.err==="needs-backend"?"The all-time chart needs the updated backend script.":S.cx.err?"Couldn't load this range. Pull down to retry.":"Loading chart…";
- drawChart(host,ser,{timeX:true,fmt:v=>usd(v,v>=1000?0:undefined),label:coinName(s)+" price chart",empty:emsg,onScrub:(p,f)=>setCxHead(p,f)});
- setCxHead(null);renderSMAs();
- const n=cxNow(s),q=S.cx.q[s],st=$("#cx-stats");
- if(st){const rows=[];if(n){rows.push(["24h high",usd(n.hi)],["24h low",usd(n.lo)])}if(q){rows.push(["Market cap",big(q.mcap)],["From all-time high",q.ath>=-0.05?"At the high":sgn(q.ath)+Math.abs(q.ath).toFixed(1)+"%"])}
-  st.innerHTML=rows.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd class="num">${esc(v)}</dd></div>`).join("");st.style.display=rows.length?"":"none"}
-}
 let tickQ=new Set(),tickRaf=0,lastTick={};
 function schedTick(s){tickQ.add(s);if(tickRaf)return;tickRaf=setTimeout(()=>{tickRaf=0;const qs=[...tickQ];tickQ.clear();qs.forEach(applyTick)},700)}
 function applyTick(s){
  const n=cxNow(s);if(!n)return;
  $$(`[data-px="${s}"]`).forEach(el=>el.textContent=(el.classList.contains("gl-v")||el.hasAttribute("data-dp0"))?usd(n.price,0):usd(n.price));
  $$(`[data-pill="${s}"]`).forEach(el=>{el.textContent=pct(n.pct);el.classList.toggle("dn",n.pct<0);el.classList.remove("na")});
- $$(`[data-pct="${s}"]`).forEach(el=>{el.textContent=pct(n.pct)+" 24h";el.classList.toggle("up",n.pct>=0);el.classList.toggle("down",n.pct<0)});
- if(s===S.cx.sel){const host=$("#cx-chart");if(!host||!host._scrub){setCxHead(null);const px=$("#cx-px");if(px&&lastTick[s]!=null&&lastTick[s]!==n.price){px.classList.remove("tick-up","tick-down");void px.offsetWidth;px.classList.add(n.price>lastTick[s]?"tick-up":"tick-down");setTimeout(()=>px.classList.remove("tick-up","tick-down"),350)}}}
+ if(isCx()&&S.mk.s===s){const host=$("#mk-chart");if(!host||!host._scrub){setMkHead(null);const px=$("#mk-px");if(px&&lastTick[s]!=null&&lastTick[s]!==n.price){px.classList.remove("tick-up","tick-down");void px.offsetWidth;px.classList.add(n.price>lastTick[s]?"tick-up":"tick-down");setTimeout(()=>px.classList.remove("tick-up","tick-down"),350)}}
+  const lv=$("#mk-live");if(lv&&S.cx.liveOn){lv.classList.remove("off");lv.lastChild.textContent="Live"}}
  lastTick[s]=n.price;
- const lv=$("#cx-live");if(lv&&S.cx.liveOn){lv.classList.remove("off");lv.lastChild.textContent="Live"}
 }
 function startWs(){
  if(S.cx.ws||!("WebSocket" in window)||document.hidden)return;
@@ -1519,7 +1549,7 @@ function startWs(){
  S.cx.ws=ws;
  ws.onopen=()=>cxList().forEach(s=>{try{ws.send(JSON.stringify({type:"subscribe",product_ids:[s+"-USD"],channels:["ticker"]}))}catch(e){}});
  ws.onmessage=ev=>{let m;try{m=JSON.parse(ev.data)}catch(e){return}if(m.type!=="ticker"||!m.product_id||!m.price)return;const s=m.product_id.split("-")[0];S.cx.live[s]={price:+m.price,open:+m.open_24h||0,hi:+m.high_24h||0,lo:+m.low_24h||0,t:Date.now()};if(!S.cx.liveOn){S.cx.liveOn=true}schedTick(s)};
- ws.onclose=()=>{if(S.cx.ws===ws)S.cx.ws=null;S.cx.liveOn=false;const lv=$("#cx-live");if(lv){lv.classList.add("off");lv.lastChild.textContent="Delayed"}};
+ ws.onclose=()=>{if(S.cx.ws===ws)S.cx.ws=null;S.cx.liveOn=false;const lv=$("#mk-live");if(lv&&isCx()){lv.classList.add("off");lv.lastChild.textContent="Delayed"}};
  ws.onerror=()=>{try{ws.close()}catch(e){}};
 }
 function stopWs(){const w=S.cx.ws;S.cx.ws=null;S.cx.liveOn=false;if(w){try{w.close()}catch(e){}}}
@@ -1552,63 +1582,94 @@ async function loadStSeries(s,r){
  if(r==="All"&&!(j.v>=2)){S.st.rerr[k]="The all-time chart needs the updated backend script.";return}
  if(j.pts&&j.pts.length>1){const v=j.pts.map(([t,x])=>({t:t*1000,v:x}));S.st.series[k]=v;LS.set(ck,{t:Date.now(),v})}
 }
-function renderStocks(){
- const host=$("#st-card");if(!host)return;const m=DATA.markets;const list=stList();if(S.st.sel>=list.length)S.st.sel=0;const s=list[S.st.sel];
- const anyLive=list.some(x=>S.st.q[x]);const open=list.some(x=>S.st.q[x]&&S.st.q[x].open);
- const pill=backend()?(anyLive?`<span class="live ${open?"":"off"}"><i></i>${open?"Live":"Market closed"}</span>`:`<span class="live off"><i></i>${S.st.err?"Offline":"Connecting"}</span>`):`<span class="live off"><i></i>${esc(fmtKey(m.asOf,{weekday:"short"}))} close</span>`;
- host.innerHTML=`<div style="padding:16px 16px 0">
-   <div class="mk-head"><span class="logo" style="color:var(--ink);border-radius:8px">${I.stocks}</span><div style="min-width:0"><div class="mk-name">${esc(stName(s))}</div><div class="mk-sub">${esc(s.startsWith("^")?m.headline:s)}</div></div>${pill}</div>
-   <div class="px num" id="st-px">—</div>
-   <div class="chg num" id="st-chg"></div>
-   <div class="chart" id="st-chart" style="height:156px"></div>
-   <div class="seg" role="tablist" aria-label="Stock chart range">${Object.keys(RANGES).map(r=>`<button role="tab" aria-selected="${r===S.st.range}" class="${r===S.st.range?"on":""}" data-st-range="${r}">${r}</button>`).join("")}</div>
-  </div>
-  <div class="rows">${list.map((x,i)=>{const q=stkQuote(x),b=baked(x),ser=stkSeries(x,"1D")||stkSeries(x,"1M");return`<button class="ix ${i===S.st.sel?"on":""}" data-st="${i}" aria-pressed="${i===S.st.sel}"><span class="ix-n"><div><b>${esc(stName(x))}</b><span>${b&&b.ytd!=null?`${sgn(b.ytd)}${Math.abs(b.ytd).toFixed(1)}% this year`:esc(x)}</span></div></span>${spark(ser?ser.map(p=>p.v):null)}<span class="ix-v"><b class="num">${q?num(q.price):"—"}</b><span class="pill num ${q?(q.pct<0?"dn":""):"na"}">${q?pct(q.pct):"—"}</span></span></button>`}).join("")}</div>
-  ${m.points&&m.points.length?`<div class="why"><div class="why-h">What moved</div><ul>${m.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>`:""}`;
- requestAnimationFrame(drawSt);
-}
-function setStHead(pt,first){
- const list=stList(),s=list[S.st.sel],r=S.st.range;const pxEl=$("#st-px"),chEl=$("#st-chg");if(!pxEl)return;
- if(pt){const c=pt.v-first.v,p=c/first.v*100;pxEl.textContent=num(pt.v);chEl.innerHTML=`<span class="${c>=0?"up":"down"}">${sgn(c)}${num(Math.abs(c))} (${pct(p)})</span><span class="lbl">${esc(ptLabel(pt.t,r))}</span>`;return}
- const q=stkQuote(s),ser=stkSeries(s,r);
- if(!q){pxEl.textContent="—";chEl.innerHTML="";return}
- pxEl.textContent=num(q.price);
- if(r==="1D"||!ser||ser.length<2){chEl.innerHTML=`<span class="${q.chg>=0?"up":"down"}">${sgn(q.chg)}${num(Math.abs(q.chg))} (${pct(q.pct)})</span><span class="lbl">${q.live?(q.open?"Today":"Last close"):esc(fmtKey(DATA.markets.asOf,{weekday:"long"}))+"'s close"}</span>`;return}
- const c=q.price-ser[0].v,p=c/ser[0].v*100;chEl.innerHTML=`<span class="${c>=0?"up":"down"}">${sgn(c)}${num(Math.abs(c))} (${pct(p)})</span><span class="lbl">${RLBL[r]}</span>`;
-}
-function drawSt(){
- const host=$("#st-chart");if(!host)return;const s=stList()[S.st.sel],r=S.st.range;let ser=stkSeries(s,r);const q=S.st.q[s];
- if(ser&&ser.length&&q&&q.p!=null&&r!=="1D"&&typeof ser[ser.length-1].t==="number"&&q.t*1000>ser[ser.length-1].t+6e4)ser=ser.concat([{t:q.t*1000,v:q.p}]);
- const need=!ser&&!backend();
- drawChart(host,ser,{base:r==="1D"&&q?q.pc:undefined,fmt:v=>num(v,v>=1000?0:2),label:stName(s)+" chart",emptyHtml:need?`<span>This view needs the market data backend.</span>`:esc(S.st.rerr[s+"|"+r]||(S.st.err?"Couldn't load this range.":"Loading…")),onScrub:(p,f)=>setStHead(p,f)});
- setStHead(null);
-}
-
-/* stock pick */
-function renderPick(){
- const host=$("#pick-card");if(!host)return;const p=DATA.pick;if(!p){host.remove();return}
- const q=stkQuote(p.sym);const ser=stkSeries(p.sym,"3M")||stkSeries(p.sym,"1M");const px=q?q.price:p.close;
- const chips=[];
- if(p.rating)chips.push(`<span class="pchip good"><b>${esc(p.rating.label)}</b>${p.rating.buy&&p.rating.total?` · ${p.rating.buy} of ${p.rating.total} say buy`:""}</span>`);
- if(p.target&&px)chips.push(`<span class="pchip"><b>Avg target ${usd(p.target,0)}</b> · ${pct((p.target-px)/px*100).replace(/\.\d\d%/,m=>m.slice(0,2)+"%")} upside</span>`);
- if(p.hi52&&px)chips.push(`<span class="pchip">${px>=p.hi52*.98?"<b>At its 52-week high</b>":`<b>${Math.round((1-px/p.hi52)*100)}% below</b> its 52-week high`}</span>`);
- host.innerHTML=`<div class="pick">
-  <div class="pick-k"><span>Stock to look at</span><span>A research idea, not advice</span></div>
-  <div class="pick-h"><span class="tkr">${esc(p.sym)}</span><div style="min-width:0"><b>${esc(p.name)}</b><span>${esc(p.theme||p.sector||"")}</span></div><div class="pick-px"><b class="num">${q?usd(q.price,2):"—"}</b><div class="num ${q&&q.pct>=0?"up":"down"}" style="font-size:13.5px;font-weight:600">${q?pct(q.pct):""}</div></div></div>
-  <div class="chart" id="pick-chart"></div>
-  ${chips.length?`<div class="pchips">${chips.join("")}</div>`:""}
-  <dl><div><dt>What they do</dt><dd>${esc(p.what||"")}</dd></div><div><dt>Why look now</dt><dd>${esc(p.why)}</dd></div></dl>
-  ${p.risk?`<p class="pick-risk"><b>Main risk:</b> ${esc(p.risk)}</p>`:""}
-  <div class="acts"><a class="ib press lg" data-rh="${esc(p.sym)}" href="https://robinhood.com/us/en/stocks/${encodeURIComponent(p.sym)}/" target="_blank" rel="noopener" aria-label="Open in Robinhood" data-tip="Open in Robinhood">${I.rh}</a>${askBtn(`Give me the bull case and the bear case for ${p.name} (${p.sym}) at about ${usd(px,2)}. What they do: ${p.what||""} Why analysts like it: ${p.why}`,"Ask Claude")}</div>
+/* =================================================================
+   MARKETS — one viewer. Pick anything you hold or watch from the list
+   under the chart; the chart, numbers and context follow the pick.
+   ================================================================= */
+const RH_ETF={"^GSPC":"SPY","^IXIC":"QQQ","^DJI":"DIA","^RUT":"IWM","^NDX":"QQQ"};
+const isCx=()=>S.mk.k==="cx";
+function syncRanges(){S.cx.range=S.st.range=S.mk.range;if(isCx())S.cx.sel=S.mk.s}
+function mkValid(){const{k,s}=S.mk;const ok=k==="cx"?cxList().includes(s):k==="pick"?!!(DATA.pick&&DATA.pick.sym===s):stList().includes(s);if(!ok){const c=cxList();Object.assign(S.mk,c.length?{k:"cx",s:c[0]}:{k:"st",s:stList()[0]})}syncRanges()}
+const mkName=(k,s)=>k==="cx"?coinName(s):k==="pick"?DATA.pick.name:stName(s);
+const mkFmtPx=(k,s,v)=>v==null||isNaN(v)?"—":(k!=="cx"&&s.startsWith("^"))?num(v,2):usd(v);
+const mkFmtAx=(k,s)=>v=>(k!=="cx"&&s.startsWith("^"))?num(v,v>=1000?0:2):usd(v,v>=1000?0:undefined);
+function mkNow(k,s){if(k==="cx"){const n=cxNow(s);return n?{price:n.price,chg:n.chg,pct:n.pct,live:n.live}:null}return stkQuote(s)}
+function mkSeries(){const{k,s}=S.mk,r=S.mk.range;
+ if(k==="cx"){let ser=S.cx.series[s+"|"+r];const n=cxNow(s);if(ser&&ser.length&&n&&n.live&&ser[ser.length-1].t<Date.now()-6e4)ser=ser.concat([{t:Date.now(),v:n.price}]);return ser}
+ let ser=stkSeries(s,r);const q=S.st.q[s];if(ser&&ser.length&&q&&q.p!=null&&r!=="1D"&&typeof ser[ser.length-1].t==="number"&&q.t*1000>ser[ser.length-1].t+6e4)ser=ser.concat([{t:q.t*1000,v:q.p}]);return ser}
+function rhLink(k,s){if(k==="cx")return{u:`https://robinhood.com/crypto/${encodeURIComponent(s)}`,t:`Open ${s} in Robinhood`};const t=RH_ETF[s]||(s.startsWith("^")?null:s);return t?{u:`https://robinhood.com/us/en/stocks/${encodeURIComponent(t)}/`,t:RH_ETF[s]?`Open ${t} in Robinhood (tracks the ${stName(s)})`:`Open ${t} in Robinhood`,sym:t}:null}
+function mkLogo(k,s){if(k==="cx")return`<span class="coin">${coinIcon(s)}</span>`;if(s.startsWith("^"))return`<span class="coin idx">${I.chart}</span>`;return`<span class="coin tk">${esc(s.replace(/[^A-Z]/g,"").slice(0,4))}</span>`}
+function mkLive(){const{k,s}=S.mk;if(k==="cx")return S.cx.liveOn?["Live",""]:cxNow(s)?["Delayed","off"]:["Offline","off"];const q=S.st.q[s];if(backend()&&q)return q.open?["Market open",""]:["Market closed","off"];return[`${fmtKey(DATA.markets.asOf,{weekday:"short"})} close`,"off"]}
+function renderMkt(){
+ const host=$("#mk-card");if(!host)return;mkValid();const{k,s}=S.mk;const rh=rhLink(k,s);const lv=mkLive();
+ host.innerHTML=`<div class="mk">
+  <div class="mk-head">${mkLogo(k,s).replace('class="coin','class="coin lgc')}<div style="min-width:0"><div class="mk-name">${esc(mkName(k,s))}</div><div class="mk-sub">${esc(k==="cx"?s+" / USD":s.startsWith("^")?"Index":s)}${k==="pick"?" · idea to research":""}</div></div>
+   <span class="live ${lv[1]}" id="mk-live"><i></i>${esc(lv[0])}</span>${rh?`<a class="ib press" ${rh.sym?`data-rh="${esc(rh.sym)}"`:""} href="${esc(rh.u)}" target="_blank" rel="noopener" aria-label="${esc(rh.t)}" data-tip="${esc(rh.t)}">${I.rh}</a>`:""}</div>
+  <div class="px num" id="mk-px">—</div>
+  <div class="chg num" id="mk-chg"></div>
+  <div class="chart" id="mk-chart"></div>
+  <div class="seg" role="tablist" aria-label="Chart range">${Object.keys(RANGES).map(r=>`<button role="tab" aria-selected="${r===S.mk.range}" class="${r===S.mk.range?"on":""}" data-mk-range="${r}">${r}</button>`).join("")}</div>
+  <div id="mk-ctx"></div>
  </div>`;
- requestAnimationFrame(()=>{const h=$("#pick-chart");if(h)drawChart(h,ser,{fmt:v=>usd(v,2),label:p.name+" chart",onScrub:()=>{}})});
+ renderMkList();requestAnimationFrame(drawMk);renderMkCtx();
 }
+function renderMkList(){
+ const el=$("#mk-list");if(!el)return;const{k:sk,s:ss}=S.mk;
+ const row=(k,x)=>{const q=mkNow(k,x);const sp=k==="cx"?(S.cx.q[x]||{}).spark:((stkSeries(x,"1D")||stkSeries(x,"1M"))||[]).map(p=>p.v);const on=k===sk&&x===ss;
+  return`<button class="ix ${on?"on":""}" data-mk="${k}|${esc(x)}" aria-pressed="${on}"><span class="ix-n">${mkLogo(k,x)}<div><b>${esc(mkName(k,x))}</b><span>${esc(k==="cx"?x:x.startsWith("^")?"Index":x)}</span></div></span>${spark(sp)}<span class="ix-v"><b class="num" ${k==="cx"?`data-px="${esc(x)}"`:""}>${q?mkFmtPx(k,x,q.price):"—"}</b><span class="pill num ${q?(q.pct<0?"dn":""):"na"}" ${k==="cx"?`data-pill="${esc(x)}"`:""}>${q?pct(q.pct):"—"}</span></span></button>`};
+ const grp=(t,rows)=>rows.length?`<div class="ix-g">${esc(t)}</div>${rows.join("")}`:"";
+ el.innerHTML=grp("Stocks & indexes",stList().map(x=>row("st",x)))+grp("Crypto",cxList().map(x=>row("cx",x)))+(DATA.pick?grp("Idea to research",[row("pick",DATA.pick.sym)]):"");
+}
+function setMkHead(pt,first){
+ const pxEl=$("#mk-px"),chEl=$("#mk-chg");if(!pxEl)return;const{k,s}=S.mk,r=S.mk.range;
+ if(pt){const c=pt.v-first.v,p=c/first.v*100;pxEl.textContent=mkFmtPx(k,s,pt.v);chEl.innerHTML=`<span class="${c>=0?"up":"down"}">${sgn(c)}${mkFmtPx(k,s,Math.abs(c))} (${pct(p)})</span><span class="lbl">${esc(ptLabel(pt.t,r))}</span>`;return}
+ const q=mkNow(k,s),ser=mkSeries();const price=q?q.price:ser&&ser.length?ser[ser.length-1].v:null;
+ pxEl.textContent=mkFmtPx(k,s,price);
+ let c=null,p=null,lbl=RLBL[r];
+ if((r==="1D"||!ser||ser.length<2)&&q&&q.pct!=null){p=q.pct;c=q.chg!=null?q.chg:price-price/(1+p/100);lbl=k==="cx"?"Past 24 hours":q.live?(q.open?"Today":"Last close"):fmtKey(DATA.markets.asOf,{weekday:"long"})+"'s close"}
+ else if(ser&&ser.length>1&&price){c=price-ser[0].v;p=c/ser[0].v*100}
+ chEl.innerHTML=c==null?`<span class="lbl">${(k==="cx"?S.cx.err:S.st.err)?"Couldn't load this range.":"Loading…"}</span>`:`<span class="${c>=0?"up":"down"}">${sgn(c)}${mkFmtPx(k,s,Math.abs(c))} (${pct(p)})</span><span class="lbl">${esc(lbl)}</span>`;
+}
+function drawMk(){
+ const host=$("#mk-chart");if(!host)return;const{k,s}=S.mk,r=S.mk.range;const ser=mkSeries();const q=k!=="cx"?S.st.q[s]:null;
+ const emsg=k==="cx"?(S.cx.err==="needs-backend"?"The all-time chart needs the updated backend script.":S.cx.err?"Couldn't load this range. Pull down to retry.":"Loading chart…"):!backend()?"This range needs the market data backend.":(S.st.rerr[s+"|"+r]||(S.st.err?"Couldn't load this range.":"Loading chart…"));
+ drawChart(host,ser,{timeX:k==="cx",base:r==="1D"&&q?q.pc:undefined,fmt:mkFmtAx(k,s),label:mkName(k,s)+" chart",empty:emsg,onScrub:(p,f)=>setMkHead(p,f)});
+ setMkHead(null);
+}
+function renderMkCtx(){
+ const el=$("#mk-ctx");if(!el)return;const{k,s}=S.mk;let h="";
+ if(k==="cx"){
+  const m=cxSMAs(s),n=cxNow(s),q=S.cx.q[s];
+  h+=`<div class="smas">${[50,100,200].map(x=>{const v=m&&m[x];const d=v&&n?(n.price-v)/v*100:null;return`<div class="sma"><small>${x}-day avg</small><b class="num">${v?usd(v,v>=1000?0:undefined):"—"}</b><span class="num ${d==null?"":d>=0?"up":"down"}">${d==null?(m?"Not enough data":"Loading…"):`${Math.abs(d).toFixed(1)}% ${d>=0?"above":"below"}`}</span></div>`}).join("")}</div>`;
+  const rows=[];if(n&&n.hi)rows.push(["24h high",usd(n.hi)],["24h low",usd(n.lo)]);if(q&&q.mcap)rows.push(["Market cap",big(q.mcap)],["From all-time high",q.ath>=-0.05?"At the high":sgn(q.ath)+Math.abs(q.ath).toFixed(1)+"%"]);
+  if(rows.length)h+=`<dl class="stats">${rows.map(([a,b])=>`<div><dt>${esc(a)}</dt><dd class="num">${esc(b)}</dd></div>`).join("")}</dl>`;
+  if(s==="BTC"&&DATA.btc)h+=`<div class="take"><div class="take-h"><b>${esc(DATA.btc.source)}'s take</b><span>${esc(DATA.btc.dateLabel||fmtKey(DATA.btc.summaryDate,{month:"short",day:"numeric"}))}</span></div><p>${esc(DATA.btc.summary)}</p><div class="acts">${ib(DATA.btc.sourceUrl,/youtu/.test(DATA.btc.sourceUrl)?I.yt:favImg(domainOf(DATA.btc.sourceUrl)),"Read "+DATA.btc.source+"'s take")}${askBtn("Based on Benjamin Cowen's recent analysis, what's happening with Bitcoin right now and what should I watch for?")}</div></div>`;
+ }else if(k==="pick"){
+  const p=DATA.pick,q=stkQuote(p.sym),px=q?q.price:p.close;const chips=[];
+  if(p.rating)chips.push(`<span class="pchip good"><b>${esc(p.rating.label)}</b>${p.rating.total?` · ${p.rating.buy?p.rating.buy+" of ":""}${p.rating.total} analysts`:""}</span>`);
+  if(p.target&&px)chips.push(`<span class="pchip"><b>Avg target ${usd(p.target,0)}</b> · ${Math.round((p.target-px)/px*100)}% upside</span>`);
+  if(p.hi52&&px)chips.push(`<span class="pchip">${px>=p.hi52*.98?"<b>At its 52-week high</b>":`<b>${Math.round((1-px/p.hi52)*100)}% below</b> its 52-week high`}</span>`);
+  h+=`<div class="ctx-pick">${chips.length?`<div class="pchips">${chips.join("")}</div>`:""}<dl><div><dt>What they do</dt><dd>${esc(p.what||"")}</dd></div><div><dt>Why look now</dt><dd>${esc(p.why)}</dd></div></dl>${p.risk?`<p class="pick-risk"><b>Main risk:</b> ${esc(p.risk)}</p>`:""}<div class="acts">${askBtn(`Give me the bull case and the bear case for ${p.name} (${p.sym}) at about ${usd(px,2)}. What they do: ${p.what||""} Why it's interesting: ${p.why}`)}</div></div>`;
+ }else{
+  const m=DATA.markets;if(m.points&&m.points.length)h+=`<div class="take"><div class="take-h"><b>What moved</b><span>${esc(fmtKey(m.asOf,{weekday:"short",month:"short",day:"numeric"}))}</span></div>${m.headline?`<p>${esc(m.headline)}</p>`:""}<ul class="mv-pts">${m.points.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
+ }
+ el.innerHTML=h;
+}
+async function loadMkSeries(){
+ const{k,s}=S.mk,r=S.mk.range;
+ try{if(k==="cx"){await loadCxSeries(s,r);S.cx.err=false}else{await loadStSeries(s,r)}}catch(e){if(k==="cx")S.cx.err=e.message==="needs-backend"?"needs-backend":true;else S.st.rerr[s+"|"+r]="Couldn't load this range."}
+ drawMk();
+}
+/* the old per-card renderers now all redraw the one viewer */
+function renderCrypto(){renderMkt()}
+function renderStocks(){renderMkt()}
+function renderPick(){renderMkt()}
+function renderSMAs(){renderMkCtx()}
+function drawCx(){drawMk()}
+function drawSt(){drawMk()}
 function renderMarkets(){
- $("#s-mkt").innerHTML=`<div class="sh"><h2>Markets</h2></div>
- <div class="card" id="cx-card"></div>
- <div class="card" id="st-card" style="margin-top:12px"></div>
- <div class="card" id="pick-card" style="margin-top:12px"></div>`;
- renderCrypto();renderStocks();renderPick();
+ $("#s-mkt").innerHTML=`<div class="card" id="mk-card"></div><div class="card mk-list" id="mk-list"></div>`;
+ renderMkt();
 }
 
 /* =================================================================
@@ -1664,7 +1725,7 @@ function mediaCard(v,kind){
   ava=v.art?`<img class="ava sqa" src="${esc(v.art)}" alt="">`:`<span class="ava sqa" style="background:hsl(${hue(v.show)} 45% 30%);color:#fff">${esc(String(v.show).replace(/^The /,"").slice(0,1))}</span>`;
   chan=v.show;meta=ago(v.published);val=v.show;on=showMatch(v.show,lists().podcasts);
  }
- return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp3"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.sugg&&v.because?`<div class="bec">${I.spark}<span>${esc(v.because)}</span></div>`:""}${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${followBtn(yt?"channels":"podcasts",val,on)}${yt?`<span class="open-in" title="Opens in YouTube">${I.yt}</span>`:`<span class="open-in" title="Opens in Spotify">${I.spotify}</span>`}</div></div></article>`;
+ return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp3"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.sugg&&v.because?`<div class="bec">${I.spark}<span>${esc(v.because)}</span></div>`:""}${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${yt?`<span class="open-in yt" title="Opens in YouTube">${I.yt}</span>`:`<span class="open-in" title="Opens in Spotify">${I.spotify}</span>`}${followBtn(yt?"channels":"podcasts",val,on)}</div></div>${dxBtn((yt?"yt:"+v.id:"sp:"+v.url),yt?"watch":"listen",v.title)}</article>`;
 }
 function railHTML(id,items,kind,empty){
  if(!items.length)return`<div class="card"><div class="empty-row">${esc(empty)}</div></div>`;
@@ -1681,7 +1742,7 @@ const ytSugg=()=>(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.handle&&
 function ytItems(){
  const live=S.yt.source==="live"&&S.yt.items;
  const items=live?S.yt.items:[...(DATA.youtube||[]),...(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.id&&d.title).map(d=>({...d,sugg:true}))];
- return items.filter(v=>isFresh(v.published)).sort(byNewest);
+ return items.filter(v=>isFresh(v.published)&&!isDis("yt:"+v.id)).sort(byNewest);
 }
 function renderWatch(){
  const el=$("#s-watch");const items=ytItems();
@@ -1720,37 +1781,47 @@ function spItems(){
  const pl=lists().podcasts;
  const fol=(DATA.spotify||[]).filter(p=>showMatch(p.show,pl));
  const sug=(DATA.discover&&DATA.discover.spotify||[]).filter(p=>!showMatch(p.show,pl)).map(p=>({...p,sugg:true}));
- return fol.concat(sug).filter(p=>isFresh(p.published)).sort(byNewest);
+ return fol.concat(sug).filter(p=>isFresh(p.published)&&!isDis("sp:"+p.url)).sort(byNewest);
 }
+function artistItems(){return(DATA.discover&&DATA.discover.artists||[]).filter(a=>!isDis("art:"+a.name))}
 function renderListen(){
- const el=$("#s-listen");const items=spItems();
- el.innerHTML=`<div class="sh"><h2><span class="h-ic">${I.spotify}</span>Listen</h2><button class="aux" data-act="settings-list" data-k="podcasts">Your podcasts</button></div>
- ${railHTML("sp-rail",items,"sp","Nothing new from your shows in the last 3 days.")}`;
+ const el=$("#s-listen");const items=spItems();const arts=artistItems();
+ el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-list" data-k="podcasts">Your podcasts</button></div>
+ ${railHTML("sp-rail",items,"sp","Nothing new from your shows in the last 3 days.")}
+ ${arts.length?`<div class="grp-t" style="margin-top:22px">New artists for you<button data-act="settings-artists">Your artists</button></div><div class="arts noscroll">${arts.map(a=>`<div class="art"><a class="av" style="--h:${hue(a.name)}" href="${esc(a.url)}" target="_blank" rel="noopener" aria-label="${esc(a.name)} on Spotify">${esc(a.name.slice(0,1))}${a.img?`<img src="${esc(a.img)}" alt="" loading="lazy">`:""}</a><b>${esc(a.name)}</b><small>${esc(a.because||"")}</small><div class="acts">${ib(a.url,I.spotify,"Open on Spotify")}${followBtn("artists",a.name,inList("artists",a.name))}</div>${dxBtn("art:"+a.name,"listen",a.name)}</div>`).join("")}</div>`:""}`;
  bindRail("sp-rail");
+}
+/* Spotify's oEmbed endpoint gives cover art for any episode or artist link, no key needed */
+async function spArt(url){const u=String(url).split("?")[0];const m=LS.get("sd-sp-art",{});if(m[u]!=null)return m[u];try{const r=await fetch("https://open.spotify.com/oembed?url="+encodeURIComponent(u));if(!r.ok)return null;const j=await r.json();m[u]=j.thumbnail_url||"";LS.set("sd-sp-art",m);return m[u]}catch(e){return null}}
+async function loadSpArt(){
+ const eps=[...(DATA.spotify||[]),...(DATA.discover&&DATA.discover.spotify||[])].filter(p=>!p.art&&p.url);const arts=(DATA.discover&&DATA.discover.artists||[]).filter(a=>!a.img&&a.url);
+ if(!eps.length&&!arts.length)return;
+ await Promise.all([...eps.map(async p=>{const a=await spArt(p.url);if(a)p.art=a}),...arts.map(async a=>{const i=await spArt(a.url);if(i)a.img=i})]);
+ renderListen();
 }
 
 /* =================================================================
    WEEKEND
    ================================================================= */
 /* AROUND THE BAY — things to do in the next few days */
-function bayItems(){const b=DATA.bay||{};const tk=todayKey();return(b.items||[]).filter(i=>(i.endDate||i.date)>=tk).sort((x,y)=>x.date.localeCompare(y.date)||String(x.cal&&x.cal.start).localeCompare(String(y.cal&&y.cal.start)))}
+function bayItems(){const b=DATA.bay||{};const tk=todayKey();return(b.items||[]).filter(i=>(i.endDate||i.date)>=tk&&!isDis("bay:"+i.title+"|"+i.date)).sort((x,y)=>x.date.localeCompare(y.date)||String(x.cal&&x.cal.start).localeCompare(String(y.cal&&y.cal.start)))}
 const dateBlock=k=>`<div class="ev2-d" aria-hidden="true"><small>${esc(fmtKey(k,{month:"short"}))}</small><b class="num">${esc(fmtKey(k,{day:"numeric"}))}</b></div>`;
 function renderBay(){
  const el=$("#s-bay");if(!el)return;const b=DATA.bay||{};const items=bayItems();
  el.innerHTML=`<div class="sh"><span class="aux">Bay Area${b.range?` · ${esc(b.range)}`:""}</span></div>
- ${items.length?`<div class="card grid2">${items.map(it=>{const t=it.cal&&it.cal.start?it.cal.start.slice(11,16):"";return`<article class="ev2">${dateBlock(it.date)}<div class="ev2-x">
+ ${items.length?cols(items.map(it=>{const t=it.cal&&it.cal.start?it.cal.start.slice(11,16):"";return`<article class="ev2">${dateBlock(it.date)}<div class="ev2-x">
   <div class="chips2" style="margin:0 0 6px">${cdChip(it.date,t)}${it.dateLabel?`<span class="cd">${esc(it.dateLabel)}</span>`:""}${it.free?`<span class="tagc list">Free</span>`:""}</div>
   <h3>${esc(it.title)}</h3>${it.where?`<div class="where">${esc(it.where)}</div>`:""}<p>${esc(it.blurb)}</p>
   ${it.cal&&it.cal.tips?`<div class="wk-tip">${I.tip}<span>${esc(it.cal.tips)}</span></div>`:""}
   <div class="acts">${ib(it.url,I.ext,"Details","pri")}${it.tickets?ib(it.tickets,I.ticket,"Get tickets"):""}${calBtn(it.title,it.cal,it.url)}${it.ask?askBtn(it.ask):""}</div>
- </div></article>`}).join("")}</div>`:`<div class="card"><div class="empty-row">Nothing picked for the next few days.</div></div>`}`;
+ </div>${dxBtn("bay:"+it.title+"|"+it.date,"bay",it.title)}</article>`})):`<div class="card"><div class="empty-row">Nothing picked for the next few days.</div></div>`}`;
 }
 
 /* SHOWS — your artists, plus artists that sound like them */
 function showItems(){
  const arts=lists().artists;const has=a=>arts.some(x=>norm(x)===norm(a));const tk=todayKey();
  const src=DATA.shows&&DATA.shows.items?DATA.shows.items:(DATA.bay&&DATA.bay.ahead||[]);
- return src.filter(s=>s.date>=tk).filter(s=>s.match==="list"?(s.artists||[s.artist]).some(has):!s.like||has(s.like)).sort((x,y)=>x.date.localeCompare(y.date));
+ return src.filter(s=>s.date>=tk&&!isDis("sh:"+s.title+"|"+s.date)).filter(s=>s.match==="list"?(s.artists||[s.artist]).some(has):!s.like||has(s.like)).sort((x,y)=>x.date.localeCompare(y.date));
 }
 function renderShows(){
  const el=$("#s-shows");if(!el)return;const items=showItems();const arts=lists().artists;
@@ -1762,29 +1833,60 @@ function renderShows(){
   ${s.why?`<p>${esc(s.why)}</p>`:""}
   ${s.price||(s.cal&&s.cal.tips)?`<div class="wk-tip">${I.tip}<span>${esc([s.price,s.cal&&s.cal.tips].filter(Boolean).join(" · "))}</span></div>`:""}
   <div class="acts">${ib(tk,I.ticket,s.soldOut?"Sold out · waitlist":"Get tickets","pri")}${calBtn(s.title,s.cal,s.url)}</div>
- </div></article>`};
+ </div>${dxBtn("sh:"+s.title+"|"+s.date,"shows",s.title)}</article>`};
  el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-artists">Your artists</button></div>
  <div class="grp-t">Your artists<span>${mine.length} ${mine.length===1?"show":"shows"}</span></div>
- ${mine.length?`<div class="card grid2">${mine.map(row).join("")}</div>`:`<div class="card"><div class="empty-row">No upcoming dates for your artists nearby.</div></div>`}
- ${like.length?`<div class="grp-t">Sounds like your list<span>${like.length} ${like.length===1?"show":"shows"}</span></div><div class="card grid2">${like.map(row).join("")}</div>`:""}
+ ${mine.length?cols(mine.map(row)):`<div class="card"><div class="empty-row">No upcoming dates for your artists nearby.</div></div>`}
+ ${like.length?`<div class="grp-t">Sounds like your list<span>${like.length} ${like.length===1?"show":"shows"}</span></div>${cols(like.map(row))}`:""}
  <p class="note">${DATA.shows&&DATA.shows.note?esc(DATA.shows.note)+" ":""}Watching ${esc(arts.slice(0,4).join(", "))}${arts.length>4?` and ${arts.length-4} more`:""}.</p>`;
 }
+
+/* ACTIVITY — placeholder until the Fitbit Air feed is hooked up */
+function renderAct(){const el=$("#s-act");if(!el)return;el.innerHTML=`<div class="card ph-card"><span class="ic">${I.pulse}</span><div><b>Fitbit Air</b><p>Steps, sleep, heart rate and workouts will show up here once your Fitbit Air is connected.</p></div></div>`}
 
 /* MOVIES — what's playing now and what's coming */
 const tixUrl=m=>m.url||`https://www.fandango.com/search?q=${encodeURIComponent(m.title)}`;
 const trailerUrl=m=>m.trailer||`https://www.youtube.com/results?search_query=${encodeURIComponent(m.title+" official trailer")}`;
-const scoreChip=m=>m.score!=null?`<span class="score ${m.score>=60?"fresh":"rot"}" title="Rotten Tomatoes">${m.score>=60?"🍅":"🤢"} ${m.score}%</span>`:"";
+const scoreChip=m=>m.tmdb?`<span class="score" title="TMDB audience score">★ ${(+m.tmdb).toFixed(1)}</span>`:m.score!=null?`<span class="score ${m.score>=60?"fresh":"rot"}" title="Rotten Tomatoes">${m.score>=60?"🍅":"🤢"} ${m.score}%</span>`:"";
 const PAL=[["#7A2E3A","#2A0F1E"],["#1F4E79","#0B1A2E"],["#6B4F1D","#21170A"],["#2E5E4E","#0C1F1A"],["#4B2E83","#160D2B"],["#8A3B12","#2A1006"],["#1E5C6B","#0A2127"],["#5A5A63","#1A1A1F"]];
 const initials=t=>String(t).replace(/^(The|A|An) /i,"").split(/[\s:\-]+/).filter(w=>/^[A-Za-z0-9]/.test(w)).slice(0,2).map(w=>w[0]).join("").toUpperCase();
 function poster(m,mini){const c=PAL[hash(m.title)%PAL.length];return`<div class="pst ${mini?"mini-pst":""}" style="--p1:${c[0]};--p2:${c[1]}">${m.poster?`<img src="${esc(m.poster)}" alt="" loading="lazy" onerror="this.remove()">`:""}${!mini&&m.rating?`<span class="rt">${esc(m.rating)}</span>`:""}${!mini&&m.genre?`<span class="g">${esc(m.genre.split(/[,/·]/)[0])}</span>`:""}<strong>${esc(mini?initials(m.title):m.title)}</strong></div>`}
+function mvData(){const m=S.mv||DATA.movies||{};const tk=todayKey();const P=LS.get("sd-poster",{});const fix=x=>({...x,poster:x.poster||P[x.title]||""});
+ return{now:(m.now||[]).filter(x=>!isDis("mv:"+x.title)).map(fix),soon:(m.soon||[]).filter(x=>x.date>=tk&&!isDis("mv:"+x.title)).sort((a,b)=>a.date.localeCompare(b.date)).map(fix),live:!!S.mv}}
 function renderMovies(){
- const el=$("#s-movies");if(!el)return;const m=DATA.movies||{};const tk=todayKey();
- const now=m.now||[];const soon=(m.soon||[]).filter(x=>x.date>=tk).sort((a,b)=>a.date.localeCompare(b.date));
+ const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,soon,live}=mvData();
  const nowChip=x=>{if(!x.released)return"";const d=dayDiff(x.released,tk);return d<=3?`<span class="cd now"><i></i>New</span>`:`<span class="cd">Week ${Math.floor(d/7)+1}</span>`};
  el.innerHTML=`<div class="sh"><a class="aux" href="https://www.fandango.com/94040_movietimes" target="_blank" rel="noopener">Showtimes near you</a></div>
- ${now.length?`<div class="grp-t">In theaters<span>${now.length}</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,"Tickets & showtimes","pri sm")}${ib(trailerUrl(x),I.play,"Watch trailer","sm")}</div></article>`).join("")}</div>`:""}
- ${soon.length?`<div class="grp-t">Coming soon<span>${soon.length}</span></div><div class="card grid2">${soon.map(x=>`<article class="ev2">${poster(x,true)}<div class="ev2-x"><div class="chips2" style="margin:0 0 6px">${cdChip(x.date,null,"Opens ")}<span class="cd">${esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</span>${x.big?`<span class="tagc list">Big one</span>`:""}</div><h3>${esc(x.title)}</h3>${x.genre?`<div class="where">${esc(x.genre)}</div>`:""}${x.blurb?`<p>${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,x.presale?"Pre-sale tickets":"Tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${calBtn("🎬 "+x.title+" opens",{date:x.date,tips:x.blurb||""},tixUrl(x))}</div></div></article>`).join("")}</div>`:""}
+ ${now.length?`<div class="grp-t">In theaters<span>${now.length}${live?" · TMDB":""}</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,"Tickets & showtimes","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}</div>${dxBtn("mv:"+x.title,"movies",x.title)}</article>`).join("")}</div>`:""}
+ ${soon.length?`<div class="grp-t">Coming soon<span>${soon.length}</span></div>${cols(soon.map(x=>`<article class="ev2">${poster(x,true)}<div class="ev2-x"><div class="chips2" style="margin:0 0 6px">${cdChip(x.date,null,"Opens ")}<span class="cd">${esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</span>${x.big?`<span class="tagc list">Big one</span>`:""}</div><h3>${esc(x.title)}</h3>${x.genre?`<div class="where">${esc(x.genre)}</div>`:""}${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,x.presale?"Pre-sale tickets":"Tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${calBtn("🎬 "+x.title+" opens",{date:x.date,tips:x.blurb||""},tixUrl(x))}</div></div>${dxBtn("mv:"+x.title,"movies",x.title)}</article>`))}`:""}
  ${!now.length&&!soon.length?`<div class="card"><div class="empty-row">No movies listed today.</div></div>`:""}`;
+}
+/* Movies come live from TMDB when you add a free key in Settings; otherwise from the morning data,
+   with posters looked up on Wikipedia. */
+const tmdbKey=()=>LS.get("sd-tmdb-key","")||CONFIG.tmdbKey||"";
+async function tmdb(path,params={}){const k=tmdbKey();const u=new URL("https://api.themoviedb.org/3/"+path);Object.entries({language:"en-US",region:"US",...params}).forEach(([a,b])=>u.searchParams.set(a,b));const bearer=k.length>60;if(!bearer)u.searchParams.set("api_key",k);const r=await fetch(u,bearer?{headers:{Authorization:"Bearer "+k}}:{});if(!r.ok)throw new Error("TMDB "+r.status);return r.json()}
+async function loadMovies(force){
+ if(tmdbKey()){
+  const c=LS.get("sd-tmdb",null);if(!force&&c&&Date.now()-c.t<6*36e5){S.mv=c.v}
+  else try{
+   const[g,np,up]=await Promise.all([tmdb("genre/movie/list"),tmdb("movie/now_playing"),tmdb("movie/upcoming")]);
+   const G={};(g.genres||[]).forEach(x=>G[x.id]=x.name);const tk=todayKey();
+   const map=m=>({title:m.title,genre:(m.genre_ids||[]).slice(0,2).map(i=>G[i]).filter(Boolean).join(" · "),released:m.release_date,date:m.release_date,tmdb:m.vote_count>=20?m.vote_average:null,blurb:clip(m.overview,150),poster:m.poster_path?"https://image.tmdb.org/t/p/w342"+m.poster_path:""});
+   const now=(np.results||[]).filter(m=>m.release_date<=tk).slice(0,10).map(map);
+   const soon=(up.results||[]).filter(m=>m.release_date>tk).sort((a,b)=>a.release_date.localeCompare(b.release_date)).slice(0,10).map(map);
+   const big=new Set(((DATA.movies||{}).soon||[]).filter(x=>x.big).map(x=>norm(x.title)));soon.forEach(x=>{if(big.has(norm(x.title)))x.big=true});
+   S.mv={now,soon};LS.set("sd-tmdb",{t:Date.now(),v:S.mv});
+  }catch(e){toast("Couldn't reach TMDB ("+e.message+")")}
+ }
+ renderMovies();renderTeasers();
+ if(!S.mv)loadPosters();
+}
+async function loadPosters(){
+ const c=LS.get("sd-poster",{});const m=DATA.movies||{};const all=[...(m.now||[]),...(m.soon||[])].filter(x=>!x.poster&&c[x.title]==null);if(!all.length)return;
+ await Promise.all(all.map(async x=>{const y=(x.released||x.date||"").slice(0,4);let net=false;
+  for(const t of[`${x.title} (${y} film)`,`${x.title} (film)`,x.title]){try{const r=await fetch("https://en.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(t.replace(/ /g,"_")));if(!r.ok)continue;const j=await r.json();if(j.type==="disambiguation"||!/film/i.test(j.description||""))continue;const u=(j.thumbnail&&j.thumbnail.source)||"";if(u){c[x.title]=u;return}}catch(e){net=true}}
+  if(!net)c[x.title]="";}));
+ LS.set("sd-poster",c);renderMovies();
 }
 
 /* =================================================================
@@ -1871,9 +1973,14 @@ function settingsHTML(){
   <div class="inp-row"><input class="inp" id="yt-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${stored?"Custom key saved":"Built-in key active. Paste to override"}" aria-label="YouTube API key"><button class="btn press" data-act="yt-save">Save</button></div>
   ${stored?`<div class="status"><span>Using your custom key.</span><button style="margin-left:auto;color:var(--down);font-weight:600" data-act="yt-clear">Remove</button></div>`:""}
  </div></div>
+ <div class="set-l">Movies</div>
+ <div class="set-g"><div class="set-pad"><div class="set-s" style="margin-top:0">Add a free TMDB key to load what's playing and coming soon live, with posters and audience scores. Get one at <a href="https://www.themoviedb.org/settings/api" target="_blank" rel="noopener" style="color:var(--link);font-weight:600">themoviedb.org/settings/api</a>.</div>
+  <div class="inp-row"><input class="inp" id="tmdb-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${tmdbKey()?"Key saved":"Paste your TMDB API key or read token"}" aria-label="TMDB API key"><button class="btn press" data-act="tmdb-save">Save</button></div>
+  ${tmdbKey()?`<div class="status ${S.mv?"ok":""}"><i></i><span>${S.mv?"Live from TMDB.":"Key saved."}</span><button style="margin-left:auto;color:var(--down);font-weight:600" data-act="tmdb-clear">Remove</button></div>`:""}
+ </div></div>
  <div class="set-l">Sections</div>
  <div class="set-g">${SECTIONS.map(([id,l])=>`<label class="set-r"><span>${esc(l)}</span><input type="checkbox" class="sw" data-sec-toggle="${id}" ${S.hidden.has(id)?"":"checked"}></label>`).join("")}</div>
- <div class="set-g"><button class="set-r" style="width:100%;color:var(--link);font-weight:600" data-act="refresh">Refresh now</button><button class="set-r" style="width:100%;color:var(--down);font-weight:600" data-act="clear-cache">Clear cached data</button></div>
+ <div class="set-g">${Object.keys(DISM()).length?`<button class="set-r" style="width:100%;font-weight:600" data-act="restore-hidden"><span>Hidden items</span><span style="color:var(--link)">${Object.keys(DISM()).length} · Restore all</span></button>`:""}<button class="set-r" style="width:100%;color:var(--link);font-weight:600" data-act="refresh">Refresh now</button><button class="set-r" style="width:100%;color:var(--down);font-weight:600" data-act="clear-cache">Clear cached data</button></div>
  <p class="set-help" style="margin-top:0">Edition ${esc(ED)}. Weather from Open-Meteo, crypto from CoinGecko and Coinbase, stocks from Yahoo Finance through your backend.</p>`;
 }
 function refreshSettings(){const p=$("#sheet-p");if(!p||!$("#sheet").classList.contains("open")||!$("#set-lists",p))return;const y=p.scrollTop;p.innerHTML=`<div class="grab"></div>`+settingsHTML();p.scrollTop=y}
@@ -1910,9 +2017,9 @@ function listsChanged(keys){
  document.addEventListener("pointerover",e=>{if(e.pointerType!=="mouse")return;const el=e.target.closest("[data-tip]");if(!el){if(cur)hide();return}if(el===cur)return;cur=el;tip.textContent=el.dataset.tip;const r=el.getBoundingClientRect();tip.style.left=Math.min(innerWidth-8-tip.offsetWidth/2,Math.max(8+tip.offsetWidth/2,r.left+r.width/2))+"px";tip.style.top=(r.top-tip.offsetHeight-8<4?r.bottom+8:r.top-tip.offsetHeight-8)+"px";requestAnimationFrame(()=>tip.classList.add("show"))});
  addEventListener("scroll",hide,{passive:true});document.addEventListener("click",hide);
 })();
-let tt;function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>el.classList.remove("show"),1600)}
+let tt,toastUndo=null;function toast(t,undo){const el=$("#toast");toastUndo=undo||null;el.classList.toggle("act",!!undo);el.innerHTML=esc(t)+(undo?`<button data-act="undo">Undo</button>`:"");el.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>{el.classList.remove("show");toastUndo=null},undo?4500:1600)}
 function applyTheme(){const t=LS.get("sd-theme","auto");if(t==="auto")delete document.documentElement.dataset.theme;else document.documentElement.dataset.theme=t;const dark=t==="dark"||(t==="auto"&&matchMedia("(prefers-color-scheme: dark)").matches);$$('meta[name="theme-color"]').forEach(m=>m.remove());const m=document.createElement("meta");m.name="theme-color";m.content=dark?"#000000":"#F1F2F4";document.head.appendChild(m)}
-function redrawCharts(){drawCx();drawSt();const h=$("#pick-chart");if(h&&h._pts)drawChart(h,h._pts,h._o)}
+function redrawCharts(){drawMk()}
 document.addEventListener("click",async e=>{
  const t=e.target;
  const a=t.closest("[data-act]");
@@ -1921,6 +2028,10 @@ document.addEventListener("click",async e=>{
   if(act==="settings-list"){const k=a.dataset.k;openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-"+k);if(el)el.scrollIntoView({block:"start"})});return}
   if(act==="settings-artists"){openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-artists");if(el)el.scrollIntoView({block:"center"})});return}
   if(act==="close-sheet"){closeSheet();return}
+  if(act==="undo"){const u=toastUndo;toastUndo=null;$("#toast").classList.remove("show");if(u)u();return}
+  if(act==="restore-hidden"){LS.del("sd-dismissed");Object.values(DX_RENDER).forEach(f=>f());renderTeasers();refreshSettings();toast("Everything's back");return}
+  if(act==="tmdb-save"){const v=($("#tmdb-key").value||"").trim();if(!v){toast("Paste a key first");return}LS.set("sd-tmdb-key",v);LS.del("sd-tmdb");toast("Loading movies…");await loadMovies(true);refreshSettings();return}
+  if(act==="tmdb-clear"){LS.del("sd-tmdb-key");LS.del("sd-tmdb");S.mv=null;renderMovies();renderTeasers();refreshSettings();toast("TMDB key removed");return}
   if(act==="review"){S.review={kind:"v",order:null};openSheet(reviewHTML());bindDeck();return}
   if(act==="shuffle"){const list=S.review.kind==="v"?VOCAB:SPAN;S.review.order=list.map((_,i)=>i).sort(()=>Math.random()-.5);$("#sheet-p").innerHTML=`<div class="grab"></div>`+reviewHTML();bindDeck();return}
   if(act==="news-more"){S.news.open=!S.news.open;renderNews();return}
@@ -1940,14 +2051,13 @@ document.addEventListener("click",async e=>{
   if(was){const cur=lists()[k];const hit=k==="podcasts"?cur.find(x=>showMatch(v,[x])):cur.find(x=>x.toLowerCase()===v.toLowerCase());if(hit)setList(k,cur.filter(x=>x!==hit));toast("Unfollowed "+v)}
   else{const nv=normItem(k,v);if(!inList(k,nv))setList(k,lists()[k].concat([nv]));toast("Following "+v)}
   if(k==="channels")LS.del("sd-yt-cache");
+  if(k==="artists")renderShows();
   $$(`[data-follow="${k}"]`).forEach(b=>{if(b.dataset.v.toLowerCase()!==v.toLowerCase())return;b.classList.toggle("on",!was);b.setAttribute("aria-pressed",!was);b.innerHTML=!was?I.check:I.plus;b.dataset.tip=!was?"Following · tap to unfollow":"Follow";b.setAttribute("aria-label",!was?"Following":"Follow")});refreshSettings();return}
  const th=t.closest("[data-theme-set]");if(th){LS.set("sd-theme",th.dataset.themeSet);applyTheme();$$("[data-theme-set]").forEach(b=>b.classList.toggle("on",b===th));redrawCharts();renderHero();return}
  const rv=t.closest("[data-rev]");if(rv){S.review={kind:rv.dataset.rev,order:null};$("#sheet-p").innerHTML=`<div class="grab"></div>`+reviewHTML();bindDeck();return}
- const cr=t.closest("[data-cx-range]");if(cr){S.cx.range=cr.dataset.cxRange;LS.set("sd-cx-range",S.cx.range);S.cx.err=false;renderCrypto();try{await loadCxSeries(S.cx.sel,S.cx.range);S.cx.err=false}catch(err){S.cx.err=err.message==="needs-backend"?"needs-backend":true}renderCrypto();return}
- const cp=t.closest("[data-cx-pick]");if(cp&&S.cx.sel!==cp.dataset.cxPick){S.cx.sel=cp.dataset.cxPick;renderCrypto()}
- const cx=t.closest("[data-cx]");if(cx){S.cx.sel=cx.dataset.cx;LS.set("sd-cx-sel",S.cx.sel);renderCrypto();try{await loadCxSeries(S.cx.sel,S.cx.range);S.cx.err=false}catch(err){S.cx.err=err.message==="needs-backend"?"needs-backend":true}renderCrypto();loadCxDaily(S.cx.sel).then(renderSMAs).catch(()=>{});return}
- const sr=t.closest("[data-st-range]");if(sr){S.st.range=sr.dataset.stRange;LS.set("sd-st-range",S.st.range);$$("[data-st-range]").forEach(b=>{b.classList.toggle("on",b===sr);b.setAttribute("aria-selected",b===sr)});drawSt();try{await loadStSeries(stList()[S.st.sel],S.st.range)}catch(err){S.st.err=err.message}drawSt();return}
- const si=t.closest("[data-st]");if(si){S.st.sel=+si.dataset.st;renderStocks();try{await loadStSeries(stList()[S.st.sel],S.st.range)}catch(err){}drawSt();return}
+ const dxb=t.closest("[data-dx]");if(dxb){e.preventDefault();e.stopPropagation();dismiss(dxb.dataset.dx,dxb.dataset.dxs,dxb.dataset.dxl);return}
+ const mr=t.closest("[data-mk-range]");if(mr){S.mk.range=mr.dataset.mkRange;LS.set("sd-mk-range",S.mk.range);syncRanges();$$("[data-mk-range]").forEach(b=>{b.classList.toggle("on",b===mr);b.setAttribute("aria-selected",b===mr)});drawMk();await loadMkSeries();return}
+ const ms=t.closest("[data-mk]");if(ms){const i=ms.dataset.mk.indexOf("|");S.mk.k=ms.dataset.mk.slice(0,i);S.mk.s=ms.dataset.mk.slice(i+1);LS.set("sd-mk-sel",{k:S.mk.k,s:S.mk.s});syncRanges();renderMkt();await loadMkSeries();if(isCx())loadCxDaily(S.mk.s).then(renderMkCtx).catch(()=>{});return}
  const tg=t.closest("[data-tag]");if(tg){S.news.tag=tg.dataset.tag;S.news.open=false;renderNews();return}
  const sv=t.closest("[data-save]");if(sv){toggleSave(sv.dataset.save,sv.dataset.url);return}
  const hs=t.closest("[data-hist]");if(hs){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;const card=hs.closest(".lw");const y=card.getBoundingClientRect().top;const sl=$(".hist",card).scrollLeft;card.outerHTML=learnCard(k);const nc=$(`#s-learn [data-learn="${k}"]`);if(nc){window.scrollBy(0,nc.getBoundingClientRect().top-y);const h=$(".hist",nc);if(h)h.scrollLeft=sl}return}
@@ -1967,7 +2077,7 @@ function observe(){
 }
 
 /* breakpoint: news count changes between phone and wide layouts */
-WIDE.addEventListener?.("change",()=>{renderNews();$$(".rail").forEach(railArrows)});
+WIDE.addEventListener?.("change",()=>{renderNews();renderBay();renderShows();renderMovies();$$(".rail").forEach(railArrows)});
 
 /* resize */
 let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{redrawCharts();$$(".rail").forEach(railArrows)},120)});
@@ -1998,7 +2108,9 @@ function loadLive(){
  loadWeather().catch(()=>{});
  loadCx().then(startWs);
  loadYouTube(false);
- if(backend()){loadStQuotes().then(()=>Promise.all([loadStSeries(stList()[S.st.sel],S.st.range).then(drawSt),DATA.pick?loadStSeries(DATA.pick.sym,"3M").then(renderPick):null])).catch(()=>{});syncDown()}
+ loadSpArt();
+ loadMovies(false);
+ if(backend()){loadStQuotes().then(()=>{if(!isCx())return loadMkSeries()}).catch(()=>{});syncDown()}
 }
 /* timers: weather every 10 min, stocks every minute, crypto fallback poll */
 setInterval(()=>{if(!document.hidden)loadWeather().catch(()=>{})},10*6e4);
@@ -2015,6 +2127,7 @@ renderStocks=(f=>function(){f();renderTeasers()})(renderStocks);
  const w=LS.get("sd-wx",null);if(w&&w.day===todayKey()&&Date.now()-w.t<36e5&&w.geo===!!LS.get("sd-geo",false))S.wx=w.v;
  const q=LS.get("sd-cx-q",null);if(q&&Date.now()-q.t<6*36e5){S.cx.q=q.v;S.cx.qAt=q.t}
  if(!cxList().includes(S.cx.sel))S.cx.sel=cxList()[0]||"BTC";
+ mkValid();
  [S.cx.sel+"|"+S.cx.range].forEach(k=>{const c=LS.get("sd-cx-s-"+k,null);if(c&&Date.now()-c.t<6*36e5)S.cx.series[k]=c.v});
  const d=LS.get("sd-cx-d-"+S.cx.sel,null);if(d&&Date.now()-d.t<24*36e5)S.cx.daily[S.cx.sel]=d.v;
  if(!backend()&&!["1W","1M"].includes(S.st.range))S.st.range="1M";
