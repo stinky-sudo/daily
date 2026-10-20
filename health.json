@@ -1,10 +1,148 @@
 {
   "ok": true,
   "date": "2026-10-19",
-  "fetchedAt": "2026-10-20T02:06:41.563Z",
-  "steps": null,
-  "distance": null,
-  "activeMinutes": null,
+  "fetchedAt": "2026-10-20T02:27:24.078Z",
+  "steps": {
+    "civilStartTime": {
+      "date": {
+        "year": 2026,
+        "month": 10,
+        "day": 19
+      },
+      "time": {}
+    },
+    "civilEndTime": {
+      "date": {
+        "year": 2026,
+        "month": 10,
+        "day": 19
+      },
+      "time": {
+        "hours": 23,
+        "minutes": 59,
+        "seconds": 59
+      }
+    },
+    "steps": {
+      "countSum": "6775"
+    }
+  },
+  "distance": {
+    "civilStartTime": {
+      "date": {
+        "year": 2026,
+        "month": 10,
+        "day": 19
+      },
+      "time": {}
+    },
+    "civilEndTime": {
+      "date": {
+        "year": 2026,
+        "month": 10,
+        "day": 19
+      },
+      "time": {
+        "hours": 23,
+        "minutes": 59,
+        "seconds": 59
+      }
+    },
+    "distance": {
+      "millimetersSum": "5324800"
+    }
+  },
+  "activeMinutes": {
+    "civilStartTime": {
+      "date": {
+        "year": 2026,
+        "month": 10,
+        "day": 19
+      },
+      "time": {}
+    },
+    "civilEndTime": {
+      "date": {
+        "year": 2026,
+        "month": 10,
+        "day": 19
+      },
+      "time": {
+        "hours": 23,
+        "minutes": 59,
+        "seconds": 59
+      }
+    },
+    "activeMinutes": {
+      "activeMinutesRollupByActivityLevel": [
+        {
+          "activityLevel": "LIGHT",
+          "activeMinutesSum": "205"
+        },
+        {
+          "activityLevel": "MODERATE",
+          "activeMinutesSum": "10"
+        },
+        {
+          "activityLevel": "VIGOROUS",
+          "activeMinutesSum": "5"
+        }
+      ]
+    }
+  },
+  "totalCalories": {
+    "civilStartTime": {
+      "date": {
+        "year": 2026,
+        "month": 10,
+        "day": 19
+      },
+      "time": {}
+    },
+    "civilEndTime": {
+      "date": {
+        "year": 2026,
+        "month": 10,
+        "day": 19
+      },
+      "time": {
+        "hours": 23,
+        "minutes": 59,
+        "seconds": 59
+      }
+    },
+    "totalCalories": {
+      "kcalSum": 2752.53684
+    }
+  },
+  "activeZoneMinutes": {
+    "civilStartTime": {
+      "date": {
+        "year": 2026,
+        "month": 10,
+        "day": 19
+      },
+      "time": {}
+    },
+    "civilEndTime": {
+      "date": {
+        "year": 2026,
+        "month": 10,
+        "day": 19
+      },
+      "time": {
+        "hours": 23,
+        "minutes": 59,
+        "seconds": 59
+      }
+    },
+    "activeZoneMinutes": {
+      "sumInCardioHeartZone": "0",
+      "sumInPeakHeartZone": "0",
+      "sumInFatBurnHeartZone": "6"
+    }
+  },
+  "floors": null,
   "restingHR": [
     {
       "dataSource": {
@@ -64,6 +202,69 @@
       }
     }
   ],
+  "spo2": [
+    {
+      "dataSource": {
+        "recordingMethod": "PASSIVELY_MEASURED",
+        "device": {
+          "displayName": "Google Fitbit Air"
+        },
+        "platform": "FITBIT"
+      },
+      "dailyOxygenSaturation": {
+        "date": {
+          "year": 2026,
+          "month": 10,
+          "day": 19
+        },
+        "averagePercentage": 95.8,
+        "lowerBoundPercentage": 93.9,
+        "upperBoundPercentage": 97.7
+      }
+    }
+  ],
+  "respiratoryRate": [
+    {
+      "dataSource": {
+        "recordingMethod": "DERIVED",
+        "device": {
+          "displayName": "Google Fitbit Air"
+        },
+        "platform": "FITBIT"
+      },
+      "dailyRespiratoryRate": {
+        "date": {
+          "year": 2026,
+          "month": 10,
+          "day": 19
+        },
+        "breathsPerMinute": 19.8
+      }
+    }
+  ],
+  "hrv": [
+    {
+      "dataSource": {
+        "recordingMethod": "DERIVED",
+        "device": {
+          "displayName": "Google Fitbit Air"
+        },
+        "platform": "FITBIT"
+      },
+      "dailyHeartRateVariability": {
+        "date": {
+          "year": 2026,
+          "month": 10,
+          "day": 19
+        },
+        "averageHeartRateVariabilityMilliseconds": 46.1,
+        "nonRemHeartRateBeatsPerMinute": "54",
+        "entropy": 3.228,
+        "deepSleepRootMeanSquareOfSuccessiveDifferencesMilliseconds": 44.7
+      }
+    }
+  ],
+  "vo2Max": null,
   "sleep": [
     {
       "name": "users/4457912432455127948/dataTypes/sleep/dataPoints/7766183687141388168",
@@ -383,5 +584,6 @@
         ]
       }
     }
-  ]
+  ],
+  "exercise": null
 }
