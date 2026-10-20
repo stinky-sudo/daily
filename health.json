@@ -1,7 +1,7 @@
 {
   "ok": true,
   "date": "2026-10-19",
-  "fetchedAt": "2026-10-20T02:27:24.078Z",
+  "fetchedAt": "2026-10-20T02:28:45.588Z",
   "steps": {
     "civilStartTime": {
       "date": {
@@ -112,7 +112,7 @@
       }
     },
     "totalCalories": {
-      "kcalSum": 2752.53684
+      "kcalSum": 2753.9712
     }
   },
   "activeZoneMinutes": {
@@ -585,5 +585,82 @@
       }
     }
   ],
-  "exercise": null
+  "exercise": [
+    {
+      "name": "users/4457912432455127948/dataTypes/exercise/dataPoints/3958424369278573512",
+      "dataSource": {
+        "recordingMethod": "ACTIVELY_MEASURED",
+        "device": {
+          "formFactor": "FITNESS_BAND",
+          "displayName": "Google Fitbit Air"
+        },
+        "platform": "FITBIT"
+      },
+      "exercise": {
+        "interval": {
+          "startTime": "2026-10-18T19:16:39Z",
+          "startUtcOffset": "-25200s",
+          "endTime": "2026-10-19T03:20:11Z",
+          "endUtcOffset": "-25200s"
+        },
+        "exerciseType": "WALKING",
+        "metricsSummary": {
+          "caloriesKcal": 3321,
+          "distanceMillimeters": 21150656,
+          "steps": "28691",
+          "averagePaceSecondsPerMeter": 1.359910538944986,
+          "averageHeartRateBeatsPerMinute": "103",
+          "activeZoneMinutes": "130",
+          "heartRateZoneDurations": {
+            "lightTime": "21240s",
+            "moderateTime": "7740s",
+            "vigorousTime": "60s",
+            "peakTime": "0s"
+          }
+        },
+        "exerciseMetadata": {},
+        "displayName": "Walk",
+        "activeDuration": "28763s",
+        "exerciseEvents": [
+          {
+            "eventTime": "2026-10-18T19:16:39Z",
+            "eventUtcOffset": "-25200s",
+            "exerciseEventType": "START"
+          },
+          {
+            "eventTime": "2026-10-18T20:08:19Z",
+            "eventUtcOffset": "-25200s",
+            "exerciseEventType": "PAUSE"
+          },
+          {
+            "eventTime": "2026-10-18T20:12:14Z",
+            "eventUtcOffset": "-25200s",
+            "exerciseEventType": "RESUME"
+          },
+          {
+            "eventTime": "2026-10-19T03:19:53Z",
+            "eventUtcOffset": "-25200s",
+            "exerciseEventType": "PAUSE"
+          },
+          {
+            "eventTime": "2026-10-19T03:20:04Z",
+            "eventUtcOffset": "-25200s",
+            "exerciseEventType": "RESUME"
+          },
+          {
+            "eventTime": "2026-10-19T03:20:08Z",
+            "eventUtcOffset": "-25200s",
+            "exerciseEventType": "PAUSE"
+          },
+          {
+            "eventTime": "2026-10-19T03:20:11Z",
+            "eventUtcOffset": "-25200s",
+            "exerciseEventType": "STOP"
+          }
+        ],
+        "updateTime": "2026-10-19T03:20:19.201247Z",
+        "createTime": "2026-10-18T19:16:44.656010Z"
+      }
+    }
+  ]
 }
