@@ -986,6 +986,11 @@ html{background:var(--bg)}
 .hr-out{background:var(--fill-2)}
 .hr-leg{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;font-size:12.5px;color:var(--ink-3)}
 .hr-leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.hr-zones-list{margin-top:8px;display:flex;flex-direction:column;gap:6px}
+.hr-zone-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2)}
+.hr-zone-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.hr-zone-name{flex:1;font-weight:600}
+.hr-zone-range{color:var(--ink-3);font-variant-numeric:tabular-nums}
 
 /* Safari 26 / Chrome-on-iOS tint element */
 .tint{position:fixed;top:-4px;left:0;width:100%;height:12px;z-index:0;background-color:var(--bg);pointer-events:none}
@@ -1448,7 +1453,7 @@ function teaser(id){
  if(id==="bay"){const it=bayItems();if(!it.length)return tx("Nothing picked yet","q");const f=it[0];return mo(esc(until(f.date,f.cal&&f.cal.start&&f.cal.start.slice(11)).l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
  if(id==="shows"){const it=showItems();if(!it.length)return tx("No shows for your artists yet","q");const f=it[0];return mo(esc(until(f.date,f.time).l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
  if(id==="movies"){const{now,soon}=mvData();if(!now.length&&!soon.length)return tx("Nothing listed","q");return (now.length?mo(`${now.length} playing`)+tx(esc(now[0].title)):"")+(soon.length?kk("Next")+tx(esc(soon[0].title)+" · "+esc(until(soon[0].date).l.replace(/^In /,"")),"q"):"")}
- if(id==="act"){if(!HEALTH.ok)return tx("Fitbit Air · no data yet","q");const parts=[];if(HEALTH.steps){const v=HEALTH.steps.intVal||HEALTH.steps.value;if(v!=null)parts.push(mo(num(v)),tx("steps"))}if(HEALTH.sleep&&HEALTH.sleep.length){const s=HEALTH.sleep[0],st=s.startTime?.civilTime,en=s.endTime?.civilTime;if(st&&en){const ms=new Date("2000-01-01T"+en.slice(11))-new Date("2000-01-01T"+st.slice(11));const adj=ms<0?ms+864e5:ms;const h=Math.floor(adj/36e5),m=Math.round((adj%36e5)/6e4);parts.push(kk("Sleep"),tx(h+"h "+m+"m"))}}if(HEALTH.restingHR&&HEALTH.restingHR.length){const v=HEALTH.restingHR[0].intVal||HEALTH.restingHR[0].value;if(v!=null)parts.push(kk("HR"),tx(v+" bpm"))}return parts.length?parts.join(""):tx("Fitbit Air","q")}
+ if(id==="act"){if(!HEALTH.ok)return tx("Fitbit Air · no data yet","q");const parts=[];if(HEALTH.steps){const v=HEALTH.steps.intVal??HEALTH.steps.floatVal??HEALTH.steps.value;if(v!=null)parts.push(mo(num(v)),tx("steps"))}if(HEALTH.sleep&&HEALTH.sleep.length){const sl=HEALTH.sleep[0].sleep;if(sl&&sl.summary){const mins=+sl.summary.minutesAsleep;if(mins){const h=Math.floor(mins/60),m=mins%60;parts.push(kk("Sleep"),tx(h+"h "+m+"m"))}}}if(HEALTH.restingHR&&HEALTH.restingHR.length){const v=HEALTH.restingHR[0].dailyRestingHeartRate?.beatsPerMinute;if(v!=null)parts.push(kk("HR"),tx(v+" bpm"))}return parts.length?parts.join(""):tx("Fitbit Air","q")}
  if(id==="learn"){const v=VOCAB[VOCAB.length-1],s=SPAN[SPAN.length-1];return (v?tx(esc(v.word),"ser"):"")+(s?`<span class="tx ser" lang="es">${esc(s.phrase)}</span>`:"")}
  if(id==="diff"){return tx(esc(DATA.different.title))}
  return "";
@@ -1981,84 +1986,98 @@ function renderShows(){
 function renderAct(){
  const el=$("#s-act");if(!el)return;
  if(!HEALTH.ok){el.innerHTML=`<div class="card ph-card"><span class="ic">${I.pulse}</span><div><b>Fitbit Air</b><p>Steps, sleep, heart rate and workouts will show up here once your Fitbit Air is connected.</p></div></div>`;return}
- const hVal=(obj,fallback)=>{if(!obj)return null;return obj.intVal??obj.floatVal??obj.value??fallback};
- /* steps */
- const steps=HEALTH.steps?hVal(HEALTH.steps):null;
- /* distance (meters → miles) */
- const distM=HEALTH.distance?hVal(HEALTH.distance):null;
+
+ /* ── helpers ──────────────────────────────────────────────── */
+ const rollVal=(obj)=>{if(!obj)return null;return obj.intVal??obj.floatVal??obj.value??null};
+ const durH=min=>{const h=Math.floor(min/60),m=min%60;return h?h+"h "+m+"m":m+"m"};
+ /* Convert UTC timestamp + offset string ("-25200s") to local HH:MM string */
+ const toLocal=(utc,offStr)=>{
+  const d=new Date(utc);
+  const offSec=parseInt(offStr)||0; /* "-25200s" → -25200 */
+  const local=new Date(d.getTime()+offSec*1000);
+  const hh=local.getUTCHours(),mm=local.getUTCMinutes();
+  const hr=hh%12||12;
+  return hr+":"+(mm<10?"0":"")+mm+(hh>=12?" PM":" AM");
+ };
+
+ /* ── steps / distance / active minutes (dailyRollUp — may be null) ── */
+ const steps=HEALTH.steps?rollVal(HEALTH.steps):null;
+ const distM=HEALTH.distance?rollVal(HEALTH.distance):null;
  const distMi=distM!=null?(distM/1609.344).toFixed(1):null;
- /* active minutes */
- const actMin=HEALTH.activeMinutes?hVal(HEALTH.activeMinutes):null;
- /* resting HR */
- const rhr=HEALTH.restingHR&&HEALTH.restingHR.length?hVal(HEALTH.restingHR[0]):null;
- /* sleep */
- let sleepTotal=null,sleepStart=null,sleepEnd=null,sleepStages=null;
+ const actMin=HEALTH.activeMinutes?rollVal(HEALTH.activeMinutes):null;
+
+ /* ── resting heart rate ── */
+ const rhr=HEALTH.restingHR&&HEALTH.restingHR.length
+  ?+HEALTH.restingHR[0].dailyRestingHeartRate?.beatsPerMinute||null
+  :null;
+
+ /* ── sleep ── */
+ let sleepMin=null,sleepStart=null,sleepEnd=null,sleepStages=null;
  if(HEALTH.sleep&&HEALTH.sleep.length){
-  const s=HEALTH.sleep[0];
-  const st=s.startTime?.civilTime,en=s.endTime?.civilTime;
-  if(st&&en){
-   sleepStart=st.slice(11,16);sleepEnd=en.slice(11,16);
-   const ms=new Date("2000-01-01T"+en.slice(11))-new Date("2000-01-01T"+st.slice(11));
-   sleepTotal=ms<0?ms+864e5:ms;
-  }
-  /* try to extract sleep stages from timeSeriesData or stages field */
-  if(s.timeSeriesData){
-   const stages={deep:0,light:0,rem:0,awake:0};
-   s.timeSeriesData.forEach(ts=>{
-    const dur=(ts.durationMillis||ts.duration_millis||0);
-    const lbl=String(ts.sleepStage||ts.sleep_stage||ts.stage||"").toLowerCase();
-    if(lbl.includes("deep"))stages.deep+=+dur;
-    else if(lbl.includes("rem"))stages.rem+=+dur;
-    else if(lbl.includes("light"))stages.light+=+dur;
-    else if(lbl.includes("awake")||lbl.includes("wake"))stages.awake+=+dur;
-   });
-   if(stages.deep||stages.light||stages.rem)sleepStages=stages;
+  const sl=HEALTH.sleep[0].sleep;
+  if(sl){
+   /* times */
+   if(sl.interval){
+    sleepStart=toLocal(sl.interval.startTime,sl.interval.startUtcOffset);
+    sleepEnd=toLocal(sl.interval.endTime,sl.interval.endUtcOffset);
+   }
+   /* total from pre-calculated summary */
+   if(sl.summary&&sl.summary.minutesAsleep)sleepMin=+sl.summary.minutesAsleep;
+   /* stage breakdown from summary.stagesSummary [{type,minutes,count}] */
+   if(sl.summary&&sl.summary.stagesSummary){
+    const stages={DEEP:0,LIGHT:0,REM:0,AWAKE:0};
+    sl.summary.stagesSummary.forEach(s=>{stages[s.type]=(+s.minutes)||0});
+    if(stages.DEEP||stages.LIGHT||stages.REM)sleepStages=stages;
+   }
   }
  }
- /* hr zones */
+
+ /* ── HR zones (API only gives BPM ranges, no time-in-zone) ── */
  let hrZones=null;
  if(HEALTH.hrZones&&HEALTH.hrZones.length){
-  const z=HEALTH.hrZones[0];
-  hrZones={fatBurn:0,cardio:0,peak:0,out:0};
-  const fields=z.heartRateZones||z.heart_rate_zones||z.zones;
-  if(Array.isArray(fields)){
-   fields.forEach(f=>{
-    const n=String(f.name||f.zone||"").toLowerCase();
-    const mins=f.minutes||f.mins||f.durationMinutes||0;
-    if(n.includes("fat"))hrZones.fatBurn+=+mins;
-    else if(n.includes("cardio"))hrZones.cardio+=+mins;
-    else if(n.includes("peak"))hrZones.peak+=+mins;
-    else if(n.includes("out")||n.includes("below"))hrZones.out+=+mins;
-   });
+  const z=HEALTH.hrZones[0].dailyHeartRateZones;
+  if(z&&z.heartRateZones&&z.heartRateZones.length){
+   hrZones=z.heartRateZones; /* [{heartRateZoneType,minBeatsPerMinute,maxBeatsPerMinute}] */
   }
  }
- const durH=ms=>{const h=Math.floor(ms/36e5),m=Math.round((ms%36e5)/6e4);return h?h+"h "+m+"m":m+"m"};
- const hmFmt=hm=>{const[h,m]=hm.split(":");const hr=+h%12||12;return hr+":"+m+(+h>=12?" PM":" AM")};
+
+ /* ── build HTML ── */
  let html=`<div class="h-glance">`;
+
  /* Steps card */
  html+=`<div class="hg"><div class="hg-k">${TIPI.Move.ic} Steps</div><div class="hg-v">${steps!=null?num(steps):"—"}</div>${distMi!=null?`<div class="hg-c">${distMi} mi</div>`:""}</div>`;
- /* Active minutes card */
+
+ /* Active / Resting HR card */
  html+=`<div class="hg"><div class="hg-k">${TIPI.Energy.ic} Active</div><div class="hg-v">${actMin!=null?actMin+"<span style='font-size:14px;font-weight:600;letter-spacing:0'> min</span>":"—"}</div>${rhr!=null?`<div class="hg-c">Resting HR ${rhr} bpm</div>`:""}</div>`;
+
  /* Sleep card — full width */
  html+=`<div class="hg wide"><div class="hg-k">${TIPI.Sleep.ic} Sleep</div>`;
- if(sleepTotal!=null){
-  html+=`<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:8px"><div class="hg-v">${durH(sleepTotal)}</div><div class="hg-c">${hmFmt(sleepStart)} – ${hmFmt(sleepEnd)}</div></div>`;
+ if(sleepMin!=null){
+  html+=`<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:8px"><div class="hg-v">${durH(sleepMin)}</div>`;
+  if(sleepStart&&sleepEnd)html+=`<div class="hg-c">${sleepStart} – ${sleepEnd}</div>`;
+  html+=`</div>`;
   if(sleepStages){
-   const tot=sleepStages.deep+sleepStages.light+sleepStages.rem+sleepStages.awake||1;
-   html+=`<div class="slp-bar"><span class="slp-deep" style="width:${(sleepStages.deep/tot*100).toFixed(1)}%"></span><span class="slp-rem" style="width:${(sleepStages.rem/tot*100).toFixed(1)}%"></span><span class="slp-light" style="width:${(sleepStages.light/tot*100).toFixed(1)}%"></span><span class="slp-awake" style="width:${(sleepStages.awake/tot*100).toFixed(1)}%"></span></div>`;
-   html+=`<div class="slp-leg"><span><i class="slp-deep"></i>Deep ${durH(sleepStages.deep)}</span><span><i class="slp-rem"></i>REM ${durH(sleepStages.rem)}</span><span><i class="slp-light"></i>Light ${durH(sleepStages.light)}</span><span><i class="slp-awake"></i>Awake ${durH(sleepStages.awake)}</span></div>`;
+   const tot=sleepStages.DEEP+sleepStages.LIGHT+sleepStages.REM+sleepStages.AWAKE||1;
+   html+=`<div class="slp-bar"><span class="slp-deep" style="width:${(sleepStages.DEEP/tot*100).toFixed(1)}%"></span><span class="slp-rem" style="width:${(sleepStages.REM/tot*100).toFixed(1)}%"></span><span class="slp-light" style="width:${(sleepStages.LIGHT/tot*100).toFixed(1)}%"></span><span class="slp-awake" style="width:${(sleepStages.AWAKE/tot*100).toFixed(1)}%"></span></div>`;
+   html+=`<div class="slp-leg"><span><i class="slp-deep"></i>Deep ${durH(sleepStages.DEEP)}</span><span><i class="slp-rem"></i>REM ${durH(sleepStages.REM)}</span><span><i class="slp-light"></i>Light ${durH(sleepStages.LIGHT)}</span><span><i class="slp-awake"></i>Awake ${durH(sleepStages.AWAKE)}</span></div>`;
   }
  }else{html+=`<div class="hg-v">—</div>`}
  html+=`</div>`;
- /* HR Zones card — full width, only if data */
- if(hrZones&&(hrZones.fatBurn||hrZones.cardio||hrZones.peak)){
-  const ztot=hrZones.fatBurn+hrZones.cardio+hrZones.peak+hrZones.out||1;
+
+ /* HR Zones card — show BPM ranges (no time-in-zone from API) */
+ if(hrZones){
+  const zoneLabel=t=>{if(t==="LIGHT")return"Light";if(t==="MODERATE")return"Moderate";if(t==="VIGOROUS")return"Vigorous";if(t==="PEAK")return"Peak";return t};
+  const zoneColor=t=>{if(t==="LIGHT")return"var(--hr-light,#4dabf7)";if(t==="MODERATE")return"var(--hr-moderate,#51cf66)";if(t==="VIGOROUS")return"var(--hr-vigorous,#fcc419)";if(t==="PEAK")return"var(--hr-peak,#ff6b6b)";return"var(--c3)"};
   html+=`<div class="hg wide"><div class="hg-k"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.5s-7.5-4.4-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.2-7.5 10.2z"/></svg> Heart Rate Zones</div>`;
-  html+=`<div class="hr-bar"><span class="hr-out" style="width:${(hrZones.out/ztot*100).toFixed(1)}%"></span><span class="hr-fat-burn" style="width:${(hrZones.fatBurn/ztot*100).toFixed(1)}%"></span><span class="hr-cardio" style="width:${(hrZones.cardio/ztot*100).toFixed(1)}%"></span><span class="hr-peak" style="width:${(hrZones.peak/ztot*100).toFixed(1)}%"></span></div>`;
-  html+=`<div class="hr-leg"><span><i class="hr-fat-burn"></i>Fat Burn ${hrZones.fatBurn}m</span><span><i class="hr-cardio"></i>Cardio ${hrZones.cardio}m</span><span><i class="hr-peak"></i>Peak ${hrZones.peak}m</span></div>`;
-  html+=`</div>`;
+  html+=`<div class="hr-zones-list">`;
+  hrZones.forEach(z=>{
+   html+=`<div class="hr-zone-row"><span class="hr-zone-dot" style="background:${zoneColor(z.heartRateZoneType)}"></span><span class="hr-zone-name">${zoneLabel(z.heartRateZoneType)}</span><span class="hr-zone-range">${z.minBeatsPerMinute}–${z.maxBeatsPerMinute} bpm</span></div>`;
+  });
+  html+=`</div></div>`;
  }
+
  html+=`</div>`;
+
  /* footer with last sync time */
  if(HEALTH.fetchedAt){
   const ago=Date.now()-new Date(HEALTH.fetchedAt).getTime();
