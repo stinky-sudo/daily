@@ -36,7 +36,7 @@ window.SDT={light:["light","#F1F2F4"],dark:["dark","#000000"]};
   --bg:#F1F2F4; --surface:#FFFFFF; --raise:#F7F8FA;
   --fill:rgba(20,24,32,.055); --fill-2:rgba(20,24,32,.1);
   --ink:#000000; --ink-2:#565B63; --ink-3:#8F949C; --line:rgba(0,0,0,.075);
-  --link:#2B5EF0; --up:#0A9455; --down:#DD3B35; --warn:#F7931A; --warn-soft:rgba(247,147,26,.16); --warn-ink:#B86A0C; --up-soft:rgba(10,148,85,.12);
+  --link:#2B5EF0; --link-soft:rgba(43,94,240,.12); --up:#0A9455; --down:#DD3B35; --warn:#F7931A; --warn-soft:rgba(247,147,26,.16); --warn-ink:#B86A0C; --up-soft:rgba(10,148,85,.12);
   --ma1:#3F6BFF; --ma2:#9B4DFF; --band:rgba(247,147,26,.16); --band-line:#F7931A;
   --vocab:#4C46D6; --vocab-soft:rgba(76,70,214,.1);
   --es:#D4331F; --es-soft:rgba(212,51,31,.09);
@@ -48,7 +48,7 @@ window.SDT={light:["light","#F1F2F4"],dark:["dark","#000000"]};
   --bg:#000000; --surface:#121315; --raise:#1A1B1E;
   --fill:rgba(255,255,255,.07); --fill-2:rgba(255,255,255,.13);
   --ink:#FFFFFF; --ink-2:#A6AAB1; --ink-3:#6F737B; --line:rgba(255,255,255,.08);
-  --link:#7A9DFF; --up:#2FCB7C; --down:#FF5A52; --warn:#F7931A; --warn-soft:rgba(247,147,26,.2); --warn-ink:#FFB054; --up-soft:rgba(47,203,124,.14);
+  --link:#7A9DFF; --link-soft:rgba(122,157,255,.17); --up:#2FCB7C; --down:#FF5A52; --warn:#F7931A; --warn-soft:rgba(247,147,26,.2); --warn-ink:#FFB054; --up-soft:rgba(47,203,124,.14);
   --ma1:#6F92FF; --ma2:#B985FF; --band:rgba(247,147,26,.2);
   --vocab:#9C97FF; --vocab-soft:rgba(156,151,255,.14);
   --es:#FF7A62; --es-soft:rgba(255,122,98,.13);
@@ -59,7 +59,7 @@ window.SDT={light:["light","#F1F2F4"],dark:["dark","#000000"]};
     --bg:#000000; --surface:#121315; --raise:#1A1B1E;
     --fill:rgba(255,255,255,.07); --fill-2:rgba(255,255,255,.13);
     --ink:#FFFFFF; --ink-2:#A6AAB1; --ink-3:#6F737B; --line:rgba(255,255,255,.08);
-    --link:#7A9DFF; --up:#2FCB7C; --down:#FF5A52; --warn:#F7931A; --warn-soft:rgba(247,147,26,.2); --warn-ink:#FFB054; --up-soft:rgba(47,203,124,.14);
+    --link:#7A9DFF; --link-soft:rgba(122,157,255,.17); --up:#2FCB7C; --down:#FF5A52; --warn:#F7931A; --warn-soft:rgba(247,147,26,.2); --warn-ink:#FFB054; --up-soft:rgba(47,203,124,.14);
     --ma1:#6F92FF; --ma2:#B985FF; --band:rgba(247,147,26,.2);
     --vocab:#9C97FF; --vocab-soft:rgba(156,151,255,.14);
     --es:#FF7A62; --es-soft:rgba(255,122,98,.13);
@@ -102,7 +102,7 @@ h1,h2,h3,p{margin:0}
 .hero-date{font-size:15px;font-weight:600;color:var(--ink-2)}
 .icon-btn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--fill);color:var(--ink)}
 .icon-btn svg{width:19px;height:19px}
-.greet{font-family:var(--display);font-size:42px;line-height:1.02;letter-spacing:-.035em;font-weight:700;margin:6px 0 18px}
+.greet{font-family:var(--display);font-size:42px;line-height:1.02;letter-spacing:-.035em;font-weight:700;margin:6px 0 18px;white-space:nowrap;overflow:hidden}
 
 .sky{position:relative;border-radius:28px;padding:18px 18px 10px;color:#fff;overflow:hidden;isolation:isolate;background:var(--sky,#2F6FD6)}
 .sky::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(96,106,124,.42);opacity:0;transition:opacity .4s}
@@ -358,8 +358,14 @@ h1,h2,h3,p{margin:0}
 .vid .bec{margin-top:7px}
 .vgrid{display:grid;grid-template-columns:minmax(0,1fr);grid-auto-rows:1fr;gap:14px}
 .vgrid .vid{flex:none;min-width:0;scroll-snap-align:none}
-@media (min-width:600px){.vgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  /* narrower cards: the channel name gets the full line, the date and length go under it */
+.vgrid .vid-b{padding:11px 14px 12px}
+.vgrid .vid-f{padding-top:9px}
+/* suggested media: the follow + turns blue */
+.ib.fol.is-sug:not(.on){background:var(--link-soft);color:var(--link)}
+@media (hover:hover) and (pointer:fine){.ib.fol.is-sug:not(.on):hover{background:var(--link);color:#fff}}
+@media (min-width:600px){.vgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* 3-4 across: cards get narrow, so the channel name takes the full line and the date goes under it */
+@media (min-width:768px) and (orientation:landscape),(min-width:1100px){
   .vgrid .vid-ch{flex-wrap:wrap;row-gap:1px}.vgrid .vid-ch b{flex:1 1 0}.vgrid .vid-ch .sep{margin-left:0;flex-basis:100%;padding-left:29px;overflow:hidden;text-overflow:ellipsis}}
 @media (min-width:768px){.vgrid{gap:16px}}
 /* portrait (an upright iPad) keeps two across; landscape widens to three, then four */
@@ -455,6 +461,13 @@ h1,h2,h3,p{margin:0}
 /* footer */
 .foot{text-align:center;padding:34px var(--g) 0;font-size:13px;color:var(--ink-3);line-height:1.6}
 .foot b{color:var(--ink-2);font-weight:600}
+.ft{display:inline-flex;flex-direction:column;align-items:center;gap:8px}
+.ft-t{font-size:13.5px}
+.ft-g{display:grid;grid-template-columns:auto auto;gap:3px 12px;margin:0;font-size:12.5px;text-align:left}
+.ft-g div{display:contents}
+.ft-g dt{color:var(--ink-3);font-weight:600;text-align:right}
+.ft-g dd{margin:0;color:var(--ink-2)}
+.ft-g dd.warn{color:var(--warn-ink)}
 .ver{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--fill)}
 .ver svg{width:12px;height:12px}
 .ver.ok{color:var(--up)}
@@ -502,6 +515,41 @@ h1,h2,h3,p{margin:0}
 .bg-o:focus-visible i{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--link)}
 @media (hover:hover) and (pointer:fine){.bg-o:hover i{transform:scale(1.035)}}
 .set-help a,.set-help button{color:var(--link);font-weight:600}
+.set-help{margin-top:-12px}
+.set-l button{font-size:13px;font-weight:600;color:var(--link)}
+.set-nav{position:sticky;top:-8px;z-index:3;display:flex;gap:6px;overflow-x:auto;margin:0 calc(-1*var(--g)) 16px;padding:8px var(--g);background:var(--bg);box-shadow:0 1px 0 var(--line)}
+.set-nav button{flex:0 0 auto;height:34px;padding:0 14px;border-radius:999px;background:var(--fill);font-size:14px;font-weight:600;color:var(--ink-2)}
+.set-nav button.on{background:var(--ink);color:var(--bg)}
+.set-sec{scroll-margin-top:62px}
+.s-row{display:flex;align-items:center;gap:12px;min-height:52px;padding:8px 14px;border-top:1px solid var(--line);font-size:15.5px;width:100%;text-align:left;color:var(--ink)}
+.set-g>.s-row:first-child,.set-g>.s-acc:first-child>.s-row,.set-g>[hidden]+.s-row{border-top:0}
+.s-ic{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff}
+.s-ic svg{width:18px;height:18px}
+.s-n{flex:1;min-width:0;font-weight:500}
+.s-n small{display:block;font-size:13px;color:var(--ink-3);font-weight:400;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s-v{flex:0 0 auto;font-size:14.5px;color:var(--ink-3);text-align:right}
+.s-v.warn{color:var(--warn-ink)}
+.s-dot{flex:0 0 auto;width:9px;height:9px;border-radius:50%;background:var(--ink-3)}
+.s-dot.ok{background:var(--up)}.s-dot.err{background:var(--down)}
+.s-link{flex:0 0 auto;font-size:14.5px;font-weight:600;color:var(--link)}
+.s-link.danger{color:var(--down);margin-top:10px}
+.s-btn{cursor:pointer}
+.s-sec.off .s-n,.s-sec.off .s-ic{opacity:.45}
+.s-mv{display:flex;gap:4px}
+.s-mv button{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--fill);color:var(--ink-2)}
+.s-mv button svg{width:16px;height:16px}
+.s-mv button[disabled]{opacity:.3;pointer-events:none}
+.s-acc>summary{list-style:none;cursor:pointer}
+.s-acc>summary::-webkit-details-marker{display:none}
+.s-chev{flex:0 0 auto;width:16px;height:16px;color:var(--ink-3);transition:transform .25s ease}
+.s-chev svg{width:100%;height:100%}
+.s-acc[open] .s-chev{transform:rotate(90deg)}
+.s-acc{border-top:1px solid var(--line)}
+.set-g>.s-acc:first-child{border-top:0}
+.s-acc>.s-row{border-top:0}
+.s-body{padding:2px 14px 14px}
+@media (min-width:768px){.sheet-p{width:min(680px,calc(100% - 48px))!important;max-width:680px}.set-nav{top:-20px;margin:0 -24px 16px;padding:10px 24px}}
+@media (min-width:600px) and (pointer:coarse){.set-nav button{height:38px;font-size:14.5px}.s-mv button{width:40px;height:40px}.s-row{min-height:56px}}
 .sw{-webkit-appearance:none;appearance:none;width:51px;height:31px;border-radius:999px;background:var(--fill-2);position:relative;flex:0 0 auto;transition:background .2s;margin:0;cursor:pointer}
 .sw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.2);transition:transform .22s cubic-bezier(.3,.7,.2,1)}
 .sw:checked{background:#34C759}
@@ -829,6 +877,8 @@ html{background:var(--bg)}
 .it-ic.logo svg{width:26px;height:26px}
 .it-ic.logo.yt svg{width:28px;height:20px}
 .it-ic.tinted{color:#fff}
+.it-ic.mono{background:none;color:var(--ink)}
+.it-ic.mono svg{width:26px;height:26px}
 .it-h .it-n{margin-left:-2px}
 .it.open .it-ic{transform:scale(.86)}
 .it-t{align-self:center;justify-content:flex-start}
@@ -880,6 +930,8 @@ html{background:var(--bg)}
 /* shared row layout for bay / shows / soon */
 .ev2{position:relative;display:flex;gap:14px;padding:15px 16px;border-top:1px solid var(--line)}
 .ev2:first-child{border-top:0}
+.evs{display:grid;gap:12px;align-content:start}
+.evc .ev2{border-top:0;padding:16px 18px}
 .ev2-d{flex:0 0 46px;height:52px;border-radius:12px;background:var(--fill);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
 .ev2-d small{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--down)}
 .ev2-d b{font-family:var(--display);font-size:21px;font-weight:650;letter-spacing:-.02em;margin-top:3px}
@@ -1008,6 +1060,83 @@ html{background:var(--bg)}
 .mv-rail{align-items:start}
 .cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
 /* dismiss */
+/* coach */
+.coach{display:grid;gap:12px}
+.ch-hero{position:relative;border-radius:24px;padding:20px 20px 18px;color:#fff;overflow:hidden;background:linear-gradient(150deg,#1D8C8A 0%,#2C6FA3 60%,#3C5AA8 100%)}
+.ch-hero::before{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.22),rgba(255,255,255,0) 70%)}
+.ch-k{position:relative;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
+.ch-k svg{width:17px;height:17px}
+.ch-hero h3{position:relative;font-family:var(--display);font-size:27px;line-height:1.12;letter-spacing:-.025em;font-weight:700;margin-top:8px}
+.ch-why{position:relative;font-size:15.5px;line-height:1.5;opacity:.92;margin-top:8px}
+.ch-sig{position:relative;display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.ch-sig span{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;background:rgba(255,255,255,.17);font-size:13px;font-weight:600}
+.ch-sig span.warn{background:rgba(255,196,120,.28)}
+.ch-sig span.good{background:rgba(140,255,190,.22)}
+.ch-say{position:relative;font-size:14.5px;line-height:1.45;margin-top:10px;opacity:.95}
+.ch-hero .acts{position:relative;display:flex;gap:8px;margin-top:14px}
+.ch-hero .acts{align-items:center}.ch-ask{font-size:14px;font-weight:600;opacity:.9}
+.ch-hero .ib{background:rgba(255,255,255,.18);color:#fff}.ch-hero .ib.pri{background:#fff;color:#111}
+.ch-grid{display:grid;gap:12px}
+.ch-card{padding:16px 16px 14px}
+.ch-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.ch-h b{font-size:16px;font-weight:700}
+.ch-h span{font-size:12.5px;color:var(--ink-3);font-weight:500}
+.ch-moves{display:grid;gap:8px;margin-top:12px}
+.ch-m{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;padding:11px 12px;border-radius:14px;background:var(--fill);transition:background .2s}
+.ch-box{flex:0 0 auto;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 2px var(--c);color:transparent;transition:background .2s,color .2s}
+.ch-box svg{width:14px;height:14px}
+.ch-m.on .ch-box{background:var(--c);color:#fff;box-shadow:none}
+.ch-t{min-width:0;display:flex;flex-direction:column;gap:2px}
+.ch-t small{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--c)}
+.ch-t span{font-size:15px;line-height:1.4;color:var(--ink)}
+.ch-m.on .ch-t span{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--line)}
+.ch-week{display:flex;align-items:flex-end;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.ch-week span{display:flex;flex-direction:column;align-items:center;gap:4px}
+.ch-week i{width:10px;height:10px;border-radius:50%;background:var(--fill-2)}
+.ch-week span.on i{background:#0E8F9A}
+.ch-week span.td small{color:var(--ink);font-weight:700}
+.ch-week small{font-size:11px;font-weight:600;color:var(--ink-3)}
+.ch-week b{margin-left:auto;font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.ch-q{font-family:var(--serif);font-size:18px;line-height:1.4;margin-top:10px}
+.ch-note{width:100%;height:auto;min-height:78px;margin-top:10px;padding:10px 12px;resize:vertical;line-height:1.45;font-size:15px}
+.ch-ra{display:flex;align-items:center;gap:10px;margin-top:10px}
+.ch-saved{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:var(--up)}
+.ch-saved svg{width:13px;height:13px}
+.ch-past{display:grid;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.ch-past small{display:block;font-size:11.5px;font-weight:600;color:var(--ink-3)}
+.ch-past span{font-size:14px;line-height:1.4;color:var(--ink-2)}
+.ch-pr{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-2);text-align:center;margin:6px 12px 0}
+@media (min-width:768px){.ch-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.ch-hero{padding:24px 26px 22px}.ch-hero h3{font-size:32px}}
+/* vocab + spanish */
+.lrn{display:grid;gap:12px}
+.lrn-side{display:grid;gap:12px;align-content:start}
+.lw-hero .term{font-size:52px}
+.lw-l{font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-top:16px}
+.lw-p{font-size:15px;line-height:1.45;color:var(--ink-2);margin-top:6px}
+.lw-p b{color:var(--ink)}
+.exs{display:grid;gap:8px;margin-top:8px}
+.ex2{font-family:var(--serif);font-size:17px;line-height:1.5;color:var(--ink-2);padding:10px 14px;border-radius:14px;background:var(--acc-soft)}
+.ex2 mark{background:none;color:var(--acc);font-weight:700}
+.say{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--acc-soft);color:var(--acc);margin-left:8px;vertical-align:middle}
+.say svg{width:17px;height:17px}
+.lw .inp-row{margin-top:10px}
+.lw .btn.lw-go{background:var(--acc);color:#fff}
+.lrn-h{margin:12px 0 0;padding:0 2px}
+.es-play{display:flex;gap:8px;margin-top:12px}
+.es-play .btn svg{width:16px;height:16px}
+.es-parts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.es-parts span{display:flex;flex-direction:column;align-items:center;gap:1px;padding:7px 12px;border-radius:12px;background:var(--acc-soft)}
+.es-parts b{font-family:var(--serif);font-size:18px;font-weight:600}
+.es-parts small{font-size:12px;color:var(--ink-2)}
+.es-dl{display:grid;gap:8px;margin-top:10px}
+.es-ln{display:flex;gap:10px;align-items:flex-start;text-align:left;padding:10px 12px;border-radius:14px;background:var(--fill);width:100%}
+.es-ln.b{background:var(--acc-soft)}
+.es-ln i{flex:0 0 auto;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:11.5px;font-weight:700;background:var(--surface);color:var(--ink-2)}
+.es-ln span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.es-ln b{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.3}
+.es-ln small{font-size:13px;color:var(--ink-3)}
+.lw-a{font-size:13.5px;font-weight:600;color:var(--ink-2)}
+@media (min-width:768px){.lrn{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:start}.lw-hero .term{font-size:60px}}
 /* pins */
 .ib.pinb.on{background:var(--ink);color:var(--bg)}
 .pinbar{padding:0 var(--g);margin:0 0 24px}
@@ -1265,8 +1394,11 @@ const CONFIG={
    - calendar.summary: 2–4 sentences on the next 3 days. calendar.events:
      today + next 2 days only, INCLUDING birthday events (kind:"birthday").
      {title,start,end,loc?,tz?:"CT",url} or {title,allDay:true,date,endDate?,url,kind?}
-   - tip: one well-being practice for today {cat,title,mins,why,how[],src,url,ask}.
-     cat is one of Energy, Sleep, Calm, Move, Focus, Mind, Fuel.
+   - coach: today's coaching {date,theme,focus:{title,why},moves:[3×{area,text,mins}],reflect,principle}.
+     area is one of Body, Mind, People, Rest, Work. focus is one practical headline and 1–2
+     sentences of why; moves are small, concrete and doable today; reflect is one evening
+     question; principle is one short line. The page adds sleep, calendar and weather itself.
+     (tip {cat,title,why,how[]} is still read as a fallback.)
    - markets.tickers: one per stock in the lists, Yahoo symbols (^GSPC…),
      {sym,name,value,chg,pct,ytd,closes:[[YYYY-MM-DD,close],…~1 month]}.
    - pick: a buy-rated stock idea {sym,name,theme,close,pct,asOf,what,why,risk,rating:{label,buy,total},target,hi52,closes,history[]}.
@@ -1288,7 +1420,11 @@ const CONFIG={
      why?,price?,trip?,soldOut?,url,cal}]} your artists' shows + similar artists, sorted by date.
    - movies: {now[{title,genre,rating?,runtime?(min),score?(RT %),released,blurb,url?,trailer?,poster?}],
      soon[{title,genre,date,blurb,big?,url?,trailer?,poster?}]}. url defaults to Fandango, trailer to YouTube.
-   - vocab[] / spanish[]: today first, then the previous 6 days.
+   - vocab[]: {date,word,pron,pos,def,examples:[2 natural sentences],cards:[{f,b}×3]}; today first,
+     then the previous 6 days (ex is still read if examples is missing).
+   - spanish[]: {date,phrase,pron,reg,meaning,note,parts:[{es,en}],dialog:[{es,en}×2],use,cards:[{es,en}×3]};
+     casual Mexican Spanish; parts is a word-by-word gloss, dialog a two-line exchange, use one
+     line on when to say it today. Today first, then the previous 6 days.
    ================================================================= */
 /*DATA:START*/
 let DATA={};
@@ -1301,7 +1437,7 @@ async function fetchHealth(){try{const r=await fetch('health.json?v='+Date.now()
    HELPERS
    ================================================================= */
 /* BUILD: when this version of the page was published. Stamped automatically on every push. */
-const BUILD="2026-10-17T09:10:28-07:00";
+const BUILD="2026-10-20T22:23:42-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
@@ -1386,7 +1522,8 @@ function renderPins(){
 const DX_RENDER={watch:()=>renderWatch(),listen:()=>renderListen(),movies:()=>renderMovies(),shows:()=>renderShows(),bay:()=>renderBay()};
 function dismiss(k,sec,label){cfgSet(c=>c.dismissed[k]=Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers();toast((/^(ytch|spshow|art):/.test(k)?"Won't suggest "+(label||"this")+" again":"Hidden"+(label?": "+label:"")),()=>{cfgSet(c=>c.dismissed[k]=-Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers()})}
 /* lay rows out as one card on phones, two independent columns on wide screens (each only as tall as it needs) */
-function cols(rows){if(!WIDE.matches||rows.length<2)return`<div class="card">${rows.join("")}</div>`;const a=[],b=[];rows.forEach((h,i)=>(i%2?b:a).push(h));return`<div class="cols2"><div class="card">${a.join("")}</div><div class="card">${b.join("")}</div></div>`}
+/* event lists (shows, Bay, coming soon): every item is its own card; two columns on wide screens */
+function cols(rows){const c=h=>`<div class="card evc">${h}</div>`;if(!WIDE.matches||rows.length<2)return`<div class="evs">${rows.map(c).join("")}</div>`;const a=[],b=[];rows.forEach((h,i)=>(i%2?b:a).push(h));return`<div class="cols2"><div class="evs">${a.map(c).join("")}</div><div class="evs">${b.map(c).join("")}</div></div>`}
 /* icon-only actions: every follow-up is a round icon with a tooltip + aria-label */
 const ib=(href,icon,tip,cls="")=>`<a class="ib press ${cls}" href="${esc(href)}" target="_blank" rel="noopener" aria-label="${esc(tip)}" data-tip="${esc(tip)}">${icon}</a>`;
 const ibBtn=(attrs,icon,tip,cls="")=>`<button class="ib press ${cls}" ${attrs} aria-label="${esc(tip)}" data-tip="${esc(tip)}">${icon}</button>`;
@@ -1566,7 +1703,7 @@ function adoptCfg(remote,fromPush){
  const listsBefore=canon(old.lists),changed=cfgSig(m)!==cfgSig(old);
  _cfg=m;LS.set("sd-cfg",m);if(m.prefs.theme)LS.set("sd-theme",m.prefs.theme);
  if(changed&&S.booted){
-  applyTheme();S.hidden=new Set(pref("hidden",[]));renderNav();renderFeedOpts();
+  applyTheme();S.hidden=new Set(pref("hidden",[]));renderNav();renderFeedOpts();$$(".it").forEach(it=>{const ic=$(".it-ic",it);if(ic)ic.outerHTML=rowIcon(it.dataset.it)});renderCoach();
   if(canon(m.lists)!==listsBefore)listsChanged(LIST_KEYS.filter(k=>canon(old.lists[k])!==canon(m.lists[k])));
   Object.values(DX_RENDER).forEach(f=>f());renderNews();renderTeasers();renderPins();
  }
@@ -1595,7 +1732,10 @@ async function pullCfg(){
 /* =================================================================
    STATE
    ================================================================= */
-const SECTIONS=[["cal","Calendar"],["tip","Try Today"],["mkt","Markets"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["health","Health"],["learn","Learn"]];
+const SECTIONS=[["cal","Calendar"],["mkt","Markets"],["coach","Coach"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["health","Health"],["vocab","Vocab"],["spanish","Spanish"]];
+/* older saved settings used "tip" and "learn" */
+const LEGACY={coach:["tip"],vocab:["learn"],spanish:["learn"]};
+const isHidden=id=>S.hidden.has(id)||(LEGACY[id]||[]).some(x=>S.hidden.has(x));
 const S={
  hidden:new Set(pref("hidden",[])),
  wx:null,
@@ -1625,13 +1765,32 @@ function initData(){
 /* =================================================================
    SHELL — a list of sections on the sky. Each row opens in place.
    ================================================================= */
-const ITEMS=[["cal","Calendar"],["mkt","Markets"],["tip","Try Today"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["health","Health"],["learn","Learn"]];
+const ITEMS=SECTIONS;
 /* the icon beside each row name */
+/* simple row symbols: one color (white in dark mode), drawn on the same 24px grid */
+const MI={
+ cal:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14h2M14 14h2M8 17.5h2"/></svg>`,
+ mkt:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 17l5.5-5.5 4 4 7.5-8"/><path d="M15 7.5h5.5V13"/></svg>`,
+ coach:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>`,
+ news:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v13.5A1.5 1.5 0 0 0 18.5 20H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v9.5a1.5 1.5 0 0 1-3 0M7.5 9h6M7.5 12.5h6M7.5 16h4"/></svg>`,
+ watch:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10.2 9.4v5.2l4.4-2.6z" fill="currentColor"/></svg>`,
+ listen:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3.5" y="14" width="4.5" height="6.5" rx="2"/><rect x="16" y="14" width="4.5" height="6.5" rx="2"/></svg>`,
+ bay:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>`,
+ shows:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5.5l11-2V16"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg>`,
+ movies:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7.5 4v16M16.5 4v16M3 9h4.5M3 15h4.5M16.5 9H21M16.5 15H21"/></svg>`,
+ health:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 5 12 2.5-6h4"/></svg>`,
+ vocab:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 18.5l5-13 5 13M5.4 13.5h6.2"/><path d="M20.5 11.5v7M20.5 15.2a2.9 2.9 0 1 1 0-.1"/></svg>`,
+ spanish:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-11.8 7l-4.7 1.5L5 16.1A8 8 0 1 1 20 12z"/><path d="M10 9.5h4M12 9.5V8M10.5 15.5c2-1 3-2.6 3.3-5.5"/></svg>`
+};
+const iconStyle=()=>pref("icons","simple")==="color"?"color":"simple";
 function rowIcon(id){
+ if(iconStyle()==="simple"&&MI[id])return`<span class="it-ic mono" aria-hidden="true">${MI[id]}</span>`;
  if(id==="cal")return`<span class="it-ic logo" aria-hidden="true">${I.gcal}</span>`;
  if(id==="watch")return`<span class="it-ic logo yt" aria-hidden="true">${I.yt}</span>`;
  if(id==="listen")return`<span class="it-ic logo" aria-hidden="true">${I.spotify}</span>`;
- if(id==="tip"){const t=todaysTip(),st=TIPI[t.cat]||TIPI.Energy;return`<span class="it-ic tinted" style="background:${st.bg}" aria-hidden="true">${st.ic}</span>`}
+ if(id==="coach")return`<span class="it-ic tinted" style="background:linear-gradient(150deg,#1D8C8A,#3C5AA8)" aria-hidden="true">${MI.coach}</span>`;
+ if(id==="vocab")return`<span class="it-ic tinted" style="background:#4C46D6" aria-hidden="true">${MI.vocab}</span>`;
+ if(id==="spanish")return`<span class="it-ic tinted" style="background:#D4331F" aria-hidden="true">${MI.spanish}</span>`;
  const m={mkt:["chart","#0A9455"],news:["news","#2B5EF0"],bay:["pin","#E8590C"],shows:["mic","#9B4DFF"],movies:["film","#DD3B35"],health:["pulse","#E8336D"],learn:["book","#4C46D6"]}[id];
  return m?`<span class="it-ic tinted" style="background:${m[1]}" aria-hidden="true">${I[m[0]]}</span>`:"";
 }
@@ -1644,10 +1803,13 @@ function shell(){
   <footer class="foot" id="foot"></footer>
  </div>`;
 }
-const RENDER={cal:()=>renderCal(),mkt:()=>renderMarkets(),tip:()=>renderTip(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),health:()=>renderHealth(),learn:()=>renderLearn()};
-function renderNav(){ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=S.hidden.has(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false)}})}
+const RENDER={cal:()=>renderCal(),mkt:()=>renderMarkets(),coach:()=>renderCoach(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),health:()=>renderHealth(),vocab:()=>renderVocab(),spanish:()=>renderSpanish(),learn:()=>renderLearn()};
+function renderNav(){applyOrder();ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=isHidden(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false)}})}
+/* the order of rows on the home page (set in Settings, synced) */
+const orderIds=()=>{const def=SECTIONS.map(x=>x[0]);const o=(pref("order",[])||[]).filter(id=>def.includes(id));return o.concat(def.filter(id=>!o.includes(id)))};
+function applyOrder(){const l=$("#list");if(!l)return;orderIds().forEach(id=>{const el=$("#it-"+id);if(el)l.appendChild(el)})}
 function observe(){}
-function renderAll(){renderCal();renderTip();renderMarkets();renderNews();renderWatch();renderListen();renderBay();renderShows();renderMovies();renderHealth();renderLearn();renderPins();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
+function renderAll(){renderCal();renderCoach();renderMarkets();renderNews();renderWatch();renderListen();renderBay();renderShows();renderMovies();renderHealth();renderVocab();renderSpanish();renderPins();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
 
 /* =================================================================
    HERO + SKY
@@ -1667,10 +1829,12 @@ function hmLabel(str){const m=hm(str);const h=Math.floor(m/60),mm=m%60;return`${
 function skyMins(){const w=S.wx;if(w)return{n:hm(w.now),rise:hm(w.sunrise),set:hm(w.sunset)};const d=new Date();return{n:d.getHours()*60+d.getMinutes(),rise:430,set:1110}}
 function skyPhase(){const{n,rise,set}=skyMins();return n<rise-45||n>set+70?"night":n<rise+70?"dawn":n<set-90?"day":n<set+15?"golden":"dusk"}
 function skyCond(code){const c=+code;if(c===2)return"partly";if(c===3)return"overcast";if(c===45||c===48)return"fog";if(c>=51&&c<=67||c>=80&&c<=82)return"rain";if(c>=71&&c<=77)return"snow";if(c>=95)return"storm";return""}
+/* the greeting stays on one line: shrink it just enough to fit the width */
+function fitGreet(){const g=$("#greet");if(!g)return;g.style.fontSize="";const w=g.clientWidth,sw=g.scrollWidth;if(w&&sw>w){const f=parseFloat(getComputedStyle(g).fontSize);g.style.fontSize=Math.floor(f*w/sw*0.985)+"px"}}
 function renderHero(){
  if(!$("#home"))return;const now=new Date(),h=now.getHours();
  $("#home-date").textContent=now.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).replace(",","  ·");
- $("#greet").innerHTML=`${h<4?"Up late":h<12?"Good morning":h<17?"Good afternoon":"Good evening"},<br> Stinky.`;
+ $("#greet").textContent=`${h<4?"Up late":h<12?"Good morning":h<17?"Good afternoon":"Good evening"}, Stinky.`;fitGreet();
  renderWxRail();renderTeasers();
 }
 /* weather section: the sky card with the hourly line, plus the day's numbers */
@@ -1727,7 +1891,9 @@ function teaser(id){
   const sp=stList()[0],q=sp&&stkQuote(sp);if(q)out.push(kk(esc(sp==="^GSPC"?"S&P":stName(sp))),mo(pct(q.pct),q.pct>=0?"up":"down"));
   if(DATA.pick)out.push(kk(esc(DATA.pick.sym)),tx(esc(DATA.pick.rating?DATA.pick.rating.label:"idea")));
   return out.join("")}
- if(id==="tip"){const t=todaysTip();return (t.mins?mo(esc(t.mins)):"")+tx(esc(t.title))}
+ if(id==="coach"){const c=coachData(),n=c.moves.length,d=coachDone().length;return (n?mo(d>=n?"All done":`${d}/${n}`,d>=n?"up":""):"")+tx(esc(c.focus.title))}
+ if(id==="vocab"){const v=VOCAB[VOCAB.length-1];return v?tx(esc(v.word),"ser")+(v.pos?tx(esc(v.pos),"q"):""):tx("No word yet","q")}
+ if(id==="spanish"){const e=SPAN[SPAN.length-1];return e?`<span class="tx ser" lang="es">${esc(e.phrase)}</span>`+tx(esc(e.meaning),"q"):tx("No phrase yet","q")}
  if(id==="news"){const n=DATA.news;if(!n.length)return tx("Nothing today","q");const top=n[0];return mo(String(n.length)+" stories")+tx(esc(top.title))}
  /* the readout counts what's new from his own list; suggestions are mentioned only when that's all there is */
  if(id==="watch"){const all=ytItems(),it=all.filter(v=>!v.sugg);if(!it.length)return all.length?mo(`${all.length} suggested`):tx("Nothing new","q");const ch=[...new Set(it.map(v=>v.channel))];return mo(`${it.length} new`)+tx(esc(ch.slice(0,2).join(", ")+(ch.length>2?` +${ch.length-2}`:"")))}
@@ -1795,6 +1961,17 @@ function glideTo(el){
   if(p<1)glideRAF=requestAnimationFrame(step);else{removeEventListener("touchstart",stop);removeEventListener("wheel",stop);r.style.scrollBehavior=""}};
  glideRAF=requestAnimationFrame(step);
 }
+const CONTENT_SEL="a,button,input,select,textarea,label,summary,[role=button],[contenteditable],.card,.vid,.mv,.art,.pin,.sheet,.toast,.topbar,.pinbar,.it-hd,svg,img,canvas,video,.chart,.rail,.chips,.hist,.fcs,.seg";
+function isContent(t){
+ if(!t||t.nodeType!==1)return true;
+ if([...t.childNodes].some(n=>n.nodeType===3&&n.textContent.trim()))return true;
+ for(let e=t;e&&e.nodeType===1;e=e.parentElement){
+  if(e.matches(".it-p,.home,#app,body"))break;
+  if(e.matches(CONTENT_SEL))return true;
+  const cs=getComputedStyle(e);if(cs.backgroundImage!=="none"||!/^(transparent|rgba\(0, 0, 0, 0\))$/.test(cs.backgroundColor))return true;
+ }
+ return false;
+}
 function toggleItem(id,force){
  const el=$("#it-"+id);if(!el)return;const open=force!=null?force:!el.classList.contains("open");
  $$(".it.open").forEach(x=>{if(x===el)return;closeEl(x,open&&!!(x.compareDocumentPosition(el)&Node.DOCUMENT_POSITION_FOLLOWING))});
@@ -1803,13 +1980,13 @@ function toggleItem(id,force){
  S.open=open?id:null;
  try{history.replaceState(null,"",open?"#"+id:location.pathname+location.search)}catch(e){}
 }
-function openFromHash(){const h=location.hash.slice(1);if(RENDER[h]&&!S.hidden.has(h)){toggleItem(h,true);requestAnimationFrame(()=>{const el=$("#it-"+h);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-8,behavior:"instant"})})}}
+function openFromHash(){const h=({tip:"coach",learn:"vocab"})[location.hash.slice(1)]||location.hash.slice(1);if(RENDER[h]&&!S.hidden.has(h)){toggleItem(h,true);requestAnimationFrame(()=>{const el=$("#it-"+h);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-8,behavior:"instant"})})}}
 document.addEventListener("click",e=>{
  const t=e.target;
  const fb=t.closest("[data-feed]");if(fb){setFeed(fb.dataset.feed,fb.dataset.v);return}
  const h=t.closest(".it-hd");if(h&&!t.closest(".it-o")){toggleItem(h.closest(".it").dataset.it);return}
- /* a tap anywhere outside the open section closes it */
- if(S.open&&!t.closest(".it.open,.sheet,.toast,.topbar,.pinbar")&&document.contains(t))toggleItem(S.open,false);
+ /* a tap on empty space — not a card, control, picture or text — closes the open section */
+ if(S.open&&document.contains(t)&&!isContent(t))toggleItem(S.open,false);
 });
 document.addEventListener("keydown",e=>{if(e.key!=="Escape"||$("#sheet").classList.contains("open"))return;if(S.open)toggleItem(S.open,false)});
 
@@ -1883,6 +2060,142 @@ function renderTip(){
   ${t.how&&t.how.length?`<ol class="tip-how">${t.how.map(h=>`<li>${esc(h)}</li>`).join("")}</ol>`:""}
   <div class="acts">${askBtn(q,"Ask Claude","pri")}${t.url?ib(t.url,favImg(domainOf(t.url)),"Read: "+(t.src||"source")):""}${t.src?`<span class="src-l">${esc(t.src)}</span>`:""}</div>
  </div>`;
+}
+
+/* =================================================================
+   COACH — a daily focus, three small moves and an evening check-in.
+   The morning data writes the coaching (DATA.coach); the page reads the
+   day it's actually having (sleep, calendar, weather) and says so.
+   Ticked moves sync; check-in notes stay on this device.
+   ================================================================= */
+const COACH_AREAS={Body:"#0A9455",Mind:"#2B5EF0",People:"#E8590C",Rest:"#7A4DE0",Work:"#0E8F9A"};
+function coachData(){
+ const c=DATA.coach;
+ if(c&&c.focus&&c.focus.title)return{theme:c.theme||"",focus:c.focus,moves:(c.moves||[]).slice(0,3),reflect:c.reflect||"What went well today, and why?",principle:c.principle||"",date:c.date||ED};
+ const t=todaysTip();/* older data only had a single tip: shape it into a focus */
+ return{theme:t.cat||"",focus:{title:t.title,why:t.why},moves:(t.how||[]).slice(0,3).map(x=>({area:"Body",text:x})),reflect:"What gave you energy today, and what drained it?",principle:"",date:ED};
+}
+const coachLog=()=>pref("coachLog",{})||{};
+const coachDone=()=>{const l=coachLog()[todayKey()];return Array.isArray(l)?l:[]};
+function toggleMove(i){const log={...coachLog()},k=todayKey(),cur=new Set(Array.isArray(log[k])?log[k]:[]);cur.has(i)?cur.delete(i):cur.add(i);log[k]=[...cur].sort();
+ Object.keys(log).sort().slice(0,-60).forEach(d=>delete log[d]);setPref("coachLog",log);renderCoach();renderTeasers()}
+/* what the page can see about today, in plain words */
+function coachSignals(){
+ const sig=[],say=[],tk=todayKey(),now=new Date();
+ const sl=HEALTH&&HEALTH.sleep&&HEALTH.sleep[0]&&HEALTH.sleep[0].sleep&&HEALTH.sleep[0].sleep.summary;const mins=sl?+sl.minutesAsleep||0:0;
+ if(mins){const h=Math.floor(mins/60),m=mins%60;sig.push({t:`${h}h ${String(m).padStart(2,"0")}m sleep`,c:mins<390?"warn":mins>=450?"good":""});
+  if(mins<390)say.push("Short night, so do the hard thinking early and skip caffeine after 2 PM.");else if(mins>=450)say.push("You slept well. A good day to take on the hard thing.")}
+ const today=EVENTS.filter(e=>e.key===tk&&!e.allDay),left=today.filter(e=>e.en>now);
+ if(today.length){const f=left[0];sig.push({t:`${today.length} ${today.length===1?"event":"events"}${f?" · next "+fmtTime(f.s):""}`,c:today.length>=4?"warn":""});
+  if(today.length>=4)say.push(`Busy calendar. Guard 20 minutes between meetings for today's focus.`)}
+ else{sig.push({t:"Calendar clear",c:"good"});say.push("Nothing on the calendar yet. Block your best hour for the focus before it fills.")}
+ const w=S.wx;if(w){const info=wxInfo(w.cur.code,w.cur.isDay);sig.push({t:`${w.hi}° ${info.l}`,c:w.hi>=85||w.hi<=45?"warn":""});
+  if(w.hi>=85)say.push(`It's heading to ${w.hi}°. Drink water before you head out.`);else if(w.rain>=50)say.push(`${w.rain}% chance of rain. Plan the walk for a dry window.`);else if(w.hi<=45)say.push("Cold one. Layer up for anything outside.")}
+ return{sig,say:say.slice(0,2)};
+}
+const coachNotes=()=>LS.get("sd-reflect",{});
+function renderCoach(){
+ const el=$("#s-coach");if(!el)return;const c=coachData(),done=new Set(coachDone()),{sig,say}=coachSignals(),tk=todayKey();
+ const notes=coachNotes(),mine=notes[tk]||"",past=Object.keys(notes).filter(d=>d<tk&&notes[d]).sort().reverse().slice(0,3);
+ /* the last seven days: a filled dot for any day with at least one move done */
+ const log=coachLog(),week=[...Array(7)].map((_,i)=>{const d=addDays(tk,i-6);return{d,on:Array.isArray(log[d])&&log[d].length>0,today:d===tk}});
+ const streak=(()=>{const on=d=>Array.isArray(log[d])&&log[d].length>0;let i=on(tk)?0:1,n=0;while(i<60&&on(addDays(tk,-i))){n++;i++}return n})();
+ const ctx=[`Today's focus: ${c.focus.title}. ${c.focus.why||""}`,sig.length?`What my day looks like: ${sig.map(x=>x.t).join(", ")}.`:"",c.moves.length?`My moves: ${c.moves.map((m,i)=>(done.has(i)?"[done] ":"")+m.text).join(" | ")}`:"",mine?`My note tonight: ${mine}`:""].filter(Boolean).join("\n");
+ el.innerHTML=`<div class="coach">
+  <div class="ch-hero">
+   <div class="ch-k">${MI.coach}<span>Today's focus${c.theme?" · "+esc(c.theme):""}</span></div>
+   <h3>${esc(c.focus.title)}</h3>
+   ${c.focus.why?`<p class="ch-why">${esc(c.focus.why)}</p>`:""}
+   ${sig.length?`<div class="ch-sig">${sig.map(x=>`<span class="${x.c}">${x.t}</span>`).join("")}</div>`:""}
+   ${say.length?`<p class="ch-say">${say.map(esc).join(" ")}</p>`:""}
+   <div class="acts">${askBtn(`Be my coach for today. Keep it practical and short.\n${ctx}\nWhat should I do first, and what should I watch out for?`,"Talk it through with Claude","pri")}<span class="ch-ask">Talk it through</span></div>
+  </div>
+  <div class="ch-grid">
+   ${c.moves.length?`<div class="card ch-card">
+    <div class="ch-h"><b>Three moves</b><span class="num">${done.size} of ${c.moves.length}</span></div>
+    <div class="ch-moves">${c.moves.map((m,i)=>{const on=done.has(i),col=COACH_AREAS[m.area]||"var(--ink-2)";return`<button class="ch-m press ${on?"on":""}" data-move="${i}" aria-pressed="${on}" style="--c:${col}"><span class="ch-box">${I.check}</span><span class="ch-t"><small>${esc(m.area||"")}${m.mins?` · ${esc(m.mins)} min`:""}</small><span>${esc(m.text)}</span></span></button>`}).join("")}</div>
+    <div class="ch-week" aria-label="This week">${week.map(x=>`<span class="${x.on?"on":""} ${x.today?"td":""}"><i></i><small>${esc(fmtKey(x.d,{weekday:"narrow"}))}</small></span>`).join("")}${streak>1?`<b class="num">${streak}-day streak</b>`:""}</div>
+   </div>`:""}
+   <div class="card ch-card">
+    <div class="ch-h"><b>Tonight's check-in</b><span>Kept on this device</span></div>
+    <p class="ch-q">${esc(c.reflect)}</p>
+    <textarea class="inp ch-note" id="ch-note" rows="3" placeholder="A line or two…" aria-label="${esc(c.reflect)}">${esc(mine)}</textarea>
+    <div class="ch-ra"><button class="btn press" data-act="coach-save">${mine?"Update":"Save"}</button>${mine?`<span class="ch-saved">${I.check}Saved</span>`:""}</div>
+    ${past.length?`<div class="ch-past">${past.map(d=>`<div><small>${esc(fmtKey(d,{weekday:"short",month:"short",day:"numeric"}))}</small><span class="clamp2">${esc(notes[d])}</span></div>`).join("")}</div>`:""}
+   </div>
+  </div>
+  ${c.principle?`<p class="ch-pr">${esc(c.principle)}</p>`:""}
+ </div>`;
+}
+
+/* =================================================================
+   VOCAB — one word a day: meaning, two sentences, its parts, and a
+   sentence of your own to check with Claude.
+   ================================================================= */
+const wordRx=w=>{const st=String(w).toLowerCase().replace(/(e|y|s|ed|ing)$/,"");return new RegExp("\\b("+st.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\w*)","gi")};
+const markWord=(t,w)=>esc(t).replace(wordRx(w),"<mark>$1</mark>");
+function renderVocab(){
+ const el=$("#s-vocab");if(!el)return;const list=VOCAB;
+ if(!list.length){el.innerHTML=`<div class="card"><div class="empty-row">No word yet.</div></div>`;return}
+ let i=S.learn.v;if(i==null||i>=list.length)i=list.length-1;const e=list[i];
+ const exs=(e.examples&&e.examples.length?e.examples:[e.ex]).filter(Boolean).slice(0,2);
+ const cards=(e.cards||[]).map(c=>({f:c.f,b:c.b}));
+ el.innerHTML=`<div class="sh"><button class="aux" data-act="review" data-k="v">Review ${list.length} ${list.length===1?"word":"words"}</button></div>
+ <div class="lrn">
+  <div class="card lw lw-hero">
+   <div class="lw-k"><span class="lw-ic">${MI.vocab}</span><b>${e.date===ED?"Word of the day":esc(fmtKey(e.date,{weekday:"long",month:"short",day:"numeric"}))}</b></div>
+   <div class="term" lang="en">${esc(e.word)}</div>
+   <div class="pron">${esc(e.pron||"")}${e.pos?` &nbsp;<i>${esc(e.pos)}</i>`:""}<button class="say press" data-say="${esc(e.word)}" data-lang="en-US" aria-label="Hear it" data-tip="Hear it">${I.speaker}</button></div>
+   <p class="def">${esc(e.def)}</p>
+   ${exs.length?`<div class="lw-l">In a sentence</div><div class="exs">${exs.map(x=>`<p class="ex2">${markWord(x,e.word)}</p>`).join("")}</div>`:""}
+  </div>
+  <div class="lrn-side">
+   ${cards.length?`<div class="card lw"><div class="lw-l" style="margin-top:0">Word parts · tap to flip</div><div class="fcs">${cards.slice(0,3).map(c=>`<button class="fc" data-flip aria-label="${esc(c.f)}"><div class="fc-in"><div class="fc-f">${esc(c.f)}</div><div class="fc-b">${esc(c.b)}</div></div></button>`).join("")}</div></div>`:""}
+   <div class="card lw">
+    <div class="lw-l" style="margin-top:0">Your turn</div>
+    <p class="lw-p">Write a sentence with <b>${esc(e.word)}</b> and Claude will tell you if it lands.</p>
+    <div class="inp-row"><input class="inp" id="vc-mine" placeholder="Use “${esc(e.word.toLowerCase())}” in a sentence" autocomplete="off" enterkeyhint="send" aria-label="Your sentence"><button class="btn pri press lw-go" data-act="vocab-check" data-w="${esc(e.word)}">Check</button></div>
+   </div>
+  </div>
+ </div>
+ ${list.length>1?`<div class="hist noscroll lrn-h" style="--acc:var(--vocab)">${list.map((x,j)=>`<button class="hc press ${j===i?"on":""}" data-hist="v" data-i="${j}"><small>${x.date===ED?"Today":esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</small><span>${esc(x.word)}</span></button>`).join("")}</div>`:""}`;
+ scrollHist(el);
+}
+const scrollHist=el=>requestAnimationFrame(()=>$$(".hist",el).forEach(h=>{const on=$(".hc.on",h);if(on)h.scrollLeft=on.offsetLeft+on.offsetWidth-h.clientWidth+18}));
+
+/* =================================================================
+   SPANISH — a short spoken lesson: the phrase (normal and slow), what
+   each word does, a two-line conversation to hear, related phrases,
+   and when to use it today.
+   ================================================================= */
+function renderSpanish(){
+ const el=$("#s-spanish");if(!el)return;const list=SPAN;
+ if(!list.length){el.innerHTML=`<div class="card"><div class="empty-row">No phrase yet.</div></div>`;return}
+ let i=S.learn.s;if(i==null||i>=list.length)i=list.length-1;const e=list[i];
+ const cards=(e.cards||[]).map(c=>({f:c.es||c.f,b:c.en||c.b}));const dl=(e.dialog||[]).slice(0,4),parts=(e.parts||[]).slice(0,6);
+ const ask=`Let's practice Mexican Spanish. Role-play a short, casual conversation where I can use "${e.phrase}" (${e.meaning}). You start, keep your lines short, correct me gently, and give the English only if I ask.`;
+ el.innerHTML=`<div class="sh"><button class="aux" data-act="review" data-k="s">Review ${list.length} ${list.length===1?"phrase":"phrases"}</button></div>
+ <div class="lrn">
+  <div class="card lw es lw-hero">
+   <div class="lw-k"><span class="lw-ic">${MI.spanish}</span><b>${e.date===ED?"Phrase of the day":esc(fmtKey(e.date,{weekday:"long",month:"short",day:"numeric"}))}</b>${e.reg?`<span class="cnt">${esc(e.reg)}</span>`:""}</div>
+   <div class="term" lang="es">${esc(e.phrase)}</div>
+   <div class="pron">${esc(e.pron||"")}</div>
+   <div class="es-play"><button class="btn pri press" data-say="${esc(e.phrase)}" data-lang="es-MX">${I.speaker}Hear it</button><button class="btn press" data-say="${esc(e.phrase)}" data-lang="es-MX" data-slow="1">Slowly</button></div>
+   <p class="def">${esc(e.meaning)}</p>
+   ${parts.length?`<div class="lw-l">Word by word</div><div class="es-parts">${parts.map(x=>`<span lang="es"><b>${esc(x.es)}</b><small>${esc(x.en)}</small></span>`).join("")}</div>`:""}
+   ${e.note?`<p class="ex">${esc(e.note)}</p>`:""}
+  </div>
+  <div class="lrn-side">
+   ${dl.length?`<div class="card lw es"><div class="lw-l" style="margin-top:0">In a conversation · tap a line to hear it</div><div class="es-dl">${dl.map((x,j)=>`<button class="es-ln press ${j%2?"b":""}" data-say="${esc(x.es)}" data-lang="es-MX"><i>${j%2?"B":"A"}</i><span><b lang="es">${esc(x.es)}</b><small>${esc(x.en)}</small></span></button>`).join("")}</div></div>`:""}
+   ${cards.length?`<div class="card lw es"><div class="lw-l" style="margin-top:0">Related · tap to flip</div><div class="fcs">${cards.slice(0,3).map(c=>`<button class="fc" data-flip aria-label="${esc(c.f)}"><div class="fc-in"><div class="fc-f" lang="es">${esc(c.f)}</div><div class="fc-b">${esc(c.b)}</div></div></button>`).join("")}</div></div>`:""}
+   <div class="card lw es">
+    ${e.use?`<div class="lw-l" style="margin-top:0">Use it today</div><p class="lw-p">${esc(e.use)}</p>`:""}
+    <div class="acts" style="margin-top:${e.use?"12px":"0"}">${askBtn(ask,"Practice a conversation with Claude","pri")}<span class="lw-a">Practice a short conversation</span></div>
+   </div>
+  </div>
+ </div>
+ ${list.length>1?`<div class="hist noscroll lrn-h" style="--acc:var(--es)">${list.map((x,j)=>`<button class="hc press ${j===i?"on":""}" data-hist="s" data-i="${j}"><small>${x.date===ED?"Today":esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</small><span lang="es">${esc(x.phrase)}</span></button>`).join("")}</div>`:""}`;
+ scrollHist(el);
 }
 
 /* =================================================================
@@ -2151,7 +2464,7 @@ function inList(k,v){return k==="podcasts"?showMatch(v,lists().podcasts):lists()
 const ageDays=p=>{const t=toDate(p);return isNaN(t)?99:dayDiff(dayKey(t),todayKey())};
 const isFresh=(p,d)=>ageDays(p)<=(d||CONFIG.youtube.maxAgeDays);
 const byNewest=(a,b)=>toDate(b.published)-toDate(a.published);
-function followBtn(key,val,on){return val?`<button class="ib sm press fol ${on?"on":""}" data-follow="${key}" data-v="${esc(val)}" aria-pressed="${on}" aria-label="${on?"Following":"Follow"}" data-tip="${on?"Following · tap to unfollow":"Follow"}">${on?I.check:I.plus}</button>`:""}
+function followBtn(key,val,on,why){return val?`<button class="ib sm press fol ${on?"on":""} ${why?"is-sug":""}" data-follow="${key}" data-v="${esc(val)}" aria-pressed="${on}" aria-label="${on?"Following":why?"Suggested for you. Follow":"Follow"}" data-tip="${on?"Following · tap to unfollow":why?esc(why)+" · tap to follow":"Follow"}">${on?I.check:I.plus}</button>`:""}
 /* which of his own creators a suggestion is based on, by its display name: "@mkbhd" → "MKBHD" */
 function seedName(v,yt){
  let n=v.seed||((/because you (?:like|follow) ([^:]+):/i.exec(v.because||"")||[])[1]||"");
@@ -2173,7 +2486,7 @@ function mediaCard(v,kind){
   ava=v.art?`<img class="ava sqa" src="${esc(v.art)}" alt="">`:`<span class="ava sqa" style="background:hsl(${hue(v.show)} 45% 30%);color:#fff">${esc(String(v.show).replace(/^The /,"").slice(0,1))}</span>`;
   chan=v.show;meta=[ago(v.published),v.secs?durShort(v.secs):""].filter(Boolean).join(" · ");val=v.show;on=showMatch(v.show,lists().podcasts);
  }
- return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp3"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.sugg?`<div class="bec sim" title="${esc(v.because||"")}">${(n=>n?"~ "+esc(n):"Suggested")(seedName(v,yt))}</div>`:""}${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${yt?`<span class="open-in yt" title="Opens in YouTube">${I.yt}</span>`:`<span class="open-in" title="Opens in Spotify">${I.spotify}</span>`}<span class="vid-a">${followBtn(yt?"channels":"podcasts",val,on)}${pinBtn(yt?"yt:"+v.id:"sp:"+v.url,{kind:yt?"yt":"sp",title:v.title,sub:yt?v.channel:v.show,img:yt?(v.id?`https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`:""):(v.art||""),url:v.url})}${v.sugg?dxBtn(yt?"ytch:"+norm(v.handle||v.channel):"spshow:"+norm(v.show),yt?"watch":"listen",yt?v.channel:v.show):dxBtn((yt?"yt:"+v.id:"sp:"+v.url),yt?"watch":"listen",v.title)}</span></div></div></article>`;
+ return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp2"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.desc?`<p class="clamp2">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${yt?`<span class="open-in yt" title="Opens in YouTube">${I.yt}</span>`:`<span class="open-in" title="Opens in Spotify">${I.spotify}</span>`}<span class="vid-a">${followBtn(yt?"channels":"podcasts",val,on,v.sugg?(v.because||(seedName(v,yt)?"Suggested because you like "+seedName(v,yt):"Suggested for you")):"")}${pinBtn(yt?"yt:"+v.id:"sp:"+v.url,{kind:yt?"yt":"sp",title:v.title,sub:yt?v.channel:v.show,img:yt?(v.id?`https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`:""):(v.art||""),url:v.url})}${v.sugg?dxBtn(yt?"ytch:"+norm(v.handle||v.channel):"spshow:"+norm(v.show),yt?"watch":"listen",yt?v.channel:v.show):dxBtn((yt?"yt:"+v.id:"sp:"+v.url),yt?"watch":"listen",v.title)}</span></div></div></article>`;
 }
 /* Watch and Listen: a grid like Movies. grid-auto-rows:1fr makes every row as tall as the
    tallest card, so all cards match; each card pins its footer to the bottom. */
@@ -2757,17 +3070,17 @@ async function loadPosters(){
    oldest to newest, with today on the far right.
    ================================================================= */
 let audioEl=null;
-function say(text,lang){
+function say(text,lang,slow){
  try{if(navigator.audioSession)navigator.audioSession.type="playback"}catch(e){}
  try{if(audioEl){audioEl.pause();audioEl=null}speechSynthesis&&speechSynthesis.cancel()}catch(e){}
- let fell=false;const fallback=()=>{if(fell)return;fell=true;speak(text,lang)};
+ let fell=false;const fallback=()=>{if(fell)return;fell=true;speak(text,lang,slow)};
  try{
-  const a=new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang.slice(0,2)}&ttsspeed=0.9&q=${encodeURIComponent(text)}`);
+  const a=new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang.slice(0,2)}&ttsspeed=${slow?0.4:0.9}&q=${encodeURIComponent(text)}`);
   audioEl=a;a.addEventListener("error",fallback,{once:true});
   const p=a.play();if(p&&p.catch)p.catch(fallback);
  }catch(e){fallback()}
 }
-function speak(text,lang){try{const ss=window.speechSynthesis;if(!ss)throw 0;ss.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=lang;u.rate=.9;const vs=ss.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith(lang.slice(0,2)));const pref=vs.find(v=>v.lang===lang)||vs[0];if(pref)u.voice=pref;ss.speak(u)}catch(e){toast("Audio isn't available here")}}
+function speak(text,lang,slow){try{const ss=window.speechSynthesis;if(!ss)throw 0;ss.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=lang;u.rate=slow?.55:.9;const vs=ss.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith(lang.slice(0,2)));const pref=vs.find(v=>v.lang===lang)||vs[0];if(pref)u.voice=pref;ss.speak(u)}catch(e){toast("Audio isn't available here")}}
 function learnCard(kind){
  const v=kind==="v";const list=v?VOCAB:SPAN;if(!list.length)return"";
  let i=S.learn[kind];if(i==null||i>=list.length)i=list.length-1;const e=list[i];
@@ -2794,18 +3107,33 @@ function renderLearn(){
 /* =================================================================
    FOOTER
    ================================================================= */
+/* what the footer and Settings → About say about this copy of the page */
+function verInfo(){
+ const when=d=>isNaN(d)?"—":d.toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:TZ})+", "+fmtTime(d);
+ const u=new Date(DATA.updated||0),b=new Date(BUILD),v=S.ver||{},age=ED?dayDiff(ED,todayKey()):0;
+ return{data:when(u)+(age>=1?` · ${age===1?"a day":age+" days"} old`:""),stale:age>=1,app:when(b)+(v.sha?` · ${v.sha}`:""),state:v.state||"",
+  status:v.state==="new"?"A newer version is ready":v.state==="pending"?"A newer version is publishing":v.state==="ok"?"Up to date":"Checking…"};
+}
 function renderFoot(){
- const u=new Date(DATA.updated),b=new Date(BUILD);const when=d=>d.toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:TZ})+", "+fmtTime(d);
- const v=S.ver||{};const st=v.state==="new"?`<button class="ver new" data-act="refresh">Newer version ready · tap to load</button>`:v.state==="pending"?`<span class="ver pend">A newer version is publishing…</span>`:v.state==="ok"?`<span class="ver ok">${I.check}Latest version</span>`:"";
- $("#foot").innerHTML=`<div><b>Stinky's Daily No. ${editionNo()}</b></div><div>Data updated ${esc(when(u))}</div><div>App version ${esc(when(b))}</div>${st?`<div style="margin-top:6px">${st}</div>`:""}`}
+ const el=$("#foot");if(!el)return;const vi=verInfo(),live=[],t=x=>fmtTime(new Date(x));
+ if(S.wx&&S.wx.at)live.push("weather "+t(S.wx.at));
+ if(S.st&&S.st.at)live.push("stocks "+t(S.st.at));
+ if(S.cx&&S.cx.qAt)live.push("crypto "+t(S.cx.qAt));
+ if(S.yt&&S.yt.source==="live"&&S.yt.updated)live.push("YouTube "+t(S.yt.updated));
+ const st=vi.state==="new"?`<button class="ver new" data-act="refresh">Newer version ready · tap to load</button>`:vi.state==="pending"?`<span class="ver pend">A newer version is publishing…</span>`:vi.state==="ok"?`<span class="ver ok">${I.check}Up to date</span>`:"";
+ el.innerHTML=`<div class="ft"><div class="ft-t"><b>Stinky's Daily</b> · No. ${editionNo()}</div>
+  <dl class="ft-g"><div><dt>Morning data</dt><dd class="${vi.stale?"warn":""}">${esc(vi.data)}</dd></div>${live.length?`<div><dt>Live</dt><dd>${esc(live.join(" · ").replace(/^./,c=>c.toUpperCase()))}</dd></div>`:""}<div><dt>App version</dt><dd>${esc(vi.app)}</dd></div></dl>
+  ${st?`<div class="ft-s">${st}</div>`:""}</div>`;
+}
 /* Am I on the newest version? Compare this page's BUILD with the one GitHub Pages is serving right now,
    and with the newest commit on GitHub (which can be a minute or two ahead of Pages). */
 async function checkVersion(){
  try{
   const r=await fetch(SELF+"?vcheck="+Date.now(),{cache:"no-store"});const t=await r.text();const m=/const BUILD="([^"]+)"/.exec(t);
   if(m&&Date.parse(m[1])>Date.parse(BUILD)){S.ver={state:"new"};return renderFoot()}
-  let gh=null;try{const g=await fetch("https://api.github.com/repos/stinky-sudo/daily/commits?path=index.html&per_page=1");if(g.ok){const j=await g.json();gh=j[0]&&j[0].commit&&Date.parse(j[0].commit.committer.date)}}catch(e){}
-  S.ver={state:gh&&gh>Date.parse(BUILD)+3*6e4?"pending":"ok"};
+  let gh=null,sha="";try{const g=await fetch("https://api.github.com/repos/stinky-sudo/daily/commits?path=index.html&per_page=1");if(g.ok){const j=await g.json();gh=j[0]&&j[0].commit&&Date.parse(j[0].commit.committer.date);sha=j[0]&&j[0].sha?j[0].sha.slice(0,7):""}}catch(e){}
+  /* BUILD is stamped at commit time, so the newest commit matches it within a few minutes */
+  S.ver={state:gh&&gh>Date.parse(BUILD)+3*6e4?"pending":"ok",sha:gh&&Math.abs(gh-Date.parse(BUILD))<5*6e4?sha:""};
  }catch(e){S.ver=null}
  renderFoot();
 }
@@ -2825,34 +3153,50 @@ const LIST_META={
 function listEditor(k){const m=LIST_META[k];return`<div class="set-pad" id="le-${k}"><div class="set-t">${m.t}</div><div class="set-s">${m.s}</div>
  <div class="tags">${lists()[k].map(v=>`<span class="tag">${esc(v)}<button data-list-del="${k}" data-v="${esc(v)}" aria-label="Remove ${esc(v)}">${I.close}</button></span>`).join("")}</div>
  <div class="inp-row"><input class="inp" id="li-${k}" placeholder="${esc(m.ph)}" autocomplete="off" autocapitalize="${k==="artists"||k==="podcasts"?"words":"off"}" spellcheck="false" aria-label="Add to ${esc(m.t)}" enterkeyhint="done"><button class="btn press" data-list-add="${k}">Add</button></div></div>`}
+/* SETTINGS — grouped like iOS Settings: a quick jump bar, then
+   Appearance, Home page (order + visibility), Lists, Movies,
+   Connections, Data and About. Every change applies immediately. */
+const SET_COL={cal:"#2B5EF0",mkt:"#0A9455",coach:"#1D8C8A",news:"#2B5EF0",watch:"#E62117",listen:"#1DB954",bay:"#E8590C",shows:"#9B4DFF",movies:"#DD3B35",health:"#E8336D",vocab:"#4C46D6",spanish:"#D4331F"};
+const setIc=(c,svg)=>`<span class="s-ic" style="background:${c}" aria-hidden="true">${svg}</span>`;
+const LIST_IC={channels:["watch","#E62117"],podcasts:["listen","#1DB954"],stocks:["mkt","#0A9455"],crypto:["mkt","#F7931A"],artists:["shows","#9B4DFF"]};
+const ARW={up:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14l6-6 6 6"/></svg>`,down:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10l6 6 6-6"/></svg>`};
+const SET_NAV=[["look","Appearance"],["home","Home"],["lists","Lists"],["movies","Movies"],["conn","Connections"],["data","Data"],["about","About"]];
+function setStat(c,t,d){return`<div class="s-row"><span class="s-dot ${c}"></span><span class="s-n">${esc(t)}</span><span class="s-v">${esc(d)}</span></div>`}
 function settingsHTML(){
- const t=themeId(),bu=backend(),stored=!!LS.get("sd-yt-key","");
- const sync=!bu?["","Saved on this device only."]:S.sync.state==="ok"?["ok","Synced across your devices"+(S.sync.at?" · "+fmtLocalTime(new Date(S.sync.at)):"")+"."]:S.sync.state==="err"?["err","Couldn't sync: "+S.sync.msg]:["","Syncing…"];
- const mk=!bu?["","Not connected. Stocks show the morning's closing numbers."]:S.st.err?["err","Couldn't reach it: "+S.st.err]:S.st.at?["ok","Connected. Prices updated "+fmtLocalTime(new Date(S.st.at))+"."]:["","Connecting…"];
- const ytst=S.yt.error?["err","Last check failed: "+S.yt.error]:S.yt.source==="live"?["ok","Live. Updated "+fmtLocalTime(new Date(S.yt.updated))+"."]:["","Checking for new uploads…"];
+ const t=themeId(),bu=backend(),stored=!!LS.get("sd-yt-key",""),ord=orderIds(),names=Object.fromEntries(SECTIONS);
+ const sync=!bu?["","This device only"]:S.sync.state==="ok"?["ok",S.sync.at?"Synced "+fmtLocalTime(new Date(S.sync.at)):"Synced"]:S.sync.state==="err"?["err","Couldn't sync"]:["","Syncing…"];
+ const mk=!bu?["","Not connected"]:S.st.err?["err","Can't reach it"]:S.st.at?["ok","Prices "+fmtLocalTime(new Date(S.st.at))]:["","Connecting…"];
+ const ytst=S.yt.error?["err","Last check failed"]:S.yt.source==="live"?["ok","Live · "+fmtLocalTime(new Date(S.yt.updated))]:["","Checking…"];
+ const spst=S.sp&&S.sp.length?["ok",`Live · ${S.sp.length} shows`]:S.spErr?["err","Not responding"]:["","Connecting…"];
+ const mvst=S.mv?["ok","Live from TMDB"]:S.mvErr==="no-key"?["","Needs a TMDB_KEY"]:S.mvErr?["err","Not responding"]:["","From the morning data"];
+ const hst=HEALTH&&HEALTH.ok?["ok","Updated "+fmtLocalTime(new Date(HEALTH.fetchedAt||HEALTH.date))]:["","No data yet"];
+ const nPins=pinList().length,nHid=Object.keys(DISM()).length,vi=verInfo();
  return`<div class="sheet-h"><h3 id="sheet-title">Settings</h3><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
- <div class="set-l">Appearance</div>
- <div class="set-g"><div class="set-pad"><div class="set-t">Theme</div><div class="set-s">Automatic switches between light and dark with your device.</div>
-  <div class="bgs" role="radiogroup" aria-label="Theme">${THEMES.map(([x,l])=>`<button class="bg-o press${x===t?" on":""}" data-theme-set="${x}" role="radio" aria-checked="${x===t}"><i aria-hidden="true"><b ${x==="auto"?`class="auto"`:`data-bg="${x}"`}></b></i>${l}</button>`).join("")}</div>
- </div></div>
- <div class="set-l"><span>Your lists</span></div>
- <div class="set-g" id="set-lists">${LIST_KEYS.map(listEditor).join("")}<div class="set-pad"><div class="status ${sync[0]}" id="sync-status"><i></i><span>${esc(sync[1])}</span></div></div></div>
- <div class="set-l">Live market data and sync</div>
- <div class="set-g"><div class="set-pad">
-  <div class="set-t">Backend</div><div class="set-s">Your Stinky's Daily Apps Script, built into the page. It powers live stock prices, every chart range, and syncing your lists.</div>
-  <div class="status ${mk[0]}"><i></i><span>${esc(mk[1])}</span></div>
- </div></div>
- <div class="set-l">YouTube</div>
- <div class="set-g"><div class="set-pad"><div class="status ${ytst[0]}" style="margin-top:0"><i></i><span>${esc(ytst[1])}</span></div>
-  <div class="inp-row"><input class="inp" id="yt-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${stored?"Custom key saved":"Built-in key active. Paste to override"}" aria-label="YouTube API key"><button class="btn press" data-act="yt-save">Save</button></div>
-  ${stored?`<div class="status"><span>Using your custom key.</span><button style="margin-left:auto;color:var(--down);font-weight:600" data-act="yt-clear">Remove</button></div>`:""}
- </div></div>
- <div class="set-l">Spotify and movies</div>
- <div class="set-g"><div class="set-pad">
-  <div class="status ${S.sp&&S.sp.length?"ok":S.spErr?"err":""}" style="margin-top:0"><i></i><span>${S.sp&&S.sp.length?"Spotify: live episodes from "+S.sp.length+" shows.":S.spErr?"Spotify: "+esc(S.spErr):"Spotify: connecting…"}</span></div>
-  <div class="status ${S.mv?"ok":""}"><i></i><span>${S.mv?"Movies: live from TMDB.":S.mvErr==="no-key"?"Movies: add a TMDB_KEY script property in your backend for live listings.":S.mvErr?"Movies: "+esc(S.mvErr):"Movies: from the morning report."}</span></div>
- </div></div>
- <div class="set-l" id="set-movies">Movies</div>
+ <nav class="set-nav noscroll" aria-label="Settings sections">${SET_NAV.map(([k,l])=>`<button class="press" data-setjump="${k}">${l}</button>`).join("")}</nav>
+
+ <section class="set-sec" id="ss-look"><div class="set-l">Appearance</div>
+ <div class="set-g">
+  <div class="set-pad"><div class="set-t">Theme</div><div class="set-s">Automatic switches between light and dark with your device.</div>
+   <div class="bgs" role="radiogroup" aria-label="Theme">${THEMES.map(([x,l])=>`<button class="bg-o press${x===t?" on":""}" data-theme-set="${x}" role="radio" aria-checked="${x===t}"><i aria-hidden="true"><b ${x==="auto"?`class="auto"`:`data-bg="${x}"`}></b></i>${l}</button>`).join("")}</div></div>
+  <div class="set-pad"><div class="set-t">Row symbols</div><div class="set-s">The symbol beside each section name on the home page.</div>
+   <div class="seg" role="radiogroup" aria-label="Row symbols">${[["simple","Simple"],["color","Color"]].map(([v,l])=>`<button class="${iconStyle()===v?"on":""}" data-icons-set="${v}" role="radio" aria-checked="${iconStyle()===v}">${l}</button>`).join("")}</div></div>
+ </div></section>
+
+ <section class="set-sec" id="ss-home"><div class="set-l"><span>Home page</span><button data-act="order-reset">Reset order</button></div>
+ <div class="set-g">${ord.map((id,i)=>`<div class="s-row s-sec${isHidden(id)?" off":""}">${setIc(SET_COL[id]||"#8F949C",MI[id]||"")}<span class="s-n">${esc(names[id]||id)}</span>
+  <span class="s-mv"><button class="press" data-sec-move="${id}" data-dir="-1" aria-label="Move ${esc(names[id])} up" ${i===0?"disabled":""}>${ARW.up}</button><button class="press" data-sec-move="${id}" data-dir="1" aria-label="Move ${esc(names[id])} down" ${i===ord.length-1?"disabled":""}>${ARW.down}</button></span>
+  <input type="checkbox" class="sw" data-sec-toggle="${id}" aria-label="Show ${esc(names[id])}" ${isHidden(id)?"":"checked"}></div>`).join("")}</div>
+ <p class="set-help">Arrows change the order on the home page; the switch shows or hides a section. Both sync to your other devices.</p></section>
+
+ <section class="set-sec" id="ss-lists"><div class="set-l">Your lists</div>
+ <div class="set-g" id="set-lists">${LIST_KEYS.map(k=>{const m=LIST_META[k],l=lists()[k],ic=LIST_IC[k]||["news","#8F949C"],open=S.setOpen&&S.setOpen.has(k);
+  return`<details class="s-acc" id="le-${k}" data-acc="${k}" ${open?"open":""}><summary class="s-row">${setIc(ic[1],MI[ic[0]])}<span class="s-n">${esc(m.t)}<small>${esc(l.slice(0,3).join(", ")+(l.length>3?` +${l.length-3}`:""))||"Empty"}</small></span><span class="s-v num">${l.length}</span><span class="s-chev" aria-hidden="true">${I.chev}</span></summary>
+   <div class="s-body"><div class="set-s" style="margin-top:0">${esc(m.s)}</div>
+   <div class="tags">${l.map(v=>`<span class="tag">${esc(v)}<button data-list-del="${k}" data-v="${esc(v)}" aria-label="Remove ${esc(v)}">${I.close}</button></span>`).join("")}</div>
+   <div class="inp-row"><input class="inp" id="li-${k}" placeholder="${esc(m.ph)}" autocomplete="off" autocapitalize="${k==="artists"||k==="podcasts"?"words":"off"}" spellcheck="false" aria-label="Add to ${esc(m.t)}" enterkeyhint="done"><button class="btn press" data-list-add="${k}">Add</button></div></div></details>`}).join("")}</div>
+ <p class="set-help">Suggestions in Watch and Listen come from these lists.</p></section>
+
+ <section class="set-sec" id="ss-movies"><div class="set-l" id="set-movies">Movies</div>
  ${(()=>{const o=mvPrefs();const seg=(k,opts)=>`<div class="seg" role="tablist">${opts.map(([v,l])=>`<button class="${o[k]===v?"on":""}" data-mvp="${k}" data-v="${v}" role="tab" aria-selected="${o[k]===v}">${l}</button>`).join("")}</div>`;
   const m=S.mv||DATA.movies||{};const gs=[...new Set([...(m.now||[]),...(m.soon||[])].flatMap(mvGenres).concat(o.hide))].sort();
   return`<div class="set-g">
@@ -2862,11 +3206,34 @@ function settingsHTML(){
   <div class="set-pad"><div class="set-t">Minimum audience score</div><div class="set-s">Brand-new films without enough ratings still show.</div>${seg("min",[[0,"Any"],[6,"6+"],[7,"7+"]])}</div>
   <label class="set-r"><span><span class="set-t" style="display:block">Always show this week's openings</span><span class="set-s">New releases appear even if they aren't popular yet.</span></span><input type="checkbox" class="sw" data-mvfresh ${o.fresh?"checked":""}></label>
   ${gs.length?`<div class="set-pad"><div class="set-t">Genres</div><div class="set-s">Tap a genre to hide it.</div><div class="tags">${gs.map(g=>{const off=o.hide.some(h=>norm(h)===norm(g));return`<button class="tag gtog ${off?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off}">${esc(g)}</button>`}).join("")}</div></div>`:""}
- </div>`})()}
- <div class="set-l">Sections</div>
- <div class="set-g">${SECTIONS.map(([id,l])=>`<label class="set-r"><span>${esc(l)}</span><input type="checkbox" class="sw" data-sec-toggle="${id}" ${S.hidden.has(id)?"":"checked"}></label>`).join("")}</div>
- <div class="set-g">${Object.keys(DISM()).length?`<button class="set-r" style="width:100%;font-weight:600" data-act="restore-hidden"><span>Hidden items</span><span style="color:var(--link)">${Object.keys(DISM()).length} · Restore all</span></button>`:""}<button class="set-r" style="width:100%;color:var(--link);font-weight:600" data-act="refresh">Refresh now</button><button class="set-r" style="width:100%;color:var(--down);font-weight:600" data-act="clear-cache">Clear cached data</button></div>
- <p class="set-help" style="margin-top:0">Edition ${esc(ED)}. Weather from Open-Meteo, crypto from CoinGecko and Coinbase, stocks from Yahoo Finance through your backend.</p>`;
+ </div>`})()}</section>
+
+ <section class="set-sec" id="ss-conn"><div class="set-l">Connections</div>
+ <div class="set-g">
+  ${setStat(mk[0],"Market data",mk[1])}${setStat(sync[0],"Settings sync",sync[1])}
+  ${setStat(ytst[0],"YouTube",ytst[1])}${setStat(spst[0],"Spotify",spst[1])}${setStat(mvst[0],"Movies",mvst[1])}${setStat(hst[0],"Health",hst[1])}
+  <details class="s-acc"><summary class="s-row"><span class="s-n">Custom YouTube key<small>${stored?"Using your key":"Using the built-in key"}</small></span><span class="s-chev" aria-hidden="true">${I.chev}</span></summary>
+   <div class="s-body"><div class="inp-row" style="margin-top:0"><input class="inp" id="yt-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${stored?"Custom key saved":"Paste a key to override"}" aria-label="YouTube API key"><button class="btn press" data-act="yt-save">Save</button></div>
+   ${stored?`<button class="s-link danger" data-act="yt-clear">Remove custom key</button>`:""}</div></details>
+ </div>
+ <p class="set-help">All of these run through your Stinky's Daily Apps Script.</p></section>
+
+ <section class="set-sec" id="ss-data"><div class="set-l">Data</div>
+ <div class="set-g">
+  <div class="s-row"><span class="s-n">Pinned items</span><span class="s-v num">${nPins}</span>${nPins?`<button class="s-link" data-act="pins-clear">Clear</button>`:""}</div>
+  <div class="s-row"><span class="s-n">Hidden items</span><span class="s-v num">${nHid}</span>${nHid?`<button class="s-link" data-act="restore-hidden">Restore all</button>`:""}</div>
+  <button class="s-row s-btn" data-act="refresh"><span class="s-n" style="color:var(--link)">Refresh now</span></button>
+  <button class="s-row s-btn" data-act="clear-cache"><span class="s-n" style="color:var(--down)">Clear cached data</span><span class="s-v">Keeps your settings</span></button>
+ </div></section>
+
+ <section class="set-sec" id="ss-about"><div class="set-l">About</div>
+ <div class="set-g">
+  <div class="s-row"><span class="s-n">Edition</span><span class="s-v">No. ${editionNo()} · ${esc(fmtKey(ED,{month:"short",day:"numeric"}))}</span></div>
+  <div class="s-row"><span class="s-n">Morning data</span><span class="s-v ${vi.stale?"warn":""}">${esc(vi.data)}</span></div>
+  <div class="s-row"><span class="s-n">App version</span><span class="s-v">${esc(vi.app)}</span></div>
+  <div class="s-row"><span class="s-n">Status</span><span class="s-v ${vi.state==="new"?"warn":""}">${esc(vi.status)}</span>${vi.state==="new"?`<button class="s-link" data-act="refresh">Load</button>`:""}</div>
+ </div>
+ <p class="set-help" style="margin-top:-12px">Weather from Open-Meteo, crypto from CoinGecko and Coinbase, stocks from Yahoo Finance through your backend.</p></section>`;
 }
 function refreshSettings(){const p=$("#sheet-p");if(!p||!$("#sheet").classList.contains("open")||!$("#set-lists",p))return;const y=p.scrollTop;p.innerHTML=`<div class="grab"></div>`+settingsHTML();p.scrollTop=y}
 function reviewHTML(){
@@ -2917,16 +3284,19 @@ document.addEventListener("click",async e=>{
  const a=t.closest("[data-act]");
  if(a){const act=a.dataset.act;
   if(act==="settings"){openSheet(settingsHTML());return}
-  if(act==="settings-list"){const k=a.dataset.k;openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-"+k);if(el)el.scrollIntoView({block:"start"})});return}
+  if(act==="order-reset"){setPref("order",[]);applyOrder();refreshSettings();toast("Back to the original order");return}
+  if(act==="settings-list"){const k=a.dataset.k;S.setOpen=S.setOpen||new Set();S.setOpen.add(k);openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-"+k);if(el)el.scrollIntoView({block:"start"})});return}
   if(act==="settings-movies"){openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#set-movies");if(el)el.scrollIntoView({block:"start"})});return}
-  if(act==="settings-artists"){openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-artists");if(el)el.scrollIntoView({block:"center"})});return}
+  if(act==="settings-artists"){S.setOpen=S.setOpen||new Set();S.setOpen.add("artists");openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-artists");if(el)el.scrollIntoView({block:"center"})});return}
   if(act==="close-sheet"){closeSheet();return}
   if(act==="undo"){const u=toastUndo;toastUndo=null;$("#toast").classList.remove("show");if(u)u();return}
   if(act==="pins-clear"){clearPins();return}
   if(act==="restore-hidden"){const now=Date.now();cfgSet(c=>{for(const k in c.dismissed)if(c.dismissed[k]>0)c.dismissed[k]=-now});Object.values(DX_RENDER).forEach(f=>f());renderTeasers();refreshSettings();toast("Everything's back");return}
   if(act==="tmdb-save"){const v=($("#tmdb-key").value||"").trim();if(!v){toast("Paste a key first");return}LS.set("sd-tmdb-key",v);LS.del("sd-tmdb");toast("Loading movies…");await loadMovies(true);refreshSettings();return}
   if(act==="tmdb-clear"){LS.del("sd-tmdb-key");LS.del("sd-tmdb");S.mv=null;renderMovies();renderTeasers();refreshSettings();toast("TMDB key removed");return}
-  if(act==="review"){S.review={kind:"v",order:null};openSheet(reviewHTML());bindDeck();return}
+  if(act==="coach-save"){const v=($("#ch-note").value||"").trim();const n=coachNotes();if(v)n[todayKey()]=v;else delete n[todayKey()];const ks=Object.keys(n).sort();ks.slice(0,-60).forEach(d=>delete n[d]);LS.set("sd-reflect",n);renderCoach();toast(v?"Saved on this device":"Cleared");return}
+  if(act==="vocab-check"){const v=($("#vc-mine").value||"").trim(),w=a.dataset.w;window.open(askUrl(v?`I'm learning the word "${w}". Is this a natural, correct use of it? If not, show me a better version and explain briefly.\n\n"${v}"`:`Give me 3 natural sentences using "${w}", from casual to formal, and a quick trick to remember it.`),"_blank","noopener");return}
+  if(act==="review"){S.review={kind:a.dataset.k==="s"?"s":"v",order:null};openSheet(reviewHTML());bindDeck();return}
   if(act==="shuffle"){const list=S.review.kind==="v"?VOCAB:SPAN;S.review.order=list.map((_,i)=>i).sort(()=>Math.random()-.5);$("#sheet-p").innerHTML=`<div class="grab"></div>`+reviewHTML();bindDeck();return}
   if(act==="news-more"){S.news.open=!S.news.open;renderNews();return}
   if(act==="refresh"){toast("Refreshing");setTimeout(fresh,200);return}
@@ -2962,18 +3332,27 @@ document.addEventListener("click",async e=>{
  const ms=t.closest("[data-mk]");if(ms){const i=ms.dataset.mk.indexOf("|");S.mk.k=ms.dataset.mk.slice(0,i);S.mk.s=ms.dataset.mk.slice(i+1);LS.set("sd-mk-sel",{k:S.mk.k,s:S.mk.s});syncRanges();renderMkt();await loadMkSeries();if(isCx())loadCxDaily(S.mk.s).then(renderMkCtx).catch(()=>{});return}
  const tg=t.closest("[data-tag]");if(tg){S.news.tag=tg.dataset.tag;S.news.open=false;renderNews();return}
  const sv=t.closest("[data-save]");if(sv){toggleSave(sv.dataset.save,sv.dataset.url);return}
- const hs=t.closest("[data-hist]");if(hs){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;const card=hs.closest(".lw");const y=card.getBoundingClientRect().top;const sl=$(".hist",card).scrollLeft;card.outerHTML=learnCard(k);const nc=$(`#s-learn [data-learn="${k}"]`);if(nc){window.scrollBy(0,nc.getBoundingClientRect().top-y);const h=$(".hist",nc);if(h)h.scrollLeft=sl}return}
+ const hs=t.closest("[data-hist]");if(hs&&(hs.closest("#s-vocab")||hs.closest("#s-spanish"))){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;k==="v"?renderVocab():renderSpanish();return}
+ if(hs){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;const card=hs.closest(".lw");const y=card.getBoundingClientRect().top;const sl=$(".hist",card).scrollLeft;card.outerHTML=learnCard(k);const nc=$(`#s-learn [data-learn="${k}"]`);if(nc){window.scrollBy(0,nc.getBoundingClientRect().top-y);const h=$(".hist",nc);if(h)h.scrollLeft=sl}return}
  const fl=t.closest("[data-flip]");if(fl){fl.classList.toggle("open");return}
- const sp=t.closest("[data-say]");if(sp){say(sp.dataset.say,sp.dataset.lang);return}
+ const sj=t.closest("[data-setjump]");if(sj){const p=$("#sheet-p"),el=$("#ss-"+sj.dataset.setjump),nav=$(".set-nav",p);if(p&&el)p.scrollTo({top:el.offsetTop-(nav?nav.offsetHeight:0)-6,behavior:"smooth"});return}
+ const ics=t.closest("[data-icons-set]");if(ics){setPref("icons",ics.dataset.iconsSet);$$(".it").forEach(it=>{const ic=$(".it-ic",it);if(ic)ic.outerHTML=rowIcon(it.dataset.it)});refreshSettings();return}
+ const smv=t.closest("[data-sec-move]");if(smv){const o=orderIds(),i=o.indexOf(smv.dataset.secMove),j=i+(+smv.dataset.dir);if(i<0||j<0||j>=o.length)return;[o[i],o[j]]=[o[j],o[i]];setPref("order",o);applyOrder();refreshSettings();return}
+ const mv=t.closest("[data-move]");if(mv){toggleMove(+mv.dataset.move);return}
+ const sp=t.closest("[data-say]");if(sp){say(sp.dataset.say,sp.dataset.lang,!!sp.dataset.slow);return}
 });
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#sheet").classList.contains("open"))closeSheet();if(e.key==="Enter"&&e.target.id&&e.target.id.startsWith("li-")){const b=$(`[data-list-add="${e.target.id.slice(3)}"]`);if(b)b.click()}});
-document.addEventListener("change",e=>{if(e.target.matches("[data-mvfresh]")){setMvPref("fresh",e.target.checked);return}const c=e.target.closest("[data-sec-toggle]");if(c){const id=c.dataset.secToggle;c.checked?S.hidden.delete(id):S.hidden.add(id);setPref("hidden",[...S.hidden]);renderNav()}});
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="vc-mine"){const b=$('[data-act="vocab-check"]');if(b)b.click();return}if(e.key==="Escape"&&$("#sheet").classList.contains("open"))closeSheet();if(e.key==="Enter"&&e.target.id&&e.target.id.startsWith("li-")){const b=$(`[data-list-add="${e.target.id.slice(3)}"]`);if(b)b.click()}});
+document.addEventListener("change",e=>{if(e.target.matches("[data-mvfresh]")){setMvPref("fresh",e.target.checked);return}const c=e.target.closest("[data-sec-toggle]");if(c){const id=c.dataset.secToggle;if(c.checked){S.hidden.delete(id);(LEGACY[id]||[]).forEach(x=>S.hidden.delete(x));if(S.hidden.has("learn")){S.hidden.delete("learn");["vocab","spanish"].filter(x=>x!==id).forEach(x=>S.hidden.add(x))}}else S.hidden.add(id);setPref("hidden",[...S.hidden]);renderNav();const r=c.closest(".s-sec");if(r)r.classList.toggle("off",!c.checked)}});
+/* remember which lists are open in Settings, so a refresh keeps them open */
+document.addEventListener("toggle",e=>{const d=e.target;if(d&&d.matches&&d.matches("details[data-acc]")){S.setOpen=S.setOpen||new Set();d.open?S.setOpen.add(d.dataset.acc):S.setOpen.delete(d.dataset.acc)}},true);
+/* Settings jump bar follows the scroll */
+document.addEventListener("scroll",e=>{const p=e.target;if(!p||p.id!=="sheet-p")return;const nav=$(".set-nav",p);if(!nav)return;const y=p.scrollTop+nav.offsetHeight+30;let cur=SET_NAV[0][0];SET_NAV.forEach(([k])=>{const el=$("#ss-"+k,p);if(el&&el.offsetTop<=y)cur=k});$$("[data-setjump]",nav).forEach(b=>b.classList.toggle("on",b.dataset.setjump===cur))},true);
 
 /* breakpoint: news count changes between phone and wide layouts */
 WIDE.addEventListener?.("change",()=>{renderNews();renderBay();renderShows();renderMovies();$$(".rail").forEach(railArrows)});
 
 /* resize */
-let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{redrawCharts();$$(".rail").forEach(railArrows);FEEDS.forEach(id=>placeThumb(id,true))},120)});
+let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{redrawCharts();$$(".rail").forEach(railArrows);FEEDS.forEach(id=>placeThumb(id,true));fitGreet()},120)});
 matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>{applyTheme();redrawCharts()});
 
 /* pull to refresh (home-screen apps have no browser refresh) */
@@ -3010,6 +3389,7 @@ function loadLive(){
 /* timers: weather every 10 min, stocks every minute, crypto fallback poll */
 setInterval(()=>{if(!document.hidden)loadWeather().catch(()=>{})},10*6e4);
 setInterval(()=>{if(!document.hidden)checkVersion()},5*6e4);
+setInterval(()=>{if(!document.hidden)renderFoot()},30e3);
 setInterval(()=>{if(!document.hidden&&backend())loadStQuotes()},60e3);
 setInterval(()=>{if(!document.hidden&&!S.cx.liveOn)loadCxQuotes().then(()=>cxList().forEach(applyTick)).catch(()=>{});if(!document.hidden&&!S.cx.ws)startWs()},60e3);
 /* the readouts follow the live loaders */
