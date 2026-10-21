@@ -356,11 +356,18 @@ h1,h2,h3,p{margin:0}
 .ava.sqa{border-radius:6px}
 .vid .nodesc{font-style:italic;color:var(--ink-3)}
 .vid .bec{margin-top:7px}
+.vgrid{display:grid;grid-template-columns:minmax(0,1fr);grid-auto-rows:1fr;gap:14px}
+.vgrid .vid{flex:none;min-width:0;scroll-snap-align:none}
+@media (min-width:600px){.vgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  /* narrower cards: the channel name gets the full line, the date and length go under it */
+  .vgrid .vid-ch{flex-wrap:wrap;row-gap:1px}.vgrid .vid-ch b{flex:1 1 0}.vgrid .vid-ch .sep{margin-left:0;flex-basis:100%;padding-left:29px;overflow:hidden;text-overflow:ellipsis}}
+@media (min-width:768px){.vgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+@media (min-width:1100px){.vgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .vid-f{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:12px}
 .open-in{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--ink-3)}
 .open-in svg{width:16px;height:16px}
 .mini.fol.on{background:var(--fill);color:var(--ink)}
-.bec b{font-weight:650;color:var(--ink)}
+.bec.sim{display:block;font-size:13px;font-weight:500;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vid-a{display:flex;gap:6px}
 .pth{background:#1d1d22}
 .pth .bgb{position:absolute;inset:-24px;width:calc(100% + 48px);height:calc(100% + 48px);object-fit:cover;filter:blur(22px) brightness(.62) saturate(1.2)}
@@ -2027,6 +2034,12 @@ const ageDays=p=>{const t=toDate(p);return isNaN(t)?99:dayDiff(dayKey(t),todayKe
 const isFresh=(p,d)=>ageDays(p)<=(d||CONFIG.youtube.maxAgeDays);
 const byNewest=(a,b)=>toDate(b.published)-toDate(a.published);
 function followBtn(key,val,on){return val?`<button class="ib sm press fol ${on?"on":""}" data-follow="${key}" data-v="${esc(val)}" aria-pressed="${on}" aria-label="${on?"Following":"Follow"}" data-tip="${on?"Following · tap to unfollow":"Follow"}">${on?I.check:I.plus}</button>`:""}
+/* which of his own creators a suggestion is based on, by its display name: "@mkbhd" → "MKBHD" */
+function seedName(v,yt){
+ let n=v.seed||((/because you (?:like|follow) ([^:]+):/i.exec(v.because||"")||[])[1]||"");
+ if(yt&&n.startsWith("@")){const k=n.toLowerCase();const hit=[...(S.yt.items||[]),...(DATA.youtube||[])].find(x=>!x.sugg&&x.handle&&String(x.handle).toLowerCase()===k&&x.channel);n=hit?hit.channel:n.slice(1)}
+ return String(n).trim();
+}
 function mediaCard(v,kind){
  const yt=kind==="yt";
  let thumb,ava,chan,meta,on,val;
@@ -2042,7 +2055,13 @@ function mediaCard(v,kind){
   ava=v.art?`<img class="ava sqa" src="${esc(v.art)}" alt="">`:`<span class="ava sqa" style="background:hsl(${hue(v.show)} 45% 30%);color:#fff">${esc(String(v.show).replace(/^The /,"").slice(0,1))}</span>`;
   chan=v.show;meta=[ago(v.published),v.secs?durShort(v.secs):""].filter(Boolean).join(" · ");val=v.show;on=showMatch(v.show,lists().podcasts);
  }
- return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp3"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.sugg?`<div class="bec">${I.spark}<span><b>New to you</b>${v.because?" · "+esc(v.because):""}</span></div>`:""}${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${yt?`<span class="open-in yt" title="Opens in YouTube">${I.yt}</span>`:`<span class="open-in" title="Opens in Spotify">${I.spotify}</span>`}<span class="vid-a">${followBtn(yt?"channels":"podcasts",val,on)}${v.sugg?dxBtn(yt?"ytch:"+norm(v.handle||v.channel):"spshow:"+norm(v.show),yt?"watch":"listen",yt?v.channel:v.show):dxBtn((yt?"yt:"+v.id:"sp:"+v.url),yt?"watch":"listen",v.title)}</span></div></div></article>`;
+ return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp3"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.sugg?`<div class="bec sim" title="${esc(v.because||"")}">${(n=>n?"~ "+esc(n):"Suggested")(seedName(v,yt))}</div>`:""}${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${yt?`<span class="open-in yt" title="Opens in YouTube">${I.yt}</span>`:`<span class="open-in" title="Opens in Spotify">${I.spotify}</span>`}<span class="vid-a">${followBtn(yt?"channels":"podcasts",val,on)}${v.sugg?dxBtn(yt?"ytch:"+norm(v.handle||v.channel):"spshow:"+norm(v.show),yt?"watch":"listen",yt?v.channel:v.show):dxBtn((yt?"yt:"+v.id:"sp:"+v.url),yt?"watch":"listen",v.title)}</span></div></div></article>`;
+}
+/* Watch and Listen: a grid like Movies. grid-auto-rows:1fr makes every row as tall as the
+   tallest card, so all cards match; each card pins its footer to the bottom. */
+function gridHTML(items,kind,empty){
+ if(!items.length)return`<div class="card"><div class="empty-row">${esc(empty)}</div></div>`;
+ return`<div class="vgrid">${items.map(v=>mediaCard(v,kind)).join("")}</div>`;
 }
 function railHTML(id,items,kind,empty){
  if(!items.length)return`<div class="card"><div class="empty-row">${esc(empty)}</div></div>`;
@@ -2066,8 +2085,7 @@ function ytItems(){
 function renderWatch(){
  const el=$("#s-watch");const f=feedF("watch");const items=feedPick("watch",ytItems());
  el.innerHTML=`<div class="sh"><h2><span class="h-ic yt">${I.yt}</span>Watch</h2><button class="aux" data-act="settings-list" data-k="channels">Your channels</button></div>
- <div class="${S.feedAnim==="watch"?"feed-in":""}">${railHTML("yt-rail",items,"yt",S.yt.error&&!S.yt.items?`YouTube didn't respond (${S.yt.error}).`:f==="sug"?`No suggestions from the last ${CONFIG.youtube.maxAgeDays} days.`:`Nothing new from your channels in the last ${CONFIG.youtube.maxAgeDays} days.`)}</div>`;
- bindRail("yt-rail");
+ <div class="${S.feedAnim==="watch"?"feed-in":""}">${gridHTML(items,"yt",S.yt.error&&!S.yt.items?`YouTube didn't respond (${S.yt.error}).`:f==="sug"?`No suggestions from the last ${CONFIG.youtube.maxAgeDays} days.`:`Nothing new from your channels in the last ${CONFIG.youtube.maxAgeDays} days.`)}</div>`;
 }
 async function yt(path,params){const u=new URL("https://www.googleapis.com/youtube/v3/"+path);Object.entries({...params,key:ytKey()}).forEach(([k,v])=>u.searchParams.set(k,v));const r=await fetch(u);const j=await r.json();if(j.error)throw new Error((j.error.errors&&j.error.errors[0]&&j.error.errors[0].reason)||j.error.message||"error");return j}
 async function ytChannel(handle){const ck="sd-ytc-"+handle.toLowerCase();const c=LS.get(ck,null);if(c&&c.id)return c;const j=await yt("channels",{part:"snippet,contentDetails",forHandle:handle});const it=j.items&&j.items[0];if(!it)throw new Error("not found");const v={id:it.id,title:it.snippet.title,avatar:(it.snippet.thumbnails&&(it.snippet.thumbnails.default||{}).url)||"",uploads:it.contentDetails.relatedPlaylists.uploads};LS.set(ck,v);return v}
@@ -2125,11 +2143,10 @@ function spItems(){
 const likeTxt=t=>String(t||"").replace(/^\s*(like|similar to)\s+/i,"~ ");
 function artistItems(){return(DATA.discover&&DATA.discover.artists||[]).filter(a=>!isDis("art:"+a.name))}
 function renderListen(){
- const el=$("#s-listen");const f=feedF("listen");const items=feedPick("listen",spItems());const arts=f==="sub"?[]:artistItems();
+ const el=$("#s-listen");const f=feedF("listen");const items=feedPick("listen",spItems());
  el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-list" data-k="podcasts">Your podcasts</button></div>
- <div class="${S.feedAnim==="listen"?"feed-in":""}">${railHTML("sp-rail",items,"sp",f==="sug"?`No podcast suggestions from the last ${CONFIG.podcastMaxAgeDays} days.`:`Nothing new from your shows in the last ${CONFIG.podcastMaxAgeDays} days.`)}
- ${arts.length?`<div class="grp-t" style="margin-top:22px">New artists for you<button data-act="settings-artists">Your artists</button></div><div class="arts noscroll">${arts.map(a=>`<div class="art"><a class="av" style="--h:${hue(a.name)}" href="${esc(a.url)}" target="_blank" rel="noopener" aria-label="${esc(a.name)} on Spotify">${esc(a.name.slice(0,1))}${a.img?`<img src="${esc(a.img)}" alt="" loading="lazy">`:""}</a><b>${esc(a.name)}</b><small>${esc(likeTxt(a.because))}</small><div class="acts">${ib(a.url,I.spotify,"Open on Spotify")}${followBtn("artists",a.name,inList("artists",a.name))}${dxBtn("art:"+a.name,"listen",a.name)}</div></div>`).join("")}</div>`:""}</div>`;
- bindRail("sp-rail");
+ <div class="${S.feedAnim==="listen"?"feed-in":""}">${gridHTML(items,"sp",f==="sug"?`No podcast suggestions from the last ${CONFIG.podcastMaxAgeDays} days.`:`Nothing new from your shows in the last ${CONFIG.podcastMaxAgeDays} days.`)}
+</div>`;
 }
 /* Spotify's oEmbed endpoint gives cover art for any episode or artist link, no key needed */
 async function spArt(url){const u=String(url).split("?")[0];const m=LS.get("sd-sp-art",{});if(m[u]!=null)return m[u];try{const r=await fetch("https://open.spotify.com/oembed?url="+encodeURIComponent(u));if(!r.ok)return null;const j=await r.json();m[u]=j.thumbnail_url||"";LS.set("sd-sp-art",m);return m[u]}catch(e){return null}}
@@ -2144,14 +2161,12 @@ async function loadSpotify(force){
  if(names.length&&!fresh){try{const r=await be({fn:"podcasts",n:sig},25000);if(!r.shows)throw new Error("backend needs the new version deployed");S.sp=r.shows;S.spErr="";if(S.sp.length)LS.set("sd-sp2",{t:Date.now(),sig,v:S.sp})}catch(e){S.spErr=e.message}}
  /* suggested shows go through the same backend call, kept separate so they never count as followed */
  if(ssig&&!sfresh){try{const r=await be({fn:"podcasts",n:ssig},25000);if(r.shows){S.spSug=r.shows;LS.set("sd-sp-sug",{t:Date.now(),sig:ssig,v:S.spSug})}}catch(e){}}
- try{const arts=(DATA.discover&&DATA.discover.artists||[]);const ids=arts.map(a=>(/artist\/([A-Za-z0-9]{22})/.exec(a.url)||[])[1]).filter(Boolean);
-  if(ids.length){const r=await be({fn:"artists",ids:ids.join(",")},20000);arts.forEach(a=>{const id=(/artist\/([A-Za-z0-9]{22})/.exec(a.url)||[])[1];const x=id&&r.a&&r.a[id];if(x&&x.img)a.img=x.img})}}catch(e){}
  renderListen();refreshSettings();
 }
 async function loadSpArt(){
- const oe=LS.get("sd-sp-art",{});const eps=spItems().filter(p=>p.url&&oe[String(p.url).split("?")[0]]==null);const arts=(DATA.discover&&DATA.discover.artists||[]).filter(a=>!a.img&&a.url);
- if(!eps.length&&!arts.length)return;
- await Promise.all([...eps.map(p=>spArt(p.url)),...arts.map(async a=>{const i=await spArt(a.url);if(i)a.img=i})]);
+ const oe=LS.get("sd-sp-art",{});const eps=spItems().filter(p=>p.url&&oe[String(p.url).split("?")[0]]==null);
+ if(!eps.length)return;
+ await Promise.all(eps.map(p=>spArt(p.url)));
  renderListen();
 }
 
