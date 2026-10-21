@@ -13,13 +13,13 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
 <title>Stinky's Daily</title>
 <script>
-/* Backgrounds: id → [light|dark base, page color]. "auto" follows the device.
+/* Themes: id → [base, page color]. "auto" follows the device.
    Set the theme and theme-color before first paint so the iOS status bar band matches. */
-window.SDT={light:["light","#F1F2F4"],dark:["dark","#000000"],sand:["light","#EDE5D8"],sage:["light","#E1E7DD"],mist:["light","#E1E7EE"],blush:["light","#F1E3E0"],midnight:["dark","#0B1120"],espresso:["dark","#16110D"]};
+window.SDT={light:["light","#F1F2F4"],dark:["dark","#000000"]};
 (function(){try{
  var t="auto";try{t=JSON.parse(localStorage.getItem("sd-theme"))||"auto"}catch(e){}
  var r=document.documentElement,d=SDT[t],c;
- if(d){r.dataset.theme=d[0];if(t!=="light"&&t!=="dark")r.dataset.bg=t;r.style.colorScheme=d[0];c=d[1]}
+ if(d){r.dataset.theme=d[0];r.style.colorScheme=d[0];c=d[1]}
  else c=matchMedia("(prefers-color-scheme:dark)").matches?"#000000":"#F1F2F4";
  r.style.background=c;
  var ms=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<ms.length;i++)ms[i].content=c;
@@ -67,49 +67,7 @@ window.SDT={light:["light","#F1F2F4"],dark:["dark","#000000"],sand:["light","#ED
   }
 }
 
-/* ============================================================
-   BACKGROUNDS — solid tints chosen in Settings. Each rides on the
-   light or dark base (html[data-theme]) and swaps only the
-   surfaces and ink, so up/down, links and charts keep their meaning.
-   The same rules tint the preview swatches ([data-bg] on a tile).
-   ============================================================ */
-:root[data-bg="sand"],[data-bg="sand"]{
-  --bg:#EDE5D8; --surface:#FBF8F3; --raise:#F4EEE5;
-  --fill:rgba(70,50,20,.06); --fill-2:rgba(70,50,20,.11);
-  --ink:#1B1713; --ink-2:#5E564C; --ink-3:#908678; --line:rgba(70,50,20,.09);
-  --seg-on:#FBF8F3; --nav:rgba(237,229,216,.92);
-}
-:root[data-bg="sage"],[data-bg="sage"]{
-  --bg:#E1E7DD; --surface:#F8FAF6; --raise:#EEF2EB;
-  --fill:rgba(30,55,25,.06); --fill-2:rgba(30,55,25,.11);
-  --ink:#131A12; --ink-2:#525C50; --ink-3:#808B7E; --line:rgba(30,55,25,.09);
-  --seg-on:#F8FAF6; --nav:rgba(225,231,221,.92);
-}
-:root[data-bg="mist"],[data-bg="mist"]{
-  --bg:#E1E7EE; --surface:#F9FBFD; --raise:#EEF2F7;
-  --fill:rgba(20,45,80,.06); --fill-2:rgba(20,45,80,.11);
-  --ink:#0E1621; --ink-2:#4F5A68; --ink-3:#7F8997; --line:rgba(20,45,80,.09);
-  --seg-on:#F9FBFD; --nav:rgba(225,231,238,.92);
-}
-:root[data-bg="blush"],[data-bg="blush"]{
-  --bg:#F1E3E0; --surface:#FDF8F7; --raise:#F7EDEB;
-  --fill:rgba(90,35,30,.06); --fill-2:rgba(90,35,30,.11);
-  --ink:#1D1414; --ink-2:#635557; --ink-3:#9A8789; --line:rgba(90,35,30,.09);
-  --seg-on:#FDF8F7; --nav:rgba(241,227,224,.92);
-}
-:root[data-bg="midnight"],[data-bg="midnight"]{
-  --bg:#0B1120; --surface:#151C2F; --raise:#1C2439;
-  --fill:rgba(170,190,255,.08); --fill-2:rgba(170,190,255,.14);
-  --ink:#F4F6FB; --ink-2:#A5AEC4; --ink-3:#717B94; --line:rgba(170,190,255,.1);
-  --seg-on:#2A3350; --nav:rgba(11,17,32,.84);
-}
-:root[data-bg="espresso"],[data-bg="espresso"]{
-  --bg:#16110D; --surface:#211A15; --raise:#2A221C;
-  --fill:rgba(255,225,190,.07); --fill-2:rgba(255,225,190,.13);
-  --ink:#FBF6F0; --ink-2:#B8AB9C; --ink-3:#81766A; --line:rgba(255,225,190,.09);
-  --seg-on:#3A3029; --nav:rgba(22,17,13,.84);
-}
-/* swatch-only copies of the two base palettes */
+/* theme picker swatches: tiny copies of the two base palettes */
 [data-bg="light"]{--bg:#F1F2F4;--surface:#FFFFFF;--ink:#000000;--ink-3:#8F949C}
 [data-bg="dark"]{--bg:#000000;--surface:#121315;--ink:#FFFFFF;--ink-3:#6F737B}
 
@@ -527,7 +485,7 @@ h1,h2,h3,p{margin:0}
 .set-t{font-size:15px;font-weight:650}
 .set-s{font-size:13px;color:var(--ink-3);margin-top:2px;line-height:1.35}
 .set-help{font-size:13px;color:var(--ink-3);line-height:1.45;margin:-12px 4px 20px}
-/* background picker: a 3×3 grid of tiles, each a tiny page with a card on it */
+/* theme picker: three tiles, each a tiny page with a card on it */
 .bgs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 10px;margin-top:12px}
 .bg-o{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0;font-size:13px;font-weight:600;color:var(--ink-2)}
 .bg-o i{display:block;width:100%;aspect-ratio:16/10;border-radius:14px;overflow:hidden;transition:box-shadow .2s ease,transform .3s cubic-bezier(.2,.8,.2,1)}
@@ -2686,8 +2644,8 @@ function settingsHTML(){
  const ytst=S.yt.error?["err","Last check failed: "+S.yt.error]:S.yt.source==="live"?["ok","Live. Updated "+fmtLocalTime(new Date(S.yt.updated))+"."]:["","Checking for new uploads…"];
  return`<div class="sheet-h"><h3 id="sheet-title">Settings</h3><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
  <div class="set-l">Appearance</div>
- <div class="set-g"><div class="set-pad"><div class="set-t">Background</div><div class="set-s">Automatic switches between light and dark with your device.</div>
-  <div class="bgs" role="radiogroup" aria-label="Background">${THEMES.map(([x,l])=>`<button class="bg-o press${x===t?" on":""}" data-theme-set="${x}" role="radio" aria-checked="${x===t}"><i aria-hidden="true"><b ${x==="auto"?`class="auto"`:`data-bg="${x}"`}></b></i>${l}</button>`).join("")}</div>
+ <div class="set-g"><div class="set-pad"><div class="set-t">Theme</div><div class="set-s">Automatic switches between light and dark with your device.</div>
+  <div class="bgs" role="radiogroup" aria-label="Theme">${THEMES.map(([x,l])=>`<button class="bg-o press${x===t?" on":""}" data-theme-set="${x}" role="radio" aria-checked="${x===t}"><i aria-hidden="true"><b ${x==="auto"?`class="auto"`:`data-bg="${x}"`}></b></i>${l}</button>`).join("")}</div>
  </div></div>
  <div class="set-l"><span>Your lists</span></div>
  <div class="set-g" id="set-lists">${LIST_KEYS.map(listEditor).join("")}<div class="set-pad"><div class="status ${sync[0]}" id="sync-status"><i></i><span>${esc(sync[1])}</span></div></div></div>
@@ -2757,12 +2715,11 @@ function listsChanged(keys){
  addEventListener("scroll",hide,{passive:true});document.addEventListener("click",hide);
 })();
 let tt,toastUndo=null;function toast(t,undo){const el=$("#toast");toastUndo=undo||null;el.classList.toggle("act",!!undo);el.innerHTML=esc(t)+(undo?`<button data-act="undo">Undo</button>`:"");el.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>{el.classList.remove("show");toastUndo=null},undo?4500:1600)}
-/* backgrounds: the picker order (3 × 3); colors and light/dark base live in SDT in the head */
-const THEMES=[["auto","Automatic"],["light","Light"],["dark","Dark"],["sand","Sand"],["sage","Sage"],["mist","Mist"],["blush","Blush"],["midnight","Midnight"],["espresso","Espresso"]];
+/* themes: picker order; colors live in SDT in the head */
+const THEMES=[["auto","Automatic"],["light","Light"],["dark","Dark"]];
 function themeId(){const v=LS.get("sd-theme","auto");return SDT[v]?v:"auto"}
 function applyTheme(){const t=themeId(),d=SDT[t],r=document.documentElement;
  if(d){r.dataset.theme=d[0];r.style.colorScheme=d[0]}else{delete r.dataset.theme;r.style.colorScheme=""}
- if(d&&t!=="light"&&t!=="dark")r.dataset.bg=t;else delete r.dataset.bg;
  r.style.background="";
  const c=d?d[1]:matchMedia("(prefers-color-scheme: dark)").matches?"#000000":"#F1F2F4";
  $$('meta[name="theme-color"]').forEach(m=>m.remove());const m=document.createElement("meta");m.name="theme-color";m.content=c;document.head.appendChild(m)}
