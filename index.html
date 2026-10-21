@@ -946,7 +946,7 @@ html{background:var(--bg)}
 .ix-n .coin.idx{color:var(--ink-2)}.ix-n .coin.idx svg{width:15px;height:15px}
 .ix-n .coin.tk{font-size:9.5px;letter-spacing:.02em;color:var(--ink)}
 .ix-g{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);padding:14px 16px 6px;border-top:1px solid var(--line)}
-.ix-g:first-child{border-top:0}
+.ix-grp:first-child .ix-g{border-top:0}
 .mk-list{margin-top:12px}
 .mk .take{margin:14px 0 0}
 .cw-new{display:flex;gap:11px;align-items:center;margin-top:12px;padding:8px;border-radius:12px;background:var(--surface)}
@@ -962,6 +962,46 @@ html{background:var(--bg)}
 .ctx-pick dd{margin:2px 0 0;font-size:14.5px;line-height:1.45}
 .ctx-pick .acts{display:flex;gap:8px;margin-top:12px}
 @media (min-width:768px){#s-mkt{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)!important}}
+/* =================================================================
+   iPAD — touch screens 600px and up. Built for an iPad Air held upright
+   (820 × 1180) and read from arm's length: larger text, 44pt-class touch
+   targets, and layouts that use the width instead of squeezing.
+   ================================================================= */
+@media (min-width:600px) and (pointer:coarse){
+  /* action circles and controls sized for a finger */
+  .ib{width:44px;height:44px}.ib svg,.ib img{width:21px;height:21px}.ib.dx svg{width:16px;height:16px}
+  .chip{height:40px;padding:0 16px;font-size:15px}
+  .seg button{height:36px;font-size:14.5px}
+  .mini{height:36px;padding:0 13px;font-size:14px}
+  .it-o button{height:36px;padding:0 15px;font-size:14px}.it-o .io-th{height:36px}
+  /* small text links keep their look but get a finger-sized hit area */
+  .sh .aux,.grp-t button,.pinbar-h button{position:relative}
+  .sh .aux::after,.grp-t button::after,.pinbar-h button::after{content:"";position:absolute;inset:-13px -10px}
+  .it-p .sh .aux{font-size:14.5px}
+  .pin-un::after{content:"";position:absolute;inset:-9px}
+  /* reading sizes for a tablet held at arm's length */
+  .vid h3{font-size:18.5px}.vid p{font-size:15.5px}.vid-ch{font-size:14px}.bec.sim{font-size:14px}
+  .mv h3{font-size:16.5px}.mv .meta{font-size:13.5px}.mv p{font-size:14.5px}
+  .ev2 h3{font-size:17.5px}.ev2 .where{font-size:14.5px}.ev2 p{font-size:15.5px}
+  .cd{height:24px;font-size:12.5px}.score{height:24px;font-size:12.5px}
+  .grp-t{font-size:13.5px}
+  .pin-x b{font-size:15.5px}.pin-s{font-size:13.5px}.pin-k{font-size:11.5px}
+  .pin-th{flex-basis:60px;height:60px}
+  .mv .acts .ib{width:40px;height:40px}.mv .acts .ib svg,.mv .acts .ib img{width:19px;height:19px}.mv .acts{gap:6px}
+}
+/* iPad upright: two pins per view with a peek of the next */
+@media (min-width:600px) and (max-width:1099px) and (orientation:portrait){
+  .pin{flex-basis:min(360px,calc((100% - 10px)/2))}
+}
+/* iPad upright: Markets stacks (chart on top, full width), the list splits into two columns */
+@media (min-width:600px) and (max-width:1099px) and (orientation:portrait){
+  #s-mkt{grid-template-columns:minmax(0,1fr)!important}
+  #mk-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  #mk-list .ix-grp:first-child{grid-row:span 2;border-right:1px solid var(--line)}
+  #mk-list .ix-grp:nth-child(2) .ix-g{border-top:0}
+  /* Movies: three posters across, big enough to read */
+  .mv-rail{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px}
+}
 /* compact, content-height layouts */
 .rail{align-items:flex-start}
 .vid-b{min-height:0!important}
@@ -969,7 +1009,7 @@ html{background:var(--bg)}
 .cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
 /* dismiss */
 /* pins */
-.ib.pin.on{background:var(--ink);color:var(--bg)}
+.ib.pinb.on{background:var(--ink);color:var(--bg)}
 .pinbar{padding:0 var(--g);margin:0 0 24px}
 .pinbar[hidden]{display:none}
 .pinbar-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 2px 10px}
@@ -1102,7 +1142,7 @@ html{background:var(--bg)}
 .h-notice b{color:var(--ink-2);font-weight:650}
 /* metric card grid */
 .h-stack{display:grid;gap:14px}
-.m{display:grid;grid-template-columns:320px minmax(0,1fr);gap:32px;padding:22px 24px}
+#s-health .m{display:grid;grid-template-columns:320px minmax(0,1fr);gap:32px;padding:22px 24px}
 .m-head{display:flex;align-items:center;gap:10px}
 .m-ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--fill);color:var(--ink-2);flex:0 0 auto;transition:background .2s,color .2s}
 .m-ic.st-g{background:var(--up-soft);color:var(--up)}
@@ -1161,12 +1201,12 @@ html{background:var(--bg)}
 /* health responsive */
 @media (max-width:900px){
   .sug{padding:20px}
-  .m{grid-template-columns:260px minmax(0,1fr);gap:24px}
+  #s-health .m{grid-template-columns:260px minmax(0,1fr);gap:24px}
 }
 @media (max-width:700px){
   .sug{padding:20px}
   .sug h2{font-size:25px}
-  .m{grid-template-columns:1fr;gap:16px;padding:18px}
+  #s-health .m{grid-template-columns:1fr;gap:16px;padding:18px}
   .m-right{order:2}
   .m-rh .h-legend{margin-left:0!important;order:3;width:100%}
   .yl,.plot{height:150px}
@@ -1313,7 +1353,7 @@ const PIN_SNAP={},PIN_KIND={yt:"Video",sp:"Podcast",mv:"Movie",bay:"Event",sh:"S
 const pinKey=k=>"pin|"+k;
 const isPinned=k=>{const x=cfg().saved[pinKey(k)];return!!(x&&x.t>0)};
 const pinList=()=>Object.entries(cfg().saved).filter(([k,x])=>k.startsWith("pin|")&&x&&x.t>0&&x.n).map(([k,x])=>({key:k.slice(4),at:x.t,kind:x.n.domain,title:x.n.title,sub:x.n.blurb,img:x.n.src,date:x.n.date,url:x.n.url}));
-function pinBtn(k,snap){PIN_SNAP[k]=snap;const on=isPinned(k);return`<button class="ib pin press ${on?"on":""}" data-pin="${esc(k)}" aria-pressed="${on}" aria-label="${on?"Pinned":"Pin to the top"}" data-tip="${on?"Pinned · tap to unpin":"Pin to the top"}">${on?I.tackOn:I.tack}</button>`}
+function pinBtn(k,snap){PIN_SNAP[k]=snap;const on=isPinned(k);return`<button class="ib pinb press ${on?"on":""}" data-pin="${esc(k)}" aria-pressed="${on}" aria-label="${on?"Pinned":"Pin to the top"}" data-tip="${on?"Pinned · tap to unpin":"Pin to the top"}">${on?I.tackOn:I.tack}</button>`}
 const pinN=(k,s)=>({id:k.slice(0,40),tag:"pin:"+s.kind,title:clip(s.title||"",290),blurb:clip(s.sub||"",590),src:s.img&&String(s.img).length<=80?s.img:"",domain:s.kind,date:String(s.date||"").slice(0,16),url:s.url||"",ask:""});
 function setPin(k,on,n){cfgSet(c=>c.saved[pinKey(k)]=on?{t:Date.now(),n}:{t:-Date.now()});syncPins()}
 function togglePin(k){
@@ -2018,7 +2058,7 @@ function renderMkList(){
  const el=$("#mk-list");if(!el)return;const{k:sk,s:ss}=S.mk;
  const row=(k,x)=>{const q=mkNow(k,x);const sp=k==="cx"?(S.cx.q[x]||{}).spark:((stkSeries(x,"1D")||stkSeries(x,"1M"))||[]).map(p=>p.v);const on=k===sk&&x===ss;
   return`<button class="ix ${on?"on":""}" data-mk="${k}|${esc(x)}" aria-pressed="${on}"><span class="ix-n">${mkLogo(k,x)}<div><b>${esc(mkName(k,x))}</b><span>${esc(k==="cx"?x:x.startsWith("^")?"Index":x)}</span></div></span>${spark(sp)}<span class="ix-v"><b class="num" ${k==="cx"?`data-px="${esc(x)}"`:""}>${q?mkFmtPx(k,x,q.price):"—"}</b><span class="pill num ${q?(q.pct<0?"dn":""):"na"}" ${k==="cx"?`data-pill="${esc(x)}"`:""}>${q?pct(q.pct):"—"}</span></span></button>`};
- const grp=(t,rows)=>rows.length?`<div class="ix-g">${esc(t)}</div>${rows.join("")}`:"";
+ const grp=(t,rows)=>rows.length?`<div class="ix-grp"><div class="ix-g">${esc(t)}</div>${rows.join("")}</div>`:"";
  el.innerHTML=grp("Stocks & indexes",stList().map(x=>row("st",x)))+grp("Crypto",cxList().map(x=>row("cx",x)))+(DATA.pick?grp("Suggested",[row("pick",DATA.pick.sym)]):"");
 }
 function setMkHead(pt,first){
