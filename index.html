@@ -698,7 +698,8 @@ html{background:var(--bg)}
 .it{border-top:1px solid var(--line)}
 .it:last-child{border-bottom:1px solid var(--line)}
 .it[hidden]{display:none}
-.it-h{display:flex;align-items:baseline;gap:14px;width:100%;min-width:0;padding:17px 0 16px;text-align:left;color:var(--ink)}
+.it-hd{display:flex;align-items:center;gap:14px}
+.it-h{flex:1;display:flex;align-items:baseline;gap:14px;min-width:0;padding:17px 0 16px;text-align:left;color:var(--ink)}
 .it-h:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:8px}
 .it-n{flex:0 0 auto;font-family:var(--display);font-size:27px;font-weight:600;letter-spacing:-.035em;line-height:1;white-space:nowrap;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .it-t{flex:1;min-width:0;display:flex;align-items:baseline;justify-content:flex-end;gap:9px;overflow:hidden;white-space:nowrap;font-size:13.5px;line-height:1.2;color:var(--ink-2);transition:opacity .25s ease}
@@ -708,19 +709,37 @@ html{background:var(--bg)}
 .it-t .tx{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .it-t .ser{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--ink)}
 .it-t .q{color:var(--ink-3)}
-.it-x{position:relative;flex:0 0 auto;width:13px;height:13px;align-self:center;color:var(--ink-3);transition:transform .35s cubic-bezier(.2,.8,.2,1),color .2s}
+.it-x{position:relative;flex:0 0 auto;margin-left:auto;width:13px;height:13px;align-self:center;cursor:pointer;color:var(--ink-3);transition:transform .35s cubic-bezier(.2,.8,.2,1),color .2s}
 .it-x::before,.it-x::after{content:"";position:absolute;left:0;right:0;top:6px;height:1.5px;border-radius:1px;background:currentColor}
 .it-x::after{transform:rotate(90deg)}
 .it.open .it-x{transform:rotate(45deg);color:var(--ink)}
-.it.open .it-t{opacity:0}
+.it.open .it-t{display:none}
 
 /* the section opens in place: full-screen feel with pinned title */
 .it-b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .46s cubic-bezier(.22,.8,.18,1)}
 .it.open .it-b{grid-template-rows:1fr}
 .it-bi{min-height:0;overflow:hidden}
-.it.open .it-h{position:sticky;top:0;z-index:10;background:var(--bg);padding-top:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+/* the open title pins just under the status bar */
+.it.open .it-hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.it.open .it-h{flex:0 1 auto;padding-top:14px;padding-bottom:12px}
+/* options beside the open title (Watch, Listen): a small segmented control with a sliding highlight */
+.it-o{display:none;position:relative;gap:2px;padding:3px;border-radius:999px;background:var(--fill);min-width:0}
+.it.open .it-o{display:flex;animation:optIn .5s cubic-bezier(.2,.8,.2,1) .16s both}
+.it-o button{position:relative;z-index:1;height:28px;padding:0 13px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink-2);white-space:nowrap;transition:color .25s ease}
+.it-o button.on{color:var(--ink)}
+.it-o .io-th{position:absolute;z-index:0;top:3px;left:0;height:28px;width:var(--w,0);border-radius:999px;background:var(--seg-on);box-shadow:0 1px 3px rgba(0,0,0,.12);transform:translateX(var(--x,0));transition:transform .38s cubic-bezier(.3,.9,.25,1),width .38s cubic-bezier(.3,.9,.25,1)}
+.it-o.still .io-th{transition:none}
+@keyframes optIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+@keyframes feedIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.feed-in{animation:feedIn .42s cubic-bezier(.2,.8,.2,1) both}
+@media (max-width:599px){
+  .it.open .it-hd{flex-wrap:wrap;row-gap:0}
+  .it-o{order:3;flex-basis:100%}
+  .it.open .it-o{margin:0 0 11px}
+  .it-o button{flex:1;padding:0 8px}
+}
 .it.open .it-n{font-size:20px}
-.it-p{--g:14px;margin:0 0 26px;padding:14px 0 0;color:var(--ink);opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
+.it-p{--g:14px;margin:0 0 26px;padding:14px 0 0;min-height:calc(100vh - 64px);min-height:calc(100dvh - 64px);color:var(--ink);opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
 .it.open .it-p{opacity:1;transform:none;transition-delay:.08s}
 .it-p>.sec{padding:0!important;grid-column:auto!important}
 .it-p .sh h2{display:none}
@@ -740,7 +759,7 @@ html{background:var(--bg)}
   .it-x{width:15px;height:15px}
   .it-x::before,.it-x::after{top:7px}
   .it-p{--g:20px;padding:18px 0 0;margin:0 0 34px}
-  .it.open .it-n{font-size:24px}
+  .it.open .it-n{font-size:24px;flex-basis:auto}
 }
 @media (min-width:1024px){
   .home{max-width:1120px}
@@ -748,7 +767,7 @@ html{background:var(--bg)}
   .it-t{font-size:15.5px}
 }
 @media (hover:hover) and (pointer:fine){
-  .it-h:hover .it-x{color:var(--ink)}
+  .it-hd:hover .it-x{color:var(--ink)}
 }
 
 /* ---- v5: weather rail, zoom hover, logos ---- */
@@ -768,7 +787,7 @@ html{background:var(--bg)}
 
 
 /* hover: a slight zoom instead of a slide */
-.it-n{transform-origin:0 70%;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.it-n{transform-origin:0 70%;transition:transform .3s cubic-bezier(.2,.8,.2,1),font-size .5s cubic-bezier(.22,.8,.18,1)}
 .it-h:focus{outline:none}
 .it-h:focus-visible{outline:none}
 .it-h:focus-visible .it-n{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:7px}
@@ -1423,7 +1442,7 @@ function adoptCfg(remote,fromPush){
  const listsBefore=canon(old.lists),changed=cfgSig(m)!==cfgSig(old);
  _cfg=m;LS.set("sd-cfg",m);if(m.prefs.theme)LS.set("sd-theme",m.prefs.theme);
  if(changed&&S.booted){
-  applyTheme();S.hidden=new Set(pref("hidden",[]));renderNav();
+  applyTheme();S.hidden=new Set(pref("hidden",[]));renderNav();renderFeedOpts();
   if(canon(m.lists)!==listsBefore)listsChanged(LIST_KEYS.filter(k=>canon(old.lists[k])!==canon(m.lists[k])));
   Object.values(DX_RENDER).forEach(f=>f());renderNews();renderTeasers();
  }
@@ -1496,7 +1515,7 @@ function shell(){
  $("#app").innerHTML=`
  <div class="home" id="home">
   <header class="hero"><div class="topbar"><div class="hero-date" id="home-date"></div><div class="wxr" id="wxr" aria-label="Weather"></div><div class="tb-r"><button class="icon-btn press" data-act="refresh" aria-label="Refresh">${I.refresh}</button><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div></div><h1 class="greet" id="greet"></h1></header>
-  <div class="list" id="list">${ITEMS.map(([id,l])=>`<div class="it" id="it-${id}" data-it="${id}"><button class="it-h" aria-expanded="false" aria-controls="ib-${id}">${rowIcon(id)}<span class="it-n">${esc(l)}</span><span class="it-t" id="tz-${id}"></span><span class="it-x" aria-hidden="true"></span></button><div class="it-b" id="ib-${id}" role="region" aria-label="${esc(l)}"><div class="it-bi"><div class="it-p"><section class="sec" id="s-${id}" data-sec="${id}"></section></div></div></div></div>`).join("")}</div>
+  <div class="list" id="list">${ITEMS.map(([id,l])=>`<div class="it" id="it-${id}" data-it="${id}"><div class="it-hd"><button class="it-h" aria-expanded="false" aria-controls="ib-${id}">${rowIcon(id)}<span class="it-n">${esc(l)}</span><span class="it-t" id="tz-${id}"></span></button>${FEEDS.includes(id)?`<div class="it-o" id="io-${id}" role="group" aria-label="Show in ${esc(l)}">${feedOpts(id)}</div>`:""}<span class="it-x" aria-hidden="true"></span></div><div class="it-b" id="ib-${id}" role="region" aria-label="${esc(l)}"><div class="it-bi"><div class="it-p"><section class="sec" id="s-${id}" data-sec="${id}"></section></div></div></div></div>`).join("")}</div>
   <footer class="foot" id="foot"></footer>
  </div>`;
 }
@@ -1598,6 +1617,28 @@ function teaser(id){
 function renderTeasers(){if(!S.booted)return;ITEMS.forEach(([id])=>{const el=$("#tz-"+id);if(el)el.innerHTML=teaser(id)})}
 
 /* =================================================================
+   FEED FILTER — Watch and Listen can show everything, only what he
+   subscribes to, or only suggestions. Synced like other settings.
+   ================================================================= */
+const FEEDS=["watch","listen"];
+const FEED_OPTS=[["all","All"],["sub","Subscribed"],["sug","Suggested"]];
+const feedF=id=>{const f=pref("feed",{})||{};return FEED_OPTS.some(o=>o[0]===f[id])?f[id]:"all"};
+const feedPick=(id,items)=>{const f=feedF(id);return f==="sub"?items.filter(v=>!v.sugg):f==="sug"?items.filter(v=>v.sugg):items};
+function feedOpts(id){const v=feedF(id);return`<i class="io-th" aria-hidden="true"></i>`+FEED_OPTS.map(([k,l])=>`<button class="${k===v?"on":""}" data-feed="${id}" data-v="${k}" aria-pressed="${k===v}">${l}</button>`).join("")}
+/* slide the highlight under the chosen option; "still" places it without animating */
+function placeThumb(id,still){const o=$("#io-"+id);if(!o)return;const b=$("button.on",o),th=$(".io-th",o);if(!b||!th)return;
+ if(still)o.classList.add("still");th.style.setProperty("--x",b.offsetLeft+"px");th.style.setProperty("--w",b.offsetWidth+"px");
+ if(still)requestAnimationFrame(()=>requestAnimationFrame(()=>o.classList.remove("still")))}
+function setFeed(id,v){
+ if(feedF(id)===v)return;const f={...(pref("feed",{})||{})};f[id]=v;setPref("feed",f);
+ $$(`#io-${id} [data-feed]`).forEach(b=>{const on=b.dataset.v===v;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on)});placeThumb(id);
+ S.feedAnim=id;RENDER[id]();S.feedAnim=null;
+ /* if he'd scrolled down inside the section, bring its title back to the top */
+ const el=$("#it-"+id);if(el&&el.getBoundingClientRect().top<topInset()-2)glideTo(el);
+}
+function renderFeedOpts(){FEEDS.forEach(id=>{const o=$("#io-"+id);if(o){o.innerHTML=feedOpts(id);placeThumb(id,true)}})}
+
+/* =================================================================
    OPEN IN PLACE — one section open at a time
    ================================================================= */
 /* Opening grows the panel downward from its row, so nothing on screen moves.
@@ -1610,10 +1651,29 @@ function closeEl(x,keepView){
  else x.classList.remove("open");
  $(".it-h",x).setAttribute("aria-expanded","false");
 }
+/* Opening glides the page so the tapped title lands right under the status bar.
+   A hand-rolled ease (fast start, soft landing) instead of the browser's smooth scroll:
+   the target is re-measured every frame, so it still lands exactly while the panel
+   above closes and this one grows. Any touch or wheel hands control back at once. */
+let glideRAF=0;
+const topInset=()=>{const b=$(".sbar");return b?b.offsetHeight:0};
+function glideTo(el){
+ cancelAnimationFrame(glideRAF);const r=document.documentElement;
+ const goal=()=>Math.max(0,Math.round(el.getBoundingClientRect().top+window.scrollY-topInset()));
+ const jump=y=>{r.style.scrollBehavior="auto";window.scrollTo(0,y)};
+ if(matchMedia("(prefers-reduced-motion: reduce)").matches){jump(goal());r.style.scrollBehavior="";return}
+ const y0=window.scrollY,t0=performance.now(),D=Math.min(760,Math.max(460,Math.abs(goal()-y0)*.6));
+ const ease=t=>t<.5?8*t*t*t*t:1-Math.pow(-2*t+2,4)/2;/* ease-in-out quart */
+ let off=false;const stop=()=>{off=true;cancelAnimationFrame(glideRAF);r.style.scrollBehavior=""};
+ addEventListener("touchstart",stop,{once:true,passive:true});addEventListener("wheel",stop,{once:true,passive:true});
+ const step=now=>{if(off)return;const p=Math.min(1,(now-t0)/D);jump(y0+(goal()-y0)*ease(p));
+  if(p<1)glideRAF=requestAnimationFrame(step);else{removeEventListener("touchstart",stop);removeEventListener("wheel",stop);r.style.scrollBehavior=""}};
+ glideRAF=requestAnimationFrame(step);
+}
 function toggleItem(id,force){
  const el=$("#it-"+id);if(!el)return;const open=force!=null?force:!el.classList.contains("open");
  $$(".it.open").forEach(x=>{if(x===el)return;closeEl(x,open&&!!(x.compareDocumentPosition(el)&Node.DOCUMENT_POSITION_FOLLOWING))});
- if(open){el.classList.add("open");$(".it-h",el).setAttribute("aria-expanded","true");RENDER[id]();requestAnimationFrame(()=>{$$(".rail",el).forEach(railArrows);el.scrollIntoView({block:"start",behavior:"smooth"})})}
+ if(open){el.classList.add("open");$(".it-h",el).setAttribute("aria-expanded","true");RENDER[id]();requestAnimationFrame(()=>{$$(".rail",el).forEach(railArrows);placeThumb(id,true);glideTo(el)})}
  else closeEl(el,false);
  S.open=open?id:null;
  try{history.replaceState(null,"",open?"#"+id:location.pathname+location.search)}catch(e){}
@@ -1621,7 +1681,8 @@ function toggleItem(id,force){
 function openFromHash(){const h=location.hash.slice(1);if(RENDER[h]&&!S.hidden.has(h)){toggleItem(h,true);requestAnimationFrame(()=>{const el=$("#it-"+h);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-8,behavior:"instant"})})}}
 document.addEventListener("click",e=>{
  const t=e.target;
- const h=t.closest(".it-h");if(h){toggleItem(h.parentElement.dataset.it);return}
+ const fb=t.closest("[data-feed]");if(fb){setFeed(fb.dataset.feed,fb.dataset.v);return}
+ const h=t.closest(".it-hd");if(h&&!t.closest(".it-o")){toggleItem(h.closest(".it").dataset.it);return}
  /* a tap anywhere outside the open section closes it */
  if(S.open&&!t.closest(".it.open,.sheet,.toast,.topbar")&&document.contains(t))toggleItem(S.open,false);
 });
@@ -2003,9 +2064,9 @@ function ytItems(){
  return items.filter(v=>isFresh(v.published)&&!isDis("yt:"+v.id)&&!(v.sugg&&(isDis("ytch:"+norm(v.handle||""))||isDis("ytch:"+norm(v.channel||""))))).sort(byNewest);
 }
 function renderWatch(){
- const el=$("#s-watch");const items=ytItems();
+ const el=$("#s-watch");const f=feedF("watch");const items=feedPick("watch",ytItems());
  el.innerHTML=`<div class="sh"><h2><span class="h-ic yt">${I.yt}</span>Watch</h2><button class="aux" data-act="settings-list" data-k="channels">Your channels</button></div>
- ${railHTML("yt-rail",items,"yt",S.yt.error&&!S.yt.items?`YouTube didn't respond (${S.yt.error}).`:`Nothing new from your channels in the last ${CONFIG.youtube.maxAgeDays} days.`)}`;
+ <div class="${S.feedAnim==="watch"?"feed-in":""}">${railHTML("yt-rail",items,"yt",S.yt.error&&!S.yt.items?`YouTube didn't respond (${S.yt.error}).`:f==="sug"?`No suggestions from the last ${CONFIG.youtube.maxAgeDays} days.`:`Nothing new from your channels in the last ${CONFIG.youtube.maxAgeDays} days.`)}</div>`;
  bindRail("yt-rail");
 }
 async function yt(path,params){const u=new URL("https://www.googleapis.com/youtube/v3/"+path);Object.entries({...params,key:ytKey()}).forEach(([k,v])=>u.searchParams.set(k,v));const r=await fetch(u);const j=await r.json();if(j.error)throw new Error((j.error.errors&&j.error.errors[0]&&j.error.errors[0].reason)||j.error.message||"error");return j}
@@ -2064,10 +2125,10 @@ function spItems(){
 const likeTxt=t=>String(t||"").replace(/^\s*(like|similar to)\s+/i,"~ ");
 function artistItems(){return(DATA.discover&&DATA.discover.artists||[]).filter(a=>!isDis("art:"+a.name))}
 function renderListen(){
- const el=$("#s-listen");const items=spItems();const arts=artistItems();
+ const el=$("#s-listen");const f=feedF("listen");const items=feedPick("listen",spItems());const arts=f==="sub"?[]:artistItems();
  el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-list" data-k="podcasts">Your podcasts</button></div>
- ${railHTML("sp-rail",items,"sp",`Nothing new from your shows in the last ${CONFIG.podcastMaxAgeDays} days.`)}
- ${arts.length?`<div class="grp-t" style="margin-top:22px">New artists for you<button data-act="settings-artists">Your artists</button></div><div class="arts noscroll">${arts.map(a=>`<div class="art"><a class="av" style="--h:${hue(a.name)}" href="${esc(a.url)}" target="_blank" rel="noopener" aria-label="${esc(a.name)} on Spotify">${esc(a.name.slice(0,1))}${a.img?`<img src="${esc(a.img)}" alt="" loading="lazy">`:""}</a><b>${esc(a.name)}</b><small>${esc(likeTxt(a.because))}</small><div class="acts">${ib(a.url,I.spotify,"Open on Spotify")}${followBtn("artists",a.name,inList("artists",a.name))}${dxBtn("art:"+a.name,"listen",a.name)}</div></div>`).join("")}</div>`:""}`;
+ <div class="${S.feedAnim==="listen"?"feed-in":""}">${railHTML("sp-rail",items,"sp",f==="sug"?`No podcast suggestions from the last ${CONFIG.podcastMaxAgeDays} days.`:`Nothing new from your shows in the last ${CONFIG.podcastMaxAgeDays} days.`)}
+ ${arts.length?`<div class="grp-t" style="margin-top:22px">New artists for you<button data-act="settings-artists">Your artists</button></div><div class="arts noscroll">${arts.map(a=>`<div class="art"><a class="av" style="--h:${hue(a.name)}" href="${esc(a.url)}" target="_blank" rel="noopener" aria-label="${esc(a.name)} on Spotify">${esc(a.name.slice(0,1))}${a.img?`<img src="${esc(a.img)}" alt="" loading="lazy">`:""}</a><b>${esc(a.name)}</b><small>${esc(likeTxt(a.because))}</small><div class="acts">${ib(a.url,I.spotify,"Open on Spotify")}${followBtn("artists",a.name,inList("artists",a.name))}${dxBtn("art:"+a.name,"listen",a.name)}</div></div>`).join("")}</div>`:""}</div>`;
  bindRail("sp-rail");
 }
 /* Spotify's oEmbed endpoint gives cover art for any episode or artist link, no key needed */
@@ -2776,7 +2837,7 @@ document.addEventListener("change",e=>{if(e.target.matches("[data-mvfresh]")){se
 WIDE.addEventListener?.("change",()=>{renderNews();renderBay();renderShows();renderMovies();$$(".rail").forEach(railArrows)});
 
 /* resize */
-let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{redrawCharts();$$(".rail").forEach(railArrows)},120)});
+let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{redrawCharts();$$(".rail").forEach(railArrows);FEEDS.forEach(id=>placeThumb(id,true))},120)});
 matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>{applyTheme();redrawCharts()});
 
 /* pull to refresh (home-screen apps have no browser refresh) */
