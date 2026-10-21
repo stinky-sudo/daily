@@ -361,7 +361,9 @@ h1,h2,h3,p{margin:0}
 @media (min-width:600px){.vgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   /* narrower cards: the channel name gets the full line, the date and length go under it */
   .vgrid .vid-ch{flex-wrap:wrap;row-gap:1px}.vgrid .vid-ch b{flex:1 1 0}.vgrid .vid-ch .sep{margin-left:0;flex-basis:100%;padding-left:29px;overflow:hidden;text-overflow:ellipsis}}
-@media (min-width:768px){.vgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+@media (min-width:768px){.vgrid{gap:16px}}
+/* portrait (an upright iPad) keeps two across; landscape widens to three, then four */
+@media (min-width:768px) and (orientation:landscape){.vgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:1100px){.vgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .vid-f{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:12px}
 .open-in{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--ink-3)}
@@ -913,8 +915,8 @@ html{background:var(--bg)}
 .mv .meta{font-size:12.5px;color:var(--ink-3);margin-top:2px}
 .mv p{font-size:13px;line-height:1.4;color:var(--ink-2);margin-top:5px}
 .mv .chips2{margin-top:7px}
-.mv .acts{display:flex;gap:6px;margin-top:9px}
-@media (max-width:767px){.mv .acts{gap:5px}.mv .acts .ib{width:34px;height:34px}.mv .acts .ib svg,.mv .acts .ib img{width:18px;height:18px}.mv .acts .ib.dx svg{width:14px;height:14px}}
+/* poster cards are narrow: five slightly smaller circles, wrapping if a screen is tighter still */
+.mv .acts{display:flex;flex-wrap:wrap;gap:4px;margin-top:9px}.mv .acts .ib{width:32px;height:32px}.mv .acts .ib svg,.mv .acts .ib img{width:17px;height:17px}.mv .acts .ib.dx svg{width:13px;height:13px}
 .score{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 7px;border-radius:999px;font-size:11.5px;font-weight:700;background:var(--fill);color:var(--ink-2)}
 .score.fresh{background:rgba(250,50,10,.12);color:#E2381B}
 .score.rot{background:rgba(110,160,40,.14);color:#5C8F1E}
@@ -966,6 +968,37 @@ html{background:var(--bg)}
 .mv-rail{align-items:start}
 .cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
 /* dismiss */
+/* pins */
+.ib.pin.on{background:var(--ink);color:var(--bg)}
+.pinbar{padding:0 var(--g);margin:0 0 24px}
+.pinbar[hidden]{display:none}
+.pinbar-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 2px 10px}
+.pinbar-h span{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink)}
+.pinbar-h span svg{width:13px;height:13px}
+.pinbar-h span b{font-weight:500;color:var(--ink-3)}
+.pinbar-h button{font-size:13px;font-weight:600;color:var(--ink-3)}
+.pin-row{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;margin:0 calc(-1*var(--g));padding:2px var(--g) 6px;scroll-padding:0 var(--g)}
+.pin{position:relative;flex:0 0 min(300px,84%);scroll-snap-align:start;background:var(--surface);border-radius:18px;box-shadow:var(--shadow);transition:opacity .2s ease,transform .25s ease}
+.pin.new{animation:pinIn .5s cubic-bezier(.2,.8,.2,1) both}
+.pin.out{opacity:0;transform:scale(.94)}
+.pin.past{opacity:.55}
+.pin-a{display:flex;gap:12px;align-items:center;height:100%;padding:11px 42px 11px 11px;min-width:0;color:var(--ink)}
+.pin-th{flex:0 0 54px;height:54px;border-radius:12px;overflow:hidden;display:grid;place-items:center;background:var(--fill);color:var(--ink-2)}
+.pin-th img{width:100%;height:100%;object-fit:cover}
+.pin-th svg{width:24px;height:24px}
+.pin-th.dt{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.pin-th.dt small{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--down)}
+.pin-th.dt b{font-family:var(--display);font-size:21px;font-weight:650;letter-spacing:-.02em;margin-top:3px}
+.pin-x{min-width:0;display:flex;flex-direction:column;gap:3px}
+.pin-k{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.pin-k .cd{height:19px;padding:0 7px;font-size:10.5px;letter-spacing:0;text-transform:none}
+.pin-x b{font-size:14.5px;line-height:1.25;font-weight:650}
+.pin-s{font-size:12.5px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pin-un{position:absolute;top:9px;right:9px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:var(--ink-3);background:var(--fill);transition:color .15s,background .15s}
+.pin-un svg{width:11px;height:11px}
+@media (hover:hover) and (pointer:fine){.pin-un:hover{color:var(--ink);background:var(--fill-2)}.pin-a:hover b{text-decoration:underline;text-underline-offset:3px}}
+@keyframes pinIn{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+@media (min-width:768px){.pin{flex-basis:300px}}
 /* dismiss: its own circle at the end of the action row, like Follow or Google */
 .ib.dx{color:var(--ink-2)}
 .ib.dx svg{width:15px;height:15px}
@@ -1268,6 +1301,48 @@ function jsonp(url,ms=9000){return new Promise((res,rej)=>{const cb="__sd"+Math.
 const DISM=()=>{const d=cfg().dismissed,o={};for(const k in d)if(d[k]>0)o[k]=d[k];return o};
 const isDis=k=>(cfg().dismissed[k]||0)>0;
 const dxBtn=(k,sec,label)=>{const sug=/^(ytch|spshow|art):/.test(k);return`<button class="ib dx press" data-dx="${esc(k)}" data-dxs="${sec}" data-dxl="${esc(clip(label||"",40))}" aria-label="${sug?"Stop suggesting this":"Not interested — hide this"}" data-tip="${sug?"Stop suggesting":"Not interested"}">${I.close}</button>`};
+/* =================================================================
+   PINS — anything worth coming back to (a show he's weighing tickets for,
+   a video for later) stays on a shelf at the top until he clears it.
+   A pin keeps a snapshot (title, image, date, main link) so it outlives the
+   feed it came from. Pins sync in the "saved" map as news-shaped entries
+   tagged "pin:<kind>": the backend keeps only fields it already knows, and
+   savedNews() skips them.
+   ================================================================= */
+const PIN_SNAP={},PIN_KIND={yt:"Video",sp:"Podcast",mv:"Movie",bay:"Event",sh:"Show"};
+const pinKey=k=>"pin|"+k;
+const isPinned=k=>{const x=cfg().saved[pinKey(k)];return!!(x&&x.t>0)};
+const pinList=()=>Object.entries(cfg().saved).filter(([k,x])=>k.startsWith("pin|")&&x&&x.t>0&&x.n).map(([k,x])=>({key:k.slice(4),at:x.t,kind:x.n.domain,title:x.n.title,sub:x.n.blurb,img:x.n.src,date:x.n.date,url:x.n.url}));
+function pinBtn(k,snap){PIN_SNAP[k]=snap;const on=isPinned(k);return`<button class="ib pin press ${on?"on":""}" data-pin="${esc(k)}" aria-pressed="${on}" aria-label="${on?"Pinned":"Pin to the top"}" data-tip="${on?"Pinned · tap to unpin":"Pin to the top"}">${on?I.tackOn:I.tack}</button>`}
+const pinN=(k,s)=>({id:k.slice(0,40),tag:"pin:"+s.kind,title:clip(s.title||"",290),blurb:clip(s.sub||"",590),src:s.img&&String(s.img).length<=80?s.img:"",domain:s.kind,date:String(s.date||"").slice(0,16),url:s.url||"",ask:""});
+function setPin(k,on,n){cfgSet(c=>c.saved[pinKey(k)]=on?{t:Date.now(),n}:{t:-Date.now()});syncPins()}
+function togglePin(k){
+ const cur=cfg().saved[pinKey(k)];
+ if(cur&&cur.t>0){setPin(k,false);toast("Unpinned",()=>setPin(k,true,cur.n));return}
+ const s=PIN_SNAP[k];if(!s)return;S.pinNew=k;setPin(k,true,pinN(k,s));toast("Pinned to the top")}
+function clearPins(){const all=pinList();if(!all.length)return;const keep=all.map(p=>[p.key,cfg().saved[pinKey(p.key)].n]);
+ cfgSet(c=>{all.forEach(p=>c.saved[pinKey(p.key)]={t:-Date.now()})});syncPins();
+ toast(`Cleared ${all.length} ${all.length===1?"pin":"pins"}`,()=>{cfgSet(c=>keep.forEach(([k,n])=>c.saved[pinKey(k)]={t:Date.now(),n}));syncPins()})}
+/* keep every pin button and the shelf in step */
+function syncPins(){$$("[data-pin]").forEach(b=>{const on=isPinned(b.dataset.pin);b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);b.innerHTML=on?I.tackOn:I.tack;b.dataset.tip=on?"Pinned · tap to unpin":"Pin to the top";b.setAttribute("aria-label",on?"Pinned":"Pin to the top")});renderPins()}
+const pinAge=t=>{const d=Math.floor((Date.now()-t)/864e5);return d<1?"Pinned today":d===1?"Pinned yesterday":d<14?`Pinned ${d} days ago`:`Pinned ${Math.round(d/7)} wks ago`};
+function pinTile(p){
+ const d=p.date?p.date.slice(0,10):"",tm=p.date&&p.date.length>10?p.date.slice(11,16):"",past=!!d&&d<todayKey();
+ const when=d?(past?`<span class="cd">Passed</span>`:cdChip(d,tm)):"";
+ const th=p.img?`<img src="${esc(p.img)}" alt="" loading="lazy" onerror="this.parentNode.classList.add('none');this.remove()">`:d?`<small>${esc(fmtKey(d,{month:"short"}))}</small><b class="num">${esc(fmtKey(d,{day:"numeric"}))}</b>`:"";
+ const ic={yt:I.yt,sp:I.spotify,mv:I.film}[p.kind]||I.tack;
+ const inner=`<span class="pin-th ${p.img?"img":d?"dt":"ic"}">${th||ic}</span><span class="pin-x"><span class="pin-k">${esc(PIN_KIND[p.kind]||"Pinned")}${when}</span><b class="clamp2">${esc(p.title)}</b><span class="pin-s">${esc(d?p.sub||"":[p.sub,pinAge(p.at)].filter(Boolean).join(" · "))}</span></span>`;
+ return`<article class="pin${past?" past":""}${S.pinNew===p.key?" new":""}" data-pk="${esc(p.key)}">${p.url?`<a class="pin-a" href="${esc(p.url)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="pin-a">${inner}</div>`}<button class="pin-un press" data-unpin="${esc(p.key)}" aria-label="Unpin ${esc(p.title)}" data-tip="Unpin">${I.close}</button></article>`}
+function renderPins(){
+ const el=$("#pins");if(!el)return;const ps=pinList(),tk=todayKey();
+ if(!ps.length){el.hidden=true;el.innerHTML="";S.pinNew=null;return}
+ /* coming up first (soonest on the left), then undated pins newest first, then anything that has passed */
+ const up=ps.filter(p=>p.date&&p.date.slice(0,10)>=tk).sort((a,b)=>a.date.localeCompare(b.date)),
+  open=ps.filter(p=>!p.date).sort((a,b)=>b.at-a.at),gone=ps.filter(p=>p.date&&p.date.slice(0,10)<tk).sort((a,b)=>b.date.localeCompare(a.date));
+ const list=up.concat(open,gone);el.hidden=false;
+ el.innerHTML=`<div class="pinbar-h"><span>${I.tackOn}Pinned<b class="num">${list.length}</b></span><button class="press" data-act="pins-clear">Clear all</button></div><div class="pin-row noscroll">${list.map(pinTile).join("")}</div>`;
+ S.pinNew=null;
+}
 const DX_RENDER={watch:()=>renderWatch(),listen:()=>renderListen(),movies:()=>renderMovies(),shows:()=>renderShows(),bay:()=>renderBay()};
 function dismiss(k,sec,label){cfgSet(c=>c.dismissed[k]=Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers();toast((/^(ytch|spshow|art):/.test(k)?"Won't suggest "+(label||"this")+" again":"Hidden"+(label?": "+label:"")),()=>{cfgSet(c=>c.dismissed[k]=-Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers()})}
 /* lay rows out as one card on phones, two independent columns on wide screens (each only as tall as it needs) */
@@ -1297,6 +1372,8 @@ const hue=s=>hash(s)%360;
    ICONS
    ================================================================= */
 const I={
+tack:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 3.5h5.6l-.9 5.6 3.6 3.2v1.9H6.5v-1.9l3.6-3.2z"/><path d="M12 14.2v6.3"/></svg>`,
+tackOn:`<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 3.5h5.6l-.9 5.6 3.6 3.2v1.9H6.5v-1.9l3.6-3.2z"/><path d="M12 14.2v6.3" fill="none"/></svg>`,
 
  gear:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1.1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/></svg>`,
  spark:`<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5c.5 4.6 2.4 6.9 7 7.5-4.6.6-6.5 2.9-7 7.5-.5-4.6-2.4-6.9-7-7.5 4.6-.6 6.5-2.9 7-7.5zM19 15c.25 2 1.1 3 3 3.25-1.9.25-2.75 1.25-3 3.25-.25-2-1.1-3-3-3.25 1.9-.25 2.75-1.25 3-3.25z"/></svg>`,
@@ -1451,7 +1528,7 @@ function adoptCfg(remote,fromPush){
  if(changed&&S.booted){
   applyTheme();S.hidden=new Set(pref("hidden",[]));renderNav();renderFeedOpts();
   if(canon(m.lists)!==listsBefore)listsChanged(LIST_KEYS.filter(k=>canon(old.lists[k])!==canon(m.lists[k])));
-  Object.values(DX_RENDER).forEach(f=>f());renderNews();renderTeasers();
+  Object.values(DX_RENDER).forEach(f=>f());renderNews();renderTeasers();renderPins();
  }
  const rs=cfgSig(remote);if(m.dirty&&!(fromPush&&rs===S.lastRemote))queuePush();S.lastRemote=rs;
 }
@@ -1522,6 +1599,7 @@ function shell(){
  $("#app").innerHTML=`
  <div class="home" id="home">
   <header class="hero"><div class="topbar"><div class="hero-date" id="home-date"></div><div class="wxr" id="wxr" aria-label="Weather"></div><div class="tb-r"><button class="icon-btn press" data-act="refresh" aria-label="Refresh">${I.refresh}</button><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div></div><h1 class="greet" id="greet"></h1></header>
+  <section class="pinbar" id="pins" aria-label="Pinned" hidden></section>
   <div class="list" id="list">${ITEMS.map(([id,l])=>`<div class="it" id="it-${id}" data-it="${id}"><div class="it-hd"><button class="it-h" aria-expanded="false" aria-controls="ib-${id}">${rowIcon(id)}<span class="it-n">${esc(l)}</span><span class="it-t" id="tz-${id}"></span></button>${FEEDS.includes(id)?`<div class="it-o" id="io-${id}" role="group" aria-label="Show in ${esc(l)}">${feedOpts(id)}</div>`:""}<span class="it-x" aria-hidden="true"></span></div><div class="it-b" id="ib-${id}" role="region" aria-label="${esc(l)}"><div class="it-bi"><div class="it-p"><section class="sec" id="s-${id}" data-sec="${id}"></section></div></div></div></div>`).join("")}</div>
   <footer class="foot" id="foot"></footer>
  </div>`;
@@ -1529,7 +1607,7 @@ function shell(){
 const RENDER={cal:()=>renderCal(),mkt:()=>renderMarkets(),tip:()=>renderTip(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),health:()=>renderHealth(),learn:()=>renderLearn()};
 function renderNav(){ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=S.hidden.has(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false)}})}
 function observe(){}
-function renderAll(){renderCal();renderTip();renderMarkets();renderNews();renderWatch();renderListen();renderBay();renderShows();renderMovies();renderHealth();renderLearn();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
+function renderAll(){renderCal();renderTip();renderMarkets();renderNews();renderWatch();renderListen();renderBay();renderShows();renderMovies();renderHealth();renderLearn();renderPins();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
 
 /* =================================================================
    HERO + SKY
@@ -1691,7 +1769,7 @@ document.addEventListener("click",e=>{
  const fb=t.closest("[data-feed]");if(fb){setFeed(fb.dataset.feed,fb.dataset.v);return}
  const h=t.closest(".it-hd");if(h&&!t.closest(".it-o")){toggleItem(h.closest(".it").dataset.it);return}
  /* a tap anywhere outside the open section closes it */
- if(S.open&&!t.closest(".it.open,.sheet,.toast,.topbar")&&document.contains(t))toggleItem(S.open,false);
+ if(S.open&&!t.closest(".it.open,.sheet,.toast,.topbar,.pinbar")&&document.contains(t))toggleItem(S.open,false);
 });
 document.addEventListener("keydown",e=>{if(e.key!=="Escape"||$("#sheet").classList.contains("open"))return;if(S.open)toggleItem(S.open,false)});
 
@@ -2000,7 +2078,7 @@ function renderMarkets(){
 /* =================================================================
    NEWS
    ================================================================= */
-const savedNews=()=>Object.values(cfg().saved).filter(x=>x.t>0&&x.n).map(x=>({...x.n,savedAt:x.t})).sort((a,b)=>b.savedAt-a.savedAt);
+const savedNews=()=>Object.values(cfg().saved).filter(x=>x.t>0&&x.n&&!String(x.n.tag||"").startsWith("pin:")).map(x=>({...x.n,savedAt:x.t})).sort((a,b)=>b.savedAt-a.savedAt);
 const WIDE=matchMedia("(min-width:768px)");
 const newsN=()=>WIDE.matches?6:5;
 function renderNews(){
@@ -2055,7 +2133,7 @@ function mediaCard(v,kind){
   ava=v.art?`<img class="ava sqa" src="${esc(v.art)}" alt="">`:`<span class="ava sqa" style="background:hsl(${hue(v.show)} 45% 30%);color:#fff">${esc(String(v.show).replace(/^The /,"").slice(0,1))}</span>`;
   chan=v.show;meta=[ago(v.published),v.secs?durShort(v.secs):""].filter(Boolean).join(" · ");val=v.show;on=showMatch(v.show,lists().podcasts);
  }
- return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp3"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.sugg?`<div class="bec sim" title="${esc(v.because||"")}">${(n=>n?"~ "+esc(n):"Suggested")(seedName(v,yt))}</div>`:""}${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${yt?`<span class="open-in yt" title="Opens in YouTube">${I.yt}</span>`:`<span class="open-in" title="Opens in Spotify">${I.spotify}</span>`}<span class="vid-a">${followBtn(yt?"channels":"podcasts",val,on)}${v.sugg?dxBtn(yt?"ytch:"+norm(v.handle||v.channel):"spshow:"+norm(v.show),yt?"watch":"listen",yt?v.channel:v.show):dxBtn((yt?"yt:"+v.id:"sp:"+v.url),yt?"watch":"listen",v.title)}</span></div></div></article>`;
+ return`<article class="vid">${thumb}<div class="vid-b"><div class="vid-ch">${ava}<b>${esc(chan)}</b><span class="sep">${esc(meta)}</span></div><h3 class="clamp3"><a class="stretch" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>${v.sugg?`<div class="bec sim" title="${esc(v.because||"")}">${(n=>n?"~ "+esc(n):"Suggested")(seedName(v,yt))}</div>`:""}${v.desc?`<p class="clamp3">${esc(v.desc)}</p>`:`<p class="nodesc">No description.</p>`}<div class="vid-f">${yt?`<span class="open-in yt" title="Opens in YouTube">${I.yt}</span>`:`<span class="open-in" title="Opens in Spotify">${I.spotify}</span>`}<span class="vid-a">${followBtn(yt?"channels":"podcasts",val,on)}${pinBtn(yt?"yt:"+v.id:"sp:"+v.url,{kind:yt?"yt":"sp",title:v.title,sub:yt?v.channel:v.show,img:yt?(v.id?`https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`:""):(v.art||""),url:v.url})}${v.sugg?dxBtn(yt?"ytch:"+norm(v.handle||v.channel):"spshow:"+norm(v.show),yt?"watch":"listen",yt?v.channel:v.show):dxBtn((yt?"yt:"+v.id:"sp:"+v.url),yt?"watch":"listen",v.title)}</span></div></div></article>`;
 }
 /* Watch and Listen: a grid like Movies. grid-auto-rows:1fr makes every row as tall as the
    tallest card, so all cards match; each card pins its footer to the bottom. */
@@ -2183,7 +2261,7 @@ function renderBay(){
   <div class="chips2" style="margin:0 0 6px">${cdChip(it.date,t)}${it.dateLabel?`<span class="cd">${esc(it.dateLabel)}</span>`:""}${it.free?`<span class="tagc list">Free</span>`:""}</div>
   <h3>${esc(it.title)}</h3>${it.where?`<div class="where">${esc(it.where)}</div>`:""}<p>${esc(it.blurb)}</p>
   ${it.cal&&it.cal.tips?`<div class="wk-tip">${I.tip}<span>${esc(it.cal.tips)}</span></div>`:""}
-  <div class="acts">${ib(it.url,I.ext,"Details","pri")}${it.tickets?ib(it.tickets,I.ticket,"Get tickets"):""}${calBtn(it.title,it.cal,it.url)}${gBtn([it.title,it.where].filter(Boolean).join(" "))}${it.ask?askBtn(it.ask):""}${dxBtn("bay:"+it.title+"|"+it.date,"bay",it.title)}</div>
+  <div class="acts">${ib(it.url,I.ext,"Details","pri")}${it.tickets?ib(it.tickets,I.ticket,"Get tickets"):""}${calBtn(it.title,it.cal,it.url)}${gBtn([it.title,it.where].filter(Boolean).join(" "))}${it.ask?askBtn(it.ask):""}${pinBtn("bay:"+it.title+"|"+it.date,{kind:"bay",title:it.title,sub:it.where||"",date:it.cal&&it.cal.start&&it.cal.start.slice(0,10)===it.date?it.cal.start.slice(0,16):it.date,url:it.tickets||it.url})}${dxBtn("bay:"+it.title+"|"+it.date,"bay",it.title)}</div>
  </div></article>`})):`<div class="card"><div class="empty-row">Nothing picked for the next few days.</div></div>`}`;
 }
 
@@ -2202,7 +2280,7 @@ function renderShows(){
   <div class="where">${esc([s.venue,s.city].filter(Boolean).join(", "))}${s.time?` · ${esc(hmLabel("T"+s.time))}`:""}</div>
   ${s.why?`<p>${esc(s.why)}</p>`:""}
   ${s.price||(s.cal&&s.cal.tips)?`<div class="wk-tip">${I.tip}<span>${esc([s.price,s.cal&&s.cal.tips].filter(Boolean).join(" · "))}</span></div>`:""}
-  <div class="acts">${ib(tk,I.ticket,s.soldOut?"Sold out · waitlist":"Get tickets","pri")}${calBtn(s.title,s.cal,s.url)}${gBtn([s.title,s.venue,s.city,fmtKey(s.date,{month:"long",day:"numeric",year:"numeric"})].filter(Boolean).join(" "))}${dxBtn("sh:"+s.title+"|"+s.date,"shows",s.title)}</div>
+  <div class="acts">${ib(tk,I.ticket,s.soldOut?"Sold out · waitlist":"Get tickets","pri")}${calBtn(s.title,s.cal,s.url)}${gBtn([s.title,s.venue,s.city,fmtKey(s.date,{month:"long",day:"numeric",year:"numeric"})].filter(Boolean).join(" "))}${pinBtn("sh:"+s.title+"|"+s.date,{kind:"sh",title:s.title,sub:[s.venue,s.city].filter(Boolean).join(", "),date:s.time?s.date+"T"+s.time:s.date,url:tk})}${dxBtn("sh:"+s.title+"|"+s.date,"shows",s.title)}</div>
  </div></article>`};
  el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-artists">Your artists</button></div>
  <div class="grp-t">Your artists<span>${mine.length} ${mine.length===1?"show":"shows"}</span></div>
@@ -2613,8 +2691,8 @@ function renderMovies(){
  const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,soon,live,total}=mvData();
  const nowChip=x=>{if(!x.released)return"";const d=dayDiff(x.released,tk);return d<=3?`<span class="cd now"><i></i>New</span>`:`<span class="cd">Week ${Math.floor(d/7)+1}</span>`};
  el.innerHTML=`<div class="sh"><span class="aux"><button class="aux" data-act="settings-movies">Movie settings</button> · <a class="aux" href="https://www.fandango.com/94040_movietimes" target="_blank" rel="noopener">Showtimes near you</a></span></div>
- ${now.length?`<div class="grp-t">In theaters<span>${now.length}${live?" of "+total+" · TMDB":""}</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,"Tickets & showtimes","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" "+String(x.released||x.date||"").slice(0,4)+" movie")}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div>`:""}
- ${soon.length?`<div class="grp-t">Coming soon<span>${soon.length}</span></div>${cols(soon.map(x=>`<article class="ev2">${poster(x,true)}<div class="ev2-x"><div class="chips2" style="margin:0 0 6px">${cdChip(x.date,null,"Opens ")}<span class="cd">${esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</span>${x.big?`<span class="tagc list">Big one</span>`:""}</div><h3>${esc(x.title)}</h3>${x.genre?`<div class="where">${esc(x.genre)}</div>`:""}${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,x.presale?"Pre-sale tickets":"Tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${calBtn("🎬 "+x.title+" opens",{date:x.date,tips:x.blurb||""},tixUrl(x))}${gBtn(x.title+" "+String(x.date).slice(0,4)+" movie")}${dxBtn("mv:"+x.title,"movies",x.title)}</div></div></article>`))}`:""}
+ ${now.length?`<div class="grp-t">In theaters<span>${now.length}${live?" of "+total+" · TMDB":""}</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,"Tickets & showtimes","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" "+String(x.released||x.date||"").slice(0,4)+" movie")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:["In theaters",x.rating].filter(Boolean).join(" · "),img:x.poster,url:tixUrl(x)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div>`:""}
+ ${soon.length?`<div class="grp-t">Coming soon<span>${soon.length}</span></div>${cols(soon.map(x=>`<article class="ev2">${poster(x,true)}<div class="ev2-x"><div class="chips2" style="margin:0 0 6px">${cdChip(x.date,null,"Opens ")}<span class="cd">${esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</span>${x.big?`<span class="tagc list">Big one</span>`:""}</div><h3>${esc(x.title)}</h3>${x.genre?`<div class="where">${esc(x.genre)}</div>`:""}${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,x.presale?"Pre-sale tickets":"Tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${calBtn("🎬 "+x.title+" opens",{date:x.date,tips:x.blurb||""},tixUrl(x))}${gBtn(x.title+" "+String(x.date).slice(0,4)+" movie")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:"Opens "+fmtKey(x.date,{month:"short",day:"numeric"}),img:x.poster,date:x.date,url:tixUrl(x)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></div></article>`))}`:""}
  ${!now.length&&!soon.length?`<div class="card"><div class="empty-row">No movies listed today.</div></div>`:""}`;
 }
 /* Movies come live from TMDB through the backend (when a TMDB_KEY script property is set);
@@ -2804,6 +2882,7 @@ document.addEventListener("click",async e=>{
   if(act==="settings-artists"){openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-artists");if(el)el.scrollIntoView({block:"center"})});return}
   if(act==="close-sheet"){closeSheet();return}
   if(act==="undo"){const u=toastUndo;toastUndo=null;$("#toast").classList.remove("show");if(u)u();return}
+  if(act==="pins-clear"){clearPins();return}
   if(act==="restore-hidden"){const now=Date.now();cfgSet(c=>{for(const k in c.dismissed)if(c.dismissed[k]>0)c.dismissed[k]=-now});Object.values(DX_RENDER).forEach(f=>f());renderTeasers();refreshSettings();toast("Everything's back");return}
   if(act==="tmdb-save"){const v=($("#tmdb-key").value||"").trim();if(!v){toast("Paste a key first");return}LS.set("sd-tmdb-key",v);LS.del("sd-tmdb");toast("Loading movies…");await loadMovies(true);refreshSettings();return}
   if(act==="tmdb-clear"){LS.del("sd-tmdb-key");LS.del("sd-tmdb");S.mv=null;renderMovies();renderTeasers();refreshSettings();toast("TMDB key removed");return}
@@ -2836,6 +2915,8 @@ document.addEventListener("click",async e=>{
  const rv=t.closest("[data-rev]");if(rv){S.review={kind:rv.dataset.rev,order:null};$("#sheet-p").innerHTML=`<div class="grab"></div>`+reviewHTML();bindDeck();return}
  const mvp=t.closest("[data-mvp]");if(mvp){const k=mvp.dataset.mvp,raw=mvp.dataset.v;setMvPref(k,/^\d+$/.test(raw)?+raw:raw);return}
  const mvg=t.closest("[data-mvg]");if(mvg){const g=mvg.dataset.mvg,o=mvPrefs();const has=o.hide.some(h=>norm(h)===norm(g));setMvPref("hide",has?o.hide.filter(h=>norm(h)!==norm(g)):o.hide.concat([g]));return}
+ const pnb=t.closest("[data-pin]");if(pnb){e.preventDefault();e.stopPropagation();togglePin(pnb.dataset.pin);return}
+ const unp=t.closest("[data-unpin]");if(unp){e.preventDefault();const tile=unp.closest(".pin"),k=unp.dataset.unpin;if(tile&&!matchMedia("(prefers-reduced-motion: reduce)").matches){tile.classList.add("out");setTimeout(()=>togglePin(k),230)}else togglePin(k);return}
  const dxb=t.closest("[data-dx]");if(dxb){e.preventDefault();e.stopPropagation();dismiss(dxb.dataset.dx,dxb.dataset.dxs,dxb.dataset.dxl);return}
  const mr=t.closest("[data-mk-range]");if(mr){S.mk.range=mr.dataset.mkRange;LS.set("sd-mk-range",S.mk.range);syncRanges();$$("[data-mk-range]").forEach(b=>{b.classList.toggle("on",b===mr);b.setAttribute("aria-selected",b===mr)});drawMk();await loadMkSeries();return}
  const ms=t.closest("[data-mk]");if(ms){const i=ms.dataset.mk.indexOf("|");S.mk.k=ms.dataset.mk.slice(0,i);S.mk.s=ms.dataset.mk.slice(i+1);LS.set("sd-mk-sel",{k:S.mk.k,s:S.mk.s});syncRanges();renderMkt();await loadMkSeries();if(isCx())loadCxDaily(S.mk.s).then(renderMkCtx).catch(()=>{});return}
