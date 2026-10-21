@@ -303,7 +303,98 @@
   }
  ],
  "discover": {
-  "youtube": [],
+  "youtube": [
+   {
+    "handle": "@Mrwhosetheboss",
+    "channel": "Mrwhosetheboss",
+    "seed": "@mkbhd",
+    "because": "Because you like MKBHD: phone and gadget showdowns with bigger, more playful experiments."
+   },
+   {
+    "handle": "@Dave2D",
+    "channel": "Dave2D",
+    "seed": "@mkbhd",
+    "because": "Because you like MKBHD: short, calm reviews of laptops and gadgets that get to the point."
+   },
+   {
+    "handle": "@LinusTechTips",
+    "channel": "Linus Tech Tips",
+    "seed": "@mkbhd",
+    "because": "Because you like MKBHD: PC hardware, builds and tech news, posted almost every day."
+   },
+   {
+    "handle": "@SteveMould",
+    "channel": "Steve Mould",
+    "seed": "@veritasium",
+    "because": "Because you like Veritasium: hands-on demos that explain one surprising bit of physics."
+   },
+   {
+    "handle": "@RealEngineering",
+    "channel": "Real Engineering",
+    "seed": "@veritasium",
+    "because": "Because you like Veritasium: deep dives on how planes, rockets and power grids work."
+   },
+   {
+    "handle": "@SmarterEveryDay",
+    "channel": "SmarterEveryDay",
+    "seed": "@veritasium",
+    "because": "Because you like Veritasium: slow-motion experiments and factory tours with an engineer's curiosity."
+   },
+   {
+    "handle": "@RMTransit",
+    "channel": "RMTransit",
+    "seed": "@NotJustBikes",
+    "because": "Because you like Not Just Bikes: transit systems around the world, compared and explained."
+   },
+   {
+    "handle": "@CityNerd",
+    "channel": "CityNerd",
+    "seed": "@NotJustBikes",
+    "because": "Because you like Not Just Bikes: data-driven, funny rankings of US cities, streets and transit."
+   },
+   {
+    "handle": "@petersantenello",
+    "channel": "Peter Santenello",
+    "seed": "@channel5YouTube",
+    "because": "Because you like Channel 5: unscripted days with people in corners of America you rarely see."
+   },
+   {
+    "handle": "@johnnyharris",
+    "channel": "Johnny Harris",
+    "seed": "@channel5YouTube",
+    "because": "Because you like Channel 5: reported, map-heavy documentaries on strange stories behind the news."
+   },
+   {
+    "handle": "@aiexplained-official",
+    "channel": "AI Explained",
+    "seed": "@OpenAI",
+    "because": "Because you follow OpenAI: careful breakdowns of new AI models and benchmarks, without the hype."
+   },
+   {
+    "handle": "@TwoMinutePapers",
+    "channel": "Two Minute Papers",
+    "seed": "@OpenAI",
+    "because": "Because you follow OpenAI: quick tours of fresh AI and simulation research papers."
+   },
+   {
+    "handle": "@DwarkeshPatel",
+    "channel": "Dwarkesh Patel",
+    "seed": "@OpenAI",
+    "because": "Because you follow OpenAI: long interviews with AI researchers and lab leaders."
+   },
+   {
+    "handle": "@BostonDynamics",
+    "channel": "Boston Dynamics",
+    "seed": "@figureai",
+    "because": "Because you follow Figure: Atlas and Spot demos from another humanoid and legged-robot lab."
+   },
+   {
+    "handle": "@unitreerobotics",
+    "channel": "Unitree Robotics",
+    "seed": "@figureai",
+    "because": "Because you follow Figure: humanoid and quadruped demos from the fastest-shipping robot maker in China."
+   }
+  ],
   "spotify": [],
   "artists": [
    {
@@ -345,6 +436,58 @@
     "name": "Metro Boomin",
     "because": "Like Don Toliver",
     "url": "https://open.spotify.com/artist/0iEtIxbK0KxaSlF7G42ZOp"
+   }
+  ],
+  "podcasts": [
+   {
+    "show": "Dwarkesh Podcast",
+    "seed": "Lex Fridman Podcast",
+    "because": "Because you like Lex Fridman: long, well-researched interviews with AI researchers and historians."
+   },
+   {
+    "show": "The Joe Rogan Experience",
+    "seed": "Lex Fridman Podcast",
+    "because": "Because you like Lex Fridman: open-ended conversations, often with fighters, comedians and scientists."
+   },
+   {
+    "show": "No Priors: Artificial Intelligence | Technology | Startups",
+    "seed": "Lex Fridman Podcast",
+    "because": "Because you like Lex Fridman: AI founders and researchers on what they're building now."
+   },
+   {
+    "show": "All-In with Chamath, Jason, Sacks & Friedberg",
+    "seed": "Moonshots with Peter Diamandis",
+    "because": "Because you like Moonshots: four investors on tech, markets and policy every week."
+   },
+   {
+    "show": "Hard Fork",
+    "seed": "Moonshots with Peter Diamandis",
+    "because": "Because you like Moonshots: a weekly, skeptical look at AI and tech news from The New York Times."
+   },
+   {
+    "show": "The Tim Ferriss Show",
+    "seed": "Modern Wisdom",
+    "because": "Because you like Modern Wisdom: long interviews about how top performers train, think and work."
+   },
+   {
+    "show": "The Knowledge Project",
+    "seed": "Modern Wisdom",
+    "because": "Because you like Modern Wisdom: Shane Parrish on decision-making, with founders and investors."
+   },
+   {
+    "show": "The Peter Attia Drive",
+    "seed": "Huberman Lab",
+    "because": "Because you like Huberman Lab: longevity, exercise and metabolic health in clinical detail."
+   },
+   {
+    "show": "FoundMyFitness",
+    "seed": "Huberman Lab",
+    "because": "Because you like Huberman Lab: Rhonda Patrick on nutrition, aging and the research behind them."
+   },
+   {
+    "show": "My First Million",
+    "seed": "The Diary Of A CEO with Steven Bartlett",
+    "because": "Because you like The Diary Of A CEO: business ideas and founder stories, told casually twice a week."
    }
   ]
  },
@@ -675,12 +818,6 @@
     "blurb": "The third Jumanji with Dwayne Johnson and Kevin Hart."
    }
   ]
- },
- "different": {
-  "title": "There's a high-pitched hum that only young people can hear",
-  "blurb": "The 'Mosquito' device emits a 17.4 kHz tone audible to most people under 25 but inaudible to most adults over 30, due to age-related hearing loss called presbycusis. It was originally designed to deter loitering teenagers — but teens repurposed the frequency as a ringtone teachers can't hear.",
-  "url": "https://en.wikipedia.org/wiki/The_Mosquito",
-  "ask": "At what age does hearing loss at 17 kHz typically become noticeable?"
  },
  "vocab": [
   {

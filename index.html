@@ -412,16 +412,6 @@ h1,h2,h3,p{margin:0}
 .watching{font-size:13px;color:var(--ink-3);margin:10px 4px 0;line-height:1.45}
 .watching button{color:var(--link);font-weight:600}
 
-/* something different */
-.feat{margin:30px var(--g) 0;border-radius:28px;padding:22px 20px 20px;color:#fff;background:radial-gradient(120% 100% at 100% 0%,#33467F 0%,#16203B 52%,#0B1022 100%);position:relative;overflow:hidden}
-.feat::before{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,.12);box-shadow:0 0 0 28px rgba(255,255,255,.03),0 0 0 56px rgba(255,255,255,.025)}
-.feat small{position:relative;font-size:13px;font-weight:600;opacity:.66}
-.feat h3{position:relative;font-family:var(--display);font-size:27px;line-height:1.1;letter-spacing:-.025em;font-weight:700;margin-top:8px}
-.feat p{position:relative;font-size:15.5px;line-height:1.5;opacity:.86;margin-top:9px}
-.feat .acts{position:relative;display:flex;gap:8px;margin-top:16px}
-.feat .btn{background:rgba(255,255,255,.15);color:#fff}
-.feat .btn.pri{background:#fff;color:#000}
-
 /* learn */
 .lw{padding:18px 18px 16px;--acc:var(--vocab);--acc-soft:var(--vocab-soft)}
 .lw.es{--acc:var(--es);--acc-soft:var(--es-soft)}
@@ -624,8 +614,6 @@ body{overflow-x:clip}
   #s-learn>.sh{grid-column:1/-1;margin-bottom:-2px}
   .lw+.lw{margin-top:0}
 
-  .feat{padding:28px 28px 26px}
-  .feat p{max-width:64ch}
   .foot{padding-top:44px}
 
   /* sheets become a centred panel instead of a bottom sheet */
@@ -649,10 +637,6 @@ body{overflow-x:clip}
 
   /* rails: three cards per view, with arrow buttons on pointer devices */
   .vid{flex-basis:calc((100% - 24px)/3)}
-  .feat{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:32px;align-items:end;padding:32px 34px 30px}
-  .feat>small,.feat>h3,.feat>p{grid-column:1}
-  .feat>.acts{grid-column:2;grid-row:1/4;margin-top:0}
-  .feat h3{font-size:32px}
 }
 
 /* mouse / trackpad niceties */
@@ -738,7 +722,7 @@ html{background:var(--bg)}
 .it.open .it-n{font-size:20px}
 .it-p{--g:14px;margin:0 0 26px;padding:14px 0 0;color:var(--ink);opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
 .it.open .it-p{opacity:1;transform:none;transition-delay:.08s}
-.it-p>.sec,.it-p>.feat-wrap{padding:0!important;grid-column:auto!important}
+.it-p>.sec{padding:0!important;grid-column:auto!important}
 .it-p .sh h2{display:none}
 .it-p .sh{justify-content:flex-end;margin:0 2px 10px}
 .it-p .sh:not(:has(.aux)){display:none}
@@ -1162,9 +1146,9 @@ html{background:var(--bg)}
 const CONFIG={
   tz:"America/Los_Angeles",
   home:{name:"Mountain View",lat:37.3861,lon:-122.0839},
-  youtube:{apiKey:"AIzaSyAlhdRMk6fTh5NraV0bRvUAnVLd16RT4JE",perChannel:2,maxAgeDays:3,cacheMinutes:60},
+  youtube:{apiKey:"AIzaSyAlhdRMk6fTh5NraV0bRvUAnVLd16RT4JE",perChannel:2,maxAgeDays:5,suggest:5,cacheMinutes:60},
   backend:"https://script.google.com/macros/s/AKfycbxz0KJDy7zU6mzFQYHSJz1Mmf6FWMt0jHHOxL0OAlkMbbV4xLI54oAyaT0A-A5LQtBc/exec",
-  podcastMaxAgeDays:3,
+  podcastMaxAgeDays:5,podcastSuggest:3,
   lists:{
     channels:["@mkbhd","@channel5YouTube","@figureai","@veritasium","@NotJustBikes","@OpenAI"],
     podcasts:["Moonshots with Peter Diamandis","Modern Wisdom","Lex Fridman Podcast","The Diary Of A CEO with Steven Bartlett","Huberman Lab"],
@@ -1189,11 +1173,16 @@ const CONFIG={
    - pick: a buy-rated stock idea {sym,name,theme,close,pct,asOf,what,why,risk,rating:{label,buy,total},target,hi52,closes,history[]}.
    - btc: Benjamin Cowen's latest take.
    - news[]: {id,tag,title,blurb,src,domain,date,url,ask?}
-   - youtube[]: uploads from the channel list in the last 3 days (the page also loads these live).
-   - spotify[]: episodes from the podcast list released in the last 3 days, exact titles,
+   - youtube[]: uploads from the channel list in the last 5 days (the page also loads these live).
+   - spotify[]: episodes from the podcast list released in the last 5 days, exact titles,
      {show,title,desc,published,secs,art,url:"https://open.spotify.com/episode/…"}.
-   - discover.youtube: suggested channels {handle,channel,because}; the page shows their uploads
-     from the last 3 days. discover.spotify: episodes from new shows released in the last 3 days.
+   - discover.youtube: a pool of 10–15 suggested channels {handle,channel,seed,because}; seed is the
+     followed handle it's based on. The page loads their uploads live and shows up to 5 from the
+     last 5 days (one per channel, two per seed), only for seeds still in his channel list.
+   - discover.podcasts: a pool of 8–12 suggested shows {show,seed,because} (exact Spotify show
+     names; seed is the followed show). The page loads their latest episodes live through the
+     backend and shows up to 3 from the last 5 days, one per show.
+   - discover.spotify: optional extra episodes from new shows released in the last 5 days.
    - bay: {range,items[{id,title,where,blurb,date,endDate?,free?,url,tickets?,cal:{start,end,location,tips}}]}
      things to do around the Bay over the next few days.
    - shows: {note,items[{artist,artists?[],title,date,time:"HH:MM",venue,city,match:"list"|"like",like?,
@@ -1463,7 +1452,7 @@ async function pullCfg(){
 /* =================================================================
    STATE
    ================================================================= */
-const SECTIONS=[["cal","Calendar"],["tip","Try Today"],["mkt","Markets"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["health","Health"],["diff","Something different"],["learn","Learn"]];
+const SECTIONS=[["cal","Calendar"],["tip","Try Today"],["mkt","Markets"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["health","Health"],["learn","Learn"]];
 const S={
  hidden:new Set(pref("hidden",[])),
  wx:null,
@@ -1493,28 +1482,28 @@ function initData(){
 /* =================================================================
    SHELL — a list of sections on the sky. Each row opens in place.
    ================================================================= */
-const ITEMS=[["cal","Calendar"],["mkt","Markets"],["tip","Try Today"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["health","Health"],["learn","Learn"],["diff","Something different"]];
+const ITEMS=[["cal","Calendar"],["mkt","Markets"],["tip","Try Today"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["health","Health"],["learn","Learn"]];
 /* the icon beside each row name */
 function rowIcon(id){
  if(id==="cal")return`<span class="it-ic logo" aria-hidden="true">${I.gcal}</span>`;
  if(id==="watch")return`<span class="it-ic logo yt" aria-hidden="true">${I.yt}</span>`;
  if(id==="listen")return`<span class="it-ic logo" aria-hidden="true">${I.spotify}</span>`;
  if(id==="tip"){const t=todaysTip(),st=TIPI[t.cat]||TIPI.Energy;return`<span class="it-ic tinted" style="background:${st.bg}" aria-hidden="true">${st.ic}</span>`}
- const m={mkt:["chart","#0A9455"],news:["news","#2B5EF0"],bay:["pin","#E8590C"],shows:["mic","#9B4DFF"],movies:["film","#DD3B35"],health:["pulse","#E8336D"],learn:["book","#4C46D6"],diff:["spark","#1E2E61"]}[id];
+ const m={mkt:["chart","#0A9455"],news:["news","#2B5EF0"],bay:["pin","#E8590C"],shows:["mic","#9B4DFF"],movies:["film","#DD3B35"],health:["pulse","#E8336D"],learn:["book","#4C46D6"]}[id];
  return m?`<span class="it-ic tinted" style="background:${m[1]}" aria-hidden="true">${I[m[0]]}</span>`:"";
 }
 function shell(){
  $("#app").innerHTML=`
  <div class="home" id="home">
   <header class="hero"><div class="topbar"><div class="hero-date" id="home-date"></div><div class="wxr" id="wxr" aria-label="Weather"></div><div class="tb-r"><button class="icon-btn press" data-act="refresh" aria-label="Refresh">${I.refresh}</button><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div></div><h1 class="greet" id="greet"></h1></header>
-  <div class="list" id="list">${ITEMS.map(([id,l])=>`<div class="it" id="it-${id}" data-it="${id}"><button class="it-h" aria-expanded="false" aria-controls="ib-${id}">${rowIcon(id)}<span class="it-n">${esc(l)}</span><span class="it-t" id="tz-${id}"></span><span class="it-x" aria-hidden="true"></span></button><div class="it-b" id="ib-${id}" role="region" aria-label="${esc(l)}"><div class="it-bi"><div class="it-p">${id==="diff"?`<section class="feat-wrap" id="s-diff" data-sec="diff"></section>`:`<section class="sec" id="s-${id}" data-sec="${id}"></section>`}</div></div></div></div>`).join("")}</div>
+  <div class="list" id="list">${ITEMS.map(([id,l])=>`<div class="it" id="it-${id}" data-it="${id}"><button class="it-h" aria-expanded="false" aria-controls="ib-${id}">${rowIcon(id)}<span class="it-n">${esc(l)}</span><span class="it-t" id="tz-${id}"></span><span class="it-x" aria-hidden="true"></span></button><div class="it-b" id="ib-${id}" role="region" aria-label="${esc(l)}"><div class="it-bi"><div class="it-p"><section class="sec" id="s-${id}" data-sec="${id}"></section></div></div></div></div>`).join("")}</div>
   <footer class="foot" id="foot"></footer>
  </div>`;
 }
-const RENDER={cal:()=>renderCal(),mkt:()=>renderMarkets(),tip:()=>renderTip(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),health:()=>renderHealth(),learn:()=>renderLearn(),diff:()=>renderDiff()};
+const RENDER={cal:()=>renderCal(),mkt:()=>renderMarkets(),tip:()=>renderTip(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),health:()=>renderHealth(),learn:()=>renderLearn()};
 function renderNav(){ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=S.hidden.has(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false)}})}
 function observe(){}
-function renderAll(){renderCal();renderTip();renderMarkets();renderNews();renderWatch();renderListen();renderBay();renderShows();renderMovies();renderHealth();renderDiff();renderLearn();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
+function renderAll(){renderCal();renderTip();renderMarkets();renderNews();renderWatch();renderListen();renderBay();renderShows();renderMovies();renderHealth();renderLearn();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
 
 /* =================================================================
    HERO + SKY
@@ -1596,14 +1585,14 @@ function teaser(id){
   return out.join("")}
  if(id==="tip"){const t=todaysTip();return (t.mins?mo(esc(t.mins)):"")+tx(esc(t.title))}
  if(id==="news"){const n=DATA.news;if(!n.length)return tx("Nothing today","q");const top=n[0];return mo(String(n.length)+" stories")+tx(esc(top.title))}
- if(id==="watch"){const it=ytItems();if(!it.length)return tx("Nothing new","q");const ch=[...new Set(it.map(v=>v.channel))];return mo(`${it.length} new`)+tx(esc(ch.slice(0,2).join(", ")+(ch.length>2?` +${ch.length-2}`:"")))}
- if(id==="listen"){const it=spItems();if(!it.length)return tx("Nothing new","q");const sh=[...new Set(it.map(p=>p.show))];return mo(`${it.length} new`)+tx(esc(sh.slice(0,2).join(", ")+(sh.length>2?` +${sh.length-2}`:"")))}
+ /* the readout counts what's new from his own list; suggestions are mentioned only when that's all there is */
+ if(id==="watch"){const all=ytItems(),it=all.filter(v=>!v.sugg);if(!it.length)return all.length?mo(`${all.length} suggested`):tx("Nothing new","q");const ch=[...new Set(it.map(v=>v.channel))];return mo(`${it.length} new`)+tx(esc(ch.slice(0,2).join(", ")+(ch.length>2?` +${ch.length-2}`:"")))}
+ if(id==="listen"){const all=spItems(),it=all.filter(p=>!p.sugg);if(!it.length)return all.length?mo(`${all.length} suggested`):tx("Nothing new","q");const sh=[...new Set(it.map(p=>p.show))];return mo(`${it.length} new`)+tx(esc(sh.slice(0,2).join(", ")+(sh.length>2?` +${sh.length-2}`:"")))}
  if(id==="bay"){const it=bayItems();if(!it.length)return tx("Nothing picked yet","q");const f=it[0];return mo(esc(until(f.date,f.cal&&f.cal.start&&f.cal.start.slice(11)).l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
  if(id==="shows"){const it=showItems();if(!it.length)return tx("No shows for your artists yet","q");const f=it[0];return mo(esc(until(f.date,f.time).l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
  if(id==="movies"){const{now,soon}=mvData();if(!now.length&&!soon.length)return tx("Nothing listed","q");return (now.length?mo(`${now.length} playing`)+tx(esc(now[0].title)):"")+(soon.length?kk("Next")+tx(esc(soon[0].title)+" · "+esc(until(soon[0].date).l.replace(/^In /,"")),"q"):"")}
  if(id==="act"){if(!HEALTH.ok)return tx("Fitbit Air · no data yet","q");const parts=[];if(HEALTH.steps&&HEALTH.steps.steps){const v=+HEALTH.steps.steps.countSum;if(v)parts.push(mo(num(v,0)),tx("steps"))}if(HEALTH.sleep&&HEALTH.sleep.length){const sl=HEALTH.sleep[0].sleep;if(sl&&sl.summary){const mins=+sl.summary.minutesAsleep;if(mins){const h=Math.floor(mins/60),m=mins%60;parts.push(kk("Sleep"),tx(h+"h "+m+"m"))}}}if(HEALTH.restingHR&&HEALTH.restingHR.length){const v=HEALTH.restingHR[0].dailyRestingHeartRate?.beatsPerMinute;if(v!=null)parts.push(kk("HR"),tx(v+" bpm"))}return parts.length?parts.join(""):tx("Fitbit Air","q")}
  if(id==="learn"){const v=VOCAB[VOCAB.length-1],s=SPAN[SPAN.length-1];return (v?tx(esc(v.word),"ser"):"")+(s?`<span class="tx ser" lang="es">${esc(s.phrase)}</span>`:"")}
- if(id==="diff"){return tx(esc(DATA.different.title))}
  return "";
 }
 function renderTeasers(){if(!S.booted)return;ITEMS.forEach(([id])=>{const el=$("#tz-"+id);if(el)el.innerHTML=teaser(id)})}
@@ -1974,7 +1963,7 @@ const showMatch=(show,list)=>list.some(x=>{const a=norm(x),b=norm(show);return a
 function inList(k,v){return k==="podcasts"?showMatch(v,lists().podcasts):lists()[k].some(x=>String(x).toLowerCase()===String(v).toLowerCase())}
 /* Watch and Listen only show things released in the last few days, newest first. */
 const ageDays=p=>{const t=toDate(p);return isNaN(t)?99:dayDiff(dayKey(t),todayKey())};
-const isFresh=p=>ageDays(p)<=CONFIG.youtube.maxAgeDays;
+const isFresh=(p,d)=>ageDays(p)<=(d||CONFIG.youtube.maxAgeDays);
 const byNewest=(a,b)=>toDate(b.published)-toDate(a.published);
 function followBtn(key,val,on){return val?`<button class="ib sm press fol ${on?"on":""}" data-follow="${key}" data-v="${esc(val)}" aria-pressed="${on}" aria-label="${on?"Following":"Follow"}" data-tip="${on?"Following · tap to unfollow":"Follow"}">${on?I.check:I.plus}</button>`:""}
 function mediaCard(v,kind){
@@ -2005,7 +1994,9 @@ function bindRail(id){
  $$("img[data-vid]",rail).forEach(img=>{const fix=()=>{if(img.dataset.fb||!img.dataset.vid)return;img.dataset.fb=1;img.src=`https://i.ytimg.com/vi/${img.dataset.vid}/hqdefault.jpg`};img.addEventListener("error",fix);img.addEventListener("load",()=>{if(img.naturalWidth&&img.naturalWidth<200)fix()})});
 }
 function railArrows(rail){const w=rail.closest(".rail-wrap");if(!w)return;const max=rail.scrollWidth-rail.clientWidth-4;const p=$(".rail-nav.prev",w),n=$(".rail-nav.next",w);if(p)p.disabled=rail.scrollLeft<=4;if(n)n.disabled=rail.scrollLeft>=max;const d=$("#"+rail.id+"-dots");if(d)d.style.visibility=max<=0?"hidden":""}
-const ytSugg=()=>(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.handle&&!inList("channels",d.handle)&&!isDis("ytch:"+norm(d.handle)));
+/* suggestions only come from creators still on his lists (seed), and never ones he already follows */
+const seedOk=(k,seed)=>!seed||(k==="podcasts"?showMatch(seed,lists().podcasts):inList(k,seed));
+const ytSugg=()=>(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.handle&&seedOk("channels",d.seed)&&!inList("channels",d.handle)&&!isDis("ytch:"+norm(d.handle)));
 function ytItems(){
  const live=S.yt.source==="live"&&S.yt.items;
  const items=live?S.yt.items:[...(DATA.youtube||[]),...(DATA.discover&&DATA.discover.youtube||[]).filter(d=>d.id&&d.title).map(d=>({...d,sugg:true}))];
@@ -2014,7 +2005,7 @@ function ytItems(){
 function renderWatch(){
  const el=$("#s-watch");const items=ytItems();
  el.innerHTML=`<div class="sh"><h2><span class="h-ic yt">${I.yt}</span>Watch</h2><button class="aux" data-act="settings-list" data-k="channels">Your channels</button></div>
- ${railHTML("yt-rail",items,"yt",S.yt.error&&!S.yt.items?`YouTube didn't respond (${S.yt.error}).`:"Nothing new from your channels in the last 3 days.")}`;
+ ${railHTML("yt-rail",items,"yt",S.yt.error&&!S.yt.items?`YouTube didn't respond (${S.yt.error}).`:`Nothing new from your channels in the last ${CONFIG.youtube.maxAgeDays} days.`)}`;
  bindRail("yt-rail");
 }
 async function yt(path,params){const u=new URL("https://www.googleapis.com/youtube/v3/"+path);Object.entries({...params,key:ytKey()}).forEach(([k,v])=>u.searchParams.set(k,v));const r=await fetch(u);const j=await r.json();if(j.error)throw new Error((j.error.errors&&j.error.errors[0]&&j.error.errors[0].reason)||j.error.message||"error");return j}
@@ -2033,19 +2024,19 @@ async function loadCowen(){
 async function loadYouTube(force){
  if(!ytKey())return;
  const chs=lists().channels,sg=ytSugg();
- const sig=(chs.join(",")+"|"+sg.map(d=>d.handle).join(",")+"|v3").toLowerCase();const cache=LS.get("sd-yt-cache",null);
+ const sig=(chs.join(",")+"|"+sg.map(d=>d.handle).join(",")+"|v4").toLowerCase();const cache=LS.get("sd-yt-cache",null);
  if(cache&&cache.sig===sig){S.yt={items:cache.items,source:"live",updated:cache.t,error:""};renderWatch();if(!force&&Date.now()-cache.t<CONFIG.youtube.cacheMinutes*6e4)return}
  try{
   const fol=(await Promise.all(chs.map(h=>ytChannel(h).then(c=>({...c,handle:h})).catch(()=>null)))).filter(Boolean);
-  const sug=(await Promise.all(sg.map(d=>ytChannel(d.handle).then(c=>({...c,handle:d.handle,because:d.because,sugg:true})).catch(()=>null)))).filter(Boolean);
+  const sug=(await Promise.all(sg.map(d=>ytChannel(d.handle).then(c=>({...c,handle:d.handle,because:d.because,seed:d.seed||"",sugg:true})).catch(()=>null)))).filter(Boolean);
   const chans=fol.concat(sug);if(!chans.length)throw new Error("no channels found");
   const lsts=await Promise.all(chans.map(async ch=>{let j;try{j=await yt("playlistItems",{part:"contentDetails",maxResults:ch.sugg?"4":"6",playlistId:"UULF"+ch.id.slice(2)})}catch(e){try{j=await yt("playlistItems",{part:"contentDetails",maxResults:"6",playlistId:ch.uploads})}catch(e2){j={items:[]}}}return(j.items||[]).map(i=>({vid:i.contentDetails.videoId,ch}))}));
   const flat=lsts.flat();const by={};
   for(let i=0;i<flat.length;i+=50){const vj=await yt("videos",{part:"snippet,contentDetails,statistics",id:flat.slice(i,i+50).map(f=>f.vid).join(",")});(vj.items||[]).forEach(v=>by[v.id]=v)}
   const curated={};(DATA.youtube||[]).concat(DATA.discover&&DATA.discover.youtube||[]).forEach(v=>{if(v.id&&v.desc)curated[v.id]=v.desc});
-  const all=flat.map(f=>{const v=by[f.vid];if(!v)return null;const secs=isoSecs(v.contentDetails.duration);if(secs<90)return null;const th=v.snippet.thumbnails||{};return{id:f.vid,channel:f.ch.title,handle:f.ch.handle,avatar:f.ch.avatar,sugg:!!f.ch.sugg,because:f.ch.because||"",title:v.snippet.title,desc:curated[f.vid]||pickDesc(v.snippet.description),published:v.snippet.publishedAt,secs,views:+((v.statistics||{}).viewCount)||0,thumb:(th.maxres||th.standard||th.high||th.medium||{}).url||"",url:"https://www.youtube.com/watch?v="+f.vid}}).filter(Boolean).filter(x=>isFresh(x.published)).sort(byNewest);
-  const per={};let nSug=0;
-  const items=all.filter(x=>{const c=(per[x.handle]=(per[x.handle]||0)+1);if(x.sugg){if(c>1||nSug>=2)return false;nSug++;return true}return c<=CONFIG.youtube.perChannel});
+  const all=flat.map(f=>{const v=by[f.vid];if(!v)return null;const secs=isoSecs(v.contentDetails.duration);if(secs<90)return null;const th=v.snippet.thumbnails||{};return{id:f.vid,channel:f.ch.title,handle:f.ch.handle,avatar:f.ch.avatar,sugg:!!f.ch.sugg,because:f.ch.because||"",seed:f.ch.seed||"",title:v.snippet.title,desc:curated[f.vid]||pickDesc(v.snippet.description),published:v.snippet.publishedAt,secs,views:+((v.statistics||{}).viewCount)||0,thumb:(th.maxres||th.standard||th.high||th.medium||{}).url||"",url:"https://www.youtube.com/watch?v="+f.vid}}).filter(Boolean).filter(x=>isFresh(x.published)).sort(byNewest);
+  const per={},perSeed={};let nSug=0;
+  const items=all.filter(x=>{const c=(per[x.handle]=(per[x.handle]||0)+1);if(x.sugg){const k=norm(x.seed);if(c>1||nSug>=CONFIG.youtube.suggest||(k&&(perSeed[k]||0)>=2))return false;if(k)perSeed[k]=(perSeed[k]||0)+1;nSug++;return true}return c<=CONFIG.youtube.perChannel});
   S.yt={items,source:"live",updated:Date.now(),error:""};LS.set("sd-yt-cache",{t:Date.now(),sig,items});
  }catch(e){S.yt.error=String(e.message||e).slice(0,60);if(!S.yt.items)S.yt.source="seed"}
  renderWatch();
@@ -2054,20 +2045,29 @@ async function loadYouTube(force){
 /* =================================================================
    LISTEN (Spotify; exact episode links from the morning run)
    ================================================================= */
+/* suggested shows: the pool from the morning data, limited to seeds still on his podcast list */
+const spSugg=()=>(DATA.discover&&DATA.discover.podcasts||[]).filter(d=>d.show&&seedOk("podcasts",d.seed)&&!showMatch(d.show,lists().podcasts)&&!isDis("spshow:"+norm(d.show)));
 function spItems(){
- const pl=lists().podcasts;
+ const pl=lists().podcasts,days=CONFIG.podcastMaxAgeDays;
  const live=S.sp&&S.sp.length?S.sp.filter(x=>showMatch(x.asked||x.name,pl)).flatMap(x=>(x.episodes||[]).map(ep=>({...ep,show:x.name}))):null;
  const fol=live&&live.length?live:(DATA.spotify||[]).filter(p=>showMatch(p.show,pl));
- const sug=(DATA.discover&&DATA.discover.spotify||[]).filter(p=>!showMatch(p.show,pl)&&!isDis("spshow:"+norm(p.show))).map(p=>({...p,sugg:true}));
+ const pool=spSugg(),byName={};pool.forEach(d=>byName[norm(d.show)]=d);
+ /* newest episode from each suggested show, then any hand-picked episodes */
+ const liveSug=(S.spSug||[]).map(x=>{const d=byName[norm(x.asked||"")]||byName[norm(x.name)];if(!d||showMatch(x.name,pl)||isDis("spshow:"+norm(x.name)))return null;
+  const ep=(x.episodes||[]).filter(e=>isFresh(e.published,days))[0];return ep?{...ep,show:x.name,because:d.because,seed:d.seed||"",sugg:true}:null}).filter(Boolean);
+ const extra=(DATA.discover&&DATA.discover.spotify||[]).filter(p=>!showMatch(p.show,pl)&&!isDis("spshow:"+norm(p.show))).map(p=>({...p,sugg:true}));
+ const seen=new Set();const sug=liveSug.concat(extra).filter(p=>isFresh(p.published,days)&&!isDis("sp:"+p.url)).sort(byNewest).filter(p=>{const k=norm(p.show);if(seen.has(k))return false;seen.add(k);return true}).slice(0,CONFIG.podcastSuggest);
  const oe=LS.get("sd-sp-art",{});
- return fol.concat(sug).filter(p=>isFresh(p.published)&&!isDis("sp:"+p.url)).map(p=>{const a=oe[String(p.url).split("?")[0]];return a?{...p,art:a}:p}).sort(byNewest);
+ return fol.filter(p=>isFresh(p.published,days)&&!isDis("sp:"+p.url)).concat(sug).map(p=>{const a=oe[String(p.url).split("?")[0]];return a?{...p,art:a}:p}).sort(byNewest);
 }
+/* "Like Chris Lake" → "~ Chris Lake" */
+const likeTxt=t=>String(t||"").replace(/^\s*(like|similar to)\s+/i,"~ ");
 function artistItems(){return(DATA.discover&&DATA.discover.artists||[]).filter(a=>!isDis("art:"+a.name))}
 function renderListen(){
  const el=$("#s-listen");const items=spItems();const arts=artistItems();
  el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-list" data-k="podcasts">Your podcasts</button></div>
- ${railHTML("sp-rail",items,"sp","Nothing new from your shows in the last 3 days.")}
- ${arts.length?`<div class="grp-t" style="margin-top:22px">New artists for you<button data-act="settings-artists">Your artists</button></div><div class="arts noscroll">${arts.map(a=>`<div class="art"><a class="av" style="--h:${hue(a.name)}" href="${esc(a.url)}" target="_blank" rel="noopener" aria-label="${esc(a.name)} on Spotify">${esc(a.name.slice(0,1))}${a.img?`<img src="${esc(a.img)}" alt="" loading="lazy">`:""}</a><b>${esc(a.name)}</b><small>${esc(a.because||"")}</small><div class="acts">${ib(a.url,I.spotify,"Open on Spotify")}${followBtn("artists",a.name,inList("artists",a.name))}${dxBtn("art:"+a.name,"listen",a.name)}</div></div>`).join("")}</div>`:""}`;
+ ${railHTML("sp-rail",items,"sp",`Nothing new from your shows in the last ${CONFIG.podcastMaxAgeDays} days.`)}
+ ${arts.length?`<div class="grp-t" style="margin-top:22px">New artists for you<button data-act="settings-artists">Your artists</button></div><div class="arts noscroll">${arts.map(a=>`<div class="art"><a class="av" style="--h:${hue(a.name)}" href="${esc(a.url)}" target="_blank" rel="noopener" aria-label="${esc(a.name)} on Spotify">${esc(a.name.slice(0,1))}${a.img?`<img src="${esc(a.img)}" alt="" loading="lazy">`:""}</a><b>${esc(a.name)}</b><small>${esc(likeTxt(a.because))}</small><div class="acts">${ib(a.url,I.spotify,"Open on Spotify")}${followBtn("artists",a.name,inList("artists",a.name))}${dxBtn("art:"+a.name,"listen",a.name)}</div></div>`).join("")}</div>`:""}`;
  bindRail("sp-rail");
 }
 /* Spotify's oEmbed endpoint gives cover art for any episode or artist link, no key needed */
@@ -2075,9 +2075,14 @@ async function spArt(url){const u=String(url).split("?")[0];const m=LS.get("sd-s
 /* podcasts + artist photos come live from Spotify through the backend */
 async function loadSpotify(force){
  const names=lists().podcasts,sig=names.join("|");const c=LS.get("sd-sp2",null);
- if(c&&c.sig===sig&&c.v&&c.v.length){S.sp=c.v;renderListen();if(!force&&Date.now()-c.t<20*6e4)return}
- if(!backend()||!names.length)return;
- try{const r=await be({fn:"podcasts",n:sig},25000);if(!r.shows)throw new Error("backend needs the new version deployed");S.sp=r.shows;S.spErr="";if(S.sp.length)LS.set("sd-sp2",{t:Date.now(),sig,v:S.sp})}catch(e){S.spErr=e.message}
+ const sn=spSugg().map(d=>d.show),ssig=sn.join("|");const sc=LS.get("sd-sp-sug",null);
+ if(sc&&sc.sig===ssig)S.spSug=sc.v;
+ const fresh=c&&c.sig===sig&&c.v&&c.v.length&&!force&&Date.now()-c.t<20*6e4,sfresh=!ssig||(sc&&sc.sig===ssig&&!force&&Date.now()-sc.t<60*6e4);
+ if(c&&c.sig===sig&&c.v&&c.v.length){S.sp=c.v;renderListen();if(fresh&&sfresh)return}
+ if(!backend())return;
+ if(names.length&&!fresh){try{const r=await be({fn:"podcasts",n:sig},25000);if(!r.shows)throw new Error("backend needs the new version deployed");S.sp=r.shows;S.spErr="";if(S.sp.length)LS.set("sd-sp2",{t:Date.now(),sig,v:S.sp})}catch(e){S.spErr=e.message}}
+ /* suggested shows go through the same backend call, kept separate so they never count as followed */
+ if(ssig&&!sfresh){try{const r=await be({fn:"podcasts",n:ssig},25000);if(r.shows){S.spSug=r.shows;LS.set("sd-sp-sug",{t:Date.now(),sig:ssig,v:S.spSug})}}catch(e){}}
  try{const arts=(DATA.discover&&DATA.discover.artists||[]);const ids=arts.map(a=>(/artist\/([A-Za-z0-9]{22})/.exec(a.url)||[])[1]).filter(Boolean);
   if(ids.length){const r=await be({fn:"artists",ids:ids.join(",")},20000);arts.forEach(a=>{const id=(/artist\/([A-Za-z0-9]{22})/.exec(a.url)||[])[1];const x=id&&r.a&&r.a[id];if(x&&x.img)a.img=x.img})}}catch(e){}
  renderListen();refreshSettings();
@@ -2116,7 +2121,7 @@ function renderShows(){
  const el=$("#s-shows");if(!el)return;const items=showItems();const arts=lists().artists;
  const mine=items.filter(s=>s.match==="list"),like=items.filter(s=>s.match!=="list");
  const row=s=>{const tk=s.url||`https://www.ticketmaster.com/search?q=${encodeURIComponent(s.artist||s.title)}`;return`<article class="ev2">${dateBlock(s.date)}<div class="ev2-x">
-  <div class="chips2" style="margin:0 0 6px">${cdChip(s.date,s.time)}${s.match==="list"?`<span class="tagc list">${I.check.replace("<svg",'<svg width="11" height="11"')}Your artist</span>`:s.like?`<span class="tagc">Like ${esc(s.like)}</span>`:""}${s.trip?`<span class="tagc trip">Road trip</span>`:""}</div>
+  <div class="chips2" style="margin:0 0 6px">${cdChip(s.date,s.time)}${s.match==="list"?`<span class="tagc list">${I.check.replace("<svg",'<svg width="11" height="11"')}Your artist</span>`:s.like?`<span class="tagc" title="Similar to ${esc(s.like)}">~ ${esc(s.like)}</span>`:""}${s.trip?`<span class="tagc trip">Road trip</span>`:""}</div>
   <h3>${esc(s.title)}</h3>
   <div class="where">${esc([s.venue,s.city].filter(Boolean).join(", "))}${s.time?` · ${esc(hmLabel("T"+s.time))}`:""}</div>
   ${s.why?`<p>${esc(s.why)}</p>`:""}
@@ -2554,11 +2559,6 @@ async function loadPosters(){
 }
 
 /* =================================================================
-   SOMETHING DIFFERENT
-   ================================================================= */
-function renderDiff(){const d=DATA.different;$("#s-diff").innerHTML=`<div class="feat"><small>Something different</small><h3>${esc(d.title)}</h3><p>${esc(d.blurb)}</p><div class="acts">${ib(d.url,I.ext,"Read the story","pri")}${d.ask?askBtn(d.ask):""}</div></div>`}
-
-/* =================================================================
    LEARN — two cards, one structure. History reads left → right,
    oldest to newest, with today on the far right.
    ================================================================= */
@@ -2622,8 +2622,8 @@ async function checkVersion(){
 function openSheet(html){const sh=$("#sheet"),p=$("#sheet-p");p.innerHTML=`<div class="grab"></div>`+html;p.scrollTop=0;sh.classList.add("open");requestAnimationFrame(()=>requestAnimationFrame(()=>sh.classList.add("show")));document.documentElement.style.overflow="hidden"}
 function closeSheet(){const sh=$("#sheet");sh.classList.remove("show");document.documentElement.style.overflow="";setTimeout(()=>{if(!sh.classList.contains("show"))sh.classList.remove("open")},340)}
 const LIST_META={
- channels:{t:"YouTube channels",ph:"@handle",s:"New uploads show up in Watch."},
- podcasts:{t:"Podcasts",ph:"Show name on Spotify",s:"Episodes from the last 3 days show up in Listen."},
+ channels:{t:"YouTube channels",ph:"@handle",s:"Uploads from the last 5 days show up in Watch, with a few suggestions picked from this list."},
+ podcasts:{t:"Podcasts",ph:"Show name on Spotify",s:"Episodes from the last 5 days show up in Listen, with a few suggestions picked from this list."},
  stocks:{t:"Stocks",ph:"Ticker, like NVDA",s:"Shown under U.S. stocks. Indexes start with ^, like ^GSPC."},
  crypto:{t:"Crypto",ph:"Ticker, like ETH",s:"Shown under Bitcoin with live prices."},
  artists:{t:"Artists",ph:"Artist name",s:"Their Bay Area shows, and shows by similar artists, go in Book ahead."}
