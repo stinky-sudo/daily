@@ -1,187 +1,465 @@
 {
-  "ok": true,
-  "date": "2026-10-21",
-  "fetchedAt": "2026-10-21T12:20:50.828Z",
-  "steps": null,
-  "distance": null,
-  "activeMinutes": {
-    "civilStartTime": {
-      "date": {
-        "year": 2026,
-        "month": 10,
-        "day": 21
-      },
-      "time": {}
+ "ok": true,
+ "v": 2,
+ "fetchedAt": "2026-10-22T07:03:52.508Z",
+ "date": "2026-10-21",
+ "days": {
+  "2026-10-22": {
+   "cal": 6
+  },
+  "2026-10-21": {
+   "steps": 6239,
+   "dist": 4966000,
+   "cal": 3951,
+   "active": {
+    "light": 295,
+    "moderate": 51,
+    "vigorous": 11
+   },
+   "azm": {
+    "fatburn": 62,
+    "cardio": 0,
+    "peak": 0
+   },
+   "rhr": 57,
+   "hrv": 31.4,
+   "spo2": 97.2,
+   "spo2Lo": 94.5,
+   "spo2Hi": 99.6,
+   "rr": 18.2,
+   "sleep": {
+    "asleep": 463,
+    "inBed": null,
+    "awake": 5,
+    "deep": 66,
+    "rem": 61,
+    "light": 336,
+    "bed": -44,
+    "wake": 424,
+    "start": "2026-10-21T06:16:00Z",
+    "end": "2026-10-21T14:04:00Z"
+   },
+   "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:48:35.600Z",
+     "mins": 38
     },
-    "civilEndTime": {
-      "date": {
-        "year": 2026,
-        "month": 10,
-        "day": 21
-      },
-      "time": {
-        "hours": 23,
-        "minutes": 59,
-        "seconds": 59
-      }
-    },
-    "activeMinutes": {
-      "activeMinutesRollupByActivityLevel": [
-        {
-          "activityLevel": "LIGHT",
-          "activeMinutesSum": "1"
-        }
-      ]
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:16:52.400Z",
+     "mins": 20
     }
+   ]
+  },
+  "2026-10-20": {
+   "steps": 11424,
+   "dist": 9076000,
+   "cal": 3824,
+   "active": {
+    "light": 170,
+    "moderate": 46,
+    "vigorous": 64
+   },
+   "azm": {
+    "fatburn": 78,
+    "cardio": 6,
+    "peak": 0
+   },
+   "rhr": 57,
+   "hrv": 41.5,
+   "spo2": 97,
+   "spo2Lo": 93.9,
+   "spo2Hi": 98.9,
+   "rr": 18.6,
+   "sleep": {
+    "asleep": 521,
+    "inBed": null,
+    "awake": 13,
+    "deep": 84,
+    "rem": 119,
+    "light": 318,
+    "bed": -128,
+    "wake": 406,
+    "start": "2026-10-20T04:52:00Z",
+    "end": "2026-10-20T13:46:00Z"
+   },
+   "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:48:35.600Z",
+     "mins": 38
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:16:52.400Z",
+     "mins": 20
+    }
+   ]
+  },
+  "2026-10-19": {
+   "steps": 6815,
+   "dist": 5356800,
+   "cal": 3157,
+   "active": {
+    "light": 208,
+    "moderate": 10,
+    "vigorous": 5
+   },
+   "azm": {
+    "fatburn": 6,
+    "cardio": 0,
+    "peak": 0
+   },
+   "rhr": 57,
+   "hrv": 46.1,
+   "spo2": 95.8,
+   "spo2Lo": 93.9,
+   "spo2Hi": 97.7,
+   "rr": 19.8,
+   "sleep": {
+    "asleep": 472,
+    "inBed": null,
+    "awake": 35,
+    "deep": 66,
+    "rem": 73,
+    "light": 333,
+    "bed": -164,
+    "wake": 343,
+    "start": "2026-10-19T04:16:00Z",
+    "end": "2026-10-19T12:43:00Z"
+   },
+   "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:48:35.600Z",
+     "mins": 38
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:16:52.400Z",
+     "mins": 20
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-18T19:16:39Z",
+     "mins": 484
+    }
+   ]
+  },
+  "2026-10-18": {
+   "steps": 30832,
+   "dist": 22812300,
+   "cal": 5000,
+   "active": {
+    "light": 111,
+    "moderate": 109,
+    "vigorous": 222
+   },
+   "azm": {
+    "fatburn": 133,
+    "cardio": 2,
+    "peak": 0
+   },
+   "rhr": 57,
+   "hrv": 45.7,
+   "spo2": 96.6,
+   "spo2Lo": 94.4,
+   "spo2Hi": 98.9,
+   "rr": 19.6,
+   "sleep": {
+    "asleep": 418,
+    "inBed": null,
+    "awake": 13,
+    "deep": 78,
+    "rem": 49,
+    "light": 291,
+    "bed": 49,
+    "wake": 480,
+    "start": "2026-10-18T07:49:00Z",
+    "end": "2026-10-18T15:00:00Z"
+   },
+   "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:48:35.600Z",
+     "mins": 38
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:16:52.400Z",
+     "mins": 20
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-18T19:16:39Z",
+     "mins": 484
+    }
+   ]
+  },
+  "2026-10-17": {
+   "steps": 12305,
+   "dist": 9696000,
+   "cal": 3815,
+   "active": {
+    "light": 187,
+    "moderate": 38,
+    "vigorous": 60
+   },
+   "azm": {
+    "fatburn": 25,
+    "cardio": 36,
+    "peak": 0
+   },
+   "rhr": 56,
+   "hrv": 39.3,
+   "spo2": 99.2,
+   "spo2Lo": 98.9,
+   "spo2Hi": 99.8,
+   "rr": 16.6,
+   "sleep": {
+    "asleep": 440,
+    "inBed": null,
+    "awake": 12,
+    "deep": 91,
+    "rem": 64,
+    "light": 285,
+    "bed": -92,
+    "wake": 360,
+    "start": "2026-10-17T05:28:00Z",
+    "end": "2026-10-17T13:00:00Z"
+   },
+   "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:48:35.600Z",
+     "mins": 38
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:16:52.400Z",
+     "mins": 20
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-18T19:16:39Z",
+     "mins": 484
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-17T19:52:16.400Z",
+     "mins": 25
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-17T16:32:20Z",
+     "mins": 16
+    }
+   ]
+  },
+  "2026-10-16": {
+   "steps": 8201,
+   "dist": 6426400,
+   "cal": 3794,
+   "active": {
+    "light": 179,
+    "moderate": 67,
+    "vigorous": 48
+   },
+   "azm": {
+    "fatburn": 64,
+    "cardio": 0,
+    "peak": 0
+   },
+   "rhr": 57,
+   "hrv": 34,
+   "spo2": 94.1,
+   "spo2Lo": 91.8,
+   "spo2Hi": 96.4,
+   "rr": 18.8,
+   "sleep": {
+    "asleep": 323,
+    "inBed": null,
+    "awake": 6,
+    "deep": 60,
+    "rem": 63,
+    "light": 200,
+    "bed": 56,
+    "wake": 385,
+    "start": "2026-10-16T07:56:00Z",
+    "end": "2026-10-16T13:25:00Z"
+   },
+   "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:48:35.600Z",
+     "mins": 38
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:16:52.400Z",
+     "mins": 20
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-18T19:16:39Z",
+     "mins": 484
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-17T19:52:16.400Z",
+     "mins": 25
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-17T16:32:20Z",
+     "mins": 16
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-16T01:36:21.200Z",
+     "mins": 21
+    }
+   ]
+  },
+  "2026-10-15": {
+   "steps": 10859,
+   "dist": 8575900,
+   "cal": 4264,
+   "active": {
+    "light": 199,
+    "moderate": 71,
+    "vigorous": 80
+   },
+   "azm": {
+    "fatburn": 142,
+    "cardio": 0,
+    "peak": 0
+   },
+   "rhr": 58,
+   "hrv": 38.55,
+   "spo2": 96.2,
+   "spo2Lo": 92.6,
+   "spo2Hi": 99.8,
+   "rr": 18.6,
+   "sleep": {
+    "asleep": 397,
+    "inBed": null,
+    "awake": 10,
+    "deep": 72,
+    "rem": 73,
+    "light": 252,
+    "bed": -24,
+    "wake": 383,
+    "start": "2026-10-15T06:36:00Z",
+    "end": "2026-10-15T13:23:00Z"
+   },
+   "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:48:35.600Z",
+     "mins": 38
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-21T00:16:52.400Z",
+     "mins": 20
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-18T19:16:39Z",
+     "mins": 484
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-17T19:52:16.400Z",
+     "mins": 25
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-17T16:32:20Z",
+     "mins": 16
+    },
+    {
+     "type": "walking",
+     "start": "2026-10-16T01:36:21.200Z",
+     "mins": 21
+    }
+   ]
+  }
+ },
+ "steps": null,
+ "distance": null,
+ "activeMinutes": null,
+ "totalCalories": {
+  "civilStartTime": {
+   "date": {
+    "year": 2026,
+    "month": 10,
+    "day": 22
+   },
+   "time": {}
+  },
+  "civilEndTime": {
+   "date": {
+    "year": 2026,
+    "month": 10,
+    "day": 22
+   },
+   "time": {
+    "hours": 23,
+    "minutes": 59,
+    "seconds": 59
+   }
   },
   "totalCalories": {
-    "civilStartTime": {
-      "date": {
-        "year": 2026,
-        "month": 10,
-        "day": 21
-      },
-      "time": {}
+   "kcalSum": 5.880876000000001
+  }
+ },
+ "activeZoneMinutes": null,
+ "floors": null,
+ "restingHR": null,
+ "hrZones": [
+  {
+   "dataSource": {
+    "recordingMethod": "DERIVED",
+    "platform": "FITBIT"
+   },
+   "dailyHeartRateZones": {
+    "date": {
+     "year": 2026,
+     "month": 10,
+     "day": 22
     },
-    "civilEndTime": {
-      "date": {
-        "year": 2026,
-        "month": 10,
-        "day": 21
-      },
-      "time": {
-        "hours": 23,
-        "minutes": 59,
-        "seconds": 59
-      }
-    },
-    "totalCalories": {
-      "kcalSum": 469.17915600000003
-    }
-  },
-  "activeZoneMinutes": null,
-  "floors": null,
-  "restingHR": null,
-  "hrZones": [
-    {
-      "dataSource": {
-        "recordingMethod": "DERIVED",
-        "platform": "FITBIT"
-      },
-      "dailyHeartRateZones": {
-        "date": {
-          "year": 2026,
-          "month": 10,
-          "day": 21
-        },
-        "heartRateZones": [
-          {
-            "heartRateZoneType": "LIGHT",
-            "minBeatsPerMinute": "30",
-            "maxBeatsPerMinute": "109"
-          },
-          {
-            "heartRateZoneType": "MODERATE",
-            "minBeatsPerMinute": "110",
-            "maxBeatsPerMinute": "136"
-          },
-          {
-            "heartRateZoneType": "VIGOROUS",
-            "minBeatsPerMinute": "137",
-            "maxBeatsPerMinute": "169"
-          },
-          {
-            "heartRateZoneType": "PEAK",
-            "minBeatsPerMinute": "170",
-            "maxBeatsPerMinute": "220"
-          }
-        ]
-      }
-    }
-  ],
-  "spo2": null,
-  "respiratoryRate": null,
-  "hrv": null,
-  "vo2Max": null,
-  "sleep": null,
-  "exercise": [
-    {
-      "name": "users/4457912432455127948/dataTypes/exercise/dataPoints/2914392781979574296",
-      "dataSource": {
-        "recordingMethod": "PASSIVELY_MEASURED",
-        "device": {
-          "formFactor": "FITNESS_BAND",
-          "displayName": "Fitbit Air"
-        },
-        "platform": "FITBIT"
-      },
-      "exercise": {
-        "interval": {
-          "startTime": "2026-10-21T00:48:35.600Z",
-          "startUtcOffset": "-25200s",
-          "endTime": "2026-10-21T01:26:09.200Z",
-          "endUtcOffset": "-25200s"
-        },
-        "exerciseType": "WALKING",
-        "metricsSummary": {
-          "caloriesKcal": 373,
-          "distanceMillimeters": 2909700,
-          "steps": "3677",
-          "averagePaceSecondsPerMeter": 0.7743066295494382,
-          "averageHeartRateBeatsPerMinute": "112",
-          "activeZoneMinutes": "28",
-          "heartRateZoneDurations": {
-            "lightTime": "540s",
-            "moderateTime": "1740s",
-            "vigorousTime": "0s",
-            "peakTime": "0s"
-          }
-        },
-        "exerciseMetadata": {},
-        "displayName": "Walk",
-        "activeDuration": "2253.600s",
-        "updateTime": "2026-10-21T02:11:59.324707Z",
-        "createTime": "2026-10-21T02:11:59.324707Z"
-      }
-    },
-    {
-      "name": "users/4457912432455127948/dataTypes/exercise/dataPoints/4917415572107641792",
-      "dataSource": {
-        "recordingMethod": "PASSIVELY_MEASURED",
-        "device": {
-          "formFactor": "FITNESS_BAND",
-          "displayName": "Fitbit Air"
-        },
-        "platform": "FITBIT"
-      },
-      "exercise": {
-        "interval": {
-          "startTime": "2026-10-21T00:16:52.400Z",
-          "startUtcOffset": "-25200s",
-          "endTime": "2026-10-21T00:37:12.800Z",
-          "endUtcOffset": "-25200s"
-        },
-        "exerciseType": "WALKING",
-        "metricsSummary": {
-          "caloriesKcal": 183,
-          "distanceMillimeters": 1424400,
-          "steps": "1766",
-          "averagePaceSecondsPerMeter": 0.8565009828699803,
-          "averageHeartRateBeatsPerMinute": "111",
-          "activeZoneMinutes": "7",
-          "heartRateZoneDurations": {
-            "lightTime": "780s",
-            "moderateTime": "420s",
-            "vigorousTime": "60s",
-            "peakTime": "0s"
-          }
-        },
-        "exerciseMetadata": {},
-        "displayName": "Walk",
-        "activeDuration": "1220.400s",
-        "updateTime": "2026-10-21T00:55:18.744998Z",
-        "createTime": "2026-10-21T00:55:18.744998Z"
-      }
-    }
-  ]
+    "heartRateZones": [
+     {
+      "heartRateZoneType": "LIGHT",
+      "minBeatsPerMinute": "30",
+      "maxBeatsPerMinute": "109"
+     },
+     {
+      "heartRateZoneType": "MODERATE",
+      "minBeatsPerMinute": "110",
+      "maxBeatsPerMinute": "136"
+     },
+     {
+      "heartRateZoneType": "VIGOROUS",
+      "minBeatsPerMinute": "137",
+      "maxBeatsPerMinute": "169"
+     },
+     {
+      "heartRateZoneType": "PEAK",
+      "minBeatsPerMinute": "170",
+      "maxBeatsPerMinute": "220"
+     }
+    ]
+   }
+  }
+ ],
+ "spo2": null,
+ "respiratoryRate": null,
+ "hrv": null,
+ "vo2Max": null,
+ "sleep": null,
+ "exercise": null
 }
