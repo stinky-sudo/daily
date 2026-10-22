@@ -102,7 +102,8 @@ h1,h2,h3,p{margin:0}
 .hero-date{font-size:15px;font-weight:600;color:var(--ink-2)}
 .icon-btn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--fill);color:var(--ink)}
 .icon-btn svg{width:19px;height:19px}
-.greet{font-family:var(--display);font-size:42px;line-height:1.02;letter-spacing:-.035em;font-weight:700;margin:6px 0 18px;white-space:nowrap;overflow:hidden}
+/* line-height and a little bottom padding leave room for descenders (the g in "evening") inside the clipped box */
+.greet{font-family:var(--display);font-size:42px;line-height:1.14;letter-spacing:-.035em;font-weight:700;margin:6px 0 18px;padding-bottom:.08em;white-space:nowrap;overflow:hidden}
 
 .sky{position:relative;border-radius:28px;padding:18px 18px 10px;color:#fff;overflow:hidden;isolation:isolate;background:var(--sky,#2F6FD6)}
 .sky::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(96,106,124,.42);opacity:0;transition:opacity .4s}
@@ -534,6 +535,7 @@ h1,h2,h3,p{margin:0}
 .s-n{flex:1;min-width:0;font-weight:500}
 .s-n small{display:block;font-size:13px;color:var(--ink-3);font-weight:400;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .s-v{flex:0 0 auto;font-size:14.5px;color:var(--ink-3);text-align:right}
+.s-v.wrap{flex:1 1 60%;font-size:13px;line-height:1.35;white-space:normal}
 .s-v.warn{color:var(--warn-ink)}
 .s-dot{flex:0 0 auto;width:9px;height:9px;border-radius:50%;background:var(--ink-3)}
 .s-dot.ok{background:var(--up)}.s-dot.err{background:var(--down)}
@@ -660,9 +662,6 @@ body{overflow-x:clip}
 
   /* News: two columns of stories */
   .chips{flex-wrap:wrap;overflow:visible}
-  #s-news>.card{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
-  #s-news .nw:nth-child(-n+2){border-top:0}
-  #s-news .nw:nth-child(odd):not(:only-child){border-right:1px solid var(--line)}
 
   /* Watch + Listen rails: two cards per view with a peek */
   .vid{flex-basis:calc(50% - 30px)}
@@ -953,6 +952,7 @@ html{background:var(--bg)}
 .ev2:first-child{border-top:0}
 .evs{display:grid;gap:12px;align-content:start}
 .evc .ev2{border-top:0;padding:16px 18px}
+.evc .nw{border-top:0;padding:16px 18px}
 .ev2-d{flex:0 0 46px;height:52px;border-radius:12px;background:var(--fill);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
 .ev2-d small{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--down)}
 .ev2-d b{font-family:var(--display);font-size:21px;font-weight:650;letter-spacing:-.02em;margin-top:3px}
@@ -1022,10 +1022,6 @@ html{background:var(--bg)}
 .ix-grp:first-child .ix-g{border-top:0}
 .mk-list{margin-top:12px}
 .mk .take{margin:14px 0 0}
-.cw-new{display:flex;gap:11px;align-items:center;margin-top:12px;padding:8px;border-radius:12px;background:var(--surface)}
-.cw-new img{width:88px;aspect-ratio:16/9;object-fit:cover;border-radius:8px;flex:0 0 auto;background:var(--fill)}
-.cw-new small{display:block;font-size:12px;font-weight:600;color:var(--ink-3)}
-.cw-new b{font-size:14px;font-weight:650;line-height:1.3;margin-top:2px}
 .mk .smas{margin-top:14px}
 .mv-pts{margin:8px 0 0;padding-left:18px;font-size:14px;line-height:1.45;color:var(--ink-2)}
 .mv-pts li+li{margin-top:5px}
@@ -1083,34 +1079,80 @@ html{background:var(--bg)}
 /* dismiss */
 /* coach */
 .coach{display:grid;gap:12px}
-/* Coach: one focus card, three move tiles, one line to remember */
-.cc{display:grid;gap:12px}
-.cc-f{padding:16px 18px 18px}
-.cc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:38px;margin-right:-6px}
-.cc-k{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
-.cc-k b{font-weight:700;color:var(--ink-2)}
-.cc-k b::before{content:"·";margin-right:8px;color:var(--ink-3)}
-.cc-f h3{font-family:var(--display);font-size:27px;line-height:1.13;letter-spacing:-.028em;font-weight:700;margin-top:4px;text-wrap:balance}
-.cc-f p{font-size:15.5px;line-height:1.5;color:var(--ink-2);margin-top:8px;max-width:62ch}
-.cc-prog{display:flex;align-items:center;gap:6px;margin-top:16px}
-.cc-prog i{flex:0 1 64px;height:6px;border-radius:3px;background:var(--fill-2);transition:background .35s ease}
-.cc-prog i.on{background:var(--c)}
-.cc-prog span{margin-left:8px;font-size:12.5px;font-weight:600;color:var(--ink-3)}
-.cc-ms{display:grid;gap:12px}
-.cc-m{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:9px;padding:15px 15px 14px;border-radius:20px;background:var(--surface);box-shadow:var(--shadow);text-align:left;color:var(--ink);overflow:hidden;transition:background .3s ease}
-.cc-m::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--c)}
-.cc-mh{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.cc-a{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--c)}
-.cc-x{flex:0 0 auto;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1.75px var(--fill-2);color:transparent;transition:background .25s,box-shadow .25s,color .25s,transform .3s cubic-bezier(.3,1.6,.5,1)}
-.cc-x svg{width:14px;height:14px}
-.cc-t{font-size:15.5px;line-height:1.42}
-.cc-min{margin-top:auto;font-size:12.5px;font-weight:600;color:var(--ink-3);font-variant-numeric:tabular-nums}
-.cc-m.on{background:color-mix(in srgb,var(--c) 10%,var(--surface))}
-.cc-m.on .cc-x{background:var(--c);box-shadow:none;color:#fff;transform:scale(1.06)}
-.cc-m.on .cc-t{color:var(--ink-2)}
-.cc-pr{font-family:var(--serif);font-style:italic;font-size:16.5px;line-height:1.4;color:var(--ink-2);text-align:center;margin:10px 16px 0}
-@media (min-width:600px){.cc-ms{grid-template-columns:repeat(3,minmax(0,1fr))}.cc-m{min-height:158px}}
-@media (min-width:768px){.cc-f{padding:20px 24px 22px}.cc-f h3{font-size:33px}.cc-f p{font-size:16.5px}.cc-m{padding:17px 17px 15px;min-height:172px}.cc-t{font-size:16.5px}.cc-pr{font-size:18px}}
+/* Coach: one card. A line for the day, one reason, one thing to do; at night, one question. */
+/* reminders in the agenda */
+.rems{margin:6px 0 4px;padding-top:8px;border-top:1px dashed var(--line)}
+.rems-h{display:flex;justify-content:space-between;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.rems-card{padding:14px 16px 10px;margin-top:12px}
+.rem{display:flex;align-items:flex-start;gap:10px;padding:6px 0;cursor:pointer}
+.rem-x{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:22px;height:22px;margin:1px 0 0;border-radius:50%;box-shadow:inset 0 0 0 1.8px var(--ink-3);background:transparent;display:grid;place-items:center;transition:background .2s,box-shadow .2s}
+.rem-x:checked{background:var(--up);box-shadow:none}
+.rem-x:checked::after{content:"";width:6px;height:10px;border:solid #fff;border-width:0 2.2px 2.2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.rem-t{display:flex;flex-direction:column;gap:1px;font-size:15px;font-weight:600;line-height:1.3;transition:color .2s}
+.rem-t small{font-size:12.5px;font-weight:500;color:var(--ink-3)}
+.rem.late .rem-t small:first-of-type{color:var(--warn-ink)}
+.rem.done .rem-t{color:var(--ink-3);text-decoration:line-through}
+/* live */
+.tvc{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:6px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--ink);color:var(--bg)}
+.lv-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.lv-logos{flex:0 0 auto;display:inline-flex;gap:2px}
+.lv-logos img{width:26px;height:26px;object-fit:contain}
+.lv-logos.one img{width:40px;height:40px;border-radius:8px;object-fit:cover}
+.lv-score{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.02em;margin-top:6px}
+.lv-score small{font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--ink-3);margin-left:6px}
+.lv.in .ev2-d small{color:var(--now)}
+.lv.post{opacity:.78}
+/* music */
+.mu-row{display:flex;gap:12px;overflow-x:auto;margin:0 calc(-1*var(--g));padding:2px var(--g) 6px}
+.mu-a{flex:0 0 96px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.mu-ava{width:84px;height:84px;border-radius:50%;overflow:hidden;background:var(--fill);display:grid;place-items:center;box-shadow:var(--shadow)}
+.mu-ava img{width:100%;height:100%;object-fit:cover}
+.mu-ava .ava{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;font-size:30px;font-weight:700}
+.mu-ava.sm{width:46px;height:46px;flex:0 0 46px;box-shadow:none}
+.mu-ava.sm .ava{font-size:18px}
+.mu-a b{font-size:13.5px;font-weight:650;line-height:1.2}
+.mu-a small{font-size:11.5px;color:var(--ink-3);line-height:1.2}
+.mu-sl{padding:4px 0}
+.mu-s{display:flex;align-items:center;gap:12px;padding:10px 16px;border-top:1px solid var(--line)}
+.mu-s:first-child{border-top:0}
+.mu-sx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.mu-sx b{font-size:15.5px;font-weight:650}
+.mu-sx small{font-size:13px;color:var(--ink-3)}
+.mu-s .vid-a{display:flex;gap:6px;flex:0 0 auto}
+@media (min-width:768px){.mu-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));overflow:visible;margin:0;padding:0}.mu-a{flex:auto}.mu-ava{width:96px;height:96px}}
+.h-foot{text-align:center;padding-top:16px;font-size:13px;color:var(--ink-3);line-height:1.5}
+.h-foot b{color:var(--ink-2)}
+.h-foot .warn{color:var(--warn-ink)}
+.co{padding:18px 18px 16px;position:relative}
+.co::before{content:"";position:absolute;left:18px;right:18px;top:0;height:3px;border-radius:0 0 3px 3px;background:var(--c)}
+.co-k{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:38px;margin-right:-6px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.co-k span{display:inline-flex;align-items:center;gap:8px}
+.co-k i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.co-h{font-family:var(--serif);font-size:30px;line-height:1.14;letter-spacing:-.01em;font-weight:600;margin-top:8px;text-wrap:balance}
+.co-w{font-size:15.5px;line-height:1.5;color:var(--ink-2);margin-top:10px;max-width:60ch}
+.co-one{margin-top:16px}
+.co-m{position:relative;display:flex;align-items:center;gap:12px;width:100%;padding:13px 14px;border-radius:18px;background:var(--fill);text-align:left;transition:background .3s ease}
+.co-x{flex:0 0 auto;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 2px var(--c);color:transparent;transition:background .25s ease,color .25s ease,transform .25s ease}
+.co-x svg{width:15px;height:15px}
+.co-t{flex:1;min-width:0;font-size:16px;line-height:1.4;font-weight:600}
+.co-min{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.co-m.on{background:color-mix(in srgb,var(--c) 12%,var(--surface))}
+.co-m.on .co-x{background:var(--c);box-shadow:none;color:#fff;transform:scale(1.06)}
+.co-m.on .co-t{color:var(--ink-3);text-decoration:line-through;text-decoration-thickness:1.5px;font-weight:500}
+.co-m.on .co-min{color:var(--c)}
+.co-more{margin-top:10px}
+.co-more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:8px 4px;font-size:13.5px;font-weight:600;color:var(--ink-3)}
+.co-more summary::-webkit-details-marker{display:none}
+.co-more summary::before{content:"";width:6px;height:6px;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;transform:rotate(-45deg);margin:0 4px 1px 2px;transition:transform .2s}
+.co-more[open] summary::before{transform:rotate(45deg)}
+.co-ms{display:grid;gap:8px;margin-top:4px}
+.co-q{margin-top:16px}
+.co-q p{font-family:var(--serif);font-size:19px;line-height:1.4;margin-top:6px}
+.co-rest{margin-top:12px}
+.co-done{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13.5px;font-weight:600;color:var(--up)}
+.co-done svg{width:15px;height:15px}
+.co-pr{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.4;color:var(--ink-3);margin-top:16px}
+@media (min-width:768px){.co{padding:22px 24px 20px}.co::before{left:24px;right:24px}.co-h{font-size:36px}.co-w{font-size:16.5px}.co-t{font-size:17px}.co-ms{grid-template-columns:repeat(2,minmax(0,1fr))}.co-q p{font-size:21px}}
 /* vocab + spanish */
 .lrn{display:grid;gap:12px}
 .lrn-side{display:grid;gap:12px;align-content:start}
@@ -1141,6 +1183,47 @@ html{background:var(--bg)}
 .es-ln small{font-size:13px;color:var(--ink-3)}
 .lw-a{font-size:13.5px;font-weight:600;color:var(--ink-2)}
 @media (min-width:768px){.lrn{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:start}.lw-hero .term{font-size:60px}}
+/* Spanish: a grid of cards. Phone: one column. iPad upright: the phrase spans the row, then
+   pairs of cards, sized so the section fills the screen. Landscape / Mac: three across. */
+.esg{display:grid;gap:12px;grid-template-columns:minmax(0,1fr)}
+.es-wbw .es-parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;flex:1;align-content:start}
+.es-parts button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;padding:8px 13px;border-radius:12px;background:var(--acc-soft);text-align:center}
+.es-parts button b{font-family:var(--serif);font-size:18px;font-weight:600}
+.es-parts button small{font-size:12px;color:var(--ink-2)}
+.es-opts{display:grid;gap:8px;margin-top:10px}
+.es-opt{display:block;width:100%;text-align:left;padding:12px 14px;border-radius:14px;background:var(--fill);font-size:15px;font-weight:600;line-height:1.35;transition:background .25s,color .25s,opacity .25s}
+.es-opt.ok{background:var(--up-soft);color:var(--up)}
+.es-opt.no{background:rgba(221,59,53,.12);color:var(--down)}
+.es-opt.dim{opacity:.45}
+.es-opt:disabled{cursor:default}
+.es-verdict{font-size:14.5px;line-height:1.45;margin-top:10px;color:var(--ink-2)}
+.es-verdict.ok{color:var(--up)}.es-verdict.no{color:var(--ink-2)}
+.es-use{display:flex;gap:8px;align-items:flex-start;margin-top:10px}
+.es-use svg{width:16px;height:16px;flex:0 0 auto;margin-top:2px;color:var(--acc)}
+.es-conv .es-dl{margin-top:10px}
+@media (min-width:600px){
+  .esg{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+  .es-hero{grid-column:1/-1}
+  .es-hero .term{font-size:64px}
+  .es-hero .es-play .btn{height:40px;padding:0 18px;font-size:15px}
+  .es-hero .def{font-size:19px}
+  .esg .lw{display:flex;flex-direction:column}
+  .es-rel .fcs{flex:1;align-content:start}
+  .es-rel .fc{height:84px}
+  .es-ln b{font-size:18px}.es-ln small{font-size:13.5px}
+  .es-parts button b{font-size:20px}
+}
+/* iPad upright (820 wide): a bit taller everywhere so the section runs the height of the screen */
+@media (min-width:600px) and (max-width:1099px) and (orientation:portrait){
+  .es-hero{padding:24px 24px 22px}
+  .es-hero .term{font-size:72px;margin-top:18px}
+  .es-hero .pron{font-size:18px}
+  .esg .lw{padding:20px 20px 18px}
+  .es-ln{padding:12px 14px}
+  .es-opt{padding:14px 16px;font-size:16px}
+  .es-rel .fc{height:96px}
+}
+@media (min-width:1100px){.esg{grid-template-columns:repeat(3,minmax(0,1fr))}.es-hero{grid-column:1/-1}}
 /* pins */
 .ib.pinb.on{background:var(--ink);color:var(--bg)}
 .pinbar{padding:0 var(--g);margin:0 0 24px}
@@ -1262,6 +1345,7 @@ html{background:var(--bg)}
 /* section header + controls */
 .h-sh{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 2px 14px;flex-wrap:wrap}
 .h-sh h2{font-family:var(--display);font-size:27px;font-weight:700;letter-spacing:-.025em}
+.h-sh>span{font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
 .h-ctrls{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .h-switch{position:relative;display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--ink-2);white-space:nowrap}
 .h-switch input{position:absolute;opacity:0;width:1px;height:1px}
@@ -1385,7 +1469,8 @@ const CONFIG={
     podcasts:["Moonshots with Peter Diamandis","Modern Wisdom","Lex Fridman Podcast","The Diary Of A CEO with Steven Bartlett","Huberman Lab"],
     stocks:["^GSPC","^IXIC","^DJI","^RUT","TSLA"],
     crypto:["BTC","DOGE","SOL","ETH","XRP"],
-    artists:["Don Toliver","Chris Lake","Slander","Sam Gellaitry","Kanye West","Tyler, The Creator"]
+    artists:["Don Toliver","Chris Lake","Slander","Sam Gellaitry","Kanye West","Tyler, The Creator"],
+    teams:["Ohio State","76ers","UFC","SpaceX"]
   }
 };
 
@@ -1440,7 +1525,7 @@ async function fetchHealth(){try{const r=await fetch('health.json?v='+Date.now()
    HELPERS
    ================================================================= */
 /* BUILD: when this version of the page was published. Stamped automatically on every push. */
-const BUILD="2026-10-20T23:04:14-07:00";
+const BUILD="2026-10-21T23:57:40-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
@@ -1488,12 +1573,12 @@ const dxBtn=(k,sec,label)=>{const sug=/^(ytch|spshow|art):/.test(k);return`<butt
    tagged "pin:<kind>": the backend keeps only fields it already knows, and
    savedNews() skips them.
    ================================================================= */
-const PIN_SNAP={},PIN_KIND={yt:"Video",sp:"Podcast",mv:"Movie",bay:"Event",sh:"Show",nw:"Story"};
+const PIN_SNAP={},PIN_KIND={yt:"Video",sp:"Podcast",mv:"Movie",bay:"Event",sh:"Show",nw:"Story",lv:"Game",mu:"Music"};
 const pinKey=k=>"pin|"+k;
 const isPinned=k=>{const x=cfg().saved[pinKey(k)];return!!(x&&x.t>0)};
 const pinList=()=>Object.entries(cfg().saved).filter(([k,x])=>k.startsWith("pin|")&&x&&x.t>0&&x.n).map(([k,x])=>({key:k.slice(4),at:x.t,kind:x.n.domain,title:x.n.title,sub:x.n.blurb,img:x.n.src,date:x.n.date,url:x.n.url}));
 function pinBtn(k,snap){PIN_SNAP[k]=snap;const on=isPinned(k);return`<button class="ib pinb press ${on?"on":""}" data-pin="${esc(k)}" aria-pressed="${on}" aria-label="${on?"Pinned":"Pin to the top"}" data-tip="${on?"Pinned · tap to unpin":"Pin to the top"}">${on?I.tackOn:I.tack}</button>`}
-const pinN=(k,s)=>({id:k.slice(0,40),tag:"pin:"+s.kind,title:clip(s.title||"",290),blurb:clip(s.sub||"",590),src:s.img&&String(s.img).length<=80?s.img:"",domain:s.kind,date:String(s.date||"").slice(0,16),url:s.url||"",ask:""});
+const pinN=(k,s)=>({id:k.slice(0,40),tag:"pin:"+s.kind,title:clip(s.title||"",120),blurb:clip(s.sub||"",160),src:s.img&&String(s.img).length<=80?s.img:"",domain:s.kind,date:String(s.date||"").slice(0,16),url:s.url||"",ask:""});
 function setPin(k,on,n){cfgSet(c=>c.saved[pinKey(k)]=on?{t:Date.now(),n}:{t:-Date.now()});syncPins()}
 function togglePin(k){
  const cur=cfg().saved[pinKey(k)];
@@ -1525,7 +1610,7 @@ function renderPins(){
  el.innerHTML=`<div class="pinbar-h"><span>${I.tackOn}Pinned<b class="num">${list.length}</b></span></div><div class="pin-row noscroll">${list.map(pinTile).join("")}</div>`;
  S.pinNew=null;
 }
-const DX_RENDER={watch:()=>renderWatch(),listen:()=>renderListen(),movies:()=>renderMovies(),shows:()=>renderShows(),bay:()=>renderBay()};
+const DX_RENDER={watch:()=>renderWatch(),listen:()=>renderListen(),music:()=>renderMusic(),live:()=>renderLiveTv(),movies:()=>renderMovies(),shows:()=>renderShows(),bay:()=>renderBay()};
 function dismiss(k,sec,label){cfgSet(c=>c.dismissed[k]=Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers();toast((/^(ytch|spshow|art):/.test(k)?"Won't suggest "+(label||"this")+" again":"Hidden"+(label?": "+label:"")),()=>{cfgSet(c=>c.dismissed[k]=-Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers()})}
 /* lay rows out as one card on phones, two independent columns on wide screens (each only as tall as it needs) */
 /* event lists (shows, Bay, coming soon): every item is its own card; two columns on wide screens */
@@ -1655,7 +1740,7 @@ function wxInfo(code,isDay=1){
 /* =================================================================
    LISTS + BACKEND (settings that feed the morning report)
    ================================================================= */
-const LIST_KEYS=["channels","podcasts","stocks","crypto","artists"];
+const LIST_KEYS=["channels","podcasts","stocks","crypto","artists","teams"];
 const backend=()=>CONFIG.backend||LS.get("sd-backend","")||"";
 async function be(params,ms){const u=new URL(backend());Object.entries(params).forEach(([k,v])=>u.searchParams.set(k,v));const r=await jsonp(u.toString(),ms||15000);if(!r||r.ok===false)throw new Error((r&&r.error)||"no response");return r}
 
@@ -1717,16 +1802,39 @@ function adoptCfg(remote,fromPush){
  if(S.booted)migrateSaved();
 }
 let pushT;function queuePush(){clearTimeout(pushT);pushT=setTimeout(pushCfg,700)}
+/* Keep the synced blob small: pins carry a short snapshot, "removed" markers and old
+   hidden items fall off after a while. (The blob had quietly grown past what the GET
+   fallback could carry, which is why pins and lists stopped reaching other devices.) */
+function compactCfg(c){
+ const now=Date.now(),D=864e5,o={v:3,lists:c.lists,listsAt:c.listsAt,prefs:c.prefs,prefsAt:c.prefsAt,dismissed:{},saved:{}};
+ Object.keys(c.dismissed||{}).forEach(k=>{const t=c.dismissed[k];if(!t)return;const age=(now-Math.abs(t))/D;
+  if(t<0&&age>14)return; /* restored long ago */
+  if(t>0&&age>60&&!/^(ytch|spshow|art):/.test(k))return; /* a hidden video/episode/event that has long since aged out */
+  o.dismissed[k]=t});
+ Object.keys(c.saved||{}).forEach(k=>{const s=c.saved[k];if(!s||!s.t)return;const age=(now-Math.abs(s.t))/D;
+  if(s.t<0){if(age<=14)o.saved[k]={t:s.t};return}
+  const n=s.n||{};o.saved[k]={t:s.t,n:{...n,title:clip(n.title||"",120),blurb:clip(n.blurb||"",160),ask:""}}});
+ return o;
+}
+let BE_INFO=null;
+async function pingBackend(){if(!backend()||BE_INFO)return BE_INFO;try{BE_INFO=await be({},8000)}catch(e){BE_INFO=null}return BE_INFO}
 async function pushCfg(){
- if(!backend())return;const c=cfg();if(!c.dirty)return;const{dirty,...body}=c;const data=JSON.stringify(body);
+ if(!backend())return;const c=cfg();if(!c.dirty)return;
+ const data=JSON.stringify(compactCfg(c));const kb=(data.length/1024).toFixed(1);
  try{
-  let r=null;
-  try{const res=await fetch(backend(),{method:"POST",body:data});r=await res.json()}catch(e){r=null}
-  if(!r&&data.length<6000)r=await be({fn:"save",data}); /* older backend without doPost */
+  let r=null,how="";
+  try{const res=await fetch(backend(),{method:"POST",body:data,redirect:"follow"});r=await res.json();how="post"}catch(e){r=null}
+  if(!r){ /* a blocked POST: send it over GET, in parts if the backend can take them */
+   const info=await pingBackend();
+   if(info&&info.chunks){const id=Math.random().toString(36).slice(2,12),n=Math.max(1,Math.ceil(data.length/1500));
+    for(let i=0;i<n;i++)r=await be({fn:"save",id,part:i,of:n,data:data.slice(i*1500,(i+1)*1500)},20000);how="chunks"}
+   else if(data.length<7000){r=await be({fn:"save",data});how="get"}
+   else throw new Error(`settings are ${kb} KB — too big for the old backend; paste the Oct 22 backend update`);
+  }
   if(!r||r.ok===false)throw new Error((r&&r.error)||"no response");
   if(r.config&&r.config.v===3)adoptCfg(r.config,true);else{c.dirty=false;LS.set("sd-cfg",c)}
-  S.sync={state:"ok",at:Date.now()};
- }catch(e){S.sync={state:"err",msg:e.message}}
+  S.sync={state:"ok",at:Date.now(),how,kb};
+ }catch(e){S.sync={state:"err",msg:String(e.message||e).slice(0,140),kb}}
  refreshSettings();
 }
 async function pullCfg(){
@@ -1739,7 +1847,7 @@ async function pullCfg(){
 /* =================================================================
    STATE
    ================================================================= */
-const SECTIONS=[["cal","Calendar"],["mkt","Markets"],["coach","Coach"],["news","News"],["watch","Watch"],["listen","Listen"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["health","Health"],["vocab","Vocab"],["spanish","Spanish"]];
+const SECTIONS=[["cal","Calendar"],["live","Live"],["mkt","Markets"],["coach","Coach"],["news","News"],["watch","Watch"],["listen","Listen"],["music","Music"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["health","Health"],["vocab","Vocab"],["spanish","Spanish"]];
 /* older saved settings used "tip" and "learn" */
 const LEGACY={coach:["tip"],vocab:["learn"],spanish:["learn"]};
 const isHidden=id=>S.hidden.has(id)||(LEGACY[id]||[]).some(x=>S.hidden.has(x));
@@ -1777,6 +1885,8 @@ const ITEMS=SECTIONS;
 /* simple row symbols: one color (white in dark mode), drawn on the same 24px grid */
 const MI={
  cal:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14h2M14 14h2M8 17.5h2"/></svg>`,
+ live:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="13" rx="3"/><path d="M8 22h8M12 19v3M7.5 3l4.5 3 4.5-3"/><circle cx="12" cy="12.5" r="2.2" fill="currentColor" stroke="none"/></svg>`,
+ music:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V6.5l11-2.5V15"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="15" r="2.5"/></svg>`,
  mkt:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 17l5.5-5.5 4 4 7.5-8"/><path d="M15 7.5h5.5V13"/></svg>`,
  coach:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>`,
  news:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v13.5A1.5 1.5 0 0 0 18.5 20H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v9.5a1.5 1.5 0 0 1-3 0M7.5 9h6M7.5 12.5h6M7.5 16h4"/></svg>`,
@@ -1810,13 +1920,13 @@ function shell(){
   <footer class="foot" id="foot"></footer>
  </div>`;
 }
-const RENDER={cal:()=>renderCal(),mkt:()=>renderMarkets(),coach:()=>renderCoach(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),health:()=>renderHealth(),vocab:()=>renderVocab(),spanish:()=>renderSpanish(),learn:()=>renderLearn()};
+const RENDER={cal:()=>renderCal(),live:()=>renderLiveTv(),mkt:()=>renderMarkets(),coach:()=>renderCoach(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),music:()=>renderMusic(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),health:()=>renderHealth(),vocab:()=>renderVocab(),spanish:()=>renderSpanish(),learn:()=>renderLearn()};
 function renderNav(){applyOrder();ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=isHidden(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false)}})}
 /* the order of rows on the home page (set in Settings, synced) */
 const orderIds=()=>{const def=SECTIONS.map(x=>x[0]);const o=(pref("order",[])||[]).filter(id=>def.includes(id));return o.concat(def.filter(id=>!o.includes(id)))};
 function applyOrder(){const l=$("#list");if(!l)return;orderIds().forEach(id=>{const el=$("#it-"+id);if(el)l.appendChild(el)})}
 function observe(){}
-function renderAll(){renderCal();renderCoach();renderMarkets();renderNews();renderWatch();renderListen();renderBay();renderShows();renderMovies();renderHealth();renderVocab();renderSpanish();renderPins();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
+function renderAll(){renderCal();renderLiveTv();renderCoach();renderMarkets();renderNews();renderWatch();renderListen();renderMusic();renderBay();renderShows();renderMovies();renderHealth();renderVocab();renderSpanish();renderPins();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
 
 /* =================================================================
    HERO + SKY
@@ -1884,17 +1994,17 @@ const tx=(x,c="")=>`<span class="tx ${c}">${x}</span>`;
 const kk=x=>mo(x,"k");
 const lg=(svg,c="")=>`<span class="lg ${c}">${svg}</span>`;
 const IDX_S={"^GSPC":"S&P","^IXIC":"Nasdaq","^DJI":"Dow","^RUT":"R2K","^NDX":"NDX","^VIX":"VIX"};
-const coachDots=()=>{const c=coachData(),d=coachDone();return c.moves.length?`<span class="cdots" aria-hidden="true">${c.moves.map((m,i)=>`<i class="${d.includes(i)?"on":""}" style="--c:${COACH_AREAS[m.area]||"var(--ink-2)"}"></i>`).join("")}</span>`:""};
 function teaser(id){
  const now=new Date(),tk=todayKey();
  if(id==="wx"){const w=S.wx,fb=DATA.weatherFallback,info=w?wxInfo(w.cur.code,w.cur.isDay):wxInfo(fb.code??0,1);
   let nxt="";if(w){const n=hm(w.now),rise=hm(w.sunrise),set=hm(w.sunset);nxt=n<rise?"↑ "+hmLabel(w.sunrise):n<set?"↓ "+hmLabel(w.sunset):"↑ "+hmLabel(w.sunrise2||w.sunrise)}
   return mo(`${w?w.cur.temp:fb.hi}°`)+tx(esc(w?info.l:fb.cond))+mo(`H${w?w.hi:fb.hi}° L${w?w.lo:fb.lo}°`)+(nxt?mo(esc(nxt)):"")}
  if(id==="cal"){const up=upcoming();const e=up.find(x=>!x.allDay&&x.en>now&&x.key===tk)||up[0];
-  if(!e)return lg(I.gcal)+tx("Nothing for 3 days","q");
+  const nRem=(S.tasks||[]).filter(t=>!t.done&&t.due&&t.due<=tk).length;
+  if(!e)return lg(I.gcal)+(nRem?mo(`${nRem} ${nRem===1?"reminder":"reminders"}`)+tx("today"):tx("Nothing for 3 days","q"));
   const p=splitEmoji(e.title);const when=e.allDay?(e.kind==="birthday"?"Birthday":"All day"):(e.tz==="CT"?fmtTime(e.s,"America/Chicago")+" CT":fmtTime(e.s));
   const rest=up.length>1?mo(`+${up.length-1} more`):"";
-  return lg(I.gcal)+(e.key!==tk?kk(esc(relDay(e.key).slice(0,3))):"")+mo(esc(when))+tx(esc(p.t))+rest}
+  return lg(I.gcal)+(e.key!==tk?kk(esc(relDay(e.key).slice(0,3))):"")+mo(esc(when))+tx(esc(p.t))+rest+(nRem?mo(`${nRem} ${nRem===1?"reminder":"reminders"}`):"")}
  if(id==="mkt"){const out=[];
   const st=stList().slice(0,2).map(s=>[s,stkQuote(s)]).filter(x=>x[1]);
   if(st.length){out.push(lg(I.rh,"rh"));st.forEach(([s,q])=>out.push(tx(esc(IDX_S[s]||stName(s)),"nk"),mo(pct(q.pct),q.pct>=0?"up":"down")))}
@@ -1902,17 +2012,19 @@ function teaser(id){
   if(sym){const n=cxNow(sym);out.push(sym==="BTC"?lg(I.btc):kk(esc(sym)),`<span class="m" data-px="${sym}" data-dp0>${n?usd(n.price,0):"—"}</span>`,n?`<span class="m chg ${n.pct<0?"dn":""}" data-pill="${sym}">${pct(n.pct)}</span>`:"")}
   if(DATA.pick)out.push(kk("Idea"),tx(esc(DATA.pick.sym)));
   return out.join("")}
- if(id==="coach"){const c=coachData(),n=c.moves.length,d=coachDone().length;return coachDots()+(n&&d>=n?mo("All done","up"):"")+tx(esc(c.focus.title))}
+ if(id==="coach"){const c=coachData(),d=coachDone();const m=c.moves[0];return (m?`<span class="cdots" aria-hidden="true"><i class="${d.includes(0)?"on":""}" style="--c:${COACH_AREAS[m.area]||"var(--ink-2)"}"></i></span>`:"")+(d.includes(0)?mo("Done","up"):coachEvening()?kk("Tonight"):"")+tx(esc(c.focus.title))}
  if(id==="vocab"){const v=VOCAB[VOCAB.length-1];return v?tx(esc(v.word),"ser")+(v.def?tx(esc(v.def.replace(/\.$/,"")),"q"):v.pos?tx(esc(v.pos),"q"):""):tx("No word yet","q")}
  if(id==="spanish"){const e=SPAN[SPAN.length-1];return e?`<span class="tx ser" lang="es">${esc(e.phrase)}</span>`+tx(esc(e.meaning),"q"):tx("No phrase yet","q")}
  if(id==="news"){const n=DATA.news;if(!n.length)return tx("Nothing today","q");const top=n[0];return mo(String(n.length)+" stories")+(top.domain?lg(`<img src="${favicon(top.domain)}" alt="" onerror="this.parentNode.remove()">`):"")+tx(esc(top.title))}
  /* the readout counts what's new from his own list; suggestions are mentioned only when that's all there is */
  if(id==="watch"){const all=ytItems(),it=all.filter(v=>!v.sugg);if(!it.length)return lg(I.yt,"yt")+(all.length?mo(`${all.length} suggested`):tx("Nothing new","q"));const f=it[0];return lg(I.yt,"yt")+mo(`${it.length} new`)+tx(esc(f.channel+" · "+f.title))}
  if(id==="listen"){const all=spItems(),it=all.filter(p=>!p.sugg);if(!it.length)return lg(I.spotify)+(all.length?mo(`${all.length} suggested`):tx("Nothing new","q"));const f=it[0];return lg(I.spotify)+mo(`${it.length} new`)+tx(esc(f.show+" · "+f.title))}
- if(id==="bay"){const it=bayItems();if(!it.length)return tx("Nothing picked yet","q");const f=it[0];return mo(esc(until(f.date,f.cal&&f.cal.start&&f.cal.start.slice(11)).l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
+ if(id==="live"){const it=liveItems();if(!it.length)return tx(teamList().length?(S.live?"Nothing on this week":"Checking…"):"Add your teams","q");const f=it.find(x=>x.state==="in")||it.find(x=>x.state==="pre")||it[0];const w=liveWhen(f);return (f.state==="in"?mo("Live","up"):f.state==="post"?kk("Final"):mo(esc(until(w.k,String(new Date(f.when).getHours()).padStart(2,"0")+":00").l)))+tx(esc(f.title))+(f.tv&&f.tv[0]?kk(esc(f.tv[0])):"")}
+ if(id==="music"){const rel=musicReleases(),sug=musicSuggested();if(rel.length){const r=rel[0];return lg(I.spotify)+mo(`${rel.length} new`)+tx(esc(r.artist+" · "+r.title))}return lg(I.spotify)+mo(`${lists().artists.length} artists`)+(sug.length?tx(`${sug.length} suggested`,"q"):tx("Nothing new","q"))}
+ if(id==="bay"){const it=bayItems();if(!it.length)return tx("Nothing picked yet","q");const f=it[0];return mo(esc(until(f.day,f.cal&&f.cal.start&&f.cal.start.slice(0,10)===f.day?f.cal.start.slice(11):"").l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
  if(id==="shows"){const it=showItems();if(!it.length)return tx("No shows for your artists yet","q");const f=it[0];return mo(esc(until(f.date,f.time).l))+tx(esc(f.title+(f.venue?" · "+f.venue:"")))+(it.length>1?mo(`+${it.length-1}`):"")}
  if(id==="movies"){const{now,soon}=mvData();if(!now.length&&!soon.length)return tx("Nothing listed","q");return (now.length?mo(`${now.length} playing`)+tx(esc(now[0].title))+(now[0].score?mo(now[0].score+"%",now[0].score>=60?"up":""):""):"")+(soon.length?kk("Next")+tx(esc(soon[0].title)+" · "+esc(until(soon[0].date).l.replace(/^In /,"")),"q"):"")}
- if(id==="act"||id==="health"){if(!HEALTH.ok)return tx("Fitbit Air · no data yet","q");const parts=[];if(HEALTH.steps&&HEALTH.steps.steps){const v=+HEALTH.steps.steps.countSum;if(v)parts.push(mo(num(v,0)),tx("steps"))}if(HEALTH.sleep&&HEALTH.sleep.length){const sl=HEALTH.sleep[0].sleep;if(sl&&sl.summary){const mins=+sl.summary.minutesAsleep;if(mins){const h=Math.floor(mins/60),m=mins%60;parts.push(kk("Sleep"),tx(h+"h "+m+"m"))}}}if(HEALTH.restingHR&&HEALTH.restingHR.length){const v=HEALTH.restingHR[0].dailyRestingHeartRate?.beatsPerMinute;if(v!=null)parts.push(kk("HR"),tx(v+" bpm"))}return parts.length?parts.join(""):tx("Fitbit Air · waiting for today's sync","q")}
+ if(id==="act"||id==="health"){if(!HEALTH.ok)return tx("Fitbit Air · no data yet","q");const r=healthLatest();if(!r)return tx("Fitbit Air · waiting for a sync","q");const parts=[];if(r.d<todayKey())parts.push(kk(esc(r.d===addDays(todayKey(),-1)?"Last night":fmtKey(r.d,{weekday:"short"}))));if(r.asleep){const h=Math.floor(r.asleep/60),m=r.asleep%60;parts.push(kk("Sleep"),tx(h+"h "+m+"m"))}if(r.steps)parts.push(mo(num(r.steps,0)),tx("steps"));if(r.rhr)parts.push(kk("HR"),tx(r.rhr+" bpm"));return parts.length?parts.join(""):tx("Fitbit Air · waiting for today's sync","q")}
  if(id==="learn"){const v=VOCAB[VOCAB.length-1],s=SPAN[SPAN.length-1];return (v?tx(esc(v.word),"ser"):"")+(s?`<span class="tx ser" lang="es">${esc(s.phrase)}</span>`:"")}
  return "";
 }
@@ -2051,10 +2163,28 @@ function evWhen(e){
 function renderCal(){
  const el=$("#s-cal");const tk=todayKey();const days=[tk,addDays(tk,1),addDays(tk,2)];const now=new Date();
  const inDay=(e,k)=>e.allDay?(e.date<=k&&(e.endDate?addDays(e.endDate,-1):e.date)>=k&&(e.date===k||k===tk)):e.key===k||(k===tk&&e.key<tk&&e.en>now);
- const groups=days.map((k,i)=>{const items=EVENTS.filter(e=>inDay(e,k));const lab=i===0?"Today":i===1?"Tomorrow":fmtKey(k,{weekday:"long"});return`<div class="grp"><div class="grp-h"><b>${esc(lab)}</b><span>${esc(fmtKey(k,{weekday:i<2?"short":undefined,month:"short",day:"numeric"}))}</span></div>${items.length?items.map(e=>{const p=splitEmoji(e.title);const past=!e.allDay&&e.en<now;const bd=e.kind==="birthday";const who=bd?p.t.replace(/['’]s birthday$/i,"").trim():"";return`<div class="ev ${past?"past":""}"><a class="ev-ic" href="${esc(e.url)}" target="_blank" rel="noopener">${bd?"🎂":p.e?esc(p.e):I.cal}</a><a class="ev-x" href="${esc(e.url)}" target="_blank" rel="noopener"><div class="ev-t">${esc(p.t)}</div><div class="ev-m">${esc(evWhen(e))}${e.loc?` · ${esc(e.loc)}`:""}</div></a>${bd?`<a class="ib sm press" href="sms:&body=${encodeURIComponent("Happy birthday, "+who+"! 🎉")}" aria-label="Text happy birthday" data-tip="Text happy birthday">${I.msg}</a>`:""}</div>`}).join(""):`<div class="empty">Nothing scheduled.</div>`}</div>`}).join("");
+ /* reminders (Google Tasks) sit under each day's events; overdue ones land on Today */
+ const tasks=(S.tasks||[]).filter(t=>!t.done);
+ const tasksFor=k=>tasks.filter(t=>t.due===k||(k===tk&&t.due&&t.due<tk));
+ const undated=tasks.filter(t=>!t.due);
+ const taskRow=t=>`<label class="rem ${t.due&&t.due<tk?"late":""}"><input type="checkbox" class="rem-x" data-task="${esc(t.id)}" data-list="${esc(t.list)}" aria-label="Done: ${esc(t.title)}"><span class="rem-t">${esc(t.title)}${t.due&&t.due<tk?`<small>since ${esc(fmtKey(t.due,{month:"short",day:"numeric"}))}</small>`:""}${t.notes?`<small>${esc(clip(t.notes,80))}</small>`:""}</span></label>`;
+ const groups=days.map((k,i)=>{const items=EVENTS.filter(e=>inDay(e,k));const rem=tasksFor(k);const lab=i===0?"Today":i===1?"Tomorrow":fmtKey(k,{weekday:"long"});return`<div class="grp"><div class="grp-h"><b>${esc(lab)}</b><span>${esc(fmtKey(k,{weekday:i<2?"short":undefined,month:"short",day:"numeric"}))}</span></div>${items.length?items.map(e=>{const p=splitEmoji(e.title);const past=!e.allDay&&e.en<now;const bd=e.kind==="birthday";const who=bd?p.t.replace(/['’]s birthday$/i,"").trim():"";return`<div class="ev ${past?"past":""}"><a class="ev-ic" href="${esc(e.url)}" target="_blank" rel="noopener">${bd?"🎂":p.e?esc(p.e):I.cal}</a><a class="ev-x" href="${esc(e.url)}" target="_blank" rel="noopener"><div class="ev-t">${esc(p.t)}</div><div class="ev-m">${esc(evWhen(e))}${e.loc?` · ${esc(e.loc)}`:""}</div></a>${bd?`<a class="ib sm press" href="sms:&body=${encodeURIComponent("Happy birthday, "+who+"! 🎉")}" aria-label="Text happy birthday" data-tip="Text happy birthday">${I.msg}</a>`:""}</div>`}).join(""):rem.length?"":`<div class="empty">Nothing scheduled.</div>`}${rem.length?`<div class="rems"><div class="rems-h">Reminders</div>${rem.map(taskRow).join("")}</div>`:""}</div>`}).join("");
+ const someday=undated.length?`<div class="card rems-card"><div class="rems-h">Reminders without a date<span>${undated.length}</span></div>${undated.slice(0,8).map(taskRow).join("")}</div>`:"";
  el.innerHTML=`<div class="sh"><h2><span class="h-ic">${I.gcal}</span>Calendar</h2><a class="aux" href="https://calendar.google.com/calendar/r/month" target="_blank" rel="noopener">Open</a></div>
  ${DATA.calendar.summary?`<div class="sum"><div class="sum-k">${I.spark}Next 3 days</div><p>${esc(DATA.calendar.summary)}</p></div>`:""}
- <div class="card agenda">${groups}</div>`;
+ <div class="card agenda">${groups}</div>${someday}${S.tasksErr&&!S.tasks?`<p class="note">Reminders need the Oct 22 backend update (${esc(S.tasksErr)}).</p>`:""}`;
+}
+/* Google Tasks through the backend; a tick completes the task there too */
+async function loadTasks(force){
+ if(!backend())return;const c=LS.get("sd-tasks",null);
+ if(c&&!force&&Date.now()-c.t<10*6e4){S.tasks=c.v;renderCal();renderTeasers();return}
+ try{const r=await be({fn:"tasks"},20000);if(!r.tasks)throw new Error("no tasks in reply");S.tasks=r.tasks;S.tasksErr="";LS.set("sd-tasks",{t:Date.now(),v:r.tasks})}
+ catch(e){S.tasksErr=String(e.message||e).slice(0,60);if(c)S.tasks=c.v}
+ renderCal();renderTeasers();refreshSettings();
+}
+async function completeTask(id,list,on){
+ const t=(S.tasks||[]).find(x=>x.id===id);if(!t)return;t.done=on;LS.set("sd-tasks",{t:Date.now(),v:S.tasks});renderTeasers();
+ try{await be({fn:"taskDone",id,list,undo:on?"0":"1"},20000);toast(on?"Done":"Back on the list")}catch(e){t.done=!on;renderCal();toast("Couldn't update that reminder")}
 }
 
 /* =================================================================
@@ -2091,7 +2221,7 @@ function toggleMove(i){const log={...coachLog()},k=todayKey(),cur=new Set(Array.
 /* what the page can see about today, in plain words */
 function coachSignals(){
  const sig=[],say=[],tk=todayKey(),now=new Date();
- const sl=HEALTH&&HEALTH.sleep&&HEALTH.sleep[0]&&HEALTH.sleep[0].sleep&&HEALTH.sleep[0].sleep.summary;const mins=sl?+sl.minutesAsleep||0:0;
+ const hl=HEALTH&&HEALTH.ok?healthLatest():null;const mins=hl&&hl.d>=addDays(tk,-1)?hl.asleep||0:0;
  if(mins){const h=Math.floor(mins/60),m=mins%60;sig.push({t:`${h}h ${String(m).padStart(2,"0")}m sleep`,c:mins<390?"warn":mins>=450?"good":""});
   if(mins<390)say.push("Short night, so do the hard thinking early and skip caffeine after 2 PM.");else if(mins>=450)say.push("You slept well. A good day to take on the hard thing.")}
  const today=EVENTS.filter(e=>e.key===tk&&!e.allDay),left=today.filter(e=>e.en>now);
@@ -2102,19 +2232,25 @@ function coachSignals(){
   if(w.hi>=85)say.push(`It's heading to ${w.hi}°. Drink water before you head out.`);else if(w.rain>=50)say.push(`${w.rain}% chance of rain. Plan the walk for a dry window.`);else if(w.hi<=45)say.push("Cold one. Layer up for anything outside.")}
  return{sig,say:say.slice(0,2)};
 }
+/* Coach is one card: a single line for the day, one reason, one thing to actually do.
+   Morning and afternoon it's the thing; from 5 PM it turns into the evening question.
+   The other two moves wait behind "two more", never in your face. */
+const firstSentence=t=>{const m=/^(.+?[.!?])(\s|$)/.exec(String(t||"").trim());return m?m[1]:String(t||"").trim()};
+const coachEvening=()=>{const h=new Date().getHours();return h>=17||h<4};
 function renderCoach(){
  const el=$("#s-coach");if(!el)return;const c=coachData(),done=new Set(coachDone()),n=c.moves.length;
- const ctx=[`Today's focus: ${c.focus.title}. ${c.focus.why||""}`,n?`My three moves: ${c.moves.map((m,i)=>(done.has(i)?"[done] ":"")+m.text).join(" | ")}`:""].filter(Boolean).join("\n");
- el.innerHTML=`<div class="cc">
-  <div class="card cc-f">
-   <div class="cc-top"><span class="cc-k">Today's focus${c.theme?`<b>${esc(c.theme)}</b>`:""}</span>${askBtn(`Be my coach for today. Keep it practical and short.\n${ctx}\nWhat should I do first, and what should I watch out for?`,"Talk it through with Claude")}</div>
-   <h3>${esc(c.focus.title)}</h3>
-   ${c.focus.why?`<p>${esc(c.focus.why)}</p>`:""}
-   ${n?`<div class="cc-prog" role="img" aria-label="${done.size} of ${n} moves done">${c.moves.map((m,i)=>`<i class="${done.has(i)?"on":""}" style="--c:${COACH_AREAS[m.area]||"var(--ink-2)"}"></i>`).join("")}<span>${done.size>=n?"All three done":`${done.size} of ${n} done`}</span></div>`:""}
-  </div>
-  ${n?`<div class="cc-ms">${c.moves.map((m,i)=>{const on=done.has(i),col=COACH_AREAS[m.area]||"var(--ink-2)";return`<button class="cc-m press ${on?"on":""}" data-move="${i}" aria-pressed="${on}" style="--c:${col}"><span class="cc-mh"><span class="cc-a">${esc(m.area||"")}</span><span class="cc-x">${I.check}</span></span><span class="cc-t">${esc(m.text)}</span>${m.mins?`<span class="cc-min">${esc(m.mins)} min</span>`:""}</button>`}).join("")}</div>`:""}
-  ${c.principle?`<p class="cc-pr">${esc(c.principle)}</p>`:""}
- </div>`;
+ const main=c.moves[0],more=c.moves.slice(1),col=main?COACH_AREAS[main.area]||"var(--ink-2)":"var(--ink-2)";
+ const evening=coachEvening(),mainDone=done.has(0),allDone=n>0&&done.size>=n;
+ const ctx=[`Today's focus: ${c.focus.title}. ${c.focus.why||""}`,n?`My moves: ${c.moves.map((m,i)=>(done.has(i)?"[done] ":"")+m.text).join(" | ")}`:""].filter(Boolean).join("\n");
+ const move=(m,i)=>{const on=done.has(i),cc=COACH_AREAS[m.area]||"var(--ink-2)";return`<button class="co-m press ${on?"on":""}" data-move="${i}" aria-pressed="${on}" style="--c:${cc}"><span class="co-x">${I.check}</span><span class="co-t">${esc(m.text)}</span><span class="co-min num">${on?"Done":esc(m.mins?m.mins+" min":m.area||"")}</span></button>`};
+ el.innerHTML=`<article class="card co" style="--c:${col}">
+  <div class="co-k"><span><i></i>${evening?"Tonight":"Today"}${c.theme?` · ${esc(c.theme)}`:""}</span>${askBtn(`Be my coach for today. Keep it practical and short.\n${ctx}\n${evening?"Help me look back at the day in a few lines.":"What should I do first, and what should I watch out for?"}`,"Talk it through with Claude")}</div>
+  <h3 class="co-h">${esc(c.focus.title)}</h3>
+  ${c.focus.why?`<p class="co-w">${esc(firstSentence(c.focus.why))}</p>`:""}
+  ${evening?`<div class="co-q"><div class="lw-l" style="margin-top:0">Tonight's question</div><p>${esc(c.reflect)}</p>${allDone?`<div class="co-done">${I.check}All done today</div>`:mainDone?`<div class="co-done">${I.check}Did the one thing</div>`:""}</div>`
+   :main?`<div class="co-one">${move(main,0)}</div>${more.length?`<details class="co-more"${mainDone?" open":""}><summary>${more.length===1?"One more if you want it":"Two more if you want them"}${done.size>1?` · ${Math.min(done.size-(mainDone?1:0),more.length)} done`:""}</summary><div class="co-ms">${more.map((m,i)=>move(m,i+1)).join("")}</div></details>`:""}`:""}
+  ${c.principle?`<p class="co-pr">${esc(c.principle)}</p>`:""}
+ </article>`;
 }
 
 /* =================================================================
@@ -2157,30 +2293,44 @@ const scrollHist=el=>requestAnimationFrame(()=>$$(".hist",el).forEach(h=>{const 
    each word does, a two-line conversation to hear, related phrases,
    and when to use it today.
    ================================================================= */
+/* a three-choice check: the right meaning against two other phrases' meanings (older days first, then stock ones) */
+const ES_DISTRACT=["No way! / You're kidding","Let's go! / Come on","Take it easy / Chill","See you later","What a drag / How annoying","Right away / In a sec","Cheers! / To your health","I'm starving","Hurry up!","Sounds good / Deal"];
+function esQuiz(e,list){
+ const others=list.filter(x=>x!==e&&x.meaning).map(x=>x.meaning);
+ const pool=others.concat(ES_DISTRACT.filter(d=>d!==e.meaning));
+ const r=rng(hash(e.phrase));const pick=[];
+ while(pick.length<2&&pool.length){const k=Math.floor(r()*pool.length);pick.push(pool.splice(k,1)[0])}
+ const opts=[{t:e.meaning,ok:true}].concat(pick.map(t=>({t,ok:false})));
+ for(let i=opts.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[opts[i],opts[j]]=[opts[j],opts[i]]}
+ return opts;
+}
 function renderSpanish(){
  const el=$("#s-spanish");if(!el)return;const list=SPAN;
  if(!list.length){el.innerHTML=`<div class="card"><div class="empty-row">No phrase yet.</div></div>`;return}
  let i=S.learn.s;if(i==null||i>=list.length)i=list.length-1;const e=list[i];
- const cards=(e.cards||[]).map(c=>({f:c.es||c.f,b:c.en||c.b}));const dl=(e.dialog||[]).slice(0,4),parts=(e.parts||[]).slice(0,6);
+ const cards=(e.cards||[]).map(c=>({f:c.es||c.f,b:c.en||c.b}));const dl=(e.dialog||[]).slice(0,6),parts=(e.parts||[]).slice(0,8);
  const ask=`Let's practice Mexican Spanish. Role-play a short, casual conversation where I can use "${e.phrase}" (${e.meaning}). You start, keep your lines short, correct me gently, and give the English only if I ask.`;
+ const q=e.quiz&&e.quiz.options&&e.quiz.options.length>=3?e.quiz.options.map((t,k)=>({t,ok:k===(e.quiz.answer||0)})):esQuiz(e,list);
+ const qs=S.quiz&&S.quiz.phrase===e.phrase?S.quiz:{phrase:e.phrase,picked:null};
  el.innerHTML=`<div class="sh"><button class="aux" data-act="review" data-k="s">Review ${list.length} ${list.length===1?"phrase":"phrases"}</button></div>
- <div class="lrn">
-  <div class="card lw es lw-hero">
+ <div class="esg">
+  <div class="card lw es lw-hero es-hero">
    <div class="lw-k"><span class="lw-ic">${MI.spanish}</span><b>${e.date===ED?"Phrase of the day":esc(fmtKey(e.date,{weekday:"long",month:"short",day:"numeric"}))}</b>${e.reg?`<span class="cnt">${esc(e.reg)}</span>`:""}</div>
    <div class="term" lang="es">${esc(e.phrase)}</div>
    <div class="pron">${esc(e.pron||"")}</div>
    <div class="es-play"><button class="btn pri press" data-say="${esc(e.phrase)}" data-lang="es-MX">${I.speaker}Hear it</button><button class="btn press" data-say="${esc(e.phrase)}" data-lang="es-MX" data-slow="1">Slowly</button></div>
    <p class="def">${esc(e.meaning)}</p>
-   ${parts.length?`<div class="lw-l">Word by word</div><div class="es-parts">${parts.map(x=>`<span lang="es"><b>${esc(x.es)}</b><small>${esc(x.en)}</small></span>`).join("")}</div>`:""}
    ${e.note?`<p class="ex">${esc(e.note)}</p>`:""}
   </div>
-  <div class="lrn-side">
-   ${dl.length?`<div class="card lw es"><div class="lw-l" style="margin-top:0">In a conversation · tap a line to hear it</div><div class="es-dl">${dl.map((x,j)=>`<button class="es-ln press ${j%2?"b":""}" data-say="${esc(x.es)}" data-lang="es-MX"><i>${j%2?"B":"A"}</i><span><b lang="es">${esc(x.es)}</b><small>${esc(x.en)}</small></span></button>`).join("")}</div></div>`:""}
-   ${cards.length?`<div class="card lw es"><div class="lw-l" style="margin-top:0">Related · tap to flip</div><div class="fcs">${cards.slice(0,3).map(c=>`<button class="fc" data-flip aria-label="${esc(c.f)}"><div class="fc-in"><div class="fc-f" lang="es">${esc(c.f)}</div><div class="fc-b">${esc(c.b)}</div></div></button>`).join("")}</div></div>`:""}
-   <div class="card lw es">
-    ${e.use?`<div class="lw-l" style="margin-top:0">Use it today</div><p class="lw-p">${esc(e.use)}</p>`:""}
-    <div class="acts" style="margin-top:${e.use?"12px":"0"}">${askBtn(ask,"Practice a conversation with Claude","pri")}<span class="lw-a">Practice a short conversation</span></div>
-   </div>
+  ${parts.length?`<div class="card lw es es-wbw"><div class="lw-l" style="margin-top:0">Word by word · tap to hear</div><div class="es-parts">${parts.map(x=>`<button class="press" lang="es" data-say="${esc(x.es)}" data-lang="es-MX"><b>${esc(x.es)}</b><small>${esc(x.en)}</small></button>`).join("")}</div></div>`:""}
+  ${dl.length?`<div class="card lw es es-conv"><div class="lw-l" style="margin-top:0">In a conversation · tap a line to hear it</div><div class="es-dl">${dl.map((x,j)=>`<button class="es-ln press ${j%2?"b":""}" data-say="${esc(x.es)}" data-lang="es-MX"><i>${j%2?"B":"A"}</i><span><b lang="es">${esc(x.es)}</b><small>${esc(x.en)}</small></span></button>`).join("")}</div>${dl.length>1?`<div class="acts" style="margin-top:12px"><button class="btn press" data-say-all="${esc(dl.map(x=>x.es).join(" … "))}" data-lang="es-MX">${I.speaker}Play the whole exchange</button></div>`:""}</div>`:""}
+  ${cards.length?`<div class="card lw es es-rel"><div class="lw-l" style="margin-top:0">Related · tap to flip</div><div class="fcs">${cards.slice(0,3).map(c=>`<button class="fc" data-flip aria-label="${esc(c.f)}"><div class="fc-in"><div class="fc-f" lang="es">${esc(c.f)}</div><div class="fc-b">${esc(c.b)}</div></div></button>`).join("")}</div></div>`:""}
+  <div class="card lw es es-quiz">
+   <div class="lw-l" style="margin-top:0">Quick check</div>
+   <p class="lw-p">What does <b lang="es">${esc(e.phrase)}</b> mean?</p>
+   <div class="es-opts">${q.map((o,k)=>{const st=qs.picked==null?"":o.ok?"ok":k===qs.picked?"no":"dim";return`<button class="es-opt press ${st}" data-quiz="${k}" data-ok="${o.ok?1:0}" ${qs.picked!=null?"disabled":""}>${esc(o.t)}</button>`}).join("")}</div>
+   ${qs.picked!=null?`<p class="es-verdict ${q[qs.picked]&&q[qs.picked].ok?"ok":"no"}">${q[qs.picked]&&q[qs.picked].ok?"That's it.":"Not quite — it's "+esc(e.meaning)+"."}${e.use?" "+esc(e.use):""}</p>`:e.use?`<p class="lw-p es-use">${I.tip}<span>${esc(e.use)}</span></p>`:""}
+   <div class="acts" style="margin-top:12px">${askBtn(ask,"Practice a conversation with Claude","pri")}<span class="lw-a">Practice a short conversation with Claude</span></div>
   </div>
  </div>
  ${list.length>1?`<div class="hist noscroll lrn-h" style="--acc:var(--es)">${list.map((x,j)=>`<button class="hc press ${j===i?"on":""}" data-hist="s" data-i="${j}"><small>${x.date===ED?"Today":esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</small><span lang="es">${esc(x.phrase)}</span></button>`).join("")}</div>`:""}`;
@@ -2386,9 +2536,10 @@ function renderMkCtx(){
   h+=`<div class="smas">${[50,100,200].map(x=>{const v=m&&m[x];const d=v&&n?(n.price-v)/v*100:null;return`<div class="sma"><small>${x}-day avg</small><b class="num">${v?usd(v,v>=1000?0:undefined):"—"}</b><span class="num ${d==null?"":d>=0?"up":"down"}">${d==null?(m?"Not enough data":"Loading…"):`${Math.abs(d).toFixed(1)}% ${d>=0?"above":"below"}`}</span></div>`}).join("")}</div>`;
   const rows=[];if(n&&n.hi)rows.push(["24h high",usd(n.hi)],["24h low",usd(n.lo)]);if(q&&q.mcap)rows.push(["Market cap",big(q.mcap)],["From all-time high",q.ath>=-0.05?"At the high":sgn(q.ath)+Math.abs(q.ath).toFixed(1)+"%"]);
   if(rows.length)h+=`<dl class="stats">${rows.map(([a,b])=>`<div><dt>${esc(a)}</dt><dd class="num">${esc(b)}</dd></div>`).join("")}</dl>`;
-  if(s==="BTC"&&DATA.btc){const lv=S.cowen;const newer=lv&&lv.published&&dayKey(new Date(lv.published))>DATA.btc.summaryDate;
-   h+=`<div class="take"><div class="take-h"><b>${esc(DATA.btc.source)}'s take</b><span>From his ${esc(fmtKey(DATA.btc.summaryDate,{month:"short",day:"numeric"}))} video${(n=>n>=2?` · ${n} days ago`:n===1?" · yesterday":" · today")(dayDiff(DATA.btc.summaryDate,todayKey()))}</span></div><p>${esc(DATA.btc.summary)}</p>
-   ${lv?`<a class="cw-new" href="${esc(lv.url)}" target="_blank" rel="noopener"><img src="${esc(lv.thumb)}" alt="" loading="lazy"><span><small>${newer?"Newer video":"Latest video"} · ${esc(ago(lv.published))}</small><b class="clamp2">${esc(lv.title)}</b></span></a>`:""}<div class="acts">${ib(DATA.btc.sourceUrl,/youtu/.test(DATA.btc.sourceUrl)?I.yt:favImg(domainOf(DATA.btc.sourceUrl)),"Read "+DATA.btc.source+"'s take")}${askBtn(S.cowen?`Benjamin Cowen just posted "${S.cowen.title}" (${S.cowen.url}). What is his current take on Bitcoin, and what should I watch for?`:"Based on Benjamin Cowen's most recent analysis, what's happening with Bitcoin right now and what should I watch for?")}</div></div>`}
+  /* the take in his words, no link out to the video */
+  if(s==="BTC"&&DATA.btc){
+   h+=`<div class="take"><div class="take-h"><b>${esc(DATA.btc.source)}'s take</b><span>As of ${esc(fmtKey(DATA.btc.summaryDate,{month:"short",day:"numeric"}))}${(n=>n>=2?` · ${n} days ago`:n===1?" · yesterday":" · today")(dayDiff(DATA.btc.summaryDate,todayKey()))}</span></div><p>${esc(DATA.btc.summary)}</p>
+   <div class="acts">${askBtn("Based on Benjamin Cowen's most recent analysis, what's happening with Bitcoin right now and what should I watch for?")}</div></div>`}
  }else if(k==="pick"){
   const p=DATA.pick,q=stkQuote(p.sym),px=q?q.price:p.close;const chips=[];
   if(p.rating)chips.push(`<span class="pchip good"><b>${esc(p.rating.label)}</b>${p.rating.total?` · ${p.rating.buy?p.rating.buy+" of ":""}${p.rating.total} analysts`:""}</span>`);
@@ -2427,14 +2578,16 @@ function renderNews(){
  const tags=["All",...new Set(DATA.news.map(n=>n.tag))];if(!tags.includes(S.news.tag))S.news.tag="All";
  const list=DATA.news.filter(n=>S.news.tag==="All"||n.tag===S.news.tag);
  const N=newsN();const show=S.news.open?list.length:Math.min(list.length,N);
- el.innerHTML=`<div class="sh"><h2>News</h2><span class="aux">${list.length} ${list.length===1?"story":"stories"}</span></div>
- <div class="chips noscroll" role="tablist">${tags.map(t=>`<button class="chip press ${t===S.news.tag?"on":""}" data-tag="${esc(t)}" role="tab" aria-selected="${t===S.news.tag}">${esc(t)}</button>`).join("")}</div>
- <div class="card">${list.length?list.slice(0,show).map(n=>{return`<article class="nw">
+ /* every story is its own card, like the event lists */
+ const story=n=>`<article class="nw">
    <div class="nw-src"><img src="${favicon(n.domain)}" alt="" loading="lazy" onerror="this.style.visibility='hidden'"><b>${esc(n.src)}</b>${S.news.tag==="All"?`<span>${esc(n.tag)}</span>`:""}<span class="dt">${esc(newsDate(n.date))}</span></div>
    <h3><a class="stretch" href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a></h3>
    <p>${esc(n.blurb)}</p>
    <div class="nw-acts">${askBtn(n.ask||`Tell me more about this story and why it matters: "${n.title}" (${n.url})`)}${pinBtn("nw:"+n.url,{kind:"nw",title:n.title,sub:n.src,img:"",url:n.url})}</div>
-  </article>`}).join(""):`<div class="nw"><p>No stories today.</p></div>`}</div>
+  </article>`;
+ el.innerHTML=`<div class="sh"><h2>News</h2><span class="aux">${list.length} ${list.length===1?"story":"stories"}</span></div>
+ <div class="chips noscroll" role="tablist">${tags.map(t=>`<button class="chip press ${t===S.news.tag?"on":""}" data-tag="${esc(t)}" role="tab" aria-selected="${t===S.news.tag}">${esc(t)}</button>`).join("")}</div>
+ ${list.length?cols(list.slice(0,show).map(story)):`<div class="card"><div class="empty-row">No stories today.</div></div>`}
  ${list.length>N?`<button class="more press ${S.news.open?"open":""}" data-act="news-more">${S.news.open?"Show fewer":`Show ${list.length-N} more`}${I.chev}</button>`:""}`;
 }
 
@@ -2507,16 +2660,6 @@ function renderWatch(){
 async function yt(path,params){const u=new URL("https://www.googleapis.com/youtube/v3/"+path);Object.entries({...params,key:ytKey()}).forEach(([k,v])=>u.searchParams.set(k,v));const r=await fetch(u);const j=await r.json();if(j.error)throw new Error((j.error.errors&&j.error.errors[0]&&j.error.errors[0].reason)||j.error.message||"error");return j}
 async function ytChannel(handle){const ck="sd-ytc-"+handle.toLowerCase();const c=LS.get(ck,null);if(c&&c.id)return c;const j=await yt("channels",{part:"snippet,contentDetails",forHandle:handle});const it=j.items&&j.items[0];if(!it)throw new Error("not found");const v={id:it.id,title:it.snippet.title,avatar:(it.snippet.thumbnails&&(it.snippet.thumbnails.default||{}).url)||"",uploads:it.contentDetails.relatedPlaylists.uploads};LS.set(ck,v);return v}
 function pickDesc(t){if(!t)return"";const bad=/https?:|www\.|sponsor|%\s*off|\bcode\b|subscribe|merch|patreon|instagram|twitter|tiktok|discord|affiliate|follow (me|us)|#\w|^@|^[-—_=]+$/i;const s=t.split(/\n+/).map(x=>x.trim()).find(x=>x.length>24&&!bad.test(x));return s?clip(s,170):""}
-/* Ben Cowen's newest upload, straight from YouTube, so the Bitcoin take always shows what he said last */
-async function loadCowen(){
- const h=(DATA.btc&&DATA.btc.channel)||"@intothecryptoverse";const c=LS.get("sd-cowen",null);
- if(c&&Date.now()-c.t<60*6e4){S.cowen=c.v;renderMkCtx();return}
- if(!ytKey())return;
- try{const ch=await ytChannel(h);const j=await yt("playlistItems",{part:"snippet",maxResults:"5",playlistId:"UULF"+ch.id.slice(2)}).catch(()=>yt("playlistItems",{part:"snippet",maxResults:"5",playlistId:ch.uploads}));
-  const it=(j.items||[]).map(i=>i.snippet).filter(x=>x&&x.resourceId).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt))[0];
-  if(it){const th=it.thumbnails||{};S.cowen={title:it.title,published:it.publishedAt,url:"https://www.youtube.com/watch?v="+it.resourceId.videoId,thumb:(th.medium||th.high||th.default||{}).url||""};LS.set("sd-cowen",{t:Date.now(),v:S.cowen});renderMkCtx()}
- }catch(e){}
-}
 async function loadYouTube(force){
  if(!ytKey())return;
  const chs=lists().channels,sg=ytSugg();
@@ -2590,18 +2733,37 @@ async function loadSpArt(){
 /* =================================================================
    WEEKEND
    ================================================================= */
-/* AROUND THE BAY — things to do in the next few days */
-function bayItems(){const b=DATA.bay||{};const tk=todayKey();return(b.items||[]).filter(i=>(i.endDate||i.date)>=tk&&!isDis("bay:"+i.title+"|"+i.date)).sort((x,y)=>x.date.localeCompare(y.date)||String(x.cal&&x.cal.start).localeCompare(String(y.cal&&y.cal.start)))}
+/* AROUND THE BAY — this weekend (Fri–Sun) or, from Friday on, what's left of it.
+   Each item is pinned to the day inside that window it applies to, so a run that
+   started weeks ago (a play, a haunted house) shows as the day you'd go, and anything
+   outside the window stays out. */
+function bayWindow(){
+ const tk=todayKey(),dow=keyDate(tk).getUTCDay();/* 0 Sun … 6 Sat */
+ const fri=dow<=4?addDays(tk,5-dow):dow===5?tk:null;
+ const start=dow>=5||dow===0?tk:fri,end=dow===0?tk:addDays(fri||tk,dow===6?1:2);
+ return{start,end,label:start===end?relDay(start):`${fmtKey(start,{weekday:"short"})}–${fmtKey(end,{weekday:"short"})} · ${fmtKey(start,{month:"short",day:"numeric"})}–${fmtKey(end,{day:"numeric"})}`};
+}
+function bayItems(){
+ const b=DATA.bay||{},w=bayWindow();
+ return(b.items||[]).map(it=>{
+  const s=it.date,e=it.endDate||it.date;if(!s)return null;
+  const cs=it.cal&&it.cal.start?it.cal.start.slice(0,10):"";
+  /* the day to show: the calendar day if it's inside the window, else the first window day the run covers */
+  const day=cs>=w.start&&cs<=w.end?cs:s>w.start?s:w.start;
+  if(e<w.start||s>w.end||day>w.end||day<todayKey())return null;
+  return{...it,day,runs:e>day?e:""};
+ }).filter(it=>it&&!isDis("bay:"+it.title+"|"+it.date)).sort((x,y)=>x.day.localeCompare(y.day)||String(x.cal&&x.cal.start).localeCompare(String(y.cal&&y.cal.start)));
+}
 const dateBlock=k=>`<div class="ev2-d" aria-hidden="true"><small>${esc(fmtKey(k,{month:"short"}))}</small><b class="num">${esc(fmtKey(k,{day:"numeric"}))}</b></div>`;
 function renderBay(){
- const el=$("#s-bay");if(!el)return;const b=DATA.bay||{};const items=bayItems();
- el.innerHTML=`<div class="sh"><span class="aux">Bay Area${b.range?` · ${esc(b.range)}`:""}</span></div>
- ${items.length?cols(items.map(it=>{const t=it.cal&&it.cal.start?it.cal.start.slice(11,16):"";return`<article class="ev2">${dateBlock(it.date)}<div class="ev2-x">
-  <div class="chips2" style="margin:0 0 6px">${cdChip(it.date,t)}${it.dateLabel?`<span class="cd">${esc(it.dateLabel)}</span>`:""}${it.free?`<span class="tagc list">Free</span>`:""}</div>
+ const el=$("#s-bay");if(!el)return;const items=bayItems(),w=bayWindow();
+ el.innerHTML=`<div class="sh"><span class="aux">Bay Area · ${esc(w.label)}</span></div>
+ ${items.length?cols(items.map(it=>{const t=it.cal&&it.cal.start&&it.cal.start.slice(0,10)===it.day?it.cal.start.slice(11,16):"";return`<article class="ev2">${dateBlock(it.day)}<div class="ev2-x">
+  <div class="chips2" style="margin:0 0 6px">${cdChip(it.day,t)}${it.runs?`<span class="cd">Through ${esc(fmtKey(it.runs,{month:"short",day:"numeric"}))}</span>`:it.dateLabel?`<span class="cd">${esc(it.dateLabel)}</span>`:""}${it.free?`<span class="tagc list">Free</span>`:""}</div>
   <h3>${esc(it.title)}</h3>${it.where?`<div class="where">${esc(it.where)}</div>`:""}<p>${esc(it.blurb)}</p>
   ${it.cal&&it.cal.tips?`<div class="wk-tip">${I.tip}<span>${esc(it.cal.tips)}</span></div>`:""}
-  <div class="acts">${ib(it.url,I.ext,"Details","pri")}${it.tickets?ib(it.tickets,I.ticket,"Get tickets"):""}${calBtn(it.title,it.cal,it.url)}${gBtn([it.title,it.where].filter(Boolean).join(" "))}${it.ask?askBtn(it.ask):""}${pinBtn("bay:"+it.title+"|"+it.date,{kind:"bay",title:it.title,sub:it.where||"",date:it.cal&&it.cal.start&&it.cal.start.slice(0,10)===it.date?it.cal.start.slice(0,16):it.date,url:it.tickets||it.url})}${dxBtn("bay:"+it.title+"|"+it.date,"bay",it.title)}</div>
- </div></article>`})):`<div class="card"><div class="empty-row">Nothing picked for the next few days.</div></div>`}`;
+  <div class="acts">${ib(it.url,I.ext,"Details","pri")}${it.tickets?ib(it.tickets,I.ticket,"Get tickets"):""}${calBtn(it.title,it.cal&&it.cal.start?it.cal:{date:it.day,tips:it.cal&&it.cal.tips||"",location:it.where||""},it.url)}${gBtn([it.title,it.where].filter(Boolean).join(" "))}${it.ask?askBtn(it.ask):""}${pinBtn("bay:"+it.title+"|"+it.date,{kind:"bay",title:it.title,sub:it.where||"",date:t?it.day+"T"+t:it.day,url:it.tickets||it.url})}${dxBtn("bay:"+it.title+"|"+it.date,"bay",it.title)}</div>
+ </div></article>`})):`<div class="card"><div class="empty-row">Nothing picked for ${esc(w.label.split(" · ")[0])} yet.</div></div>`}`;
 }
 
 /* SHOWS — your artists, plus artists that sound like them */
@@ -2627,6 +2789,161 @@ function renderShows(){
  ${like.length?`<div class="grp-t">Suggested<span>${like.length} ${like.length===1?"show":"shows"}</span></div>${cols(like.map(row))}`:""}`;
 }
 
+/* =================================================================
+   LIVE — games, fights and launches for whatever is on his Live list,
+   with the channel they're on. ESPN's public feeds cover teams (NBA, NFL,
+   MLB, NHL, college football and basketball), UFC and F1; Launch Library
+   covers SpaceX and the other launch providers. The morning data
+   (DATA.live) seeds the list and fills in anything the feeds miss.
+   Item: {id,kind,title,sub,when,end?,where,tv[],state,detail?,score?,url,logos[],note?}
+   ================================================================= */
+const ESPN="https://site.api.espn.com/apis/site/v2/sports/";
+const LEAGUES=[["nba","basketball/nba","NBA"],["nfl","football/nfl","NFL"],["mlb","baseball/mlb","MLB"],["nhl","hockey/nhl","NHL"],["cfb","football/college-football","College football"],["cbb","basketball/mens-college-basketball","College basketball"]];
+const LEAGUE_HOURS={nba:2.5,nfl:3.25,mlb:3,nhl:2.5,cfb:3.5,cbb:2};
+const LAUNCH_LSP={spacex:"SpaceX",nasa:"NASA",rocketlab:"Rocket Lab",blueorigin:"Blue Origin",ula:"ULA",unitedlaunchalliance:"ULA",arianespace:"Arianespace",firefly:"Firefly",relativity:"Relativity"};
+function liveKind(name){const n=norm(name);if(/^(ufc|mma)$/.test(n))return{kind:"ufc"};if(/^(f1|formula1|formulaone)$/.test(n))return{kind:"f1"};const k=Object.keys(LAUNCH_LSP).find(x=>n===x);if(k)return{kind:"launch",lsp:LAUNCH_LSP[k]};return{kind:"team"}}
+const teamList=()=>(lists().teams||[]).map(x=>String(x).trim()).filter(Boolean);
+async function espnTeams(path){
+ const k="sd-espn-"+path.replace(/\W/g,"");const c=LS.get(k,null);if(c&&Date.now()-c.t<7*864e5)return c.v;
+ const r=await fetch(ESPN+path+"/teams?limit=1000");if(!r.ok)throw new Error("espn "+r.status);const j=await r.json();
+ const list=(((j.sports||[])[0]||{}).leagues||[]).flatMap(l=>(l.teams||[]).map(x=>x.team)).filter(Boolean).map(t=>({id:t.id,abbr:t.abbreviation||"",name:t.displayName||"",short:t.shortDisplayName||"",nick:t.name||"",loc:t.location||"",logo:(t.logos&&t.logos[0]&&t.logos[0].href)||""}));
+ LS.set(k,{t:Date.now(),v:list});return list;
+}
+/* "76ers" → the NBA team; "Ohio State" → the football and basketball teams; "Giants" → both Giants */
+function matchTeam(list,q){
+ const w=norm(q);if(!w)return[];
+ const exact=list.filter(t=>[t.name,t.short,t.nick,t.loc,t.abbr].some(f=>norm(f)===w));if(exact.length)return exact.slice(0,2);
+ const words=String(q).toLowerCase().split(/\s+/).filter(Boolean);
+ return list.filter(t=>{const hay=(t.name+" "+t.loc+" "+t.nick).toLowerCase();return words.every(x=>hay.includes(x))}).slice(0,2);
+}
+/* one ESPN event → one Live item (team schedules and scoreboards shape things slightly differently) */
+function espnItem(ev,league,label,mine){
+ const comp=(ev.competitions||[])[0]||{};const cs=comp.competitors||[];
+ const team=c=>c.team||{};const logo=c=>team(c).logo||(team(c).logos&&team(c).logos[0]&&team(c).logos[0].href)||"";
+ const home=cs.find(c=>c.homeAway==="home"),away=cs.find(c=>c.homeAway==="away");
+ const nm=c=>team(c).shortDisplayName||team(c).displayName||team(c).name||"";
+ const st=(comp.status||ev.status||{}).type||{};const state=st.state||"pre";
+ const sc=c=>c&&c.score!=null?(typeof c.score==="object"?c.score.displayValue:c.score):null;
+ const bc=(comp.broadcasts||[]).flatMap(b=>b.names||(b.media&&b.media.shortName?[b.media.shortName]:[])).filter(Boolean);
+ const tv=[...new Set(bc)].slice(0,3);
+ const v=comp.venue||{};const where=[v.fullName,v.address&&v.address.city].filter(Boolean).join(", ");
+ const title=home&&away?(mine&&team(home).id===mine?`${nm(away)} at ${nm(home)}`:mine&&team(away).id===mine?`${nm(away)} at ${nm(home)}`:`${nm(away)} at ${nm(home)}`):(ev.shortName||ev.name||"");
+ const link=(ev.links||[]).find(l=>/gamecast|summary|fight|race/i.test((l.text||"")+(l.rel||[]).join(" ")))||(ev.links||[])[0];
+ return{id:"lv:"+league+":"+ev.id,kind:league,league:label,title,sub:label,when:ev.date||comp.date,hours:LEAGUE_HOURS[league]||2.5,where,tv,state,detail:st.shortDetail||st.detail||"",
+  score:state!=="pre"&&home&&away&&sc(home)!=null?`${team(away).abbreviation||nm(away)} ${sc(away)} – ${team(home).abbreviation||nm(home)} ${sc(home)}`:"",
+  url:(link&&link.href)||"",logos:[away,home].filter(Boolean).map(logo).filter(Boolean),mine:!!mine};
+}
+const liveWindow=()=>{const tk=todayKey();return{from:new Date(tk+"T00:00:00-07:00").getTime(),to:new Date(addDays(tk,7)+"T23:59:59-07:00").getTime()}};
+const espnDates=()=>{const tk=todayKey();return tk.replace(/-/g,"")+"-"+addDays(tk,7).replace(/-/g,"")};
+/* one scoreboard call per league covers the whole week for every team in it, and it carries
+   the broadcasts (the per-team schedule endpoint doesn't) */
+const SB_EXTRA={cfb:"&groups=80&limit=400",cbb:"&groups=50&limit=500",nba:"&limit=200",nfl:"&limit=200",mlb:"&limit=200",nhl:"&limit=200"};
+const sbCache={};
+async function leagueBoard(lg,path){
+ if(sbCache[lg])return sbCache[lg];
+ sbCache[lg]=(async()=>{const r=await fetch(`${ESPN}${path}/scoreboard?dates=${espnDates()}${SB_EXTRA[lg]||""}`);if(!r.ok)throw new Error("espn "+r.status);const j=await r.json();return j.events||[]})();
+ return sbCache[lg];
+}
+async function liveTeam(q){
+ const out=[];const all=await Promise.all(LEAGUES.map(([lg,path])=>espnTeams(path).catch(()=>[])));
+ for(let i=0;i<LEAGUES.length;i++){const[lg,path,label]=LEAGUES[i];
+  for(const t of matchTeam(all[i],q)){try{const evs=await leagueBoard(lg,path);evs.filter(ev=>((ev.competitions||[])[0]||{}).competitors?.some(c=>String((c.team||{}).id)===String(t.id))).forEach(ev=>out.push(espnItem(ev,lg,label,t.id)))}catch(e){}}}
+ return out;
+}
+async function liveUfc(){
+ const r=await fetch(`${ESPN}mma/ufc/scoreboard?dates=${espnDates()}`);if(!r.ok)return[];const j=await r.json();
+ return(j.events||[]).map(ev=>{const comps=ev.competitions||[];const c0=comps[0]||{};const st=((c0.status||ev.status||{}).type)||{};
+  const bc=[...new Set(comps.flatMap(c=>(c.broadcasts||[]).flatMap(b=>b.names||[])))].slice(0,3);
+  const v=(c0.venue||ev.venue||{});const main=comps.find(c=>c.competitors&&c.competitors.length===2);
+  const fighters=main?main.competitors.map(x=>(x.athlete&&(x.athlete.shortName||x.athlete.displayName))||"").filter(Boolean):[];
+  return{id:"lv:ufc:"+ev.id,kind:"ufc",league:"UFC",title:ev.name||ev.shortName||"UFC",sub:fighters.length===2?`${fighters[0]} vs ${fighters[1]}`:`${comps.length} fights`,when:ev.date,hours:5,where:[v.fullName,v.address&&v.address.city].filter(Boolean).join(", "),tv:bc,state:st.state||"pre",detail:st.shortDetail||"",score:"",url:((ev.links||[])[0]||{}).href||"https://www.ufc.com/events",logos:[]}});
+}
+async function liveF1(){
+ const r=await fetch(`${ESPN}racing/f1/scoreboard?dates=${espnDates()}`);if(!r.ok)return[];const j=await r.json();const out=[];
+ (j.events||[]).forEach(ev=>{(ev.competitions||[]).forEach(c=>{const ty=(c.type&&(c.type.abbreviation||c.type.text))||"";if(!/race|grand/i.test(ty)&&!/race/i.test(c.name||""))return;const st=((c.status||{}).type)||{};
+  out.push({id:"lv:f1:"+c.id,kind:"f1",league:"F1",title:(ev.shortName||ev.name||"Grand Prix").replace(/^Formula 1\s*/i,""),sub:"Race",when:c.date||ev.date,hours:2.5,where:(c.venue||ev.venue||{}).fullName||"",tv:[...new Set((c.broadcasts||[]).flatMap(b=>b.names||[]))].slice(0,3),state:st.state||"pre",detail:st.shortDetail||"",score:"",url:((ev.links||[])[0]||{}).href||"",logos:[]})})});
+ return out;
+}
+async function liveLaunches(lsp){
+ const r=await fetch(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/?search=${encodeURIComponent(lsp)}&limit=8&ordering=net`);if(!r.ok)throw new Error("ll2 "+r.status);const j=await r.json();
+ return(j.results||[]).map(l=>{const st=(l.status&&l.status.abbrev)||"";const vid=(l.vidURLs||[])[0];const prov=(l.launch_service_provider||{}).name||lsp;
+  return{id:"lv:launch:"+l.id,kind:"launch",league:"Launch",title:(l.mission&&l.mission.name)||l.name,sub:[(l.rocket&&l.rocket.configuration&&l.rocket.configuration.name)||"",prov].filter(Boolean).join(" · "),when:l.net,hours:1,where:[l.pad&&l.pad.name,l.pad&&l.pad.location&&l.pad.location.name].filter(Boolean).join(", "),tv:[/spacex/i.test(prov)?"SpaceX webcast":prov+" webcast"],state:/success|failure/i.test(st)?"post":l.webcast_live?"in":"pre",detail:st==="Go"?"Go for launch":st==="TBC"?"Date to be confirmed":st==="TBD"?"Date to be determined":st,score:"",url:(vid&&vid.url)||(l.pad&&l.pad.location&&l.pad.location.url)||"https://www.spacex.com/launches/",logos:[],img:typeof l.image==="string"?l.image:(l.image&&l.image.image_url)||""}});
+}
+function seedLive(){return(DATA.live||[]).filter(x=>x&&x.title&&x.when).map(x=>({id:"lv:seed:"+norm(x.title)+String(x.when).slice(0,10),kind:x.kind||"other",league:x.sub||"",title:x.title,sub:x.sub||"",when:x.when,end:x.end,hours:2.5,where:x.where||"",tv:x.tv||[],state:"pre",detail:"",score:"",url:x.url||"",logos:[],note:x.note||"",seed:true}))}
+function liveItems(){
+ const w=liveWindow(),now=Date.now();const live=(S.live&&S.live.items)||[];
+ const all=live.concat(seedLive());const seen={};const out=[];
+ all.forEach(it=>{const t=Date.parse(it.when);if(isNaN(t))return;const end=it.end?Date.parse(it.end):t+(it.hours||2.5)*36e5;
+  if(t>w.to)return;if(end<w.from)return;if(it.state==="post"&&end<now-14*36e5)return; /* finals from today stay until the next morning */
+  const key=norm(it.title).slice(0,24)+"|"+dayKey(new Date(t));if(seen[key]){if(it.note&&!seen[key].note)seen[key].note=it.note;return}
+  seen[key]=it;out.push(it)});
+ return out.filter(it=>!isDis(it.id)).sort((a,b)=>Date.parse(a.when)-Date.parse(b.when)).slice(0,14);
+}
+const liveSig=()=>teamList().join("|").toLowerCase();
+async function loadLiveTv(force){
+ const sig=liveSig();const c=LS.get("sd-live",null);
+ if(c&&c.sig===sig){S.live={items:c.items,at:c.t};renderLiveTv();renderTeasers();if(!force&&Date.now()-c.t<20*6e4)return}
+ if(!teamList().length){S.live={items:[],at:Date.now()};renderLiveTv();return}
+ try{
+  Object.keys(sbCache).forEach(k=>delete sbCache[k]);
+  const jobs=teamList().map(q=>{const k=liveKind(q);return k.kind==="ufc"?liveUfc():k.kind==="f1"?liveF1():k.kind==="launch"?liveLaunches(k.lsp):liveTeam(q)});
+  const res=await Promise.all(jobs.map(p=>p.catch(e=>{S.liveErr=String(e.message||e).slice(0,60);return[]})));
+  const items=res.flat();S.live={items,at:Date.now()};LS.set("sd-live",{t:Date.now(),sig,items});
+ }catch(e){S.liveErr=String(e.message||e).slice(0,60)}
+ renderLiveTv();renderTeasers();refreshSettings();
+}
+const tvChips=tv=>(tv||[]).slice(0,3).map(t=>`<span class="tvc">${esc(t)}</span>`).join("");
+function liveWhen(it){const d=new Date(it.when);const k=dayKey(d);return{k,time:fmtTime(d),chip:it.state==="in"?`<span class="cd now"><i></i>Live${it.detail?" · "+esc(it.detail):""}</span>`:it.state==="post"?`<span class="cd">Final</span>`:cdChip(k,String(d.getHours()).padStart(2,"0")+":00")}}
+function renderLiveTv(){
+ const el=$("#s-live");if(!el)return;const items=liveItems();const tk=todayKey();
+ const card=it=>{const w=liveWhen(it);const lg=it.logos&&it.logos.length?`<span class="lv-logos">${it.logos.map(u=>`<img src="${esc(u)}" alt="" loading="lazy" onerror="this.remove()">`).join("")}</span>`:it.img?`<span class="lv-logos one"><img src="${esc(it.img)}" alt="" loading="lazy" onerror="this.remove()"></span>`:"";
+  const calLocal={start:localIso(it.when),end:localIso(new Date(Date.parse(it.when)+(it.hours||2.5)*36e5).toISOString()),location:it.where||"",tips:[it.tv&&it.tv.length?"On "+it.tv.join(", "):"",it.note||""].filter(Boolean).join(" · ")};
+  return`<article class="ev2 lv ${it.state}">${dateBlock(w.k)}<div class="ev2-x">
+   <div class="chips2" style="margin:0 0 6px">${w.chip}${tvChips(it.tv)}</div>
+   <div class="lv-h"><h3>${esc(it.title)}</h3>${lg}</div>
+   <div class="where">${esc([it.sub,it.state==="pre"?w.time+(it.kind==="launch"&&/TB[CD]/i.test(it.detail)?" (tentative)":""):"",it.where].filter(Boolean).join(" · "))}</div>
+   ${it.score?`<div class="lv-score num">${esc(it.score)}${it.detail&&it.state==="post"?` <small>${esc(it.detail)}</small>`:""}</div>`:it.detail&&it.state==="pre"&&it.kind==="launch"?`<p>${esc(it.detail)}</p>`:""}
+   ${it.note?`<div class="wk-tip">${I.tip}<span>${esc(it.note)}</span></div>`:""}
+   <div class="acts">${it.url?ib(it.url,I.ext,"Details","pri"):""}${it.state!=="post"?calBtn(it.title,calLocal,it.url):""}${gBtn(it.title+(it.state==="pre"?" how to watch":" score"))}${pinBtn(it.id,{kind:"lv",title:it.title,sub:[it.tv&&it.tv[0],it.where].filter(Boolean).join(" · "),date:localIso(it.when),url:it.url})}${dxBtn(it.id,"live",it.title)}</div>
+  </div></article>`};
+ const groups=[["Today",items.filter(it=>dayKey(new Date(it.when))===tk)],["Tomorrow",items.filter(it=>dayKey(new Date(it.when))===addDays(tk,1))],["This week",items.filter(it=>dayKey(new Date(it.when))>addDays(tk,1))]].filter(g=>g[1].length);
+ el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-teams">Your teams</button></div>
+ ${groups.length?groups.map(([t,g])=>`<div class="grp-t">${t}<span>${g.length}</span></div>${cols(g.map(card))}`).join(""):`<div class="card"><div class="empty-row">${teamList().length?S.live?"Nothing on for your teams in the next week.":"Checking the schedules…":"Add a team in Settings to see what's on."}</div></div>`}`;
+}
+/* ISO time in Pacific without the offset, the way calUrl wants it */
+function localIso(iso){const d=new Date(iso);const p=new Intl.DateTimeFormat("en-CA",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(d);const g=t=>(p.find(x=>x.type===t)||{}).value;return`${g("year")}-${g("month")}-${g("day")}T${g("hour").replace("24","00")}:${g("minute")}`}
+
+/* =================================================================
+   MUSIC — his artists, what they've put out lately, and artists like them.
+   The morning data brings music.artists (his list with Spotify links),
+   music.releases (new albums/singles) and discover.artists (similar
+   artists); cover art comes from Spotify's oEmbed endpoint, no key needed.
+   ================================================================= */
+function artistInfo(name){const k=norm(name);const pools=[(DATA.music&&DATA.music.artists)||[],(DATA.discover&&DATA.discover.artists)||[]];for(const p of pools){const hit=p.find(a=>norm(a.name)===k);if(hit)return hit}return null}
+const artistUrl=a=>(a&&a.url)||"";
+const artistArt=a=>{if(!a)return"";if(a.img)return a.img;const u=artistUrl(a);if(!u)return"";const m=LS.get("sd-sp-art",{});return m[String(u).split("?")[0]]||""};
+function musicArtists(){return lists().artists.map(n=>{const i=artistInfo(n)||{name:n};return{name:n,url:artistUrl(i),art:artistArt(i),genres:i.genres||[]}})}
+function musicReleases(){const list=lists().artists;return((DATA.music&&DATA.music.releases)||[]).filter(r=>r&&r.title&&r.date&&ageDays(r.date)<=21&&list.some(a=>norm(a)===norm(r.artist))&&!isDis("mu:"+norm(r.artist+r.title))).map(r=>({...r,art:r.art||artistArt({url:r.url})||artistArt(artistInfo(r.artist))})).sort((a,b)=>String(b.date).localeCompare(String(a.date)))}
+function musicSuggested(){return artistItems().filter(a=>!lists().artists.some(x=>norm(x)===norm(a.name))).map(a=>({...a,art:artistArt(a),seed:String(a.because||"").replace(/^\s*(like|similar to|because you like)\s+/i,"")})).filter(a=>!a.seed||lists().artists.some(x=>norm(x)===norm(a.seed)))}
+const letterAva=(name,cls="")=>`<span class="ava ${cls}" style="background:hsl(${hue(name)} 45% 32%);color:#fff">${esc(String(name).replace(/^The /,"").slice(0,1).toUpperCase())}</span>`;
+function renderMusic(){
+ const el=$("#s-music");if(!el)return;const mine=musicArtists(),rel=musicReleases(),sug=musicSuggested();
+ const relCard=r=>`<article class="vid mu"><div class="vid-th pth">${r.art?`<img class="bgb" src="${esc(r.art)}" alt="" loading="lazy"><img class="sq" src="${esc(r.art)}" alt="" loading="lazy">`:`<div class="pcv" style="--h:${hue(r.artist)}">${I.spotify}</div>`}</div><div class="vid-b"><div class="vid-ch">${r.art?`<img class="ava sqa" src="${esc(r.art)}" alt="">`:letterAva(r.artist,"sqa")}<b>${esc(r.artist)}</b></div><h3 class="clamp2"><a class="stretch" href="${esc(r.url||"https://open.spotify.com/search/"+encodeURIComponent(r.artist+" "+r.title))}" target="_blank" rel="noopener">${esc(r.title)}</a></h3><div class="vid-m">${esc([r.type?r.type.charAt(0).toUpperCase()+r.type.slice(1):"Release",ago(r.date),r.tracks?r.tracks+" tracks":""].filter(Boolean).join(" · "))}</div>${r.note?`<p class="clamp2">${esc(r.note)}</p>`:""}<div class="vid-f"><span class="open-in" title="Opens in Spotify">${I.spotify}</span><span class="vid-a">${pinBtn("mu:"+norm(r.artist+r.title),{kind:"mu",title:r.title,sub:r.artist,img:r.art||"",date:r.date,url:r.url||""})}${dxBtn("mu:"+norm(r.artist+r.title),"music",r.title)}</span></div></div></article>`;
+ const artistTile=a=>`<a class="mu-a press" href="${esc(a.url||"https://open.spotify.com/search/"+encodeURIComponent(a.name)+"/artists")}" target="_blank" rel="noopener"><span class="mu-ava">${a.art?`<img src="${esc(a.art)}" alt="" loading="lazy" onerror="this.remove()">`:letterAva(a.name)}</span><b>${esc(a.name)}</b>${a.genres&&a.genres.length?`<small>${esc(a.genres.slice(0,2).join(" · "))}</small>`:""}</a>`;
+ const sugRow=a=>`<div class="mu-s"><span class="mu-ava sm">${a.art?`<img src="${esc(a.art)}" alt="" loading="lazy" onerror="this.remove()">`:letterAva(a.name)}</span><div class="mu-sx"><b>${esc(a.name)}</b><small>${esc(a.seed?"~ "+a.seed:a.because||"Suggested for you")}${a.genres&&a.genres.length?" · "+esc(a.genres.slice(0,2).join(", ")):""}</small></div><span class="vid-a">${a.url?ib(a.url,I.spotify,"Open in Spotify"):""}${followBtn("artists",a.name,false,"Suggested because you like "+(a.seed||"your artists"))}${dxBtn("art:"+a.name,"music",a.name)}</span></div>`;
+ el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-artists">Your artists</button></div>
+ ${rel.length?`<div class="grp-t">New from your artists<span>${rel.length}</span></div><div class="vgrid">${rel.map(relCard).join("")}</div>`:`<div class="grp-t">New from your artists</div><div class="card"><div class="empty-row">Nothing new from your artists in the last 3 weeks.</div></div>`}
+ <div class="grp-t">Your artists<span>${mine.length}</span></div>
+ ${mine.length?`<div class="mu-row noscroll">${mine.map(artistTile).join("")}</div>`:`<div class="card"><div class="empty-row">Add artists in Settings.</div></div>`}
+ ${sug.length?`<div class="grp-t">Suggested<span>${sug.length}</span></div><div class="card mu-sl">${sug.map(sugRow).join("")}</div>`:""}`;
+}
+/* artist photos through Spotify's oEmbed endpoint, cached like episode art */
+async function loadMusicArt(){
+ const urls=[...musicArtists().map(a=>a.url),...musicSuggested().map(a=>a.url),...musicReleases().map(r=>r.url)].filter(Boolean);
+ const oe=LS.get("sd-sp-art",{});const need=[...new Set(urls)].filter(u=>oe[String(u).split("?")[0]]==null);
+ if(!need.length)return;await Promise.all(need.map(u=>spArt(u)));renderMusic();renderTeasers();
+}
+
 /* ACTIVITY — Fitbit Air health data */
 
 /* ── Health trend storage (localStorage) ─────────────────── */
@@ -2634,6 +2951,11 @@ function saveHealthTrend_(){
  if(!HEALTH.ok||!HEALTH.date)return;
  try{
   const store=JSON.parse(localStorage.getItem("sd-health-trend")||"{}");
+  if(HEALTH.v===2&&HEALTH.days){
+   Object.keys(HEALTH.days).forEach(d=>{const v=HEALTH.days[d],rec={};if(v.steps)rec.steps=v.steps;if(v.sleep){rec.sleep=v.sleep.asleep||0;rec.deep=v.sleep.deep||0;rec.rem=v.sleep.rem||0;rec.awake=v.sleep.awake||0;if(v.sleep.bed!=null)rec.bed=v.sleep.bed;if(v.sleep.wake!=null)rec.wake=v.sleep.wake}if(v.rhr)rec.rhr=v.rhr;if(v.cal)rec.cal=v.cal;if(v.spo2)rec.spo2=v.spo2;if(v.hrv)rec.hrv=v.hrv;if(v.rr)rec.rr=v.rr;if(v.dist)rec.dist=v.dist;if(Object.keys(rec).length)store[d]=rec});
+   const ks=Object.keys(store).sort();while(ks.length>35)delete store[ks.shift()];
+   localStorage.setItem("sd-health-trend",JSON.stringify(store));return;
+  }
   const d=HEALTH.date;
   const rec={};
   if(HEALTH.steps&&HEALTH.steps.steps)rec.steps=+HEALTH.steps.steps.countSum||0;
@@ -2673,6 +2995,12 @@ function sparkHtml_(metric,days){
  return`<div class="hg-spark" title="Last ${pts.length} days">${vals.map(v=>`<span style="height:${Math.max(12,((v-mn)/range)*100)}%"></span>`).join("")}</div>`;
 }
 
+/* the newest day with a night of sleep in health.json (v2 days map or the single-day shape) */
+function healthLatest(){
+ if(HEALTH.v===2&&HEALTH.days){const ks=Object.keys(HEALTH.days).sort();const k=ks.filter(d=>HEALTH.days[d].sleep).pop()||ks[ks.length-1];if(!k)return null;const v=HEALTH.days[k];return{d:k,asleep:v.sleep?v.sleep.asleep:0,steps:v.steps||0,rhr:v.rhr||0}}
+ const sl=HEALTH.sleep&&HEALTH.sleep[0]&&HEALTH.sleep[0].sleep&&HEALTH.sleep[0].sleep.summary;const steps=HEALTH.steps&&HEALTH.steps.steps?+HEALTH.steps.steps.countSum:0;const rhr=HEALTH.restingHR&&HEALTH.restingHR[0]?+HEALTH.restingHR[0].dailyRestingHeartRate?.beatsPerMinute:0;
+ if(!sl&&!steps&&!rhr)return null;return{d:HEALTH.date||todayKey(),asleep:sl?+sl.minutesAsleep||0:0,steps,rhr};
+}
 function renderHealth(){
  const el=$("#s-health");if(!el)return;
  if(!HEALTH.ok){el.innerHTML=`<div class="card ph-card"><span class="ic">${I.pulse}</span><div><b>Fitbit Air</b><p>Steps, sleep, heart rate and workouts will show up here once your Fitbit Air is connected.</p></div></div>`;return}
@@ -2691,8 +3019,17 @@ function renderHealth(){
  const nice_=(lo,hi,step)=>{const a=Math.floor(lo/step)*step,b=Math.ceil(hi/step)*step;return b===a?[a-step,a+step]:[a,b]};
 
 
- /* ── Build today's record from HEALTH API ── */
- function todayRecord(){
+ /* ── One record per day ──
+    health.json v2 (backend v8) carries a `days` map for the last few weeks. The older
+    single-day shape is still read, and days this device saw before are kept in localStorage,
+    so a trend exists either way. */
+ function recFromV2(d,v){
+  const r={d,steps:v.steps||0,dist:v.dist||0,cal:v.cal||0,rhr:v.rhr||0,hrv:v.hrv||0,spo2:v.spo2||0,spo2Lo:v.spo2Lo,spo2Hi:v.spo2Hi,rr:v.rr||0,asleep:0,deep:0,rem:0,bed:null,wake:null,partial:1};
+  if(v.sleep){r.asleep=v.sleep.asleep||0;r.deep=v.sleep.deep||0;r.rem=v.sleep.rem||0;r.bed=v.sleep.bed??null;r.wake=v.sleep.wake??null;if(v.sleep.inBed)r.inBedRaw=v.sleep.inBed;r.partial=0}
+  if(v.active)r.active=v.active;if(v.azm)r.azm=v.azm;if(v.exercise)r.exercise=v.exercise;
+  return r;
+ }
+ function legacyRecord(){
   const r={d:HEALTH.date||todayKey(),partial:1};
   if(HEALTH.steps&&HEALTH.steps.steps)r.steps=+HEALTH.steps.steps.countSum||0;
   if(HEALTH.sleep&&HEALTH.sleep.length){
@@ -2710,21 +3047,20 @@ function renderHealth(){
   if(HEALTH.respiratoryRate&&HEALTH.respiratoryRate.length)r.rr=HEALTH.respiratoryRate[0].dailyRespiratoryRate?.breathsPerMinute||0;
   return r;
  }
-
- /* ── Build historical records from localStorage trend ── */
- function trendRecords(){
-  try{
-   const store=JSON.parse(localStorage.getItem("sd-health-trend")||"{}");
-   const today=HEALTH.date||todayKey();
-   return Object.keys(store).filter(d=>d<today).sort().slice(-13).map(d=>{const v=store[d];return{d,steps:v.steps||0,asleep:v.sleep||0,rhr:v.rhr||0,hrv:v.hrv||0,spo2:v.spo2||0,rr:v.rr||0,bed:v.bed,wake:v.wake,deep:v.deep||0,rem:v.rem||0}}).filter(r=>r.asleep||r.steps||r.rhr);
-  }catch(e){return[]}
+ const hasData=r=>!!(r.asleep||r.steps||r.rhr||r.hrv||r.spo2||r.rr);
+ function allRecords(){
+  const by={};
+  try{const store=JSON.parse(localStorage.getItem("sd-health-trend")||"{}");Object.keys(store).forEach(d=>{const v=store[d];by[d]={d,steps:v.steps||0,asleep:v.sleep||0,rhr:v.rhr||0,hrv:v.hrv||0,spo2:v.spo2||0,rr:v.rr||0,bed:v.bed??null,wake:v.wake??null,deep:v.deep||0,rem:v.rem||0,partial:v.sleep?0:1}})}catch(e){}
+  if(HEALTH.v===2&&HEALTH.days)Object.keys(HEALTH.days).forEach(d=>{by[d]=recFromV2(d,HEALTH.days[d])});
+  else{const r=legacyRecord();if(hasData(r))by[r.d]=r}
+  return Object.keys(by).filter(d=>d<=todayKey()).sort().map(d=>by[d]).filter(hasData).slice(-14);
  }
-
- /* ── Assemble DAYS ── */
- const today=todayRecord();
- const hist=trendRecords();
- const todayHasData=today.asleep||today.steps||today.rhr||today.hrv||today.spo2||today.rr;
- const HDAYS=hist.length?(todayHasData?[...hist,today]:hist):(todayHasData?[today]:[]);
+ const HDAYS=allRecords();
+ /* "today" is the newest day that has a night of sleep; a day with only a few steps so far isn't it */
+ const TK=todayKey();
+ const Tidx=(()=>{for(let i=HDAYS.length-1;i>=0;i--)if(HDAYS[i].asleep)return i;return HDAYS.length-1})();
+ const stale=HDAYS.length&&HDAYS[Tidx].d<TK;
+ const partialToday=HDAYS.length&&HDAYS[HDAYS.length-1].d===TK&&HDAYS[HDAYS.length-1].partial?HDAYS[HDAYS.length-1]:null;
 
  /* ── Sleep score ── */
  function score_(r){
@@ -2745,12 +3081,12 @@ function renderHealth(){
   r.deepP=r.asleep&&r.deep?r.deep/r.asleep*100:0;
   r.score=score_(r);
  });
- if(!HDAYS.length){el.innerHTML=`<div class="card ph-card"><span class="ic">${I.pulse}</span><div><b>Fitbit Air</b><p>Steps, sleep, heart rate and workouts will show up here once your Fitbit Air is connected.</p></div></div>`;return}
- const T=HDAYS[HDAYS.length-1];
+ if(!HDAYS.length){el.innerHTML=`<div class="card ph-card"><span class="ic">${I.pulse}</span><div><b>Fitbit Air</b><p>${HEALTH.v===2?"No days with data yet. Once the watch syncs, the next 2-hourly pull fills this in.":`The last pull (${HEALTH.fetchedAt?esc(fmtLocalTime(new Date(HEALTH.fetchedAt))):"5 AM"}) ran before the Fitbit had synced, so there's nothing for today yet. The Oct 22 backend update pulls every 2 hours and keeps a two-week history.`}</p></div></div>`;return}
+ const T=HDAYS[Tidx];
  const band_=s=>s>=90?["Excellent","good"]:s>=80?["Good","good"]:s>=60?["Fair","warn"]:["Poor","warn"];
 
  /* ── Suggestion engine ── */
- const realHist_=HDAYS.filter(r=>r!==T);
+ const realHist_=HDAYS.slice(0,Tidx);
  const sd_=a=>{const m=a.reduce((x,y)=>x+y,0)/a.length;return Math.sqrt(a.reduce((x,y)=>x+(y-m)**2,0)/a.length)};
  const recoveryLoad_=(T.hrv&&T.hrv<50?1:0)+(T.rr&&T.rr>=19.5?1:0);
  const HCANDIDATES=[
@@ -2837,7 +3173,7 @@ function renderHealth(){
 
  /* ── Render ── */
  const N=7;
- const all=HDAYS;
+ const all=HDAYS.slice(0,Tidx+1);
  const rows=all.slice(-N);
  const histR=rows.filter(r=>r!==T);
  const C=[];
@@ -2957,10 +3293,10 @@ function renderHealth(){
  el.innerHTML=`
   ${sugHtml}
   <div style="padding-top:22px">
-   <div class="h-sh"><h2>Your metrics</h2></div>
+   <div class="h-sh"><h2>${stale?esc(T.d===addDays(TK,-1)?"Yesterday":fmtKey(T.d,{weekday:"long"})):"Today"}</h2><span>${esc(fmtKey(T.d,{month:"short",day:"numeric"}))}</span></div>
    <div class="h-stack" id="h-cards">${C.join("")}</div>
   </div>
-  ${HEALTH.fetchedAt?`<div style="text-align:center;padding-top:16px;font-size:13px;color:var(--ink-3)">Synced ${(()=>{const ago=Date.now()-new Date(HEALTH.fetchedAt).getTime();return ago<36e5?Math.round(ago/6e4)+"m ago":ago<864e5?Math.round(ago/36e5)+"h ago":"yesterday"})()}</div>`:""}`;
+  <div class="h-foot">${stale?`<b>${esc(T.d===addDays(TK,-1)?"Last night":fmtKey(T.d,{weekday:"long"})+"'s night")}</b> · `:""}${partialToday&&partialToday.steps?`${partialToday.steps.toLocaleString()} steps so far today · `:""}${HEALTH.fetchedAt?`Synced ${(()=>{const ago=Date.now()-new Date(HEALTH.fetchedAt).getTime();return ago<36e5?Math.round(ago/6e4)+" min ago":ago<864e5?Math.round(ago/36e5)+" hr ago":fmtKey(dayKey(new Date(HEALTH.fetchedAt)),{weekday:"short",month:"short",day:"numeric"})})()}`:""}${HEALTH.v!==2?`<br><span class="warn">Sleep and heart data are pulled at 5 AM, before the Fitbit has synced — paste the Oct 22 backend update to fix this</span>`:""}</div>`;
 
 
  /* Tooltip for chart data points */
@@ -2982,30 +3318,36 @@ const PAL=[["#7A2E3A","#2A0F1E"],["#1F4E79","#0B1A2E"],["#6B4F1D","#21170A"],["#
 const initials=t=>String(t).replace(/^(The|A|An) /i,"").split(/[\s:\-]+/).filter(w=>/^[A-Za-z0-9]/.test(w)).slice(0,2).map(w=>w[0]).join("").toUpperCase();
 /* posters carry no text: without artwork they show a plain tile with a film icon */
 function poster(m,mini){const c=PAL[hash(m.title)%PAL.length];return`<div class="pst ${mini?"mini-pst":""}" style="--p1:${c[0]};--p2:${c[1]}">${I.film}${m.poster?`<img src="${esc(m.poster)}" alt="" loading="lazy" onerror="this.remove()">`:""}</div>`}
-/* movie options (synced): how many, order, window for coming soon, minimum score, hidden genres */
-const MV_DEF={n:12,sort:"popular",soon:90,min:0,fresh:true,hide:[]};
+/* movie options (synced): how many, order, how long a film still counts as "in theaters",
+   window for coming soon, big releases only, minimum score, hidden genres, where showtimes open, your ZIP */
+const MV_DEF={n:12,sort:"newest",win:45,soon:90,bigOnly:false,min:0,fresh:true,hide:[],zip:"94040",via:"fandango"};
 const mvPrefs=()=>({...MV_DEF,...pref("movies",{})});
 function setMvPref(k,v){setPref("movies",{...mvPrefs(),[k]:v});renderMovies();renderTeasers();refreshSettings()}
 const mvGenres=x=>x.genres&&x.genres.length?x.genres:String(x.genre||"").split(/\s*[·,/]\s*/).filter(Boolean);
+const mvZip=()=>String(mvPrefs().zip||"94040").replace(/\D/g,"").slice(0,5)||"94040";
+/* showtimes near him: Fandango by ZIP, or a Google search that lists every theater */
+const showtimesUrl=t=>{const z=mvZip();if(mvPrefs().via==="google")return"https://www.google.com/search?q="+encodeURIComponent((t?t+" ":"")+"showtimes near "+z);return t?`https://www.fandango.com/search?q=${encodeURIComponent(t)}&zip=${z}`:`https://www.fandango.com/${z}_movietimes`};
 function mvData(){const m=S.mv||DATA.movies||{};const tk=todayKey();const P=LS.get("sd-poster",{});const o=mvPrefs();const hide=new Set(o.hide.map(norm));
  const fix=x=>({...x,poster:x.poster||P[x.title]||""});
  const keep=x=>!isDis("mv:"+x.title)&&!mvGenres(x).some(g=>hide.has(norm(g)));
  const okScore=x=>!o.min||x.tmdb==null||x.tmdb>=o.min;
  const isNew=x=>x.released&&dayDiff(x.released,tk)<=7;
- let now=(m.now||[]).filter(x=>keep(x)&&okScore(x));
- const order={popular:(a,b)=>(b.pop||0)-(a.pop||0),newest:(a,b)=>String(b.released).localeCompare(String(a.released)),rated:(a,b)=>(b.tmdb||0)-(a.tmdb||0)}[o.sort];
+ /* "in theaters" means it opened within the window and isn't a future date; older runs only count if the data says they're still playing */
+ const inRun=x=>{const r=x.released||x.date;if(!r)return true;const d=dayDiff(r,tk);return d>=0&&(d<=o.win||x.stillPlaying)};
+ let now=(m.now||[]).filter(x=>keep(x)&&okScore(x)&&inRun(x));
+ const order={popular:(a,b)=>(b.pop||0)-(a.pop||0)||String(b.released).localeCompare(String(a.released)),newest:(a,b)=>String(b.released||"").localeCompare(String(a.released||"")),rated:(a,b)=>(b.tmdb||b.score||0)-(a.tmdb||a.score||0)}[o.sort];
  if(order&&(o.sort!=="popular"||now.some(x=>x.pop)))now=now.slice().sort(order);
  let shown=now.slice(0,o.n);
  if(o.fresh){const extra=now.filter(x=>isNew(x)&&!shown.includes(x));shown=shown.concat(extra)}
  const until=addDays(tk,o.soon);
- const soon=(m.soon||[]).filter(x=>x.date>=tk&&x.date<=until&&keep(x)).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,Math.max(o.n,8));
+ const soon=(m.soon||[]).filter(x=>x.date>=tk&&x.date<=until&&keep(x)&&(!o.bigOnly||x.big)).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,Math.max(o.n,8));
  return{now:shown.map(fix),soon:soon.map(fix),live:!!S.mv,total:now.length}}
 function renderMovies(){
- const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,soon,live,total}=mvData();
- const nowChip=x=>{if(!x.released)return"";const d=dayDiff(x.released,tk);return d<=3?`<span class="cd now"><i></i>New</span>`:`<span class="cd">Week ${Math.floor(d/7)+1}</span>`};
- el.innerHTML=`<div class="sh"><span class="aux"><button class="aux" data-act="settings-movies">Movie settings</button> · <a class="aux" href="https://www.fandango.com/94040_movietimes" target="_blank" rel="noopener">Showtimes near you</a></span></div>
- ${now.length?`<div class="grp-t">In theaters<span>${now.length}${live?" of "+total+" · TMDB":""}</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,"Tickets & showtimes","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" "+String(x.released||x.date||"").slice(0,4)+" movie")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:["In theaters",x.rating].filter(Boolean).join(" · "),img:x.poster,url:tixUrl(x)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div>`:""}
- ${soon.length?`<div class="grp-t">Coming soon<span>${soon.length}</span></div>${cols(soon.map(x=>`<article class="ev2">${poster(x,true)}<div class="ev2-x"><div class="chips2" style="margin:0 0 6px">${cdChip(x.date,null,"Opens ")}<span class="cd">${esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</span>${x.big?`<span class="tagc list">Big one</span>`:""}</div><h3>${esc(x.title)}</h3>${x.genre?`<div class="where">${esc(x.genre)}</div>`:""}${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,x.presale?"Pre-sale tickets":"Tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${calBtn("🎬 "+x.title+" opens",{date:x.date,tips:x.blurb||""},tixUrl(x))}${gBtn(x.title+" "+String(x.date).slice(0,4)+" movie")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:"Opens "+fmtKey(x.date,{month:"short",day:"numeric"}),img:x.poster,date:x.date,url:tixUrl(x)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></div></article>`))}`:""}
+ const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,soon,live,total}=mvData();const o=mvPrefs();
+ const nowChip=x=>{if(!x.released)return"";const d=dayDiff(x.released,tk);return d<=3?`<span class="cd now"><i></i>New</span>`:d<7?`<span class="cd soon">Opened ${esc(fmtKey(x.released,{weekday:"short"}))}</span>`:`<span class="cd">Week ${Math.floor(d/7)+1}</span>`};
+ el.innerHTML=`<div class="sh"><span class="aux"><button class="aux" data-act="settings-movies">Movie settings</button> · <a class="aux" href="${esc(showtimesUrl(""))}" target="_blank" rel="noopener">Showtimes near ${esc(mvZip())}</a></span></div>
+ ${now.length?`<div class="grp-t">In theaters<span>${now.length}${live?" of "+total+" · TMDB":""} · last ${o.win} days</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(showtimesUrl(x.title),I.ticket,"Showtimes & tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" "+String(x.released||x.date||"").slice(0,4)+" movie")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:["In theaters",x.rating].filter(Boolean).join(" · "),img:x.poster,url:showtimesUrl(x.title)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div>`:""}
+ ${soon.length?`<div class="grp-t">Coming soon<span>${soon.length}${o.bigOnly?" · big releases":""}</span></div>${cols(soon.map(x=>`<article class="ev2">${poster(x,true)}<div class="ev2-x"><div class="chips2" style="margin:0 0 6px">${cdChip(x.date,null,"Opens ")}<span class="cd">${esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</span>${x.big?`<span class="tagc list">Big one</span>`:""}</div><h3>${esc(x.title)}</h3>${x.genre?`<div class="where">${esc(x.genre)}</div>`:""}${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,x.presale?"Pre-sale tickets":"Tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${calBtn("🎬 "+x.title+" opens",{date:x.date,tips:x.blurb||""},tixUrl(x))}${gBtn(x.title+" "+String(x.date).slice(0,4)+" movie")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:"Opens "+fmtKey(x.date,{month:"short",day:"numeric"}),img:x.poster,date:x.date,url:tixUrl(x)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></div></article>`))}`:""}
  ${!now.length&&!soon.length?`<div class="card"><div class="empty-row">No movies listed today.</div></div>`:""}`;
 }
 /* Movies come live from TMDB through the backend (when a TMDB_KEY script property is set);
@@ -3029,18 +3371,38 @@ async function loadPosters(){
    LEARN — two cards, one structure. History reads left → right,
    oldest to newest, with today on the far right.
    ================================================================= */
-let audioEl=null;
-function say(text,lang,slow){
- try{if(navigator.audioSession)navigator.audioSession.type="playback"}catch(e){}
- try{if(audioEl){audioEl.pause();audioEl=null}speechSynthesis&&speechSynthesis.cancel()}catch(e){}
- let fell=false;const fallback=()=>{if(fell)return;fell=true;speak(text,lang,slow)};
- try{
-  const a=new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang.slice(0,2)}&ttsspeed=${slow?0.4:0.9}&q=${encodeURIComponent(text)}`);
-  audioEl=a;a.addEventListener("error",fallback,{once:true});
-  const p=a.play();if(p&&p.catch)p.catch(fallback);
- }catch(e){fallback()}
+/* "Hear it" uses the device's own voices, started inside the tap. (An earlier version
+   tried a Google Translate audio URL first and only fell back to speech once that failed —
+   by then iPad Safari had lost the tap and refused to speak, so nothing played.) */
+const VOICE_PREF={"es-MX":["Paulina","Juan","Angélica","Mónica","Jorge","Google español de Estados Unidos","Microsoft Sabina","Microsoft Raul"],"en-US":["Samantha","Ava","Allison","Google US English"]};
+let VOICES=[];
+function loadVoices(){try{const ss=window.speechSynthesis;if(!ss)return;VOICES=ss.getVoices()||[];ss.addEventListener&&ss.addEventListener("voiceschanged",()=>{VOICES=ss.getVoices()||[]},{once:false})}catch(e){}}
+function pickVoice(lang){
+ const all=VOICES.length?VOICES:(window.speechSynthesis?window.speechSynthesis.getVoices():[])||[];
+ const l2=lang.slice(0,2).toLowerCase();
+ const same=all.filter(v=>String(v.lang||"").toLowerCase().replace("_","-")===lang.toLowerCase()),any=all.filter(v=>String(v.lang||"").toLowerCase().startsWith(l2));
+ const pref=VOICE_PREF[lang]||[];
+ for(const n of pref){const v=same.find(x=>x.name.startsWith(n))||any.find(x=>x.name.startsWith(n));if(v)return v}
+ /* iOS lists its better voices as "premium"/"enhanced"; prefer those, then a local voice, then anything */
+ const rank=v=>(/premium|enhanced/i.test(v.name)?3:0)+(v.localService?1:0)+(same.includes(v)?2:0);
+ return any.sort((a,b)=>rank(b)-rank(a))[0]||null;
 }
-function speak(text,lang,slow){try{const ss=window.speechSynthesis;if(!ss)throw 0;ss.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=lang;u.rate=slow?.55:.9;const vs=ss.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith(lang.slice(0,2)));const pref=vs.find(v=>v.lang===lang)||vs[0];if(pref)u.voice=pref;ss.speak(u)}catch(e){toast("Audio isn't available here")}}
+function say(text,lang,slow){
+ const ss=window.speechSynthesis;
+ if(!ss||!("SpeechSynthesisUtterance" in window)){toast("This browser can't speak");return}
+ try{if(navigator.audioSession)navigator.audioSession.type="playback"}catch(e){}
+ try{
+  if(ss.speaking||ss.pending)ss.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.lang=lang;u.rate=slow?.68:.92;u.pitch=1;
+  const v=pickVoice(lang);if(v)u.voice=v;
+  u.onerror=e=>{if(e&&e.error!=="interrupted"&&e.error!=="canceled")toast("Couldn't play that")};
+  ss.speak(u);
+  /* iOS sometimes queues the first utterance in a paused state */
+  setTimeout(()=>{try{if(ss.paused)ss.resume()}catch(e){}},50);
+ }catch(e){toast("Audio isn't available here")}
+}
+const speak=say;
+loadVoices();
 function learnCard(kind){
  const v=kind==="v";const list=v?VOCAB:SPAN;if(!list.length)return"";
  let i=S.learn[kind];if(i==null||i>=list.length)i=list.length-1;const e=list[i];
@@ -3108,7 +3470,8 @@ const LIST_META={
  podcasts:{t:"Podcasts",ph:"Show name on Spotify",s:"Episodes from the last 5 days show up in Listen, with a few suggestions picked from this list."},
  stocks:{t:"Stocks",ph:"Ticker, like NVDA",s:"Shown under U.S. stocks. Indexes start with ^, like ^GSPC."},
  crypto:{t:"Crypto",ph:"Ticker, like ETH",s:"Shown under Bitcoin with live prices."},
- artists:{t:"Artists",ph:"Artist name",s:"Their Bay Area shows, and shows by similar artists, go in Book ahead."}
+ artists:{t:"Artists",ph:"Artist name",s:"Music follows them (new releases, similar artists) and Shows lists their Bay Area dates."},
+ teams:{t:"Live",ph:"Team or thing, like 76ers, Ohio State, UFC, SpaceX",s:"Games, fights and launches for these go in Live, with the channel they're on. Teams in the NBA, NFL, MLB, NHL and college football/basketball; also UFC, F1, and launch providers like SpaceX, NASA, Rocket Lab or Blue Origin."}
 };
 function listEditor(k){const m=LIST_META[k];return`<div class="set-pad" id="le-${k}"><div class="set-t">${m.t}</div><div class="set-s">${m.s}</div>
  <div class="tags">${lists()[k].map(v=>`<span class="tag">${esc(v)}<button data-list-del="${k}" data-v="${esc(v)}" aria-label="Remove ${esc(v)}">${I.close}</button></span>`).join("")}</div>
@@ -3116,16 +3479,16 @@ function listEditor(k){const m=LIST_META[k];return`<div class="set-pad" id="le-$
 /* SETTINGS — grouped like iOS Settings: a quick jump bar, then
    Appearance, Home page (order + visibility), Lists, Movies,
    Connections, Data and About. Every change applies immediately. */
-const SET_COL={cal:"#2B5EF0",mkt:"#0A9455",coach:"#1D8C8A",news:"#2B5EF0",watch:"#E62117",listen:"#1DB954",bay:"#E8590C",shows:"#9B4DFF",movies:"#DD3B35",health:"#E8336D",vocab:"#4C46D6",spanish:"#D4331F"};
+const SET_COL={cal:"#2B5EF0",live:"#E8590C",mkt:"#0A9455",coach:"#1D8C8A",news:"#2B5EF0",watch:"#E62117",listen:"#1DB954",music:"#9B4DFF",bay:"#E8590C",shows:"#9B4DFF",movies:"#DD3B35",health:"#E8336D",vocab:"#4C46D6",spanish:"#D4331F"};
 const setIc=(c,svg)=>`<span class="s-ic mono" aria-hidden="true">${svg}</span>`;
 const GRIP=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8.5h14M5 12h14M5 15.5h14"/></svg>`;
-const LIST_IC={channels:["watch","#E62117"],podcasts:["listen","#1DB954"],stocks:["mkt","#0A9455"],crypto:["mkt","#F7931A"],artists:["shows","#9B4DFF"]};
+const LIST_IC={channels:["watch","#E62117"],podcasts:["listen","#1DB954"],stocks:["mkt","#0A9455"],crypto:["mkt","#F7931A"],artists:["music","#9B4DFF"],teams:["live","#E8590C"]};
 const ARW={up:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14l6-6 6 6"/></svg>`,down:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10l6 6 6-6"/></svg>`};
 const SET_NAV=[["look","Appearance"],["home","Home"],["lists","Lists"],["movies","Movies"],["conn","Connections"],["data","Data"],["about","About"]];
-function setStat(c,t,d){return`<div class="s-row"><span class="s-dot ${c}"></span><span class="s-n">${esc(t)}</span><span class="s-v">${esc(d)}</span></div>`}
+function setStat(c,t,d){return`<div class="s-row"><span class="s-dot ${c}"></span><span class="s-n">${esc(t)}</span><span class="s-v ${String(d).length>28?"wrap":""}">${esc(d)}</span></div>`}
 function settingsHTML(){
  const t=themeId(),bu=backend(),stored=!!LS.get("sd-yt-key",""),ord=orderIds(),names=Object.fromEntries(SECTIONS);
- const sync=!bu?["","This device only"]:S.sync.state==="ok"?["ok",S.sync.at?"Synced "+fmtLocalTime(new Date(S.sync.at)):"Synced"]:S.sync.state==="err"?["err","Couldn't sync"]:["","Syncing…"];
+ const sync=!bu?["","This device only"]:S.sync.state==="ok"?["ok",(S.sync.at?"Synced "+fmtLocalTime(new Date(S.sync.at)):"Synced")+(S.sync.kb?" · "+S.sync.kb+" KB":"")]:S.sync.state==="err"?["err","Couldn't sync · "+(S.sync.msg||"no response")]:["","Syncing…"];
  const mk=!bu?["","Not connected"]:S.st.err?["err","Can't reach it"]:S.st.at?["ok","Prices "+fmtLocalTime(new Date(S.st.at))]:["","Connecting…"];
  const ytst=S.yt.error?["err","Last check failed"]:S.yt.source==="live"?["ok","Live · "+fmtLocalTime(new Date(S.yt.updated))]:["","Checking…"];
  const spst=S.sp&&S.sp.length?["ok",`Live · ${S.sp.length} shows`]:S.spErr?["err","Not responding"]:["","Connecting…"];
@@ -3158,18 +3521,22 @@ function settingsHTML(){
  ${(()=>{const o=mvPrefs();const seg=(k,opts)=>`<div class="seg" role="tablist">${opts.map(([v,l])=>`<button class="${o[k]===v?"on":""}" data-mvp="${k}" data-v="${v}" role="tab" aria-selected="${o[k]===v}">${l}</button>`).join("")}</div>`;
   const m=S.mv||DATA.movies||{};const gs=[...new Set([...(m.now||[]),...(m.soon||[])].flatMap(mvGenres).concat(o.hide))].sort();
   return`<div class="set-g">
-  <div class="set-pad"><div class="set-t">In theaters</div>${seg("n",[[8,"8"],[12,"12"],[20,"20"],[40,"40"]])}</div>
-  <div class="set-pad"><div class="set-t">Order</div>${seg("sort",[["popular","Popular"],["newest","Newest"],["rated","Top rated"]])}</div>
-  <div class="set-pad"><div class="set-t">Coming soon</div>${seg("soon",[[30,"1 month"],[90,"3 months"],[180,"6 months"]])}</div>
+  <div class="set-pad"><div class="set-t">Near</div><div class="set-s">Showtimes and ticket links use this ZIP.</div><div class="inp-row" style="margin-top:8px"><input class="inp" id="mv-zip" inputmode="numeric" maxlength="5" value="${esc(o.zip||"")}" placeholder="ZIP, like 94040" aria-label="ZIP code" enterkeyhint="done"><button class="btn press" data-act="mv-zip">Save</button></div></div>
+  <div class="set-pad"><div class="set-t">Open showtimes in</div>${seg("via",[["fandango","Fandango"],["google","Google"]])}</div>
+  <div class="set-pad"><div class="set-t">In theaters</div><div class="set-s">How many to show.</div>${seg("n",[[8,"8"],[12,"12"],[20,"20"],[40,"40"]])}</div>
+  <div class="set-pad"><div class="set-t">Still counts as "in theaters" for</div><div class="set-s">Films that opened longer ago drop off, unless the data says they're still playing.</div>${seg("win",[[14,"2 wks"],[30,"1 mo"],[45,"6 wks"],[90,"3 mo"]])}</div>
+  <div class="set-pad"><div class="set-t">Order</div>${seg("sort",[["newest","Newest"],["popular","Popular"],["rated","Top rated"]])}</div>
   <div class="set-pad"><div class="set-t">Minimum audience score</div><div class="set-s">Brand-new films without enough ratings still show.</div>${seg("min",[[0,"Any"],[6,"6+"],[7,"7+"]])}</div>
   <label class="set-r"><span><span class="set-t" style="display:block">Always show this week's openings</span><span class="set-s">New releases appear even if they aren't popular yet.</span></span><input type="checkbox" class="sw" data-mvfresh ${o.fresh?"checked":""}></label>
+  <div class="set-pad"><div class="set-t">Coming soon</div><div class="set-s">How far ahead to look.</div>${seg("soon",[[30,"1 month"],[90,"3 months"],[180,"6 months"]])}</div>
+  <label class="set-r"><span><span class="set-t" style="display:block">Big releases only</span><span class="set-s">Coming soon shows just the ones marked as big.</span></span><input type="checkbox" class="sw" data-mvbig ${o.bigOnly?"checked":""}></label>
   ${gs.length?`<div class="set-pad"><div class="set-t">Genres</div><div class="set-s">Tap a genre to hide it.</div><div class="tags">${gs.map(g=>{const off=o.hide.some(h=>norm(h)===norm(g));return`<button class="tag gtog ${off?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off}">${esc(g)}</button>`}).join("")}</div></div>`:""}
  </div>`})()}</section>
 
  <section class="set-sec" id="ss-conn"><div class="set-l">Connections</div>
  <div class="set-g">
   ${setStat(mk[0],"Market data",mk[1])}${setStat(sync[0],"Settings sync",sync[1])}
-  ${setStat(ytst[0],"YouTube",ytst[1])}${setStat(spst[0],"Spotify",spst[1])}${setStat(mvst[0],"Movies",mvst[1])}${setStat(hst[0],"Health",hst[1])}
+  ${setStat(ytst[0],"YouTube",ytst[1])}${setStat(spst[0],"Spotify",spst[1])}${setStat(mvst[0],"Movies",mvst[1])}${setStat(hst[0],"Health",hst[1])}${setStat(S.tasks?"ok":S.tasksErr?"err":"","Reminders",S.tasks?`Google Tasks · ${S.tasks.filter(t=>!t.done).length} open`:S.tasksErr?"Needs the Oct 22 backend update":"Connecting…")}${setStat(S.live?"ok":S.liveErr?"err":"","Live",S.live?`ESPN · ${(S.live.items||[]).length} this week`:S.liveErr?"Couldn't reach ESPN":"Checking…")}
   <details class="s-acc"><summary class="s-row"><span class="s-n">Custom YouTube key<small>${stored?"Using your key":"Using the built-in key"}</small></span><span class="s-chev" aria-hidden="true">${I.chev}</span></summary>
    <div class="s-body"><div class="inp-row" style="margin-top:0"><input class="inp" id="yt-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${stored?"Custom key saved":"Paste a key to override"}" aria-label="YouTube API key"><button class="btn press" data-act="yt-save">Save</button></div>
    ${stored?`<button class="s-link danger" data-act="yt-clear">Remove custom key</button>`:""}</div></details>
@@ -3251,7 +3618,8 @@ function listsChanged(keys){
  if(keys.includes("podcasts")){renderListen();loadSpotify(true).then(loadSpArt)}
  if(keys.includes("stocks")){S.st.sel=0;renderStocks();loadStQuotes()}
  if(keys.includes("crypto")){if(!cxList().includes(S.cx.sel))S.cx.sel=cxList()[0]||"BTC";stopWs();renderCrypto();loadCx().then(startWs)}
- if(keys.includes("artists"))renderShows();
+ if(keys.includes("artists")){renderShows();renderMusic();loadMusicArt()}
+ if(keys.includes("teams")){LS.del("sd-live");renderLiveTv();loadLiveTv(true)}
  refreshSettings();
 }
 
@@ -3282,11 +3650,13 @@ document.addEventListener("click",async e=>{
   if(act==="order-reset"){setPref("order",[]);applyOrder();refreshSettings();toast("Back to the original order");return}
   if(act==="settings-list"){const k=a.dataset.k;S.setOpen=S.setOpen||new Set();S.setOpen.add(k);openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-"+k);if(el)el.scrollIntoView({block:"start"})});return}
   if(act==="settings-movies"){openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#set-movies");if(el)el.scrollIntoView({block:"start"})});return}
+  if(act==="settings-teams"){S.setOpen=S.setOpen||new Set();S.setOpen.add("teams");openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-teams");if(el)el.scrollIntoView({block:"center"})});return}
   if(act==="settings-artists"){S.setOpen=S.setOpen||new Set();S.setOpen.add("artists");openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-artists");if(el)el.scrollIntoView({block:"center"})});return}
   if(act==="close-sheet"){closeSheet();return}
   if(act==="undo"){const u=toastUndo;toastUndo=null;$("#toast").classList.remove("show");if(u)u();return}
   if(act==="pins-clear"){clearPins();return}
   if(act==="restore-hidden"){const now=Date.now();cfgSet(c=>{for(const k in c.dismissed)if(c.dismissed[k]>0)c.dismissed[k]=-now});Object.values(DX_RENDER).forEach(f=>f());renderTeasers();refreshSettings();toast("Everything's back");return}
+  if(act==="mv-zip"){const v=(($("#mv-zip")||{}).value||"").replace(/\D/g,"").slice(0,5);if(v.length!==5){toast("Enter a 5-digit ZIP");return}setMvPref("zip",v);toast("Showtimes near "+v);return}
   if(act==="tmdb-save"){const v=($("#tmdb-key").value||"").trim();if(!v){toast("Paste a key first");return}LS.set("sd-tmdb-key",v);LS.del("sd-tmdb");toast("Loading movies…");await loadMovies(true);refreshSettings();return}
   if(act==="tmdb-clear"){LS.del("sd-tmdb-key");LS.del("sd-tmdb");S.mv=null;renderMovies();renderTeasers();refreshSettings();toast("TMDB key removed");return}
   if(act==="vocab-check"){const v=($("#vc-mine").value||"").trim(),w=a.dataset.w;window.open(askUrl(v?`I'm learning the word "${w}". Is this a natural, correct use of it? If not, show me a better version and explain briefly.\n\n"${v}"`:`Give me 3 natural sentences using "${w}", from casual to formal, and a quick trick to remember it.`),"_blank","noopener");return}
@@ -3309,7 +3679,7 @@ document.addEventListener("click",async e=>{
   if(was){const cur=lists()[k];const hit=k==="podcasts"?cur.find(x=>showMatch(v,[x])):cur.find(x=>x.toLowerCase()===v.toLowerCase());if(hit)setList(k,cur.filter(x=>x!==hit));toast("Unfollowed "+v)}
   else{const nv=normItem(k,v);if(!inList(k,nv))setList(k,lists()[k].concat([nv]));toast("Following "+v)}
   if(k==="channels")LS.del("sd-yt-cache");
-  if(k==="artists")renderShows();
+  if(k==="artists"){renderShows();renderMusic();loadMusicArt()}
   $$(`[data-follow="${k}"]`).forEach(b=>{if(b.dataset.v.toLowerCase()!==v.toLowerCase())return;b.classList.toggle("on",!was);b.setAttribute("aria-pressed",!was);b.innerHTML=!was?I.check:I.plus;b.dataset.tip=!was?"Following · tap to unfollow":"Follow";b.setAttribute("aria-label",!was?"Following":"Follow")});refreshSettings();return}
  const th=t.closest("[data-theme-set]");if(th){const id=th.dataset.themeSet;if(th.classList.contains("on"))return;setPref("theme",id);
   /* match by id: syncing can redraw the settings sheet before this runs */
@@ -3325,15 +3695,17 @@ document.addEventListener("click",async e=>{
  const mr=t.closest("[data-mk-range]");if(mr){S.mk.range=mr.dataset.mkRange;LS.set("sd-mk-range",S.mk.range);syncRanges();$$("[data-mk-range]").forEach(b=>{b.classList.toggle("on",b===mr);b.setAttribute("aria-selected",b===mr)});drawMk();await loadMkSeries();return}
  const ms=t.closest("[data-mk]");if(ms){const i=ms.dataset.mk.indexOf("|");S.mk.k=ms.dataset.mk.slice(0,i);S.mk.s=ms.dataset.mk.slice(i+1);LS.set("sd-mk-sel",{k:S.mk.k,s:S.mk.s});syncRanges();renderMkt();await loadMkSeries();if(isCx())loadCxDaily(S.mk.s).then(renderMkCtx).catch(()=>{});return}
  const tg=t.closest("[data-tag]");if(tg){S.news.tag=tg.dataset.tag;S.news.open=false;renderNews();return}
- const hs=t.closest("[data-hist]");if(hs&&(hs.closest("#s-vocab")||hs.closest("#s-spanish"))){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;k==="v"?renderVocab():renderSpanish();return}
+ const hs=t.closest("[data-hist]");if(hs&&(hs.closest("#s-vocab")||hs.closest("#s-spanish"))){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;S.quiz=null;k==="v"?renderVocab():renderSpanish();return}
  if(hs){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;const card=hs.closest(".lw");const y=card.getBoundingClientRect().top;const sl=$(".hist",card).scrollLeft;card.outerHTML=learnCard(k);const nc=$(`#s-learn [data-learn="${k}"]`);if(nc){window.scrollBy(0,nc.getBoundingClientRect().top-y);const h=$(".hist",nc);if(h)h.scrollLeft=sl}return}
  const fl=t.closest("[data-flip]");if(fl){fl.classList.toggle("open");return}
  const sj=t.closest("[data-setjump]");if(sj){const p=$("#sheet-p"),el=$("#ss-"+sj.dataset.setjump),nav=$(".set-nav",p);if(p&&el)p.scrollTo({top:el.offsetTop-(nav?nav.offsetHeight:0)-6,behavior:"smooth"});return}
  const mv=t.closest("[data-move]");if(mv){toggleMove(+mv.dataset.move);return}
+ const qz=t.closest("[data-quiz]");if(qz){S.quiz={phrase:(SPAN[S.learn.s==null?SPAN.length-1:S.learn.s]||{}).phrase,picked:+qz.dataset.quiz};renderSpanish();return}
+ const sa=t.closest("[data-say-all]");if(sa){say(sa.dataset.sayAll,sa.dataset.lang,false);return}
  const sp=t.closest("[data-say]");if(sp){say(sp.dataset.say,sp.dataset.lang,!!sp.dataset.slow);return}
 });
-document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="vc-mine"){const b=$('[data-act="vocab-check"]');if(b)b.click();return}if(e.key==="Escape"&&$("#sheet").classList.contains("open"))closeSheet();if(e.key==="Enter"&&e.target.id&&e.target.id.startsWith("li-")){const b=$(`[data-list-add="${e.target.id.slice(3)}"]`);if(b)b.click()}});
-document.addEventListener("change",e=>{if(e.target.matches("[data-mvfresh]")){setMvPref("fresh",e.target.checked);return}const c=e.target.closest("[data-sec-toggle]");if(c){const id=c.dataset.secToggle;if(c.checked){S.hidden.delete(id);(LEGACY[id]||[]).forEach(x=>S.hidden.delete(x));if(S.hidden.has("learn")){S.hidden.delete("learn");["vocab","spanish"].filter(x=>x!==id).forEach(x=>S.hidden.add(x))}}else S.hidden.add(id);setPref("hidden",[...S.hidden]);renderNav();const r=c.closest(".s-sec");if(r)r.classList.toggle("off",!c.checked)}});
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="mv-zip"){const b=$('[data-act="mv-zip"]');if(b)b.click();return}if(e.key==="Enter"&&e.target.id==="vc-mine"){const b=$('[data-act="vocab-check"]');if(b)b.click();return}if(e.key==="Escape"&&$("#sheet").classList.contains("open"))closeSheet();if(e.key==="Enter"&&e.target.id&&e.target.id.startsWith("li-")){const b=$(`[data-list-add="${e.target.id.slice(3)}"]`);if(b)b.click()}});
+document.addEventListener("change",e=>{if(e.target.matches("[data-task]")){const el=e.target,row=el.closest(".rem");if(row)row.classList.toggle("done",el.checked);completeTask(el.dataset.task,el.dataset.list,el.checked);return}if(e.target.matches("[data-mvfresh]")){setMvPref("fresh",e.target.checked);return}if(e.target.matches("[data-mvbig]")){setMvPref("bigOnly",e.target.checked);return}const c=e.target.closest("[data-sec-toggle]");if(c){const id=c.dataset.secToggle;if(c.checked){S.hidden.delete(id);(LEGACY[id]||[]).forEach(x=>S.hidden.delete(x));if(S.hidden.has("learn")){S.hidden.delete("learn");["vocab","spanish"].filter(x=>x!==id).forEach(x=>S.hidden.add(x))}}else S.hidden.add(id);setPref("hidden",[...S.hidden]);renderNav();const r=c.closest(".s-sec");if(r)r.classList.toggle("off",!c.checked)}});
 /* remember which lists are open in Settings, so a refresh keeps them open */
 document.addEventListener("toggle",e=>{const d=e.target;if(d&&d.matches&&d.matches("details[data-acc]")){S.setOpen=S.setOpen||new Set();d.open?S.setOpen.add(d.dataset.acc):S.setOpen.delete(d.dataset.acc)}},true);
 /* Settings jump bar follows the scroll */
@@ -3372,15 +3744,19 @@ function loadLive(){
  loadCx().then(startWs);
  loadYouTube(false);
  checkVersion();
- loadCowen();
  loadSpotify(false).then(loadSpArt);
  loadMovies(false);
+ loadLiveTv(false);
+ loadMusicArt();
+ pingBackend();
+ loadTasks(false);
  if(backend()){loadStQuotes().then(()=>{if(!isCx())return loadMkSeries()}).catch(()=>{});pullCfg()}
 }
 /* timers: weather every 10 min, stocks every minute, crypto fallback poll */
 setInterval(()=>{if(!document.hidden)loadWeather().catch(()=>{})},10*6e4);
 setInterval(()=>{if(!document.hidden)checkVersion()},5*6e4);
 setInterval(()=>{if(!document.hidden)renderFoot()},30e3);
+setInterval(()=>{if(document.hidden)return;const live=S.live&&S.live.items||[];if(S.open==="live"&&(live.some(x=>x.state==="in")||Date.now()-(S.live&&S.live.at||0)>20*6e4))loadLiveTv(true)},2*6e4);
 setInterval(()=>{if(!document.hidden&&backend())loadStQuotes()},60e3);
 setInterval(()=>{if(!document.hidden&&!S.cx.liveOn)loadCxQuotes().then(()=>cxList().forEach(applyTick)).catch(()=>{});if(!document.hidden&&!S.cx.ws)startWs()},60e3);
 /* the readouts follow the live loaders */
