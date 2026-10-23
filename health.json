@@ -1,11 +1,11 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-23T05:32:15.033Z",
+ "fetchedAt": "2026-10-23T07:32:12.066Z",
  "date": "2026-10-21",
  "days": {
   "2026-10-22": {
-   "cal": 1941
+   "cal": 2066
   },
   "2026-10-21": {
    "steps": 6239,
@@ -386,6 +386,9 @@
      "mins": 21
     }
    ]
+  },
+  "2026-10-23": {
+   "cal": 47
   }
  },
  "steps": null,
@@ -396,7 +399,7 @@
    "date": {
     "year": 2026,
     "month": 10,
-    "day": 22
+    "day": 23
    },
    "time": {}
   },
@@ -404,7 +407,7 @@
    "date": {
     "year": 2026,
     "month": 10,
-    "day": 22
+    "day": 23
    },
    "time": {
     "hours": 23,
@@ -413,7 +416,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 1940.8325160000002
+   "kcalSum": 47.33388
   }
  },
  "activeZoneMinutes": null,
@@ -429,7 +432,7 @@
     "date": {
      "year": 2026,
      "month": 10,
-     "day": 22
+     "day": 23
     },
     "heartRateZones": [
      {
