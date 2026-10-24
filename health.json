@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-24T21:32:12.005Z",
+ "fetchedAt": "2026-10-24T23:32:11.576Z",
  "date": "2026-10-23",
  "days": {
   "2026-10-22": {
@@ -428,17 +428,18 @@
    ]
   },
   "2026-10-24": {
-   "steps": 2075,
-   "dist": 1629100,
-   "cal": 1862,
+   "steps": 2629,
+   "dist": 2070000,
+   "cal": 2221,
    "active": {
-    "light": 112
+    "light": 149
    },
    "azm": {
-    "fatburn": 9,
+    "fatburn": 16,
     "cardio": 0,
     "peak": 0
    },
+   "rhr": 58,
    "exercise": [
     {
      "type": "walking",
@@ -470,7 +471,7 @@
    }
   },
   "steps": {
-   "countSum": "2075"
+   "countSum": "2629"
   }
  },
  "distance": {
@@ -495,7 +496,7 @@
    }
   },
   "distance": {
-   "millimetersSum": "1629100"
+   "millimetersSum": "2070000"
   }
  },
  "activeMinutes": {
@@ -523,7 +524,7 @@
    "activeMinutesRollupByActivityLevel": [
     {
      "activityLevel": "LIGHT",
-     "activeMinutesSum": "112"
+     "activeMinutesSum": "149"
     }
    ]
   }
@@ -550,7 +551,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 1861.512408
+   "kcalSum": 2221.2498960000003
   }
  },
  "activeZoneMinutes": {
@@ -577,11 +578,32 @@
   "activeZoneMinutes": {
    "sumInCardioHeartZone": "0",
    "sumInPeakHeartZone": "0",
-   "sumInFatBurnHeartZone": "9"
+   "sumInFatBurnHeartZone": "16"
   }
  },
  "floors": null,
- "restingHR": null,
+ "restingHR": [
+  {
+   "dataSource": {
+    "recordingMethod": "DERIVED",
+    "device": {
+     "displayName": "Fitbit Air"
+    },
+    "platform": "FITBIT"
+   },
+   "dailyRestingHeartRate": {
+    "date": {
+     "year": 2026,
+     "month": 10,
+     "day": 24
+    },
+    "beatsPerMinute": "58",
+    "dailyRestingHeartRateMetadata": {
+     "calculationMethod": "ONLY_WITH_AWAKE_DATA"
+    }
+   }
+  }
+ ],
  "hrZones": [
   {
    "dataSource": {
