@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-24T19:32:13.170Z",
+ "fetchedAt": "2026-10-24T21:32:12.005Z",
  "date": "2026-10-23",
  "days": {
   "2026-10-22": {
@@ -428,14 +428,14 @@
    ]
   },
   "2026-10-24": {
-   "steps": 1648,
-   "dist": 1288800,
-   "cal": 1559,
+   "steps": 2075,
+   "dist": 1629100,
+   "cal": 1862,
    "active": {
-    "light": 88
+    "light": 112
    },
    "azm": {
-    "fatburn": 8,
+    "fatburn": 9,
     "cardio": 0,
     "peak": 0
    },
@@ -470,7 +470,7 @@
    }
   },
   "steps": {
-   "countSum": "1648"
+   "countSum": "2075"
   }
  },
  "distance": {
@@ -495,7 +495,7 @@
    }
   },
   "distance": {
-   "millimetersSum": "1288800"
+   "millimetersSum": "1629100"
   }
  },
  "activeMinutes": {
@@ -523,7 +523,7 @@
    "activeMinutesRollupByActivityLevel": [
     {
      "activityLevel": "LIGHT",
-     "activeMinutesSum": "88"
+     "activeMinutesSum": "112"
     }
    ]
   }
@@ -550,7 +550,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 1558.5755760000002
+   "kcalSum": 1861.512408
   }
  },
  "activeZoneMinutes": {
@@ -577,7 +577,7 @@
   "activeZoneMinutes": {
    "sumInCardioHeartZone": "0",
    "sumInPeakHeartZone": "0",
-   "sumInFatBurnHeartZone": "8"
+   "sumInFatBurnHeartZone": "9"
   }
  },
  "floors": null,
