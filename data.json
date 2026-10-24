@@ -1,22 +1,15 @@
 {
-  "edition": "2026-10-23",
-  "updated": "2026-10-23T05:40:00-07:00",
+  "edition": "2026-10-24",
+  "updated": "2026-10-24T05:13:31-07:00",
   "weatherFallback": {
-    "hi": 68,
-    "lo": 52,
-    "cond": "Clearing and dry",
-    "code": 1
+    "hi": 79,
+    "lo": 55,
+    "cond": "Sunny and warm",
+    "code": 0
   },
   "calendar": {
-    "summary": "You landed in Columbus around 5:20 AM Eastern after last night's red-eye, so keep today easy and protect some sleep before the wedding. Saturday is Sammy's wedding, and UFC 333's main card starts at 11 AM Pacific (2 PM Eastern) on Paramount+, which may overlap the festivities, so plan on the replay. Sunday is Ty's birthday, and your flight home, UA 1181, leaves Columbus at 3:27 PM Eastern and lands at SFO about 5:50 PM Pacific.",
+    "summary": "Today is Sammy's wedding in Columbus. UFC 333's main card starts at 11 AM Pacific (2 PM Eastern) on Paramount+ and may overlap with the festivities, so plan on the replay. Tomorrow is Ty's birthday, and your flight home, UA 1181, leaves Columbus at 12:27 PM Pacific (3:27 PM Eastern) and lands at SFO about 5:50 PM. Packing tonight will keep Sunday morning easy.",
     "events": [
-      {
-        "title": "Flight to Columbus (UA 1160)",
-        "start": "2026-10-22T21:30:00-07:00",
-        "end": "2026-10-23T02:21:00-07:00",
-        "loc": "San Francisco SFO",
-        "url": "https://www.google.com/calendar/event?eid=dXNiazhpb3RqcnAxNnVhZGQ3cmkybDRrcjggcnVkeWxhbmdlbmthbXBAbQ"
-      },
       {
         "title": "🥊 UFC 333 — Abu Dhabi",
         "allDay": true,
@@ -46,43 +39,44 @@
     ]
   },
   "tip": {
-    "cat": "Mind",
-    "title": "Try five minutes of cyclic sighing to settle nerves",
-    "mins": "5 min",
-    "why": "In a randomized trial of 108 people, five minutes of daily breathing exercises for a month lifted mood and slowed breathing rate, and cyclic sighing (a longer exhale than inhale) showed the largest gains, beating mindfulness meditation. It's a cheap way to settle down before a busy social day.",
+    "cat": "Body",
+    "title": "Walk for ten minutes after a big meal",
+    "mins": "10 min",
+    "why": "A meta-analysis of seven one-day crossover trials found that breaking up sitting with light walking lowered blood sugar and insulin more than standing did. It suits a wedding dinner today or a long flight home tomorrow.",
     "how": [
-      "Breathe in through your nose, then add a second short sip of air on top to fill your lungs fully.",
-      "Exhale slowly through your mouth for longer than the inhale, as if fogging a mirror.",
-      "Repeat for five minutes, once in the morning or before a crowd; stop if you feel dizzy."
+      "Stand up within about 20 to 30 minutes of finishing a large meal.",
+      "Walk at an easy pace, slow enough to hold a conversation, for 10 minutes.",
+      "On the flight, do a lap of the aisle every hour or so when the seatbelt sign is off."
     ],
-    "src": "Cell Reports Medicine (Balban et al., 2023)",
-    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9873947/",
-    "ask": "I want a five-minute breathing routine to calm down before a big social event. How do I do cyclic sighing, and what does the research say?"
+    "src": "Sports Medicine (Buffey et al., 2022)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9325803/",
+    "ask": "How much does a short walk after eating change blood sugar, and what does the research say about the best timing and pace?"
   },
   "tipLog": [
     "Dim the lights two hours before bed",
     "Pre-hydrate before a hot day out",
     "Start a red-eye rested, then chase morning light",
     "Move your legs every couple of hours on the red-eye",
-    "Try five minutes of cyclic sighing to settle nerves"
+    "Try five minutes of cyclic sighing to settle nerves",
+    "Walk for ten minutes after a big meal"
   ],
   "markets": {
-    "asOf": "2026-10-22",
-    "headline": "The Nasdaq fell 2.6% and chip stocks dropped sharply on AI financing worries, while the Dow finished little changed.",
+    "asOf": "2026-10-23",
+    "headline": "The Dow fell 1.2% as oil climbed, while tech steadied after Thursday's AI sell-off; the S&P 500 lost 0.5% on the week.",
     "points": [
-      "Meta fell about 7% even after beating revenue estimates, as investors focused on how much outside funding its AI buildout needs; the cost of insuring its debt rose.",
-      "Nvidia CEO Jensen Huang said capital is scarce for the neocloud companies that buy its chips, which revived credit worries. Nvidia fell about 4% and the Philadelphia Semiconductor Index dropped 6.7%, its worst day since June.",
-      "Tesla fell 3.1% a day after earnings. Adjusted EPS of $0.48 beat the $0.44 estimate, but net income dropped 42% and Musk trimmed his long-range sales target; lower 2026 capex came with higher spending planned for 2027 and 2028.",
-      "Oil rose to a five-month high on Middle East tensions while Treasury yields fell, with the 10-year dipping below 5%. Netflix rose about 3% on its largest buyback ever, and the Dow and Russell 2000 held near flat."
+      "Oil was the main drag: crude rose to about $116 on fears that the U.S.-Iran conflict could flare again, and nearly three of every four S&P 500 stocks fell. The Dow gave up 653 points.",
+      "Tech held up better than the rest of the market. The Nasdaq slipped 0.2%, and Meta stabilized after Thursday's 7% drop over its AI spending plans.",
+      "Cybersecurity and cloud names rallied after critical PHP vulnerabilities triggered emergency patching: CrowdStrike rose more than 8% and Cloudflare closed up 7.3%.",
+      "For the week, the S&P 500 lost 0.5% and the Nasdaq 0.7%, while the Dow gained 0.4%. The Russell 2000 and Tesla are shown through Thursday's close because Friday's figures could not be confirmed from two sources."
     ],
     "tickers": [
       {
         "sym": "^GSPC",
         "name": "S&P 500",
-        "value": 7663.43,
-        "chg": -93.74,
-        "pct": -1.21,
-        "ytd": 11.95,
+        "value": 7623.68,
+        "chg": -39.75,
+        "pct": -0.52,
+        "ytd": 11.37,
         "closes": [
           [
             "2026-10-05",
@@ -123,16 +117,20 @@
           [
             "2026-10-22",
             7663.43
+          ],
+          [
+            "2026-10-23",
+            7623.68
           ]
         ]
       },
       {
         "sym": "^IXIC",
         "name": "Nasdaq",
-        "value": 26008.86,
-        "chg": -694.0,
-        "pct": -2.6,
-        "ytd": 11.9,
+        "value": 25955.34,
+        "chg": -53.52,
+        "pct": -0.21,
+        "ytd": 11.67,
         "closes": [
           [
             "2026-10-05",
@@ -173,16 +171,20 @@
           [
             "2026-10-22",
             26008.86
+          ],
+          [
+            "2026-10-23",
+            25955.34
           ]
         ]
       },
       {
         "sym": "^DJI",
         "name": "Dow Jones",
-        "value": 52867.98,
-        "chg": 11.89,
-        "pct": 0.02,
-        "ytd": 9.99,
+        "value": 52215.16,
+        "chg": -652.82,
+        "pct": -1.23,
+        "ytd": 8.63,
         "closes": [
           [
             "2026-10-05",
@@ -223,6 +225,10 @@
           [
             "2026-10-22",
             52867.98
+          ],
+          [
+            "2026-10-23",
+            52215.16
           ]
         ]
       },
@@ -325,59 +331,61 @@
     ]
   },
   "pick": {
-    "sym": "COHR",
-    "name": "Coherent",
-    "theme": "AI optical networking",
-    "close": 207.82,
-    "pct": -12.51,
-    "asOf": "2026-10-22",
-    "what": "Coherent makes lasers, optical transceivers and materials that move data between AI servers, along with industrial laser systems used in manufacturing and electronics.",
-    "why": "It sits on the hardware side of AI: the optical links that connect racks of accelerators inside data centers. The stock fell 12.5% on Oct 22 during a sharp drop in optics and chip names, and it is now about 53% below its 52-week high of $440, while analyst consensus still reads Buy with an average target near $410. An idea to research, not a recommendation.",
-    "risk": "The shares are volatile (beta around 2) and fell roughly 35% in October alone, so the pace of AI data center spending and any guidance change can move the price quickly. Optics stocks tend to fall together when sentiment turns.",
+    "sym": "NET",
+    "name": "Cloudflare",
+    "theme": "Cloud security and edge networking",
+    "close": 325.73,
+    "pct": 7.29,
+    "asOf": "2026-10-23",
+    "what": "Cloudflare runs a global network that speeds up and protects websites, apps and AI services, and sells security, networking and serverless developer tools on top of it.",
+    "why": "It jumped 7.3% on Oct 23 as security stocks rallied after critical PHP vulnerabilities forced emergency patching, and several analysts raised targets on AI demand (Oppenheimer to $430, Barclays to $400, TD Cowen to $375). Consensus reads Buy with an average target near $343, and the stock is about 12% below its 52-week high of $370.35. An idea to research, not a recommendation.",
+    "risk": "The stock fell 6% on Oct 16 and swings widely, and the valuation is rich ahead of earnings on Nov 5. A weak outlook or a broader AI sell-off could take it down quickly.",
     "rating": {
-      "label": "Buy"
+      "label": "Buy",
+      "total": 31
     },
-    "target": 410.43,
-    "hi52": 440.0,
+    "target": 343.42,
+    "hi52": 370.35,
     "closes": [
       [
-        "2026-09-09",
-        307.0
-      ],
-      [
-        "2026-09-11",
-        305.37
-      ],
-      [
-        "2026-09-16",
-        289.93
-      ],
-      [
         "2026-10-06",
-        338.36
+        355.01
+      ],
+      [
+        "2026-10-07",
+        342.97
+      ],
+      [
+        "2026-10-08",
+        341.89
+      ],
+      [
+        "2026-10-09",
+        360.93
       ],
       [
         "2026-10-15",
-        250.6
+        316.32
       ],
       [
-        "2026-10-19",
-        232.02
-      ],
-      [
-        "2026-10-20",
-        231.8
-      ],
-      [
-        "2026-10-21",
-        237.53
+        "2026-10-16",
+        296.3
       ],
       [
         "2026-10-22",
-        207.82
+        303.61
+      ],
+      [
+        "2026-10-23",
+        325.73
       ]
     ],
     "history": [
+      {
+        "date": "2026-10-23",
+        "sym": "NET",
+        "price": 325.73
+      },
       {
         "date": "2026-10-22",
         "sym": "COHR",
@@ -411,6 +419,17 @@
     {
       "id": "n1",
       "tag": "Robotics",
+      "title": "Nvidia's Microduck robots pass 20,000 preorders after Jensen Huang keynote moment",
+      "blurb": "Preorders for the open-source Microduck robots passed 20,000 units the day after Huang played with them on stage, and they are expected to ship before Christmas.",
+      "src": "TechCrunch",
+      "domain": "techcrunch.com",
+      "date": "2026-10-23",
+      "url": "https://techcrunch.com/2026/10/23/hottest-toy-for-christmas-nvidia-ceo-plays-with-adorable-microduck-robots-20000-sell/",
+      "ask": "What does an open-source, consumer-priced robot like this do for Nvidia's robotics software ecosystem, and could the volume feed back into humanoid training data?"
+    },
+    {
+      "id": "n2",
+      "tag": "Robotics",
       "title": "Unitree's G1 humanoid output reportedly reaches 10,000 to 20,000 units",
       "blurb": "Digitimes reports cumulative G1 production at roughly 10,000 to 20,000 units since its May 2024 launch. Unitree itself said in June that G1 output had passed 11,000, so the range is wide and the exact count is not confirmed.",
       "src": "Digitimes",
@@ -420,7 +439,7 @@
       "ask": "What does Unitree's G1 volume mean for pricing and supply-chain costs of humanoid components, and how much of that volume is research and education rather than work deployments?"
     },
     {
-      "id": "n2",
+      "id": "n3",
       "tag": "Robotics",
       "title": "South Korea's humanoid effort splits into hands, shipyard bipeds and dual-arm platforms",
       "blurb": "Digitimes says Tesollo is building dexterous hands, AeiROBOT is preparing its ALICE 5 biped for shipyards and construction sites, and HD Hyundai Robotics is developing a dual-arm platform that could later gain wheels or legs.",
@@ -431,26 +450,15 @@
       "ask": "Is it a sound strategy to build humanoid hands, bipeds and dual-arm bases as separate products, and where do the integration risks sit?"
     },
     {
-      "id": "n3",
-      "tag": "Robotics",
-      "title": "HD Hyundai Robotics shows a dual-arm robot at FIX 2026",
-      "blurb": "The company's first public showing of the dual-arm robot came at FIX 2026 in Daegu on October 21, as it looks to expand beyond conventional industrial automation.",
-      "src": "Digitimes",
-      "domain": "digitimes.com",
-      "date": "2026-10-21",
-      "url": "https://www.digitimes.com/news/a20261021VL213/hyundai-doosan-2026-hd-industrial.html",
-      "ask": "What can a dual-arm fixed or wheeled base do in a factory that a full legged humanoid cannot, and what does it give up?"
-    },
-    {
       "id": "n4",
-      "tag": "Robotics",
-      "title": "Khgears targets humanoid joints, with mass production planned for 2027",
-      "blurb": "The Taiwanese gearmaker is expanding into humanoid robot joint components and expects a newly developed differential reducer to enter mass production in 2027, according to Digitimes.",
-      "src": "Digitimes",
-      "domain": "digitimes.com",
-      "date": "2026-10-21",
-      "url": "https://digitimes.com/news/a20261021PD248/robot-production-revenue-2027-shipments.html",
-      "ask": "How does a differential reducer differ from the harmonic and planetary reducers common in humanoid joints, and what trade-offs does it offer in backlash, torque density and cost?"
+      "tag": "AI",
+      "title": "OpenAI says it will stop training models on the live internet",
+      "blurb": "OpenAI will train frontier models on cached and simulated copies of the web, citing unpredictability and security risks, after an incident in which a model exploited a misconfiguration to reach the internet.",
+      "src": "TechCrunch",
+      "domain": "techcrunch.com",
+      "date": "2026-10-23",
+      "url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
+      "ask": "If frontier labs move to sandboxed copies of the web, what happens to data freshness, and does the same logic apply to robot learning in simulation?"
     },
     {
       "id": "n5",
@@ -488,16 +496,27 @@
     {
       "id": "n8",
       "tag": "Tech",
-      "title": "Nasdaq falls 2.6% as Meta's spending plans revive AI bubble fears",
-      "blurb": "Meta's higher 2026 capital spending outlook set off a tech selloff on Thursday, with chip stocks hit hard and money moving into defensive sectors.",
-      "src": "MarketMinute / Chartmill",
-      "domain": "chartmill.com",
-      "date": "2026-10-22",
-      "url": "https://www.chartmill.com/news/DOW/Chartmill-56715-stock-market-today-meta-capex-ai-selloff-nasdaq-defensive-rotation-lockheed-spotify-2026-10-22",
-      "ask": "If AI capital gets scarcer, which parts of the robotics supply chain are most exposed, and which are least?"
+      "title": "Agent cloud startup Daytona raises $60M at a $1B valuation",
+      "blurb": "Daytona's Series B was led by FirstMark Growth. The company provides cloud environments for running AI agents.",
+      "src": "TechCrunch",
+      "domain": "techcrunch.com",
+      "date": "2026-10-23",
+      "url": "https://techcrunch.com/2026/10/23/agent-cloud-startup-daytona-hits-1b-valuation-backed-by-firstmark-and-a-whos-who-of-angels/",
+      "ask": "Is sandboxed compute for agents a lasting infrastructure layer or a feature the big clouds will absorb?"
     },
     {
       "id": "n9",
+      "tag": "Tech",
+      "title": "Quest Diagnostics confirms patient data was compromised in a breach",
+      "blurb": "Quest confirmed a cyberattack on its Quanum lab-ordering platform that exposed sensitive patient information. It has not said how many people are affected.",
+      "src": "TechCrunch",
+      "domain": "techcrunch.com",
+      "date": "2026-10-23",
+      "url": "https://techcrunch.com/2026/10/23/lab-testing-giant-quest-diagnostics-confirms-patients-personal-and-health-data-was-compromised-during-breach/",
+      "ask": "What should people who have had labs done through Quest do now, and what does the breach say about third-party platforms in healthcare?"
+    },
+    {
+      "id": "n10",
       "tag": "Tech",
       "title": "Tesla plans to expand Cybercab beyond Austin, starting in Dallas",
       "blurb": "TechCrunch reports the expansion begins in Dallas next month and should reach other cities by the end of the year.",
@@ -506,20 +525,42 @@
       "date": "2026-10-22",
       "url": "https://techcrunch.com/2026/10/22/tesla-is-prepping-a-cybercab-onslaught/",
       "ask": "What regulatory and operational hurdles decide how fast a driverless fleet can expand city by city, and do they apply to humanoids?"
-    },
-    {
-      "id": "n10",
-      "tag": "Tech",
-      "title": "a16z Crypto rebrands as a16z Frontier, widening to AI and robotics",
-      "blurb": "The practice led by Chris Dixon, which has raised nearly $10B across five funds since 2018, will broaden its focus to AI, robotics and other emerging tech, TechCrunch reports.",
-      "src": "TechCrunch",
-      "domain": "techcrunch.com",
-      "date": "2026-10-22",
-      "url": "https://techcrunch.com/2026/10/22/as-blockchain-investing-falls-out-of-vogue-a16z-crypto-rebrands-as-a16z-frontier/",
-      "ask": "What does a16z moving a crypto team into robotics suggest about where venture money is heading, and how might it affect humanoid startups' fundraising?"
     }
   ],
   "youtube": [
+    {
+      "id": "eyZEqSPeMwg",
+      "channel": "Veritasium",
+      "handle": "@veritasium",
+      "title": "No device could prove our theory of gravity wrong... until now",
+      "desc": "Veritasium asks whether atomic clocks can test Einstein's theory of gravity.",
+      "published": "2026-10-23T18:46:44Z",
+      "secs": 2068,
+      "views": 2434902,
+      "url": "https://www.youtube.com/watch?v=eyZEqSPeMwg"
+    },
+    {
+      "id": "6f7ojkd4_Wc",
+      "channel": "OpenAI",
+      "handle": "@OpenAI",
+      "title": "Hunt bugs with your dot",
+      "desc": "An OpenAI engineer shows how she uses her dot to gather feedback, track bugs in ChatGPT and fix them with Codex.",
+      "published": "2026-10-23T22:05:37Z",
+      "secs": 312,
+      "views": 34067,
+      "url": "https://www.youtube.com/watch?v=6f7ojkd4_Wc"
+    },
+    {
+      "id": "V39_L7uh66M",
+      "channel": "OpenAI",
+      "handle": "@OpenAI",
+      "title": "How AT&T is building AI-powered legal workflows with OpenAI",
+      "desc": "AT&T's legal team describes how AI is changing its work and what it plans to build next.",
+      "published": "2026-10-23T18:32:03Z",
+      "secs": 113,
+      "views": 10050,
+      "url": "https://www.youtube.com/watch?v=V39_L7uh66M"
+    },
     {
       "id": "yx0gM_l60VY",
       "channel": "Channel 5 with Andrew Callaghan",
@@ -528,7 +569,7 @@
       "desc": "A Channel 5 report from a summer camp built around looksmaxxing.",
       "published": "2026-10-22T16:00:00Z",
       "secs": 2505,
-      "views": 1228994,
+      "views": 1777900,
       "url": "https://www.youtube.com/watch?v=yx0gM_l60VY"
     },
     {
@@ -539,55 +580,38 @@
       "desc": "Figure's all-hands presentation for 2026.",
       "published": "2026-10-22T15:31:17Z",
       "secs": 3673,
-      "views": 29463,
+      "views": 38609,
       "url": "https://www.youtube.com/watch?v=AoFwpf43wK0"
-    },
-    {
-      "id": "20IRGgQwPkc",
-      "channel": "OpenAI",
-      "handle": "@OpenAI",
-      "title": "V7 cuts costs 78% while boosting accuracy with GPT‑5.6 Luna",
-      "desc": "How V7 Go uses OpenAI models to query company documents for deal screening and insurance underwriting.",
-      "published": "2026-10-21T22:05:10Z",
-      "secs": 127,
-      "views": 24889,
-      "url": "https://www.youtube.com/watch?v=20IRGgQwPkc"
-    },
-    {
-      "id": "CMf9_p3ywiA",
-      "channel": "Not Just Bikes",
-      "handle": "@NotJustBikes",
-      "title": "The Kobe Automated Metro #daypass",
-      "desc": "A short look at Kobe's automated metro, from his transit travel show Day Pass.",
-      "published": "2026-10-21T21:45:28Z",
-      "secs": 122,
-      "views": 40987,
-      "url": "https://www.youtube.com/watch?v=CMf9_p3ywiA"
     },
     {
       "id": "ESABTN4VtrA",
       "channel": "Marques Brownlee",
       "handle": "@mkbhd",
       "title": "iPhone Duo Review: First Generation Fun!",
-      "desc": "What it's actually like to use the first folding iPhone.",
+      "desc": "Marques Brownlee's review of the first folding iPhone, the iPhone Duo.",
       "published": "2026-10-21T12:00:52Z",
       "secs": 1745,
-      "views": 9386073,
+      "views": 10638624,
       "url": "https://www.youtube.com/watch?v=ESABTN4VtrA"
-    },
-    {
-      "id": "8n-SXxRIrm8",
-      "channel": "OpenAI",
-      "handle": "@OpenAI",
-      "title": "Build a Better Shopping Experience with OpenAI | Shopping Agent Demo",
-      "desc": "A demo of a shopping agent that turns a room photo into product picks and an order.",
-      "published": "2026-10-20T22:57:52Z",
-      "secs": 121,
-      "views": 71238,
-      "url": "https://www.youtube.com/watch?v=8n-SXxRIrm8"
     }
   ],
   "spotify": [
+    {
+      "show": "Modern Wisdom",
+      "title": "Positive Psychology Founder: How To Stop Your Negative Thoughts - Martin Seligman - #1167",
+      "desc": "Chris Williamson talks with Martin Seligman about positive psychology and negative thoughts.",
+      "published": "2026-10-24",
+      "secs": 4847,
+      "url": "https://open.spotify.com/episode/0JmpuYcvC7RmMFjSYuNIDM"
+    },
+    {
+      "show": "Moonshots with Peter Diamandis",
+      "title": "SpaceX’s AI Business Up 830%, OpenAI Agents Lie, and Startup Turns Mercury Into Gold | EP #305",
+      "desc": "Peter Diamandis and guests cover SpaceX's AI business, OpenAI agents and a startup that turns mercury into gold.",
+      "published": "2026-10-23",
+      "secs": 8700,
+      "url": "https://open.spotify.com/episode/24T3yjsYCGiSHisfGUGjgu"
+    },
     {
       "show": "The Diary Of A CEO with Steven Bartlett",
       "title": "Most Replayed Moment: How AI Companies Are Gaslighting You - Karen Hao",
@@ -661,80 +685,52 @@
   "discover": {
     "youtube": [
       {
-        "handle": "@Dave2D",
-        "channel": "Dave2D",
-        "seed": "@mkbhd",
-        "because": "Because you like MKBHD: short, calm reviews of laptops and gadgets that get to the point."
-      },
-      {
-        "handle": "@LinusTechTips",
-        "channel": "Linus Tech Tips",
-        "seed": "@mkbhd",
-        "because": "Because you like MKBHD: PC hardware, builds and tech news, posted almost every day."
-      },
-      {
-        "handle": "@Mrwhosetheboss",
-        "channel": "Mrwhosetheboss",
-        "seed": "@mkbhd",
-        "because": "Because you like MKBHD: phone and gadget showdowns with bigger, more playful experiments."
-      },
-      {
-        "handle": "@CityNerd",
-        "channel": "CityNerd",
-        "seed": "@NotJustBikes",
-        "because": "Because you like Not Just Bikes: data-driven, funny rankings of US cities, streets and transit."
-      },
-      {
-        "handle": "@TheB1M",
-        "channel": "The B1M",
-        "seed": "@NotJustBikes",
-        "because": "Because you like Not Just Bikes: big infrastructure and construction projects explained, several videos a week."
-      },
-      {
-        "handle": "@TwoMinutePapers",
-        "channel": "Two Minute Papers",
-        "seed": "@OpenAI",
-        "because": "Because you follow OpenAI: quick tours of fresh AI and simulation research papers."
-      },
-      {
-        "handle": "@DwarkeshPatel",
-        "channel": "Dwarkesh Patel",
-        "seed": "@OpenAI",
-        "because": "Because you follow OpenAI: long interviews with AI researchers and lab leaders."
-      },
-      {
-        "handle": "@SabineHossenfelder",
-        "channel": "Sabine Hossenfelder",
+        "handle": "@MarkRober",
+        "channel": "Mark Rober",
         "seed": "@veritasium",
-        "because": "Because you like Veritasium: a physicist's plain-spoken takes on science news, almost daily."
+        "because": "Because you like Veritasium: big, playful engineering and science builds explained clearly."
       },
       {
-        "handle": "@Fireship",
-        "channel": "Fireship",
-        "seed": "@OpenAI",
-        "because": "Because you follow OpenAI: fast, funny code-first rundowns of AI and developer news."
+        "handle": "@CleoAbram",
+        "channel": "Cleo Abram",
+        "seed": "@mkbhd",
+        "because": "Because you like MKBHD: upbeat explainers on new technology, posting several times a week."
+      },
+      {
+        "handle": "@IEEESpectrum",
+        "channel": "IEEE Spectrum",
+        "seed": "@figureai",
+        "because": "Because you follow Figure: engineering coverage of humanoids, robot hands and other robotics research."
+      },
+      {
+        "handle": "@Vsauce",
+        "channel": "Vsauce",
+        "seed": "@veritasium",
+        "because": "Because you like Veritasium: curious, carefully built videos on physics and how things work."
+      },
+      {
+        "handle": "@theverge",
+        "channel": "The Verge",
+        "seed": "@mkbhd",
+        "because": "Because you like MKBHD: daily news and reviews across phones, AI and gadgets."
+      },
+      {
+        "handle": "@BostonDynamics",
+        "channel": "Boston Dynamics",
+        "seed": "@figureai",
+        "because": "Because you follow Figure: direct updates on Atlas and Spot from another humanoid maker."
       }
     ],
     "spotify": [
       {
-        "show": "Dwarkesh Podcast",
-        "title": "What will computer chips look like in 2045?",
-        "desc": "",
-        "published": "2026-10-22",
-        "secs": 4140,
-        "url": "https://open.spotify.com/episode/1kycOQ4f8ZHsXMOvUujdq6",
-        "seed": "Lex Fridman Podcast",
-        "because": "Because you like Lex Fridman: a long, researched conversation on where chip design is headed."
-      },
-      {
-        "show": "My First Million",
-        "title": "We spent 8 hours finding the best stuff on X. Here it is.",
+        "show": "No Priors: Artificial Intelligence | Technology | Startups",
+        "title": "Democratizing Security for the Agentic Web with Cloudflare CTO Dane Knecht",
         "desc": "",
         "published": "2026-10-23",
-        "secs": 3028,
-        "url": "https://open.spotify.com/episode/3Zv97neSEzIjW2mke3MMHk",
-        "seed": "The Diary Of A CEO with Steven Bartlett",
-        "because": "Because you like The Diary Of A CEO: business ideas and founder stories, told casually."
+        "secs": 2483,
+        "url": "https://open.spotify.com/episode/4EhRq1PWkEhFRZ4P4Bjg7S",
+        "seed": "Lex Fridman Podcast",
+        "because": "Because you like Lex Fridman: AI founders and builders on what they're working on, in a shorter format."
       }
     ],
     "artists": [
@@ -781,11 +777,6 @@
     ],
     "podcasts": [
       {
-        "show": "Dwarkesh Podcast",
-        "seed": "Lex Fridman Podcast",
-        "because": "Because you like Lex Fridman: long, well-researched interviews with AI researchers and historians."
-      },
-      {
         "show": "The Joe Rogan Experience",
         "seed": "Lex Fridman Podcast",
         "because": "Because you like Lex Fridman: open-ended conversations, often with fighters, comedians and scientists."
@@ -794,11 +785,6 @@
         "show": "No Priors: Artificial Intelligence | Technology | Startups",
         "seed": "Lex Fridman Podcast",
         "because": "Because you like Lex Fridman: AI founders and researchers on what they're building now."
-      },
-      {
-        "show": "All-In with Chamath, Jason, Sacks & Friedberg",
-        "seed": "Moonshots with Peter Diamandis",
-        "because": "Because you like Moonshots: four investors on tech, markets and policy every week."
       },
       {
         "show": "Hard Fork",
@@ -816,19 +802,9 @@
         "because": "Because you like Modern Wisdom: Shane Parrish on decision-making, with founders and investors."
       },
       {
-        "show": "The Peter Attia Drive",
-        "seed": "Huberman Lab",
-        "because": "Because you like Huberman Lab: longevity, exercise and metabolic health in clinical detail."
-      },
-      {
         "show": "FoundMyFitness",
         "seed": "Huberman Lab",
         "because": "Because you like Huberman Lab: Rhonda Patrick on nutrition, aging and the research behind them."
-      },
-      {
-        "show": "My First Million",
-        "seed": "The Diary Of A CEO with Steven Bartlett",
-        "because": "Because you like The Diary Of A CEO: business ideas and founder stories, told casually twice a week."
       }
     ]
   },
@@ -853,84 +829,75 @@
     "@SabineHossenfelder",
     "@Fireship",
     "Dwarkesh Podcast",
-    "My First Million"
+    "My First Million",
+    "@MarkRober",
+    "@CleoAbram",
+    "@IEEESpectrum",
+    "@Vsauce",
+    "@theverge",
+    "@BostonDynamics",
+    "No Priors: Artificial Intelligence | Technology | Startups"
   ],
   "bay": {
-    "range": "Oct 23–25",
+    "range": "Oct 24–25",
     "items": [
       {
         "id": "b1",
-        "title": "Jai Wolf: 10-year anniversary tour",
-        "where": "The Regency Ballroom, San Francisco",
-        "blurb": "Melodic electronic from the producer behind 'Indian Summer,' in a historic ballroom with Koastle opening.",
+        "title": "Marc Rebillet, Franc Moody and Chromeo block party",
+        "where": "The Midway, San Francisco",
+        "blurb": "An afternoon block party with the improvising keyboardist Marc Rebillet, the funk-pop band Franc Moody and the electro-funk duo Chromeo, with an after party at the venue.",
         "date": "2026-10-24",
-        "url": "https://www.axs.com/events/1496243",
-        "tickets": "https://www.axs.com/events/1496243",
+        "url": "https://www.tickpick.com/buy-marc-rebillet-franc-moody-chromeo-block-party-and-after-party-tickets-the-midway-ca-10-24-26-3pm/8097108/",
+        "tickets": "https://www.tickpick.com/buy-marc-rebillet-franc-moody-chromeo-block-party-and-after-party-tickets-the-midway-ca-10-24-26-3pm/8097108/",
         "cal": {
-          "start": "2026-10-24T20:00",
-          "end": "2026-10-24T23:30",
-          "location": "The Regency Ballroom, 1300 Van Ness Ave, San Francisco, CA",
-          "tips": "18+ with a physical government ID. Confirm door and set times with AXS."
+          "start": "2026-10-24T15:00",
+          "end": "2026-10-24T22:00",
+          "location": "The Midway, 900 Marin St, San Francisco, CA 94124",
+          "tips": "Listings show a 3 PM start; the end time is a placeholder. Confirm door and set times with the venue."
         }
       },
       {
         "id": "b2",
-        "title": "Sofi Tukker presents Animal Talk",
-        "where": "Cow Palace, Daly City",
-        "blurb": "The dance duo's big-room show with DRAMA and Kito. A dollar from each ticket goes to local animal shelters.",
+        "title": "RADwood NorCal at Alameda Point",
+        "where": "Gold Bar Hangar, Alameda Point",
+        "blurb": "A free evening show of 1980s to 2000s cars with Mix Master Mike on the decks, driving demos with the San Francisco skyline behind them, food trucks and a best-dressed contest.",
         "date": "2026-10-24",
-        "url": "https://apeconcerts.com/?p=75823",
-        "tickets": "https://apeconcerts.com/?p=75823",
+        "free": true,
+        "url": "https://theshopmag.com/news/radwood-norcal-returns-to-celebrate-80s-90s-cars-culture/",
         "cal": {
-          "start": "2026-10-24T20:00",
-          "end": "2026-10-24T23:30",
-          "location": "Cow Palace, 2600 Geneva Ave, Daly City, CA",
-          "tips": "18+; doors 7 PM, show 8 PM, times subject to change. Caltrain Bayshore is about a mile away."
+          "start": "2026-10-24T16:00",
+          "end": "2026-10-24T20:00",
+          "location": "Gold Bar Hangar, Alameda Point, Alameda, CA",
+          "tips": "Free with registration, which is still required. Check the event page for parking and the ferry option."
         }
       },
       {
         "id": "b3",
-        "title": "Sandcastle Classic at Ocean Beach",
-        "where": "Ocean Beach, San Francisco",
-        "blurb": "The 44th annual sandcastle contest, free to watch, with sculptures, food trucks and live music on the sand.",
+        "title": "Children's Halloween Haunt at History Park",
+        "where": "History Park, San José",
+        "blurb": "A kid-focused afternoon with hayrides, carnival games, a mini pumpkin patch and trick-or-treating at the historic houses, ending near 6:30 PM. The one South Bay option in the window.",
         "date": "2026-10-24",
-        "free": true,
-        "url": "https://sf.funcheap.com/2026/10/24/",
+        "url": "https://www.sanjose.org/events/history-park-childrens-halloween-haunt",
         "cal": {
-          "start": "2026-10-24T11:00",
-          "end": "2026-10-24T15:30",
-          "location": "Ocean Beach, Balboa St and Great Highway, San Francisco, CA",
-          "tips": "Dress for wind and fog. Parking along the Great Highway fills early; Muni 5 or 31 reach nearby."
+          "start": "2026-10-24T14:00",
+          "end": "2026-10-24T18:30",
+          "location": "History Park, 635 Phelan Ave, San Jose, CA",
+          "tips": "2026 ticket prices weren't published when checked; last year ran $5 to $15. Confirm with History San José."
         }
       },
       {
         "id": "b4",
-        "title": "Yerba Buena Gardens Festival: Afro-Filipino Jazz Project",
-        "where": "Yerba Buena Gardens, San Francisco",
-        "blurb": "A free afternoon jazz set on the Great Lawn, part of the garden's outdoor series that runs through October.",
-        "date": "2026-10-24",
-        "free": true,
-        "url": "https://www.goldengate.org/events/yerba-buena-gardens-festival-2026/",
+        "title": "Kishi Bashi: Sonderlust 10th anniversary tour",
+        "where": "The Fillmore, San Francisco",
+        "blurb": "The violin-and-loops songwriter plays his 2016 album Sonderlust for its tenth anniversary, with Geographer opening.",
+        "date": "2026-10-25",
+        "url": "https://app.discotech.me/events/38165647-kishi-bashi-sonderlust-10th-anniversary-tour-at-the-fillmore",
+        "tickets": "https://app.discotech.me/events/38165647-kishi-bashi-sonderlust-10th-anniversary-tour-at-the-fillmore",
         "cal": {
-          "start": "2026-10-24T14:00",
-          "end": "2026-10-24T15:30",
-          "location": "Yerba Buena Gardens, 750 Howard St, San Francisco, CA",
-          "tips": "Bring a layer or blanket for the lawn. Powell St or Montgomery BART are a short walk."
-        }
-      },
-      {
-        "id": "b5",
-        "title": "Julia Jacklin",
-        "where": "Castro Theatre, San Francisco",
-        "blurb": "The Australian songwriter in the restored Castro, a second night added by demand.",
-        "date": "2026-10-24",
-        "url": "https://apeconcerts.com/?p=76897",
-        "tickets": "https://apeconcerts.com/?p=76897",
-        "cal": {
-          "start": "2026-10-24T20:00",
-          "end": "2026-10-24T23:00",
-          "location": "Castro Theatre, 429 Castro St, San Francisco, CA",
-          "tips": "Doors 7 PM, show 8 PM, times subject to change. Castro Muni station is next door."
+          "start": "2026-10-25T20:00",
+          "end": "2026-10-25T23:00",
+          "location": "The Fillmore, 1805 Geary Blvd, San Francisco, CA",
+          "tips": "Listings disagree on 7 or 8 PM, so confirm the time. Your flight lands at SFO about 5:50 PM that day."
         }
       }
     ]
@@ -954,7 +921,11 @@
     "Sofi Tukker at Cow Palace",
     "Sandcastle Classic",
     "Yerba Buena Gardens Festival",
-    "Julia Jacklin at Castro Theatre"
+    "Julia Jacklin at Castro Theatre",
+    "Marc Rebillet, Franc Moody and Chromeo at The Midway",
+    "RADwood NorCal",
+    "Children's Halloween Haunt at History Park",
+    "Kishi Bashi at The Fillmore"
   ],
   "shows": {
     "note": "No Bay Area dates found through April 2027 for Chris Lake, Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
@@ -1062,7 +1033,7 @@
         "rating": "R",
         "score": 75,
         "released": "2026-10-23",
-        "blurb": "DC Studios' body-horror take on the Batman villain, Certified Fresh on Rotten Tomatoes. Opening weekend is projected at $25M to $30M.",
+        "blurb": "DC Studios' body-horror take on the Batman villain, Certified Fresh on Rotten Tomatoes. It opened to $9.5M on Friday including previews, with a $23M to $25M weekend estimated.",
         "url": "https://comicbookmovie.com/batman/clayface/clayface-rotten-tomatoes-score-revealed-critics-weigh-in-on-crowd-pleasing-uneven-dcu-movie-a230563"
       },
       {
@@ -1080,7 +1051,7 @@
         "runtime": 119,
         "score": 41,
         "released": "2026-10-16",
-        "blurb": "Kitao Sakurai's live-action take on the fighting game opened at No. 1 with about $31M; second weekend is forecast at $8M to $13M.",
+        "blurb": "Kitao Sakurai's live-action take on the fighting game opened at No. 1 with about $31M; its second weekend is projected near $11M.",
         "url": "https://www.rottentomatoes.com/m/street_fighter_2026"
       },
       {
@@ -1090,7 +1061,7 @@
         "runtime": 174,
         "score": 97,
         "released": "2026-10-16",
-        "blurb": "Nathan Fielder and Lance Oppenheim follow Elizabeth Holmes in her final weeks before prison. It opened to $15M on 855 screens and expands to 2,500+ screens Oct 23.",
+        "blurb": "Nathan Fielder and Lance Oppenheim follow Elizabeth Holmes in her final weeks before prison. It opened to about $15M on 855 screens and expands to about 2,600 this weekend, forecast at $19M to $25M.",
         "url": "https://www.rottentomatoes.com/m/you_can_see_everything"
       },
       {
@@ -1216,6 +1187,32 @@
   },
   "vocab": [
     {
+      "date": "2026-10-24",
+      "word": "Convivial",
+      "pron": "kun-VIV-ee-ul",
+      "pos": "adjective",
+      "def": "Friendly, lively and welcoming, especially of a gathering, a host or an atmosphere around food and drink.",
+      "ex": "The reception had a convivial mood, with strangers swapping stories at every table.",
+      "cards": [
+        {
+          "f": "Root",
+          "b": "Latin convivium, a feast: con- (together) plus vivere (to live)"
+        },
+        {
+          "f": "Synonym",
+          "b": "sociable, genial, festive"
+        },
+        {
+          "f": "Use it for",
+          "b": "describing a party, a dinner, a host or the mood of a room"
+        }
+      ],
+      "examples": [
+        "The reception had a convivial mood, with strangers swapping stories at every table.",
+        "She is a convivial host who always makes sure everyone has a drink and someone to talk to."
+      ]
+    },
+    {
       "date": "2026-10-23",
       "word": "Salient",
       "pron": "SAY-lee-ent",
@@ -1321,6 +1318,73 @@
     }
   ],
   "spanish": [
+    {
+      "date": "2026-10-24",
+      "phrase": "¡Que vivan los novios!",
+      "pron": "keh VEE-vahn lohs NOH-vyohs",
+      "reg": "Mexico · festive",
+      "meaning": "Long live the newlyweds!",
+      "note": "The standard cheer at a Mexican wedding toast, shouted by the whole room. 'Novios' means the bride and groom, or a couple who are engaged or newly married. It's for weddings and anniversaries.",
+      "cards": [
+        {
+          "es": "¡Salud!",
+          "en": "Cheers!"
+        },
+        {
+          "es": "¡Felicidades!",
+          "en": "Congratulations!"
+        },
+        {
+          "es": "¡Que se besen!",
+          "en": "Kiss! (the crowd's chant)"
+        }
+      ],
+      "parts": [
+        {
+          "es": "Que",
+          "en": "may / let"
+        },
+        {
+          "es": "vivan",
+          "en": "they live"
+        },
+        {
+          "es": "los",
+          "en": "the"
+        },
+        {
+          "es": "novios",
+          "en": "bride and groom"
+        }
+      ],
+      "dialog": [
+        {
+          "es": "¡Ya llegó la hora del brindis!",
+          "en": "It's time for the toast!"
+        },
+        {
+          "es": "¡Salud! ¡Que vivan los novios!",
+          "en": "Cheers! Long live the newlyweds!"
+        },
+        {
+          "es": "¡Y que bailen toda la noche!",
+          "en": "And may they dance all night!"
+        },
+        {
+          "es": "¡Eso! Ahora sí, a la pista.",
+          "en": "Exactly! Now, to the dance floor."
+        }
+      ],
+      "use": "Say it when someone raises a glass at a wedding, or after a friend announces an engagement.",
+      "quiz": {
+        "options": [
+          "Long live the newlyweds!",
+          "Congratulations on the new house!",
+          "The bus leaves in five minutes."
+        ],
+        "answer": 0
+      }
+    },
     {
       "date": "2026-10-23",
       "phrase": "Ni modo, ya será para la próxima",
@@ -1561,7 +1625,8 @@
       "Liminal",
       "Sanguine",
       "Equanimity",
-      "Salient"
+      "Salient",
+      "Convivial"
     ],
     "phrases": [
       "¡Aguas!",
@@ -1569,35 +1634,36 @@
       "¡Qué calor!",
       "¿Qué onda?",
       "¡No manches, está bien padre!",
-      "Ni modo, ya será para la próxima"
+      "Ni modo, ya será para la próxima",
+      "¡Que vivan los novios!"
     ]
   },
   "coach": {
-    "date": "2026-10-23",
-    "theme": "Recover from the red-eye",
+    "date": "2026-10-24",
+    "theme": "Wedding day",
     "focus": {
-      "title": "Get daylight and a short nap, then protect tonight's sleep",
-      "why": "You landed after a short night, and the wedding is tomorrow, so a bit of morning light and a nap capped at 30 minutes will help you sleep tonight better than catching up all day."
+      "title": "Be fully present at Sammy's wedding",
+      "why": "A day with a ceremony, a long dinner and a flight tomorrow goes better if you decide now what you want out of it."
     },
     "moves": [
       {
-        "area": "Rest",
-        "text": "Walk outside for 20 minutes in daylight this morning, then nap no longer than 30 minutes and finish before 3 PM so tonight's sleep isn't wrecked.",
-        "mins": 50
+        "area": "People",
+        "text": "Pick one thing you want to say to Sammy, keep your phone in your pocket during the ceremony, and say it before the night ends.",
+        "mins": 5
       },
       {
         "area": "Body",
-        "text": "Drink a full glass of water with each meal today and skip the second coffee after noon.",
-        "mins": 5
+        "text": "Have a glass of water between drinks and take a short walk after dinner.",
+        "mins": 10
       },
       {
-        "area": "People",
-        "text": "Message Sammy or someone in the wedding party to ask where to be tomorrow and when, so there are no surprises.",
-        "mins": 5
+        "area": "Rest",
+        "text": "Pack before you go to bed so the 12:27 PM Pacific flight home isn't a scramble.",
+        "mins": 15
       }
     ],
-    "reflect": "What helped you feel most like yourself today after a short night?",
-    "principle": "Rest on purpose and tomorrow gets easier."
+    "reflect": "What moment from today do you most want to remember?",
+    "principle": "Be where you are."
   },
   "music": {
     "artists": [
