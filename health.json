@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-25T05:32:13.184Z",
+ "fetchedAt": "2026-10-25T07:32:09.547Z",
  "date": "2026-10-23",
  "days": {
   "2026-10-22": {
@@ -447,6 +447,14 @@
      "mins": 30
     }
    ]
+  },
+  "2026-10-25": {
+   "steps": 595,
+   "dist": 474400,
+   "cal": 542,
+   "active": {
+    "light": 44
+   }
   }
  },
  "steps": {
@@ -454,7 +462,7 @@
    "date": {
     "year": 2026,
     "month": 10,
-    "day": 24
+    "day": 25
    },
    "time": {}
   },
@@ -462,7 +470,7 @@
    "date": {
     "year": 2026,
     "month": 10,
-    "day": 24
+    "day": 25
    },
    "time": {
     "hours": 23,
@@ -471,7 +479,7 @@
    }
   },
   "steps": {
-   "countSum": "3991"
+   "countSum": "595"
   }
  },
  "distance": {
@@ -479,7 +487,7 @@
    "date": {
     "year": 2026,
     "month": 10,
-    "day": 24
+    "day": 25
    },
    "time": {}
   },
@@ -487,7 +495,7 @@
    "date": {
     "year": 2026,
     "month": 10,
-    "day": 24
+    "day": 25
    },
    "time": {
     "hours": 23,
@@ -496,7 +504,7 @@
    }
   },
   "distance": {
-   "millimetersSum": "3155100"
+   "millimetersSum": "474400"
   }
  },
  "activeMinutes": {
@@ -504,7 +512,7 @@
    "date": {
     "year": 2026,
     "month": 10,
-    "day": 24
+    "day": 25
    },
    "time": {}
   },
@@ -512,7 +520,7 @@
    "date": {
     "year": 2026,
     "month": 10,
-    "day": 24
+    "day": 25
    },
    "time": {
     "hours": 23,
@@ -524,7 +532,7 @@
    "activeMinutesRollupByActivityLevel": [
     {
      "activityLevel": "LIGHT",
-     "activeMinutesSum": "221"
+     "activeMinutesSum": "44"
     }
    ]
   }
@@ -534,7 +542,7 @@
    "date": {
     "year": 2026,
     "month": 10,
-    "day": 24
+    "day": 25
    },
    "time": {}
   },
@@ -542,7 +550,7 @@
    "date": {
     "year": 2026,
     "month": 10,
-    "day": 24
+    "day": 25
    },
    "time": {
     "hours": 23,
@@ -551,59 +559,12 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 2929.967172
+   "kcalSum": 541.901208
   }
  },
- "activeZoneMinutes": {
-  "civilStartTime": {
-   "date": {
-    "year": 2026,
-    "month": 10,
-    "day": 24
-   },
-   "time": {}
-  },
-  "civilEndTime": {
-   "date": {
-    "year": 2026,
-    "month": 10,
-    "day": 24
-   },
-   "time": {
-    "hours": 23,
-    "minutes": 59,
-    "seconds": 59
-   }
-  },
-  "activeZoneMinutes": {
-   "sumInCardioHeartZone": "0",
-   "sumInPeakHeartZone": "0",
-   "sumInFatBurnHeartZone": "16"
-  }
- },
+ "activeZoneMinutes": null,
  "floors": null,
- "restingHR": [
-  {
-   "dataSource": {
-    "recordingMethod": "DERIVED",
-    "device": {
-     "displayName": "Fitbit Air"
-    },
-    "platform": "FITBIT"
-   },
-   "dailyRestingHeartRate": {
-    "date": {
-     "year": 2026,
-     "month": 10,
-     "day": 24
-    },
-    "beatsPerMinute": "58",
-    "dailyRestingHeartRateMetadata": {
-     "calculationMethod": "ONLY_WITH_AWAKE_DATA"
-    }
-   }
-  }
- ],
+ "restingHR": null,
  "hrZones": [
   {
    "dataSource": {
@@ -614,7 +575,7 @@
     "date": {
      "year": 2026,
      "month": 10,
-     "day": 24
+     "day": 25
     },
     "heartRateZones": [
      {
@@ -646,45 +607,5 @@
  "hrv": null,
  "vo2Max": null,
  "sleep": null,
- "exercise": [
-  {
-   "name": "users/4457912432455127948/dataTypes/exercise/dataPoints/8796858796580348888",
-   "dataSource": {
-    "recordingMethod": "PASSIVELY_MEASURED",
-    "device": {
-     "formFactor": "FITNESS_BAND",
-     "displayName": "Fitbit Air"
-    },
-    "platform": "FITBIT"
-   },
-   "exercise": {
-    "interval": {
-     "startTime": "2026-10-24T02:03:52.400Z",
-     "startUtcOffset": "-14400s",
-     "endTime": "2026-10-24T02:34:07.400Z",
-     "endUtcOffset": "-14400s"
-    },
-    "exerciseType": "WALKING",
-    "metricsSummary": {
-     "caloriesKcal": 229,
-     "distanceMillimeters": 978300,
-     "steps": "1268",
-     "averagePaceSecondsPerMeter": 1.8552591229684148,
-     "averageHeartRateBeatsPerMinute": "113",
-     "activeZoneMinutes": "18",
-     "heartRateZoneDurations": {
-      "lightTime": "960s",
-      "moderateTime": "780s",
-      "vigorousTime": "120s",
-      "peakTime": "0s"
-     }
-    },
-    "exerciseMetadata": {},
-    "displayName": "Walk",
-    "activeDuration": "1815s",
-    "updateTime": "2026-10-24T16:07:34.380882Z",
-    "createTime": "2026-10-24T16:07:34.380882Z"
-   }
-  }
- ]
+ "exercise": null
 }
