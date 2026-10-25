@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-25T17:32:18.748Z",
+ "fetchedAt": "2026-10-25T19:32:12.797Z",
  "date": "2026-10-25",
  "days": {
   "2026-10-22": {
@@ -443,17 +443,22 @@
    "exercise": [
     {
      "type": "walking",
+     "start": "2026-10-25T18:38:48.200Z",
+     "mins": 23
+    },
+    {
+     "type": "walking",
      "start": "2026-10-24T02:03:52.400Z",
      "mins": 30
     }
    ]
   },
   "2026-10-25": {
-   "steps": 1406,
-   "dist": 1120700,
-   "cal": 1672,
+   "steps": 2763,
+   "dist": 2195300,
+   "cal": 2008,
    "active": {
-    "light": 90
+    "light": 119
    },
    "azm": {
     "fatburn": 13,
@@ -477,7 +482,14 @@
     "wake": 563,
     "start": "2026-10-25T08:08:00Z",
     "end": "2026-10-25T13:23:00Z"
-   }
+   },
+   "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-25T18:38:48.200Z",
+     "mins": 23
+    }
+   ]
   }
  },
  "steps": {
@@ -502,7 +514,7 @@
    }
   },
   "steps": {
-   "countSum": "1406"
+   "countSum": "2763"
   }
  },
  "distance": {
@@ -527,7 +539,7 @@
    }
   },
   "distance": {
-   "millimetersSum": "1120700"
+   "millimetersSum": "2195300"
   }
  },
  "activeMinutes": {
@@ -555,7 +567,7 @@
    "activeMinutesRollupByActivityLevel": [
     {
      "activityLevel": "LIGHT",
-     "activeMinutesSum": "90"
+     "activeMinutesSum": "119"
     }
    ]
   }
@@ -582,7 +594,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 1672.0334520000001
+   "kcalSum": 2008.247436
   }
  },
  "activeZoneMinutes": {
@@ -1010,5 +1022,44 @@
    }
   }
  ],
- "exercise": null
+ "exercise": [
+  {
+   "name": "users/4457912432455127948/dataTypes/exercise/dataPoints/3571905948176290336",
+   "dataSource": {
+    "recordingMethod": "PASSIVELY_MEASURED",
+    "device": {
+     "formFactor": "FITNESS_BAND",
+     "displayName": "Fitbit Air"
+    },
+    "platform": "FITBIT"
+   },
+   "exercise": {
+    "interval": {
+     "startTime": "2026-10-25T18:38:48.200Z",
+     "startUtcOffset": "-14400s",
+     "endTime": "2026-10-25T19:01:58.200Z",
+     "endUtcOffset": "-14400s"
+    },
+    "exerciseType": "WALKING",
+    "metricsSummary": {
+     "caloriesKcal": 127,
+     "distanceMillimeters": 802300,
+     "steps": "1013",
+     "averagePaceSecondsPerMeter": 1.7325190078524244,
+     "averageHeartRateBeatsPerMinute": "93",
+     "heartRateZoneDurations": {
+      "lightTime": "1380s",
+      "moderateTime": "0s",
+      "vigorousTime": "0s",
+      "peakTime": "0s"
+     }
+    },
+    "exerciseMetadata": {},
+    "displayName": "Walk",
+    "activeDuration": "1390s",
+    "updateTime": "2026-10-25T19:18:27.970888Z",
+    "createTime": "2026-10-25T19:18:27.970888Z"
+   }
+  }
+ ]
 }
