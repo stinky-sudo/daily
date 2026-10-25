@@ -1,27 +1,15 @@
 {
-  "edition": "2026-10-24",
-  "updated": "2026-10-24T05:13:31-07:00",
+  "edition": "2026-10-25",
+  "updated": "2026-10-25T05:30:00-07:00",
   "weatherFallback": {
-    "hi": 79,
-    "lo": 55,
-    "cond": "Sunny and warm",
+    "hi": 74,
+    "lo": 52,
+    "cond": "Sunny",
     "code": 0
   },
   "calendar": {
-    "summary": "Today is Sammy's wedding in Columbus. UFC 333's main card starts at 11 AM Pacific (2 PM Eastern) on Paramount+ and may overlap with the festivities, so plan on the replay. Tomorrow is Ty's birthday, and your flight home, UA 1181, leaves Columbus at 12:27 PM Pacific (3:27 PM Eastern) and lands at SFO about 5:50 PM. Packing tonight will keep Sunday morning easy.",
+    "summary": "Today is Ty's birthday, so send a message before you board. Your flight home, UA 1181, leaves Columbus at 12:27 PM Pacific (3:27 PM Eastern) and lands at SFO about 5:50 PM. Nothing else is on your calendar through Tuesday, so tonight can be an easy unpack and an early night.",
     "events": [
-      {
-        "title": "🥊 UFC 333 — Abu Dhabi",
-        "allDay": true,
-        "date": "2026-10-24",
-        "url": "https://www.google.com/calendar/event?eid=Nmg2cWNvMWVjNWs3aW9nZDgzY3AwNmgzZjAgcnVkeWxhbmdlbmthbXBAbQ"
-      },
-      {
-        "title": "Sammy Wedding",
-        "allDay": true,
-        "date": "2026-10-24",
-        "url": "https://www.google.com/calendar/event?eid=ajQybDBrMTJvbmNlc25raGRqcGlsMGlscTggcnVkeWxhbmdlbmthbXBAbQ"
-      },
       {
         "title": "Ty's Birthday",
         "allDay": true,
@@ -39,18 +27,18 @@
     ]
   },
   "tip": {
-    "cat": "Body",
-    "title": "Walk for ten minutes after a big meal",
-    "mins": "10 min",
-    "why": "A meta-analysis of seven one-day crossover trials found that breaking up sitting with light walking lowered blood sugar and insulin more than standing did. It suits a wedding dinner today or a long flight home tomorrow.",
+    "cat": "Mind",
+    "title": "Write tomorrow's to-do list before bed",
+    "mins": "5 min",
+    "why": "In a sleep-lab study of 57 young adults, people who spent five minutes writing a specific to-do list fell asleep faster than those who wrote about what they had already done. It is an easy way to leave Monday on paper tonight.",
     "how": [
-      "Stand up within about 20 to 30 minutes of finishing a large meal.",
-      "Walk at an easy pace, slow enough to hold a conversation, for 10 minutes.",
-      "On the flight, do a lap of the aisle every hour or so when the seatbelt sign is off."
+      "Set a five-minute timer about 10 minutes before you plan to be in bed.",
+      "Write the tasks you need to remember over the next few days, as specifically as you can.",
+      "Close the notebook and leave it by the bed, so the list is no longer something to hold in your head."
     ],
-    "src": "Sports Medicine (Buffey et al., 2022)",
-    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9325803/",
-    "ask": "How much does a short walk after eating change blood sugar, and what does the research say about the best timing and pace?"
+    "src": "Journal of Experimental Psychology: General (Scullin et al., 2018)",
+    "url": "https://news.web.baylor.edu/news/story/2018/can-writing-your-dos-help-you-doze-baylor-study-suggests-jotting-down-tasks-can",
+    "ask": "What does the research say about writing a to-do list before bed, and does it help people who are not young and healthy?"
   },
   "tipLog": [
     "Dim the lights two hours before bed",
@@ -58,7 +46,8 @@
     "Start a red-eye rested, then chase morning light",
     "Move your legs every couple of hours on the red-eye",
     "Try five minutes of cyclic sighing to settle nerves",
-    "Walk for ten minutes after a big meal"
+    "Walk for ten minutes after a big meal",
+    "Write tomorrow's to-do list before bed"
   ],
   "markets": {
     "asOf": "2026-10-23",
@@ -463,38 +452,27 @@
     {
       "id": "n5",
       "tag": "AI",
-      "title": "OpenAI reportedly works on a $30B raise at a $1.25T valuation",
-      "blurb": "TechCrunch reports OpenAI is working on a round of up to $30 billion at a $1.25 trillion pre-money valuation ahead of a possible IPO. Terms are still being negotiated and could change.",
+      "title": "Study finds Grok and OpenAI models disagree on U.S. midterm picks in over 90% of races",
+      "blurb": "Researchers asked both models to choose candidates in nearly 500 races. TechCrunch reports Grok 4.7 picked the Republican 92% of the time, while OpenAI's GPT-6.1 Sol picked the Democrat 97% of the time, less than two weeks before the Nov. 3 midterms.",
       "src": "TechCrunch",
       "domain": "techcrunch.com",
-      "date": "2026-10-22",
-      "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
-      "ask": "How does a $1.25 trillion valuation square with the AI funding worries behind Thursday's selloff, and what would investors need to believe?"
+      "date": "2026-10-24",
+      "url": "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/",
+      "ask": "How were the prompts framed, and what does a model's lean on forced choices say about how it behaves in ordinary use?"
     },
     {
       "id": "n6",
       "tag": "AI",
-      "title": "DeepSeek reportedly raises $15B days after US restrictions",
-      "blurb": "Bloomberg reported the Chinese AI lab raised about $15 billion, days after the US ordered federal civilian agencies to remove its technology, according to TechCrunch.",
+      "title": "Block previews Dessa, a voice model that can talk and listen at the same time",
+      "blurb": "TechCrunch reports Block's new voice model handles speech in both directions at once. It is not publicly available yet, and Block has asked safety researchers to test it.",
       "src": "TechCrunch",
       "domain": "techcrunch.com",
-      "date": "2026-10-22",
-      "url": "https://techcrunch.com/2026/10/22/deepseek-reportedly-raises-15b-days-after-us-restrictions/",
-      "ask": "What do the US restrictions on DeepSeek actually cover, and do they affect companies that use its open models?"
+      "date": "2026-10-24",
+      "url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human",
+      "ask": "Why does full-duplex speech matter for robots that have to talk with people in a noisy room, and what are the safety risks of very human-sounding voices?"
     },
     {
       "id": "n7",
-      "tag": "AI",
-      "title": "Chinese hackers used AI agents after breaching ConnectWise",
-      "blurb": "Microsoft attributes the breach to a China-aligned group that targeted ConnectWise's cloud backup service. TechCrunch reports the attackers reportedly used AI agents against about 2,250 organizations.",
-      "src": "TechCrunch",
-      "domain": "techcrunch.com",
-      "date": "2026-10-22",
-      "url": "https://techcrunch.com/2026/10/22/chinese-hackers-spied-on-thousands-of-companies-after-breaching-it-giant-connectwise/",
-      "ask": "What should a small engineering team change in its backup and remote-management tooling after a supply-chain breach like ConnectWise?"
-    },
-    {
-      "id": "n8",
       "tag": "Tech",
       "title": "Agent cloud startup Daytona raises $60M at a $1B valuation",
       "blurb": "Daytona's Series B was led by FirstMark Growth. The company provides cloud environments for running AI agents.",
@@ -505,7 +483,7 @@
       "ask": "Is sandboxed compute for agents a lasting infrastructure layer or a feature the big clouds will absorb?"
     },
     {
-      "id": "n9",
+      "id": "n8",
       "tag": "Tech",
       "title": "Quest Diagnostics confirms patient data was compromised in a breach",
       "blurb": "Quest confirmed a cyberattack on its Quanum lab-ordering platform that exposed sensitive patient information. It has not said how many people are affected.",
@@ -516,7 +494,7 @@
       "ask": "What should people who have had labs done through Quest do now, and what does the breach say about third-party platforms in healthcare?"
     },
     {
-      "id": "n10",
+      "id": "n9",
       "tag": "Tech",
       "title": "Tesla plans to expand Cybercab beyond Austin, starting in Dallas",
       "blurb": "TechCrunch reports the expansion begins in Dallas next month and should reach other cities by the end of the year.",
@@ -536,7 +514,7 @@
       "desc": "Veritasium asks whether atomic clocks can test Einstein's theory of gravity.",
       "published": "2026-10-23T18:46:44Z",
       "secs": 2068,
-      "views": 2434902,
+      "views": 3859523,
       "url": "https://www.youtube.com/watch?v=eyZEqSPeMwg"
     },
     {
@@ -547,7 +525,7 @@
       "desc": "An OpenAI engineer shows how she uses her dot to gather feedback, track bugs in ChatGPT and fix them with Codex.",
       "published": "2026-10-23T22:05:37Z",
       "secs": 312,
-      "views": 34067,
+      "views": 55358,
       "url": "https://www.youtube.com/watch?v=6f7ojkd4_Wc"
     },
     {
@@ -569,7 +547,7 @@
       "desc": "A Channel 5 report from a summer camp built around looksmaxxing.",
       "published": "2026-10-22T16:00:00Z",
       "secs": 2505,
-      "views": 1777900,
+      "views": 2131558,
       "url": "https://www.youtube.com/watch?v=yx0gM_l60VY"
     },
     {
@@ -580,8 +558,19 @@
       "desc": "Figure's all-hands presentation for 2026.",
       "published": "2026-10-22T15:31:17Z",
       "secs": 3673,
-      "views": 38609,
+      "views": 44377,
       "url": "https://www.youtube.com/watch?v=AoFwpf43wK0"
+    },
+    {
+      "id": "CMf9_p3ywiA",
+      "channel": "Not Just Bikes",
+      "handle": "@NotJustBikes",
+      "title": "The Kobe Automated Metro #daypass",
+      "desc": "A short Day Pass episode on Kobe's automated metro.",
+      "published": "2026-10-21T21:45:28Z",
+      "secs": 122,
+      "views": 47217,
+      "url": "https://www.youtube.com/watch?v=CMf9_p3ywiA"
     },
     {
       "id": "ESABTN4VtrA",
@@ -591,7 +580,7 @@
       "desc": "Marques Brownlee's review of the first folding iPhone, the iPhone Duo.",
       "published": "2026-10-21T12:00:52Z",
       "secs": 1745,
-      "views": 10638624,
+      "views": 11367454,
       "url": "https://www.youtube.com/watch?v=ESABTN4VtrA"
     }
   ],
@@ -654,85 +643,42 @@
       "published": "2026-10-21",
       "secs": 7275,
       "url": "https://open.spotify.com/episode/6pwk2mPeeIdF0gGly6H4nR"
-    },
-    {
-      "show": "Modern Wisdom",
-      "title": "The Most Hardcore Military Stories In History - The Fat Electrician - #1165",
-      "desc": "Chris Williamson talks with The Fat Electrician about military history.",
-      "published": "2026-10-19",
-      "secs": 10055,
-      "url": "https://open.spotify.com/episode/6VDkyJ4AdJWh2Efr2fKDvg"
-    },
-    {
-      "show": "The Diary Of A CEO with Steven Bartlett",
-      "title": "The Deathbed Doctor: Weeks Before Death, Patients Start Having Visions! | Dr Christopher Kerr",
-      "desc": "Steven Bartlett talks with Dr Christopher Kerr.",
-      "published": "2026-10-19",
-      "secs": 5001,
-      "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
-      "url": "https://open.spotify.com/episode/0DJRQyRVuLzu4qd5S0rY91"
-    },
-    {
-      "show": "Huberman Lab",
-      "title": "What Makes Great Leaders & How to Live an Extraordinary Life | Dr. Jared Diamond",
-      "desc": "Andrew Huberman talks with Dr. Jared Diamond.",
-      "published": "2026-10-19",
-      "secs": 6800,
-      "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
-      "url": "https://open.spotify.com/episode/38qQ42Leni2R6J6SbdEUj3"
     }
   ],
   "discover": {
     "youtube": [
       {
-        "handle": "@MarkRober",
-        "channel": "Mark Rober",
+        "handle": "@Computerphile",
+        "channel": "Computerphile",
         "seed": "@veritasium",
-        "because": "Because you like Veritasium: big, playful engineering and science builds explained clearly."
+        "because": "Because you like Veritasium: researchers explaining computing and AI ideas in plain terms, posting weekly."
       },
       {
-        "handle": "@CleoAbram",
-        "channel": "Cleo Abram",
-        "seed": "@mkbhd",
-        "because": "Because you like MKBHD: upbeat explainers on new technology, posting several times a week."
-      },
-      {
-        "handle": "@IEEESpectrum",
-        "channel": "IEEE Spectrum",
-        "seed": "@figureai",
-        "because": "Because you follow Figure: engineering coverage of humanoids, robot hands and other robotics research."
-      },
-      {
-        "handle": "@Vsauce",
-        "channel": "Vsauce",
+        "handle": "@TomScottGo",
+        "channel": "Tom Scott",
         "seed": "@veritasium",
-        "because": "Because you like Veritasium: curious, carefully built videos on physics and how things work."
+        "because": "Because you like Veritasium: curious, well-researched explainers on how the world works."
       },
       {
-        "handle": "@theverge",
-        "channel": "The Verge",
-        "seed": "@mkbhd",
-        "because": "Because you like MKBHD: daily news and reviews across phones, AI and gadgets."
-      },
-      {
-        "handle": "@BostonDynamics",
-        "channel": "Boston Dynamics",
+        "handle": "@NVIDIA",
+        "channel": "NVIDIA",
         "seed": "@figureai",
-        "because": "Because you follow Figure: direct updates on Atlas and Spot from another humanoid maker."
+        "because": "Because you follow Figure: frequent uploads on robotics simulation and the AI chips behind humanoids."
+      },
+      {
+        "handle": "@UnitreeRobotics",
+        "channel": "Unitree Robotics",
+        "seed": "@figureai",
+        "because": "Because you follow Figure: demos from Unitree, the largest maker of low-cost humanoids."
+      },
+      {
+        "handle": "@3blue1brown",
+        "channel": "3Blue1Brown",
+        "seed": "@veritasium",
+        "because": "Because you like Veritasium: visual math explanations that also cover neural networks."
       }
     ],
-    "spotify": [
-      {
-        "show": "No Priors: Artificial Intelligence | Technology | Startups",
-        "title": "Democratizing Security for the Agentic Web with Cloudflare CTO Dane Knecht",
-        "desc": "",
-        "published": "2026-10-23",
-        "secs": 2483,
-        "url": "https://open.spotify.com/episode/4EhRq1PWkEhFRZ4P4Bjg7S",
-        "seed": "Lex Fridman Podcast",
-        "because": "Because you like Lex Fridman: AI founders and builders on what they're working on, in a shorter format."
-      }
-    ],
+    "spotify": [],
     "artists": [
       {
         "name": "Mau P",
@@ -836,68 +782,58 @@
     "@Vsauce",
     "@theverge",
     "@BostonDynamics",
-    "No Priors: Artificial Intelligence | Technology | Startups"
+    "No Priors: Artificial Intelligence | Technology | Startups",
+    "@Computerphile",
+    "@TomScottGo",
+    "@NVIDIA",
+    "@UnitreeRobotics",
+    "@3blue1brown"
   ],
   "bay": {
-    "range": "Oct 24–25",
+    "range": "Oct 25",
     "items": [
       {
         "id": "b1",
-        "title": "Marc Rebillet, Franc Moody and Chromeo block party",
-        "where": "The Midway, San Francisco",
-        "blurb": "An afternoon block party with the improvising keyboardist Marc Rebillet, the funk-pop band Franc Moody and the electro-funk duo Chromeo, with an after party at the venue.",
-        "date": "2026-10-24",
-        "url": "https://www.tickpick.com/buy-marc-rebillet-franc-moody-chromeo-block-party-and-after-party-tickets-the-midway-ca-10-24-26-3pm/8097108/",
-        "tickets": "https://www.tickpick.com/buy-marc-rebillet-franc-moody-chromeo-block-party-and-after-party-tickets-the-midway-ca-10-24-26-3pm/8097108/",
+        "title": "Joy Oladokun at the Castro Theatre",
+        "where": "Castro Theatre, San Francisco",
+        "blurb": "The folk-pop songwriter plays a Sunday night show in one of the city's best old movie palaces.",
+        "date": "2026-10-25",
+        "url": "https://www.jambase.com/show/joy-oladokun-castro-theatre-20261025",
+        "tickets": "https://www.tickpick.com/buy-joy-oladokun-tickets-castro-theatre-10-25-26-7pm/8164866/",
         "cal": {
-          "start": "2026-10-24T15:00",
-          "end": "2026-10-24T22:00",
-          "location": "The Midway, 900 Marin St, San Francisco, CA 94124",
-          "tips": "Listings show a 3 PM start; the end time is a placeholder. Confirm door and set times with the venue."
+          "start": "2026-10-25T19:00",
+          "end": "2026-10-25T22:00",
+          "location": "429 Castro St, San Francisco, CA",
+          "tips": "Listings show a 7 PM start and resale from about $64; the end time is a placeholder. Your flight lands about 5:50 PM, so confirm doors with the venue."
         }
       },
       {
         "id": "b2",
-        "title": "RADwood NorCal at Alameda Point",
-        "where": "Gold Bar Hangar, Alameda Point",
-        "blurb": "A free evening show of 1980s to 2000s cars with Mix Master Mike on the decks, driving demos with the San Francisco skyline behind them, food trucks and a best-dressed contest.",
-        "date": "2026-10-24",
-        "free": true,
-        "url": "https://theshopmag.com/news/radwood-norcal-returns-to-celebrate-80s-90s-cars-culture/",
+        "title": "One Song All Night: Fleetwood Mac's Dreams tribute show",
+        "where": "2020 Addison St, Berkeley",
+        "blurb": "A Sunday evening tribute built around Fleetwood Mac's Dreams, in a roughly 600-seat room.",
+        "date": "2026-10-25",
+        "url": "https://san-francisco.events/concerts/one-song-all-night-fleetwood-macs-dreams-tribute-show/",
         "cal": {
-          "start": "2026-10-24T16:00",
-          "end": "2026-10-24T20:00",
-          "location": "Gold Bar Hangar, Alameda Point, Alameda, CA",
-          "tips": "Free with registration, which is still required. Check the event page for parking and the ferry option."
+          "start": "2026-10-25T19:00",
+          "end": "2026-10-25T22:00",
+          "location": "2020 Addison St, Berkeley, CA 94704",
+          "tips": "Only ticket-aggregator listings were found, from about $61, so confirm with the venue before going."
         }
       },
       {
         "id": "b3",
-        "title": "Children's Halloween Haunt at History Park",
-        "where": "History Park, San José",
-        "blurb": "A kid-focused afternoon with hayrides, carnival games, a mini pumpkin patch and trick-or-treating at the historic houses, ending near 6:30 PM. The one South Bay option in the window.",
-        "date": "2026-10-24",
-        "url": "https://www.sanjose.org/events/history-park-childrens-halloween-haunt",
-        "cal": {
-          "start": "2026-10-24T14:00",
-          "end": "2026-10-24T18:30",
-          "location": "History Park, 635 Phelan Ave, San Jose, CA",
-          "tips": "2026 ticket prices weren't published when checked; last year ran $5 to $15. Confirm with History San José."
-        }
-      },
-      {
-        "id": "b4",
-        "title": "Kishi Bashi: Sonderlust 10th anniversary tour",
-        "where": "The Fillmore, San Francisco",
-        "blurb": "The violin-and-loops songwriter plays his 2016 album Sonderlust for its tenth anniversary, with Geographer opening.",
+        "title": "Downtown Burlingame Fall Fest",
+        "where": "Howard and Lorton Avenues, Burlingame",
+        "blurb": "A free block party with a kids zone, a costume contest from 1 to 2 PM and live performances on a side-street stage. The Peninsula option today.",
         "date": "2026-10-25",
-        "url": "https://app.discotech.me/events/38165647-kishi-bashi-sonderlust-10th-anniversary-tour-at-the-fillmore",
-        "tickets": "https://app.discotech.me/events/38165647-kishi-bashi-sonderlust-10th-anniversary-tour-at-the-fillmore",
+        "free": true,
+        "url": "https://sf.funcheap.com/downtown-burlingams-free-fall-fest-block-party-2026/",
         "cal": {
-          "start": "2026-10-25T20:00",
-          "end": "2026-10-25T23:00",
-          "location": "The Fillmore, 1805 Geary Blvd, San Francisco, CA",
-          "tips": "Listings disagree on 7 or 8 PM, so confirm the time. Your flight lands at SFO about 5:50 PM that day."
+          "start": "2026-10-25T10:00",
+          "end": "2026-10-25T17:00",
+          "location": "Howard Ave and Lorton Ave, Burlingame, CA",
+          "tips": "Ends at 5 PM, before your flight lands, so this one is only for anyone already at home."
         }
       }
     ]
@@ -925,7 +861,10 @@
     "Marc Rebillet, Franc Moody and Chromeo at The Midway",
     "RADwood NorCal",
     "Children's Halloween Haunt at History Park",
-    "Kishi Bashi at The Fillmore"
+    "Kishi Bashi at The Fillmore",
+    "Joy Oladokun at Castro Theatre",
+    "One Song All Night: Fleetwood Mac's Dreams tribute",
+    "Downtown Burlingame Fall Fest"
   ],
   "shows": {
     "note": "No Bay Area dates found through April 2027 for Chris Lake, Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
@@ -1187,6 +1126,32 @@
   },
   "vocab": [
     {
+      "date": "2026-10-25",
+      "word": "Sedulous",
+      "pron": "SEJ-uh-lus",
+      "pos": "adjective",
+      "def": "Showing steady, careful and persistent effort.",
+      "ex": "The sedulous engineer re-ran every calibration before the demo.",
+      "cards": [
+        {
+          "f": "Root",
+          "b": "Latin sedulus, diligent or attentive"
+        },
+        {
+          "f": "Synonym",
+          "b": "diligent, assiduous, industrious"
+        },
+        {
+          "f": "Use it for",
+          "b": "praising careful, patient work, like testing, editing or research"
+        }
+      ],
+      "examples": [
+        "The sedulous engineer re-ran every calibration before the demo.",
+        "Her sedulous note-taking meant nothing from the meeting was lost."
+      ]
+    },
+    {
       "date": "2026-10-24",
       "word": "Convivial",
       "pron": "kun-VIV-ee-ul",
@@ -1318,6 +1283,81 @@
     }
   ],
   "spanish": [
+    {
+      "date": "2026-10-25",
+      "phrase": "Ahorita vengo, voy por unos tacos",
+      "pron": "ah-oh-REE-tah VEN-goh, voy por OO-nohs TAH-kohs",
+      "reg": "Mexico · casual",
+      "meaning": "I'll be right back, I'm getting some tacos.",
+      "note": "'Ahorita' is flexible in Mexico: it can mean right now or a while from now, depending on tone. 'Ahorita vengo' is the usual way to say you are stepping out and coming back soon.",
+      "cards": [
+        {
+          "es": "Ahorita regreso",
+          "en": "I'll be back in a bit"
+        },
+        {
+          "es": "Ya vengo",
+          "en": "I'm coming right back"
+        },
+        {
+          "es": "No tardo",
+          "en": "I won't be long"
+        }
+      ],
+      "parts": [
+        {
+          "es": "Ahorita",
+          "en": "in a little while / right now"
+        },
+        {
+          "es": "vengo",
+          "en": "I come (back)"
+        },
+        {
+          "es": "voy",
+          "en": "I'm going"
+        },
+        {
+          "es": "por",
+          "en": "to get / for"
+        },
+        {
+          "es": "unos",
+          "en": "some"
+        },
+        {
+          "es": "tacos",
+          "en": "tacos"
+        }
+      ],
+      "dialog": [
+        {
+          "es": "¿A dónde vas?",
+          "en": "Where are you going?"
+        },
+        {
+          "es": "Ahorita vengo, voy por unos tacos.",
+          "en": "I'll be right back, I'm getting some tacos."
+        },
+        {
+          "es": "¿Me traes dos de pastor?",
+          "en": "Can you bring me two al pastor?"
+        },
+        {
+          "es": "Claro, ahorita te los traigo.",
+          "en": "Sure, I'll bring them in a bit."
+        }
+      ],
+      "use": "Say it when you step out of a room or a shop for a few minutes and plan to come back.",
+      "quiz": {
+        "options": [
+          "I'll be right back, I'm getting some tacos.",
+          "I already ate all the tacos.",
+          "The tacos are too expensive."
+        ],
+        "answer": 0
+      }
+    },
     {
       "date": "2026-10-24",
       "phrase": "¡Que vivan los novios!",
@@ -1626,7 +1666,8 @@
       "Sanguine",
       "Equanimity",
       "Salient",
-      "Convivial"
+      "Convivial",
+      "Sedulous"
     ],
     "phrases": [
       "¡Aguas!",
@@ -1635,35 +1676,36 @@
       "¿Qué onda?",
       "¡No manches, está bien padre!",
       "Ni modo, ya será para la próxima",
-      "¡Que vivan los novios!"
+      "¡Que vivan los novios!",
+      "Ahorita vengo, voy por unos tacos"
     ]
   },
   "coach": {
-    "date": "2026-10-24",
-    "theme": "Wedding day",
+    "date": "2026-10-25",
+    "theme": "Travel day",
     "focus": {
-      "title": "Be fully present at Sammy's wedding",
-      "why": "A day with a ceremony, a long dinner and a flight tomorrow goes better if you decide now what you want out of it."
+      "title": "Get home easily and mark Ty's birthday",
+      "why": "A travel day goes better with one small thing done before the rush, and Ty's birthday is easy to let slip while you are packing and boarding."
     },
     "moves": [
       {
         "area": "People",
-        "text": "Pick one thing you want to say to Sammy, keep your phone in your pocket during the ceremony, and say it before the night ends.",
+        "text": "Send Ty a birthday message or call before you board the 12:27 PM Pacific flight, and say one specific thing you appreciate about them.",
         "mins": 5
       },
       {
         "area": "Body",
-        "text": "Have a glass of water between drinks and take a short walk after dinner.",
+        "text": "Fill a water bottle after security and walk the terminal for ten minutes before you sit for the flight.",
         "mins": 10
       },
       {
         "area": "Rest",
-        "text": "Pack before you go to bed so the 12:27 PM Pacific flight home isn't a scramble.",
+        "text": "When you land, unpack right away, then write tomorrow's top three tasks and be in bed at a regular time.",
         "mins": 15
       }
     ],
-    "reflect": "What moment from today do you most want to remember?",
-    "principle": "Be where you are."
+    "reflect": "What are you glad you did for someone this weekend?",
+    "principle": "Leave things a little better than you found them."
   },
   "music": {
     "artists": [
@@ -1695,30 +1737,6 @@
     "releases": []
   },
   "live": [
-    {
-      "kind": "fight",
-      "title": "UFC 333: Volkanovski vs. Evloev",
-      "sub": "Featherweight title; Yan vs. Dvalishvili for the bantamweight title",
-      "when": "2026-10-24T11:00:00-07:00",
-      "where": "Etihad Arena, Abu Dhabi",
-      "tv": [
-        "Paramount+"
-      ],
-      "url": "https://www.ufc.com/event/ufc-333",
-      "note": "Main card at 11 AM Pacific (2 PM ET). Early prelims are reported at 7 AM and prelims at 9 AM, but Paramount+ still lists those times as TBD."
-    },
-    {
-      "kind": "game",
-      "title": "76ers vs. Bucks",
-      "sub": "NBA regular season",
-      "when": "2026-10-24T16:30:00-07:00",
-      "where": "Xfinity Mobile Arena, Philadelphia",
-      "tv": [
-        "NBA TV"
-      ],
-      "url": "https://www.nba.com/game/0022600106",
-      "note": "Tips off at 7:30 PM ET."
-    },
     {
       "kind": "game",
       "title": "76ers vs. Pistons",
