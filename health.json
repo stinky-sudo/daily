@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-25T11:32:10.187Z",
+ "fetchedAt": "2026-10-25T13:32:22.506Z",
  "date": "2026-10-23",
  "days": {
   "2026-10-22": {
@@ -451,7 +451,7 @@
   "2026-10-25": {
    "steps": 724,
    "dist": 577000,
-   "cal": 942,
+   "cal": 1116,
    "active": {
     "light": 54
    },
@@ -564,7 +564,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 941.800776
+   "kcalSum": 1116.362388
   }
  },
  "activeZoneMinutes": {
