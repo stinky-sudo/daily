@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-26T21:32:16.338Z",
+ "fetchedAt": "2026-10-26T23:32:16.768Z",
  "date": "2026-10-26",
  "days": {
   "2026-10-22": {
@@ -467,22 +467,11 @@
     "peak": 0
    },
    "rhr": 62,
+   "hrv": 16.9,
    "spo2": 96.6,
    "spo2Lo": 94.9,
    "spo2Hi": 98.2,
    "rr": 20.4,
-   "sleep": {
-    "asleep": 311,
-    "inBed": null,
-    "awake": 4,
-    "deep": 67,
-    "rem": 56,
-    "light": 188,
-    "bed": 248,
-    "wake": 563,
-    "start": "2026-10-25T08:08:00Z",
-    "end": "2026-10-25T13:23:00Z"
-   },
    "exercise": [
     {
      "type": "walking",
@@ -497,16 +486,16 @@
    ]
   },
   "2026-10-26": {
-   "steps": 5059,
-   "dist": 4003500,
-   "cal": 2706,
+   "steps": 5078,
+   "dist": 4018600,
+   "cal": 3129,
    "active": {
-    "light": 133,
-    "moderate": 79,
+    "light": 181,
+    "moderate": 82,
     "vigorous": 8
    },
    "azm": {
-    "fatburn": 48,
+    "fatburn": 49,
     "cardio": 0,
     "peak": 0
    },
@@ -559,7 +548,7 @@
    }
   },
   "steps": {
-   "countSum": "5059"
+   "countSum": "5078"
   }
  },
  "distance": {
@@ -584,7 +573,7 @@
    }
   },
   "distance": {
-   "millimetersSum": "4003500"
+   "millimetersSum": "4018600"
   }
  },
  "activeMinutes": {
@@ -612,11 +601,11 @@
    "activeMinutesRollupByActivityLevel": [
     {
      "activityLevel": "LIGHT",
-     "activeMinutesSum": "133"
+     "activeMinutesSum": "181"
     },
     {
      "activityLevel": "MODERATE",
-     "activeMinutesSum": "79"
+     "activeMinutesSum": "82"
     },
     {
      "activityLevel": "VIGOROUS",
@@ -647,7 +636,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 2706.493884
+   "kcalSum": 3129.05634
   }
  },
  "activeZoneMinutes": {
@@ -674,7 +663,7 @@
   "activeZoneMinutes": {
    "sumInCardioHeartZone": "0",
    "sumInPeakHeartZone": "0",
-   "sumInFatBurnHeartZone": "48"
+   "sumInFatBurnHeartZone": "49"
   }
  },
  "floors": null,
@@ -721,11 +710,11 @@
      {
       "heartRateZoneType": "MODERATE",
       "minBeatsPerMinute": "111",
-      "maxBeatsPerMinute": "137"
+      "maxBeatsPerMinute": "136"
      },
      {
       "heartRateZoneType": "VIGOROUS",
-      "minBeatsPerMinute": "138",
+      "minBeatsPerMinute": "137",
       "maxBeatsPerMinute": "170"
      },
      {
