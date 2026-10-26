@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-26T15:32:13.547Z",
+ "fetchedAt": "2026-10-26T17:32:25.336Z",
  "date": "2026-10-26",
  "days": {
   "2026-10-22": {
@@ -457,10 +457,6 @@
    "steps": 4458,
    "dist": 3520200,
    "cal": 3000,
-   "active": {
-    "light": 167,
-    "moderate": 10
-   },
    "azm": {
     "fatburn": 14,
     "cardio": 4,
@@ -493,11 +489,17 @@
    ]
   },
   "2026-10-26": {
-   "steps": 1030,
-   "dist": 815300,
-   "cal": 1180,
+   "steps": 1775,
+   "dist": 1409200,
+   "cal": 1568,
    "active": {
-    "light": 39
+    "light": 75,
+    "moderate": 7
+   },
+   "azm": {
+    "fatburn": 1,
+    "cardio": 0,
+    "peak": 0
    },
    "rhr": 59,
    "hrv": 44.2,
@@ -541,7 +543,7 @@
    }
   },
   "steps": {
-   "countSum": "1030"
+   "countSum": "1775"
   }
  },
  "distance": {
@@ -566,7 +568,7 @@
    }
   },
   "distance": {
-   "millimetersSum": "815300"
+   "millimetersSum": "1409200"
   }
  },
  "activeMinutes": {
@@ -594,7 +596,11 @@
    "activeMinutesRollupByActivityLevel": [
     {
      "activityLevel": "LIGHT",
-     "activeMinutesSum": "39"
+     "activeMinutesSum": "75"
+    },
+    {
+     "activityLevel": "MODERATE",
+     "activeMinutesSum": "7"
     }
    ]
   }
@@ -621,10 +627,36 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 1179.617664
+   "kcalSum": 1568.185788
   }
  },
- "activeZoneMinutes": null,
+ "activeZoneMinutes": {
+  "civilStartTime": {
+   "date": {
+    "year": 2026,
+    "month": 10,
+    "day": 26
+   },
+   "time": {}
+  },
+  "civilEndTime": {
+   "date": {
+    "year": 2026,
+    "month": 10,
+    "day": 26
+   },
+   "time": {
+    "hours": 23,
+    "minutes": 59,
+    "seconds": 59
+   }
+  },
+  "activeZoneMinutes": {
+   "sumInCardioHeartZone": "0",
+   "sumInPeakHeartZone": "0",
+   "sumInFatBurnHeartZone": "1"
+  }
+ },
  "floors": null,
  "restingHR": [
   {
