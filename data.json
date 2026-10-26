@@ -1,6 +1,6 @@
 {
-  "edition": "2026-10-25",
-  "updated": "2026-10-25T05:30:00-07:00",
+  "edition": "2026-10-26",
+  "updated": "2026-10-26T06:00:00-07:00",
   "weatherFallback": {
     "hi": 74,
     "lo": 52,
@@ -8,37 +8,22 @@
     "code": 0
   },
   "calendar": {
-    "summary": "Today is Ty's birthday, so send a message before you board. Your flight home, UA 1181, leaves Columbus at 12:27 PM Pacific (3:27 PM Eastern) and lands at SFO about 5:50 PM. Nothing else is on your calendar through Tuesday, so tonight can be an easy unpack and an early night.",
-    "events": [
-      {
-        "title": "Ty's Birthday",
-        "allDay": true,
-        "date": "2026-10-25",
-        "kind": "birthday",
-        "url": "https://www.google.com/calendar/event?eid=c2JsOWNsZG5uZWtvaXFlb3NqdTk2cmFtMThfMjAyNjEwMjUgcnVkeWxhbmdlbmthbXBAbQ"
-      },
-      {
-        "title": "Flight to San Francisco (UA 1181)",
-        "start": "2026-10-25T12:27:00-07:00",
-        "end": "2026-10-25T17:50:00-07:00",
-        "loc": "Columbus CMH",
-        "url": "https://www.google.com/calendar/event?eid=bzFuMzI0N2dkMmJubjE2Z2duNzJzZ2Q0NWcgcnVkeWxhbmdlbmthbXBAbQ"
-      }
-    ]
+    "summary": "Nothing is on your calendar today, Tuesday or Wednesday, so you can set your own priorities for the first days back. Ty's birthday was yesterday; if you did not get to it, a quick note today still counts. Use the open time to plan the week before it fills up.",
+    "events": []
   },
   "tip": {
-    "cat": "Mind",
-    "title": "Write tomorrow's to-do list before bed",
+    "cat": "Work",
+    "title": "Turn your top task into an if-then plan",
     "mins": "5 min",
-    "why": "In a sleep-lab study of 57 young adults, people who spent five minutes writing a specific to-do list fell asleep faster than those who wrote about what they had already done. It is an easy way to leave Monday on paper tonight.",
+    "why": "A meta-analysis of 94 studies found that people who wrote an if-then plan ('If situation X, then I will do Y') were far more likely to follow through on their goals than people who only set the goal, with a medium-to-large effect. A clear calendar early in the week is a good time to try it.",
     "how": [
-      "Set a five-minute timer about 10 minutes before you plan to be in bed.",
-      "Write the tasks you need to remember over the next few days, as specifically as you can.",
-      "Close the notebook and leave it by the bed, so the list is no longer something to hold in your head."
+      "Choose the one task that matters most this week.",
+      "Write it as 'If it is [day and time], then I will [first concrete action].'",
+      "Put the plan where you will see it, such as the top of your task list or a calendar block."
     ],
-    "src": "Journal of Experimental Psychology: General (Scullin et al., 2018)",
-    "url": "https://news.web.baylor.edu/news/story/2018/can-writing-your-dos-help-you-doze-baylor-study-suggests-jotting-down-tasks-can",
-    "ask": "What does the research say about writing a to-do list before bed, and does it help people who are not young and healthy?"
+    "src": "Gollwitzer & Sheeran, Advances in Experimental Social Psychology (2006)",
+    "url": "https://doi.org/10.1016/S0065-2601(06)38002-1",
+    "ask": "What does the research say about if-then planning and when does it fail to help people follow through?"
   },
   "tipLog": [
     "Dim the lights two hours before bed",
@@ -47,7 +32,8 @@
     "Move your legs every couple of hours on the red-eye",
     "Try five minutes of cyclic sighing to settle nerves",
     "Walk for ten minutes after a big meal",
-    "Write tomorrow's to-do list before bed"
+    "Write tomorrow's to-do list before bed",
+    "Turn your top task into an if-then plan"
   ],
   "markets": {
     "asOf": "2026-10-23",
@@ -510,11 +496,11 @@
       "id": "eyZEqSPeMwg",
       "channel": "Veritasium",
       "handle": "@veritasium",
-      "title": "No device could prove our theory of gravity wrong... until now",
+      "title": "No device could prove Einstein wrong... until now",
       "desc": "Veritasium asks whether atomic clocks can test Einstein's theory of gravity.",
       "published": "2026-10-23T18:46:44Z",
       "secs": 2068,
-      "views": 3859523,
+      "views": 5088375,
       "url": "https://www.youtube.com/watch?v=eyZEqSPeMwg"
     },
     {
@@ -525,7 +511,7 @@
       "desc": "An OpenAI engineer shows how she uses her dot to gather feedback, track bugs in ChatGPT and fix them with Codex.",
       "published": "2026-10-23T22:05:37Z",
       "secs": 312,
-      "views": 55358,
+      "views": 64353,
       "url": "https://www.youtube.com/watch?v=6f7ojkd4_Wc"
     },
     {
@@ -536,7 +522,7 @@
       "desc": "AT&T's legal team describes how AI is changing its work and what it plans to build next.",
       "published": "2026-10-23T18:32:03Z",
       "secs": 113,
-      "views": 10050,
+      "views": 14555,
       "url": "https://www.youtube.com/watch?v=V39_L7uh66M"
     },
     {
@@ -547,7 +533,7 @@
       "desc": "A Channel 5 report from a summer camp built around looksmaxxing.",
       "published": "2026-10-22T16:00:00Z",
       "secs": 2505,
-      "views": 2131558,
+      "views": 2429968,
       "url": "https://www.youtube.com/watch?v=yx0gM_l60VY"
     },
     {
@@ -558,8 +544,19 @@
       "desc": "Figure's all-hands presentation for 2026.",
       "published": "2026-10-22T15:31:17Z",
       "secs": 3673,
-      "views": 44377,
+      "views": 48591,
       "url": "https://www.youtube.com/watch?v=AoFwpf43wK0"
+    },
+    {
+      "id": "ESABTN4VtrA",
+      "channel": "Marques Brownlee",
+      "handle": "@mkbhd",
+      "title": "iPhone Duo Review: First Generation Fun!",
+      "desc": "Marques Brownlee reviews the first-generation iPhone Duo.",
+      "published": "2026-10-21T12:00:52Z",
+      "secs": 1745,
+      "views": 12046020,
+      "url": "https://www.youtube.com/watch?v=ESABTN4VtrA"
     },
     {
       "id": "CMf9_p3ywiA",
@@ -569,22 +566,37 @@
       "desc": "A short Day Pass episode on Kobe's automated metro.",
       "published": "2026-10-21T21:45:28Z",
       "secs": 122,
-      "views": 47217,
+      "views": 48818,
       "url": "https://www.youtube.com/watch?v=CMf9_p3ywiA"
-    },
-    {
-      "id": "ESABTN4VtrA",
-      "channel": "Marques Brownlee",
-      "handle": "@mkbhd",
-      "title": "iPhone Duo Review: First Generation Fun!",
-      "desc": "Marques Brownlee's review of the first folding iPhone, the iPhone Duo.",
-      "published": "2026-10-21T12:00:52Z",
-      "secs": 1745,
-      "views": 11367454,
-      "url": "https://www.youtube.com/watch?v=ESABTN4VtrA"
     }
   ],
   "spotify": [
+    {
+      "show": "Modern Wisdom",
+      "title": "Crypto Scams, Dopamine Websites, Tasteful Slop & Vape Shop Energy - Rabbit Hole #6 - #1168",
+      "desc": "Chris Williamson's sixth Rabbit Hole episode on crypto scams, dopamine-driven websites and low-effort content.",
+      "published": "2026-10-26",
+      "secs": 7679,
+      "url": "https://open.spotify.com/episode/7MTRvvAwPANExOBfdRgFPR"
+    },
+    {
+      "show": "The Diary Of A CEO with Steven Bartlett",
+      "title": "Mark Cuban",
+      "desc": "Steven Bartlett talks with Mark Cuban.",
+      "published": "2026-10-26",
+      "secs": 5488,
+      "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
+      "url": "https://open.spotify.com/episode/3enxPgCiYXHX7dQZXygd4J"
+    },
+    {
+      "show": "Huberman Lab",
+      "title": "Unlocking Persistent Motivation & Extreme Resilience | Ross Edgley",
+      "desc": "Andrew Huberman talks with endurance athlete Ross Edgley about motivation and resilience.",
+      "published": "2026-10-26",
+      "secs": 9817,
+      "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
+      "url": "https://open.spotify.com/episode/0gwA0hBS82SmlaWwtR90IF"
+    },
     {
       "show": "Modern Wisdom",
       "title": "Positive Psychology Founder: How To Stop Your Negative Thoughts - Martin Seligman - #1167",
@@ -603,12 +615,12 @@
     },
     {
       "show": "The Diary Of A CEO with Steven Bartlett",
-      "title": "Most Replayed Moment: How AI Companies Are Gaslighting You - Karen Hao",
-      "desc": "A short clip of the most replayed moment from Steven Bartlett's conversation with Karen Hao.",
-      "published": "2026-10-23",
-      "secs": 1447,
+      "title": "President Zelenskyy: Peace Is A Huge Compromise, The Horrific Atrocities Of Russian War Crimes!",
+      "desc": "Steven Bartlett interviews Ukraine's President Zelenskyy.",
+      "published": "2026-10-22",
+      "secs": 6617,
       "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
-      "url": "https://open.spotify.com/episode/7MDIkELsIsRX0zVnVNrchE"
+      "url": "https://open.spotify.com/episode/0MOYxDHYadej7XgGtUF8S0"
     },
     {
       "show": "Huberman Lab",
@@ -620,26 +632,17 @@
       "url": "https://open.spotify.com/episode/6L9wYBBFPl02eNTdBdWKfx"
     },
     {
-      "show": "The Diary Of A CEO with Steven Bartlett",
-      "title": "President Zelenskyy: Peace Is A Huge Compromise, The Horrific Atrocities Of Russian War Crimes!",
-      "desc": "Steven Bartlett talks with Ukraine's President Zelenskyy.",
-      "published": "2026-10-22",
-      "secs": 6617,
-      "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
-      "url": "https://open.spotify.com/episode/0MOYxDHYadej7XgGtUF8S0"
-    },
-    {
       "show": "Modern Wisdom",
       "title": "Why Men & Women Are Giving Up On Each Other - Daniel Cox - #1166",
-      "desc": "Chris Williamson talks with Daniel Cox.",
+      "desc": "Chris Williamson talks with Daniel Cox about why men and women are drifting apart.",
       "published": "2026-10-22",
-      "secs": 6850,
+      "secs": 6843,
       "url": "https://open.spotify.com/episode/77zHEXL9Mu3u1Ajk2qz1pa"
     },
     {
       "show": "Moonshots with Peter Diamandis",
       "title": "Chamath: AGI Is Here, Anthropic’s $100B Giveaway, Elon’s SpaceX Shares for 72M Kids | EP #304",
-      "desc": "Chamath Palihapitiya joins to talk AI and SpaceX.",
+      "desc": "Peter Diamandis and Chamath discuss AGI, Anthropic and SpaceX shares for children.",
       "published": "2026-10-21",
       "secs": 7275,
       "url": "https://open.spotify.com/episode/6pwk2mPeeIdF0gGly6H4nR"
@@ -790,50 +793,76 @@
     "@3blue1brown"
   ],
   "bay": {
-    "range": "Oct 25",
+    "range": "Oct 31",
     "items": [
       {
         "id": "b1",
-        "title": "Joy Oladokun at the Castro Theatre",
-        "where": "Castro Theatre, San Francisco",
-        "blurb": "The folk-pop songwriter plays a Sunday night show in one of the city's best old movie palaces.",
-        "date": "2026-10-25",
-        "url": "https://www.jambase.com/show/joy-oladokun-castro-theatre-20261025",
-        "tickets": "https://www.tickpick.com/buy-joy-oladokun-tickets-castro-theatre-10-25-26-7pm/8164866/",
+        "title": "Shpongle at the Fox Theater",
+        "where": "Fox Theater, Oakland",
+        "blurb": "The psychedelic electronic project plays a Halloween Saturday night show at one of Oakland's best old theaters.",
+        "date": "2026-10-31",
+        "url": "https://www.sfstation.com/calendar/bay-area/10-31-2026",
         "cal": {
-          "start": "2026-10-25T19:00",
-          "end": "2026-10-25T22:00",
-          "location": "429 Castro St, San Francisco, CA",
-          "tips": "Listings show a 7 PM start and resale from about $64; the end time is a placeholder. Your flight lands about 5:50 PM, so confirm doors with the venue."
+          "start": "2026-10-31T20:00",
+          "end": "2026-10-31T23:30",
+          "location": "1807 Telegraph Ave, Oakland, CA",
+          "tips": "Listing shows an 8 PM start; the end time is a placeholder. Confirm doors and tickets with the venue. BART to 19th Street."
         }
       },
       {
         "id": "b2",
-        "title": "One Song All Night: Fleetwood Mac's Dreams tribute show",
-        "where": "2020 Addison St, Berkeley",
-        "blurb": "A Sunday evening tribute built around Fleetwood Mac's Dreams, in a roughly 600-seat room.",
-        "date": "2026-10-25",
-        "url": "https://san-francisco.events/concerts/one-song-all-night-fleetwood-macs-dreams-tribute-show/",
+        "title": "Knocked Loose and Denzel Curry at the Cow Palace",
+        "where": "Cow Palace, Daly City",
+        "blurb": "A heavy hardcore and hip-hop pairing on Halloween night.",
+        "date": "2026-10-31",
+        "url": "https://www.sfstation.com/calendar/bay-area/10-31-2026",
         "cal": {
-          "start": "2026-10-25T19:00",
-          "end": "2026-10-25T22:00",
-          "location": "2020 Addison St, Berkeley, CA 94704",
-          "tips": "Only ticket-aggregator listings were found, from about $61, so confirm with the venue before going."
+          "start": "2026-10-31T19:00",
+          "end": "2026-10-31T23:00",
+          "location": "2600 Geneva Ave, Daly City, CA",
+          "tips": "Listing shows a 7 PM start; the end time is a placeholder. Confirm with the venue."
         }
       },
       {
         "id": "b3",
-        "title": "Downtown Burlingame Fall Fest",
-        "where": "Howard and Lorton Avenues, Burlingame",
-        "blurb": "A free block party with a kids zone, a costume contest from 1 to 2 PM and live performances on a side-street stage. The Peninsula option today.",
-        "date": "2026-10-25",
-        "free": true,
-        "url": "https://sf.funcheap.com/downtown-burlingams-free-fall-fest-block-party-2026/",
+        "title": "Oh, Mary! at the Curran Theatre",
+        "where": "Curran Theatre, San Francisco",
+        "blurb": "A comedy about Mary Todd Lincoln, playing Saturday at 8 PM.",
+        "date": "2026-10-31",
+        "url": "https://www.sfstation.com/calendar/bay-area/10-31-2026",
         "cal": {
-          "start": "2026-10-25T10:00",
-          "end": "2026-10-25T17:00",
-          "location": "Howard Ave and Lorton Ave, Burlingame, CA",
-          "tips": "Ends at 5 PM, before your flight lands, so this one is only for anyone already at home."
+          "start": "2026-10-31T20:00",
+          "end": "2026-10-31T22:00",
+          "location": "445 Geary St, San Francisco, CA",
+          "tips": "Listing shows an 8 PM start; the end time is a placeholder. Confirm tickets with the theater."
+        }
+      },
+      {
+        "id": "b4",
+        "title": "Halloween trick-or-treating on Castro Street",
+        "where": "Castro Street, Mountain View",
+        "blurb": "A free afternoon of treats from local businesses in your own downtown, from 2 to 4 PM.",
+        "date": "2026-10-31",
+        "url": "https://sf.funcheap.com/mountain-view-halloween-trick-treat-castro-street-24-local-businesses-2026/",
+        "cal": {
+          "start": "2026-10-31T14:00",
+          "end": "2026-10-31T16:00",
+          "location": "Castro St, Mountain View, CA",
+          "tips": "Free; hours from the FunCheap listing."
+        }
+      },
+      {
+        "id": "b5",
+        "title": "Ocean Beach bonfires",
+        "where": "Ocean Beach, San Francisco",
+        "blurb": "Bonfires are allowed on the beach on Saturday, so you can watch the sun go down over the Pacific by a fire.",
+        "date": "2026-10-31",
+        "url": "https://www.sfstation.com/calendar/bay-area/10-31-2026",
+        "cal": {
+          "start": "2026-10-31T17:00",
+          "end": "2026-10-31T21:00",
+          "location": "Ocean Beach, San Francisco, CA",
+          "tips": "Listing says fires are allowed 6:30 AM to 9:30 PM; the times here are a suggestion. Check weather and fire rules before going."
         }
       }
     ]
@@ -864,7 +893,12 @@
     "Kishi Bashi at The Fillmore",
     "Joy Oladokun at Castro Theatre",
     "One Song All Night: Fleetwood Mac's Dreams tribute",
-    "Downtown Burlingame Fall Fest"
+    "Downtown Burlingame Fall Fest",
+    "Shpongle at the Fox Theater",
+    "Knocked Loose and Denzel Curry at the Cow Palace",
+    "Oh, Mary! at the Curran Theatre",
+    "Halloween trick-or-treating on Castro Street",
+    "Ocean Beach bonfires"
   ],
   "shows": {
     "note": "No Bay Area dates found through April 2027 for Chris Lake, Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
@@ -1126,6 +1160,32 @@
   },
   "vocab": [
     {
+      "date": "2026-10-26",
+      "word": "Laconic",
+      "pron": "luh-KON-ik",
+      "pos": "adjective",
+      "def": "Using very few words; brief and to the point.",
+      "ex": "Her laconic reply, 'Shipped,' told the team everything they needed to know.",
+      "cards": [
+        {
+          "f": "Root",
+          "b": "Greek Lakonikos, 'of Laconia', the region of Sparta, whose people were known for short, blunt speech"
+        },
+        {
+          "f": "Synonym",
+          "b": "terse, succinct, concise"
+        },
+        {
+          "f": "Use it for",
+          "b": "describing a person, a reply or a style of writing that says a lot in few words"
+        }
+      ],
+      "examples": [
+        "Her laconic reply, 'Shipped,' told the team everything they needed to know.",
+        "He was a laconic host, but nobody ever left his dinners hungry or confused."
+      ]
+    },
+    {
       "date": "2026-10-25",
       "word": "Sedulous",
       "pron": "SEJ-uh-lus",
@@ -1283,6 +1343,77 @@
     }
   ],
   "spanish": [
+    {
+      "date": "2026-10-26",
+      "phrase": "¡Qué chido está tu carro!",
+      "pron": "keh CHEE-doh eh-STAH too KAH-rroh",
+      "reg": "Mexico · casual",
+      "meaning": "Your car is so cool!",
+      "note": "'Chido' is very common casual Mexican slang for cool or great. It is friendly and informal, fine with friends and peers.",
+      "cards": [
+        {
+          "es": "¡Qué padre!",
+          "en": "How cool!"
+        },
+        {
+          "es": "¡Está de pelos!",
+          "en": "It's awesome!"
+        },
+        {
+          "es": "¡Qué buena onda!",
+          "en": "How nice of you!"
+        }
+      ],
+      "parts": [
+        {
+          "es": "¡Qué",
+          "en": "how / what a"
+        },
+        {
+          "es": "chido",
+          "en": "cool"
+        },
+        {
+          "es": "está",
+          "en": "is"
+        },
+        {
+          "es": "tu",
+          "en": "your"
+        },
+        {
+          "es": "carro",
+          "en": "car"
+        }
+      ],
+      "dialog": [
+        {
+          "es": "¿Viste mi carro nuevo?",
+          "en": "Did you see my new car?"
+        },
+        {
+          "es": "¡Sí! ¡Qué chido está tu carro!",
+          "en": "Yes! Your car is so cool!"
+        },
+        {
+          "es": "Gracias, lo compré ayer.",
+          "en": "Thanks, I bought it yesterday."
+        },
+        {
+          "es": "¡Qué padre! Felicidades.",
+          "en": "How nice! Congratulations."
+        }
+      ],
+      "use": "Say it when a friend shows you something you like, like a car, a phone or a new place.",
+      "quiz": {
+        "options": [
+          "Your car is so cool!",
+          "Your car is very old.",
+          "Where did you park your car?"
+        ],
+        "answer": 0
+      }
+    },
     {
       "date": "2026-10-25",
       "phrase": "Ahorita vengo, voy por unos tacos",
@@ -1667,7 +1798,8 @@
       "Equanimity",
       "Salient",
       "Convivial",
-      "Sedulous"
+      "Sedulous",
+      "Laconic"
     ],
     "phrases": [
       "¡Aguas!",
@@ -1677,35 +1809,36 @@
       "¡No manches, está bien padre!",
       "Ni modo, ya será para la próxima",
       "¡Que vivan los novios!",
-      "Ahorita vengo, voy por unos tacos"
+      "Ahorita vengo, voy por unos tacos",
+      "¡Qué chido está tu carro!"
     ]
   },
   "coach": {
-    "date": "2026-10-25",
-    "theme": "Travel day",
+    "date": "2026-10-26",
+    "theme": "Fresh week",
     "focus": {
-      "title": "Get home easily and mark Ty's birthday",
-      "why": "A travel day goes better with one small thing done before the rush, and Ty's birthday is easy to let slip while you are packing and boarding."
+      "title": "Decide what matters most this week",
+      "why": "A clear calendar is the best moment to choose one important thing and say exactly when you will do it."
     },
     "moves": [
       {
+        "area": "Work",
+        "text": "Pick your single most important task this week and write one if-then plan for it, such as 'If it is 9 AM Tuesday, then I open the file and work on it for 45 minutes.'",
+        "mins": 10
+      },
+      {
         "area": "People",
-        "text": "Send Ty a birthday message or call before you board the 12:27 PM Pacific flight, and say one specific thing you appreciate about them.",
+        "text": "If you did not reach Ty yesterday, send a short belated birthday message today.",
         "mins": 5
       },
       {
         "area": "Body",
-        "text": "Fill a water bottle after security and walk the terminal for ten minutes before you sit for the flight.",
-        "mins": 10
-      },
-      {
-        "area": "Rest",
-        "text": "When you land, unpack right away, then write tomorrow's top three tasks and be in bed at a regular time.",
+        "text": "Take a 15-minute walk outside this afternoon, away from your desk.",
         "mins": 15
       }
     ],
-    "reflect": "What are you glad you did for someone this weekend?",
-    "principle": "Leave things a little better than you found them."
+    "reflect": "What is the one thing that, if it got done this week, would make the rest easier?",
+    "principle": "Decide in advance, and the doing gets easier."
   },
   "music": {
     "artists": [
@@ -1739,16 +1872,6 @@
   "live": [
     {
       "kind": "game",
-      "title": "76ers vs. Pistons",
-      "sub": "NBA regular season",
-      "when": "2026-10-25T16:30:00-07:00",
-      "where": "Xfinity Mobile Arena, Philadelphia",
-      "tv": [],
-      "url": "https://fanduel.com/research/2026-27-philadelphia-76ers-schedule-results-tv-channel",
-      "note": "Tips off at 7:30 PM ET. No national network listed; check the local broadcast."
-    },
-    {
-      "kind": "game",
       "title": "76ers at Pacers",
       "sub": "NBA regular season",
       "when": "2026-10-28T16:00:00-07:00",
@@ -1756,13 +1879,13 @@
       "tv": [
         "ESPN"
       ],
-      "url": "https://fanduel.com/research/2026-27-philadelphia-76ers-schedule-results-tv-channel",
+      "url": "https://www.fox29.com/news/sixers-2026-27-schedule-christmas-day-among-34-nationally-televised-games",
       "note": "Tips off at 7 PM ET."
     },
     {
       "kind": "game",
       "title": "Knicks at 76ers",
-      "sub": "NBA regular season",
+      "sub": "NBA Cup",
       "when": "2026-10-30T16:30:00-07:00",
       "where": "Xfinity Mobile Arena, Philadelphia",
       "tv": [
@@ -1772,16 +1895,26 @@
       "note": "Tips off at 7:30 PM ET."
     },
     {
-      "kind": "other",
-      "title": "Ohio State is on a bye week",
-      "sub": "Next game: at USC, Oct. 31",
+      "kind": "game",
+      "title": "76ers at Hornets",
+      "sub": "NBA regular season",
+      "when": "2026-10-31T15:00:00-07:00",
+      "where": "Spectrum Center, Charlotte",
+      "tv": [],
+      "url": "https://fanduel.com/research/2026-27-philadelphia-76ers-schedule-results-tv-channel",
+      "note": "6 PM ET. One schedule lists NBA TV and another lists no network, so check the local broadcast."
+    },
+    {
+      "kind": "game",
+      "title": "Ohio State at USC",
+      "sub": "Big Ten football",
       "when": "2026-10-31T16:30:00-07:00",
       "where": "Los Angeles Memorial Coliseum",
       "tv": [
         "NBC"
       ],
       "url": "https://fbschedules.com/college-football-schedule-tv-selections-for-october-31-2026/amp/",
-      "note": "One schedule lists a 7:30 PM ET (4:30 PM PT) kickoff on NBC; not yet officially confirmed."
+      "note": "One schedule lists 7:30 PM ET on NBC; kickoff was due to be finalized on Oct. 25, so confirm it."
     }
   ]
 }
