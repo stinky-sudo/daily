@@ -4438,9 +4438,9 @@ const PTR=(()=>{
   else if(mode==="snap"){
    if(snap.native){
     /* follow iOS's bounce home: the stretch closes exactly as the page returns */
-    /* hit early: iOS's bounce has a long, slow tail, so the surge goes once it's most of the way home */
-    const o=over(),q=clamp((o/snap.o0-.25)/.75,0,1);SPR.x=snap.s0*Math.pow(q,1.1);SPR.v=0;
-    if(q<=0||o<=6||now-snap.t>300)impact(now,150);
+    /* iOS's bounce has a long, slow tail, so the surge goes once it's nearly home, not all the way */
+    const o=over(),q=clamp((o/snap.o0-.1)/.9,0,1);SPR.x=snap.s0*Math.pow(q,1.1);SPR.v=0;
+    if(q<=0||o<=4||now-snap.t>380)impact(now,150);
    }else{step(700,36,dt);if(SPR.x<=0||now-snap.t>420)impact(now,0)}
   }
   else if(mode==="surge")step(700,36,dt);
