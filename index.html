@@ -1512,20 +1512,28 @@ html,body{overscroll-behavior-x:none}
 .hx-fsync{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
 .hx-fsync>span{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;background:var(--fill);font-size:11.5px;font-weight:600;color:var(--ink-2);white-space:nowrap}
 .hx-fsync>span.warn{background:var(--warn-soft);color:var(--warn-ink)}
-.hx-ev{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
-.hx-chip{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 9px;border-radius:8px;background:var(--fill);font-size:12px;font-weight:600;color:var(--ink-2);white-space:nowrap}
-.hx-chip i{width:7px;height:7px;border-radius:50%;background:var(--ink-3);flex:0 0 auto}
-.hx-chip b{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.hx-ev{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:14px}
+.hx-chip{display:flex;flex-direction:column;gap:3px;min-width:0;padding:7px 10px 8px;border-radius:11px;background:var(--fill)}
+.hx-chip span{display:flex;align-items:center;gap:5px;min-width:0;font-size:11px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hx-chip i{width:6px;height:6px;border-radius:50%;background:var(--ink-3);flex:0 0 auto}
+.hx-chip b{font-size:15px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.01em}
 .hx-chip.good i{background:var(--up)}.hx-chip.warn i{background:var(--warn)}.hx-chip.bad i{background:var(--down)}
-.hx-chip.drv.warn{background:var(--warn-soft);color:var(--warn-ink)}.hx-chip.drv.warn b{color:var(--warn-ink)}
-.hx-chip.drv.bad{background:rgba(221,59,53,.13);color:var(--down)}.hx-chip.drv.bad b{color:var(--down)}
-.hx-chip.drv.good{background:var(--up-soft);color:var(--up)}.hx-chip.drv.good b{color:var(--up)}
+.hx-chip.drv{box-shadow:inset 0 0 0 1.5px var(--ink-3)}
+.hx-chip.drv.warn{background:var(--warn-soft);box-shadow:inset 0 0 0 1.5px var(--warn)}.hx-chip.drv.warn b,.hx-chip.drv.warn span{color:var(--warn-ink)}
+.hx-chip.drv.bad{background:rgba(221,59,53,.13);box-shadow:inset 0 0 0 1.5px var(--down)}.hx-chip.drv.bad b,.hx-chip.drv.bad span{color:var(--down)}
+.hx-chip.drv.good{background:var(--up-soft);box-shadow:inset 0 0 0 1.5px var(--up)}.hx-chip.drv.good b,.hx-chip.drv.good span{color:var(--up)}
 .hx-fmain p{font-size:14.5px;line-height:1.45;color:var(--ink-2);margin-top:6px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .hx-fsteps{list-style:none;margin:12px 0 0;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .hx-fsteps li{position:relative;display:flex;align-items:center;min-height:42px;padding:7px 10px 7px 38px;border-radius:12px;background:var(--fill);font-size:13.5px;font-weight:600;line-height:1.3;counter-increment:s}
 .hx-fsteps li::before{content:counter(s);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--surface);font-size:11px;font-weight:700;display:grid;place-items:center}
 /* hero cards: summary left, 7-day chart right */
-.hx-split{flex:1;min-height:0;display:grid;grid-template-columns:250px minmax(0,1fr);gap:26px;margin-top:10px}
+.hx-split{flex:1;min-height:0;display:grid;grid-template-columns:250px minmax(0,1fr);gap:26px}
+.hx-l>.hx-h{margin-bottom:12px}
+.hx-l .hx-facts{margin-top:auto}
+.hx-bw{display:flex;align-items:flex-end;gap:12px;margin-top:14px}
+.hx-bw span{display:block;font-size:11.5px;font-weight:600;color:var(--ink-3)}
+.hx-bw b{display:block;font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-top:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.hx-arw{width:17px;height:17px;color:var(--ink-3);margin-bottom:5px;flex:0 0 auto}
 .hx-l{display:flex;flex-direction:column;min-height:0;min-width:0}
 .hx-big{font-family:var(--display);font-size:50px;font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
 .hx-big small{font-size:22px;font-weight:600;color:var(--ink-3);letter-spacing:0;margin:0 5px 0 1px}
@@ -1552,7 +1560,7 @@ html,body{overscroll-behavior-x:none}
 .hx-stf.lo{background:var(--warn)}
 /* chart column */
 .hx-ch{display:flex;flex-direction:column;min-height:0;min-width:0}
-.hx-chh{display:flex;align-items:center;gap:10px;min-height:24px}
+.hx-chh{display:flex;align-items:center;gap:10px;min-height:28px}
 .hx-chh>span:first-child{flex:1;font-size:12.5px;font-weight:600;color:var(--ink-3)}
 .hx-aim{font-size:12.5px;font-weight:650;color:var(--ink-2)}
 /* sleep schedule */
@@ -1584,14 +1592,14 @@ html,body{overscroll-behavior-x:none}
 .hx-score .hx-pill{align-self:center;margin-left:4px}
 .hx-pill.bad{background:rgba(221,59,53,.13);color:var(--down)}
 .hx-facts dd.good{color:var(--up)}.hx-facts dd.warn{color:var(--warn-ink)}.hx-facts dd.bad{color:var(--down)}
-.hx-dur{font-size:14px;font-weight:500;color:var(--ink-2);margin-top:12px;line-height:1.2}
-.hx-dur b{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.hx-dur{font-size:13.5px;font-weight:500;color:var(--ink-2);margin-top:8px;line-height:1.3}
+.hx-dur b{font-weight:700;color:var(--ink)}
 .hx-nod{position:absolute;left:4px;top:50%;transform:translateY(-50%);font-size:11.5px;color:var(--ink-3)}
 .hx-ax{flex:0 0 18px}
 .hx-ax .hx-trk span{position:absolute;top:3px;transform:translateX(-50%);font-size:10.5px;font-weight:600;color:var(--ink-3);white-space:nowrap}
 .hx-ax .hx-trk span:first-child{transform:none}.hx-ax .hx-trk span:last-child{transform:translateX(-100%)}
 /* steps bars */
-.hx-bars{position:relative;flex:1;min-height:0;display:flex;gap:10px;margin-top:24px}
+.hx-bars{position:relative;flex:1;min-height:0;display:flex;gap:10px;margin-top:22px}
 .hx-goal{position:absolute;left:0;right:0;height:0;border-top:1.5px dashed var(--ink-3);opacity:.75;z-index:2;pointer-events:none}
 .hx-goal b{position:absolute;right:0;bottom:3px;font-size:10.5px;font-weight:700;color:var(--ink-3);background:var(--surface);padding-left:4px}
 .hx-bc{position:relative;flex:1;min-width:0;height:100%;outline:none}
@@ -1628,7 +1636,11 @@ html,body{overscroll-behavior-x:none}
  .hx-ax .hx-trk span:last-child{transform:translateX(-50%)}
  .hx-big{font-size:40px}.hx-big small{font-size:19px}
  .hx-facts{grid-template-columns:1fr 1fr;row-gap:6px}.hx-facts>div:nth-child(3){display:none}
- .hx-score b{font-size:46px}.hx-score .hx-pill{display:none}.hx-dur{margin-top:8px}
+ .hx-score b{font-size:46px}.hx-score .hx-pill{display:none}
+ .hx-ev{grid-template-columns:repeat(11,minmax(0,1fr));margin-top:10px}
+ .hx-chip{padding:7px 8px 8px}.hx-chip span{font-size:10.5px;gap:4px}
+ .hx-bw{margin-top:10px;gap:8px}.hx-bw b{font-size:18px}.hx-arw{width:14px;height:14px}
+ .hx-dur{display:none}
  .hx-focus{padding:15px 20px!important}.hx-fsteps{margin-top:10px}.hx-fsteps li{min-height:36px}
  .hx-fmain h2{font-size:23px}.hx-fmain p{-webkit-line-clamp:2}
 }
@@ -1636,6 +1648,7 @@ html,body{overscroll-behavior-x:none}
 @media (max-width:699px){
  .hx{display:flex;flex-direction:column;height:auto;min-height:0;gap:10px}
  .hx-fsteps{grid-template-columns:1fr}
+ .hx-ev{grid-template-columns:repeat(3,minmax(0,1fr))}
  .hx-fmain h2{font-size:22px}
  .hx-split{grid-template-columns:1fr;gap:16px}
  .hx-stages{margin-top:12px}
@@ -3567,11 +3580,13 @@ function renderHealth(){
  const scCls=v=>v>=80?"good":v>=60?"warn":"bad";
  const scNights=nights.filter(realNight);
  const avgScore=scNights.length?Math.round(mean_(scNights.map(r=>r.score))):null;
+ const sleepAvg7=scNights.length?mean_(scNights.map(r=>r.asleep)):null;
  const sleepLeft=T.asleep?`
    <div class="hx-sk">Sleep score</div>
    <div class="hx-score" data-t="Sleep score<span>Worked out here from how long you slept, your deep and REM share, and time awake. Fitbit's own score uses a different formula, so it can differ by a few points.</span>"><b class="${scCls(T.score)}">${T.score}</b><span>/100</span><span class="hx-pill ${scCls(T.score)}">${bandLbl}</span></div>
-   <div class="hx-dur"><b>${hm_(T.asleep)}</b> asleep</div>${T.bed!=null&&T.wake!=null?`<div class="hx-sub">${clock_(T.bed)} → ${clock_(T.wake)}</div>`:""}
-   <dl class="hx-facts"><div><dt>7-night avg score</dt><dd class="${avgScore==null?"":scCls(avgScore)}">${avgScore==null?"—":avgScore}</dd></div></dl>`
+   ${T.bed!=null&&T.wake!=null?`<div class="hx-bw"><div><span>Bedtime</span><b>${clock_(T.bed)}</b></div><svg class="hx-arw" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span>Woke up</span><b>${clock_(T.wake)}</b></div></div>`:""}
+   <div class="hx-dur"><b>${hm_(T.asleep)}</b> asleep${T.awake?` · ${hm_(T.awake)} awake`:""}</div>
+   <dl class="hx-facts"><div><dt>Avg score</dt><dd class="${avgScore==null?"":scCls(avgScore)}">${avgScore==null?"—":avgScore}</dd></div><div><dt>Avg sleep</dt><dd>${sleepAvg7!=null?hm_(sleepAvg7):"—"}</dd></div><div><dt>7h+ nights</dt><dd>${scNights.length?`${scNights.filter(r=>r.asleep>=420).length} of ${nights.filter(Boolean).length}`:"—"}</dd></div></dl>`
   :`<p class="hx-empty">No sleep recorded yet. It shows up after the Fitbit syncs in the morning.</p>`;
  const sleepRight=`<div class="hx-ch">
    <div class="hx-chh"><span>Last 7 nights</span>${tgtBed!=null?`<span class="hx-aim" data-t="Target bedtime<span>Your typical bedtime this week, ±30 min — the shaded column.</span>">Aim ${clock_(tgtBed)}</span>`:""}${spread!=null?`<span class="hx-pill ${spread<=30?"good":spread<=60?"":"warn"}" data-t="Bedtime spread<span>How much your bedtime moved night to night. Under 30 min is steady.</span>">±${Math.round(spread)} min</span>`:""}</div>
@@ -3580,8 +3595,8 @@ function renderHealth(){
     ${nightWeek.map((d,i)=>{const r=nights[i],isT=d===T.d;return`<div class="hx-row${isT?" today":""}"><span class="hx-dl">${day_(d,"s")}</span><div class="hx-trk">${r?`<span class="hx-win ${scCls(r.score)}${realNight(r)?"":" part"}" style="left:${AX(r.bed)}%;width:${Math.max(1.5,AX(r.wake)-AX(r.bed))}%" tabindex="0" data-t="${day_(d)}<span>${clock_(r.bed)} → ${clock_(r.wake)} · ${hm_(r.asleep)} asleep · score ${r.score}</span>"></span><span class="hx-wl" style="left:calc(${AX(r.wake)}% + 7px)">${hm_(r.asleep)}</span>`:`<span class="hx-nod">no data</span>`}</div><span class="hx-sc ${r?scCls(r.score):"none"}">${r?r.score:"–"}</span></div>`}).join("")}
     <div class="hx-row hx-ax"><span class="hx-dl"></span><div class="hx-trk">${ticks.map((t,i)=>`<span class="${i%2?"odd":""}" style="left:${AX(t)}%">${clock_(t,1)}</span>`).join("")}</div><span class="hx-sc hx-sch-l">Score</span></div>
    </div></div>`;
- const sleepCard=`<div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#i-moon"/></svg></span><span class="hx-t">Sleep</span>${T.asleep?`<span class="hx-s">${T.d===TK?"Last night":esc(fmtKey(T.d,{weekday:"long"}))}</span>`:""}</div>
-  <div class="hx-split"><div class="hx-l">${sleepLeft}</div>${sleepRight}</div>`;
+ const sleepCard=`<div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#i-moon"/></svg></span><span class="hx-t">Sleep</span>${T.asleep?`<span class="hx-s">${T.d===TK?"Last night":esc(fmtKey(T.d,{weekday:"long"}))}</span>`:""}</div>`;
+ const sleepCardF=`<div class="hx-split"><div class="hx-l">${sleepCard}${sleepLeft}</div>${sleepRight}</div>`;
 
  /* ── Steps card ── */
  const STEP_GOAL=10000;
@@ -3590,7 +3605,7 @@ function renderHealth(){
  const wkFull=wk.filter((r,i)=>r&&week[i]!==TK);
  const wkAvg=wkFull.length?Math.round(mean_(wkFull.map(r=>r.steps))):null;
  const hits=wk.filter(r=>r&&r.steps>=STEP_GOAL).length;
- const capS=Math.min(Math.max(15000,...wk.filter(Boolean).map(r=>r.steps)),20000);
+ const capS=Math.min(25000,Math.ceil(Math.max(11000,...wk.filter(Boolean).map(r=>r.steps/.9))/1000)*1000);
  const SY=v=>Math.min(100,v/capS*100);
  const mi=TD&&TD.dist?TD.dist/1609344:null;
  const azm=TD&&TD.azm?(TD.azm.fatburn||0)+2*((TD.azm.cardio||0)+(TD.azm.peak||0)):null;
@@ -3606,8 +3621,8 @@ function renderHealth(){
     ${week.map((d,i)=>{const r=wk[i],isT=d===TK,v=r?r.steps:0,h=r?Math.max(3,SY(v)):3;return`<div class="hx-bc${isT?" today":""}" tabindex="0" data-t="${day_(d)}<span>${r?v.toLocaleString()+" steps"+(isT?" so far":""):"No data"}</span>"><span class="hx-bv" style="bottom:calc(${h}% + 4px)">${r?(v>=1e4?(v/1e3).toFixed(v>=2e4?0:1):(v/1e3).toFixed(1))+"k":""}</span><span class="hx-b ${r?(v>=STEP_GOAL?"ok":isT?"now":""):"none"}" style="height:${h}%"></span></div>`}).join("")}
    </div>
    <div class="hx-bx">${week.map(d=>`<span class="${d===TK?"today":""}">${day_(d,"s")}</span>`).join("")}</div></div>`;
- const stepsCard=`<div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#i-steps"/></svg></span><span class="hx-t">Steps</span><span class="hx-s">Today</span></div>
-  <div class="hx-split"><div class="hx-l">${stepsLeft}</div>${stepsRight}</div>`;
+ const stepsCard=`<div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#i-steps"/></svg></span><span class="hx-t">Steps</span><span class="hx-s">Today</span></div>`;
+ const stepsCardF=`<div class="hx-split"><div class="hx-l">${stepsCard}${stepsLeft}</div>${stepsRight}</div>`;
 
  /* ── Vitals: neutral line, your usual range shaded, today's dot in status color ── */
  function vital_(o){
@@ -3659,14 +3674,14 @@ function renderHealth(){
  const azmWk=azmDays.length?Math.round(azmDays.reduce((a,b)=>a+b,0)/azmDays.length*7):null;
  const lvl=(v,good,warn,hiBetter=true)=>v==null?"":hiBetter?(v>=good?"good":v>=warn?"warn":"bad"):(v<=good?"good":v<=warn?"warn":"bad");
  const M={
-  bed:{l:"Bed",v:spread!=null?`±${Math.round(spread)}m`:null,st:lvl(spread,30,60,false),fine:"a steady bedtime"},
-  dur:{l:"Sleep",v:sleepAvg!=null?hm_(sleepAvg):null,st:lvl(sleepAvg,420,360),fine:"sleep length"},
-  score:{l:"Score",v:avgScore!=null?String(avgScore):null,st:lvl(avgScore,80,60),fine:"sleep score"},
+  bed:{l:"Bedtime",v:spread!=null?`±${Math.round(spread)}m`:null,st:lvl(spread,30,60,false),fine:"a steady bedtime"},
+  dur:{l:"Avg sleep",v:sleepAvg!=null?hm_(sleepAvg):null,st:lvl(sleepAvg,420,360),fine:"sleep length"},
+  score:{l:"Avg score",v:avgScore!=null?String(avgScore):null,st:lvl(avgScore,80,60),fine:"sleep score"},
   rem:{l:"REM",v:T.rem&&T.asleep?Math.round(T.remP)+"%":null,st:T.rem&&T.asleep?lvl(T.remP,20,15):"",fine:"REM"},
   deep:{l:"Deep",v:T.deep&&T.asleep?Math.round(T.deepP)+"%":null,st:T.deep&&T.asleep?lvl(T.deepP,13,10):"",fine:"deep sleep"},
-  steps:{l:"Steps",v:wkAvg!=null?(wkAvg/1e3).toFixed(1)+"k/day":null,st:lvl(wkAvg,8000,5000),fine:"steps"},
+  steps:{l:"Steps/day",v:wkAvg!=null?(wkAvg/1e3).toFixed(1)+"k":null,st:lvl(wkAvg,8000,5000),fine:"steps"},
   zone:{l:"Zone min",v:azmWk!=null?azmWk+"/wk":null,st:lvl(azmWk,150,75),fine:"zone minutes"},
-  rhr:{l:"RHR",v:T.rhr?String(T.rhr):null,st:T.rhr&&rhrB!=null?lvl(T.rhr-rhrB,2.5,4.5,false):T.rhr?"good":"",fine:"resting HR"},
+  rhr:{l:"Resting HR",v:T.rhr?String(T.rhr):null,st:T.rhr&&rhrB!=null?lvl(T.rhr-rhrB,2.5,4.5,false):T.rhr?"good":"",fine:"resting HR"},
   hrv:{l:"HRV",v:T.hrv?Math.round(T.hrv)+" ms":null,st:T.hrv&&hrvB!=null?lvl(T.hrv/hrvB,.92,.8):T.hrv?"good":"",fine:"HRV"},
   rr:{l:"Breathing",v:T.rr?f1(T.rr):null,st:T.rr?lvl(T.rr,19.4,20,false):"",fine:"breathing"},
   spo2:{l:"Blood O₂",v:T.spo2?f1(T.spo2)+"%":null,st:T.spo2?lvl(T.spo2,95,93):"",fine:"blood oxygen"}
@@ -3707,8 +3722,8 @@ function renderHealth(){
  const fine=okList(F.keys);
  if(fine&&F.imp>=.15)F.body+=` ${fine[0].toUpperCase()+fine.slice(1)} ${/ and /.test(fine)?"are":"is"} already in good shape, so this is the one change worth making.`;
  const drivers=F.keys.filter(k=>off(k)||k===F.keys[0]);
- const chipOrder=drivers.concat(Object.keys(M).filter(k=>!drivers.includes(k))).filter(k=>M[k].v);
- const chips=chipOrder.map(k=>`<span class="hx-chip ${M[k].st}${drivers.includes(k)?" drv":""}"><i></i>${M[k].l}<b>${M[k].v}</b></span>`).join("");
+ const chipOrder=Object.keys(M).filter(k=>M[k].v);
+ const chips=chipOrder.map(k=>`<div class="hx-chip ${M[k].st}${drivers.includes(k)?" drv":""}"><span><i></i>${M[k].l}</span><b>${M[k].v}</b></div>`).join("");
  const dev=(HEALTH.devices||[]).find(d=>d.type==="TRACKER")||(HEALTH.devices||[])[0];
  const lastSyncTxt=dev&&dev.lastSync?(()=>{const t=new Date(dev.lastSync),k=dayKey(t);return(k===TK?"":fmtKey(k,{weekday:"short"})+" ")+t.toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})})():"";
  const focus=`<div class="hx-fh"><div class="hx-fk"><svg class="i s14"><use href="#i-spark"/></svg>Focus today</div><div class="hx-fsync">${lastSyncTxt?`<span data-t="Fitbit Air<span>When your watch last sent data to Google.${dev.battery!=null?` Battery ${dev.battery}%.`:""}</span>">Watch synced ${lastSyncTxt}</span>`:""}${syncTxt?`<span data-t="Stinky's Daily<span>When the Daily last pulled from Google Health. It checks every 2 hours.</span>">Updated ${syncTxt}</span>`:""}${HEALTH.v!==2?`<span class="warn">Needs backend update</span>`:""}</div></div>
@@ -3717,8 +3732,8 @@ function renderHealth(){
 
  el.innerHTML=`<div class="hx">
   <section class="card hx-focus">${focus}</section>
-  <section class="card hx-sleep">${sleepCard}</section>
-  <section class="card hx-steps">${stepsCard}</section>
+  <section class="card hx-sleep">${sleepCardF}</section>
+  <section class="card hx-steps">${stepsCardF}</section>
   <div class="hx-vits">${vitals}</div>
  </div>`;
 
