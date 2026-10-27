@@ -1479,7 +1479,7 @@ html,body{overscroll-behavior-x:none}
 .hx-aim{font-size:12.5px;font-weight:650;color:var(--ink-2)}
 /* sleep schedule */
 .hx-sch{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;margin-top:6px}
-.hx-schg{position:absolute;left:36px;right:54px;top:0;bottom:18px;pointer-events:none}
+.hx-schg{position:absolute;left:36px;right:96px;top:0;bottom:18px;pointer-events:none}
 .hx-schg>span{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
 .hx-schg>.hx-tgt{width:auto;border-radius:6px;background:var(--fill)}
 .hx-row{flex:1;min-height:0;display:flex;align-items:center}
@@ -1490,8 +1490,27 @@ html,body{overscroll-behavior-x:none}
 .hx-row.today .hx-win{background:var(--ink);opacity:1}
 .hx-win.part{opacity:1;background:repeating-linear-gradient(135deg,var(--ink-3) 0 2.5px,transparent 2.5px 5.5px);box-shadow:inset 0 0 0 1.5px var(--ink-3)}
 .hx-wl{position:absolute;top:50%;transform:translateY(-50%);font-size:11.5px;font-weight:650;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums;pointer-events:none}
-.hx-wl.lo{color:var(--warn-ink)}
-.hx-row.today .hx-wl{color:var(--ink)}.hx-row.today .hx-wl.lo{color:var(--warn-ink)}
+.hx-row.today .hx-wl{color:var(--ink)}
+.hx-win.good{background:var(--up)}.hx-win.warn{background:var(--warn)}.hx-win.bad{background:var(--down)}
+.hx-win{opacity:.72}.hx-row.today .hx-win{opacity:1}
+.hx-row.today .hx-win.good{background:var(--up)}.hx-row.today .hx-win.warn{background:var(--warn)}.hx-row.today .hx-win.bad{background:var(--down)}
+.hx-win.part.bad{background:repeating-linear-gradient(135deg,var(--down) 0 2.5px,transparent 2.5px 5.5px);box-shadow:inset 0 0 0 1.5px var(--down)}
+.hx-win.part.warn{background:repeating-linear-gradient(135deg,var(--warn) 0 2.5px,transparent 2.5px 5.5px);box-shadow:inset 0 0 0 1.5px var(--warn)}
+.hx-sc{flex:0 0 38px;height:24px;margin-left:4px;border-radius:7px;display:grid;place-items:center;font-size:12.5px;font-weight:750;font-variant-numeric:tabular-nums;background:var(--fill);color:var(--ink-3)}
+.hx-sc.good{background:var(--up-soft);color:var(--up)}.hx-sc.warn{background:var(--warn-soft);color:var(--warn-ink)}.hx-sc.bad{background:rgba(221,59,53,.13);color:var(--down)}
+.hx-row.today .hx-sc.good{background:var(--up);color:var(--surface)}.hx-row.today .hx-sc.warn{background:var(--warn);color:#fff}.hx-row.today .hx-sc.bad{background:var(--down);color:#fff}
+.hx-sc.hx-sch-l{height:auto;background:none;font-size:10.5px;font-weight:600;color:var(--ink-3)}
+/* score-first summary */
+.hx-sk{font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.hx-score{display:flex;align-items:baseline;gap:6px;margin-top:2px}
+.hx-score b{font-family:var(--display);font-size:56px;font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.hx-score b.good{color:var(--up)}.hx-score b.warn{color:var(--warn-ink)}.hx-score b.bad{color:var(--down)}
+.hx-score>span:not(.hx-pill){font-size:17px;font-weight:600;color:var(--ink-3)}
+.hx-score .hx-pill{align-self:center;margin-left:4px}
+.hx-pill.bad{background:rgba(221,59,53,.13);color:var(--down)}
+.hx-facts dd.good{color:var(--up)}.hx-facts dd.warn{color:var(--warn-ink)}.hx-facts dd.bad{color:var(--down)}
+.hx-dur{font-size:14px;font-weight:500;color:var(--ink-2);margin-top:12px;line-height:1.2}
+.hx-dur b{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
 .hx-nod{position:absolute;left:4px;top:50%;transform:translateY(-50%);font-size:11.5px;color:var(--ink-3)}
 .hx-ax{flex:0 0 18px}
 .hx-ax .hx-trk span{position:absolute;top:3px;transform:translateX(-50%);font-size:10.5px;font-weight:600;color:var(--ink-3);white-space:nowrap}
@@ -1534,7 +1553,7 @@ html,body{overscroll-behavior-x:none}
  .hx-ax .hx-trk span:last-child{transform:translateX(-50%)}
  .hx-big{font-size:40px}.hx-big small{font-size:19px}
  .hx-facts{grid-template-columns:1fr 1fr;row-gap:6px}.hx-facts>div:nth-child(3){display:none}
- .hx-stages{display:none}
+ .hx-score b{font-size:46px}.hx-score .hx-pill{display:none}.hx-dur{margin-top:8px}
  .hx-focus{padding:15px 20px!important}.hx-fsteps{margin-top:10px}.hx-fsteps li{min-height:36px}
  .hx-fmain h2{font-size:23px}.hx-fmain p{-webkit-line-clamp:1}
 }
@@ -3432,6 +3451,10 @@ function renderHealth(){
     title:`Wake up at ${clock_(target)} instead of ${clock_(T.wake||380)}`,
     body:`Your recovery numbers say you need rest. Your HRV is${T.hrv?` at ${Math.round(T.hrv)} ms`:""} and your breathing rate is${T.rr?` ${T.rr}`:""} breaths/min. Last night's sleep was ${hm_(T.asleep)}, but REM was only ${Math.round(T.remP)}% — under the 20–25% target. An extra 30 minutes is the biggest gain available today.`,
     steps:[`Keep the same bedtime${T.bed!=null?` (${clock_(Math.round(T.bed/15)*15)})`:""}.`,`Set the alarm for ${clock_(target)}.`,"Keep today easy: a walk is fine, but no hard workouts."]}},
+  ()=>{if(!T.asleep||T.asleep<300||!T.deep||T.deepP>=13)return null;
+   return{p:(13-T.deepP)*5+recoveryLoad_*3,title:"Protect your deep sleep tonight",
+    body:`Deep sleep was only ${Math.round(T.deepP)}% last night, under the 13–23% target. Deep sleep is when your body does most of its physical repair, and late meals, alcohol and a warm room all cut into it.`,
+    steps:["Finish eating 3 hours before bed.","Skip alcohol tonight.","Keep the room cool, around 65°F."]}},
   ()=>{if(!T.asleep||T.asleep>=420)return null;
    return{p:(420-T.asleep)/3+recoveryLoad_*3,title:"Get to bed 45 minutes earlier tonight",
     body:`You slept ${hm_(T.asleep)}, under the 7-hour minimum. Short sleep drags down HRV and recovery.`,
@@ -3465,6 +3488,11 @@ function renderHealth(){
 
  /* ── Focus ── */
  const topSug=HCANDIDATES.map(f=>f()).filter(Boolean).sort((a,b)=>b.p-a.p)[0];
+ /* deep and REM aren't shown on the page, so when they're off the focus says so */
+ if(topSug&&T.asleep>=300&&!/REM|Deep sleep/.test(topSug.body)){
+  const lowR=T.rem&&T.remP<20,lowD=T.deep&&T.deepP<13;
+  if(lowR||lowD)topSug.body+=` Last night's ${lowR&&lowD?`REM (${Math.round(T.remP)}%) and deep sleep (${Math.round(T.deepP)}%) were`:lowR?`REM was ${Math.round(T.remP)}%,`:`deep sleep was ${Math.round(T.deepP)}%,`} ${lowR&&lowD?"both under target":lowR?"just under the 20–25% target":"under the 13–23% target"} — a steady schedule helps ${lowR&&lowD?"both":"that"} too.`;
+ }
  const focus=`<div class="hx-fk"><svg class="i s14"><use href="#i-spark"/></svg>Focus today</div>`+(topSug
   ?`<div class="hx-fmain"><h2>${topSug.title}</h2><p>${topSug.body}</p></div><ol class="hx-fsteps">${topSug.steps.map(s=>`<li>${s}</li>`).join("")}</ol>`
   :`<div class="hx-fmain"><h2>You're on track</h2><p>Sleep, heart and breathing are all inside your normal range. Keep the same routine tonight.</p></div>`);
@@ -3486,26 +3514,24 @@ function renderHealth(){
  const nightHist=hist7.filter(realNight);
  const nAvg=nightHist.length?mean_(nightHist.map(r=>r.asleep)):null;
  const dSleep=nAvg!=null&&T.asleep?T.asleep-nAvg:null;
- function stage_(name,p,lo,hi,max){
-  const X=v=>clamp_(v/max*100,0,100),inb=p>=lo;
-  return`<div class="hx-st" data-t="${name}<span>${pctTxt(p)} of sleep · target ${lo}–${hi}%</span>" tabindex="0"><div class="hx-stl"><span>${name}</span><b class="${inb?"":"lo"}">${pctTxt(p)}<em>${lo}–${hi}%</em></b></div>
-   <div class="hx-stt"><span class="hx-stb" style="left:${X(lo)}%;width:${X(hi)-X(lo)}%"></span><span class="hx-stf ${inb?"":"lo"}" style="width:${X(p)}%"></span></div></div>`;
- }
+ const scCls=v=>v>=80?"good":v>=60?"warn":"bad";
+ const scNights=nights.filter(realNight);
+ const avgScore=scNights.length?Math.round(mean_(scNights.map(r=>r.score))):null;
  const bedVsAim=T.bed!=null&&tgtBed!=null?(Math.abs(T.bed-tgtBed)<10?"On time":(T.bed>tgtBed?"+":"−")+hm_(Math.abs(T.bed-tgtBed))):"—";
  const sleepLeft=T.asleep?`
-   <div class="hx-big">${hmBig(T.asleep)}</div>
-   <div class="hx-sub">${T.bed!=null&&T.wake!=null?`${clock_(T.bed)} → ${clock_(T.wake)}`:""}</div>
-   <dl class="hx-facts"><div><dt>vs 7-night avg</dt><dd class="${dSleep==null?"":dSleep>=0?"up":"down"}">${dSleep==null?"—":(dSleep>=0?"+":"−")+hm_(Math.abs(dSleep))}</dd></div><div><dt>Bed vs aim</dt><dd>${bedVsAim}</dd></div><div><dt>Awake</dt><dd>${hm_(T.awake||0)}</dd></div></dl>
-   <div class="hx-stages">${stage_("Deep",T.deepP,13,23,40)}${stage_("REM",T.remP,20,25,40)}</div>`
+   <div class="hx-sk">Sleep score</div>
+   <div class="hx-score" data-t="Sleep score<span>Worked out here from how long you slept, your deep and REM share, and time awake. Fitbit's own score uses a different formula, so it can differ by a few points.</span>"><b class="${scCls(T.score)}">${T.score}</b><span>/100</span><span class="hx-pill ${scCls(T.score)}">${bandLbl}</span></div>
+   <div class="hx-dur"><b>${hm_(T.asleep)}</b> asleep</div>${T.bed!=null&&T.wake!=null?`<div class="hx-sub">${clock_(T.bed)} → ${clock_(T.wake)}</div>`:""}
+   <dl class="hx-facts"><div><dt>vs 7-night avg</dt><dd class="${dSleep==null?"":dSleep>=0?"up":"down"}">${dSleep==null?"—":(dSleep>=0?"+":"−")+hm_(Math.abs(dSleep))}</dd></div><div><dt>Bed vs aim</dt><dd>${bedVsAim}</dd></div><div><dt>Avg score</dt><dd class="${avgScore==null?"":scCls(avgScore)}">${avgScore==null?"—":avgScore}</dd></div></dl>`
   :`<p class="hx-empty">No sleep recorded yet. It shows up after the Fitbit syncs in the morning.</p>`;
  const sleepRight=`<div class="hx-ch">
    <div class="hx-chh"><span>Last 7 nights</span>${tgtBed!=null?`<span class="hx-aim" data-t="Target bedtime<span>Your typical bedtime this week, ±30 min — the shaded column.</span>">Aim ${clock_(tgtBed)}</span>`:""}${spread!=null?`<span class="hx-pill ${spread<=30?"good":spread<=60?"":"warn"}" data-t="Bedtime spread<span>How much your bedtime moved night to night. Under 30 min is steady.</span>">±${Math.round(spread)} min</span>`:""}</div>
    <div class="hx-sch">
     <div class="hx-schg">${ticks.map(t=>`<span style="left:${AX(t)}%"></span>`).join("")}${tgtBed!=null?`<span class="hx-tgt" style="left:${AX(tgtBed-30)}%;width:${AX(tgtBed+30)-AX(tgtBed-30)}%"></span>`:""}</div>
-    ${nightWeek.map((d,i)=>{const r=nights[i],isT=d===T.d;return`<div class="hx-row${isT?" today":""}"><span class="hx-dl">${day_(d,"s")}</span><div class="hx-trk">${r?`<span class="hx-win${realNight(r)?"":" part"}" style="left:${AX(r.bed)}%;width:${Math.max(1.5,AX(r.wake)-AX(r.bed))}%" tabindex="0" data-t="${day_(d)}<span>${clock_(r.bed)} → ${clock_(r.wake)} · ${hm_(r.asleep)} asleep · score ${r.score}</span>"></span><span class="hx-wl${r.asleep<420?" lo":""}" style="left:calc(${AX(r.wake)}% + 7px)">${hm_(r.asleep)}</span>`:`<span class="hx-nod">no data</span>`}</div></div>`}).join("")}
-    <div class="hx-row hx-ax"><span class="hx-dl"></span><div class="hx-trk">${ticks.map((t,i)=>`<span class="${i%2?"odd":""}" style="left:${AX(t)}%">${clock_(t,1)}</span>`).join("")}</div></div>
+    ${nightWeek.map((d,i)=>{const r=nights[i],isT=d===T.d;return`<div class="hx-row${isT?" today":""}"><span class="hx-dl">${day_(d,"s")}</span><div class="hx-trk">${r?`<span class="hx-win ${scCls(r.score)}${realNight(r)?"":" part"}" style="left:${AX(r.bed)}%;width:${Math.max(1.5,AX(r.wake)-AX(r.bed))}%" tabindex="0" data-t="${day_(d)}<span>${clock_(r.bed)} → ${clock_(r.wake)} · ${hm_(r.asleep)} asleep · score ${r.score}</span>"></span><span class="hx-wl" style="left:calc(${AX(r.wake)}% + 7px)">${hm_(r.asleep)}</span>`:`<span class="hx-nod">no data</span>`}</div><span class="hx-sc ${r?scCls(r.score):"none"}">${r?r.score:"–"}</span></div>`}).join("")}
+    <div class="hx-row hx-ax"><span class="hx-dl"></span><div class="hx-trk">${ticks.map((t,i)=>`<span class="${i%2?"odd":""}" style="left:${AX(t)}%">${clock_(t,1)}</span>`).join("")}</div><span class="hx-sc hx-sch-l">Score</span></div>
    </div></div>`;
- const sleepCard=`<div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#i-moon"/></svg></span><span class="hx-t">Sleep</span>${T.asleep?`<span class="hx-s">${T.d===TK?"Last night":esc(fmtKey(T.d,{weekday:"long"}))}</span><span class="hx-pill ${T.score>=80?"good":"warn"}" data-t="Sleep score<span>Self-computed from duration, deep + REM share and time awake.</span>">${T.score} · ${bandLbl}</span>`:""}</div>
+ const sleepCard=`<div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#i-moon"/></svg></span><span class="hx-t">Sleep</span>${T.asleep?`<span class="hx-s">${T.d===TK?"Last night":esc(fmtKey(T.d,{weekday:"long"}))}</span>`:""}</div>
   <div class="hx-split"><div class="hx-l">${sleepLeft}</div>${sleepRight}</div>`;
 
  /* ── Steps card ── */
