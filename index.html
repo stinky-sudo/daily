@@ -1751,8 +1751,10 @@ async function be(params,ms){const u=new URL(backend());Object.entries(params).f
    devices merge instead of overwriting each other: the newer change to
    the same setting wins. Hidden items and saved stories keep "removed"
    markers (negative timestamps) so removals travel between devices too.
-   Synced: your lists, theme, which sections show, hidden items, saved stories.
-   Not synced (per device on purpose): location, chart picks, open section.
+   Synced: lists, theme, section order and visibility, feed filter, movie options,
+   Coach log, use-my-location, the Markets chart pick and range, hidden items, pins.
+   Not synced: which section is open (screen state), caches, and API keys pasted in
+   Settings (the config file can be read by anyone with the backend link).
    ================================================================= */
 const PREF_OK=k=>/^[a-z][a-zA-Z0-9]{0,20}$/.test(k);
 const cfgEmpty=()=>({v:3,lists:{},listsAt:{},prefs:{},prefsAt:{},dismissed:{},saved:{}});
@@ -1775,6 +1777,7 @@ function cfgSet(fn){const c=cfg();fn(c);c.dirty=true;LS.set("sd-cfg",c);queuePus
 function lists(){return{...CONFIG.lists,...cfg().lists}}
 function setList(k,arr){cfgSet(c=>{c.lists[k]=arr;c.listsAt[k]=Date.now()})}
 const pref=(k,d)=>k in cfg().prefs?cfg().prefs[k]:d;
+const geoOn=()=>!!pref("geo",LS.get("sd-geo",false));
 function setPref(k,v){cfgSet(c=>{c.prefs[k]=v;c.prefsAt[k]=Date.now()});if(k==="theme")LS.set("sd-theme",v)}
 /* the same merge the backend runs, so both sides always agree */
 function mergeCfg(a,b){
@@ -1789,14 +1792,18 @@ const canon=o=>JSON.stringify(o,(k,v)=>v&&typeof v==="object"&&!Array.isArray(v)
 const cfgSig=c=>canon({l:c.lists,la:c.listsAt,p:c.prefs,pa:c.prefsAt,d:c.dismissed,s:c.saved});
 /* take what the server has, keep anything newer here, and redraw whatever changed */
 function adoptCfg(remote,fromPush){
- if(!remote)return;remote={...cfgEmpty(),...remote};
- const old=cfg(),m=mergeCfg(old,remote);m.dirty=cfgSig(m)!==cfgSig(remote);
+ if(!remote)return;remote={...cfgEmpty(),...remote};S.remote=remote;
+ const old=cfg(),m=mergeCfg(old,remote);m.dirty=cfgAtoms(compactCfg(m)).some(a=>!atomOnServer(a,remote));
  const listsBefore=canon(old.lists),changed=cfgSig(m)!==cfgSig(old);
  _cfg=m;LS.set("sd-cfg",m);if(m.prefs.theme)LS.set("sd-theme",m.prefs.theme);
  if(changed&&S.booted){
   applyTheme();S.hidden=new Set(pref("hidden",[]));renderNav();renderFeedOpts();$$(".it").forEach(it=>{const ic=$(".it-ic",it);if(ic)ic.outerHTML=rowIcon(it.dataset.it)});renderCoach();
   if(canon(m.lists)!==listsBefore)listsChanged(LIST_KEYS.filter(k=>canon(old.lists[k])!==canon(m.lists[k])));
   Object.values(DX_RENDER).forEach(f=>f());renderNews();renderTeasers();renderPins();
+  const pc=k=>canon(old.prefs[k])!==canon(m.prefs[k]);
+  if(pc("geo"))loadWeather().then(renderHero).catch(()=>{});
+  if(pc("mkSel")||pc("mkRange")){Object.assign(S.mk,pref("mkSel",{k:S.mk.k,s:S.mk.s}));S.mk.range=pref("mkRange",S.mk.range);
+   try{syncRanges();renderMkt();loadMkSeries().catch(()=>{})}catch(e){}}
  }
  const rs=cfgSig(remote);if(m.dirty&&!(fromPush&&rs===S.lastRemote))queuePush();S.lastRemote=rs;
  if(S.booted)migrateSaved();
@@ -1818,25 +1825,74 @@ function compactCfg(c){
 }
 let BE_INFO=null;
 async function pingBackend(){if(!backend()||BE_INFO)return BE_INFO;try{BE_INFO=await be({},8000)}catch(e){BE_INFO=null}return BE_INFO}
-async function pushCfg(){
- if(!backend())return;const c=cfg();if(!c.dirty)return;
- const data=JSON.stringify(compactCfg(c));const kb=(data.length/1024).toFixed(1);
- try{
-  let r=null,how="";
-  try{const res=await fetch(backend(),{method:"POST",body:data,redirect:"follow"});r=await res.json();how="post"}catch(e){r=null}
-  if(!r){ /* a blocked POST: send it over GET, in parts if the backend can take them */
-   const info=await pingBackend();
-   if(info&&info.chunks){const id=Math.random().toString(36).slice(2,12),n=Math.max(1,Math.ceil(data.length/1500));
-    for(let i=0;i<n;i++)r=await be({fn:"save",id,part:i,of:n,data:data.slice(i*1500,(i+1)*1500)},20000);how="chunks"}
-   else if(data.length<7000){r=await be({fn:"save",data});how="get"}
-   else throw new Error(`settings are ${kb} KB — too big for the old backend; paste the Oct 22 backend update`);
-  }
-  if(!r||r.ok===false)throw new Error((r&&r.error)||"no response");
-  if(r.config&&r.config.v===3)adoptCfg(r.config,true);else{c.dirty=false;LS.set("sd-cfg",c)}
-  S.sync={state:"ok",at:Date.now(),how,kb};
- }catch(e){S.sync={state:"err",msg:String(e.message||e).slice(0,140),kb}}
- refreshSettings();
+/* Saving: the settings go up as a few small, self-contained pieces over GET
+   (fn=save). Each piece is a valid partial config, and the backend's merge keeps
+   whatever a piece doesn't mention, so the pieces add up to the whole without the
+   backend having to reassemble anything. That works on every backend version
+   (v3 onward) and needs no POST, which an iPad home-screen app doesn't send
+   reliably. Only the pieces that differ from what the server last returned are
+   sent, so a normal edit is one quick request. */
+const SAVE_BUDGET=3200; /* encoded characters of data per request */
+function cfgAtoms(c){
+ const A=[];
+ Object.keys(c.lists||{}).forEach(k=>A.push({g:"l",k,o:{lists:{[k]:c.lists[k]},listsAt:{[k]:c.listsAt[k]||0}}}));
+ Object.keys(c.prefs||{}).forEach(k=>A.push({g:"p",k,o:{prefs:{[k]:c.prefs[k]},prefsAt:{[k]:c.prefsAt[k]||0}}}));
+ Object.keys(c.dismissed||{}).forEach(k=>A.push({g:"d",k,o:{dismissed:{[k]:c.dismissed[k]}}}));
+ Object.keys(c.saved||{}).forEach(k=>A.push({g:"s",k,o:{saved:{[k]:c.saved[k]}}}));
+ return A;
 }
+/* does the server already hold this exact piece? */
+function atomOnServer(a,r){
+ if(!r)return false;
+ if(a.g==="l")return!!(r.lists&&a.k in r.lists)&&canon(r.lists[a.k])===canon(a.o.lists[a.k])&&(r.listsAt||{})[a.k]===a.o.listsAt[a.k];
+ if(a.g==="p")return!!(r.prefs&&a.k in r.prefs)&&canon(r.prefs[a.k])===canon(a.o.prefs[a.k])&&(r.prefsAt||{})[a.k]===a.o.prefsAt[a.k];
+ if(a.g==="d")return(r.dismissed||{})[a.k]===a.o.dismissed[a.k];
+ const x=(r.saved||{})[a.k],y=a.o.saved[a.k];return!!x&&x.t===y.t;
+}
+function packAtoms(atoms){
+ const parts=[];let cur=null;
+ const size=o=>encodeURIComponent(JSON.stringify(o)).length;
+ const add=(p,o)=>{["lists","listsAt","prefs","prefsAt","dismissed","saved"].forEach(f=>{if(o[f])p[f]={...(p[f]||{}),...o[f]}})};
+ atoms.forEach(a=>{
+  if(cur){const t=JSON.parse(JSON.stringify(cur));add(t,a.o);if(size(t)<=SAVE_BUDGET){cur=t;return}parts.push(cur)}
+  cur={v:3};add(cur,a.o);
+ });
+ if(cur)parts.push(cur);
+ return parts;
+}
+let pushing=null;
+async function pushCfg(){
+ if(!backend())return;
+ if(pushing){S.pushAgain=true;return pushing}
+ const c=cfg();if(!c.dirty)return;
+ const full=compactCfg(c),kb=(JSON.stringify(full).length/1024).toFixed(1);
+ const todo=cfgAtoms(full).filter(a=>!atomOnServer(a,S.remote));
+ pushing=(async()=>{
+  try{
+   let r=null;
+   if(!todo.length)r=await be({fn:"config"}); /* nothing new to send: just confirm */
+   const parts=packAtoms(todo);
+   let skipped=0;
+   for(const p of parts){
+    const data=JSON.stringify(p);
+    if(encodeURIComponent(data).length>SAVE_BUDGET*1.6){ /* one oversized piece: only the v8 backend can take it, in chunks */
+     const info=await pingBackend();if(!info||!info.chunks){skipped++;continue}
+     const id=Math.random().toString(36).slice(2,12),n=Math.ceil(data.length/1200);
+     for(let i=0;i<n;i++)r=await be({fn:"save",id,part:i,of:n,data:data.slice(i*1200,(i+1)*1200)},20000);
+    }else r=await be({fn:"save",data},20000);
+    if(!r||r.ok===false)throw new Error((r&&r.error)||"no response");
+   }
+   if(r&&r.config&&r.config.v===3)adoptCfg(r.config,true);else if(!skipped){c.dirty=false;LS.set("sd-cfg",c)}
+   if(skipped)throw new Error("one setting is too large to send to this backend version");
+   S.sync={state:"ok",at:Date.now(),how:parts.length+" "+(parts.length===1?"piece":"pieces"),kb};
+  }catch(e){S.sync={state:"err",msg:String(e.message||e).slice(0,140),kb}}
+  refreshSettings();
+ })();
+ try{await pushing}finally{pushing=null}
+ if(S.pushAgain){S.pushAgain=false;if(cfg().dirty)return pushCfg()}
+}
+/* save right away (app going to the background, or about to reload) */
+function flushCfg(){clearTimeout(pushT);return cfg().dirty?pushCfg():Promise.resolve()}
 async function pullCfg(){
  if(!backend())return;
  try{const r=await be({fn:"config"});if(r.config&&r.config.v===3)adoptCfg(r.config);else if(r.config&&r.config.lists){adoptCfg({lists:r.config.lists,listsAt:Object.fromEntries(Object.keys(r.config.lists).map(k=>[k,r.config.updated||0]))});cfg().dirty=true;queuePush()}else{cfg().dirty=true;queuePush()}S.sync={state:"ok",at:Date.now()}}
@@ -1856,7 +1912,7 @@ const S={
  wx:null,
  cx:{sel:LS.get("sd-cx-sel","BTC"),range:LS.get("sd-cx-range","1M"),q:{},live:{},series:{},daily:{},err:false,ws:null,liveOn:false,ma:LS.get("sd-ma",{m50:true,m200:true,bmsb:false})},
  st:{sel:0,range:LS.get("sd-st-range","1M"),q:{},series:{},rerr:{},err:"",at:0},
- mk:{...LS.get("sd-mk-sel",{k:"cx",s:"BTC"}),range:LS.get("sd-mk-range","1M")},
+ mk:{...pref("mkSel",LS.get("sd-mk-sel",{k:"cx",s:"BTC"})),range:pref("mkRange",LS.get("sd-mk-range","1M"))},
  news:{tag:"All",open:false},
  yt:{items:null,source:"seed",updated:0,error:""},
  learn:{v:null,s:null},
@@ -1961,7 +2017,7 @@ function renderWx(){
  const info=w?wxInfo(w.cur.code,w.cur.isDay):wxInfo(fb.code??0,1);
  const temp=w?w.cur.temp:fb.hi;
  const sub=w?`Feels ${w.cur.feels}°  ·  H ${w.hi}° L ${w.lo}°${w.rain>=30?` · ${w.rain}% rain`:""}`:`High ${fb.hi}°, low ${fb.lo}°`;
- const geo=!!LS.get("sd-geo",false);const locName=w?w.loc.name:CONFIG.home.name;
+ const geo=geoOn();const locName=w?w.loc.name:CONFIG.home.name;
  const tile=(k,v)=>`<div class="gl"><div class="gl-k">${esc(k)}</div><div class="gl-v num">${esc(v)}</div></div>`;
  el.innerHTML=`<div class="sky ${info.o?"overcast":""}" data-phase="${phase}">
   <div class="sky-top"><button class="sky-loc press ${geo?"":"off"}" data-act="geo" aria-label="${geo?"Using your location. Tap to switch back to "+esc(CONFIG.home.name):"Tap to use your current location"}">${geo?I.loc:I.locOff}<span>${esc(locName)}</span></button>${w?`<span class="sky-upd">Updated ${esc(fmtLocalTime(new Date(w.at)))}</span>`:""}</div>
@@ -1980,7 +2036,7 @@ function renderWxRail(){
   `<span title="High and low">${SKYI.hl}${w?w.hi:fb.hi}° <span class="d">/</span> ${w?w.lo:fb.lo}°</span>`];
  if(w&&w.rain>=20)out.push(`<span title="Chance of rain">${SKYI.drop}${w.rain}%</span>`);
  if(w){const n=hm(w.now),rise=hm(w.sunrise),set=hm(w.sunset);const up=n<rise||n>=set;out.push(`<span title="${up?"Sunrise":"Sunset"}">${up?SKYI.rise:SKYI.set}${esc(hmLabel(n<rise?w.sunrise:n<set?w.sunset:(w.sunrise2||w.sunrise)))}</span>`)}
- const geo=!!LS.get("sd-geo",false);
+ const geo=geoOn();
  out.push(`<button class="loc press ${geo?"on":""}" data-act="geo" aria-label="${geo?"Using your location. Tap to switch back to "+esc(CONFIG.home.name):"Tap to use your current location"}">${geo?I.loc:I.locOff}${esc(w?w.loc.name:CONFIG.home.name)}</button>`);
  el.innerHTML=out.join("");
 }
@@ -2133,7 +2189,7 @@ function drawSky(){
  const ax=[];w.win.forEach((p,i)=>{const hh=+p.t.slice(11,13);if(i>0&&i<n-1&&hh%3===0){const x=X(i);if(Math.abs(x-nx)>26)ax.push(`<span style="left:${(x/W*100).toFixed(2)}%">${hh%12||12}${hh<12?"AM":"PM"}</span>`)}});
  host.innerHTML=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true"><defs><linearGradient id="skyfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".32"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>${marks.join("")}<path d="${d} L${W},${bot+12} L0,${bot+12}Z" fill="url(#skyfill)"/><path d="${d}" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>${bars}${imax!==imin?(Math.abs(P[imax][0]-nx)>30?lab(imax,true):"")+(Math.abs(P[imin][0]-nx)>30?lab(imin,false):""):""}<line x1="${nx.toFixed(1)}" x2="${nx.toFixed(1)}" y1="${(ny+7).toFixed(1)}" y2="${H}" stroke="#fff" stroke-opacity=".55" stroke-width="1.5"/><circle cx="${nx.toFixed(1)}" cy="${ny.toFixed(1)}" r="5.5" fill="#fff"/><circle cx="${nx.toFixed(1)}" cy="${ny.toFixed(1)}" r="10" fill="#fff" fill-opacity=".22"/></svg><div class="sky-ax"><span style="left:${(nx/W*100).toFixed(2)}%">Now</span>${ax.join("")}</div>`;
 }
-function getCoords(){if(!LS.get("sd-geo",false)||!navigator.geolocation)return Promise.resolve(null);return new Promise(res=>navigator.geolocation.getCurrentPosition(p=>res({lat:p.coords.latitude,lon:p.coords.longitude}),()=>res(null),{maximumAge:15*6e4,timeout:9000}))}
+function getCoords(){if(!geoOn()||!navigator.geolocation)return Promise.resolve(null);return new Promise(res=>navigator.geolocation.getCurrentPosition(p=>res({lat:p.coords.latitude,lon:p.coords.longitude}),()=>res(null),{maximumAge:15*6e4,timeout:9000}))}
 async function placeName(lat,lon){const k=lat.toFixed(2)+","+lon.toFixed(2);const c=LS.get("sd-place",{});if(c[k])return c[k];try{const r=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat.toFixed(4)}&longitude=${lon.toFixed(4)}&localityLanguage=en`);const j=await r.json();const n=j.city||j.locality||j.principalSubdivision||"";if(n){c[k]=n;LS.set("sd-place",c)}return n}catch(e){return""}}
 async function loadWeather(){
  let L={...CONFIG.home,here:false};
@@ -2145,7 +2201,7 @@ async function loadWeather(){
  const s=Math.max(0,idx-1),e=Math.min(j.hourly.time.length-1,s+18);const win=[];
  for(let i=s;i<=e;i++)win.push({t:j.hourly.time[i],temp:Math.round(j.hourly.temperature_2m[i]),code:j.hourly.weather_code[i],pp:(j.hourly.precipitation_probability||[])[i]||0});
  S.wx={loc:L,now,at:Date.now(),cur:{temp:Math.round(j.current.temperature_2m),feels:Math.round(j.current.apparent_temperature??j.current.temperature_2m),code:j.current.weather_code,isDay:j.current.is_day},hi:Math.round(j.daily.temperature_2m_max[0]),lo:Math.round(j.daily.temperature_2m_min[0]),rain:(j.daily.precipitation_probability_max||[])[0]||0,sunrise:j.daily.sunrise[0],sunset:j.daily.sunset[0],sunrise2:j.daily.sunrise[1],sunset2:j.daily.sunset[1],win};
- LS.set("sd-wx",{t:Date.now(),day:todayKey(),geo:!!LS.get("sd-geo",false),v:S.wx});
+ LS.set("sd-wx",{t:Date.now(),day:todayKey(),geo:geoOn(),v:S.wx});
  renderHero();
 }
 
@@ -3665,7 +3721,7 @@ document.addEventListener("click",async e=>{
   if(act==="news-more"){S.news.open=!S.news.open;renderNews();return}
   if(act==="refresh"){toast("Refreshing");setTimeout(fresh,200);return}
   if(act==="clear-cache"){Object.keys(localStorage).filter(k=>/^sd-(yt-cache|ytc-|cx-|st-|wx|place|cgid)/.test(k)).forEach(k=>LS.del(k));toast("Cache cleared");setTimeout(fresh,400);return}
-  if(act==="geo"){const on=!LS.get("sd-geo",false);if(on&&!navigator.geolocation){toast("Location isn't available here");return}LS.set("sd-geo",on);toast(on?"Finding your location…":"Back to "+CONFIG.home.name);loadWeather().then(()=>{if(on&&S.wx&&!S.wx.loc.here){LS.set("sd-geo",false);toast("Location is off for this app");renderHero()}}).catch(()=>toast("Couldn't load the weather"));return}
+  if(act==="geo"){const on=!geoOn();if(on&&!navigator.geolocation){toast("Location isn't available here");return}setPref("geo",on);toast(on?"Finding your location…":"Back to "+CONFIG.home.name);loadWeather().then(()=>{if(on&&S.wx&&!S.wx.loc.here){toast("Location is off for this app on this device — showing "+CONFIG.home.name);renderHero()}}).catch(()=>toast("Couldn't load the weather"));return}
   if(act==="yt-save"){const v=($("#yt-key").value||"").trim();if(!v){toast("Paste a key first");return}LS.set("sd-yt-key",v);LS.del("sd-yt-cache");S.yt={items:null,source:"seed",updated:0,error:""};toast("Key saved");await loadYouTube(true);refreshSettings();return}
   if(act==="yt-clear"){LS.del("sd-yt-key");LS.del("sd-yt-cache");S.yt={items:null,source:"seed",updated:0,error:""};loadYouTube(true);refreshSettings();toast("Using the built-in key");return}
   if(act==="be-save"){const v=($("#be-url").value||"").trim();if(!/^https:\/\/script\.google(usercontent)?\.com\//.test(v)){toast("That doesn't look like an Apps Script link");return}LS.set("sd-backend",v);S.st.err="";S.sync={state:"",at:0};refreshSettings();toast("Connecting…");try{await be({fn:"ping"});toast("Backend connected")}catch(err){S.st.err=err.message;toast("Couldn't reach it: "+err.message)}await Promise.all([loadStQuotes(),pullCfg()]);loadStSeries(stList()[S.st.sel],S.st.range).then(drawSt).catch(()=>{});refreshSettings();return}
@@ -3692,8 +3748,8 @@ document.addEventListener("click",async e=>{
  const pnb=t.closest("[data-pin]");if(pnb){e.preventDefault();e.stopPropagation();togglePin(pnb.dataset.pin);return}
  const unp=t.closest("[data-unpin]");if(unp){e.preventDefault();const tile=unp.closest(".pin"),k=unp.dataset.unpin;if(tile&&!matchMedia("(prefers-reduced-motion: reduce)").matches){tile.classList.add("out");setTimeout(()=>togglePin(k),230)}else togglePin(k);return}
  const dxb=t.closest("[data-dx]");if(dxb){e.preventDefault();e.stopPropagation();dismiss(dxb.dataset.dx,dxb.dataset.dxs,dxb.dataset.dxl);return}
- const mr=t.closest("[data-mk-range]");if(mr){S.mk.range=mr.dataset.mkRange;LS.set("sd-mk-range",S.mk.range);syncRanges();$$("[data-mk-range]").forEach(b=>{b.classList.toggle("on",b===mr);b.setAttribute("aria-selected",b===mr)});drawMk();await loadMkSeries();return}
- const ms=t.closest("[data-mk]");if(ms){const i=ms.dataset.mk.indexOf("|");S.mk.k=ms.dataset.mk.slice(0,i);S.mk.s=ms.dataset.mk.slice(i+1);LS.set("sd-mk-sel",{k:S.mk.k,s:S.mk.s});syncRanges();renderMkt();await loadMkSeries();if(isCx())loadCxDaily(S.mk.s).then(renderMkCtx).catch(()=>{});return}
+ const mr=t.closest("[data-mk-range]");if(mr){S.mk.range=mr.dataset.mkRange;setPref("mkRange",S.mk.range);syncRanges();$$("[data-mk-range]").forEach(b=>{b.classList.toggle("on",b===mr);b.setAttribute("aria-selected",b===mr)});drawMk();await loadMkSeries();return}
+ const ms=t.closest("[data-mk]");if(ms){const i=ms.dataset.mk.indexOf("|");S.mk.k=ms.dataset.mk.slice(0,i);S.mk.s=ms.dataset.mk.slice(i+1);setPref("mkSel",{k:S.mk.k,s:S.mk.s});syncRanges();renderMkt();await loadMkSeries();if(isCx())loadCxDaily(S.mk.s).then(renderMkCtx).catch(()=>{});return}
  const tg=t.closest("[data-tag]");if(tg){S.news.tag=tg.dataset.tag;S.news.open=false;renderNews();return}
  const hs=t.closest("[data-hist]");if(hs&&(hs.closest("#s-vocab")||hs.closest("#s-spanish"))){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;S.quiz=null;k==="v"?renderVocab():renderSpanish();return}
  if(hs){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;const card=hs.closest(".lw");const y=card.getBoundingClientRect().top;const sl=$(".hist",card).scrollLeft;card.outerHTML=learnCard(k);const nc=$(`#s-learn [data-learn="${k}"]`);if(nc){window.scrollBy(0,nc.getBoundingClientRect().top-y);const h=$(".hist",nc);if(h)h.scrollLeft=sl}return}
@@ -3730,10 +3786,13 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>{appl
    ================================================================= */
 const SELF=location.href.split("#")[0].split("?")[0];
 const loadedDay=todayKey();
-function fresh(){location.replace(SELF+"?v="+Date.now())}
+function fresh(){const go=()=>location.replace(SELF+"?v="+Date.now());if(!cfg().dirty||!backend())return go();Promise.race([flushCfg(),new Promise(r=>setTimeout(r,4000))]).then(go,go)}
 let hiddenAt=0;
-document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"){hiddenAt=Date.now();stopWs();return}const away=hiddenAt?Date.now()-hiddenAt:0;if(away>10*6e4||todayKey()!==loadedDay)fresh();else{startWs();if(away>60e3){renderHero();loadLive()}else if(away>5e3)pullCfg()}});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"){hiddenAt=Date.now();stopWs();flushCfg();return}const away=hiddenAt?Date.now()-hiddenAt:0;if(away>10*6e4||todayKey()!==loadedDay)fresh();else{startWs();if(away>60e3){renderHero();loadLive()}else if(away>5e3)pullCfg()}});
 addEventListener("pageshow",e=>{if(e.persisted)fresh()});
+addEventListener("pagehide",()=>{flushCfg()});
+/* pick up changes made on your other devices while this one stays open */
+setInterval(()=>{if(!document.hidden&&!pushing&&backend())pullCfg()},90e3);
 try{if(ED<todayKey()&&sessionStorage.getItem("sd-retry")!==todayKey()){sessionStorage.setItem("sd-retry",todayKey());fresh()}}catch(e){}
 
 /* =================================================================
@@ -3767,14 +3826,14 @@ renderStocks=(f=>function(){f();renderTeasers()})(renderStocks);
  applyTheme();
  await Promise.all([fetchData(),fetchHealth()]);
  initData();
- const w=LS.get("sd-wx",null);if(w&&w.day===todayKey()&&Date.now()-w.t<36e5&&w.geo===!!LS.get("sd-geo",false))S.wx=w.v;
+ const w=LS.get("sd-wx",null);if(w&&w.day===todayKey()&&Date.now()-w.t<36e5&&w.geo===geoOn())S.wx=w.v;
  const q=LS.get("sd-cx-q",null);if(q&&Date.now()-q.t<6*36e5){S.cx.q=q.v;S.cx.qAt=q.t}
  if(!cxList().includes(S.cx.sel))S.cx.sel=cxList()[0]||"BTC";
  mkValid();
  [S.cx.sel+"|"+S.cx.range].forEach(k=>{const c=LS.get("sd-cx-s-"+k,null);if(c&&Date.now()-c.t<6*36e5)S.cx.series[k]=c.v});
  const d=LS.get("sd-cx-d-"+S.cx.sel,null);if(d&&Date.now()-d.t<24*36e5)S.cx.daily[S.cx.sel]=d.v;
  if(!backend()&&!["1W","1M"].includes(S.st.range))S.st.range="1M";
- try{navigator.permissions&&navigator.permissions.query({name:"geolocation"}).then(p=>{if(p.state==="granted"&&!LS.get("sd-geo",false)&&LS.get("sd-geo-auto",true)){LS.set("sd-geo",true);LS.set("sd-geo-auto",false);loadWeather().catch(()=>{})}}).catch(()=>{})}catch(e){}
+ try{navigator.permissions&&navigator.permissions.query({name:"geolocation"}).then(p=>{if(p.state==="granted"&&!geoOn()&&!("geo" in cfg().prefs)&&LS.get("sd-geo-auto",true)){setPref("geo",true);LS.set("sd-geo-auto",false);loadWeather().catch(()=>{})}}).catch(()=>{})}catch(e){}
  migrateSaved();shell();renderAll();loadLive();
 })();
 </script>
