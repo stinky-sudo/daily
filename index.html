@@ -460,21 +460,44 @@ h1,h2,h3,p{margin:0}
 .fc-f{background:var(--acc-soft);color:var(--ink)}
 .fc-b{transform:rotateY(180deg);background:var(--acc);color:#fff;font-size:13.5px;font-weight:600}
 
-/* footer */
-.foot{text-align:center;padding:34px var(--g) 0;font-size:13px;color:var(--ink-3);line-height:1.6}
-.foot b{color:var(--ink-2);font-weight:600}
-.ft{display:inline-flex;flex-direction:column;align-items:center;gap:8px}
-.ft-t{font-size:13.5px}
-.ft-g{display:grid;grid-template-columns:auto auto;gap:3px 12px;margin:0;font-size:12.5px;text-align:left}
-.ft-g div{display:contents}
-.ft-g dt{color:var(--ink-3);font-weight:600;text-align:right}
-.ft-g dd{margin:0;color:var(--ink-2)}
-.ft-g dd.warn{color:var(--warn-ink)}
-.ver{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--fill)}
-.ver svg{width:12px;height:12px}
-.ver.ok{color:var(--up)}
-.ver.new{background:var(--link);color:#fff}
-.ver.pend{color:var(--ink-2)}
+/* footer: how far through the year we are, one colour per quarter (winter, spring, summer, autumn) */
+:root{--q1:#2F74F0;--q2:#14A356;--q3:#F2A007;--q4:#E4502F;--knob:#FFFFFF}
+:root[data-theme="dark"]{--q1:#6E9CFF;--q2:#36CF7F;--q3:#FFC23A;--q4:#FF6E4E;--knob:#FFFFFF}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--q1:#6E9CFF;--q2:#36CF7F;--q3:#FFC23A;--q4:#FF6E4E;--knob:#FFFFFF}}
+.foot{padding:44px var(--g) 8px;color:var(--ink-3)}
+.ft{display:block}
+.yp-h{display:flex;align-items:baseline;gap:8px}
+.yp-pct{font-family:var(--display);font-size:30px;font-weight:650;letter-spacing:-.035em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.yp-pct small{font-size:.6em;font-weight:600;letter-spacing:0;margin-left:1px;color:var(--ink-2)}
+.yp-yr{font-size:14px;font-weight:500;color:var(--ink-3)}
+.yp-d{margin-left:auto;font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.01em;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.yp-d b{font-weight:600;color:var(--ink)}
+.yp-d i{font-style:normal;color:var(--ink-3);margin:0 7px}
+.yp-b,.yp-q{display:flex;gap:4px}
+.yp-b{margin-top:16px}
+.yq{position:relative;min-width:0}
+.yq-t{position:relative;display:block;height:8px;border-radius:4px;overflow:hidden}
+.yq-t::before{content:"";position:absolute;inset:0;background:var(--c);opacity:.2}
+.yq-t i{position:absolute;left:0;top:0;bottom:0;background:var(--c);border-radius:inherit}
+.yq-k{position:absolute;top:4px;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--knob);border:3.5px solid var(--c);box-shadow:0 1px 3px rgba(0,0,0,.28),0 0 0 5px color-mix(in srgb,var(--c) 22%,transparent)}
+.yp-q{margin-top:11px}
+.yp-q span{min-width:0;display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.06em;color:var(--ink-3);white-space:nowrap;overflow:hidden}
+.yp-q span.past{opacity:.75}
+.yp-q span.now{color:var(--ink)}
+.yp-q span.now::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;background:var(--c)}
+.yp-q span.now em{font-style:normal;color:var(--ink-3);letter-spacing:.01em}
+.ft-t{margin-top:40px;text-align:center;font-size:13px;line-height:1.4;color:var(--ink-3)}
+.ft-t b{font-weight:600;color:var(--ink-2)}
+@media (min-width:768px){
+  .yp-pct{font-size:34px}
+  .yp-yr{font-size:15px}
+  .yp-d{font-size:13.5px}
+  .yp-b{margin-top:18px}
+  .yq-t{height:10px;border-radius:5px}
+  .yq-k{top:5px;width:20px;height:20px;margin:-10px 0 0 -10px}
+  .yp-q span{font-size:12px}
+  .ft-t{margin-top:46px;font-size:13.5px}
+}
 
 /* ============================================================
    SHEETS
@@ -1875,7 +1898,7 @@ async function fetchHealth(){try{const r=await fetch('health.json?v='+Date.now()
    HELPERS
    ================================================================= */
 /* BUILD: when this version of the page was published. Stamped automatically on every push. */
-const BUILD="2026-10-26T22:14:50-07:00";
+const BUILD="2026-10-26T22:21:21-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
@@ -4026,16 +4049,26 @@ function verInfo(){
  return{data:when(u)+(age>=1?` · ${age===1?"a day":age+" days"} old`:""),stale:age>=1,app:when(b)+(v.sha?` · ${v.sha}`:""),state:v.state||"",
   status:v.state==="new"?"A newer version is ready":v.state==="pending"?"A newer version is publishing":v.state==="ok"?"Up to date":"Checking…"};
 }
+/* How far through the year we are, right now in his time zone: day of year plus the part of today gone by.
+   Quarters are sized by their real day counts (90/91/92/92, or 91 in Q1 of a leap year). */
+function yearProgress(){
+ const k=todayKey(),y=+k.slice(0,4),ys=Date.UTC(y,0,1),dn=t=>Math.round((t-ys)/864e5);
+ const days=dn(Date.UTC(y+1,0,1)),doy=dn(Date.UTC(y,+k.slice(5,7)-1,+k.slice(8,10)))+1;
+ let mins=0;try{const p=new Intl.DateTimeFormat("en-US",{timeZone:TZ,hour:"numeric",minute:"numeric",hourCycle:"h23"}).formatToParts(new Date()),g=n=>+((p.find(x=>x.type===n)||{}).value||0);mins=(g("hour")%24)*60+g("minute")}catch(e){}
+ const gone=doy-1+mins/1440,edge=[0,3,6,9].map(m=>dn(Date.UTC(y,m,1))).concat(days);
+ const q=[0,1,2,3].map(i=>{const a=edge[i],n=edge[i+1]-a;return{n,f:Math.min(1,Math.max(0,(gone-a)/n))}});
+ return{y,days,doy,left:days-doy,pct:gone/days*100,q,cur:q.findIndex(x=>x.f<1)};
+}
 function renderFoot(){
- const el=$("#foot");if(!el)return;const vi=verInfo(),live=[],t=x=>fmtTime(new Date(x));
- if(S.wx&&S.wx.at)live.push("weather "+t(S.wx.at));
- if(S.st&&S.st.at)live.push("stocks "+t(S.st.at));
- if(S.cx&&S.cx.qAt)live.push("crypto "+t(S.cx.qAt));
- if(S.yt&&S.yt.source==="live"&&S.yt.updated)live.push("YouTube "+t(S.yt.updated));
- const st=vi.state==="new"?`<button class="ver new" data-act="refresh">Newer version ready · tap to load</button>`:vi.state==="pending"?`<span class="ver pend">A newer version is publishing…</span>`:vi.state==="ok"?`<span class="ver ok">${I.check}Up to date</span>`:"";
- el.innerHTML=`<div class="ft"><div class="ft-t"><b>Stinky's Daily</b> · No. ${editionNo()}</div>
-  <dl class="ft-g"><div><dt>Morning data</dt><dd class="${vi.stale?"warn":""}">${esc(vi.data)}</dd></div>${live.length?`<div><dt>Live</dt><dd>${esc(live.join(" · ").replace(/^./,c=>c.toUpperCase()))}</dd></div>`:""}<div><dt>App version</dt><dd>${esc(vi.app)}</dd></div></dl>
-  ${st?`<div class="ft-s">${st}</div>`:""}</div>`;
+ const el=$("#foot");if(!el)return;const p=yearProgress(),pc=(Math.floor(p.pct*10)/10).toFixed(1);
+ const left=p.left===0?"Last day":p.left===1?"1 day left":p.left+" days left";
+ const bar=p.q.map((x,i)=>`<span class="yq" style="flex:${x.n};--c:var(--q${i+1})"><span class="yq-t"><i style="width:${(x.f*100).toFixed(2)}%"></i></span>${i===p.cur?`<b class="yq-k" style="left:${(x.f*100).toFixed(2)}%"></b>`:""}</span>`).join("");
+ const labs=p.q.map((x,i)=>`<span class="${i<p.cur?"past":i===p.cur?"now":""}" style="flex:${x.n};--c:var(--q${i+1})">Q${i+1}${i===p.cur?`<em>${Math.floor(x.f*100)}%</em>`:""}</span>`).join("");
+ el.innerHTML=`<div class="ft"><div class="yp" role="img" aria-label="${p.y} is ${pc}% done: day ${p.doy} of ${p.days}, ${left}">
+  <div class="yp-h" aria-hidden="true"><span class="yp-pct">${pc}<small>%</small></span><span class="yp-yr">of ${p.y}</span><span class="yp-d"><b>Day ${p.doy}</b> of ${p.days}<i>·</i>${left}</span></div>
+  <div class="yp-b" aria-hidden="true">${bar}</div>
+  <div class="yp-q" aria-hidden="true">${labs}</div></div>
+  <div class="ft-t"><b>Stinky's Daily</b> · No. ${editionNo()}</div></div>`;
 }
 /* Am I on the newest version? Compare this page's BUILD with the one GitHub Pages is serving right now,
    and with the newest commit on GitHub (which can be a minute or two ahead of Pages). */
