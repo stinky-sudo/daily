@@ -1487,8 +1487,8 @@ html,body{overscroll-behavior-x:none}
 .h-legend i{width:9px;height:9px;border-radius:3px;background:var(--c)}
 /* ──────────────── HEALTH · one-screen dashboard (Oct 26 v2: neutral palette, sleep + steps first) ──────────────── */
 #s-health{--hdh:58px}
-.hx{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1.32fr) minmax(0,1fr) minmax(0,.78fr) auto;gap:12px;
- height:calc(100vh - var(--hdh) - 34px);height:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - 34px);min-height:760px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1.32fr) minmax(0,1fr) minmax(0,.78fr);gap:12px;
+ height:calc(100vh - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));height:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));min-height:740px}
 .hx>.card,.hx-v{display:flex;flex-direction:column;min-height:0;min-width:0;padding:18px 20px;border-radius:22px}
 .hx-vits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;min-height:0}
 .hx-sync{text-align:center;font-size:12px;font-weight:500;color:var(--ink-3);padding-bottom:2px}
@@ -1508,7 +1508,19 @@ html,body{overscroll-behavior-x:none}
 .hx-fk{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
 .hx-fmain{margin-top:8px}
 .hx-fmain h2{font-family:var(--display);font-size:25px;font-weight:700;letter-spacing:-.022em;line-height:1.14;text-wrap:balance}
-.hx-fmain p{font-size:14px;line-height:1.45;color:var(--ink-2);margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hx-fh{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hx-fsync{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.hx-fsync>span{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;background:var(--fill);font-size:11.5px;font-weight:600;color:var(--ink-2);white-space:nowrap}
+.hx-fsync>span.warn{background:var(--warn-soft);color:var(--warn-ink)}
+.hx-ev{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.hx-chip{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 9px;border-radius:8px;background:var(--fill);font-size:12px;font-weight:600;color:var(--ink-2);white-space:nowrap}
+.hx-chip i{width:7px;height:7px;border-radius:50%;background:var(--ink-3);flex:0 0 auto}
+.hx-chip b{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.hx-chip.good i{background:var(--up)}.hx-chip.warn i{background:var(--warn)}.hx-chip.bad i{background:var(--down)}
+.hx-chip.drv.warn{background:var(--warn-soft);color:var(--warn-ink)}.hx-chip.drv.warn b{color:var(--warn-ink)}
+.hx-chip.drv.bad{background:rgba(221,59,53,.13);color:var(--down)}.hx-chip.drv.bad b{color:var(--down)}
+.hx-chip.drv.good{background:var(--up-soft);color:var(--up)}.hx-chip.drv.good b{color:var(--up)}
+.hx-fmain p{font-size:14.5px;line-height:1.45;color:var(--ink-2);margin-top:6px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .hx-fsteps{list-style:none;margin:12px 0 0;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .hx-fsteps li{position:relative;display:flex;align-items:center;min-height:42px;padding:7px 10px 7px 38px;border-radius:12px;background:var(--fill);font-size:13.5px;font-weight:600;line-height:1.3;counter-increment:s}
 .hx-fsteps li::before{content:counter(s);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--surface);font-size:11px;font-weight:700;display:grid;place-items:center}
@@ -1554,14 +1566,11 @@ html,body{overscroll-behavior-x:none}
 .hx-trk{position:relative;flex:1;height:100%;margin-right:54px}
 .hx-win{position:absolute;top:50%;height:min(14px,70%);transform:translateY(-50%);border-radius:999px;background:var(--ink-3);opacity:.55;outline:none}
 .hx-row.today .hx-win{background:var(--ink);opacity:1}
-.hx-win.part{opacity:1;background:repeating-linear-gradient(135deg,var(--ink-3) 0 2.5px,transparent 2.5px 5.5px);box-shadow:inset 0 0 0 1.5px var(--ink-3)}
 .hx-wl{position:absolute;top:50%;transform:translateY(-50%);font-size:11.5px;font-weight:650;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums;pointer-events:none}
 .hx-row.today .hx-wl{color:var(--ink)}
 .hx-win.good{background:var(--up)}.hx-win.warn{background:var(--warn)}.hx-win.bad{background:var(--down)}
 .hx-win{opacity:.72}.hx-row.today .hx-win{opacity:1}
 .hx-row.today .hx-win.good{background:var(--up)}.hx-row.today .hx-win.warn{background:var(--warn)}.hx-row.today .hx-win.bad{background:var(--down)}
-.hx-win.part.bad{background:repeating-linear-gradient(135deg,var(--down) 0 2.5px,transparent 2.5px 5.5px);box-shadow:inset 0 0 0 1.5px var(--down)}
-.hx-win.part.warn{background:repeating-linear-gradient(135deg,var(--warn) 0 2.5px,transparent 2.5px 5.5px);box-shadow:inset 0 0 0 1.5px var(--warn)}
 .hx-sc{flex:0 0 38px;height:24px;margin-left:4px;border-radius:7px;display:grid;place-items:center;font-size:12.5px;font-weight:750;font-variant-numeric:tabular-nums;background:var(--fill);color:var(--ink-3)}
 .hx-sc.good{background:var(--up-soft);color:var(--up)}.hx-sc.warn{background:var(--warn-soft);color:var(--warn-ink)}.hx-sc.bad{background:rgba(221,59,53,.13);color:var(--down)}
 .hx-row.today .hx-sc.good{background:var(--up);color:var(--surface)}.hx-row.today .hx-sc.warn{background:var(--warn);color:#fff}.hx-row.today .hx-sc.bad{background:var(--down);color:#fff}
@@ -1591,7 +1600,7 @@ html,body{overscroll-behavior-x:none}
 .hx-b.now{background:var(--ink)}
 .hx-b.none{background:var(--fill)}
 @keyframes hxGrow{from{transform:translateX(-50%) scaleY(0)}}
-.hx-bv{position:absolute;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.hx-bv{position:absolute;z-index:3;left:50%;transform:translateX(-50%);padding:0 3px;border-radius:4px;background:var(--surface);font-size:11px;font-weight:700;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}
 .hx-bc.today .hx-bv{color:var(--ink)}
 .hx-bx{display:flex;gap:10px;margin-top:7px}
 .hx-bx span{flex:1;min-width:0;text-align:center;font-size:11.5px;font-weight:600;color:var(--ink-3)}
@@ -1612,7 +1621,7 @@ html,body{overscroll-behavior-x:none}
 @media (prefers-reduced-motion:reduce){.hx-b,.hx-prog span{animation:none}}
 /* landscape iPad / Mac: sleep and steps side by side, summary above chart */
 @media (min-width:1000px) and (orientation:landscape){
- .hx{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto minmax(0,1fr) minmax(0,.62fr) auto;min-height:620px}
+ .hx{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto minmax(0,1fr) minmax(0,.62fr);min-height:600px}
  .hx-focus,.hx-vits,.hx-sync{grid-column:1/-1}
  .hx-split{grid-template-columns:185px minmax(0,1fr);gap:18px}
  .hx-ax .hx-trk span.odd{display:none}
@@ -1621,7 +1630,7 @@ html,body{overscroll-behavior-x:none}
  .hx-facts{grid-template-columns:1fr 1fr;row-gap:6px}.hx-facts>div:nth-child(3){display:none}
  .hx-score b{font-size:46px}.hx-score .hx-pill{display:none}.hx-dur{margin-top:8px}
  .hx-focus{padding:15px 20px!important}.hx-fsteps{margin-top:10px}.hx-fsteps li{min-height:36px}
- .hx-fmain h2{font-size:23px}.hx-fmain p{-webkit-line-clamp:1}
+ .hx-fmain h2{font-size:23px}.hx-fmain p{-webkit-line-clamp:2}
 }
 /* phone: natural scroll, summary stacked over chart */
 @media (max-width:699px){
@@ -3522,33 +3531,6 @@ function renderHealth(){
  /* ── Suggestion engine ── */
  const realHist_=HDAYS.slice(0,Tidx);
  const sd_=a=>{const m=a.reduce((x,y)=>x+y,0)/a.length;return Math.sqrt(a.reduce((x,y)=>x+(y-m)**2,0)/a.length)};
- const recoveryLoad_=(T.hrv&&T.hrv<50?1:0)+(T.rr&&T.rr>=19.5?1:0);
- const HCANDIDATES=[
-  ()=>{if(!T.asleep||T.remP>=19)return null;const target=Math.round(((T.wake||380)+30)/15)*15;
-   return{p:(20-T.remP)*4+((T.wake||380)<390?6:0)+recoveryLoad_*4,
-    title:`Wake up at ${clock_(target)} instead of ${clock_(T.wake||380)}`,
-    body:`Your recovery numbers say you need rest. Your HRV is${T.hrv?` at ${Math.round(T.hrv)} ms`:""} and your breathing rate is${T.rr?` ${T.rr}`:""} breaths/min. Last night's sleep was ${hm_(T.asleep)}, but REM was only ${Math.round(T.remP)}% — under the 20–25% target. An extra 30 minutes is the biggest gain available today.`,
-    steps:[`Keep the same bedtime${T.bed!=null?` (${clock_(Math.round(T.bed/15)*15)})`:""}.`,`Set the alarm for ${clock_(target)}.`,"Keep today easy: a walk is fine, but no hard workouts."]}},
-  ()=>{if(!T.asleep||T.asleep<300||!T.deep||T.deepP>=13)return null;
-   return{p:(13-T.deepP)*5+recoveryLoad_*3,title:"Protect your deep sleep tonight",
-    body:`Deep sleep was only ${Math.round(T.deepP)}% last night, under the 13–23% target. Deep sleep is when your body does most of its physical repair, and late meals, alcohol and a warm room all cut into it.`,
-    steps:["Finish eating 3 hours before bed.","Skip alcohol tonight.","Keep the room cool, around 65°F."]}},
-  ()=>{if(!T.asleep||T.asleep>=420)return null;
-   return{p:(420-T.asleep)/3+recoveryLoad_*3,title:"Get to bed 45 minutes earlier tonight",
-    body:`You slept ${hm_(T.asleep)}, under the 7-hour minimum. Short sleep drags down HRV and recovery.`,
-    steps:["Pick a lights-out time 45 minutes earlier.","No screens for the last 30 minutes.","Keep the bedroom cool and dark."]}},
-  ()=>{if(!T.rr || T.rr<=20)return null;
-   return{p:(T.rr-20)*15+recoveryLoad_*3,title:"Take a rest day and watch your breathing rate",
-    body:`Your breathing rate was ${T.rr} breaths/min, above the normal 12–20. That can be an early sign your body is fighting something.`,
-    steps:["Skip hard training today.","Prioritize sleep and fluids.","If it stays above 20 for 3+ nights, check in with a doctor."]}},
-  ()=>{if(realHist_.length<5)return null;const beds=realHist_.slice(-6).concat(T).filter(r=>r.bed!=null).map(r=>r.bed);if(beds.length<4)return null;const s=sd_(beds);if(s<=40)return null;
-   return{p:s/3,title:"Lock in a consistent bedtime",body:`Your bedtime has varied by ±${Math.round(s)} min over the last week. Consistency is one of the strongest levers for HRV.`,
-    steps:["Choose one bedtime for every night.","Set a wind-down reminder 30 min before.","Keep weekends within an hour."]}},
-  ()=>{if(realHist_.length<5)return null;const a=avg_(realHist_.slice(-7).filter(r=>r.steps),"steps");if(!a||a>=7000)return null;
-   return{p:(7000-a)/250,title:"Add a 20-minute walk each day",body:`You've averaged ${Math.round(a).toLocaleString()} steps a day this week. A daily 20-minute walk adds about 2,000.`,
-    steps:["Walk after lunch.","Take calls on foot.","Aim for 8,000 a day first."]}}
- ];
-
  /* ── One-screen dashboard ──────────────────────────────────────
     Fits the viewport on iPad: focus · Sleep (hero) · Steps (hero) · 4 vitals.
     Palette is neutral; green = goal met / good, orange = needs attention. */
@@ -3563,17 +3545,6 @@ function renderHealth(){
  const pctTxt=v=>Math.round(v)+"%";
  const [bandLbl]=band_(T.score||0);
  const hmBig=m=>hm_(m).replace(/(\d+)h (\d+)m/,"$1<small>h</small> $2<small>m</small>").replace(/^(\d+)m$/,"$1<small>m</small>");
-
- /* ── Focus ── */
- const topSug=HCANDIDATES.map(f=>f()).filter(Boolean).sort((a,b)=>b.p-a.p)[0];
- /* deep and REM aren't shown on the page, so when they're off the focus says so */
- if(topSug&&T.asleep>=300&&!/REM|Deep sleep/.test(topSug.body)){
-  const lowR=T.rem&&T.remP<20,lowD=T.deep&&T.deepP<13;
-  if(lowR||lowD)topSug.body+=` Last night's ${lowR&&lowD?`REM (${Math.round(T.remP)}%) and deep sleep (${Math.round(T.deepP)}%) were`:lowR?`REM was ${Math.round(T.remP)}%,`:`deep sleep was ${Math.round(T.deepP)}%,`} ${lowR&&lowD?"both under target":lowR?"just under the 20–25% target":"under the 13–23% target"} — a steady schedule helps ${lowR&&lowD?"both":"that"} too.`;
- }
- const focus=`<div class="hx-fk"><svg class="i s14"><use href="#i-spark"/></svg>Focus today</div>`+(topSug
-  ?`<div class="hx-fmain"><h2>${topSug.title}</h2><p>${topSug.body}</p></div><ol class="hx-fsteps">${topSug.steps.map(s=>`<li>${s}</li>`).join("")}</ol>`
-  :`<div class="hx-fmain"><h2>You're on track</h2><p>Sleep, heart and breathing are all inside your normal range. Keep the same routine tonight.</p></div>`);
 
  /* ── Sleep schedule prep ── */
  const nights=nightWeek.map(d=>byD[d]&&byD[d].asleep&&byD[d].bed!=null&&byD[d].wake!=null?byD[d]:null);
@@ -3595,12 +3566,11 @@ function renderHealth(){
  const scCls=v=>v>=80?"good":v>=60?"warn":"bad";
  const scNights=nights.filter(realNight);
  const avgScore=scNights.length?Math.round(mean_(scNights.map(r=>r.score))):null;
- const bedVsAim=T.bed!=null&&tgtBed!=null?(Math.abs(T.bed-tgtBed)<10?"On time":(T.bed>tgtBed?"+":"−")+hm_(Math.abs(T.bed-tgtBed))):"—";
  const sleepLeft=T.asleep?`
    <div class="hx-sk">Sleep score</div>
    <div class="hx-score" data-t="Sleep score<span>Worked out here from how long you slept, your deep and REM share, and time awake. Fitbit's own score uses a different formula, so it can differ by a few points.</span>"><b class="${scCls(T.score)}">${T.score}</b><span>/100</span><span class="hx-pill ${scCls(T.score)}">${bandLbl}</span></div>
    <div class="hx-dur"><b>${hm_(T.asleep)}</b> asleep</div>${T.bed!=null&&T.wake!=null?`<div class="hx-sub">${clock_(T.bed)} → ${clock_(T.wake)}</div>`:""}
-   <dl class="hx-facts"><div><dt>vs 7-night avg</dt><dd class="${dSleep==null?"":dSleep>=0?"up":"down"}">${dSleep==null?"—":(dSleep>=0?"+":"−")+hm_(Math.abs(dSleep))}</dd></div><div><dt>Bed vs aim</dt><dd>${bedVsAim}</dd></div><div><dt>Avg score</dt><dd class="${avgScore==null?"":scCls(avgScore)}">${avgScore==null?"—":avgScore}</dd></div></dl>`
+   <dl class="hx-facts"><div><dt>7-night avg score</dt><dd class="${avgScore==null?"":scCls(avgScore)}">${avgScore==null?"—":avgScore}</dd></div></dl>`
   :`<p class="hx-empty">No sleep recorded yet. It shows up after the Fitbit syncs in the morning.</p>`;
  const sleepRight=`<div class="hx-ch">
    <div class="hx-chh"><span>Last 7 nights</span>${tgtBed!=null?`<span class="hx-aim" data-t="Target bedtime<span>Your typical bedtime this week, ±30 min — the shaded column.</span>">Aim ${clock_(tgtBed)}</span>`:""}${spread!=null?`<span class="hx-pill ${spread<=30?"good":spread<=60?"":"warn"}" data-t="Bedtime spread<span>How much your bedtime moved night to night. Under 30 min is steady.</span>">±${Math.round(spread)} min</span>`:""}</div>
@@ -3674,18 +3644,87 @@ function renderHealth(){
  const ago=HEALTH.fetchedAt?Date.now()-new Date(HEALTH.fetchedAt).getTime():null;
  const syncTxt=ago==null?"":ago<36e5?Math.max(1,Math.round(ago/6e4))+" min ago":ago<864e5?Math.round(ago/36e5)+" hr ago":fmtKey(dayKey(new Date(HEALTH.fetchedAt)),{weekday:"short",month:"short",day:"numeric"});
 
+ /* ── Focus: one change, the most impactful one, weighed across every metric the API gives ──
+    Each metric gets a status against a target (or your own 14-day baseline for heart signals),
+    each possible change gets an impact score, and only the top one is shown. The chips show
+    every data point that went into the call: the ones driving it first, the rest after. */
+ const azmOf_=r=>r&&r.azm?(r.azm.fatburn||0)+2*((r.azm.cardio||0)+(r.azm.peak||0)):null;
+ const base_=k=>{const a=HDAYS.slice(0,Tidx).filter(r=>r[k]).slice(-14).map(r=>r[k]);return a.length>=3?mean_(a):null};
+ const rhrB=base_("rhr"),hrvB=base_("hrv");
+ const realN=nights.filter(realNight);
+ const sleepAvg=realN.length?mean_(realN.map(r=>r.asleep)):null;
+ const shortN=nights.filter(r=>r&&r.asleep<420).length;
+ const azmDays=week.map(d=>azmOf_(byD[d])).filter(v=>v!=null);
+ const azmWk=azmDays.length?Math.round(azmDays.reduce((a,b)=>a+b,0)/azmDays.length*7):null;
+ const lvl=(v,good,warn,hiBetter=true)=>v==null?"":hiBetter?(v>=good?"good":v>=warn?"warn":"bad"):(v<=good?"good":v<=warn?"warn":"bad");
+ const M={
+  bed:{l:"Bed",v:spread!=null?`±${Math.round(spread)}m`:null,st:lvl(spread,30,60,false),fine:"a steady bedtime"},
+  dur:{l:"Sleep",v:sleepAvg!=null?hm_(sleepAvg):null,st:lvl(sleepAvg,420,360),fine:"sleep length"},
+  score:{l:"Score",v:avgScore!=null?String(avgScore):null,st:lvl(avgScore,80,60),fine:"sleep score"},
+  rem:{l:"REM",v:T.rem&&T.asleep?Math.round(T.remP)+"%":null,st:T.rem&&T.asleep?lvl(T.remP,20,15):"",fine:"REM"},
+  deep:{l:"Deep",v:T.deep&&T.asleep?Math.round(T.deepP)+"%":null,st:T.deep&&T.asleep?lvl(T.deepP,13,10):"",fine:"deep sleep"},
+  steps:{l:"Steps",v:wkAvg!=null?(wkAvg/1e3).toFixed(1)+"k/day":null,st:lvl(wkAvg,8000,5000),fine:"steps"},
+  zone:{l:"Zone min",v:azmWk!=null?azmWk+"/wk":null,st:lvl(azmWk,150,75),fine:"zone minutes"},
+  rhr:{l:"RHR",v:T.rhr?String(T.rhr):null,st:T.rhr&&rhrB!=null?lvl(T.rhr-rhrB,2.5,4.5,false):T.rhr?"good":"",fine:"resting HR"},
+  hrv:{l:"HRV",v:T.hrv?Math.round(T.hrv)+" ms":null,st:T.hrv&&hrvB!=null?lvl(T.hrv/hrvB,.92,.8):T.hrv?"good":"",fine:"HRV"},
+  rr:{l:"Breathing",v:T.rr?f1(T.rr):null,st:T.rr?lvl(T.rr,19.4,20,false):"",fine:"breathing"},
+  spo2:{l:"Blood O₂",v:T.spo2?f1(T.spo2)+"%":null,st:T.spo2?lvl(T.spo2,95,93):"",fine:"blood oxygen"}
+ };
+ const off=k=>M[k].st==="warn"||M[k].st==="bad";
+ const okList=ex=>{const a=Object.keys(M).filter(k=>!ex.includes(k)&&M[k].st==="good").map(k=>M[k].fine);a.splice(4);return a.length>1?a.slice(0,-1).join(", ")+" and "+a[a.length-1]:a[0]||""};
+ const stageLine=()=>{const r=off("rem"),d=off("deep");if(!r&&!d)return"";return` It's also costing you ${r&&d?`REM (${M.rem.v}) and deep sleep (${M.deep.v})`:r?`REM, which was ${M.rem.v} last night against a 20–25% target`:`deep sleep, which was ${M.deep.v} last night against a 13–23% target`}.`};
+ const wakes=realN.map(r=>r.wake).sort((a,b)=>a-b),medWake=wakes.length?wakes[Math.floor(wakes.length/2)]:null;
+ const FOCUS=[];
+ if(spread!=null&&tgtBed!=null){
+  const beds=realN.map(r=>r.bed),lo=Math.min(...beds),hi=Math.max(...beds);
+  const worst=realN.slice().sort((a,b)=>a.score-b.score)[0],latest=realN.slice().sort((a,b)=>b.bed-a.bed)[0];
+  const tie=worst&&latest&&worst===latest&&realN.length>=3?` Your lowest-scoring night (${day_(worst.d,"s")}, ${worst.score}) was also your latest bedtime.`:"";
+  FOCUS.push({imp:clamp_((spread-30)/90,0,1)+(off("rem")?.1:0)+(off("deep")?.1:0)+(off("hrv")?.1:0),keys:["bed","rem","deep","score"],
+   title:`Be in bed by ${clock_(tgtBed)} every night this week`,
+   body:`Your bedtime swung ±${Math.round(spread)} min over the last week, from ${clock_(lo)} to ${clock_(hi)} — the biggest gap in your data.${tie}${stageLine()}`});
+ }
+ if(sleepAvg!=null){
+  const lights=medWake!=null?Math.round((medWake-465)/15)*15:null;
+  FOCUS.push({imp:clamp_((450-sleepAvg)/120,0,1)*1.1+shortN*.04+(off("rem")||off("deep")?.08:0),keys:["dur","score","rem","deep"],
+   title:lights!=null?`Get 7½ hours: lights out by ${clock_(lights)}`:"Add 45 minutes of sleep tonight",
+   body:`You've averaged ${hm_(sleepAvg)} a night, with ${shortN} of the last 7 nights under 7 hours. Short nights drag down recovery more than anything else you track.${stageLine()}`});
+ }
+ if(wkAvg!=null)FOCUS.push({imp:clamp_((8000-wkAvg)/4000,0,1)*.75,keys:["steps"],
+  title:"Walk 30 minutes every day this week",
+  body:`You're averaging ${wkAvg.toLocaleString()} steps a day and hit 10k on ${hits} of the last 7 days. One 30-minute walk adds about 3,300 steps and puts you over 10k most days.`});
+ if(azmWk!=null)FOCUS.push({imp:clamp_((150-azmWk)/150,0,1)*.85,keys:["zone"],
+  title:"Get your heart rate up 3 times this week",
+  body:`You're on pace for ${azmWk} zone minutes this week against a 150 target. Three 25-minute brisk sessions — a fast walk uphill, a run, a ride — close the gap.`});
+ {const bad=["rhr","hrv","rr"].filter(k=>M[k].st==="bad").length,warn=["rhr","hrv","rr"].filter(k=>M[k].st==="warn").length;
+  if(bad+warn)FOCUS.push({imp:bad>=2?1.3:bad?.6:warn>=2?.45:.15,keys:["rhr","hrv","rr"],
+   title:"Make today a recovery day",
+   body:`Your heart signals say you're run down: ${[T.rhr&&rhrB!=null?`resting HR ${T.rhr} vs your usual ${Math.round(rhrB)}`:"",T.hrv&&hrvB!=null?`HRV ${Math.round(T.hrv)} ms vs ${Math.round(hrvB)}`:"",T.rr?`breathing ${f1(T.rr)}/min`:""].filter(Boolean).join(", ")}. Skip hard training, keep moving lightly, and get to bed early.`});}
+ if(T.spo2&&T.spo2<95)FOCUS.push({imp:T.spo2<93?1.4:.6,keys:["spo2"],title:"Keep an eye on your overnight oxygen",
+  body:`Blood oxygen averaged ${f1(T.spo2)}% last night, under the healthy 95–100%. If it stays low for several nights, mention it to a doctor.`});
+ let F=FOCUS.sort((a,b)=>b.imp-a.imp)[0];
+ if(!F||F.imp<.15)F={keys:[],title:"Keep tonight just like last night",body:"Every signal is in range — sleep, activity and heart. The best move is repeating what you did yesterday."};
+ const fine=okList(F.keys);
+ if(fine&&F.imp>=.15)F.body+=` ${fine[0].toUpperCase()+fine.slice(1)} ${/ and /.test(fine)?"are":"is"} already in good shape, so this is the one change worth making.`;
+ const drivers=F.keys.filter(k=>off(k)||k===F.keys[0]);
+ const chipOrder=drivers.concat(Object.keys(M).filter(k=>!drivers.includes(k))).filter(k=>M[k].v);
+ const chips=chipOrder.map(k=>`<span class="hx-chip ${M[k].st}${drivers.includes(k)?" drv":""}"><i></i>${M[k].l}<b>${M[k].v}</b></span>`).join("");
+ const dev=(HEALTH.devices||[]).find(d=>d.type==="TRACKER")||(HEALTH.devices||[])[0];
+ const lastSyncTxt=dev&&dev.lastSync?(()=>{const t=new Date(dev.lastSync),k=dayKey(t);return(k===TK?"":fmtKey(k,{weekday:"short"})+" ")+t.toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})})():"";
+ const focus=`<div class="hx-fh"><div class="hx-fk"><svg class="i s14"><use href="#i-spark"/></svg>Focus today</div><div class="hx-fsync">${lastSyncTxt?`<span data-t="Fitbit Air<span>When your watch last sent data to Google.${dev.battery!=null?` Battery ${dev.battery}%.`:""}</span>">Watch synced ${lastSyncTxt}</span>`:""}${syncTxt?`<span data-t="Stinky's Daily<span>When the Daily last pulled from Google Health. It checks every 2 hours.</span>">Updated ${syncTxt}</span>`:""}${HEALTH.v!==2?`<span class="warn">Needs backend update</span>`:""}</div></div>
+  <div class="hx-fmain"><h2>${F.title}</h2><p>${F.body}</p></div>
+  <div class="hx-ev">${chips}</div>`;
+
  el.innerHTML=`<div class="hx">
   <section class="card hx-focus">${focus}</section>
   <section class="card hx-sleep">${sleepCard}</section>
   <section class="card hx-steps">${stepsCard}</section>
   <div class="hx-vits">${vitals}</div>
-  <div class="hx-sync">Fitbit Air${syncTxt?` · synced ${syncTxt}`:""}${HEALTH.v!==2?` · <span class="warn">needs the Oct 22 backend update</span>`:""}</div>
  </div>`;
 
  /* size the dashboard to exactly the space under the pinned title */
- const fitHx=()=>{const hd=$("#it-health .it-hd");if(hd)el.style.setProperty("--hdh",hd.offsetHeight+"px")};
+ const fitHx=()=>{const hd=$("#it-health .it-hd");if(hd)el.style.setProperty("--hdh",hd.offsetHeight+"px");const g=Math.round(el.getBoundingClientRect().left);if(g>0)el.style.setProperty("--hgap",g+"px")};
  fitHx();requestAnimationFrame(fitHx);
- if(!window.__hxFit){window.__hxFit=1;addEventListener("resize",()=>requestAnimationFrame(()=>{const hd=$("#it-health .it-hd"),s=$("#s-health");if(hd&&s)s.style.setProperty("--hdh",hd.offsetHeight+"px")}))}
+ if(!window.__hxFit){window.__hxFit=1;addEventListener("resize",()=>requestAnimationFrame(()=>{const hd=$("#it-health .it-hd"),s=$("#s-health");if(hd&&s){s.style.setProperty("--hdh",hd.offsetHeight+"px");const g=Math.round(s.getBoundingClientRect().left);if(g>0)s.style.setProperty("--hgap",g+"px")}}))}
 
  /* Tooltip for chart data points */
  if(!document.getElementById("htip")){
