@@ -465,7 +465,7 @@ h1,h2,h3,p{margin:0}
 :root[data-theme="dark"]{--q1:#6E9CFF;--q2:#36CF7F;--q3:#FFC23A;--q4:#FF6E4E;--knob:#FFFFFF}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--q1:#6E9CFF;--q2:#36CF7F;--q3:#FFC23A;--q4:#FF6E4E;--knob:#FFFFFF}}
 .foot{padding:44px var(--g) 8px;color:var(--ink-3)}
-.ft{display:block}
+.ft{display:block;max-width:440px;margin:0 auto}
 .yp-h{display:flex;align-items:baseline;gap:7px}
 .yp-pct{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
 .yp-pct small{font-size:.62em;font-weight:600;letter-spacing:0;margin-left:1px;color:var(--ink-3)}
@@ -1898,7 +1898,7 @@ async function fetchHealth(){try{const r=await fetch('health.json?v='+Date.now()
    HELPERS
    ================================================================= */
 /* BUILD: when this version of the page was published. Stamped automatically on every push. */
-const BUILD="2026-10-26T22:25:26-07:00";
+const BUILD="2026-10-26T22:26:53-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
