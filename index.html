@@ -24,9 +24,10 @@ window.SDT={light:["light","#F1F2F4"],dark:["dark","#000000"]};
  r.style.background=c;
  var ms=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<ms.length;i++)ms[i].content=c;
 }catch(e){}
-/* a pull-to-refresh in progress: show its ripples from the first frame, in step with the last page */
+/* a pull-to-refresh in progress: hold the content back so it can cascade in,
+   and use the fresh copies the last page already fetched */
 try{var q=JSON.parse(sessionStorage.getItem("sd-ptr")||"null");sessionStorage.removeItem("sd-ptr");
- if(q&&Math.abs(Date.now()-q.t)<15000){var el=Date.now()-q.t,r2=document.documentElement;r2.dataset.ptr=q.e==="bottom"?"bottom":"top";r2.style.setProperty("--ptr-ph",(el>=0?-(el%1500):-el)+"ms")}
+ if(q&&Math.abs(Date.now()-q.t)<15000){document.documentElement.dataset.ptr=q.e==="bottom"?"bottom":"top";window.SDV=q.v||0}
 }catch(e){}})();
 </script>
 <style>
@@ -608,48 +609,14 @@ h1,h2,h3,p{margin:0}
 /* toast + pull to refresh */
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,16px);opacity:0;pointer-events:none;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;transition:opacity .2s,transform .2s;z-index:60;max-width:calc(100% - 32px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-/* pull to refresh — an ink drop (PTR in the script). Pull past either end of the
-   page and a drop stretches off that edge, pinches free once you've pulled far enough,
-   then pulses ripples in the gap while the fresh copy loads. The bottom is the mirror. */
-.ptr{position:fixed;left:50%;top:env(safe-area-inset-top,0px);width:140px;height:150px;margin-left:-70px;z-index:55;pointer-events:none;visibility:hidden;color:var(--ink);--rest:40px}
-.ptr.on,html[data-ptr] .ptr{visibility:visible}
-.ptr[data-edge="bottom"],html[data-ptr="bottom"] .ptr{top:auto;bottom:0;transform:scaleY(-1)}
-.ptr svg{position:absolute;inset:0;width:100%;height:100%;fill:currentColor}
-.ptr-dot{position:absolute;left:50%;top:0;width:19px;height:19px;margin:-9.5px 0 0 -9.5px;border-radius:50%;background:currentColor;opacity:0;translate:0 var(--rest)}
-.ptr.free .ptr-dot,html[data-ptr] .ptr-dot{opacity:1}
-.ptr-rp{position:absolute;inset:0;transition:opacity .3s cubic-bezier(.4,0,.6,1)}
-.ptr-rp i,.ptr-fin{position:absolute;left:50%;top:var(--rest);width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;border:1.6px solid currentColor;opacity:0;transform:scale(.3)}
-.ptr.load .ptr-rp i,html[data-ptr] .ptr-rp i{animation:ptrRing 1.5s cubic-bezier(.2,.6,.35,1) infinite;animation-delay:calc(var(--ptr-ph,0ms) + var(--n)*750ms)}
-.ptr.load .ptr-dot,html[data-ptr] .ptr-dot{animation:ptrTap .75s cubic-bezier(.3,0,.3,1) infinite;animation-delay:var(--ptr-ph,0ms)}
-.ptr.done .ptr-rp{opacity:0}
-.ptr.done .ptr-dot{animation:ptrSink .36s cubic-bezier(.4,0,.6,1) forwards}
-.ptr.done .ptr-fin{animation:ptrFin .64s cubic-bezier(.2,.6,.35,1) forwards}
-@keyframes ptrRing{0%{transform:scale(.3);opacity:0}8%{opacity:.42}100%{transform:scale(1);opacity:0}}
-@keyframes ptrTap{0%{scale:.84}40%,100%{scale:1}}
-@keyframes ptrSink{to{scale:0;opacity:0}}
-@keyframes ptrFin{0%{transform:scale(.3);opacity:.5}100%{transform:scale(1.7);opacity:0}}
-/* while the drop holds the gap open, and as the fresh copy settles back in */
-#app[data-hold]{transition:transform .5s cubic-bezier(.23,1,.32,1)}
-#app[data-hold="top"]{transform:translateY(72px)}
-#app[data-hold="bottom"]{transform:translateY(-72px)}
+/* pull to refresh (PTR in the script). No indicator: the page itself stretches as
+   you pull, then clears and rebuilds in a cascade from the edge you pulled. While the
+   fresh copy lands, the content waits hidden for one frame so it starts in place. */
 html[data-ptr] #app{opacity:0;animation:ptrShow 0s 9s forwards}
-html[data-ptr] .ptr{animation:ptrHide .3s 9s forwards}
-html[data-ptr="bottom"]{--ptr-gap:-72px}
-html.ptr-in #app{opacity:1;animation:ptrIn .64s cubic-bezier(.23,1,.32,1) both}
+html.ptr-in #app{opacity:1;animation:none}
 html[data-ptr] .it-b,html[data-ptr] .it-p{transition:none!important}
 html[data-ptr] .it.open .it-o{animation:none!important}
-@keyframes ptrIn{from{opacity:0;transform:translateY(var(--ptr-gap,72px))}to{opacity:1;transform:none}}
 @keyframes ptrShow{to{opacity:1}}
-@keyframes ptrHide{to{opacity:0}}
-@keyframes ptrFade{50%{opacity:.35}}
-@keyframes ptrFadeIn{from{opacity:0}}
-@media (prefers-reduced-motion:reduce){
-  .ptr.load .ptr-rp i,html[data-ptr] .ptr-rp i,.ptr.done .ptr-fin{animation:none}
-  .ptr.load .ptr-dot,html[data-ptr] .ptr-dot{animation:ptrFade 1.4s ease-in-out infinite}
-  .ptr.done .ptr-dot{animation:ptrSink .2s linear forwards}
-  html.ptr-in #app{animation:ptrFadeIn .3s ease both}
-  #app[data-hold]{transition:none}
-}
 
 /* ============================================================
    WIDE SCREENS — iPad (768+) and laptop (1024+).
@@ -1841,7 +1808,6 @@ html,body{overscroll-behavior-x:none}
   <symbol id="i-wind" viewBox="0 0 24 24"><path d="M3.5 9h11a2.5 2.5 0 1 0-2.5-2.5M3.5 15h14a2.5 2.5 0 1 1-2.5 2.5M3.5 12h8"/></symbol>
   <symbol id="i-hdrop" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 3.5s6 6.4 6 10.5a6 6 0 0 1-12 0c0-4.1 6-10.5 6-10.5z"/></symbol>
 </svg>
-<div class="ptr" id="ptr" aria-hidden="true"><svg viewBox="-70 0 140 150"><circle class="m" cx="0" cy="-40" r="21"/><path class="b"/><circle class="d" cx="0" cy="-40" r="0"/></svg><i class="ptr-dot"></i><div class="ptr-rp"><i style="--n:0"></i><i style="--n:1"></i></div><i class="ptr-fin"></i></div>
 <main class="app" id="app"></main>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><div class="sheet-bg" data-act="close-sheet"></div><div class="sheet-p" id="sheet-p"></div></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1914,9 +1880,9 @@ const CONFIG={
    ================================================================= */
 /*DATA:START*/
 let DATA={};
-async function fetchData(){try{const r=await fetch('data.json?v='+Date.now());if(r.ok)DATA=await r.json()}catch(e){console.warn('data.json fetch failed')}}
+async function fetchData(){try{const r=await fetch('data.json?v='+(window.SDV||Date.now()));if(r.ok)DATA=await r.json()}catch(e){console.warn('data.json fetch failed')}}
 let HEALTH={};
-async function fetchHealth(){try{const r=await fetch('health.json?v='+Date.now());if(r.ok)HEALTH=await r.json()}catch(e){console.warn('health.json fetch failed')}}
+async function fetchHealth(){try{const r=await fetch('health.json?v='+(window.SDV||Date.now()));if(r.ok)HEALTH=await r.json()}catch(e){console.warn('health.json fetch failed')}}
 /*DATA:END*/
 
 /* =================================================================
@@ -4386,118 +4352,117 @@ let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{redraw
 matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>{applyTheme();redrawCharts()});
 
 /* =================================================================
-   PULL TO REFRESH — an ink drop. Home-screen apps have no browser
-   refresh, so pull past either end of the page: down at the top, or
-   up at the bottom (on one-screen sections, either way). A drop of ink
-   stretches off that edge as you pull and pinches free once you've
-   gone far enough; that's the "let go now" moment. Let go and it
-   settles in the gap, tapping out ripples while the fresh copy loads.
-   The new page picks the ripples up in step, then the drop dissolves
-   as the content settles back in, on the section you were reading.
-   A short pull slurps back into the edge. The refresh button plays it too.
+   PULL TO REFRESH — the page rebuilds in a cascade. Home-screen apps
+   have no browser refresh, so pull past either end of the page: down
+   at the top, or up at the bottom (either way when the page fits on one screen).
+   There's no indicator; the page itself answers. As you pull, the rows
+   nearest that edge stretch away from the rest like a slinky, and once
+   you've pulled far enough they give a small pop: let go now. Then the
+   page clears in a quick wave running away from that edge, and the
+   fresh copy (fetched while the wave runs) rebuilds the same way, row
+   by row from the edge you pulled, on the section you were reading.
+   A short pull just settles back. The refresh button plays the cascade.
    ================================================================= */
 const PTR=(()=>{
- const R1=21,R2=9.5,MAXD=50,MEN=8,THR=100,REST=40,EPOCH=150;
- const root=document.documentElement,el=$("#ptr"),app=$("#app");
- const men=$(".m",el),br=$(".b",el),drop=$(".d",el),dot=$(".ptr-dot",el);
+ const THR=100,STR=26,POP=38,FALL=260,IN=560;
+ const root=document.documentElement,app=$("#app");
  const reduce=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
- const eo=t=>1-Math.pow(1-t,3);
- /* springs: meniscus bulge, drop centre, drop radius, and the freed drop's wobble */
- const sp=x=>({x,v:0,t:x}),M=sp(0),C=sp(-R1),R=sp(0),W=sp(0);
- let mode="idle",edge=1,pinched=false,p=0,raf=0,last=0;
- /* the neck between the edge and the drop (metaball bridge between two circles) */
- function neck(r1,c1,r2,c2){
-  const d=Math.hypot(c2[0]-c1[0],c2[1]-c1[1]);
-  if(!r1||r2<.5||d>MAXD||d<=Math.abs(r1-r2))return "";
-  const near=r1+r2,k=d<=near?0:Math.min(1,(d-near)/(MAXD-near)),v=.5-.36*k*k,HP=Math.PI/2;
-  let u1=0,u2=0;
-  if(d<near){u1=Math.acos((r1*r1+d*d-r2*r2)/(2*r1*d));u2=Math.acos((r2*r2+d*d-r1*r1)/(2*r2*d))}
-  const a=Math.atan2(c2[1]-c1[1],c2[0]-c1[0]),ms=Math.acos((r1-r2)/d);
-  const a1=a+u1+(ms-u1)*v,a2=a-u1-(ms-u1)*v,a3=a+Math.PI-u2-(Math.PI-u2-ms)*v,a4=a-Math.PI+u2+(Math.PI-u2-ms)*v;
-  const P=(c,g,r)=>[c[0]+r*Math.cos(g),c[1]+r*Math.sin(g)];
-  const p1=P(c1,a1,r1),p2=P(c1,a2,r1),p3=P(c2,a3,r2),p4=P(c2,a4,r2);
-  const h=Math.min(v*2.4,Math.hypot(p3[0]-p1[0],p3[1]-p1[1])/near)*Math.min(1,d*2/near);
-  const h1=P(p1,a1-HP,r1*h),h2=P(p2,a2+HP,r1*h),h3=P(p3,a3+HP,r2*h),h4=P(p4,a4-HP,r2*h);
-  const f=q=>q[0].toFixed(2)+" "+q[1].toFixed(2);
-  return `M${f(p1)}C${f(h1)} ${f(h3)} ${f(p3)}A${r2.toFixed(2)} ${r2.toFixed(2)} 0 ${d>r1?1:0} 0 ${f(p4)}C${f(h4)} ${f(h2)} ${f(p2)}Z`;
+ const SPR={x:0,v:0,t:0};
+ let mode="idle",edge=1,ready=false,p=0,raf=0,last=0,units=[];
+ /* the pieces that move: hero lines, home rows, or an open section's cards */
+ function collect(){
+  const vh=innerHeight,home=$("#home");if(!home)return [];
+  const vis=e=>e&&!e.hidden&&e.offsetHeight>0&&getComputedStyle(e).display!=="none";
+  const expand=(el,n)=>{const k=[...el.children].filter(vis);return n<3&&k.length&&el.offsetHeight>vh*.34?k.flatMap(c=>expand(c,n+1)):[el]};
+  let u=[];
+  for(const c of home.children){
+   if(!vis(c))continue;
+   if(c.id==="list"){for(const it of c.children){if(!vis(it))continue;if(it.classList.contains("open")){u.push($(".it-hd",it));const sec=$(".sec",it);if(sec)u.push(...expand(sec,0))}else u.push(it)}}
+   else if(c.matches(".hero"))u.push(...[...c.children].filter(vis));
+   else u.push(c);
+  }
+  u=u.filter((e,i)=>e&&!u.some((o,j)=>j!==i&&o&&o!==e&&o.contains(e)));
+  const out=[];
+  for(const el of u){
+   const r=el.getBoundingClientRect();if(!r.height||r.bottom<=0||r.top>=vh)continue;
+   const d=edge>0?Math.max(0,r.top):Math.max(0,vh-r.bottom);
+   out.push({el,d,x:r.left,w:Math.exp(-d/260),t0:el.style.transform,o0:el.style.opacity});
+  }
+  return out.sort((a,b)=>a.d-b.d||(edge>0?a.x-b.x:b.x-a.x));
  }
- function aim(){
-  if(mode!=="pull"&&mode!=="auto")return;
-  const q=Math.min(1,p);
-  M.t=pinched?0:MEN*eo(Math.min(1,q/.3));
-  R.t=pinched?R2:4+(R2-4)*eo(Math.min(1,q/.55));
-  C.t=pinched?36+Math.min(26,(p-1)*THR*.22):(M.t-R1)+MAXD*.985*Math.pow(q,1.25);
+ function paint(){
+  const rm=reduce();
+  for(const u of units){
+   if(rm)u.el.style.opacity=(1-.5*Math.min(1,SPR.x/POP)*u.w).toFixed(3);
+   else u.el.style.transform=`translate3d(0,${(edge*SPR.x*u.w).toFixed(2)}px,0)`;
+  }
  }
- function draw(){
-  const mc=M.x-R1;men.setAttribute("cy",mc.toFixed(2));men.style.display=M.x>.05?"":"none";
-  if(pinched){br.setAttribute("d","");drop.setAttribute("r","0");dot.style.translate=`0 ${C.x.toFixed(2)}px`;dot.style.scale=`${(1-W.x*.45).toFixed(3)} ${(1+W.x).toFixed(3)}`}
-  else{const r=Math.max(0,R.x);drop.setAttribute("cy",C.x.toFixed(2));drop.setAttribute("r",r.toFixed(2));br.setAttribute("d",neck(R1,[0,mc],r,[0,C.x]))}
- }
- const step=(s,k,d,h)=>{s.v+=(k*(s.t-s.x)-d*s.v)*h;s.x+=s.v*h};
- const still=s=>Math.abs(s.t-s.x)<.15&&Math.abs(s.v)<2;
+ function restore(){for(const u of units){u.el.style.transform=u.t0;u.el.style.opacity=u.o0}}
+ function aim(){SPR.t=ready?POP+Math.min(10,(p-1)*THR*.08):STR*(1-Math.pow(1-Math.min(1,p),2))}
  function frame(now){
   const dt=Math.min(.032,last?(now-last)/1000:.016);last=now;
-  if(reduce()){[M,C,R].forEach(s=>{s.x=s.t;s.v=0});W.x=W.v=0}
-  else for(let i=0;i<2;i++){const h=dt/2;step(M,520,30,h);step(C,880,52,h);step(R,700,46,h);step(W,640,9,h)}
-  draw();
-  if([M,C,R,W].every(still)){raf=0;last=0;if(mode==="back")reset()}else raf=requestAnimationFrame(frame);
+  if(reduce()){SPR.x=SPR.t;SPR.v=0}
+  else for(let i=0;i<2;i++){const h=dt/2;SPR.v+=(900*(SPR.t-SPR.x)-40*SPR.v)*h;SPR.x+=SPR.v*h}
+  paint();
+  if(Math.abs(SPR.t-SPR.x)<.1&&Math.abs(SPR.v)<1){raf=0;last=0;if(mode==="back"){restore();units=[];mode="idle"}}
+  else raf=requestAnimationFrame(frame);
  }
  const kick=()=>{if(!raf){last=0;raf=requestAnimationFrame(frame)}};
- function reset(){
-  mode="idle";pinched=false;p=0;cancelAnimationFrame(raf);raf=0;
-  Object.assign(M,sp(0));Object.assign(C,sp(-R1));Object.assign(R,sp(0));Object.assign(W,sp(0));
-  el.classList.remove("on","free","load");dot.style.translate=dot.style.scale="";draw();
+ function begin(d){
+  if(mode!=="idle"&&d!==edge){restore();SPR.x=SPR.v=0}
+  if(mode==="idle"||d!==edge){edge=d;units=collect()}
+  mode="pull";
  }
- function begin(d,how){
-  if(mode!=="idle"&&d!==edge)reset();
-  edge=d;el.dataset.edge=d<0?"bottom":"top";el.classList.add("on");mode=how||"pull";
- }
- function pinch(){pinched=true;el.classList.add("free");W.x=.26;W.v=0;C.v+=70}
- function unpinch(){pinched=false;el.classList.remove("free");W.x=W.v=0}
- function back(){mode="back";if(pinched)unpinch();p=0;M.t=0;C.t=-R1;R.t=0;kick()}
+ function back(){mode="back";ready=false;p=0;SPR.t=0;kick()}
+ /* fetch the fresh page and its data while the wave runs, so the new copy lands fast */
+ function prefetch(v){const get=u=>fetch(u).then(r=>r.ok?r.arrayBuffer():0).catch(()=>0);return Promise.all([get(SELF+"?v="+v),get("data.json?v="+v),get("health.json?v="+v)])}
  function release(){
-  mode="load";if(!pinched)pinch();el.classList.add("load");el.style.setProperty("--ptr-ph",EPOCH+"ms");
-  M.t=0;C.t=REST;R.t=R2;kick();
-  const where=edge<0?"bottom":"top";app.dataset.hold=where;
-  try{sessionStorage.setItem("sd-ptr",JSON.stringify({e:where,t:Date.now()+EPOCH}))}catch(e){}
-  const h=S.open||"";setTimeout(()=>fresh(h),560);
+  mode="out";cancelAnimationFrame(raf);raf=0;
+  const v=Date.now(),pre=prefetch(v),rm=reduce(),n=units.length;
+  const gap=rm||n<2?0:Math.min(28,300/(n-1)),dur=rm?160:FALL;
+  units.forEach((u,i)=>{
+   const from=rm?0:edge*SPR.x*u.w,op=getComputedStyle(u.el).opacity;
+   u.el.animate([{transform:`translate3d(0,${from}px,0)`,opacity:op},{transform:`translate3d(0,${from+(rm?0:edge*26)}px,0)`,opacity:0}],{duration:dur,delay:i*gap,easing:"cubic-bezier(.4,0,1,1)",fill:"forwards"});
+  });
+  restore();
+  const span=dur+(n-1)*gap;
+  /* sweep up anything between the pieces (hairlines, padding) as the wave ends */
+  app.animate([{opacity:1},{opacity:0}],{duration:140,delay:Math.max(0,span-140),fill:"forwards"});
+  const h=S.open||"";
+  Promise.all([new Promise(r=>setTimeout(r,span+30)),Promise.race([pre,new Promise(r=>setTimeout(r,2500))])]).then(()=>{
+   try{sessionStorage.setItem("sd-ptr",JSON.stringify({e:edge<0?"bottom":"top",t:Date.now(),v}))}catch(e){}
+   fresh(h,v);
+  });
  }
- /* the refresh button: the same drop, pulled by itself */
- function go(){
-  if(mode==="load"||mode==="auto")return;
-  begin(1,"auto");if(reduce()){p=1.04;pinch();aim();draw();release();return}
-  const t0=performance.now(),D=420;
-  const tick=now=>{const q=Math.min(1,(now-t0)/D);p=1.04*(q<.5?2*q*q:1-Math.pow(-2*q+2,2)/2);
-   if(!pinched&&p>=1)pinch();aim();kick();if(q<1)requestAnimationFrame(tick);else setTimeout(release,90)};
-  requestAnimationFrame(tick);
- }
+ /* the refresh button: the same cascade from the top */
+ function go(){if(mode==="out")return;if(mode!=="idle"){restore();SPR.x=SPR.v=SPR.t=0}edge=1;units=collect();release()}
  /* the gesture */
  const atTop=()=>window.scrollY<=0;
  const atBot=()=>window.scrollY+innerHeight>=document.documentElement.scrollHeight-2;
  const noPull=t=>$("#sheet").classList.contains("open")||!!(t&&t.closest&&t.closest(".rail,.chart,.chips,.hist,.nav,.deck,input,textarea,select,[contenteditable]"));
  let y0=null,x0=0,dir=0,decided=false;
  addEventListener("touchstart",e=>{
-  y0=null;if(mode==="load"||mode==="auto"||root.dataset.ptr||e.touches.length!==1||noPull(e.target))return;
+  y0=null;if(mode==="out"||root.dataset.ptr||e.touches.length!==1||noPull(e.target))return;
   const t=e.touches[0];y0=t.clientY;x0=t.clientX;dir=0;decided=false;
  },{passive:true});
  addEventListener("touchmove",e=>{
   if(y0==null)return;
   if(SW.on||e.touches.length!==1){y0=null;if(mode==="pull")back();return}
-  const t=e.touches[0];let dy=t.clientY-y0;
+  const t=e.touches[0],dy=t.clientY-y0;
   if(!decided){const dx=t.clientX-x0;if(Math.abs(dx)<6&&Math.abs(dy)<6)return;decided=true;if(Math.abs(dx)>Math.abs(dy)){y0=null;return}}
   if(!dir){
    /* measure the pull from the moment the page runs out, wherever the drag began */
    if(dy>0&&atTop())dir=1;else if(dy<0&&atBot())dir=-1;else{y0=t.clientY;return}
-   if(mode!=="pull"||dir!==edge)begin(dir);
+   begin(dir);
   }
   const pull=dy*dir;if(pull<=0){dir=0;y0=t.clientY}
   p=Math.max(0,pull)/THR;
-  if(!pinched&&p>=1)pinch();else if(pinched&&p<.8)unpinch();
+  if(!ready&&p>=1){ready=true;if(!reduce())SPR.v+=320}else if(ready&&p<.85)ready=false;
   aim();kick();
  },{passive:true});
- addEventListener("touchend",()=>{if(y0==null&&mode!=="pull")return;y0=null;if(mode!=="pull")return;if(pinched)release();else back()},{passive:true});
+ addEventListener("touchend",()=>{y0=null;if(mode!=="pull")return;if(ready)release();else back()},{passive:true});
  addEventListener("touchcancel",()=>{y0=null;if(mode==="pull")back()},{passive:true});
- /* the fresh page: once it has drawn, land where you were and let the drop go */
+ /* the fresh page: once it has drawn, land where you were and rebuild from that edge */
  let landed=false;
  function arrive(){
   const e=root.dataset.ptr;if(!e||landed)return;landed=true;clearTimeout(safety);
@@ -4506,8 +4471,13 @@ const PTR=(()=>{
    if(e==="bottom")window.scrollTo(0,document.documentElement.scrollHeight);
    else{const o=S.open&&$("#it-"+S.open);window.scrollTo(0,o?Math.max(0,Math.round(o.getBoundingClientRect().top+window.scrollY-topInset())):0)}
    root.style.scrollBehavior="";
-   el.classList.add("done");root.classList.add("ptr-in");
-   setTimeout(()=>{delete root.dataset.ptr;root.classList.remove("ptr-in");el.classList.remove("done");root.style.removeProperty("--ptr-ph")},720);
+   edge=e==="bottom"?-1:1;
+   const u=collect(),n=u.length,rm=reduce(),gap=n<2?0:Math.min(rm?20:46,(rm?160:440)/(n-1));
+   let lastA=null;
+   u.forEach((x,i)=>{lastA=x.el.animate(rm?[{opacity:0},{opacity:1}]:[{opacity:0,transform:`translate3d(0,${-edge*22}px,0)`},{opacity:1,transform:"translate3d(0,0,0)"}],{duration:rm?240:IN,delay:i*gap,easing:"cubic-bezier(.23,1,.32,1)",fill:"backwards"})});
+   root.classList.add("ptr-in");
+   const done=()=>{delete root.dataset.ptr;root.classList.remove("ptr-in")};
+   if(lastA)lastA.finished.then(done,done);else done();
   }));
  }
  const safety=root.dataset.ptr?setTimeout(arrive,8000):0;
@@ -4519,7 +4489,7 @@ const PTR=(()=>{
    ================================================================= */
 const SELF=location.href.split("#")[0].split("?")[0];
 const loadedDay=todayKey();
-function fresh(h){const go=()=>location.replace(SELF+"?v="+Date.now()+(typeof h==="string"&&h?"#"+h:""));if(!cfg().dirty||!backend())return go();Promise.race([flushCfg(),new Promise(r=>setTimeout(r,4000))]).then(go,go)}
+function fresh(h,v){const go=()=>location.replace(SELF+"?v="+(v||Date.now())+(typeof h==="string"&&h?"#"+h:""));if(!cfg().dirty||!backend())return go();Promise.race([flushCfg(),new Promise(r=>setTimeout(r,4000))]).then(go,go)}
 let hiddenAt=0;
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"){hiddenAt=Date.now();stopWs();flushCfg();return}const away=hiddenAt?Date.now()-hiddenAt:0;if(away>10*6e4||todayKey()!==loadedDay)fresh();else{startWs();if(away>60e3){renderHero();loadLive()}else if(away>5e3)pullCfg()}});
 addEventListener("pageshow",e=>{if(e.persisted)fresh()});
@@ -4558,6 +4528,7 @@ renderStocks=(f=>function(){f();renderTeasers()})(renderStocks);
 (async function boot(){
  applyTheme();
  await Promise.all([fetchData(),fetchHealth()]);
+ window.SDV=0;
  initData();
  const w=LS.get("sd-wx",null);if(w&&w.day===todayKey()&&Date.now()-w.t<36e5&&w.geo===geoOn())S.wx=w.v;
  const q=LS.get("sd-cx-q",null);if(q&&Date.now()-q.t<6*36e5){S.cx.q=q.v;S.cx.qAt=q.t}
