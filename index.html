@@ -4410,8 +4410,9 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>{appl
    away from that edge at a steady speed, kicking each row on and
    fading it as it passes, so everything at the same height goes
    together. While the wave runs, the fresh page and its data download.
-   The new copy then rebuilds on the same wave, row by row from that
-   edge, each landing on a soft spring, on the section you were reading.
+   The new copy then rebuilds on the wave coming back: it rebounds off
+   the far end and runs back toward you, row by row, each landing on a
+   soft spring, on the section you were reading.
    A short pull just settles back. The refresh button gives the top a
    small knock and runs the same surge. Reduce Motion: dims and fades,
    nothing moves.
@@ -4553,7 +4554,8 @@ const PTR=(()=>{
  },{passive:true});
  addEventListener("touchend",()=>{y0=null;if(mode!=="pull")return;if(ready)release(false);else back()},{passive:true});
  addEventListener("touchcancel",()=>{y0=null;if(mode==="pull")back()},{passive:true});
- /* the fresh page: once it has drawn, land where you were and rebuild on the same wave */
+ /* the fresh page: once it has drawn, land where you were and rebuild on the returning
+    wave, which starts at the far end and travels back toward the edge you pulled */
  let landed=false;
  function arrive(){
   const e=root.dataset.ptr;if(!e||landed)return;landed=true;clearTimeout(safety);
@@ -4562,7 +4564,7 @@ const PTR=(()=>{
    if(e==="bottom")window.scrollTo(0,document.documentElement.scrollHeight);
    else{const o=S.open&&$("#it-"+S.open);window.scrollTo(0,o?Math.max(0,Math.round(o.getBoundingClientRect().top+window.scrollY-topInset())):0)}
    root.style.scrollBehavior="";
-   edge=e==="bottom"?-1:1;
+   edge=e==="bottom"?1:-1;
    /* give each piece its layer a frame ahead, so starting the wave costs nothing */
    const rm=reduce(),u=collect(window.scrollY),V=BUILD.v*(rm?1.6:1);
    for(const x of u)x.el.style.willChange="transform,opacity";
