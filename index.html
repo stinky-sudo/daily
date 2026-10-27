@@ -1248,6 +1248,12 @@ html,body{overscroll-behavior-x:none}
 .vx-s{flex:1;min-width:0;font-size:13.5px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vc-rv{font-size:14.5px;color:var(--acc)!important;font-weight:650;white-space:nowrap}
 .vc:not(.now) .vx-t{color:var(--ink-2)}
+/* each step down fades a little: a quiet "learn this one before it goes" */
+.vc{transition:opacity .35s ease}
+.vc.a1{opacity:.8}
+.vc.a2{opacity:.6}
+.vc.a1:focus-within,.vc.a2:focus-within{opacity:1}
+@media (hover:hover){.vc.a1:hover,.vc.a2:hover{opacity:1}}
 .vc-w{display:flex;flex-direction:column;justify-content:center;min-height:0;min-width:0}
 .vc .term{font-size:58px;line-height:1.02;letter-spacing:-.015em;margin:0}
 .vx-pr{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:16px;color:var(--ink-2)}
@@ -2679,7 +2685,7 @@ const markWord=(t,w)=>esc(t).replace(wordRx(w),"<mark>$1</mark>");
 const ROOT_LANG=/^((?:Old |Middle |Late |Medieval |Ancient |Modern )?(?:Greek|Latin|French|English|Norse|Italian|German|Dutch|Spanish|Portuguese|Arabic|Persian|Sanskrit|Hindi|Japanese|Yiddish|Hebrew))\s+([^\s,:;]+)[,:;]?\s*(.*)$/i;
 /* VOCAB — the newest word on top, then the two before it, newest first; each card
    in the same format and the same height. Older words roll off (still in Review). */
-function vxCard(e,first,n){
+function vxCard(e,first,n,pos){
  const exs=(e.examples&&e.examples.length?e.examples:[e.ex]).filter(Boolean).slice(0,2);
  const cards=e.cards||[],cf=re=>(cards.find(c=>re.test(c.f))||{}).b||"";
  const root=cf(/root|origin|from/i),syns=cf(/synonym|similar/i).split(/\s*[,;\/]\s*/).filter(Boolean).slice(0,3);
@@ -2689,7 +2695,7 @@ function vxCard(e,first,n){
  const m=String(root).match(ROOT_LANG);
  const orig=root?(m?`<span class="vx-lang">${esc(m[1])}</span><span class="vc-sw">${esc(m[2])}</span><span class="vc-gl">${esc(m[3].replace(/^[-–—]\s*/,""))}</span>`:`<span class="vc-gl">${esc(root)}</span>`):"";
  const ask=`I'm learning the word "${e.word}" (${e.def}). Give me 3 natural sentences using it, from casual to formal, then ask me to write one and tell me if mine lands.`;
- return`<article class="card lw vc${ago<=0?" now":""}">
+ return`<article class="card lw vc${ago<=0?" now":""}${pos?" a"+pos:""}">
   <div class="vc-h"><span class="lw-ic">${MI.vocab}</span><span class="vx-t">${lbl}</span><span class="vx-s">${sub}</span>
    ${first?`<button class="aux vc-rv" data-act="review" data-k="v">Review<span class="vc-rvn"> all ${n}</span></button>`:""}${askBtn(ask,"Practice with Claude")}</div>
   <div class="vc-w">
@@ -2705,7 +2711,7 @@ function renderVocab(){
  const el=$("#s-vocab");if(!el)return;const list=VOCAB;
  if(!list.length){el.innerHTML=`<div class="card"><div class="empty-row">No word yet.</div></div>`;return}
  const show=list.slice(-3).reverse();
- el.innerHTML=`<div class="vx" style="--n:${show.length}">${show.map((e,j)=>vxCard(e,j===0,list.length)).join("")}</div>`;
+ el.innerHTML=`<div class="vx" style="--n:${show.length}">${show.map((e,j)=>vxCard(e,j===0,list.length,j)).join("")}</div>`;
  fitSec("vocab");
 }
 /* size a one-screen section to exactly the space under its pinned title (Health, Vocab) */
