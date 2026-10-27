@@ -2253,7 +2253,7 @@ async function pullCfg(){
 /* =================================================================
    STATE
    ================================================================= */
-const SECTIONS=[["cal","Calendar"],["live","Live"],["mkt","Markets"],["coach","Coach"],["news","News"],["watch","Watch"],["listen","Listen"],["music","Music"],["bay","Around the Bay"],["shows","Shows"],["movies","Movies"],["health","Health"],["vocab","Vocab"],["spanish","Spanish"]];
+const SECTIONS=[["cal","Calendar"],["live","Live"],["mkt","Markets"],["coach","Coach"],["news","News"],["watch","Watch"],["listen","Listen"],["music","Music"],["bay","Weekend"],["shows","Shows"],["movies","Movies"],["health","Health"],["vocab","Vocab"],["spanish","Spanish"]];
 /* older saved settings used "tip" and "learn" */
 const LEGACY={coach:["tip"],vocab:["learn"],spanish:["learn"]};
 const isHidden=id=>S.hidden.has(id)||(LEGACY[id]||[]).some(x=>S.hidden.has(x));
