@@ -2697,7 +2697,7 @@ function vxCard(e,first,n,pos){
  const ask=`I'm learning the word "${e.word}" (${e.def}). Give me 3 natural sentences using it, from casual to formal, then ask me to write one and tell me if mine lands.`;
  return`<article class="card lw vc${ago<=0?" now":""}${pos?" a"+pos:""}">
   <div class="vc-h"><span class="lw-ic">${MI.vocab}</span><span class="vx-t">${lbl}</span><span class="vx-s">${sub}</span>
-   ${first?`<button class="aux vc-rv" data-act="review" data-k="v">Review<span class="vc-rvn"> all ${n}</span></button>`:""}${askBtn(ask,"Practice with Claude")}</div>
+   ${askBtn(ask,"Practice with Claude")}</div>
   <div class="vc-w">
    <div class="term" lang="en">${esc(e.word)}</div>
    <div class="vx-pr"><span>${esc(e.pron||"")}</span>${e.pos?`<i>${esc(e.pos)}</i>`:""}<button class="say press" data-say="${esc(e.word)}" data-lang="en-US" aria-label="Hear it" data-tip="Hear it">${I.speaker}</button></div>
@@ -3988,8 +3988,7 @@ document.addEventListener("mousemove",e=>{if(SD.on&&SD.mouse){SD.y=e.clientY;ret
 document.addEventListener("mouseup",()=>{SD.mpend=null;if(SD.mouse){SD.mouse=false;sdEnd()}});
 function reviewHTML(){
  const k=S.review.kind,list=(k==="v"?VOCAB:SPAN).slice().reverse();const ord=S.review.order||list.map((_,i)=>i);
- return`<div class="sheet-h"><h3 id="sheet-title">Review</h3><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
- <div class="seg" style="margin:0 0 16px" role="tablist"><button class="${k==="v"?"on":""}" data-rev="v" role="tab">Words (${VOCAB.length})</button><button class="${k==="s"?"on":""}" data-rev="s" role="tab">Spanish (${SPAN.length})</button></div>
+ return`<div class="sheet-h"><h3 id="sheet-title">${k==="v"?"Review words":"Review phrases"}</h3><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
  <div class="deck noscroll" id="deck">${ord.map(i=>{const e=list[i];return k==="v"?`<button class="rc fc" data-flip><div class="fc-in"><div class="fc-f"><small>${esc(fmtKey(e.date,{month:"short",day:"numeric"}))}</small><b>${esc(e.word)}</b><small>Tap to reveal</small></div><div class="fc-b"><small>${esc(e.pos||"")}</small><span>${esc(e.def)}</span>${e.ex?`<em>${esc(e.ex)}</em>`:""}</div></div></button>`:`<button class="rc fc" data-flip><div class="fc-in"><div class="fc-f"><small>${esc(fmtKey(e.date,{month:"short",day:"numeric"}))}</small><b lang="es">${esc(e.phrase)}</b><small>Tap to reveal</small></div><div class="fc-b"><span>${esc(e.meaning)}</span><em>${esc(e.pron)}</em></div></div></button>`}).join("")}</div>
  <div class="deck-foot"><span class="foot-note" id="deck-n" style="margin:0">1 of ${list.length}</span><button class="btn press" data-act="shuffle">${I.shuffle}Shuffle</button></div>`;
 }
