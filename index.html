@@ -797,6 +797,14 @@ html{background:var(--bg)}
 .it-o button.on{color:var(--ink)}
 .it-o .io-th{position:absolute;z-index:0;top:3px;left:0;height:28px;width:var(--w,0);border-radius:999px;background:var(--seg-on);box-shadow:0 1px 3px rgba(0,0,0,.12);transform:translateX(var(--x,0));transition:transform .38s cubic-bezier(.3,.9,.25,1),width .38s cubic-bezier(.3,.9,.25,1)}
 .it-o.still .io-th{transition:none}
+/* swipe back: the whole page rides on the finger as one sheet; the list waits underneath */
+html,body{overscroll-behavior-x:none}
+.home.sw-drag{will-change:transform}
+.home.sw-drag::before{content:"";position:absolute;top:-100vh;bottom:-100vh;left:calc(-1*var(--swl,0px));right:calc(-1*var(--swr,0px));z-index:-1;background:var(--bg);box-shadow:0 0 0 .5px var(--line),0 0 48px rgba(0,0,0,.2);pointer-events:none}
+.sw-under{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--bg);pointer-events:none;contain:strict}
+.sw-in{position:absolute;left:0;width:100%;will-change:transform}
+.sw-dim{position:absolute;inset:0;background:#000;opacity:0;will-change:opacity}
+.sw-still,.sw-still *{transition:none!important;animation:none!important}
 @keyframes optIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
 @keyframes feedIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .feed-in{animation:feedIn .42s cubic-bezier(.2,.8,.2,1) both}
@@ -2284,6 +2292,7 @@ function isContent(t){
 }
 function toggleItem(id,force){
  const el=$("#it-"+id);if(!el)return;const open=force!=null?force:!el.classList.contains("open");
+ if(open&&!S.open)S.homeY=window.scrollY;if(!open)S.homeY=null;
  $$(".it.open").forEach(x=>{if(x===el)return;closeEl(x,open&&!!(x.compareDocumentPosition(el)&Node.DOCUMENT_POSITION_FOLLOWING))});
  if(open){el.classList.add("open");$(".it-h",el).setAttribute("aria-expanded","true");RENDER[id]();requestAnimationFrame(()=>{$$(".rail",el).forEach(railArrows);placeThumb(id,true);glideTo(el)})}
  else closeEl(el,false);
@@ -2299,6 +2308,147 @@ document.addEventListener("click",e=>{
  if(S.open&&document.contains(t)&&!isContent(t))toggleItem(S.open,false);
 });
 document.addEventListener("keydown",e=>{if(e.key!=="Escape"||$("#sheet").classList.contains("open"))return;if(S.open)toggleItem(S.open,false)});
+
+/* =================================================================
+   SWIPE BACK — drag an open section sideways to return to the list.
+   The page rides on the finger like a sheet; underneath, a copy of
+   the list (parked where you were before you tapped in) slides in with
+   a little parallax, so letting go lands on exactly what you saw.
+   A short or slow drag springs back. Rails, charts and other sideways
+   controls keep their own swipes, except when the drag starts at the
+   very edge of the screen, which always goes back. Two-finger swipes
+   on a trackpad do the same thing.
+   ================================================================= */
+const SW={on:false,anim:false,pend:null,swallow:0};
+const SW_EDGE=26,SW_PAR=.3;
+function swBlocked(t){
+ for(let e=t;e&&e.nodeType===1&&!e.matches(".home,body");e=e.parentElement){
+  if(e.matches("input,textarea,select,[contenteditable],.chart,.it-o,.seg,[data-noswipe]"))return true;
+  if(e.scrollWidth>e.clientWidth+1){const ox=getComputedStyle(e).overflowX;if(ox==="auto"||ox==="scroll")return true}
+ }
+ return false;
+}
+function swCanStart(t){
+ if(SW.on||SW.anim||!S.open||$("#sheet").classList.contains("open"))return null;
+ const el=$("#it-"+S.open),home=$("#home");return el&&el.classList.contains("open")&&home.contains(t)?el:null;
+}
+function swStart(el,sign){
+ const W=innerWidth,H=innerHeight,home=$("#home"),hr=home.getBoundingClientRect();
+ const homeTop=hr.top+window.scrollY;
+ const extra=Math.max(0,document.documentElement.scrollHeight-(homeTop+home.offsetHeight));
+ /* the list as it will look once this section is closed */
+ const c=home.cloneNode(true);
+ c.removeAttribute("id");c.inert=true;
+ c.querySelectorAll(".it-b").forEach(n=>n.remove());
+ c.querySelectorAll(".it.open").forEach(n=>n.classList.remove("open"));
+ c.querySelectorAll("[id]").forEach(n=>{if(!(n instanceof SVGElement))n.removeAttribute("id")});
+ const u=document.createElement("div");u.className="sw-under";u.setAttribute("aria-hidden","true");
+ u.innerHTML='<div class="sw-in"></div><div class="sw-dim"></div>';
+ const inn=u.firstChild;inn.appendChild(c);
+ home.style.setProperty("--swl",hr.left+"px");home.style.setProperty("--swr",(W-hr.right)+"px");
+ home.classList.add("sw-drag");
+ document.body.appendChild(u);
+ /* where the list lands: where you were, or with this row in easy view */
+ const row=c.querySelector(`.it[data-it="${el.dataset.it}"]`),cr=c.getBoundingClientRect();
+ const rowY=homeTop+(row?row.getBoundingClientRect().top-cr.top:0),rowH=row?row.offsetHeight:0;
+ const maxY=Math.max(0,Math.round(homeTop+c.offsetHeight+extra-H));
+ let y=S.homeY;if(y==null||rowY<y||rowY+rowH>y+H)y=rowY-H*.3;
+ y=Math.max(0,Math.min(maxY,Math.round(y)));
+ inn.style.top=(homeTop-y)+"px";
+ cancelAnimationFrame(glideRAF);
+ Object.assign(SW,{on:true,el,home,u,inn,dim:u.lastChild,sign,W,y,dx:0,raw:0,samples:[]});
+ swPaint(0);
+}
+function swPaint(dx){
+ const{home,inn,dim,sign,W}=SW;SW.dx=dx;const p=Math.min(1,Math.abs(dx)/W);
+ home.style.transform=`translate3d(${dx.toFixed(1)}px,0,0)`;
+ inn.style.transform=`translate3d(${(-sign*(1-p)*SW_PAR*W).toFixed(1)}px,0,0)`;
+ dim.style.opacity=((1-p)*.14).toFixed(3);
+}
+function swMove(raw){
+ const{sign,W}=SW;let dx=sign>0?Math.max(0,raw):Math.min(0,raw);
+ if(Math.abs(dx)>W)dx=sign*W;
+ const now=performance.now();SW.samples.push([now,dx]);while(SW.samples.length>2&&now-SW.samples[0][0]>100)SW.samples.shift();
+ swPaint(dx);
+}
+function swVel(fresh){
+ const a=SW.samples;if(a.length<2)return 0;const l=a[a.length-1];
+ if(fresh&&performance.now()-l[0]>70)return 0;/* finger paused before letting go */
+ const f=a[0];return l[0]>f[0]?(l[1]-f[1])/(l[0]-f[0]):0;
+}
+function swEnd(fresh){
+ if(!SW.on||SW.anim)return;
+ const{sign,W,dx}=SW,v=swVel(fresh),d=sign*dx,sv=sign*v;
+ const go=(d>W*.32&&sv>-.12)||(sv>.32&&d>24);
+ swAnim(go?sign*W:0,v,go);
+}
+function swAnim(to,v,go){
+ SW.anim=true;const from=SW.dx,dist=Math.abs(to-from),t0=performance.now();
+ /* start at the finger's speed, then ease into place */
+ const D=dist<1?1:Math.max(go?170:200,Math.min(go?340:360,3*dist/Math.max(Math.abs(v),.55)));
+ const ease=t=>1-Math.pow(1-t,3);
+ const step=now=>{const p=Math.min(1,(now-t0)/D);swPaint(from+(to-from)*ease(p));
+  if(p<1)requestAnimationFrame(step);else go?swLand():swDone()};
+ requestAnimationFrame(step);
+}
+function swDone(){
+ const{home,u}=SW;
+ home.classList.remove("sw-drag");home.style.transform="";home.style.removeProperty("--swl");home.style.removeProperty("--swr");
+ u.remove();Object.assign(SW,{on:false,anim:false,el:null,home:null,u:null,inn:null,dim:null,samples:[]});
+}
+function swLand(){
+ const{el,y}=SW,r=document.documentElement;
+ /* close in one frame, behind the copy, so the swap is invisible */
+ el.classList.add("sw-still");
+ el.classList.remove("open");$(".it-h",el).setAttribute("aria-expanded","false");
+ S.open=null;S.homeY=null;
+ try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}
+ r.style.scrollBehavior="auto";
+ swDone();
+ window.scrollTo(0,y);
+ void el.offsetHeight;
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");r.style.scrollBehavior=""}));
+}
+/* touch */
+document.addEventListener("touchstart",e=>{
+ SW.pend=null;if(e.touches.length>1)return;
+ const el=swCanStart(e.target);if(!el)return;
+ const t=e.touches[0],edge=t.clientX<SW_EDGE?1:t.clientX>innerWidth-SW_EDGE?-1:0;
+ const blocked=swBlocked(e.target);if(blocked&&!edge)return;
+ SW.pend={el,x:t.clientX,y:t.clientY,edge,blocked};
+},{passive:true});
+document.addEventListener("touchmove",e=>{
+ if(SW.on&&!SW.wheel){if(e.cancelable)e.preventDefault();if(!SW.anim)swMove(e.touches[0].clientX-SW.x0);return}
+ const P=SW.pend;if(!P)return;
+ if(e.touches.length>1){SW.pend=null;return}
+ const t=e.touches[0],dx=t.clientX-P.x,dy=t.clientY-P.y,ax=Math.abs(dx),ay=Math.abs(dy);
+ if(ax<10&&ay<10){if(ax>ay&&e.cancelable)e.preventDefault();return}/* hold the page still while it's still undecided */
+ SW.pend=null;
+ if(ax<ay*1.2)return;/* mostly up/down: it's a scroll */
+ const sign=dx>0?1:-1;if(P.blocked&&P.edge!==sign)return;
+ if(e.cancelable)e.preventDefault();
+ SW.wheel=false;swStart(P.el,sign);SW.x0=t.clientX;
+},{passive:false});
+const swUp=()=>{SW.pend=null;if(SW.on&&!SW.wheel)swEnd(true)};
+document.addEventListener("touchend",swUp);document.addEventListener("touchcancel",swUp);
+/* trackpad: two-finger swipe */
+addEventListener("wheel",e=>{
+ const now=performance.now(),ax=Math.abs(e.deltaX),ay=Math.abs(e.deltaY);
+ if(SW.swallow){if(now-SW.swallow<160){SW.swallow=now;if(ax>ay)e.preventDefault();return}SW.swallow=0}
+ if(SW.on&&SW.wheel){
+  e.preventDefault();if(SW.anim)return;
+  SW.raw-=e.deltaX*(e.deltaMode===1?16:1);swMove(SW.raw);
+  clearTimeout(SW.wt);
+  if(Math.abs(SW.dx)>=SW.W*.5){SW.swallow=now;swEnd(false);return}
+  SW.wt=setTimeout(()=>swEnd(false),120);return;
+ }
+ if(SW.on||e.ctrlKey||ax<3||ax<ay*1.5)return;
+ const el=swCanStart(e.target);if(!el||swBlocked(e.target))return;
+ e.preventDefault();
+ SW.wheel=true;swStart(el,e.deltaX<0?1:-1);
+ SW.raw=-e.deltaX*(e.deltaMode===1?16:1);swMove(SW.raw);
+ SW.wt=setTimeout(()=>swEnd(false),120);
+},{passive:false});
 
 function smoothPath(P){if(P.length<2)return"";let d=`M${P[0][0].toFixed(1)},${P[0][1].toFixed(1)}`;for(let i=0;i<P.length-1;i++){const p0=P[i-1]||P[i],p1=P[i],p2=P[i+1],p3=P[i+2]||p2;d+=`C${(p1[0]+(p2[0]-p0[0])/6).toFixed(1)},${(p1[1]+(p2[1]-p0[1])/6).toFixed(1)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(1)},${(p2[1]-(p3[1]-p1[1])/6).toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`}return d}
 function drawSky(){
@@ -3855,7 +4005,7 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>{appl
 /* pull to refresh (home-screen apps have no browser refresh) */
 (()=>{let y0=null,pull=0;const ind=$("#ptr");ind.innerHTML=I.refresh;
  addEventListener("touchstart",e=>{if(window.scrollY<=0&&!$("#sheet").classList.contains("open")&&!e.target.closest(".rail,.chart,.chips,.hist,.nav,.deck")){y0=e.touches[0].clientY;pull=0}else y0=null},{passive:true});
- addEventListener("touchmove",e=>{if(y0==null)return;pull=e.touches[0].clientY-y0;if(pull<=0){ind.style.opacity=0;return}const p=Math.min(1,pull/110);ind.style.opacity=p;ind.style.transform=`translateY(${(-24+p*34).toFixed(1)}px) rotate(${Math.round(p*300)}deg)`;ind.classList.toggle("ready",p>=1)},{passive:true});
+ addEventListener("touchmove",e=>{if(y0==null)return;if(SW.on){y0=null;ind.style.opacity=0;ind.classList.remove("ready");return}pull=e.touches[0].clientY-y0;if(pull<=0){ind.style.opacity=0;return}const p=Math.min(1,pull/110);ind.style.opacity=p;ind.style.transform=`translateY(${(-24+p*34).toFixed(1)}px) rotate(${Math.round(p*300)}deg)`;ind.classList.toggle("ready",p>=1)},{passive:true});
  addEventListener("touchend",()=>{if(y0==null)return;if(pull>=110){ind.classList.add("spin");setTimeout(fresh,300)}else{ind.style.opacity=0;ind.classList.remove("ready")}y0=null},{passive:true});
 })();
 
