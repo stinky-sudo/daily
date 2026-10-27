@@ -1239,7 +1239,7 @@ html,body{overscroll-behavior-x:none}
    Landscape / Mac: three columns. Phone: stacks and scrolls. */
 #s-vocab{--hdh:58px}
 .vx{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(var(--n,3),minmax(0,1fr));gap:12px;
- height:calc(100vh - var(--hdh) - 34px);height:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - 34px);min-height:760px}
+ height:calc(100vh - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));height:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));min-height:740px}
 .vc{margin:0!important;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);grid-template-rows:auto minmax(0,1fr) auto;column-gap:24px;
  min-height:0;min-width:0;padding:16px 22px 16px!important;border-radius:22px;overflow:hidden}
 .vc-h{grid-column:1/-1;display:flex;align-items:center;gap:10px;min-height:38px}
@@ -1250,8 +1250,8 @@ html,body{overscroll-behavior-x:none}
 .vc:not(.now) .vx-t{color:var(--ink-2)}
 /* each step down fades a little: a quiet "learn this one before it goes" */
 .vc{transition:opacity .35s ease}
-.vc.a1{opacity:.8}
-.vc.a2{opacity:.6}
+.vc.a1{opacity:.66}
+.vc.a2{opacity:.4}
 .vc.a1:focus-within,.vc.a2:focus-within{opacity:1}
 @media (hover:hover){.vc.a1:hover,.vc.a2:hover{opacity:1}}
 .vc-w{display:flex;flex-direction:column;justify-content:center;min-height:0;min-width:0}
@@ -2149,7 +2149,7 @@ const S={
  news:{tag:"All",open:false},
  yt:{items:null,source:"seed",updated:0,error:""},
  learn:{v:null,s:null},
- review:{kind:"v",order:null},
+ review:{kind:"s",order:null},
  sync:{state:"",at:0}
 };
 let ED="",EVENTS=[],VOCAB=[],SPAN=[];
@@ -2725,9 +2725,10 @@ function renderVocab(){
 }
 /* size a one-screen section to exactly the space under its pinned title (Health, Vocab) */
 function fitSec(id){
- const s=$("#s-"+id),go=()=>{const hd=$("#it-"+id+" .it-hd");if(hd&&s)s.style.setProperty("--hdh",hd.offsetHeight+"px")};
+ const gap=t=>{const g=Math.round(t.getBoundingClientRect().left);if(g>0)t.style.setProperty("--hgap",g+"px")};
+ const s=$("#s-"+id),go=()=>{const hd=$("#it-"+id+" .it-hd");if(hd&&s){s.style.setProperty("--hdh",hd.offsetHeight+"px");gap(s)}};
  go();requestAnimationFrame(go);
- if(!(window.__fit||(window.__fit=new Set())).has(id)){window.__fit.add(id);addEventListener("resize",()=>requestAnimationFrame(()=>{const hd=$("#it-"+id+" .it-hd"),t=$("#s-"+id);if(hd&&t)t.style.setProperty("--hdh",hd.offsetHeight+"px")}))}
+ if(!(window.__fit||(window.__fit=new Set())).has(id)){window.__fit.add(id);addEventListener("resize",()=>requestAnimationFrame(()=>{const hd=$("#it-"+id+" .it-hd"),t=$("#s-"+id);if(hd&&t){t.style.setProperty("--hdh",hd.offsetHeight+"px");gap(t)}}))}
 }
 const scrollHist=el=>requestAnimationFrame(()=>$$(".hist",el).forEach(h=>{const on=$(".hc.on",h);if(on)h.scrollLeft=on.offsetLeft+on.offsetWidth-h.clientWidth+18}));
 
@@ -3849,7 +3850,7 @@ function learnCard(kind){
  </div>`;
 }
 function renderLearn(){
- $("#s-learn").innerHTML=`<div class="sh"><h2>Learn</h2><button class="aux" data-act="review">Review deck</button></div>${learnCard("v")}${learnCard("s")}`;
+ $("#s-learn").innerHTML=`<div class="sh"><h2>Learn</h2></div>${learnCard("v")}${learnCard("s")}`;
  requestAnimationFrame(()=>$$("#s-learn .hist").forEach(h=>{const on=$(".hc.on",h);if(on)h.scrollLeft=on.offsetLeft+on.offsetWidth-h.clientWidth+18}));
 }
 
@@ -4026,9 +4027,9 @@ document.addEventListener("mousedown",e=>{if(e.button||e.sourceCapabilities&&e.s
 document.addEventListener("mousemove",e=>{if(SD.on&&SD.mouse){SD.y=e.clientY;return}if(SD.mpend&&Math.abs(e.clientY-SD.mpend.y)>4){SD.mouse=true;sdStart(SD.mpend.row,SD.mpend.y);SD.y=e.clientY;SD.mpend=null}});
 document.addEventListener("mouseup",()=>{SD.mpend=null;if(SD.mouse){SD.mouse=false;sdEnd()}});
 function reviewHTML(){
- const k=S.review.kind,list=(k==="v"?VOCAB:SPAN).slice().reverse();const ord=S.review.order||list.map((_,i)=>i);
- return`<div class="sheet-h"><h3 id="sheet-title">${k==="v"?"Review words":"Review phrases"}</h3><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
- <div class="deck noscroll" id="deck">${ord.map(i=>{const e=list[i];return k==="v"?`<button class="rc fc" data-flip><div class="fc-in"><div class="fc-f"><small>${esc(fmtKey(e.date,{month:"short",day:"numeric"}))}</small><b>${esc(e.word)}</b><small>Tap to reveal</small></div><div class="fc-b"><small>${esc(e.pos||"")}</small><span>${esc(e.def)}</span>${e.ex?`<em>${esc(e.ex)}</em>`:""}</div></div></button>`:`<button class="rc fc" data-flip><div class="fc-in"><div class="fc-f"><small>${esc(fmtKey(e.date,{month:"short",day:"numeric"}))}</small><b lang="es">${esc(e.phrase)}</b><small>Tap to reveal</small></div><div class="fc-b"><span>${esc(e.meaning)}</span><em>${esc(e.pron)}</em></div></div></button>`}).join("")}</div>
+ const k="s",list=SPAN.slice().reverse();const ord=S.review.order||list.map((_,i)=>i);
+ return`<div class="sheet-h"><h3 id="sheet-title">Review phrases</h3><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
+ <div class="deck noscroll" id="deck">${ord.map(i=>{const e=list[i];return `<button class="rc fc" data-flip><div class="fc-in"><div class="fc-f"><small>${esc(fmtKey(e.date,{month:"short",day:"numeric"}))}</small><b lang="es">${esc(e.phrase)}</b><small>Tap to reveal</small></div><div class="fc-b"><span>${esc(e.meaning)}</span><em>${esc(e.pron)}</em></div></div></button>`}).join("")}</div>
  <div class="deck-foot"><span class="foot-note" id="deck-n" style="margin:0">1 of ${list.length}</span><button class="btn press" data-act="shuffle">${I.shuffle}Shuffle</button></div>`;
 }
 function bindDeck(){const d=$("#deck");if(!d)return;d.addEventListener("scroll",()=>{const c=d.children[0];if(!c)return;const i=Math.round(d.scrollLeft/(c.offsetWidth+12));const n=$("#deck-n");if(n)n.textContent=`${Math.min(d.children.length,i+1)} of ${d.children.length}`},{passive:true})}
@@ -4086,8 +4087,8 @@ document.addEventListener("click",async e=>{
   if(act==="tmdb-save"){const v=($("#tmdb-key").value||"").trim();if(!v){toast("Paste a key first");return}LS.set("sd-tmdb-key",v);LS.del("sd-tmdb");toast("Loading movies…");await loadMovies(true);refreshSettings();return}
   if(act==="tmdb-clear"){LS.del("sd-tmdb-key");LS.del("sd-tmdb");S.mv=null;renderMovies();renderTeasers();refreshSettings();toast("TMDB key removed");return}
   if(act==="vocab-check"){const v=($("#vc-mine").value||"").trim(),w=a.dataset.w;window.open(askUrl(v?`I'm learning the word "${w}". Is this a natural, correct use of it? If not, show me a better version and explain briefly.\n\n"${v}"`:`Give me 3 natural sentences using "${w}", from casual to formal, and a quick trick to remember it.`),"_blank","noopener");return}
-  if(act==="review"){S.review={kind:a.dataset.k==="s"?"s":"v",order:null};openSheet(reviewHTML());bindDeck();return}
-  if(act==="shuffle"){const list=S.review.kind==="v"?VOCAB:SPAN;S.review.order=list.map((_,i)=>i).sort(()=>Math.random()-.5);$("#sheet-p").innerHTML=`<div class="grab"></div>`+reviewHTML();bindDeck();return}
+  if(act==="review"){S.review={kind:"s",order:null};openSheet(reviewHTML());bindDeck();return}
+  if(act==="shuffle"){const list=SPAN;S.review.order=list.map((_,i)=>i).sort(()=>Math.random()-.5);$("#sheet-p").innerHTML=`<div class="grab"></div>`+reviewHTML();bindDeck();return}
   if(act==="news-more"){S.news.open=!S.news.open;renderNews();return}
   if(act==="refresh"){toast("Refreshing");setTimeout(fresh,200);return}
   if(act==="clear-cache"){Object.keys(localStorage).filter(k=>/^sd-(yt-cache|ytc-|cx-|st-|wx|place|cgid)/.test(k)).forEach(k=>LS.del(k));toast("Cache cleared");setTimeout(fresh,400);return}
@@ -4112,7 +4113,7 @@ document.addEventListener("click",async e=>{
   const swap=()=>{applyTheme();$$("[data-theme-set]").forEach(b=>{const on=b.dataset.themeSet===id;b.classList.toggle("on",on);b.setAttribute("aria-checked",on)});redrawCharts();renderHero()};
   /* cross-fade the whole page when the browser can */
   if(document.startViewTransition&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.startViewTransition(swap);else swap();return}
- const rv=t.closest("[data-rev]");if(rv){S.review={kind:rv.dataset.rev,order:null};$("#sheet-p").innerHTML=`<div class="grab"></div>`+reviewHTML();bindDeck();return}
+
  const mvp=t.closest("[data-mvp]");if(mvp){const k=mvp.dataset.mvp,raw=mvp.dataset.v;setMvPref(k,/^\d+$/.test(raw)?+raw:raw);return}
  const mvg=t.closest("[data-mvg]");if(mvg){const g=mvg.dataset.mvg,o=mvPrefs();const has=o.hide.some(h=>norm(h)===norm(g));setMvPref("hide",has?o.hide.filter(h=>norm(h)!==norm(g)):o.hide.concat([g]));return}
  const pnb=t.closest("[data-pin]");if(pnb){e.preventDefault();e.stopPropagation();togglePin(pnb.dataset.pin);return}
