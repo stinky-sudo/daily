@@ -1085,9 +1085,140 @@ html,body{overscroll-behavior-x:none}
 .mv-rail{align-items:start}
 .cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
 /* dismiss */
-/* coach */
-.coach{display:grid;gap:12px}
-/* Coach: one card. A line for the day, one reason, one thing to do; at night, one question. */
+/* ──────────────── COACH · one screen ────────────────
+   The Coach gradient runs teal to indigo: morning to night. The hero glows teal (the day's
+   quality, the focus, the one thing), the night card leans indigo (tonight's question), and
+   the week strip fills with the same gradient as the days get done.
+   iPad upright: hero on top, idea | tonight, the week along the bottom.
+   Landscape / Mac: hero on the left, idea, tonight and week stacked on the right.
+   Phone: stacks and scrolls. */
+:root{--co1:#11867F;--co2:#3E57C9;--co-ink:#0C6D67;--co-n:#3E57C9}
+:root[data-theme="dark"]{--co1:#3FCFC3;--co2:#8796FF;--co-ink:#5EDCD1;--co-n:#9AA7FF}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--co1:#3FCFC3;--co2:#8796FF;--co-ink:#5EDCD1;--co-n:#9AA7FF}}
+#s-coach{--hdh:58px}
+.cq{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.cx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(0,1.6fr) minmax(0,1fr) auto;
+ grid-template-areas:"hero hero" "idea night" "week week";gap:12px;
+ height:calc(100vh - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));height:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));min-height:740px}
+.cx.no-idea{grid-template-areas:"hero hero" "night night" "week week"}
+.cx>.card{margin:0!important;min-height:0;min-width:0;border-radius:24px;overflow:hidden}
+.cx-k{display:flex;align-items:center;gap:8px;min-height:22px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);flex:0 0 auto}
+.cx-k .cq{width:16px;height:16px;color:var(--co-ink)}
+/* hero */
+.cx-hero{grid-area:hero;position:relative;display:flex;flex-direction:column;padding:20px 26px 24px!important;isolation:isolate;
+ background:radial-gradient(70% 85% at 100% 0%,color-mix(in srgb,var(--co1) 15%,transparent),transparent 72%),
+  radial-gradient(55% 70% at 76% 4%,color-mix(in srgb,var(--co2) 9%,transparent),transparent 70%),var(--surface)}
+.cx-hd{display:flex;align-items:center;gap:12px;min-height:40px;flex:0 0 auto}
+.cx-wm{position:absolute;z-index:-1;right:-70px;top:-78px;width:330px;height:330px;color:var(--co1);opacity:.07;pointer-events:none}
+.cx-wm .cq{width:100%;height:100%;stroke-width:.8}.cx-wm [fill]{fill:none}
+:root[data-theme="dark"] .cx-wm{opacity:.085}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cx-wm{opacity:.085}}
+.cx-ic{flex:0 0 auto;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;background:linear-gradient(140deg,var(--co1),var(--co2));box-shadow:0 8px 18px -10px var(--co2)}
+.cx-ic .cq{width:21px;height:21px;stroke-width:2}
+.cx-kq{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.cx-kq b{font-family:var(--display);font-size:19px;font-weight:700;letter-spacing:-.012em;line-height:1.15;width:fit-content;
+ background:linear-gradient(100deg,var(--co1),var(--co2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cx-kq span{font-size:13.5px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cx-main{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:14px 0 18px}
+.cx-h{font-family:var(--serif);font-size:64px;line-height:1.04;letter-spacing:-.022em;font-weight:600;text-wrap:balance;max-width:19ch}
+.cx-h.l2{font-size:54px;max-width:21ch}.cx-h.l3{font-size:46px;max-width:23ch}
+.cx-why{font-size:19px;line-height:1.5;color:var(--ink-2);margin-top:18px;max-width:54ch;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+/* the one thing */
+.cx-one{flex:0 0 auto;display:flex;align-items:center;gap:16px;width:100%;padding:16px 18px 16px 16px;border-radius:20px;text-align:left;
+ background:color-mix(in srgb,var(--co1) 7%,var(--surface));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--co1) 22%,transparent);transition:background .35s ease,box-shadow .35s ease}
+.cx-ok{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:transparent;box-shadow:inset 0 0 0 2.2px var(--co1);transition:background .3s ease,color .3s ease,box-shadow .3s ease}
+.cx-ok svg{width:20px;height:20px}
+.cx-ot{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.cx-ot small{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--co-ink)}
+.cx-ot b{font-size:18.5px;line-height:1.36;font-weight:600;color:var(--ink);text-wrap:pretty;transition:color .3s ease}
+.cx-sm{display:none}
+.cx-min{flex:0 0 auto;height:28px;padding:0 11px;border-radius:999px;display:inline-flex;align-items:center;font-size:13.5px;font-weight:650;color:var(--co-ink);background:color-mix(in srgb,var(--co1) 12%,transparent);white-space:nowrap}
+.cx-one.on{background:linear-gradient(100deg,color-mix(in srgb,var(--co1) 13%,var(--surface)),color-mix(in srgb,var(--co2) 13%,var(--surface)));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--co2) 20%,transparent)}
+.cx-one.on .cx-ok{background:linear-gradient(140deg,var(--co1),var(--co2));color:#fff;box-shadow:0 8px 18px -10px var(--co2)}
+.cx-one.on .cx-ot b{color:var(--ink-2)}
+.cx-one.just .cx-ok{animation:cxPop .55s cubic-bezier(.2,1.5,.4,1) both}
+.cx-one.just .cx-ok path{stroke-dasharray:24;animation:cxDraw .42s .08s ease-out both}
+@keyframes cxPop{0%{transform:scale(.82)}55%{transform:scale(1.14)}100%{transform:scale(1)}}
+@keyframes cxDraw{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}
+/* the idea */
+.cx-idea{grid-area:idea;display:flex;flex-direction:column;padding:20px 22px 20px!important}
+.cx-ib-w{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;padding-top:10px}
+.cx-line{font-family:var(--serif);font-size:25px;line-height:1.24;font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+.cx-ib{font-size:15px;line-height:1.5;color:var(--ink-2);margin-top:10px;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.cx-src{flex:0 0 auto;display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cx-src::before{content:"";flex:0 0 auto;width:14px;height:1.5px;border-radius:1px;background:currentColor}
+/* tonight */
+.cx-night{grid-area:night;position:relative;display:flex;flex-direction:column;padding:20px 22px 20px!important;isolation:isolate;
+ background:radial-gradient(80% 70% at 100% 100%,color-mix(in srgb,var(--co2) 16%,transparent),transparent 75%),linear-gradient(170deg,var(--surface),color-mix(in srgb,var(--co2) 7%,var(--surface)))}
+.cx-night .cx-k .cq{color:var(--co-n)}
+.cx-rq{flex:1;min-height:0;display:flex;align-items:center;padding-top:10px;font-family:var(--serif);font-size:26px;line-height:1.28;font-weight:500;letter-spacing:-.008em;text-wrap:balance}
+.cx-rq.l2{font-size:23px}
+/* the week */
+.cx-wk{grid-area:week;display:grid;grid-template-columns:200px minmax(0,1fr);align-items:center;column-gap:24px;padding:18px 24px 18px!important}
+.cw-s{min-width:0}
+.cw-n{display:flex;align-items:baseline;gap:10px;margin-top:6px}
+.cw-n b{font-family:var(--display);font-size:54px;font-weight:700;letter-spacing:-.045em;line-height:.95;font-variant-numeric:tabular-nums;
+ background:linear-gradient(100deg,var(--co1),var(--co2));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:2px}
+.cw-n.zero b{background:none;color:var(--ink-3)}
+.cw-n span{font-size:15px;font-weight:650;line-height:1.2;color:var(--ink)}
+.cw-p{font-size:13px;font-weight:500;line-height:1.4;color:var(--ink-3);margin-top:8px}
+.cw-p b{font-weight:650;color:var(--ink-2)}
+.cw-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.cw-c{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0}
+.cw-w{font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.cw-c.t .cw-w{color:var(--ink);font-weight:750}
+.cw-b{width:100%;max-width:58px;aspect-ratio:1;border-radius:17px;display:grid;place-items:center;color:var(--ink-3);transition:background .35s ease,box-shadow .35s ease,color .35s ease}
+.cw-b .cq{width:22px;height:22px}
+.cw-b em{font-style:normal;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.cw-q{max-width:100%;font-size:11.5px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:14px}
+.cw-c.fut .cw-b{background:var(--fill);opacity:.7}
+.cw-c.none .cw-b{box-shadow:inset 0 0 0 1.5px var(--line)}
+.cw-c.none .cw-b i{width:5px;height:5px;border-radius:50%;background:var(--fill-2)}
+.cw-c.miss .cw-b{box-shadow:inset 0 0 0 1.5px var(--fill-2)}
+.cw-c.miss .cw-b .cq{opacity:.5}
+.cw-c.now .cw-b{color:var(--co-ink);box-shadow:inset 0 0 0 2px var(--co1);background:color-mix(in srgb,var(--co1) 7%,transparent)}
+.cw-c.now .cw-q{color:var(--co-ink)}
+.cw-c.on .cw-b{color:#fff;background:linear-gradient(140deg,var(--co1),var(--co2));box-shadow:0 8px 18px -12px var(--co2)}
+.cw-c.on .cw-q{color:var(--ink-2)}
+.cw-c.just .cw-b{animation:cxPop .55s cubic-bezier(.2,1.5,.4,1) both}
+.cx-hero,.cx-idea,.cx-night,.cx-wk{animation:cxIn .5s cubic-bezier(.2,.8,.2,1) both}
+.cx-idea{animation-delay:.05s}.cx-night{animation-delay:.09s}.cx-wk{animation-delay:.13s}
+@keyframes cxIn{from{opacity:0;transform:translateY(8px)}}
+.cx.still>.card{animation:none}
+@media (prefers-reduced-motion:reduce){.cx>.card,.cx-one.just .cx-ok,.cx-one.just .cx-ok path,.cw-c.just .cw-b{animation:none}}
+/* landscape iPad / Mac: hero on the left, the rest stacked on the right */
+@media (min-width:1000px) and (orientation:landscape){
+ .cx{grid-template-columns:minmax(0,1.14fr) minmax(0,1fr);grid-template-rows:minmax(0,1.18fr) minmax(0,.82fr) auto;grid-template-areas:"hero idea" "hero night" "hero week";min-height:660px}
+ .cx.no-idea{grid-template-areas:"hero night" "hero night" "hero week"}
+ .cx-hero{padding:22px 28px 26px!important}
+ .cx-h{font-size:58px}.cx-h.l2{font-size:50px}.cx-h.l3{font-size:43px}
+ .cx-line{font-size:23px}.cx-rq{font-size:24px}.cx-rq.l2{font-size:22px}
+ .cx-ib{-webkit-line-clamp:4}
+ .cx-idea,.cx-night{padding:18px 22px!important}
+ .cx-wk{grid-template-columns:minmax(0,1fr);row-gap:14px;padding:16px 20px 16px!important}
+ .cw-s{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:14px}
+ .cw-s .cx-k{flex-basis:100%}
+ .cw-n b{font-size:40px}
+ .cw-p{margin-top:0}
+ .cw-b{max-width:52px;border-radius:15px}
+}
+/* phone: natural scroll */
+@media (max-width:699px){
+ .cx{display:flex;flex-direction:column;height:auto;min-height:0;gap:10px}
+ .cx-hero{padding:18px 18px 18px!important;min-height:520px}
+ .cx-h{font-size:42px}.cx-h.l2{font-size:37px}.cx-h.l3{font-size:33px}
+ .cx-wm{width:220px;height:220px;right:-40px;top:-44px}
+ .cx-why{font-size:17px;-webkit-line-clamp:none}
+ .cx-one{padding:14px;gap:12px}.cx-min{display:none}.cx-sm{display:inline}.cx-ot b{font-size:16.5px}.cx-ok{width:36px;height:36px}
+ .cx-idea,.cx-night{padding:18px!important}
+ .cx-line{font-size:23px}.cx-rq{font-size:23px;padding:14px 0 6px}.cx-ib{-webkit-line-clamp:none}
+ .cx-wk{order:2;grid-template-columns:1fr;row-gap:14px;padding:16px 16px 18px!important}
+ .cw-s{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:12px}
+ .cw-s .cx-k{flex-basis:100%}
+ .cw-n b{font-size:40px}.cw-p{margin-top:0}
+ .cw-l{gap:5px}.cw-b{border-radius:13px}.cw-b .cq{width:18px;height:18px}.cw-q{font-size:10.5px}
+ .cx-idea{order:3}.cx-night{order:4}
+}
 /* reminders in the agenda */
 .rems{margin:6px 0 4px;padding-top:8px;border-top:1px dashed var(--line)}
 .rems-h{display:flex;justify-content:space-between;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
@@ -1131,36 +1262,6 @@ html,body{overscroll-behavior-x:none}
 .h-foot{text-align:center;padding-top:16px;font-size:13px;color:var(--ink-3);line-height:1.5}
 .h-foot b{color:var(--ink-2)}
 .h-foot .warn{color:var(--warn-ink)}
-.co{padding:18px 18px 16px;position:relative}
-.co::before{content:"";position:absolute;left:18px;right:18px;top:0;height:3px;border-radius:0 0 3px 3px;background:var(--c)}
-.co-k{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:38px;margin-right:-6px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
-.co-k span{display:inline-flex;align-items:center;gap:8px}
-.co-k i{width:8px;height:8px;border-radius:50%;background:var(--c)}
-.co-h{font-family:var(--serif);font-size:30px;line-height:1.14;letter-spacing:-.01em;font-weight:600;margin-top:8px;text-wrap:balance}
-.co-w{font-size:15.5px;line-height:1.5;color:var(--ink-2);margin-top:10px;max-width:60ch}
-.co-one{margin-top:16px}
-.co-m{position:relative;display:flex;align-items:center;gap:12px;width:100%;padding:13px 14px;border-radius:18px;background:var(--fill);text-align:left;transition:background .3s ease}
-.co-x{flex:0 0 auto;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 2px var(--c);color:transparent;transition:background .25s ease,color .25s ease,transform .25s ease}
-.co-x svg{width:15px;height:15px}
-.co-t{flex:1;min-width:0;font-size:16px;line-height:1.4;font-weight:600}
-.co-min{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--ink-3)}
-.co-m.on{background:color-mix(in srgb,var(--c) 12%,var(--surface))}
-.co-m.on .co-x{background:var(--c);box-shadow:none;color:#fff;transform:scale(1.06)}
-.co-m.on .co-t{color:var(--ink-3);text-decoration:line-through;text-decoration-thickness:1.5px;font-weight:500}
-.co-m.on .co-min{color:var(--c)}
-.co-more{margin-top:10px}
-.co-more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:8px 4px;font-size:13.5px;font-weight:600;color:var(--ink-3)}
-.co-more summary::-webkit-details-marker{display:none}
-.co-more summary::before{content:"";width:6px;height:6px;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;transform:rotate(-45deg);margin:0 4px 1px 2px;transition:transform .2s}
-.co-more[open] summary::before{transform:rotate(45deg)}
-.co-ms{display:grid;gap:8px;margin-top:4px}
-.co-q{margin-top:16px}
-.co-q p{font-family:var(--serif);font-size:19px;line-height:1.4;margin-top:6px}
-.co-rest{margin-top:12px}
-.co-done{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13.5px;font-weight:600;color:var(--up)}
-.co-done svg{width:15px;height:15px}
-.co-pr{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.4;color:var(--ink-3);margin-top:16px}
-@media (min-width:768px){.co{padding:22px 24px 20px}.co::before{left:24px;right:24px}.co-h{font-size:36px}.co-w{font-size:16.5px}.co-t{font-size:17px}.co-ms{grid-template-columns:repeat(2,minmax(0,1fr))}.co-q p{font-size:21px}}
 /* vocab + spanish */
 .lrn{display:grid;gap:12px}
 .lrn-side{display:grid;gap:12px;align-content:start}
@@ -1728,10 +1829,13 @@ const CONFIG={
    - calendar.summary: 2–4 sentences on the next 3 days. calendar.events:
      today + next 2 days only, INCLUDING birthday events (kind:"birthday").
      {title,start,end,loc?,tz?:"CT",url} or {title,allDay:true,date,endDate?,url,kind?}
-   - coach: today's coaching {date,theme,focus:{title,why},moves:[3×{area,text,mins}],reflect,principle}.
-     area is one of Body, Mind, People, Rest, Work. focus is one practical headline and 1–2
-     sentences of why; moves are small, concrete and doable today; reflect is one evening
-     question; principle is one short line. The page adds sleep, calendar and weather itself.
+   - coach: today's coaching {date,quality,theme,focus:{title,why},one:{text,mins},idea:{line,body,src},
+     reflect,principle,moves}. quality is the one way to grow today (Happier, Healthier, Stronger,
+     Focused, Productive, Generous, Thoughtful, Useful, Calmer, Present, Connected, Braver, Curious).
+     focus is one headline and 1–2 sentences of why; one is the single concrete thing to do today;
+     idea is a short memorable line, 1–2 sentences on why it works, and its source; reflect is
+     tonight's question. moves/principle are kept for older pages (moves[0] = one).
+   - coachHistory: [{date,quality,title}] for the last 42 days, oldest first (the week strip).
      (tip {cat,title,why,how[]} is still read as a fallback.)
    - markets.tickers: one per stock in the lists, Yahoo symbols (^GSPC…),
      {sym,name,value,chg,pct,ytd,closes:[[YYYY-MM-DD,close],…~1 month]}.
@@ -1771,7 +1875,7 @@ async function fetchHealth(){try{const r=await fetch('health.json?v='+Date.now()
    HELPERS
    ================================================================= */
 /* BUILD: when this version of the page was published. Stamped automatically on every push. */
-const BUILD="2026-10-21T23:57:40-07:00";
+const BUILD="2026-10-26T22:14:50-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
@@ -2314,7 +2418,7 @@ function teaser(id){
   if(sym){const n=cxNow(sym);out.push(sym==="BTC"?lg(I.btc):kk(esc(sym)),`<span class="m" data-px="${sym}" data-dp0>${n?usd(n.price,0):"—"}</span>`,n?`<span class="m chg ${n.pct<0?"dn":""}" data-pill="${sym}">${pct(n.pct)}</span>`:"")}
   if(DATA.pick)out.push(kk("Idea"),tx(esc(DATA.pick.sym)));
   return out.join("")}
- if(id==="coach"){const c=coachData(),d=coachDone();const m=c.moves[0];return (m?`<span class="cdots" aria-hidden="true"><i class="${d.includes(0)?"on":""}" style="--c:${COACH_AREAS[m.area]||"var(--ink-2)"}"></i></span>`:"")+(d.includes(0)?mo("Done","up"):coachEvening()?kk("Tonight"):"")+tx(esc(c.focus.title))}
+ if(id==="coach"){const c=coachData(),did=coachDidOn(todayKey()),st=coachStreak();return (did?mo("Done","up"):kk(esc(coachQ(c.quality).k)))+(st.n>=2?mo(`${st.n} in a row`):"")+tx(esc(c.focus.title))}
  if(id==="vocab"){const v=VOCAB[VOCAB.length-1];return v?tx(esc(v.word),"ser")+(v.def?tx(esc(v.def.replace(/\.$/,"")),"q"):v.pos?tx(esc(v.pos),"q"):""):tx("No word yet","q")}
  if(id==="spanish"){const e=SPAN[SPAN.length-1];return e?`<span class="tx ser" lang="es">${esc(e.phrase)}</span>`+tx(esc(e.meaning),"q"):tx("No phrase yet","q")}
  if(id==="news"){const n=DATA.news;if(!n.length)return tx("Nothing today","q");const top=n[0];return mo(String(n.length)+" stories")+(top.domain?lg(`<img src="${favicon(top.domain)}" alt="" onerror="this.parentNode.remove()">`):"")+tx(esc(top.title))}
@@ -2648,53 +2752,96 @@ function renderTip(){
 }
 
 /* =================================================================
-   COACH — one focus for the day and three small moves to tick off.
-   The morning data writes the coaching (DATA.coach); ticked moves sync.
+   COACH — one quality to grow in today, one focus, one thing to do about
+   it, one idea to carry, one question for tonight, and the week so far.
+   The morning data writes the coaching (DATA.coach) and keeps the last
+   few weeks of it (DATA.coachHistory). Tapping the one thing is synced
+   (pref coachLog) and drives the week strip and the streak.
    ================================================================= */
-const COACH_AREAS={Body:"#0A9455",Mind:"#2B5EF0",People:"#E8590C",Rest:"#7A4DE0",Work:"#0E8F9A"};
+/* the qualities, worded the way Stinky put it: happier, healthier, more focused… */
+const COACH_Q={
+ Happier:["Happier",`<circle cx="12" cy="12" r="4"/><path d="M12 2.6v2.1M12 19.3v2.1M2.6 12h2.1M19.3 12h2.1M5.4 5.4l1.5 1.5M17.1 17.1l1.5 1.5M5.4 18.6l1.5-1.5M17.1 6.9l1.5-1.5"/>`],
+ Healthier:["Healthier",`<path d="M5 19C5 10.7 10.7 5 19 5c0 8.3-5.7 14-14 14z"/><path d="M5 19l8-8"/>`],
+ Stronger:["Stronger",`<path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/>`],
+ Focused:["More focused",`<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1" fill="currentColor"/>`],
+ Productive:["More productive",`<path d="M4 6.5h9M4 11.5h9M4 16.5h5"/><path d="m14.5 16.2 2.6 2.6 4.4-5.6"/>`],
+ Generous:["More generous",`<rect x="3.5" y="9" width="17" height="11" rx="2"/><path d="M12 9v11M3.5 13.5h17"/><path d="M12 9C10.9 6.1 7.6 5.3 7.6 7.5 7.6 9 10.1 9 12 9zM12 9c1.1-2.9 4.4-3.7 4.4-1.5C16.4 9 13.9 9 12 9z"/>`],
+ Thoughtful:["More thoughtful",`<path d="M9.3 17.6h5.4M10.1 20.6h3.8"/><path d="M12 3.2a5.9 5.9 0 0 0-3.5 10.7c.7.5 1.1 1.3 1.1 2.1v.3h4.8V16c0-.8.4-1.6 1.1-2.1A5.9 5.9 0 0 0 12 3.2z"/>`],
+ Useful:["More useful",`<path d="M14.6 6.4a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.4-3.4a6 6 0 0 1-7.9 7.9l-6.4 6.4a2.1 2.1 0 0 1-3-3l6.4-6.4a6 6 0 0 1 7.9-7.9z"/>`],
+ Calmer:["Calmer",`<path d="M3 9.5c1.8-1.8 4.2-1.8 6 0s4.2 1.8 6 0 4.2-1.8 6 0M3 15c1.8-1.8 4.2-1.8 6 0s4.2 1.8 6 0 4.2-1.8 6 0"/>`],
+ Present:["More present",`<path d="M2.5 12S6 5.6 12 5.6 21.5 12 21.5 12 18 18.4 12 18.4 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>`],
+ Connected:["More connected",`<circle cx="9" cy="8" r="3.4"/><path d="M2.6 20c0-3.6 2.9-6 6.4-6s6.4 2.4 6.4 6M16 4.7a3.4 3.4 0 0 1 0 6.6M18 14.4c2.1.7 3.4 2.7 3.4 5.6"/>`],
+ Braver:["Braver",`<path d="M3 19.5 10 7.5l3.6 5.6 2.4-3.5 5 9.9z"/>`],
+ Curious:["More curious",`<circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>`]
+};
+/* older coaching used areas; map them onto the qualities */
+const COACH_AREA_Q={Body:"Healthier",Mind:"Focused",People:"Connected",Rest:"Calmer",Work:"Productive"};
+const coachQ=k=>{const key=String(k||"").trim(),hit=COACH_Q[key]||COACH_Q[key.replace(/^more\s+/i,"").replace(/^./,x=>x.toUpperCase())];
+ return hit?{k:Object.keys(COACH_Q).find(n=>COACH_Q[n]===hit),label:hit[0],svg:hit[1]}:{k:key||"Today",label:key||"Today",svg:COACH_Q.Curious[1]}};
+const qIcon=k=>`<svg class="cq" viewBox="0 0 24 24" aria-hidden="true">${coachQ(k).svg}</svg>`;
+const CX_IC={idea:`<svg class="cq" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.3 17.6h5.4M10.1 20.6h3.8"/><path d="M12 3.2a5.9 5.9 0 0 0-3.5 10.7c.7.5 1.1 1.3 1.1 2.1v.3h4.8V16c0-.8.4-1.6 1.1-2.1A5.9 5.9 0 0 0 12 3.2z"/></svg>`,
+ moon:`<svg class="cq" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 14.6A8 8 0 0 1 9.4 4.4a8 8 0 1 0 10.2 10.2z"/></svg>`,
+ week:`<svg class="cq" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>`};
 function coachData(){
  const c=DATA.coach;
- if(c&&c.focus&&c.focus.title)return{theme:c.theme||"",focus:c.focus,moves:(c.moves||[]).slice(0,3),reflect:c.reflect||"What went well today, and why?",principle:c.principle||"",date:c.date||ED};
+ if(c&&c.focus&&c.focus.title){
+  const m0=(c.moves||[])[0];
+  const one=c.one&&c.one.text?{text:c.one.text,mins:c.one.mins}:m0?{text:m0.text,mins:m0.mins}:null;
+  const idea=c.idea&&c.idea.line?c.idea:c.principle?{line:c.principle}:null;
+  return{date:c.date||ED,quality:c.quality||(m0&&COACH_AREA_Q[m0.area])||"Focused",theme:c.theme||"",focus:c.focus,one,idea,reflect:c.reflect||"What went well today, and why?"};
+ }
  const t=todaysTip();/* older data only had a single tip: shape it into a focus */
- return{theme:t.cat||"",focus:{title:t.title,why:t.why},moves:(t.how||[]).slice(0,3).map(x=>({area:"Body",text:x})),reflect:"What gave you energy today, and what drained it?",principle:"",date:ED};
+ return{date:ED,quality:"Healthier",theme:t.cat||"",focus:{title:t.title,why:t.why},one:(t.how||[])[0]?{text:t.how[0]}:null,idea:null,reflect:"What gave you energy today, and what drained it?"};
 }
 const coachLog=()=>pref("coachLog",{})||{};
 const coachDone=()=>{const l=coachLog()[todayKey()];return Array.isArray(l)?l:[]};
-function toggleMove(i){const log={...coachLog()},k=todayKey(),cur=new Set(Array.isArray(log[k])?log[k]:[]);cur.has(i)?cur.delete(i):cur.add(i);log[k]=[...cur].sort();
- Object.keys(log).sort().slice(0,-60).forEach(d=>delete log[d]);setPref("coachLog",log);renderCoach();renderTeasers()}
-/* what the page can see about today, in plain words */
-function coachSignals(){
- const sig=[],say=[],tk=todayKey(),now=new Date();
- const hl=HEALTH&&HEALTH.ok?healthLatest():null;const mins=hl&&hl.d>=addDays(tk,-1)?hl.asleep||0:0;
- if(mins){const h=Math.floor(mins/60),m=mins%60;sig.push({t:`${h}h ${String(m).padStart(2,"0")}m sleep`,c:mins<390?"warn":mins>=450?"good":""});
-  if(mins<390)say.push("Short night, so do the hard thinking early and skip caffeine after 2 PM.");else if(mins>=450)say.push("You slept well. A good day to take on the hard thing.")}
- const today=EVENTS.filter(e=>e.key===tk&&!e.allDay),left=today.filter(e=>e.en>now);
- if(today.length){const f=left[0];sig.push({t:`${today.length} ${today.length===1?"event":"events"}${f?" · next "+fmtTime(f.s):""}`,c:today.length>=4?"warn":""});
-  if(today.length>=4)say.push(`Busy calendar. Guard 20 minutes between meetings for today's focus.`)}
- else{sig.push({t:"Calendar clear",c:"good"});say.push("Nothing on the calendar yet. Block your best hour for the focus before it fills.")}
- const w=S.wx;if(w){const info=wxInfo(w.cur.code,w.cur.isDay);sig.push({t:`${w.hi}° ${info.l}`,c:w.hi>=85||w.hi<=45?"warn":""});
-  if(w.hi>=85)say.push(`It's heading to ${w.hi}°. Drink water before you head out.`);else if(w.rain>=50)say.push(`${w.rain}% chance of rain. Plan the walk for a dry window.`);else if(w.hi<=45)say.push("Cold one. Layer up for anything outside.")}
- return{sig,say:say.slice(0,2)};
+/* did the one thing on day k? today it's the one thing itself; on older days (when there
+   were three moves) any ticked move counts */
+const coachDidOn=k=>{const l=coachLog()[k];return Array.isArray(l)&&(k===todayKey()?l.includes(0):l.length>0)};
+function coachHist(){const m={};(DATA.coachHistory||[]).forEach(h=>{if(h&&h.date)m[h.date]=h});const c=coachData();m[c.date]={date:c.date,quality:c.quality,title:c.focus.title};return m}
+function coachStreak(){
+ const tk=todayKey(),today=coachDidOn(tk);let k=today?tk:addDays(tk,-1),n=0;
+ while(n<400&&coachDidOn(k)){n++;k=addDays(k,-1)}
+ const keys=Object.keys(coachLog()).sort();let best=0,run=0;
+ if(keys.length)for(let d=keys[0],g=0;d<=tk&&g<400;d=addDays(d,1),g++){if(coachDidOn(d)){run++;if(run>best)best=run}else run=0}
+ return{n,today,best:Math.max(best,n)};
 }
-/* Coach is one card: a single line for the day, one reason, one thing to actually do.
-   Morning and afternoon it's the thing; from 5 PM it turns into the evening question.
-   The other two moves wait behind "two more", never in your face. */
-const firstSentence=t=>{const m=/^(.+?[.!?])(\s|$)/.exec(String(t||"").trim());return m?m[1]:String(t||"").trim()};
+const coachWeek=(off=0)=>{const tk=todayKey(),dow=(keyDate(tk).getUTCDay()+6)%7,mon=addDays(tk,off*7-dow);return[...Array(7)].map((_,i)=>addDays(mon,i))};
+function toggleMove(i){const log={...coachLog()},k=todayKey(),cur=new Set(Array.isArray(log[k])?log[k]:[]),on=!cur.has(i);on?cur.add(i):cur.delete(i);log[k]=[...cur].sort();
+ Object.keys(log).sort().slice(0,-60).forEach(d=>delete log[d]);if(on)S.coachJust=k;S.coachStill=true;setPref("coachLog",log);renderCoach();renderTeasers()}
 const coachEvening=()=>{const h=new Date().getHours();return h>=17||h<4};
 function renderCoach(){
- const el=$("#s-coach");if(!el)return;const c=coachData(),done=new Set(coachDone()),n=c.moves.length;
- const main=c.moves[0],more=c.moves.slice(1),col=main?COACH_AREAS[main.area]||"var(--ink-2)":"var(--ink-2)";
- const evening=coachEvening(),mainDone=done.has(0),allDone=n>0&&done.size>=n;
- const ctx=[`Today's focus: ${c.focus.title}. ${c.focus.why||""}`,n?`My moves: ${c.moves.map((m,i)=>(done.has(i)?"[done] ":"")+m.text).join(" | ")}`:""].filter(Boolean).join("\n");
- const move=(m,i)=>{const on=done.has(i),cc=COACH_AREAS[m.area]||"var(--ink-2)";return`<button class="co-m press ${on?"on":""}" data-move="${i}" aria-pressed="${on}" style="--c:${cc}"><span class="co-x">${I.check}</span><span class="co-t">${esc(m.text)}</span><span class="co-min num">${on?"Done":esc(m.mins?m.mins+" min":m.area||"")}</span></button>`};
- el.innerHTML=`<article class="card co" style="--c:${col}">
-  <div class="co-k"><span><i></i>${evening?"Tonight":"Today"}${c.theme?` · ${esc(c.theme)}`:""}</span>${askBtn(`Be my coach for today. Keep it practical and short.\n${ctx}\n${evening?"Help me look back at the day in a few lines.":"What should I do first, and what should I watch out for?"}`,"Talk it through with Claude")}</div>
-  <h3 class="co-h">${esc(c.focus.title)}</h3>
-  ${c.focus.why?`<p class="co-w">${esc(firstSentence(c.focus.why))}</p>`:""}
-  ${evening?`<div class="co-q"><div class="lw-l" style="margin-top:0">Tonight's question</div><p>${esc(c.reflect)}</p>${allDone?`<div class="co-done">${I.check}All done today</div>`:mainDone?`<div class="co-done">${I.check}Did the one thing</div>`:""}</div>`
-   :main?`<div class="co-one">${move(main,0)}</div>${more.length?`<details class="co-more"${mainDone?" open":""}><summary>${more.length===1?"One more if you want it":"Two more if you want them"}${done.size>1?` · ${Math.min(done.size-(mainDone?1:0),more.length)} done`:""}</summary><div class="co-ms">${more.map((m,i)=>move(m,i+1)).join("")}</div></details>`:""}`:""}
-  ${c.principle?`<p class="co-pr">${esc(c.principle)}</p>`:""}
- </article>`;
+ const el=$("#s-coach");if(!el)return;
+ const c=coachData(),q=coachQ(c.quality),tk=todayKey(),did=coachDidOn(tk),st=coachStreak(),hist=coachHist();
+ const just=S.coachJust===tk,still=S.coachStill;S.coachJust=null;S.coachStill=false;
+ const ttl=c.focus.title||"",hl=ttl.length>56?" l3":ttl.length>40?" l2":"";
+ const when=c.date===tk?"Today":c.date===addDays(tk,-1)?"Yesterday":fmtKey(c.date,{weekday:"long"});
+ const ask=askBtn([`Be my coach. Today I'm working on being ${q.label.toLowerCase()}.`,`Focus: ${ttl}. ${c.focus.why||""}`,c.one?`The one thing: ${c.one.text}${did?" (done)":" (not done yet)"}`:"",`Tonight's question: ${c.reflect}`,
+  coachEvening()?"Help me look back at today in a few honest lines, then ask me tonight's question.":"Help me actually do it: what's the first small step, and what's most likely to get in the way?"].filter(Boolean).join("\n"),"Talk it through with Claude");
+ /* the week: Mon–Sun, each day shows the quality it was about and whether it got done */
+ const wk=coachWeek(0),lw=coachWeek(-1),lwHad=lw.filter(k=>hist[k]||coachDidOn(k)),lwDid=lw.filter(coachDidOn);
+ const cells=wk.map(k=>{const h=hist[k],fut=k>tk,on=!fut&&coachDidOn(k),isT=k===tk;
+  const cls=fut?"fut":on?"on":isT?"now":h?"miss":"none",qq=h?coachQ(h.quality):null;
+  const lab=`${fmtKey(k,{weekday:"long",month:"short",day:"numeric"})}${qq?`: ${qq.label}`:""}${fut?"":on?", done":isT?", not done yet":h?", not done":""}`;
+  return`<li class="cw-c ${cls}${isT?" t":""}${isT&&just?" just":""}" aria-label="${esc(lab)}"><span class="cw-w">${esc(fmtKey(k,{weekday:"short"}))}</span><span class="cw-b">${fut?`<em>${esc(fmtKey(k,{day:"numeric"}))}</em>`:qq?qIcon(h.quality):"<i></i>"}</span><span class="cw-q">${qq&&!fut?esc(qq.k):""}</span></li>`}).join("");
+ const nxt=st.today?"Done for today.":st.n?"Keep it going today.":"Today's one thing starts it.";
+ const meta=[st.best>st.n?`Best <b>${st.best}</b>`:"",lwHad.length?`Last week <b>${lwDid.length} of ${lwHad.length}</b>`:""].filter(Boolean).join(" · ");
+ const rq=String(c.reflect||"");
+ el.innerHTML=`<div class="cx${c.idea?"":" no-idea"}${still?" still":""}">
+  <article class="card cx-hero">
+   <span class="cx-wm" aria-hidden="true">${qIcon(c.quality)}</span>
+   <div class="cx-hd"><span class="cx-ic">${qIcon(c.quality)}</span><div class="cx-kq"><b>${esc(q.label)}</b><span>${esc(when)} · ${esc(fmtKey(c.date,{month:"short",day:"numeric"}))}${c.theme?` · ${esc(c.theme)}`:""}</span></div>${ask}</div>
+   <div class="cx-main"><h2 class="cx-h${hl}">${esc(ttl)}</h2>${c.focus.why?`<p class="cx-why">${esc(c.focus.why)}</p>`:""}</div>
+   ${c.one?`<button class="cx-one press${did?" on":""}${just?" just":""}" data-move="0" aria-pressed="${did}"><span class="cx-ok">${I.check}</span><span class="cx-ot"><small>${did?"Done today":"The one thing"}${c.one.mins?`<span class="cx-sm"> · ${esc(c.one.mins)} min</span>`:""}</small><b>${esc(c.one.text)}</b></span>${c.one.mins?`<span class="cx-min num">${esc(c.one.mins)} min</span>`:""}</button>`:""}
+  </article>
+  ${c.idea?`<article class="card cx-idea"><div class="cx-k">${CX_IC.idea}<span>The idea</span></div><div class="cx-ib-w"><p class="cx-line">${esc(c.idea.line)}</p>${c.idea.body?`<p class="cx-ib">${esc(c.idea.body)}</p>`:""}</div>${c.idea.src?`<p class="cx-src">${esc(c.idea.src)}</p>`:""}</article>`:""}
+  <article class="card cx-night"><div class="cx-k">${CX_IC.moon}<span>Tonight, ask yourself</span></div><p class="cx-rq${rq.length>90?" l2":""}">${esc(rq)}</p></article>
+  <article class="card cx-wk">
+   <div class="cw-s"><div class="cx-k">${CX_IC.week}<span>This week</span></div><div class="cw-n${st.n?"":" zero"}"><b>${st.n}</b><span>${st.n===1?"day in a row":"days in a row"}</span></div><p class="cw-p">${nxt}${meta?`<br>${meta}`:""}</p></div>
+   <ul class="cw-l">${cells}</ul>
+  </article>
+ </div>`;
+ fitSec("coach");
 }
 
 /* =================================================================

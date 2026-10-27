@@ -1815,15 +1815,20 @@
   },
   "coach": {
     "date": "2026-10-26",
+    "quality": "Focused",
     "theme": "Fresh week",
     "focus": {
       "title": "Decide what matters most this week",
-      "why": "A clear calendar is the best moment to choose one important thing and say exactly when you will do it."
+      "why": "You're back from Columbus to a quiet calendar, which makes today the easiest moment all week to choose one important thing and decide exactly when it gets done."
+    },
+    "one": {
+      "text": "Pick this week's most important task and write one if-then plan for it: when, where and how you'll start.",
+      "mins": 10
     },
     "moves": [
       {
         "area": "Work",
-        "text": "Pick your single most important task this week and write one if-then plan for it, such as 'If it is 9 AM Tuesday, then I open the file and work on it for 45 minutes.'",
+        "text": "Pick this week's most important task and write one if-then plan for it: when, where and how you'll start.",
         "mins": 10
       },
       {
@@ -1837,6 +1842,11 @@
         "mins": 15
       }
     ],
+    "idea": {
+      "line": "Decide in advance, and the doing gets easier.",
+      "body": "People who write down exactly when and where they'll act follow through far more often than people who only set the goal. The decision is already made, so the moment doesn't have to make it.",
+      "src": "Peter Gollwitzer · implementation intentions"
+    },
     "reflect": "What is the one thing that, if it got done this week, would make the rest easier?",
     "principle": "Decide in advance, and the doing gets easier."
   },
@@ -1915,6 +1925,38 @@
       ],
       "url": "https://fbschedules.com/college-football-schedule-tv-selections-for-october-31-2026/amp/",
       "note": "One schedule lists 7:30 PM ET on NBC; kickoff was due to be finalized on Oct. 25, so confirm it."
+    }
+  ],
+  "coachHistory": [
+    {
+      "date": "2026-10-21",
+      "quality": "Productive",
+      "title": "Finish one real thing before noon"
+    },
+    {
+      "date": "2026-10-22",
+      "quality": "Calmer",
+      "title": "Pack before noon so tonight is easy"
+    },
+    {
+      "date": "2026-10-23",
+      "quality": "Healthier",
+      "title": "Get daylight and a short nap, then protect tonight's sleep"
+    },
+    {
+      "date": "2026-10-24",
+      "quality": "Present",
+      "title": "Be fully present at Sammy's wedding"
+    },
+    {
+      "date": "2026-10-25",
+      "quality": "Generous",
+      "title": "Get home easily and mark Ty's birthday"
+    },
+    {
+      "date": "2026-10-26",
+      "quality": "Focused",
+      "title": "Decide what matters most this week"
     }
   ]
 }
