@@ -1232,6 +1232,119 @@ html,body{overscroll-behavior-x:none}
   .es-rel .fc{height:96px}
 }
 @media (min-width:1100px){.esg{grid-template-columns:repeat(3,minmax(0,1fr))}.es-hero{grid-column:1/-1}}
+/* ──────────────── VOCAB · one-screen (Oct 26) ────────────────
+   iPad upright: word (full width) · origin | recall · your turn · recent words, sized to the
+   space under the pinned title. Landscape / Mac: word on the left, origin + recall on the right.
+   Phone: stacks and scrolls. One accent (the vocab indigo); green/red only for recall answers. */
+#s-vocab{--hdh:58px}
+.vx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(0,1.22fr) minmax(0,1fr) auto auto;gap:12px;
+ height:calc(100vh - var(--hdh) - 34px);height:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - 34px);min-height:760px}
+.vx>.lw{margin:0;display:flex;flex-direction:column;min-height:0;min-width:0;padding:20px 22px;border-radius:22px;overflow:hidden}
+.vx-hero,.vx-mine,.vx-wk{grid-column:1/-1}
+.vx>.lw>*{flex-shrink:0}
+.vx-k{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);flex:0 0 auto}
+/* hero */
+.vx-h{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.vx-t{font-size:15.5px;font-weight:700;white-space:nowrap}
+.vx-s{flex:1;min-width:0;font-size:13.5px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vx-back{flex:0 0 auto;height:32px;padding:0 13px;border-radius:999px;background:var(--acc-soft);color:var(--acc);font-size:13.5px;font-weight:650}
+.vx-word{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:6px 0 10px}
+.vx-hero .term{font-size:104px;line-height:1;letter-spacing:-.02em;margin:0}
+.vx-pr{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:17px;color:var(--ink-2)}
+.vx-pr i{font-family:var(--serif);font-style:italic;color:var(--acc)}
+.vx-pr .say{margin-left:2px;width:38px;height:38px}
+.vx-def{font-size:23px;line-height:1.36;font-weight:500;letter-spacing:-.005em;margin-top:14px;max-width:34em;text-wrap:pretty}
+.vx-exs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;flex:0 0 auto}
+.vx-ex{position:relative;margin:0;padding:14px 16px 15px 46px;border-radius:16px;background:var(--acc-soft)}
+.vx-q{position:absolute;left:14px;top:14px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11.5px;font-weight:700;background:var(--acc);color:#fff}
+.vx-ex p{font-family:var(--serif);font-size:17.5px;line-height:1.45;color:var(--ink-2)}
+.vx-ex mark,.vx-res mark{background:none;color:var(--acc);font-weight:700}
+/* origin */
+.vx-root{margin-top:14px}
+.vx-src{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px}
+.vx-lang{align-self:center;height:24px;padding:0 10px;border-radius:999px;display:inline-flex;align-items:center;font-size:12.5px;font-weight:650;background:var(--fill);color:var(--ink-2)}
+.vx-sw{font-family:var(--serif);font-style:italic;font-size:30px;font-weight:600;line-height:1.1;color:var(--acc);overflow-wrap:anywhere}
+.vx-rt{font-family:var(--serif);font-size:17px;line-height:1.45;color:var(--ink-2);margin-top:8px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.vx-none{font-family:inherit;font-size:15px;color:var(--ink-3);margin-top:12px}
+.vx-more{margin-top:auto;padding-top:12px;display:grid;gap:10px}
+.vx-row{display:grid;grid-template-columns:78px minmax(0,1fr);gap:10px;align-items:baseline;padding-top:10px;border-top:1px solid var(--line)}
+.vx-rl{font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.vx-row p{font-size:14.5px;line-height:1.4;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.vx-chips{display:flex;flex-wrap:wrap;gap:6px}
+.vx-chips span{height:28px;padding:0 11px;border-radius:999px;display:inline-flex;align-items:center;font-size:14px;font-weight:600;background:var(--fill)}
+/* recall */
+.vx-ago{margin-left:auto;font-size:12.5px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink-3)}
+.vx-ask{font-size:14px;font-weight:600;color:var(--ink-3);margin-top:14px}
+.vx-qd{font-family:var(--serif);font-size:20px;line-height:1.36;margin-top:4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-wrap:pretty}
+.vx-qd::before{content:"“"}.vx-qd::after{content:"”"}
+.vx-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:14px}
+.vx-opt{flex:1 1 auto;min-width:0;height:46px;padding:0 14px;border-radius:14px;background:var(--fill);font-size:16px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .25s,color .25s,opacity .25s}
+.vx-opt.ok{background:var(--up-soft);color:var(--up)}
+.vx-opt.no{background:rgba(221,59,53,.12);color:var(--down)}
+.vx-opt.dim{opacity:.4}
+.vx-opt:disabled{cursor:default}
+.vx-hint{font-size:13px;font-weight:500;color:var(--ink-3);margin-top:10px;min-height:38px}
+.vx-res{display:flex;align-items:flex-end;gap:12px;margin-top:10px;min-height:38px}
+.vx-res p{flex:1;min-width:0;font-size:14.5px;font-weight:650;line-height:1.35}
+.vx-rex{margin-top:12px;padding:12px 15px 13px;flex:0 1 auto;min-height:0;overflow:hidden}.vx-rex p{font-size:16.5px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.vx-res.ok p{color:var(--up)}.vx-res.no p{color:var(--ink)}
+.vx-next{flex:0 0 auto;display:inline-flex;align-items:center;gap:4px;height:38px;padding:0 12px 0 16px;border-radius:999px;background:var(--acc);color:#fff;font-size:14.5px;font-weight:650}
+.vx-next svg{width:15px;height:15px;transform:rotate(-90deg)}
+/* your turn */
+.vx-mine{flex-direction:row!important;align-items:center;gap:16px;padding:14px 16px 14px 22px!important}
+.vx-mine .inp-row{flex:1;margin:0}
+.vx-mine .inp{height:46px;font-size:16px}
+.vx-mine .lw-go{height:46px;padding:0 20px;font-size:15.5px}
+/* recent words */
+.vx-wk{padding:16px 18px 18px!important}
+.vx-wh{display:flex;align-items:center;gap:10px}
+.vx-wc{flex:1;font-size:13px;font-weight:600;color:var(--ink-3)}
+.vx-wh .aux{font-size:14.5px;color:var(--acc);font-weight:650}
+.vx-tiles{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:8px;margin-top:12px}
+.vx-tile{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0;padding:10px 8px 11px 10px;border-radius:14px;background:var(--fill);text-align:left}
+.vx-tile small{font-size:12px;font-weight:600;color:var(--ink-3)}
+.vx-tile b{max-width:100%;font-size:14px;letter-spacing:-.01em;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vx-m{display:flex;gap:3px;margin-top:5px}
+.vx-m i{width:14px;height:4px;border-radius:2px;background:var(--fill-2)}
+.vx-m i.on{background:var(--up)}
+.vx-tile.on{background:var(--acc);color:#fff}
+.vx-tile.on small{color:inherit;opacity:.75}
+.vx-tile.on .vx-m i{background:rgba(255,255,255,.3)}.vx-tile.on .vx-m i.on{background:#fff}
+/* landscape iPad / Mac: word left, origin + recall stacked right */
+@media (min-width:1000px) and (orientation:landscape){
+ .vx{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr) auto auto;min-height:620px}
+ .vx-hero{grid-column:1;grid-row:1/3}
+ .vx-hero .term{font-size:80px}
+ .vx-exs{grid-template-columns:minmax(0,1fr)}
+ .vx-ex{padding:11px 14px 12px 44px}.vx-q{top:12px}
+ .vx-def{font-size:21px}
+ .vx-root{margin-top:10px}.vx-sw{font-size:26px}.vx-rt{-webkit-line-clamp:2}
+ .vx-more{gap:6px;padding-top:8px}.vx-row{padding-top:7px}.vx-row p{-webkit-line-clamp:1}
+ .vx{grid-template-rows:minmax(0,.9fr) minmax(0,1.1fr) auto auto}
+ .vx-ask{margin-top:8px}.vx-qd{font-size:18px;-webkit-line-clamp:2}.vx-opts{padding-top:10px}
+ .vx-rex{margin-top:8px;padding:8px 12px}.vx-rex p{font-size:15px;-webkit-line-clamp:1}
+ .vx-res,.vx-hint{margin-top:8px}.vx-hint{min-height:0}
+ .vx>.lw{padding:16px 20px}
+}
+/* short landscape windows (13" MacBook): trim the origin card a line */
+@media (min-width:1000px) and (orientation:landscape) and (max-height:860px){
+ .vx-root{margin-top:6px}.vx-sw{font-size:24px}.vx-rt{font-size:16px;margin-top:4px}.vx-more{padding-top:6px;gap:4px}.vx-row{padding-top:5px}.vx-chips span{height:26px}
+}
+/* phone: natural scroll */
+@media (max-width:699px){
+ .vx{display:flex;flex-direction:column;height:auto;min-height:0;gap:10px}
+ .vx>.lw{padding:18px}
+ .vx-hero .term{font-size:56px}
+ .vx-def{font-size:19px}
+ .vx-word{padding:16px 0 16px}
+ .vx-exs{grid-template-columns:1fr}
+ .vx-more{margin-top:14px}
+ .vx-opts{margin-top:0}
+ .vx-mine{flex-direction:column!important;align-items:stretch;gap:10px;padding:16px 18px!important}
+ .vx-tiles{display:flex;overflow-x:auto;margin:12px -18px 0;padding:0 18px;scroll-padding:0 18px}
+ .vx-tile{flex:0 0 auto;min-width:96px}
+ .vx-wh{flex-wrap:wrap}
+}
 /* pins */
 .ib.pinb.on{background:var(--ink);color:var(--bg)}
 .pinbar{padding:0 var(--g);margin:0 0 24px}
@@ -2615,32 +2728,106 @@ function renderCoach(){
    ================================================================= */
 const wordRx=w=>{const st=String(w).toLowerCase().replace(/(e|y|s|ed|ing)$/,"");return new RegExp("\\b("+st.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\w*)","gi")};
 const markWord=(t,w)=>esc(t).replace(wordRx(w),"<mark>$1</mark>");
+/* where a word comes from: "Latin salire, to leap: …" → language pill, source word, gloss */
+const ROOT_LANG=/^((?:Old |Middle |Late |Medieval |Ancient |Modern )?(?:Greek|Latin|French|English|Norse|Italian|German|Dutch|Spanish|Portuguese|Arabic|Persian|Sanskrit|Hindi|Japanese|Yiddish|Hebrew))\s+([^\s,:;]+)[,:;]?\s*(.*)$/i;
+function vxRoot(t){
+ const m=String(t||"").match(ROOT_LANG);
+ if(!m)return`<p class="vx-rt">${esc(t)}</p>`;
+ const rest=m[3].replace(/^[-–—]\s*/,"");
+ return`<div class="vx-src"><span class="vx-lang">${esc(m[1])}</span><span class="vx-sw" lang="${/greek/i.test(m[1])?"el":/latin/i.test(m[1])?"la":""}">${esc(m[2])}</span></div>${rest?`<p class="vx-rt">${esc(rest.charAt(0).toUpperCase()+rest.slice(1))}</p>`:""}`;
+}
+/* recall memory: {word:{n:correct-in-a-row, d:last answered}} — synced with the other settings */
+const vKnown=()=>{const k=pref("vocabKnown",{});return k&&typeof k==="object"?k:{}};
+function vRecallQueue(list,cur){
+ const kn=vKnown();
+ return list.filter(x=>x!==cur&&x.def).map(x=>({x,k:kn[x.word.toLowerCase()]||{n:0,d:""}}))
+  /* not yet learned first, then the one you saw longest ago */
+  .sort((a,b)=>(a.k.n>=3)-(b.k.n>=3)||String(a.k.d).localeCompare(String(b.k.d))||a.x.date.localeCompare(b.x.date))
+  .map(o=>o.x.word);
+}
 function renderVocab(){
  const el=$("#s-vocab");if(!el)return;const list=VOCAB;
  if(!list.length){el.innerHTML=`<div class="card"><div class="empty-row">No word yet.</div></div>`;return}
  let i=S.learn.v;if(i==null||i>=list.length)i=list.length-1;const e=list[i];
  const exs=(e.examples&&e.examples.length?e.examples:[e.ex]).filter(Boolean).slice(0,2);
- const cards=(e.cards||[]).map(c=>({f:c.f,b:c.b}));
- el.innerHTML=`<div class="sh"><button class="aux" data-act="review" data-k="v">Review ${list.length} ${list.length===1?"word":"words"}</button></div>
- <div class="lrn">
-  <div class="card lw lw-hero">
-   <div class="lw-k"><span class="lw-ic">${MI.vocab}</span><b>${e.date===ED?"Word of the day":esc(fmtKey(e.date,{weekday:"long",month:"short",day:"numeric"}))}</b></div>
+ const cards=e.cards||[];
+ const cf=re=>(cards.find(c=>re.test(c.f))||{}).b||"";
+ const root=cf(/root|origin|from/i),syn=cf(/synonym|similar/i),use=cf(/use/i);
+ const extra=cards.filter(c=>!/root|origin|from|synonym|similar|use/i.test(c.f)).slice(0,1);
+ const kn=vKnown();const isT=e.date===ED;
+
+ /* ── hero ── */
+ const hero=`<div class="vx-h"><span class="lw-ic">${MI.vocab}</span><span class="vx-t">${isT?"Word of the day":"From "+esc(fmtKey(e.date,{weekday:"long"}))}</span><span class="vx-s">${esc(fmtKey(e.date,{weekday:isT?"short":undefined,month:"short",day:"numeric"}))}</span>${isT?"":`<button class="vx-back press" data-hist="v" data-i="${list.length-1}">Back to today</button>`}</div>
+  <div class="vx-word">
    <div class="term" lang="en">${esc(e.word)}</div>
-   <div class="pron">${esc(e.pron||"")}${e.pos?` &nbsp;<i>${esc(e.pos)}</i>`:""}<button class="say press" data-say="${esc(e.word)}" data-lang="en-US" aria-label="Hear it" data-tip="Hear it">${I.speaker}</button></div>
-   <p class="def">${esc(e.def)}</p>
-   ${exs.length?`<div class="lw-l">In a sentence</div><div class="exs">${exs.map(x=>`<p class="ex2">${markWord(x,e.word)}</p>`).join("")}</div>`:""}
+   <div class="vx-pr"><span>${esc(e.pron||"")}</span>${e.pos?`<i>${esc(e.pos)}</i>`:""}<button class="say press" data-say="${esc(e.word)}" data-lang="en-US" aria-label="Hear it" data-tip="Hear it">${I.speaker}</button></div>
+   <p class="vx-def">${esc(e.def)}</p>
   </div>
-  <div class="lrn-side">
-   ${cards.length?`<div class="card lw"><div class="lw-l" style="margin-top:0">Word parts · tap to flip</div><div class="fcs">${cards.slice(0,3).map(c=>`<button class="fc" data-flip aria-label="${esc(c.f)}"><div class="fc-in"><div class="fc-f">${esc(c.f)}</div><div class="fc-b">${esc(c.b)}</div></div></button>`).join("")}</div></div>`:""}
-   <div class="card lw">
-    <div class="lw-l" style="margin-top:0">Your turn</div>
-    <p class="lw-p">Write a sentence with <b>${esc(e.word)}</b> and Claude will tell you if it lands.</p>
-    <div class="inp-row"><input class="inp" id="vc-mine" placeholder="Use “${esc(e.word.toLowerCase())}” in a sentence" autocomplete="off" enterkeyhint="send" aria-label="Your sentence"><button class="btn pri press lw-go" data-act="vocab-check" data-w="${esc(e.word)}">Check</button></div>
-   </div>
-  </div>
- </div>
- ${list.length>1?`<div class="hist noscroll lrn-h" style="--acc:var(--vocab)">${list.map((x,j)=>`<button class="hc press ${j===i?"on":""}" data-hist="v" data-i="${j}"><small>${x.date===ED?"Today":esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</small><span>${esc(x.word)}</span></button>`).join("")}</div>`:""}`;
- scrollHist(el);
+  ${exs.length?`<div class="vx-exs">${exs.map((x,j)=>`<figure class="vx-ex"><span class="vx-q" aria-hidden="true">${j?"2":"1"}</span><p>${markWord(x,e.word)}</p></figure>`).join("")}</div>`:""}`;
+
+ /* ── origin ── */
+ const syns=syn?syn.split(/\s*[,;\/]\s*/).filter(Boolean).slice(0,4):[];
+ const orig=`<div class="vx-k">Where it comes from</div>
+  ${root?`<div class="vx-root">${vxRoot(root)}</div>`:`<p class="vx-rt vx-none">No origin notes for this one.</p>`}
+  <div class="vx-more">
+   ${syns.length?`<div class="vx-row"><span class="vx-rl">Similar</span><div class="vx-chips">${syns.map(w=>`<span>${esc(w)}</span>`).join("")}</div></div>`:""}
+   ${use?`<div class="vx-row"><span class="vx-rl">Use it for</span><p>${esc(use.charAt(0).toUpperCase()+use.slice(1))}</p></div>`:""}
+   ${extra.map(c=>`<div class="vx-row"><span class="vx-rl">${esc(c.f)}</span><p>${esc(c.b)}</p></div>`).join("")}
+  </div>`;
+
+ /* ── quick recall: an earlier word, by definition ── */
+ let rec;
+ if(list.length<3){
+  rec=`<div class="vx-k">Quick recall</div><p class="vx-rt vx-none">Recall starts once a few words have built up. Come back tomorrow and you'll be quizzed on ${esc(e.word.toLowerCase())}.</p>`;
+ }else{
+  if(!S.vq||S.vq.cur!==e.word){S.vq={cur:e.word,queue:vRecallQueue(list,e),i:0,picked:null}}
+  const q=S.vq,tw=q.queue[q.i%q.queue.length],t=list.find(x=>x.word===tw)||list[0];
+  const others=list.filter(x=>x.word!==t.word).map(x=>x.word);const r=rng(hash(t.word+ED+q.i));const pick=[];
+  while(pick.length<2&&others.length)pick.push(others.splice(Math.floor(r()*others.length),1)[0]);
+  const opts=[t.word].concat(pick);for(let k=opts.length-1;k>0;k--){const j=Math.floor(r()*(k+1));[opts[k],opts[j]]=[opts[j],opts[k]]}
+  const tk=kn[t.word.toLowerCase()]||{n:0};const tex=(t.examples&&t.examples[0])||t.ex||"";const ok=q.picked!=null&&q.picked===t.word;
+  const ago=Math.round((Date.parse(ED)-Date.parse(t.date))/864e5);
+  rec=`<div class="vx-k">Quick recall<span class="vx-ago">${ago<=0?"today":ago===1?"from yesterday":`from ${ago} days ago`}</span></div>
+   <p class="vx-ask">Which word means</p>
+   <p class="vx-qd">${esc(t.def.replace(/\.$/,""))}</p>
+   ${q.picked!=null&&tex?`<figure class="vx-ex vx-rex feed-in"><p>${markWord(tex,t.word)}</p></figure>`:""}
+   <div class="vx-opts">${opts.map(w=>{const st=q.picked==null?"":w===t.word?"ok":w===q.picked?"no":"dim";return`<button class="vx-opt press ${st}" data-vq="${esc(w)}" ${q.picked!=null?"disabled":""}>${esc(w)}</button>`}).join("")}</div>
+   ${q.picked!=null
+    ?`<div class="vx-res ${ok?"ok":"no"}"><p>${ok?(tk.n>=3?"Learned — three in a row.":tk.n===2?"That's it. Two in a row.":"That's it."):`It's <b>${esc(t.word)}</b>. It'll come back again soon.`}</p><button class="vx-next press" data-act="vq-next">Next${I.chev}</button></div>`
+    :`<p class="vx-hint">${tk.n?`Right ${tk.n} time${tk.n>1?"s":""} in a row so far`:"Tap the word you think it is"}</p>`}`;
+ }
+
+ /* ── your turn ── */
+ const mine=`<span class="vx-k">Your turn</span><div class="inp-row"><input class="inp" id="vc-mine" placeholder="Use “${esc(e.word.toLowerCase())}” in a sentence${innerWidth>=700?", and Claude will say if it lands":""}" autocomplete="off" enterkeyhint="send" aria-label="Your sentence"><button class="btn pri press lw-go" data-act="vocab-check" data-w="${esc(e.word)}">Check</button></div>`;
+
+ /* ── this week ── */
+ const wk=list.slice(-7);const learned=wk.filter(x=>(kn[x.word.toLowerCase()]||{}).n>=1).length;
+ const lbl=d=>d===ED?"Today":(Date.parse(ED)-Date.parse(d))/864e5<7?fmtKey(d,{weekday:"short"}):fmtKey(d,{month:"short",day:"numeric"});
+ const week=`<div class="vx-wh"><span class="vx-k">Recent words</span><span class="vx-wc">${learned} of ${wk.length} recalled</span><button class="aux" data-act="review" data-k="v">Review all ${list.length}</button></div>
+  <div class="vx-tiles noscroll">${wk.map(x=>{const j=list.indexOf(x),n=(kn[x.word.toLowerCase()]||{}).n||0;return`<button class="vx-tile press ${j===i?"on":""}" data-hist="v" data-i="${j}" aria-label="${esc(x.word)}${n?`, recalled ${n} time${n>1?"s":""}`:""}"><small>${esc(lbl(x.date))}</small><b>${esc(x.word)}</b><span class="vx-m" aria-hidden="true">${[0,1,2].map(k=>`<i class="${k<n?"on":""}"></i>`).join("")}</span></button>`}).join("")}</div>`;
+
+ el.innerHTML=`<div class="vx">
+  <section class="card lw vx-hero">${hero}</section>
+  <section class="card lw vx-orig">${orig}</section>
+  <section class="card lw vx-rec">${rec}</section>
+  <section class="card lw vx-mine">${mine}</section>
+  <section class="card lw vx-wk">${week}</section>
+ </div>`;
+ fitSec("vocab");
+ const on=$(".vx-tile.on",el);if(on){const h=on.parentElement;requestAnimationFrame(()=>{if(h.scrollWidth>h.clientWidth)h.scrollLeft=on.offsetLeft-h.clientWidth/2+on.offsetWidth/2})}
+}
+function answerVocab(w){
+ const q=S.vq;if(!q||q.picked!=null)return;const tw=q.queue[q.i%q.queue.length];
+ q.picked=w;const kn={...vKnown()},key=tw.toLowerCase(),ok=w===tw;
+ kn[key]={n:ok?Math.min(9,((kn[key]||{}).n||0)+1):0,d:ED};
+ const keep=new Set(VOCAB.map(x=>x.word.toLowerCase()));Object.keys(kn).forEach(k=>{if(!keep.has(k))delete kn[k]});
+ setPref("vocabKnown",kn);renderVocab();
+}
+/* size a one-screen section to exactly the space under its pinned title (Health, Vocab) */
+function fitSec(id){
+ const s=$("#s-"+id),go=()=>{const hd=$("#it-"+id+" .it-hd");if(hd&&s)s.style.setProperty("--hdh",hd.offsetHeight+"px")};
+ go();requestAnimationFrame(go);
+ if(!(window.__fit||(window.__fit=new Set())).has(id)){window.__fit.add(id);addEventListener("resize",()=>requestAnimationFrame(()=>{const hd=$("#it-"+id+" .it-hd"),t=$("#s-"+id);if(hd&&t)t.style.setProperty("--hdh",hd.offsetHeight+"px")}))}
 }
 const scrollHist=el=>requestAnimationFrame(()=>$$(".hist",el).forEach(h=>{const on=$(".hc.on",h);if(on)h.scrollLeft=on.offsetLeft+on.offsetWidth-h.clientWidth+18}));
 
@@ -3969,6 +4156,7 @@ document.addEventListener("click",async e=>{
   if(act==="mv-zip"){const v=(($("#mv-zip")||{}).value||"").replace(/\D/g,"").slice(0,5);if(v.length!==5){toast("Enter a 5-digit ZIP");return}setMvPref("zip",v);toast("Showtimes near "+v);return}
   if(act==="tmdb-save"){const v=($("#tmdb-key").value||"").trim();if(!v){toast("Paste a key first");return}LS.set("sd-tmdb-key",v);LS.del("sd-tmdb");toast("Loading movies…");await loadMovies(true);refreshSettings();return}
   if(act==="tmdb-clear"){LS.del("sd-tmdb-key");LS.del("sd-tmdb");S.mv=null;renderMovies();renderTeasers();refreshSettings();toast("TMDB key removed");return}
+  if(act==="vq-next"){if(S.vq){S.vq.i++;S.vq.picked=null;renderVocab();const c=$(".vx-rec");if(c)c.classList.add("feed-in")}return}
   if(act==="vocab-check"){const v=($("#vc-mine").value||"").trim(),w=a.dataset.w;window.open(askUrl(v?`I'm learning the word "${w}". Is this a natural, correct use of it? If not, show me a better version and explain briefly.\n\n"${v}"`:`Give me 3 natural sentences using "${w}", from casual to formal, and a quick trick to remember it.`),"_blank","noopener");return}
   if(act==="review"){S.review={kind:a.dataset.k==="s"?"s":"v",order:null};openSheet(reviewHTML());bindDeck();return}
   if(act==="shuffle"){const list=S.review.kind==="v"?VOCAB:SPAN;S.review.order=list.map((_,i)=>i).sort(()=>Math.random()-.5);$("#sheet-p").innerHTML=`<div class="grab"></div>`+reviewHTML();bindDeck();return}
@@ -4007,6 +4195,7 @@ document.addEventListener("click",async e=>{
  const tg=t.closest("[data-tag]");if(tg){S.news.tag=tg.dataset.tag;S.news.open=false;renderNews();return}
  const hs=t.closest("[data-hist]");if(hs&&(hs.closest("#s-vocab")||hs.closest("#s-spanish"))){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;S.quiz=null;k==="v"?renderVocab():renderSpanish();return}
  if(hs){const k=hs.dataset.hist;S.learn[k]=+hs.dataset.i;const card=hs.closest(".lw");const y=card.getBoundingClientRect().top;const sl=$(".hist",card).scrollLeft;card.outerHTML=learnCard(k);const nc=$(`#s-learn [data-learn="${k}"]`);if(nc){window.scrollBy(0,nc.getBoundingClientRect().top-y);const h=$(".hist",nc);if(h)h.scrollLeft=sl}return}
+ const vq=t.closest("[data-vq]");if(vq){answerVocab(vq.dataset.vq);return}
  const fl=t.closest("[data-flip]");if(fl){fl.classList.toggle("open");return}
  const sj=t.closest("[data-setjump]");if(sj){const p=$("#sheet-p"),el=$("#ss-"+sj.dataset.setjump),nav=$(".set-nav",p);if(p&&el)p.scrollTo({top:el.offsetTop-(nav?nav.offsetHeight:0)-6,behavior:"smooth"});return}
  const mv=t.closest("[data-move]");if(mv){toggleMove(+mv.dataset.move);return}
