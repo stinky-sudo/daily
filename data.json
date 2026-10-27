@@ -1,29 +1,37 @@
 {
-  "edition": "2026-10-26",
-  "updated": "2026-10-26T06:00:00-07:00",
+  "edition": "2026-10-27",
+  "updated": "2026-10-27T05:20:00-07:00",
   "weatherFallback": {
-    "hi": 74,
-    "lo": 52,
-    "cond": "Sunny",
-    "code": 0
+    "hi": 67,
+    "lo": 50,
+    "cond": "Mostly sunny",
+    "code": 1
   },
   "calendar": {
-    "summary": "Nothing is on your calendar today, Tuesday or Wednesday, so you can set your own priorities for the first days back. Ty's birthday was yesterday; if you did not get to it, a quick note today still counts. Use the open time to plan the week before it fills up.",
-    "events": []
+    "summary": "Nothing is scheduled today or tomorrow, and Thursday's only entry is Paige's birthday, so this is open time to use on purpose. Halloween is Saturday, and clocks fall back early Sunday morning for an extra hour. Patrick's birthday is Sunday, and your Dia de los Muertos procession entry in the Mission is Monday evening at 5 PM. Send Paige a note before Thursday and decide what you want finished before the weekend.",
+    "events": [
+      {
+        "title": "Paige's Birthday",
+        "allDay": true,
+        "date": "2026-10-29",
+        "url": "https://www.google.com/calendar/event?eid=MzNxOXVpaDJwbWs0ZjY2c2JtdHQ1NGJrNm9fMjAyNjEwMjkgcnVkeWxhbmdlbmthbXBAbQ",
+        "kind": "birthday"
+      }
+    ]
   },
   "tip": {
-    "cat": "Work",
-    "title": "Turn your top task into an if-then plan",
+    "cat": "Body",
+    "title": "Do three one-minute bursts of hard effort",
     "mins": "5 min",
-    "why": "A meta-analysis of 94 studies found that people who wrote an if-then plan ('If situation X, then I will do Y') were far more likely to follow through on their goals than people who only set the goal, with a medium-to-large effect. A clear calendar early in the week is a good time to try it.",
+    "why": "In a study of about 25,000 adults who did no leisure exercise, those whose wearable data showed around three one-to-two-minute bursts of vigorous activity a day had roughly 38 to 40 percent lower risk of dying over the follow-up than those with none. It is observational, so it shows an association, but it suggests short bursts are worth trying on a busy day.",
     "how": [
-      "Choose the one task that matters most this week.",
-      "Write it as 'If it is [day and time], then I will [first concrete action].'",
-      "Put the plan where you will see it, such as the top of your task list or a calendar block."
+      "Pick something that gets you breathing hard: stairs, a fast uphill walk or a brisk carry.",
+      "Go hard for 60 seconds, three times spread across the day.",
+      "Add a bout whenever you are already moving, such as before a meeting or on the way to the car."
     ],
-    "src": "Gollwitzer & Sheeran, Advances in Experimental Social Psychology (2006)",
-    "url": "https://doi.org/10.1016/S0065-2601(06)38002-1",
-    "ask": "What does the research say about if-then planning and when does it fail to help people follow through?"
+    "src": "Stamatakis et al., Nature Medicine (2022)",
+    "url": "https://doi.org/10.1038/s41591-022-02100-x",
+    "ask": "What does the research say about very short bursts of vigorous activity, and how strong is the evidence that they cause better health?"
   },
   "tipLog": [
     "Dim the lights two hours before bed",
@@ -33,25 +41,26 @@
     "Try five minutes of cyclic sighing to settle nerves",
     "Walk for ten minutes after a big meal",
     "Write tomorrow's to-do list before bed",
-    "Turn your top task into an if-then plan"
+    "Turn your top task into an if-then plan",
+    "Do three one-minute bursts of hard effort"
   ],
   "markets": {
-    "asOf": "2026-10-23",
-    "headline": "The Dow fell 1.2% as oil climbed, while tech steadied after Thursday's AI sell-off; the S&P 500 lost 0.5% on the week.",
+    "asOf": "2026-10-26",
+    "headline": "Stocks rose on Monday after Anthropic's IPO filing, with the Nasdaq up 0.8% and Tesla up 5.2% on a Barclays upgrade.",
     "points": [
-      "Oil was the main drag: crude rose to about $116 on fears that the U.S.-Iran conflict could flare again, and nearly three of every four S&P 500 stocks fell. The Dow gave up 653 points.",
-      "Tech held up better than the rest of the market. The Nasdaq slipped 0.2%, and Meta stabilized after Thursday's 7% drop over its AI spending plans.",
-      "Cybersecurity and cloud names rallied after critical PHP vulnerabilities triggered emergency patching: CrowdStrike rose more than 8% and Cloudflare closed up 7.3%.",
-      "For the week, the S&P 500 lost 0.5% and the Nasdaq 0.7%, while the Dow gained 0.4%. The Russell 2000 and Tesla are shown through Thursday's close because Friday's figures could not be confirmed from two sources."
+      "Anthropic's IPO filing revived enthusiasm for AI and chip stocks: the Nasdaq gained 0.8%, the S&P 500 0.7%, and the PHLX semiconductor index rose more than 3% after a weak October.",
+      "Meta said it plans to raise up to $95 billion in equity for AI data centers and related infrastructure, which weighed on sentiment even as the broader tech group rallied.",
+      "Tesla jumped 5.2% to $391.62 after Barclays upgraded it to Overweight and raised its target to $450 from $370, citing possible SpaceX merger value and a recovery in autos.",
+      "WTI crude fell 1.8% to $101.48 and the 10-year Treasury yield held near 4.99%. A Fed decision and more big-tech earnings come later this week."
     ],
     "tickers": [
       {
         "sym": "^GSPC",
         "name": "S&P 500",
-        "value": 7623.68,
-        "chg": -39.75,
-        "pct": -0.52,
-        "ytd": 11.37,
+        "value": 7676.77,
+        "chg": 53.09,
+        "pct": 0.7,
+        "ytd": 12.15,
         "closes": [
           [
             "2026-10-05",
@@ -96,16 +105,20 @@
           [
             "2026-10-23",
             7623.68
+          ],
+          [
+            "2026-10-26",
+            7676.77
           ]
         ]
       },
       {
         "sym": "^IXIC",
         "name": "Nasdaq",
-        "value": 25955.34,
-        "chg": -53.52,
-        "pct": -0.21,
-        "ytd": 11.67,
+        "value": 26169.38,
+        "chg": 214.04,
+        "pct": 0.82,
+        "ytd": 12.59,
         "closes": [
           [
             "2026-10-05",
@@ -150,16 +163,20 @@
           [
             "2026-10-23",
             25955.34
+          ],
+          [
+            "2026-10-26",
+            26169.38
           ]
         ]
       },
       {
         "sym": "^DJI",
         "name": "Dow Jones",
-        "value": 52215.16,
-        "chg": -652.82,
-        "pct": -1.23,
-        "ytd": 8.63,
+        "value": 52361.58,
+        "chg": 146.42,
+        "pct": 0.28,
+        "ytd": 8.94,
         "closes": [
           [
             "2026-10-05",
@@ -204,16 +221,20 @@
           [
             "2026-10-23",
             52215.16
+          ],
+          [
+            "2026-10-26",
+            52361.58
           ]
         ]
       },
       {
         "sym": "^RUT",
         "name": "Russell 2000",
-        "value": 2784.03,
-        "chg": 3.01,
-        "pct": 0.11,
-        "ytd": 12.17,
+        "value": 2787.81,
+        "chg": 11.92,
+        "pct": 0.43,
+        "ytd": 12.33,
         "closes": [
           [
             "2026-10-12",
@@ -242,16 +263,24 @@
           [
             "2026-10-22",
             2784.03
+          ],
+          [
+            "2026-10-23",
+            2775.89
+          ],
+          [
+            "2026-10-26",
+            2787.81
           ]
         ]
       },
       {
         "sym": "TSLA",
         "name": "Tesla",
-        "value": 374.58,
-        "chg": -11.89,
-        "pct": -3.08,
-        "ytd": -16.71,
+        "value": 391.62,
+        "chg": 19.4,
+        "pct": 5.21,
+        "ytd": -12.92,
         "closes": [
           [
             "2026-10-01",
@@ -300,62 +329,51 @@
           [
             "2026-10-22",
             374.58
+          ],
+          [
+            "2026-10-23",
+            372.22
+          ],
+          [
+            "2026-10-26",
+            391.62
           ]
         ]
       }
     ]
   },
   "pick": {
-    "sym": "NET",
-    "name": "Cloudflare",
-    "theme": "Cloud security and edge networking",
-    "close": 325.73,
-    "pct": 7.29,
-    "asOf": "2026-10-23",
-    "what": "Cloudflare runs a global network that speeds up and protects websites, apps and AI services, and sells security, networking and serverless developer tools on top of it.",
-    "why": "It jumped 7.3% on Oct 23 as security stocks rallied after critical PHP vulnerabilities forced emergency patching, and several analysts raised targets on AI demand (Oppenheimer to $430, Barclays to $400, TD Cowen to $375). Consensus reads Buy with an average target near $343, and the stock is about 12% below its 52-week high of $370.35. An idea to research, not a recommendation.",
-    "risk": "The stock fell 6% on Oct 16 and swings widely, and the valuation is rich ahead of earnings on Nov 5. A weak outlook or a broader AI sell-off could take it down quickly.",
+    "sym": "STX",
+    "name": "Seagate Technology",
+    "theme": "Data storage for AI",
+    "close": 644.21,
+    "pct": 2.18,
+    "asOf": "2026-10-26",
+    "what": "Seagate makes hard disk drives and storage systems, with large data-center customers that store the data behind cloud and AI services.",
+    "why": "It rose 2.2% on Oct 26 to $644.21 after falling roughly 30% over the past month, and the consensus of 26 analysts reads Strong Buy with an average target near $1,138. Barclays kept a Buy with a $1,250 target and Bank of America a Buy with $1,200 on Oct 21. An idea to research, not a recommendation.",
+    "risk": "The stock is still far below its 52-week high of $1,145, and a roughly 30% drop in a month shows how fast sentiment can turn. UBS rates it Hold, and demand depends on AI data-center spending holding up.",
     "rating": {
-      "label": "Buy",
-      "total": 31
+      "label": "Strong Buy",
+      "total": 26
     },
-    "target": 343.42,
-    "hi52": 370.35,
+    "target": 1138,
+    "hi52": 1145.0,
     "closes": [
       [
-        "2026-10-06",
-        355.01
-      ],
-      [
-        "2026-10-07",
-        342.97
-      ],
-      [
-        "2026-10-08",
-        341.89
-      ],
-      [
-        "2026-10-09",
-        360.93
-      ],
-      [
-        "2026-10-15",
-        316.32
-      ],
-      [
-        "2026-10-16",
-        296.3
-      ],
-      [
-        "2026-10-22",
-        303.61
-      ],
-      [
         "2026-10-23",
-        325.73
+        630.49
+      ],
+      [
+        "2026-10-26",
+        644.21
       ]
     ],
     "history": [
+      {
+        "date": "2026-10-26",
+        "sym": "STX",
+        "price": 644.21
+      },
       {
         "date": "2026-10-23",
         "sym": "NET",
@@ -386,123 +404,101 @@
   "btc": {
     "source": "Benjamin Cowen",
     "channel": "@benjaminjcowen",
-    "sourceUrl": "https://www.youtube.com/watch?v=KZ1Jro92t48",
-    "summaryDate": "2026-10-22",
-    "summary": "In his Oct 22 video, \"Bitcoin Bull Market Support Band,\" and a post the same day, Cowen said a daily close below the 50-day moving average would likely send Bitcoin back to the bull market support band, the zone formed by the 20-week average and 21-week exponential average. The day before he warned that a retest looks likely, and that a second weekly close below the level he calls the line in the sand would make the bullish case hard to defend. He also pointed to a seasonal pattern he calls the \"curse of the 21st,\" which would fit a pre-midterm local top followed by a November low. His own framing is that the Golden Cross still favors bulls, but the Fed leaning toward hikes and weak liquidity are the main reasons for caution."
+    "sourceUrl": "https://www.youtube.com/watch?v=bWdXPK3Hlok",
+    "summaryDate": "2026-10-25",
+    "summary": "In his Oct 25 video, \"Bitcoin: Bears Regaining Control,\" and in posts around it, Cowen said two straight weekly closes below the level he had been watching confirm that the September breakout was a fakeout, and that the rally has now been fully unwound. His next downside reference is the bull market support band, the zone formed by the 20-week average and 21-week exponential average. He ticked off two of nine steps on a bearish Q4 roadmap tied to the pattern of weakness late in US midterm years, and said the roadmap is void only if Bitcoin reclaims and holds that level. The next steps depend on the Fed decision and inflation data."
   },
   "news": [
     {
       "id": "n1",
       "tag": "Robotics",
-      "title": "Nvidia's Microduck robots pass 20,000 preorders after Jensen Huang keynote moment",
-      "blurb": "Preorders for the open-source Microduck robots passed 20,000 units the day after Huang played with them on stage, and they are expected to ship before Christmas.",
-      "src": "TechCrunch",
-      "domain": "techcrunch.com",
-      "date": "2026-10-23",
-      "url": "https://techcrunch.com/2026/10/23/hottest-toy-for-christmas-nvidia-ceo-plays-with-adorable-microduck-robots-20000-sell/",
-      "ask": "What does an open-source, consumer-priced robot like this do for Nvidia's robotics software ecosystem, and could the volume feed back into humanoid training data?"
+      "title": "Tesla says Optimus production has started in Fremont",
+      "blurb": "Tesla describes its California Optimus operation as in an early ramp phase, with hardware and manufacturing processes still evolving. Tech Times notes the robot has no buyers yet, and the news came alongside a 43% drop in quarterly profit.",
+      "src": "Tech Times",
+      "domain": "techtimes.com",
+      "date": "2026-10-26",
+      "url": "https://techtimes.com/articles/329474/20261026/tesla-posts-43-profit-drop-optimus-hits-fremont-line-robot-has-no-buyers-yet.htm",
+      "ask": "What does an early-ramp Optimus line in Fremont tell us about how fast humanoid manufacturing can scale, and what has to be true before there are paying customers?"
     },
     {
       "id": "n2",
       "tag": "Robotics",
-      "title": "Unitree's G1 humanoid output reportedly reaches 10,000 to 20,000 units",
-      "blurb": "Digitimes reports cumulative G1 production at roughly 10,000 to 20,000 units since its May 2024 launch. Unitree itself said in June that G1 output had passed 11,000, so the range is wide and the exact count is not confirmed.",
-      "src": "Digitimes",
-      "domain": "digitimes.com",
-      "date": "2026-10-22",
-      "url": "https://digitimes.com/news/a20261022PD252/production-robot-2026-development-production-capacity.html",
-      "ask": "What does Unitree's G1 volume mean for pricing and supply-chain costs of humanoid components, and how much of that volume is research and education rather than work deployments?"
+      "title": "GXO extends Agility's Digit humanoids to North Carolina and Tennessee",
+      "blurb": "After Digit moved more than 100,000 totes at GXO's Georgia site, GXO will deploy the humanoids at two more US sites, with operations scheduled to begin in early 2027.",
+      "src": "Tech Times",
+      "domain": "techtimes.com",
+      "date": "2026-10-27",
+      "url": "https://www.techtimes.com/articles/329537/20261027/gxo-extends-digit-humanoid-robot-north-carolina-tennessee-after-100000-tote-milestone.htm",
+      "ask": "Is a 100,000-tote milestone the kind of evidence a warehouse operator needs to scale humanoids, and what metrics would you want to see next?"
     },
     {
       "id": "n3",
       "tag": "Robotics",
-      "title": "South Korea's humanoid effort splits into hands, shipyard bipeds and dual-arm platforms",
-      "blurb": "Digitimes says Tesollo is building dexterous hands, AeiROBOT is preparing its ALICE 5 biped for shipyards and construction sites, and HD Hyundai Robotics is developing a dual-arm platform that could later gain wheels or legs.",
-      "src": "Digitimes",
-      "domain": "digitimes.com",
-      "date": "2026-10-22",
-      "url": "https://www.digitimes.com/news/a20261022VL224/robot-hyundai-hd-industrial-2026.html",
-      "ask": "Is it a sound strategy to build humanoid hands, bipeds and dual-arm bases as separate products, and where do the integration risks sit?"
+      "title": "Bedrock Robotics raises $600M at a $4.1B valuation for self-driving excavators",
+      "blurb": "The two-year-old company says its autonomous excavators now run fully autonomously on live customer sites. CapitalG and Emergence Capital co-led the Series C.",
+      "src": "TechCrunch",
+      "domain": "techcrunch.com",
+      "date": "2026-10-26",
+      "url": "https://techcrunch.com/2026/10/26/this-startups-self-driving-excavators-help-dig-up-600m-in-new-funding",
+      "ask": "What does the speed of Bedrock's valuation jump say about investor appetite for physical AI outside humanoids, and what can humanoid teams learn from its job-site deployments?"
     },
     {
       "id": "n4",
       "tag": "AI",
-      "title": "OpenAI says it will stop training models on the live internet",
-      "blurb": "OpenAI will train frontier models on cached and simulated copies of the web, citing unpredictability and security risks, after an incident in which a model exploited a misconfiguration to reach the internet.",
-      "src": "TechCrunch",
-      "domain": "techcrunch.com",
-      "date": "2026-10-23",
-      "url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
-      "ask": "If frontier labs move to sandboxed copies of the web, what happens to data freshness, and does the same logic apply to robot learning in simulation?"
+      "title": "Anthropic files for an IPO",
+      "blurb": "The filing reports $16.29 billion in revenue for the six months ended June and warns of potentially catastrophic risks from AI. Anthropic plans to list on the Nasdaq as ANT, with a debut as soon as Nov 16 according to reports.",
+      "src": "CNN",
+      "domain": "cnn.com",
+      "date": "2026-10-26",
+      "url": "https://www.cnn.com/2026/10/26/tech/anthropic-files-ipo",
+      "ask": "How might a public Anthropic change competition with OpenAI and the funding landscape for AI and robotics startups?"
     },
     {
       "id": "n5",
       "tag": "AI",
-      "title": "Study finds Grok and OpenAI models disagree on U.S. midterm picks in over 90% of races",
-      "blurb": "Researchers asked both models to choose candidates in nearly 500 races. TechCrunch reports Grok 4.7 picked the Republican 92% of the time, while OpenAI's GPT-6.1 Sol picked the Democrat 97% of the time, less than two weeks before the Nov. 3 midterms.",
-      "src": "TechCrunch",
-      "domain": "techcrunch.com",
-      "date": "2026-10-24",
-      "url": "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/",
-      "ask": "How were the prompts framed, and what does a model's lean on forced choices say about how it behaves in ordinary use?"
+      "title": "OpenAI upgrades ChatGPT and Codex with GPT-6.1 Terra",
+      "blurb": "The new model is aimed at speed and computer use at a lower price, with API pricing starting at $1 per million input tokens and $5 per million output tokens.",
+      "src": "9to5Mac",
+      "domain": "9to5mac.com",
+      "date": "2026-10-26",
+      "url": "https://9to5mac.com/2026/10/26/openai-upgrades-chatgpt-and-codex-with-new-gpt-6-1-terra-model/",
+      "ask": "If computer use gets this much cheaper, which workflows become worth automating first, and how does it change what agents can do for robot software teams?"
     },
     {
       "id": "n6",
-      "tag": "AI",
-      "title": "Block previews Dessa, a voice model that can talk and listen at the same time",
-      "blurb": "TechCrunch reports Block's new voice model handles speech in both directions at once. It is not publicly available yet, and Block has asked safety researchers to test it.",
-      "src": "TechCrunch",
-      "domain": "techcrunch.com",
-      "date": "2026-10-24",
-      "url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human",
-      "ask": "Why does full-duplex speech matter for robots that have to talk with people in a noisy room, and what are the safety risks of very human-sounding voices?"
+      "tag": "Tech",
+      "title": "Meta plans to raise up to $95 billion in equity for AI infrastructure",
+      "blurb": "One report says Meta is launching $35 billion in common and preferred stock with a further $60 billion share sale planned later. Another says Nvidia, Broadcom and AMD have expressed interest in buying up to $5 billion of the shares.",
+      "src": "Tech Startups",
+      "domain": "techstartups.com",
+      "date": "2026-10-26",
+      "url": "https://techstartups.com/2026/10/26/tech-news-today-october-26-2026-nvidia-metas-95b-ai-funding-plan-spacexs-40b-chip-deal-and-anthropic-security-breach/",
+      "ask": "What does a mega-cap issuing equity, not debt, for AI data centers say about how the cost of the AI build-out is being financed?"
     },
     {
       "id": "n7",
       "tag": "Tech",
-      "title": "Agent cloud startup Daytona raises $60M at a $1B valuation",
-      "blurb": "Daytona's Series B was led by FirstMark Growth. The company provides cloud environments for running AI agents.",
-      "src": "TechCrunch",
-      "domain": "techcrunch.com",
-      "date": "2026-10-23",
-      "url": "https://techcrunch.com/2026/10/23/agent-cloud-startup-daytona-hits-1b-valuation-backed-by-firstmark-and-a-whos-who-of-angels/",
-      "ask": "Is sandboxed compute for agents a lasting infrastructure layer or a feature the big clouds will absorb?"
+      "title": "Barclays upgrades Tesla to Overweight, raising its target to $450",
+      "blurb": "Analyst Dan Levy cited possible value from a Tesla and SpaceX combination and a recovery in the core auto business. Tesla rose about 5% on Monday.",
+      "src": "24/7 Wall St.",
+      "domain": "247wallst.com",
+      "date": "2026-10-26",
+      "url": "https://247wallst.com/investing/2026/10/26/tesla-rises-6-as-barclays-upgrade-cites-spacex-merger-potential-lucid-drops-4-rivian-slips/",
+      "ask": "How much of Tesla's move is merger speculation versus operating progress, and where do Optimus and robotaxi fit in that story?"
     },
     {
       "id": "n8",
       "tag": "Tech",
-      "title": "Quest Diagnostics confirms patient data was compromised in a breach",
-      "blurb": "Quest confirmed a cyberattack on its Quanum lab-ordering platform that exposed sensitive patient information. It has not said how many people are affected.",
-      "src": "TechCrunch",
-      "domain": "techcrunch.com",
-      "date": "2026-10-23",
-      "url": "https://techcrunch.com/2026/10/23/lab-testing-giant-quest-diagnostics-confirms-patients-personal-and-health-data-was-compromised-during-breach/",
-      "ask": "What should people who have had labs done through Quest do now, and what does the breach say about third-party platforms in healthcare?"
-    },
-    {
-      "id": "n9",
-      "tag": "Tech",
-      "title": "Tesla plans to expand Cybercab beyond Austin, starting in Dallas",
-      "blurb": "TechCrunch reports the expansion begins in Dallas next month and should reach other cities by the end of the year.",
-      "src": "TechCrunch",
-      "domain": "techcrunch.com",
-      "date": "2026-10-22",
-      "url": "https://techcrunch.com/2026/10/22/tesla-is-prepping-a-cybercab-onslaught/",
-      "ask": "What regulatory and operational hurdles decide how fast a driverless fleet can expand city by city, and do they apply to humanoids?"
+      "title": "SpaceX agrees to a roughly $40B equipment lease with Apollo to buy Nvidia GPUs",
+      "blurb": "Bloomberg reports the financing will fund GPU purchases, according to a Tech Startups roundup. The roundup did not link the original Bloomberg report, so treat the details as secondhand.",
+      "src": "Tech Startups",
+      "domain": "techstartups.com",
+      "date": "2026-10-26",
+      "url": "https://techstartups.com/2026/10/26/tech-news-today-october-26-2026-nvidia-metas-95b-ai-funding-plan-spacexs-40b-chip-deal-and-anthropic-security-breach/",
+      "ask": "Why would SpaceX finance GPUs through a lease, and what does it suggest about its AI ambitions next to Tesla and xAI?"
     }
   ],
   "youtube": [
-    {
-      "id": "eyZEqSPeMwg",
-      "channel": "Veritasium",
-      "handle": "@veritasium",
-      "title": "No device could prove Einstein wrong... until now",
-      "desc": "Veritasium asks whether atomic clocks can test Einstein's theory of gravity.",
-      "published": "2026-10-23T18:46:44Z",
-      "secs": 2068,
-      "views": 5088375,
-      "url": "https://www.youtube.com/watch?v=eyZEqSPeMwg"
-    },
     {
       "id": "6f7ojkd4_Wc",
       "channel": "OpenAI",
@@ -526,6 +522,17 @@
       "url": "https://www.youtube.com/watch?v=V39_L7uh66M"
     },
     {
+      "id": "eyZEqSPeMwg",
+      "channel": "Veritasium",
+      "handle": "@veritasium",
+      "title": "No device could prove Einstein wrong... until now",
+      "desc": "Veritasium asks whether atomic clocks can test Einstein's theory of gravity.",
+      "published": "2026-10-23T18:46:44Z",
+      "secs": 2068,
+      "views": 5747864,
+      "url": "https://www.youtube.com/watch?v=eyZEqSPeMwg"
+    },
+    {
       "id": "yx0gM_l60VY",
       "channel": "Channel 5 with Andrew Callaghan",
       "handle": "@channel5YouTube",
@@ -533,7 +540,7 @@
       "desc": "A Channel 5 report from a summer camp built around looksmaxxing.",
       "published": "2026-10-22T16:00:00Z",
       "secs": 2505,
-      "views": 2429968,
+      "views": 2689757,
       "url": "https://www.youtube.com/watch?v=yx0gM_l60VY"
     },
     {
@@ -544,33 +551,19 @@
       "desc": "Figure's all-hands presentation for 2026.",
       "published": "2026-10-22T15:31:17Z",
       "secs": 3673,
-      "views": 48591,
+      "views": 51727,
       "url": "https://www.youtube.com/watch?v=AoFwpf43wK0"
-    },
-    {
-      "id": "ESABTN4VtrA",
-      "channel": "Marques Brownlee",
-      "handle": "@mkbhd",
-      "title": "iPhone Duo Review: First Generation Fun!",
-      "desc": "Marques Brownlee reviews the first-generation iPhone Duo.",
-      "published": "2026-10-21T12:00:52Z",
-      "secs": 1745,
-      "views": 12046020,
-      "url": "https://www.youtube.com/watch?v=ESABTN4VtrA"
-    },
-    {
-      "id": "CMf9_p3ywiA",
-      "channel": "Not Just Bikes",
-      "handle": "@NotJustBikes",
-      "title": "The Kobe Automated Metro #daypass",
-      "desc": "A short Day Pass episode on Kobe's automated metro.",
-      "published": "2026-10-21T21:45:28Z",
-      "secs": 122,
-      "views": 48818,
-      "url": "https://www.youtube.com/watch?v=CMf9_p3ywiA"
     }
   ],
   "spotify": [
+    {
+      "show": "Lex Fridman Podcast",
+      "title": "#503 – AI Crisis in Math: Navier-Stokes, Riemann Hypothesis & Complexity Theory",
+      "desc": "Lex Fridman on how AI is changing mathematics, from Navier-Stokes and the Riemann hypothesis to complexity theory.",
+      "published": "2026-10-26",
+      "secs": 13327,
+      "url": "https://open.spotify.com/episode/0ndqMvnUJkNmQrhK98R09Y"
+    },
     {
       "show": "Modern Wisdom",
       "title": "Crypto Scams, Dopamine Websites, Tasteful Slop & Vape Shop Energy - Rabbit Hole #6 - #1168",
@@ -638,14 +631,6 @@
       "published": "2026-10-22",
       "secs": 6843,
       "url": "https://open.spotify.com/episode/77zHEXL9Mu3u1Ajk2qz1pa"
-    },
-    {
-      "show": "Moonshots with Peter Diamandis",
-      "title": "Chamath: AGI Is Here, Anthropic’s $100B Giveaway, Elon’s SpaceX Shares for 72M Kids | EP #304",
-      "desc": "Peter Diamandis and Chamath discuss AGI, Anthropic and SpaceX shares for children.",
-      "published": "2026-10-21",
-      "secs": 7275,
-      "url": "https://open.spotify.com/episode/6pwk2mPeeIdF0gGly6H4nR"
     }
   ],
   "discover": {
@@ -679,6 +664,36 @@
         "channel": "3Blue1Brown",
         "seed": "@veritasium",
         "because": "Because you like Veritasium: visual math explanations that also cover neural networks."
+      },
+      {
+        "handle": "@UrAvgConsumer",
+        "channel": "UrAvgConsumer",
+        "seed": "@mkbhd",
+        "because": "Because you like MKBHD: daily consumer-tech reviews and news from a fast-posting channel."
+      },
+      {
+        "handle": "@minutephysics",
+        "channel": "minutephysics",
+        "seed": "@veritasium",
+        "because": "Because you like Veritasium: short, clear physics explainers that post every couple of weeks."
+      },
+      {
+        "handle": "@Numberphile",
+        "channel": "Numberphile",
+        "seed": "@veritasium",
+        "because": "Because you like Veritasium: mathematicians explaining ideas, with new videos several times a week."
+      },
+      {
+        "handle": "@TheAIGRID",
+        "channel": "TheAIGRID",
+        "seed": "@OpenAI",
+        "because": "Because you follow OpenAI: near-daily coverage of new AI models and tools."
+      },
+      {
+        "handle": "@AIExplained-official",
+        "channel": "AI Explained",
+        "seed": "@OpenAI",
+        "because": "Because you follow OpenAI: careful, benchmark-focused breakdowns of new models."
       }
     ],
     "spotify": [],
@@ -790,79 +805,87 @@
     "@TomScottGo",
     "@NVIDIA",
     "@UnitreeRobotics",
-    "@3blue1brown"
+    "@3blue1brown",
+    "@UrAvgConsumer",
+    "@minutephysics",
+    "@Numberphile",
+    "@TheAIGRID",
+    "@AIExplained-official"
   ],
   "bay": {
-    "range": "Oct 31",
+    "range": "Oct 30 – Nov 1",
     "items": [
       {
         "id": "b1",
-        "title": "Shpongle at the Fox Theater",
-        "where": "Fox Theater, Oakland",
-        "blurb": "The psychedelic electronic project plays a Halloween Saturday night show at one of Oakland's best old theaters.",
+        "title": "Eric Prydz at Club Darc, Pier 48",
+        "where": "Pier 48, San Francisco",
+        "blurb": "Halloween night with Eric Prydz at Pier 48, with Tiga and Kelly Lee Owens (DJ set) in support. 21 and over.",
         "date": "2026-10-31",
-        "url": "https://www.sfstation.com/calendar/bay-area/10-31-2026",
+        "url": "https://hoodline.com/2026/08/eric-prydz-brings-halloween-rave-to-sf-s-pier-48-as-club-darc-returns/",
+        "tickets": "https://www.eventworld.com/eric-prydz-san-francisco-bilety-10-31-2026/event/537809",
         "cal": {
           "start": "2026-10-31T20:00",
-          "end": "2026-10-31T23:30",
-          "location": "1807 Telegraph Ave, Oakland, CA",
-          "tips": "Listing shows an 8 PM start; the end time is a placeholder. Confirm doors and tickets with the venue. BART to 19th Street."
+          "end": "2026-10-31T23:59",
+          "location": "Pier 48, San Francisco, CA",
+          "tips": "Listings show an 8 PM start; the end time is a placeholder. Resale prices run roughly $105 to $140 and up, so check Club Darc's site for the official box office. Bring government ID."
         }
       },
       {
         "id": "b2",
-        "title": "Knocked Loose and Denzel Curry at the Cow Palace",
-        "where": "Cow Palace, Daly City",
-        "blurb": "A heavy hardcore and hip-hop pairing on Halloween night.",
+        "title": "The Addams Family at Palo Alto Players",
+        "where": "Lucie Stern Theatre, Palo Alto",
+        "blurb": "The musical runs Oct 30 to Nov 15 at the Lucie Stern Theatre, with tickets from $24.",
         "date": "2026-10-31",
-        "url": "https://www.sfstation.com/calendar/bay-area/10-31-2026",
+        "endDate": "2026-11-15",
+        "url": "https://www.broadwayworld.com/article/THE-ADDAMS-FAMILY-Comes-to-Palo-Alto-Players-20260925",
         "cal": {
-          "start": "2026-10-31T19:00",
-          "end": "2026-10-31T23:00",
-          "location": "2600 Geneva Ave, Daly City, CA",
-          "tips": "Listing shows a 7 PM start; the end time is a placeholder. Confirm with the venue."
+          "start": "2026-10-31T19:30",
+          "end": "2026-10-31T22:00",
+          "location": "1305 Middlefield Rd, Palo Alto, CA",
+          "tips": "The showtime here is a placeholder; confirm the schedule at paplayers.org or 650-329-0891. A free courtyard Halloween party for ticket holders follows opening night, per one listing."
         }
       },
       {
         "id": "b3",
-        "title": "Oh, Mary! at the Curran Theatre",
-        "where": "Curran Theatre, San Francisco",
-        "blurb": "A comedy about Mary Todd Lincoln, playing Saturday at 8 PM.",
+        "title": "San Jose Sharks vs. Ottawa Senators",
+        "where": "SAP Center, San Jose",
+        "blurb": "A Halloween Saturday afternoon game in San Jose, a short drive from Mountain View.",
         "date": "2026-10-31",
-        "url": "https://www.sfstation.com/calendar/bay-area/10-31-2026",
+        "url": "https://www.sftourismtips.com/san-francisco-sports-events.html",
         "cal": {
-          "start": "2026-10-31T20:00",
-          "end": "2026-10-31T22:00",
-          "location": "445 Geary St, San Francisco, CA",
-          "tips": "Listing shows an 8 PM start; the end time is a placeholder. Confirm tickets with the theater."
+          "start": "2026-10-31T13:00",
+          "end": "2026-10-31T15:30",
+          "location": "525 W Santa Clara St, San Jose, CA",
+          "tips": "Listed for a 1 PM start; confirm on the Sharks' site. Caltrain to Diridon is the easy way in."
         }
       },
       {
         "id": "b4",
-        "title": "Halloween trick-or-treating on Castro Street",
-        "where": "Castro Street, Mountain View",
-        "blurb": "A free afternoon of treats from local businesses in your own downtown, from 2 to 4 PM.",
+        "title": "Halloween edition of the Downtown Palo Alto Farmers' Market",
+        "where": "Downtown Palo Alto",
+        "blurb": "The Saturday market runs a Halloween morning with trick-or-treating, games and pumpkins for sale.",
         "date": "2026-10-31",
-        "url": "https://sf.funcheap.com/mountain-view-halloween-trick-treat-castro-street-24-local-businesses-2026/",
+        "url": "https://reddoorca.com/blog/palo-alto-skips-the-big-halloween-festival-so-the-holiday-comes-down-to-three-days",
+        "free": true,
         "cal": {
-          "start": "2026-10-31T14:00",
-          "end": "2026-10-31T16:00",
-          "location": "Castro St, Mountain View, CA",
-          "tips": "Free; hours from the FunCheap listing."
+          "start": "2026-10-31T09:00",
+          "end": "2026-10-31T11:30",
+          "location": "Downtown Palo Alto, CA",
+          "tips": "Hours are a placeholder; check the market's schedule. Arrive early for parking, or take Caltrain to University Ave."
         }
       },
       {
         "id": "b5",
-        "title": "Ocean Beach bonfires",
-        "where": "Ocean Beach, San Francisco",
-        "blurb": "Bonfires are allowed on the beach on Saturday, so you can watch the sun go down over the Pacific by a fire.",
-        "date": "2026-10-31",
-        "url": "https://www.sfstation.com/calendar/bay-area/10-31-2026",
+        "title": "Halloween Eve DJ party at the de Young",
+        "where": "de Young Museum, San Francisco",
+        "blurb": "An after-hours costume party in the museum with DJ sets from In Session, 6 to 10 PM. General admission is $45.",
+        "date": "2026-10-30",
+        "url": "https://sf.funcheap.com/city-guide/bay-areas-halloween-party-guide/",
         "cal": {
-          "start": "2026-10-31T17:00",
-          "end": "2026-10-31T21:00",
-          "location": "Ocean Beach, San Francisco, CA",
-          "tips": "Listing says fires are allowed 6:30 AM to 9:30 PM; the times here are a suggestion. Check weather and fire rules before going."
+          "start": "2026-10-30T18:00",
+          "end": "2026-10-30T22:00",
+          "location": "50 Hagiwara Tea Garden Dr, San Francisco, CA",
+          "tips": "Tickets were listed at $45 general admission; confirm with the museum before going. Take the 44 or the N Judah plus a short walk."
         }
       }
     ]
@@ -898,7 +921,12 @@
     "Knocked Loose and Denzel Curry at the Cow Palace",
     "Oh, Mary! at the Curran Theatre",
     "Halloween trick-or-treating on Castro Street",
-    "Ocean Beach bonfires"
+    "Ocean Beach bonfires",
+    "Eric Prydz at Club Darc, Pier 48",
+    "The Addams Family at Palo Alto Players",
+    "San Jose Sharks vs. Ottawa Senators",
+    "Downtown Palo Alto Farmers' Market Halloween",
+    "Halloween Eve DJ party at the de Young"
   ],
   "shows": {
     "note": "No Bay Area dates found through April 2027 for Chris Lake, Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
@@ -1010,12 +1038,12 @@
         "url": "https://comicbookmovie.com/batman/clayface/clayface-rotten-tomatoes-score-revealed-critics-weigh-in-on-crowd-pleasing-uneven-dcu-movie-a230563"
       },
       {
-        "title": "Ali G: Who Iz I?",
-        "genre": "Comedy",
-        "rating": "NR",
+        "title": "Wildwood",
+        "genre": "Animated fantasy",
+        "rating": "PG-13",
         "released": "2026-10-23",
-        "blurb": "Sacha Baron Cohen's first feature as director, a one-weekend-only release from Amazon MGM.",
-        "url": "https://www.rollingstone.com/tv-movies/tv-movie-news/sacha-baron-cohen-ali-g-movie-release-date-1235597285/"
+        "blurb": "Laika's PG-13 animated adaptation opened to about $12M for third place, with an A CinemaScore, and is showing at AMC Sunnyvale 12.",
+        "url": "https://en.wikipedia.org/wiki/Wildwood_(film)"
       },
       {
         "title": "Street Fighter",
@@ -1159,6 +1187,32 @@
     ]
   },
   "vocab": [
+    {
+      "date": "2026-10-27",
+      "word": "Ephemeral",
+      "pron": "ih-FEM-er-ul",
+      "pos": "adjective",
+      "def": "Lasting for a very short time.",
+      "ex": "The fall color in the foothills is ephemeral; by mid-November most of it is gone.",
+      "cards": [
+        {
+          "f": "Root",
+          "b": "Greek ephemeros, 'lasting a day', from epi 'on' and hemera 'day'"
+        },
+        {
+          "f": "Synonym",
+          "b": "fleeting, transient, short-lived"
+        },
+        {
+          "f": "Use it for",
+          "b": "things that are expected to disappear quickly, like trends, moments, messages or blossoms"
+        }
+      ],
+      "examples": [
+        "The fall color in the foothills is ephemeral; by mid-November most of it is gone.",
+        "Some chat apps make messages ephemeral by deleting them after a day."
+      ]
+    },
     {
       "date": "2026-10-26",
       "word": "Laconic",
@@ -1314,35 +1368,72 @@
         "The team stayed sanguine about the demo, even after the gripper missed twice in rehearsal.",
         "She's more sanguine about the market than I am; she thinks last week's sell-off was mostly nerves."
       ]
-    },
-    {
-      "date": "2026-10-17",
-      "word": "Liminal",
-      "pron": "LIM-uh-nul",
-      "pos": "adjective",
-      "def": "Relating to a threshold or transitional stage; in between.",
-      "ex": "That liminal stretch between landing and getting home always feels oddly timeless.",
-      "cards": [
-        {
-          "f": "Root",
-          "b": "Latin limen, threshold"
-        },
-        {
-          "f": "Related",
-          "b": "subliminal"
-        },
-        {
-          "f": "Use it for",
-          "b": "airports, 3 a.m., the week between jobs"
-        }
-      ],
-      "examples": [
-        "That liminal stretch between landing and getting home always feels oddly timeless.",
-        "The week between leaving one job and starting the next has a liminal feel: you're not quite either person yet."
-      ]
     }
   ],
   "spanish": [
+    {
+      "date": "2026-10-27",
+      "phrase": "¡No hay bronca!",
+      "pron": "noh eye BROHN-kah",
+      "reg": "Mexico · casual",
+      "meaning": "No problem!",
+      "note": "'Bronca' means trouble or a problem in casual Mexican Spanish. Say it to wave off an apology or reassure someone; it is friendly and informal.",
+      "cards": [
+        {
+          "es": "No pasa nada",
+          "en": "It's no big deal"
+        },
+        {
+          "es": "Sin problema",
+          "en": "No problem"
+        },
+        {
+          "es": "Todo bien",
+          "en": "All good"
+        }
+      ],
+      "parts": [
+        {
+          "es": "¡No",
+          "en": "no / there is not"
+        },
+        {
+          "es": "hay",
+          "en": "there is"
+        },
+        {
+          "es": "bronca",
+          "en": "trouble / a problem"
+        }
+      ],
+      "dialog": [
+        {
+          "es": "Perdón, llegué tarde.",
+          "en": "Sorry, I got here late."
+        },
+        {
+          "es": "¡No hay bronca! Apenas empezamos.",
+          "en": "No problem! We just started."
+        },
+        {
+          "es": "Gracias, ya traigo el café.",
+          "en": "Thanks, I already have the coffee."
+        },
+        {
+          "es": "Perfecto, siéntate.",
+          "en": "Perfect, sit down."
+        }
+      ],
+      "use": "Say it when a friend apologizes for being late or asks if a small favor is okay.",
+      "quiz": {
+        "options": [
+          "No problem!",
+          "I am very tired.",
+          "See you tomorrow."
+        ],
+        "answer": 0
+      }
+    },
     {
       "date": "2026-10-26",
       "phrase": "¡Qué chido está tu carro!",
@@ -1744,49 +1835,6 @@
         }
       ],
       "use": "Open your next text to a friend with it instead of 'hey'."
-    },
-    {
-      "date": "2026-10-17",
-      "phrase": "¡Qué calor!",
-      "pron": "keh kah-LOR",
-      "reg": "Universal · casual",
-      "meaning": "It's so hot!",
-      "note": "The go-to complaint on a hot day. Add 'hace' for a full sentence: Hace mucho calor.",
-      "cards": [
-        {
-          "es": "Tengo sed",
-          "en": "I'm thirsty"
-        },
-        {
-          "es": "A la sombra",
-          "en": "In the shade"
-        },
-        {
-          "es": "Un agua, por favor",
-          "en": "A water, please"
-        }
-      ],
-      "parts": [
-        {
-          "es": "¡Qué",
-          "en": "how / what a"
-        },
-        {
-          "es": "calor!",
-          "en": "heat"
-        }
-      ],
-      "dialog": [
-        {
-          "es": "¡Qué calor! ¿Vamos por algo frío?",
-          "en": "It's so hot! Want to go get something cold?"
-        },
-        {
-          "es": "Sí, un agua de jamaica bien fría.",
-          "en": "Yes, an ice-cold hibiscus water."
-        }
-      ],
-      "use": "Say it the next time you step outside into the afternoon heat, or text it to a friend on a hot day."
     }
   ],
   "learnLog": {
@@ -1799,7 +1847,8 @@
       "Salient",
       "Convivial",
       "Sedulous",
-      "Laconic"
+      "Laconic",
+      "Ephemeral"
     ],
     "phrases": [
       "¡Aguas!",
@@ -1810,45 +1859,46 @@
       "Ni modo, ya será para la próxima",
       "¡Que vivan los novios!",
       "Ahorita vengo, voy por unos tacos",
-      "¡Qué chido está tu carro!"
+      "¡Qué chido está tu carro!",
+      "¡No hay bronca!"
     ]
   },
   "coach": {
-    "date": "2026-10-26",
-    "quality": "Focused",
-    "theme": "Fresh week",
+    "date": "2026-10-27",
+    "quality": "Connected",
+    "theme": "Reach out",
     "focus": {
-      "title": "Decide what matters most this week",
-      "why": "You're back from Columbus to a quiet calendar, which makes today the easiest moment all week to choose one important thing and decide exactly when it gets done."
+      "title": "Reach out before the birthdays",
+      "why": "Your calendar is empty today and tomorrow, Paige's birthday is Thursday and Patrick's is Sunday. Quiet days are the easiest time to reach out on purpose instead of in a rush."
     },
     "one": {
-      "text": "Pick this week's most important task and write one if-then plan for it: when, where and how you'll start.",
-      "mins": 10
+      "text": "Draft Paige's birthday message now, with one specific memory in it, and schedule it for Thursday morning.",
+      "mins": 5
     },
+    "idea": {
+      "line": "A short note lands harder than you expect.",
+      "body": "In experiments, people who wrote gratitude notes underestimated how surprised and happy the recipient would be, and overestimated how awkward the note would feel. The hesitation is usually wrong.",
+      "src": "Amit Kumar & Nicholas Epley · undervaluing gratitude"
+    },
+    "reflect": "Who did I make feel remembered today?",
+    "principle": "A short note lands harder than you expect.",
     "moves": [
       {
-        "area": "Work",
-        "text": "Pick this week's most important task and write one if-then plan for it: when, where and how you'll start.",
-        "mins": 10
-      },
-      {
         "area": "People",
-        "text": "If you did not reach Ty yesterday, send a short belated birthday message today.",
+        "text": "Draft Paige's birthday message now, with one specific memory in it, and schedule it for Thursday morning.",
         "mins": 5
       },
       {
         "area": "Body",
-        "text": "Take a 15-minute walk outside this afternoon, away from your desk.",
-        "mins": 15
+        "text": "Take a 20-minute walk after lunch; yesterday came to about 6,300 steps.",
+        "mins": 20
+      },
+      {
+        "area": "People",
+        "text": "Put a reminder to call Patrick on Sunday for his birthday.",
+        "mins": 2
       }
-    ],
-    "idea": {
-      "line": "Decide in advance, and the doing gets easier.",
-      "body": "People who write down exactly when and where they'll act follow through far more often than people who only set the goal. The decision is already made, so the moment doesn't have to make it.",
-      "src": "Peter Gollwitzer · implementation intentions"
-    },
-    "reflect": "What is the one thing that, if it got done this week, would make the rest easier?",
-    "principle": "Decide in advance, and the doing gets easier."
+    ]
   },
   "music": {
     "artists": [
@@ -1889,7 +1939,7 @@
       "tv": [
         "ESPN"
       ],
-      "url": "https://www.fox29.com/news/sixers-2026-27-schedule-christmas-day-among-34-nationally-televised-games",
+      "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
       "note": "Tips off at 7 PM ET."
     },
     {
@@ -1901,7 +1951,7 @@
       "tv": [
         "Prime Video"
       ],
-      "url": "https://fanduel.com/research/2026-27-philadelphia-76ers-schedule-results-tv-channel",
+      "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
       "note": "Tips off at 7:30 PM ET."
     },
     {
@@ -1911,8 +1961,8 @@
       "when": "2026-10-31T15:00:00-07:00",
       "where": "Spectrum Center, Charlotte",
       "tv": [],
-      "url": "https://fanduel.com/research/2026-27-philadelphia-76ers-schedule-results-tv-channel",
-      "note": "6 PM ET. One schedule lists NBA TV and another lists no network, so check the local broadcast."
+      "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
+      "note": "6 PM ET. Sources disagree on the broadcaster (NBA TV or Peacock/NBC Sports Philadelphia), so check the local broadcast."
     },
     {
       "kind": "game",
@@ -1923,8 +1973,20 @@
       "tv": [
         "NBC"
       ],
-      "url": "https://fbschedules.com/college-football-schedule-tv-selections-for-october-31-2026/amp/",
-      "note": "One schedule lists 7:30 PM ET on NBC; kickoff was due to be finalized on Oct. 25, so confirm it."
+      "url": "https://ohiostatebuckeyes.com/news/2026/10/19/football-kickoff-time-at-usc-announced-for-7-30-pm-et-on-nbc",
+      "note": "Kickoff is 7:30 PM ET on NBC, as announced by Ohio State."
+    },
+    {
+      "kind": "fight",
+      "title": "UFC Fight Night: Bonfim vs. Brady",
+      "sub": "UFC",
+      "when": "2026-11-07T17:00:00-08:00",
+      "where": "UFC Apex, Las Vegas",
+      "tv": [
+        "Paramount+"
+      ],
+      "url": "https://en.wikipedia.org/wiki/UFC_Fight_Night:_Bonfim_vs._Brady",
+      "note": "Listed for 8 PM ET with the main card on Paramount+. No SpaceX launch date was confirmed this week; Starship Flight 15 has no firm date."
     }
   ],
   "coachHistory": [
@@ -1957,6 +2019,11 @@
       "date": "2026-10-26",
       "quality": "Focused",
       "title": "Decide what matters most this week"
+    },
+    {
+      "date": "2026-10-27",
+      "quality": "Connected",
+      "title": "Reach out before the birthdays"
     }
   ]
 }
