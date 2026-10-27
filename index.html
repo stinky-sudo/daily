@@ -466,37 +466,37 @@ h1,h2,h3,p{margin:0}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--q1:#6E9CFF;--q2:#36CF7F;--q3:#FFC23A;--q4:#FF6E4E;--knob:#FFFFFF}}
 .foot{padding:44px var(--g) 8px;color:var(--ink-3)}
 .ft{display:block}
-.yp-h{display:flex;align-items:baseline;gap:8px}
-.yp-pct{font-family:var(--display);font-size:30px;font-weight:650;letter-spacing:-.035em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
-.yp-pct small{font-size:.6em;font-weight:600;letter-spacing:0;margin-left:1px;color:var(--ink-2)}
-.yp-yr{font-size:14px;font-weight:500;color:var(--ink-3)}
-.yp-d{margin-left:auto;font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.01em;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}
-.yp-d b{font-weight:600;color:var(--ink)}
-.yp-d i{font-style:normal;color:var(--ink-3);margin:0 7px}
-.yp-b,.yp-q{display:flex;gap:4px}
-.yp-b{margin-top:16px}
+.yp-h{display:flex;align-items:baseline;gap:7px}
+.yp-pct{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.yp-pct small{font-size:.62em;font-weight:600;letter-spacing:0;margin-left:1px;color:var(--ink-3)}
+.yp-yr{font-size:13px;font-weight:500;color:var(--ink-3)}
+.yp-d{margin-left:auto;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.01em;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
+.yp-d b{font-weight:500;color:var(--ink-2)}
+.yp-d i{font-style:normal;margin:0 6px;opacity:.7}
+.yp-b,.yp-q{display:flex;gap:3px}
+.yp-b{margin-top:12px}
 .yq{position:relative;min-width:0}
-.yq-t{position:relative;display:block;height:8px;border-radius:4px;overflow:hidden}
-.yq-t::before{content:"";position:absolute;inset:0;background:var(--c);opacity:.2}
+.yq-t{position:relative;display:block;height:4px;border-radius:2px;overflow:hidden}
+.yq-t::before{content:"";position:absolute;inset:0;background:var(--c);opacity:.16}
 .yq-t i{position:absolute;left:0;top:0;bottom:0;background:var(--c);border-radius:inherit}
-.yq-k{position:absolute;top:4px;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--knob);border:3.5px solid var(--c);box-shadow:0 1px 3px rgba(0,0,0,.28),0 0 0 5px color-mix(in srgb,var(--c) 22%,transparent)}
-.yp-q{margin-top:11px}
-.yp-q span{min-width:0;display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.06em;color:var(--ink-3);white-space:nowrap;overflow:hidden}
-.yp-q span.past{opacity:.75}
-.yp-q span.now{color:var(--ink)}
-.yp-q span.now::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;background:var(--c)}
+.yq-k{position:absolute;top:2px;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--knob);border:2.5px solid var(--c);box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.yp-q{margin-top:9px}
+.yp-q span{min-width:0;display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.06em;color:var(--ink-3);white-space:nowrap;overflow:hidden}
+.yp-q span.past{opacity:.7}
+.yp-q span.now{color:var(--ink-2)}
+.yp-q span.now::before{content:"";flex:0 0 auto;width:5px;height:5px;border-radius:50%;background:var(--c)}
 .yp-q span.now em{font-style:normal;color:var(--ink-3);letter-spacing:.01em}
-.ft-t{margin-top:40px;text-align:center;font-size:13px;line-height:1.4;color:var(--ink-3)}
+.ft-t{margin-top:34px;text-align:center;font-size:12.5px;line-height:1.4;color:var(--ink-3)}
 .ft-t b{font-weight:600;color:var(--ink-2)}
 @media (min-width:768px){
-  .yp-pct{font-size:34px}
-  .yp-yr{font-size:15px}
-  .yp-d{font-size:13.5px}
-  .yp-b{margin-top:18px}
-  .yq-t{height:10px;border-radius:5px}
-  .yq-k{top:5px;width:20px;height:20px;margin:-10px 0 0 -10px}
-  .yp-q span{font-size:12px}
-  .ft-t{margin-top:46px;font-size:13.5px}
+  .yp-pct{font-size:24px}
+  .yp-yr{font-size:13.5px}
+  .yp-d{font-size:12.5px}
+  .yp-b{margin-top:13px}
+  .yq-t{height:5px;border-radius:2.5px}
+  .yq-k{top:2.5px;width:13px;height:13px;margin:-6.5px 0 0 -6.5px}
+  .yp-q span{font-size:11px}
+  .ft-t{margin-top:40px;font-size:13px}
 }
 
 /* ============================================================
@@ -1898,7 +1898,7 @@ async function fetchHealth(){try{const r=await fetch('health.json?v='+Date.now()
    HELPERS
    ================================================================= */
 /* BUILD: when this version of the page was published. Stamped automatically on every push. */
-const BUILD="2026-10-26T22:21:21-07:00";
+const BUILD="2026-10-26T22:25:26-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
@@ -4059,6 +4059,11 @@ function yearProgress(){
  const q=[0,1,2,3].map(i=>{const a=edge[i],n=edge[i+1]-a;return{n,f:Math.min(1,Math.max(0,(gone-a)/n))}});
  return{y,days,doy,left:days-doy,pct:gone/days*100,q,cur:q.findIndex(x=>x.f<1)};
 }
+/* when this copy of the app was last published, for the footer sign-off: "today, 10:21 PM", "yesterday, …", or "Oct 21, …" */
+function updatedLabel(){
+ const b=new Date(BUILD);if(isNaN(b))return"—";const d=dayDiff(dayKey(b),todayKey());
+ return(d===0?"today":d===1?"yesterday":b.toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:TZ}))+", "+fmtTime(b);
+}
 function renderFoot(){
  const el=$("#foot");if(!el)return;const p=yearProgress(),pc=(Math.floor(p.pct*10)/10).toFixed(1);
  const left=p.left===0?"Last day":p.left===1?"1 day left":p.left+" days left";
@@ -4068,7 +4073,7 @@ function renderFoot(){
   <div class="yp-h" aria-hidden="true"><span class="yp-pct">${pc}<small>%</small></span><span class="yp-yr">of ${p.y}</span><span class="yp-d"><b>Day ${p.doy}</b> of ${p.days}<i>·</i>${left}</span></div>
   <div class="yp-b" aria-hidden="true">${bar}</div>
   <div class="yp-q" aria-hidden="true">${labs}</div></div>
-  <div class="ft-t"><b>Stinky's Daily</b> · No. ${editionNo()}</div></div>`;
+  <div class="ft-t"><b>Stinky's Daily</b> · Updated ${esc(updatedLabel())}</div></div>`;
 }
 /* Am I on the newest version? Compare this page's BUILD with the one GitHub Pages is serving right now,
    and with the newest commit on GitHub (which can be a minute or two ahead of Pages). */
