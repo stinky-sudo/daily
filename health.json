@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-27T13:33:06.651Z",
+ "fetchedAt": "2026-10-27T15:32:44.455Z",
  "date": "2026-10-26",
  "days": {
   "2026-10-22": {
@@ -635,10 +635,17 @@
     "wake": 611,
     "start": "2026-10-26T05:16:00Z",
     "end": "2026-10-26T14:11:00Z"
-   }
+   },
+   "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-26T17:27:00.200Z",
+     "mins": 16
+    }
+   ]
   },
   "2026-10-27": {
-   "cal": 564
+   "cal": 736
   }
  },
  "steps": null,
@@ -666,7 +673,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 563.70348
+   "kcalSum": 735.82668
   }
  },
  "activeZoneMinutes": null,
