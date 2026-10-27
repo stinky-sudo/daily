@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-26T23:32:16.768Z",
+ "fetchedAt": "2026-10-27T01:32:19.674Z",
  "date": "2026-10-26",
  "days": {
   "2026-10-22": {
@@ -472,6 +472,18 @@
    "spo2Lo": 94.9,
    "spo2Hi": 98.2,
    "rr": 20.4,
+   "sleep": {
+    "asleep": 311,
+    "inBed": null,
+    "awake": 4,
+    "deep": 67,
+    "rem": 56,
+    "light": 188,
+    "bed": 248,
+    "wake": 563,
+    "start": "2026-10-25T08:08:00Z",
+    "end": "2026-10-25T13:23:00Z"
+   },
    "exercise": [
     {
      "type": "walking",
@@ -486,12 +498,12 @@
    ]
   },
   "2026-10-26": {
-   "steps": 5078,
-   "dist": 4018600,
-   "cal": 3129,
+   "steps": 5717,
+   "dist": 4528900,
+   "cal": 3445,
    "active": {
-    "light": 181,
-    "moderate": 82,
+    "light": 186,
+    "moderate": 98,
     "vigorous": 8
    },
    "azm": {
@@ -548,7 +560,7 @@
    }
   },
   "steps": {
-   "countSum": "5078"
+   "countSum": "5717"
   }
  },
  "distance": {
@@ -573,7 +585,7 @@
    }
   },
   "distance": {
-   "millimetersSum": "4018600"
+   "millimetersSum": "4528900"
   }
  },
  "activeMinutes": {
@@ -601,11 +613,11 @@
    "activeMinutesRollupByActivityLevel": [
     {
      "activityLevel": "LIGHT",
-     "activeMinutesSum": "181"
+     "activeMinutesSum": "186"
     },
     {
      "activityLevel": "MODERATE",
-     "activeMinutesSum": "82"
+     "activeMinutesSum": "98"
     },
     {
      "activityLevel": "VIGOROUS",
@@ -636,7 +648,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 3129.05634
+   "kcalSum": 3445.3327200000003
   }
  },
  "activeZoneMinutes": {
