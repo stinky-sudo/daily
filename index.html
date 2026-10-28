@@ -561,8 +561,6 @@ h1,h2,h3,p{margin:0}
 .s-ic.mono{background:var(--fill);color:var(--ink)}
 /* Home page order: touch and hold a row (or grab the handle), then drag */
 .s-sec{position:relative;background:var(--surface);-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
-.s-grip{flex:0 0 auto;width:40px;height:40px;margin:-4px -10px -4px -4px;display:grid;place-items:center;color:var(--ink-3);touch-action:none;cursor:grab}
-.s-grip svg{width:20px;height:20px}
 .dragging .s-sec{transition:transform .22s cubic-bezier(.2,.8,.2,1)}
 .s-sec.drag{z-index:3;transition:none;background:var(--sheet-lift);border-radius:12px;box-shadow:0 14px 34px -10px rgba(0,0,0,.4),0 0 0 1px var(--line);cursor:grabbing}
 .s-sec.drop{transition:transform .2s cubic-bezier(.2,.8,.2,1)}
@@ -576,6 +574,42 @@ h1,h2,h3,p{margin:0}
 .set-g>.s-acc:first-child{border-top:0}
 .s-acc>.s-row{border-top:0}
 .s-body{padding:2px 14px 14px}
+/* Home page rows: the sync line under each name; a tap opens the section's page */
+.s-sec{cursor:pointer;transition:background-color .15s}
+.s-sec:not(.drag):active{background:var(--fill)}
+@media (hover:hover) and (pointer:fine){.dragging .s-sec:hover{background:var(--surface)}.s-sec:not(.drag):hover{background:var(--fill)}}
+.s-n small.s-st{display:flex;align-items:center;gap:6px;min-width:0}
+.s-st .s-dot{width:7px;height:7px}
+.s-st span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s-chev.r{width:14px;height:14px;margin-left:-2px}
+.s-dot.warn{background:var(--warn-ink)}
+.s-v.err{color:var(--down)}
+.set-c{font-weight:600}
+/* a section's page: back bar, big title, then groups */
+.pg-nav{position:sticky;top:-8px;z-index:3;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin:0 calc(-1*var(--g)) 2px;padding:4px var(--g);background:var(--bg);transition:box-shadow .2s}
+.pg-nav.sc{box-shadow:0 1px 0 var(--line)}
+.pg-back{justify-self:start;display:inline-flex;align-items:center;gap:1px;height:40px;margin-left:-10px;padding:0 12px 0 4px;border-radius:12px;font-size:16.5px;font-weight:600;color:var(--link)}
+.pg-back svg{width:22px;height:22px;flex:0 0 auto}
+.pg-t{font-size:16px;font-weight:650;white-space:nowrap;opacity:0;transform:translateY(5px);transition:opacity .2s,transform .25s cubic-bezier(.2,.8,.2,1)}
+.pg-nav.sc .pg-t{opacity:1;transform:none}
+.pg-nav .icon-btn{justify-self:end}
+.pg-hd{display:flex;align-items:center;gap:14px;margin:8px 4px 22px}
+.pg-ic{flex:0 0 auto;width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.pg-ic svg{width:30px;height:30px}
+.pg-hx{min-width:0}
+.pg-hx h3{font-family:var(--display);font-size:28px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.pg-hx p{font-size:14px;color:var(--ink-3);line-height:1.4;margin-top:4px}
+.set-view.in-r{animation:svIn .34s cubic-bezier(.2,.8,.2,1)}
+.set-view.in-l{animation:svBack .32s cubic-bezier(.2,.8,.2,1)}
+.set-view.pg-drag{position:relative;z-index:2;background:var(--bg);will-change:transform;box-shadow:-1px 0 0 var(--line),-18px 0 36px -18px rgba(0,0,0,.35)}
+.pg-grab{position:absolute;left:50%;margin:0;transform:translateX(-50%)}
+.pg-under{position:absolute;left:0;right:0;z-index:1;overflow:hidden;background:var(--bg);pointer-events:none;will-change:transform}
+.pg-dim{position:absolute;left:0;right:0;z-index:1;background:#000;opacity:.18;pointer-events:none}
+.sheet-p{overflow-x:hidden}
+@keyframes svIn{from{transform:translateX(44px);opacity:0}}
+@keyframes svBack{from{transform:translateX(-36px);opacity:0}}
+@media (min-width:768px){.pg-nav{top:-20px;margin:-12px -24px 2px;padding:8px 24px}}
+@media (prefers-reduced-motion:reduce){.set-view.in-r,.set-view.in-l{animation:none}}
 @media (min-width:768px){.sheet-p{width:min(680px,calc(100% - 48px))!important;max-width:680px}.set-nav{top:-20px;margin:0 -24px 16px;padding:10px 24px}}
 @media (min-width:600px) and (pointer:coarse){.set-nav button{height:38px;font-size:14.5px}.s-row{min-height:56px}}
 .sw{-webkit-appearance:none;appearance:none;width:51px;height:31px;border-radius:999px;background:var(--fill-2);position:relative;flex:0 0 auto;transition:background .2s;margin:0;cursor:pointer}
@@ -1891,7 +1925,7 @@ async function fetchHealth(){try{const r=await fetch('health.json?v='+(window.SD
    HELPERS
    ================================================================= */
 /* BUILD: when this version of the page was published. Stamped automatically on every push. */
-const BUILD="2026-10-26T22:56:39-07:00";
+const BUILD="2026-10-27T20:39:39-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
@@ -2233,6 +2267,7 @@ async function pushCfg(){
  const c=cfg();if(!c.dirty)return;
  const full=compactCfg(c),kb=(JSON.stringify(full).length/1024).toFixed(1);
  const todo=cfgAtoms(full).filter(a=>!atomOnServer(a,S.remote));
+ const sig0=cfgSig(c);
  pushing=(async()=>{
   try{
    let r=null;
@@ -2252,7 +2287,8 @@ async function pushCfg(){
    if(skipped)throw new Error("one setting is too large to send to this backend version");
    S.sync={state:"ok",at:Date.now(),how:parts.length+" "+(parts.length===1?"piece":"pieces"),kb};
   }catch(e){S.sync={state:"err",msg:String(e.message||e).slice(0,140),kb}}
-  refreshSettings();
+  /* redraw Settings only if the server brought changes; otherwise just the status lines */
+  if(cfgSig(cfg())!==sig0)refreshSettings();else refreshSync();
  })();
  try{await pushing}finally{pushing=null}
  if(S.pushAgain){S.pushAgain=false;if(cfg().dirty)return pushCfg()}
@@ -2450,7 +2486,7 @@ function teaser(id){
  if(id==="learn"){const v=VOCAB[VOCAB.length-1],s=SPAN[SPAN.length-1];return (v?tx(esc(v.word),"ser"):"")+(s?`<span class="tx ser" lang="es">${esc(s.phrase)}</span>`:"")}
  return "";
 }
-function renderTeasers(){if(!S.booted)return;ITEMS.forEach(([id])=>{const el=$("#tz-"+id);if(el)el.innerHTML=teaser(id)})}
+function renderTeasers(){if(!S.booted)return;ITEMS.forEach(([id])=>{const el=$("#tz-"+id);if(el)el.innerHTML=teaser(id)});refreshSync()}
 
 /* =================================================================
    FEED FILTER — Watch and Listen can show everything, only what he
@@ -2465,12 +2501,12 @@ function feedOpts(id){const v=feedF(id);return`<i class="io-th" aria-hidden="tru
 function placeThumb(id,still){const o=$("#io-"+id);if(!o)return;const b=$("button.on",o),th=$(".io-th",o);if(!b||!th)return;
  if(still)o.classList.add("still");th.style.setProperty("--x",b.offsetLeft+"px");th.style.setProperty("--w",b.offsetWidth+"px");
  if(still)requestAnimationFrame(()=>requestAnimationFrame(()=>o.classList.remove("still")))}
-function setFeed(id,v){
+function setFeed(id,v,quiet){
  if(feedF(id)===v)return;const f={...(pref("feed",{})||{})};f[id]=v;setPref("feed",f);
  $$(`#io-${id} [data-feed]`).forEach(b=>{const on=b.dataset.v===v;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on)});placeThumb(id);
  S.feedAnim=id;RENDER[id]();S.feedAnim=null;
  /* if he'd scrolled down inside the section, bring its title back to the top */
- const el=$("#it-"+id);if(el&&el.getBoundingClientRect().top<topInset()-2)glideTo(el);
+ const el=$("#it-"+id);if(!quiet&&el&&el.getBoundingClientRect().top<topInset()-2)glideTo(el);
 }
 function renderFeedOpts(){FEEDS.forEach(id=>{const o=$("#io-"+id);if(o){o.innerHTML=feedOpts(id);placeThumb(id,true)}})}
 
@@ -2790,7 +2826,7 @@ async function loadTasks(force){
  if(c&&!force&&Date.now()-c.t<10*6e4){S.tasks=c.v;renderCal();renderTeasers();return}
  try{const r=await be({fn:"tasks"},20000);if(!r.tasks)throw new Error("no tasks in reply");S.tasks=r.tasks;S.tasksErr="";LS.set("sd-tasks",{t:Date.now(),v:r.tasks})}
  catch(e){S.tasksErr=String(e.message||e).slice(0,60);if(c)S.tasks=c.v}
- renderCal();renderTeasers();refreshSettings();
+ renderCal();renderTeasers();
 }
 async function completeTask(id,list,on){
  const t=(S.tasks||[]).find(x=>x.id===id);if(!t)return;t.done=on;LS.set("sd-tasks",{t:Date.now(),v:S.tasks});renderTeasers();
@@ -3387,7 +3423,7 @@ async function loadSpotify(force){
  if(names.length&&!fresh){try{const r=await be({fn:"podcasts",n:sig},25000);if(!r.shows)throw new Error("backend needs the new version deployed");S.sp=r.shows;S.spErr="";if(S.sp.length)LS.set("sd-sp2",{t:Date.now(),sig,v:S.sp})}catch(e){S.spErr=e.message}}
  /* suggested shows go through the same backend call, kept separate so they never count as followed */
  if(ssig&&!sfresh){try{const r=await be({fn:"podcasts",n:ssig},25000);if(r.shows){S.spSug=r.shows;LS.set("sd-sp-sug",{t:Date.now(),sig:ssig,v:S.spSug})}}catch(e){}}
- renderListen();refreshSettings();
+ renderListen();refreshSync();
 }
 async function loadSpArt(){
  const oe=LS.get("sd-sp-art",{});const eps=spItems().filter(p=>p.url&&oe[String(p.url).split("?")[0]]==null);
@@ -3556,7 +3592,7 @@ async function loadLiveTv(force){
   const res=await Promise.all(jobs.map(p=>p.catch(e=>{S.liveErr=String(e.message||e).slice(0,60);return[]})));
   const items=res.flat();S.live={items,at:Date.now()};LS.set("sd-live",{t:Date.now(),sig,items});
  }catch(e){S.liveErr=String(e.message||e).slice(0,60)}
- renderLiveTv();renderTeasers();refreshSettings();
+ renderLiveTv();renderTeasers();
 }
 const tvChips=tv=>(tv||[]).slice(0,3).map(t=>`<span class="tvc">${esc(t)}</span>`).join("");
 function liveWhen(it){const d=new Date(it.when);const k=dayKey(d);return{k,time:fmtTime(d),chip:it.state==="in"?`<span class="cd now"><i></i>Live${it.detail?" · "+esc(it.detail):""}</span>`:it.state==="post"?`<span class="cd">Final</span>`:cdChip(k,String(d.getHours()).padStart(2,"0")+":00")}}
@@ -4144,7 +4180,7 @@ async function checkVersion(){
 /* =================================================================
    SHEETS
    ================================================================= */
-function openSheet(html){const sh=$("#sheet"),p=$("#sheet-p");p.innerHTML=`<div class="grab"></div>`+html;p.scrollTop=0;sh.classList.add("open");requestAnimationFrame(()=>requestAnimationFrame(()=>sh.classList.add("show")));document.documentElement.style.overflow="hidden"}
+function openSheet(html){const sh=$("#sheet"),p=$("#sheet-p");p.style.minHeight="";p.innerHTML=`<div class="grab"></div>`+html;p.scrollTop=0;sh.classList.add("open");requestAnimationFrame(()=>requestAnimationFrame(()=>sh.classList.add("show")));document.documentElement.style.overflow="hidden"}
 function closeSheet(){const sh=$("#sheet");sh.classList.remove("show");document.documentElement.style.overflow="";setTimeout(()=>{if(!sh.classList.contains("show"))sh.classList.remove("open")},340)}
 const LIST_META={
  channels:{t:"YouTube channels",ph:"@handle",s:"Uploads from the last 5 days show up in Watch, with a few suggestions picked from this list."},
@@ -4157,26 +4193,90 @@ const LIST_META={
 function listEditor(k){const m=LIST_META[k];return`<div class="set-pad" id="le-${k}"><div class="set-t">${m.t}</div><div class="set-s">${m.s}</div>
  <div class="tags">${lists()[k].map(v=>`<span class="tag">${esc(v)}<button data-list-del="${k}" data-v="${esc(v)}" aria-label="Remove ${esc(v)}">${I.close}</button></span>`).join("")}</div>
  <div class="inp-row"><input class="inp" id="li-${k}" placeholder="${esc(m.ph)}" autocomplete="off" autocapitalize="${k==="artists"||k==="podcasts"?"words":"off"}" spellcheck="false" aria-label="Add to ${esc(m.t)}" enterkeyhint="done"><button class="btn press" data-list-add="${k}">Add</button></div></div>`}
-/* SETTINGS — grouped like iOS Settings: a quick jump bar, then
-   Appearance, Home page (order + visibility), Lists, Movies,
-   Connections, Data and About. Every change applies immediately. */
+/* SETTINGS — grouped like iOS Settings. The first page has Appearance, Home page, Data
+   and About. Every Home page row says where that section's data comes from and how fresh
+   it is; tap a row for the section's own page: its sync status, the show/hide switch, and
+   everything that configures it (channels, podcasts, artists, teams, tickers, movie
+   options). Touch and hold a row to drag it. Every change applies immediately. */
 const SET_COL={cal:"#2B5EF0",live:"#E8590C",mkt:"#0A9455",coach:"#1D8C8A",news:"#2B5EF0",watch:"#E62117",listen:"#1DB954",music:"#9B4DFF",bay:"#E8590C",shows:"#9B4DFF",movies:"#DD3B35",health:"#E8336D",vocab:"#4C46D6",spanish:"#D4331F"};
 const setIc=(c,svg)=>`<span class="s-ic mono" aria-hidden="true">${svg}</span>`;
 const GRIP=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8.5h14M5 12h14M5 15.5h14"/></svg>`;
 const LIST_IC={channels:["watch","#E62117"],podcasts:["listen","#1DB954"],stocks:["mkt","#0A9455"],crypto:["mkt","#F7931A"],artists:["music","#9B4DFF"],teams:["live","#E8590C"]};
 const ARW={up:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14l6-6 6 6"/></svg>`,down:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10l6 6 6-6"/></svg>`};
-const SET_NAV=[["look","Appearance"],["home","Home"],["lists","Lists"],["movies","Movies"],["conn","Connections"],["data","Data"],["about","About"]];
+const CHEV_R=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5.5 6.5 6.5L9 18.5"/></svg>`;
+const CHEV_L=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5.5 8.5 12l6.5 6.5"/></svg>`;
+const SET_NAV=[["look","Appearance"],["home","Home page"],["data","Data"],["about","About"]];
+const calmMotion=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
 function setStat(c,t,d){return`<div class="s-row"><span class="s-dot ${c}"></span><span class="s-n">${esc(t)}</span><span class="s-v ${String(d).length>28?"wrap":""}">${esc(d)}</span></div>`}
+
+/* SYNC STATUS — each source a section draws on: its name, who provides it, a state
+   (ok, warn, err, or "" while it's still connecting) and how fresh it is. */
+const SRC={
+ morning:()=>{const t=Date.parse(DATA.updated||"");return{n:"Morning edition",via:"Morning edition",s:!t?"":verInfo().stale?"warn":"ok",d:t?stamp(t):"Not loaded"}},
+ tasks:()=>{const b={n:"Reminders",via:"Google Tasks"};if(!backend())return{...b,s:"",d:"Needs your backend"};const c=LS.get("sd-tasks",null);
+  if(S.tasks&&!S.tasksErr)return{...b,s:"ok",d:`${S.tasks.filter(t=>!t.done).length} open`+(c&&c.t?" · "+stamp(c.t):"")};
+  return S.tasksErr?{...b,s:"err",d:"Couldn't reach it"}:{...b,s:"",d:"Connecting…"}},
+ espn:()=>{const b={n:"Schedules",via:"ESPN"};if(!teamList().length)return{...b,s:"",d:"Add a team below"};
+  const n=S.live&&S.live.items?S.live.items.length:0;
+  if(S.live&&S.live.at&&(n||!S.liveErr))return{...b,s:"ok",d:`${n} this week · ${stamp(S.live.at)}`};
+  return S.liveErr?{...b,s:"err",d:"Couldn't reach ESPN"}:{...b,s:"",d:"Checking…"}},
+ stocks:()=>{const b={n:"Stock prices",via:"Yahoo Finance"};if(!backend())return{...b,s:"",d:"Not connected"};
+  return S.st.err?{...b,s:"err",d:"Can't reach your backend"}:S.st.at?{...b,s:"ok",d:stamp(S.st.at)}:{...b,s:"",d:"Connecting…"}},
+ crypto:()=>{const b={n:"Crypto prices",via:"Coinbase"};
+  return S.cx.liveOn?{...b,s:"ok",d:"Streaming live"}:S.cx.qAt?{...b,via:"CoinGecko",s:"ok",d:"Delayed · "+stamp(S.cx.qAt)}:S.cx.err?{...b,s:"err",d:"Couldn't load"}:{...b,s:"",d:"Connecting…"}},
+ youtube:()=>{const b={n:"Uploads",via:"YouTube"};
+  return S.yt.error?{...b,s:"err",d:"Last check failed"}:S.yt.source==="live"&&S.yt.updated?{...b,s:"ok",d:stamp(S.yt.updated)}:{...b,s:"",d:"Checking…"}},
+ spotify:()=>{const b={n:"Episodes",via:"Spotify"},c=LS.get("sd-sp2",null);
+  if(S.sp&&S.sp.length)return{...b,s:"ok",d:`${S.sp.length} shows`+(c&&c.t?" · "+stamp(c.t):"")};
+  return S.spErr?{...b,s:"err",d:"Not responding"}:!backend()?{...b,s:"",d:"Needs your backend"}:!lists().podcasts.length?{...b,s:"",d:"Add a podcast below"}:{...b,s:"",d:"Connecting…"}},
+ tmdb:()=>{const b={n:"Showtimes",via:"TMDB"},c=LS.get("sd-mv2",null);
+  return S.mv?{...b,s:"ok",d:c&&c.t?stamp(c.t):"Live"}:S.mvErr==="no-key"?{...b,s:"",d:"Needs a TMDB_KEY"}:S.mvErr?{...b,s:"err",d:"Not responding"}:{...b,s:"",d:"Using the morning list"}},
+ fitbit:()=>{const b={n:"Health data",via:"Fitbit Air"},t=HEALTH&&HEALTH.ok?Date.parse(HEALTH.fetchedAt||HEALTH.date):0;
+  return t?{...b,s:"ok",d:stamp(t)}:{...b,s:"",d:"No data yet"}},
+ sync:()=>{const b={n:"Settings sync",via:"Shared with your other devices"};if(!backend())return{...b,via:"",s:"",d:"This device only"};
+  return S.sync.state==="ok"?{...b,s:"ok",d:S.sync.at?"Synced "+stamp(S.sync.at):"Synced"}:S.sync.state==="err"?{...b,via:S.sync.msg||"No response",s:"err",d:"Couldn't sync"}:{...b,s:"",d:"Syncing…"}}
+};
+/* which sources feed each section; the first live one is what its row shows */
+const SEC_SRC={cal:["morning","tasks"],live:["espn","morning"],mkt:["stocks","crypto","morning"],coach:["morning"],news:["morning"],watch:["youtube","morning"],listen:["spotify","morning"],music:["morning"],bay:["morning"],shows:["morning"],movies:["tmdb","morning"],health:["fitbit"],vocab:["morning"],spanish:["morning"]};
+/* what the morning edition brings to each section */
+const MORNING_NOTE={cal:"Events from Google Calendar",live:"Picks for the week",mkt:"Headline, Bitcoin take and idea",coach:"Today's one thing",news:"Today's stories",watch:"Picks and suggestions",listen:"Picks and suggestions",music:"New releases and similar artists",bay:"This weekend's events",shows:"Dates for your artists",movies:"Backup list",vocab:"Today's word",spanish:"Today's phrase"};
+const SEC_ABOUT={
+ cal:"The next few days from Google Calendar, plus your Google Tasks reminders.",
+ live:"Games, fights and launches for your teams, with where to watch them.",
+ mkt:"Your stocks and crypto, with the day's headline and one idea.",
+ coach:"One thing to do today, picked around what your days need.",
+ news:"The day's stories, picked each morning.",
+ watch:"New uploads from your channels in the last 5 days, plus a few suggestions.",
+ listen:"New episodes from your podcasts in the last 5 days, plus a few suggestions.",
+ music:"New releases from your artists, and similar artists to try.",
+ bay:"Things to do around the Bay this weekend.",
+ shows:"Bay Area dates for your artists.",
+ movies:"What's playing near you now, and what's coming soon.",
+ health:"Steps and sleep from your Fitbit Air, with one thing to focus on.",
+ vocab:"A new word each morning, with the two before it.",
+ spanish:"A new phrase each morning, with audio."
+};
+/* "Check now" on a section's page: reload just that section's live sources */
+const SEC_RELOAD={cal:()=>loadTasks(true),live:()=>loadLiveTv(true),mkt:()=>Promise.all([loadStQuotes(),loadCx()]),watch:()=>loadYouTube(true),listen:()=>loadSpotify(true).then(loadSpArt),movies:()=>loadMovies(true),health:async()=>{await fetchHealth();renderHealth();renderTeasers()}};
+const ST_RANK={err:0,warn:1,"":2,ok:3};
+function secState(id){
+ const xs=(SEC_SRC[id]||["morning"]).map(k=>[k,SRC[k]()]);
+ const worst=xs.reduce((a,b)=>ST_RANK[b[1].s]<ST_RANK[a[1].s]?b:a);
+ const main=xs.find(x=>x[1].s==="err")||xs.find(x=>x[0]!=="morning")||xs[0];
+ return{s:worst[1].s,t:main[1].via+" · "+main[1].d};
+}
+function secStIn(id){const x=secState(id);return`<i class="s-dot ${x.s}" aria-hidden="true"></i><span>${esc(x.t)}</span>`}
+function srcIn(k,id){const x=SRC[k](),sub=k==="morning"?MORNING_NOTE[id]||"":x.via;
+ return`<span class="s-dot ${x.s}" aria-hidden="true"></span><span class="s-n">${esc(x.n)}${sub?`<small>${esc(sub)}</small>`:""}</span><span class="s-v${x.s==="err"?" err":x.s==="warn"?" warn":""}">${esc(x.d)}</span>`}
+const srcRow=(k,id)=>`<div class="s-row" data-st="src:${k}:${id}">${srcIn(k,id)}</div>`;
+/* update the status lines in place (no redraw, so scrolling and typing aren't disturbed) */
+function refreshSync(){const p=$("#sheet-p");if(!p||!$("#sheet").classList.contains("open"))return;
+ $$("[data-st]",p).forEach(el=>{const[k,a,b]=el.dataset.st.split(":"),h=k==="sec"?secStIn(a):srcIn(a,b);if(el._h!==h){el.innerHTML=h;el._h=h}})}
+
 function settingsHTML(){
- const t=themeId(),bu=backend(),stored=!!LS.get("sd-yt-key",""),ord=orderIds(),names=Object.fromEntries(SECTIONS);
- const sync=!bu?["","This device only"]:S.sync.state==="ok"?["ok",(S.sync.at?"Synced "+fmtLocalTime(new Date(S.sync.at)):"Synced")+(S.sync.kb?" · "+S.sync.kb+" KB":"")]:S.sync.state==="err"?["err","Couldn't sync · "+(S.sync.msg||"no response")]:["","Syncing…"];
- const mk=!bu?["","Not connected"]:S.st.err?["err","Can't reach it"]:S.st.at?["ok","Prices "+fmtLocalTime(new Date(S.st.at))]:["","Connecting…"];
- const ytst=S.yt.error?["err","Last check failed"]:S.yt.source==="live"?["ok","Live · "+fmtLocalTime(new Date(S.yt.updated))]:["","Checking…"];
- const spst=S.sp&&S.sp.length?["ok",`Live · ${S.sp.length} shows`]:S.spErr?["err","Not responding"]:["","Connecting…"];
- const mvst=S.mv?["ok","Live from TMDB"]:S.mvErr==="no-key"?["","Needs a TMDB_KEY"]:S.mvErr?["err","Not responding"]:["","From the morning data"];
- const hst=HEALTH&&HEALTH.ok?["ok","Updated "+fmtLocalTime(new Date(HEALTH.fetchedAt||HEALTH.date))]:["","No data yet"];
+ const t=themeId(),ord=orderIds(),names=Object.fromEntries(SECTIONS);
  const nPins=pinList().length,nHid=Object.keys(DISM()).length,vi=verInfo();
- return`<div class="sheet-h"><h3 id="sheet-title">Settings</h3><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
+ return`<div class="set-view" id="set-root" data-view="main"><div class="sheet-h"><h3 id="sheet-title">Settings</h3><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
  <nav class="set-nav noscroll" aria-label="Settings sections">${SET_NAV.map(([k,l])=>`<button class="press" data-setjump="${k}">${l}</button>`).join("")}</nav>
 
  <section class="set-sec" id="ss-look"><div class="set-l">Appearance</div>
@@ -4186,51 +4286,19 @@ function settingsHTML(){
  </div></section>
 
  <section class="set-sec" id="ss-home"><div class="set-l"><span>Home page</span><button data-act="order-reset">Reset order</button></div>
- <div class="set-g" id="sec-order">${ord.map(id=>`<div class="s-row s-sec${isHidden(id)?" off":""}" data-sid="${id}">${setIc("",MI[id]||"")}<span class="s-n">${esc(names[id]||id)}</span>
-  <input type="checkbox" class="sw" data-sec-toggle="${id}" aria-label="Show ${esc(names[id])}" ${isHidden(id)?"":"checked"}><span class="s-grip" aria-hidden="true">${GRIP}</span></div>`).join("")}</div>
- <p class="set-help">Touch and hold a section, then drag it up or down. The switch shows or hides it. Both sync to your other devices.</p></section>
-
- <section class="set-sec" id="ss-lists"><div class="set-l">Your lists</div>
- <div class="set-g" id="set-lists">${LIST_KEYS.map(k=>{const m=LIST_META[k],l=lists()[k],ic=LIST_IC[k]||["news","#8F949C"],open=S.setOpen&&S.setOpen.has(k);
-  return`<details class="s-acc" id="le-${k}" data-acc="${k}" ${open?"open":""}><summary class="s-row">${setIc(ic[1],MI[ic[0]])}<span class="s-n">${esc(m.t)}<small>${esc(l.slice(0,3).join(", ")+(l.length>3?` +${l.length-3}`:""))||"Empty"}</small></span><span class="s-v num">${l.length}</span><span class="s-chev" aria-hidden="true">${I.chev}</span></summary>
-   <div class="s-body"><div class="set-s" style="margin-top:0">${esc(m.s)}</div>
-   <div class="tags">${l.map(v=>`<span class="tag">${esc(v)}<button data-list-del="${k}" data-v="${esc(v)}" aria-label="Remove ${esc(v)}">${I.close}</button></span>`).join("")}</div>
-   <div class="inp-row"><input class="inp" id="li-${k}" placeholder="${esc(m.ph)}" autocomplete="off" autocapitalize="${k==="artists"||k==="podcasts"?"words":"off"}" spellcheck="false" aria-label="Add to ${esc(m.t)}" enterkeyhint="done"><button class="btn press" data-list-add="${k}">Add</button></div></div></details>`}).join("")}</div>
- <p class="set-help">Suggestions in Watch and Listen come from these lists.</p></section>
-
- <section class="set-sec" id="ss-movies"><div class="set-l" id="set-movies">Movies</div>
- ${(()=>{const o=mvPrefs();const seg=(k,opts)=>`<div class="seg" role="tablist">${opts.map(([v,l])=>`<button class="${o[k]===v?"on":""}" data-mvp="${k}" data-v="${v}" role="tab" aria-selected="${o[k]===v}">${l}</button>`).join("")}</div>`;
-  const m=S.mv||DATA.movies||{};const gs=[...new Set([...(m.now||[]),...(m.soon||[])].flatMap(mvGenres).concat(o.hide))].sort();
-  return`<div class="set-g">
-  <div class="set-pad"><div class="set-t">Near</div><div class="set-s">Showtimes and ticket links use this ZIP.</div><div class="inp-row" style="margin-top:8px"><input class="inp" id="mv-zip" inputmode="numeric" maxlength="5" value="${esc(o.zip||"")}" placeholder="ZIP, like 94040" aria-label="ZIP code" enterkeyhint="done"><button class="btn press" data-act="mv-zip">Save</button></div></div>
-  <div class="set-pad"><div class="set-t">Open showtimes in</div>${seg("via",[["fandango","Fandango"],["google","Google"]])}</div>
-  <div class="set-pad"><div class="set-t">In theaters</div><div class="set-s">How many to show.</div>${seg("n",[[8,"8"],[12,"12"],[20,"20"],[40,"40"]])}</div>
-  <div class="set-pad"><div class="set-t">Still counts as "in theaters" for</div><div class="set-s">Films that opened longer ago drop off, unless the data says they're still playing.</div>${seg("win",[[14,"2 wks"],[30,"1 mo"],[45,"6 wks"],[90,"3 mo"]])}</div>
-  <div class="set-pad"><div class="set-t">Order</div>${seg("sort",[["newest","Newest"],["popular","Popular"],["rated","Top rated"]])}</div>
-  <div class="set-pad"><div class="set-t">Minimum audience score</div><div class="set-s">Brand-new films without enough ratings still show.</div>${seg("min",[[0,"Any"],[6,"6+"],[7,"7+"]])}</div>
-  <label class="set-r"><span><span class="set-t" style="display:block">Always show this week's openings</span><span class="set-s">New releases appear even if they aren't popular yet.</span></span><input type="checkbox" class="sw" data-mvfresh ${o.fresh?"checked":""}></label>
-  <div class="set-pad"><div class="set-t">Coming soon</div><div class="set-s">How far ahead to look.</div>${seg("soon",[[30,"1 month"],[90,"3 months"],[180,"6 months"]])}</div>
-  <label class="set-r"><span><span class="set-t" style="display:block">Big releases only</span><span class="set-s">Coming soon shows just the ones marked as big.</span></span><input type="checkbox" class="sw" data-mvbig ${o.bigOnly?"checked":""}></label>
-  ${gs.length?`<div class="set-pad"><div class="set-t">Genres</div><div class="set-s">Tap a genre to hide it.</div><div class="tags">${gs.map(g=>{const off=o.hide.some(h=>norm(h)===norm(g));return`<button class="tag gtog ${off?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off}">${esc(g)}</button>`}).join("")}</div></div>`:""}
- </div>`})()}</section>
-
- <section class="set-sec" id="ss-conn"><div class="set-l">Connections</div>
- <div class="set-g">
-  ${setStat(mk[0],"Market data",mk[1])}${setStat(sync[0],"Settings sync",sync[1])}
-  ${setStat(ytst[0],"YouTube",ytst[1])}${setStat(spst[0],"Spotify",spst[1])}${setStat(mvst[0],"Movies",mvst[1])}${setStat(hst[0],"Health",hst[1])}${setStat(S.tasks?"ok":S.tasksErr?"err":"","Reminders",S.tasks?`Google Tasks · ${S.tasks.filter(t=>!t.done).length} open`:S.tasksErr?"Needs the Oct 22 backend update":"Connecting…")}${setStat(S.live?"ok":S.liveErr?"err":"","Live",S.live?`ESPN · ${(S.live.items||[]).length} this week`:S.liveErr?"Couldn't reach ESPN":"Checking…")}
-  <details class="s-acc"><summary class="s-row"><span class="s-n">Custom YouTube key<small>${stored?"Using your key":"Using the built-in key"}</small></span><span class="s-chev" aria-hidden="true">${I.chev}</span></summary>
-   <div class="s-body"><div class="inp-row" style="margin-top:0"><input class="inp" id="yt-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${stored?"Custom key saved":"Paste a key to override"}" aria-label="YouTube API key"><button class="btn press" data-act="yt-save">Save</button></div>
-   ${stored?`<button class="s-link danger" data-act="yt-clear">Remove custom key</button>`:""}</div></details>
- </div>
- <p class="set-help">All of these run through your Stinky's Daily Apps Script.</p></section>
+ <div class="set-g" id="sec-order">${ord.map(id=>`<div class="s-row s-sec${isHidden(id)?" off":""}" data-sid="${id}" role="button" tabindex="0" aria-label="${esc(names[id]||id)} settings">${setIc("",MI[id]||"")}<span class="s-n">${esc(names[id]||id)}<small class="s-st" data-st="sec:${id}">${secStIn(id)}</small></span>
+  <input type="checkbox" class="sw" data-sec-toggle="${id}" aria-label="Show ${esc(names[id])}" ${isHidden(id)?"":"checked"}><span class="s-chev r" aria-hidden="true">${CHEV_R}</span></div>`).join("")}</div>
+ <p class="set-help">Tap a section for its settings and sync details. Touch and hold to drag it up or down; the switch shows or hides it. All of it syncs to your other devices.</p></section>
 
  <section class="set-sec" id="ss-data"><div class="set-l">Data</div>
  <div class="set-g">
+  ${srcRow("sync","main")}
   <div class="s-row"><span class="s-n">Pinned items</span><span class="s-v num">${nPins}</span></div>
   <div class="s-row"><span class="s-n">Hidden items</span><span class="s-v num">${nHid}</span>${nHid?`<button class="s-link" data-act="restore-hidden">Restore all</button>`:""}</div>
   <button class="s-row s-btn" data-act="refresh"><span class="s-n" style="color:var(--link)">Refresh now</span></button>
   <button class="s-row s-btn" data-act="clear-cache"><span class="s-n" style="color:var(--down)">Clear cached data</span><span class="s-v">Keeps your settings</span></button>
- </div></section>
+ </div>
+ <p class="set-help">Everything runs through your Stinky's Daily Apps Script.</p></section>
 
  <section class="set-sec" id="ss-about"><div class="set-l">About</div>
  <div class="set-g">
@@ -4239,11 +4307,126 @@ function settingsHTML(){
   <div class="s-row"><span class="s-n">App version</span><span class="s-v">${esc(vi.app)}</span></div>
   <div class="s-row"><span class="s-n">Status</span><span class="s-v ${vi.state==="new"?"warn":""}">${esc(vi.status)}</span>${vi.state==="new"?`<button class="s-link" data-act="refresh">Load</button>`:""}</div>
  </div>
- <p class="set-help" style="margin-top:-12px">Weather from Open-Meteo, crypto from CoinGecko and Coinbase, stocks from Yahoo Finance through your backend.</p></section>`;
+ <p class="set-help" style="margin-top:-12px">Weather from Open-Meteo, crypto from CoinGecko and Coinbase, stocks from Yahoo Finance through your backend.</p></section></div>`;
 }
-function refreshSettings(){const p=$("#sheet-p");if(!p||!$("#sheet").classList.contains("open")||!$("#set-lists",p))return;const y=p.scrollTop;p.innerHTML=`<div class="grab"></div>`+settingsHTML();p.scrollTop=y}
-/* SECTION ORDER — Settings → Home page. Touch and hold a row (or grab its handle) and drag it
-   up or down; the mouse drags right away. Rows are all the same height, so the drop slot is just
+
+/* A SECTION'S PAGE — back to Settings, the section's name, its sync status first,
+   then the switch and whatever configures it. */
+const LIST_SEC={channels:"watch",podcasts:"listen",stocks:"mkt",crypto:"mkt",artists:"music",teams:"live"};
+function listGroup(k,label,note){const m=LIST_META[k],l=lists()[k];
+ return`<div class="set-l"><span>${esc(label)}</span><span class="set-c num">${l.length}</span></div>
+ <div class="set-g"><div class="set-pad" id="le-${k}"><div class="set-s" style="margin-top:0">${esc(m.s)}${note?" "+esc(note):""}</div>
+  ${l.length?`<div class="tags">${l.map(v=>`<span class="tag">${esc(v)}<button data-list-del="${k}" data-v="${esc(v)}" aria-label="Remove ${esc(v)}">${I.close}</button></span>`).join("")}</div>`:""}
+  <div class="inp-row"><input class="inp" id="li-${k}" placeholder="${esc(m.ph)}" autocomplete="off" autocapitalize="${k==="artists"||k==="podcasts"?"words":"off"}" spellcheck="false" aria-label="Add to ${esc(label)}" enterkeyhint="done"><button class="btn press" data-list-add="${k}">Add</button></div></div></div>`}
+const feedGroup=id=>{const v=feedF(id),n=Object.fromEntries(SECTIONS)[id];
+ return`<div class="set-l"><span>Show</span></div><div class="set-g"><div class="set-pad"><div class="seg" role="group" aria-label="Show in ${esc(n)}" style="margin-top:0">${FEED_OPTS.map(([k,l])=>`<button class="${k===v?"on":""}" data-setfeed="${id}" data-v="${k}" aria-pressed="${k===v}">${l}</button>`).join("")}</div>
+ <div class="set-s" style="margin-top:8px">The same choice as the pill on the ${esc(n)} row.</div></div></div>`};
+function ytKeyGroup(){const stored=!!LS.get("sd-yt-key","");
+ return`<div class="set-l"><span>API key</span></div><div class="set-g"><div class="set-pad"><div class="set-t">${stored?"Using your own key":"Using the built-in key"}</div><div class="set-s">Only needed if the built-in key runs out. A key stays on this device and doesn't sync.</div>
+ <div class="inp-row"><input class="inp" id="yt-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${stored?"Paste a new key to replace it":"Paste a YouTube API key"}" aria-label="YouTube API key"><button class="btn press" data-act="yt-save">Save</button></div>
+ ${stored?`<button class="s-link danger" data-act="yt-clear">Remove your key</button>`:""}</div></div>`}
+function mvSetHTML(){
+ const o=mvPrefs();const seg=(k,opts)=>`<div class="seg" role="tablist">${opts.map(([v,l])=>`<button class="${o[k]===v?"on":""}" data-mvp="${k}" data-v="${v}" role="tab" aria-selected="${o[k]===v}">${l}</button>`).join("")}</div>`;
+ const m=S.mv||DATA.movies||{};const gs=[...new Set([...(m.now||[]),...(m.soon||[])].flatMap(mvGenres).concat(o.hide))].sort();
+ return`<div class="set-l"><span>In theaters</span></div><div class="set-g">
+  <div class="set-pad"><div class="set-t">Near</div><div class="set-s">Showtimes and ticket links use this ZIP.</div><div class="inp-row" style="margin-top:8px"><input class="inp" id="mv-zip" inputmode="numeric" maxlength="5" value="${esc(o.zip||"")}" placeholder="ZIP, like 94040" aria-label="ZIP code" enterkeyhint="done"><button class="btn press" data-act="mv-zip">Save</button></div></div>
+  <div class="set-pad"><div class="set-t">Open showtimes in</div>${seg("via",[["fandango","Fandango"],["google","Google"]])}</div>
+  <div class="set-pad"><div class="set-t">How many to show</div>${seg("n",[[8,"8"],[12,"12"],[20,"20"],[40,"40"]])}</div>
+  <div class="set-pad"><div class="set-t">Still counts as "in theaters" for</div><div class="set-s">Films that opened longer ago drop off, unless the data says they're still playing.</div>${seg("win",[[14,"2 wks"],[30,"1 mo"],[45,"6 wks"],[90,"3 mo"]])}</div>
+  <div class="set-pad"><div class="set-t">Order</div>${seg("sort",[["newest","Newest"],["popular","Popular"],["rated","Top rated"]])}</div>
+  <div class="set-pad"><div class="set-t">Minimum audience score</div><div class="set-s">Brand-new films without enough ratings still show.</div>${seg("min",[[0,"Any"],[6,"6+"],[7,"7+"]])}</div>
+  <label class="set-r"><span><span class="set-t" style="display:block">Always show this week's openings</span><span class="set-s">New releases appear even if they aren't popular yet.</span></span><input type="checkbox" class="sw" data-mvfresh ${o.fresh?"checked":""}></label>
+ </div>
+ <div class="set-l"><span>Coming soon</span></div><div class="set-g">
+  <div class="set-pad"><div class="set-t">How far ahead to look</div>${seg("soon",[[30,"1 month"],[90,"3 months"],[180,"6 months"]])}</div>
+  <label class="set-r"><span><span class="set-t" style="display:block">Big releases only</span><span class="set-s">Coming soon shows just the ones marked as big.</span></span><input type="checkbox" class="sw" data-mvbig ${o.bigOnly?"checked":""}></label>
+ </div>
+ ${gs.length?`<div class="set-l"><span>Genres</span></div><div class="set-g"><div class="set-pad"><div class="set-s" style="margin-top:0">Tap a genre to hide it.</div><div class="tags">${gs.map(g=>{const off=o.hide.some(h=>norm(h)===norm(g));return`<button class="tag gtog ${off?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off}">${esc(g)}</button>`}).join("")}</div></div></div>`:""}`;
+}
+const PAGE_BODY={
+ watch:()=>feedGroup("watch")+listGroup("channels","Channels")+ytKeyGroup(),
+ listen:()=>feedGroup("listen")+listGroup("podcasts","Podcasts"),
+ music:()=>listGroup("artists","Artists","Shows uses this list too."),
+ shows:()=>listGroup("artists","Artists","The same list as Music."),
+ live:()=>listGroup("teams","Teams and events"),
+ mkt:()=>listGroup("stocks","Stocks")+listGroup("crypto","Crypto"),
+ movies:()=>mvSetHTML()
+};
+function pageHTML(id){
+ const name=Object.fromEntries(SECTIONS)[id]||id;
+ return`<div class="set-view" id="set-root" data-view="${id}">
+ <div class="pg-nav"><button class="pg-back press" data-act="set-back" aria-label="Back to Settings">${CHEV_L}<span>Settings</span></button><span class="pg-t" aria-hidden="true">${esc(name)}</span><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
+ <header class="pg-hd"><span class="pg-ic" aria-hidden="true">${MI[id]||""}</span><div class="pg-hx"><h3 id="sheet-title">${esc(name)}</h3><p>${esc(SEC_ABOUT[id]||"")}</p></div></header>
+ <div class="set-l"><span>Sync</span>${SEC_RELOAD[id]?`<button data-act="set-reload" data-sid="${id}">Check now</button>`:""}</div>
+ <div class="set-g">${(SEC_SRC[id]||["morning"]).map(k=>srcRow(k,id)).join("")}${srcRow("sync",id)}</div>
+ <div class="set-g"><label class="s-row"><span class="s-n">Show on Home page</span><input type="checkbox" class="sw" data-sec-toggle="${id}" aria-label="Show ${esc(name)} on the Home page" ${isHidden(id)?"":"checked"}></label></div>
+ ${PAGE_BODY[id]?PAGE_BODY[id]():""}
+ </div>`;
+}
+/* which view the sheet shows: the main list, or one section's page */
+const setView=()=>S.setPage&&SECTIONS.some(x=>x[0]===S.setPage)?pageHTML(S.setPage):settingsHTML();
+function paintSet(cls){
+ const p=$("#sheet-p");if(!p)return;p.innerHTML=`<div class="grab"></div>`+setView();
+ const v=$("#set-root",p);if(v&&cls&&!calmMotion()){v.classList.add(cls);v.addEventListener("animationend",()=>v.classList.remove(cls),{once:true})}
+ pgNavSc();
+}
+function openSettings(id){S.setPage=id||null;S.setY=0;openSheet(setView());pgNavSc()}
+/* push into a section's page; the sheet keeps its height so it doesn't jump */
+function setGo(id){const p=$("#sheet-p");if(!p)return;S.setY=p.scrollTop;p.style.minHeight=p.offsetHeight+"px";S.setPage=id;paintSet("in-r");p.scrollTop=0}
+function setBack(slid){const p=$("#sheet-p");if(!p)return;S.setPage=null;paintSet(slid?"":"in-l");p.scrollTop=S.setY||0;p.style.minHeight=""}
+/* the small title in the page's bar fades in once the big one scrolls under it */
+function pgNavSc(){const p=$("#sheet-p"),n=p&&$(".pg-nav",p);if(!n)return;const h=$(".pg-hd h3",p);n.classList.toggle("sc",!!h&&h.getBoundingClientRect().bottom<n.getBoundingClientRect().bottom)}
+function refreshSettings(){
+ const p=$("#sheet-p");if(!p||!$("#sheet").classList.contains("open")||!$("#set-root",p))return;
+ if(SD.on||PG.on){S.setDirty=true;return}
+ const a=document.activeElement,keep=a&&p.contains(a)&&a.id&&a.matches("input")?{id:a.id,v:a.value,s:a.selectionStart,e:a.selectionEnd}:null;
+ const y=p.scrollTop;p.innerHTML=`<div class="grab"></div>`+setView();p.scrollTop=y;
+ if(keep){const n=p.querySelector("#"+CSS.escape(keep.id));if(n){if(n.type!=="checkbox")n.value=keep.v;try{n.focus({preventScroll:true});n.setSelectionRange(keep.s,keep.e)}catch(e){}}}
+ pgNavSc();
+}
+/* SWIPE BACK on a section's page: finger sliding right carries the page off like a card.
+   Underneath, a copy of Settings (parked where you left it) slides in with a little
+   parallax, so letting go lands on exactly what you saw — the same feel as the home page. */
+const PG={on:false,may:false},PG_PAR=.3;
+function pgUnder(){
+ const p=$("#sheet-p"),cs=getComputedStyle(p),tpl=document.createElement("template");
+ tpl.innerHTML=`<div class="grab"></div>`+settingsHTML();
+ tpl.content.querySelectorAll("[id],[data-st],[tabindex]").forEach(n=>{n.removeAttribute("id");n.removeAttribute("data-st");n.removeAttribute("tabindex")});
+ const box=`top:${p.scrollTop}px;height:${p.clientHeight}px;`;
+ const u=document.createElement("div");u.className="pg-under";u.setAttribute("aria-hidden","true");u.inert=true;
+ u.style.cssText=box+`padding:${cs.paddingTop} ${cs.paddingRight} ${cs.paddingBottom} ${cs.paddingLeft}`;u.appendChild(tpl.content);
+ const d=document.createElement("div");d.className="pg-dim";d.style.cssText=box;
+ p.appendChild(u);p.appendChild(d);u.scrollTop=S.setY||0;
+ const v=PG.v;v.style.marginLeft="-"+cs.paddingLeft;v.style.marginRight="-"+cs.paddingRight;v.style.paddingLeft=cs.paddingLeft;v.style.paddingRight=cs.paddingRight;
+ /* the card reaches the top edge (carrying its own grab handle), so nothing of the copy shows above it */
+ const pt=p.getBoundingClientRect().top,gap=Math.round(v.getBoundingClientRect().top-pt);
+ if(gap>0){v.style.marginTop=-gap+"px";v.style.paddingTop=gap+"px";const g=$(".grab",p);
+  if(g&&g.offsetParent){const c=g.cloneNode();c.className="grab pg-grab";c.style.top=Math.round(g.getBoundingClientRect().top-pt)+"px";v.prepend(c)}}
+ v.style.minHeight=p.clientHeight+"px";
+ Object.assign(PG,{u,d,w:p.clientWidth||1});
+}
+function pgPaint(dx){const k=Math.min(1,dx/PG.w);PG.v.style.transform=`translateX(${dx}px)`;PG.u.style.transform=`translateX(${(-(1-k)*PG.w*PG_PAR).toFixed(1)}px)`;PG.d.style.opacity=String((1-k)*.18)}
+document.addEventListener("touchstart",e=>{
+ const v=$("#set-root");PG.may=false;
+ if(PG.on||!v||v.dataset.view==="main"||e.touches.length>1||!$("#sheet").classList.contains("show")||e.target.closest("input,textarea,select"))return;
+ const t=e.touches[0];Object.assign(PG,{may:true,on:false,v,x0:t.clientX,y0:t.clientY,dx:0,pts:[[t.clientX,performance.now()]]})},{passive:true});
+document.addEventListener("touchmove",e=>{
+ if(!PG.may)return;const t=e.touches[0],dx=t.clientX-PG.x0,dy=t.clientY-PG.y0;
+ if(!PG.on){if(Math.abs(dx)<7&&Math.abs(dy)<7)return;if(dx>0&&dx>Math.abs(dy)*1.3){PG.on=true;PG.x0=t.clientX;PG.v.classList.add("pg-drag");pgUnder()}else{PG.may=false;return}}
+ e.preventDefault();PG.dx=Math.max(0,t.clientX-PG.x0);PG.pts.push([t.clientX,performance.now()]);if(PG.pts.length>5)PG.pts.shift();pgPaint(PG.dx)},{passive:false});
+function pgEnd(){
+ if(!PG.may)return;PG.may=false;if(!PG.on)return;
+ const{v,u,d,w}=PG,a=PG.pts[0],b=PG.pts[PG.pts.length-1],vel=b&&a&&b[1]>a[1]?(b[0]-a[0])/(b[1]-a[1]):0;
+ const go=PG.dx>w*.3||(PG.dx>40&&vel>.45),ms=go?Math.round(Math.max(140,Math.min(280,(w-PG.dx)/Math.max(.9,vel)))):260,ease=`${ms}ms cubic-bezier(.2,.8,.2,1)`;
+ [v,u].forEach(x=>x.style.transition="transform "+ease);d.style.transition="opacity "+ease;
+ if(go){pgPaint(w)}else pgPaint(0);
+ setTimeout(()=>{PG.on=false;
+  if(go){S.setDirty=false;setBack(true)} /* the copy underneath is already showing it */
+  else{u.remove();d.remove();v.classList.remove("pg-drag");v.removeAttribute("style");const g=$(".pg-grab",v);if(g)g.remove();if(S.setDirty){S.setDirty=false;refreshSettings()}}},ms+20);
+}
+document.addEventListener("touchend",pgEnd);document.addEventListener("touchcancel",pgEnd);
+/* SECTION ORDER — Settings → Home page. Touch and hold a row and drag it up or down (a quick
+   tap opens the section's page instead); the mouse drags as soon as it moves. Rows are all the same height, so the drop slot is just
    how many rows the finger has travelled. The sheet scrolls itself near its edges. */
 const SD={};
 function sdStart(row,y){
@@ -4262,16 +4445,17 @@ function sdTick(){
  if(to!==SD.to){SD.to=to;SD.rows.forEach((r,k)=>{if(r===SD.row)return;const sh=SD.i<to&&k>SD.i&&k<=to?-SD.h:to<SD.i&&k>=to&&k<SD.i?SD.h:0;r.style.transform=sh?`translateY(${sh}px)`:""});try{navigator.vibrate&&navigator.vibrate(4)}catch(e){}}
  SD.raf=requestAnimationFrame(sdTick)}
 function sdEnd(){
- clearTimeout(SD.t);SD.pend=null;if(!SD.on)return;SD.on=false;cancelAnimationFrame(SD.raf);
+ clearTimeout(SD.t);SD.pend=null;if(!SD.on)return;SD.on=false;SD.noClick=Date.now()+450;cancelAnimationFrame(SD.raf);
  const{row,list,rows,i,to,h}=SD,id=row.dataset.sid;
  row.classList.add("drop");row.style.transform=`translateY(${(to-i)*h}px)`;
  setTimeout(()=>{rows.forEach(r=>{r.style.transform=""});row.classList.remove("drag","drop");list.classList.remove("dragging");
-  if(to!==i){const o=orderIds(),from=o.indexOf(id);if(from>=0){o.splice(from,1);o.splice(to,0,id);setPref("order",o);applyOrder();refreshSettings()}}},210)}
+  const dirty=S.setDirty;S.setDirty=false;
+  if(to!==i){const o=orderIds(),from=o.indexOf(id);if(from>=0){o.splice(from,1);o.splice(to,0,id);setPref("order",o);applyOrder();refreshSettings()}}else if(dirty)refreshSettings()},210)}
 document.addEventListener("contextmenu",e=>{if(SD.on||SD.pend)e.preventDefault()});
 document.addEventListener("touchstart",e=>{
  if(SD.on)sdEnd();
  const row=e.target.closest&&e.target.closest("#sec-order .s-sec");if(!row||e.target.closest(".sw")||e.touches.length>1)return;
- const t=e.touches[0];if(e.target.closest(".s-grip")){e.preventDefault();sdStart(row,t.clientY);return}
+ const t=e.touches[0];
  SD.pend={row,x:t.clientX,y:t.clientY};clearTimeout(SD.t);SD.t=setTimeout(()=>{if(SD.pend)sdStart(SD.pend.row,SD.pend.y)},360)},{passive:false});
 document.addEventListener("touchmove",e=>{const t=e.touches[0];if(SD.on){e.preventDefault();SD.y=t.clientY;return}
  if(SD.pend&&Math.hypot(t.clientX-SD.pend.x,t.clientY-SD.pend.y)>8){clearTimeout(SD.t);SD.pend=null}},{passive:false});
@@ -4324,15 +4508,21 @@ function applyTheme(){const t=themeId(),d=SDT[t],r=document.documentElement;
 function redrawCharts(){drawMk()}
 document.addEventListener("click",async e=>{
  const t=e.target;
+ /* a Home page row in Settings opens that section's page (not after a drag, not from its switch) */
+ const srow=t.closest("#sec-order .s-sec");if(srow){if(t.closest(".sw")||Date.now()<(SD.noClick||0))return;setGo(srow.dataset.sid);return}
  const a=t.closest("[data-act]");
  if(a){const act=a.dataset.act;
-  if(act==="settings"){openSheet(settingsHTML());return}
+  if(act==="settings"){openSettings();return}
+  if(act==="settings-page"){openSettings(a.dataset.sid);return}
+  if(act==="set-back"){setBack();return}
+  if(act==="set-reload"){const id=a.dataset.sid,f=SEC_RELOAD[id];if(!f||a.disabled)return;a.disabled=true;a.textContent="Checking…";try{await f()}catch(err){}refreshSettings();const x=secState(id);toast(x.s==="err"?x.t:"Up to date");return}
   if(act==="year"){const p=yearProgress(),q=p.q[p.cur];toast(q?`Q${p.cur+1} · day ${Math.min(q.n,Math.floor(q.n*q.f)+1)} of ${q.n} · ${Math.floor(q.f*100)}% through`:`${p.y} is done`);return}
   if(act==="order-reset"){setPref("order",[]);applyOrder();refreshSettings();toast("Back to the original order");return}
-  if(act==="settings-list"){const k=a.dataset.k;S.setOpen=S.setOpen||new Set();S.setOpen.add(k);openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-"+k);if(el)el.scrollIntoView({block:"start"})});return}
-  if(act==="settings-movies"){openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#set-movies");if(el)el.scrollIntoView({block:"start"})});return}
-  if(act==="settings-teams"){S.setOpen=S.setOpen||new Set();S.setOpen.add("teams");openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-teams");if(el)el.scrollIntoView({block:"center"})});return}
-  if(act==="settings-artists"){S.setOpen=S.setOpen||new Set();S.setOpen.add("artists");openSheet(settingsHTML());requestAnimationFrame(()=>{const el=$("#le-artists");if(el)el.scrollIntoView({block:"center"})});return}
+  /* "Your channels", "Movie settings" and the like open that section's page in Settings */
+  if(act==="settings-list"){openSettings(LIST_SEC[a.dataset.k]);return}
+  if(act==="settings-movies"){openSettings("movies");return}
+  if(act==="settings-teams"){openSettings("live");return}
+  if(act==="settings-artists"){const sec=a.closest("[data-sec]");openSettings(sec&&sec.dataset.sec==="shows"?"shows":"music");return}
   if(act==="close-sheet"){closeSheet();return}
   if(act==="undo"){const u=toastUndo;toastUndo=null;$("#toast").classList.remove("show");if(u)u();return}
   if(act==="pins-clear"){clearPins();return}
@@ -4354,7 +4544,9 @@ document.addEventListener("click",async e=>{
  }
  const rn=t.closest("[data-rail]");if(rn){const r=$("#"+rn.dataset.rail);if(r){const c=r.children[0];const step=c?(c.offsetWidth+12)*Math.max(1,Math.floor((r.clientWidth+12)/(c.offsetWidth+12))):r.clientWidth;r.scrollBy({left:+rn.dataset.dir*step,behavior:"smooth"})}return}
  const rh=t.closest("[data-rh]");if(rh&&(/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1))){e.preventDefault();const web=rh.href;let left=false;const off=()=>{if(document.hidden)left=true};document.addEventListener("visibilitychange",off);location.href="robinhood://instrument/?symbol="+encodeURIComponent(rh.dataset.rh);setTimeout(()=>{document.removeEventListener("visibilitychange",off);if(!left&&!document.hidden)window.open(web,"_blank")},1600);return}
- const la=t.closest("[data-list-add]");if(la){const k=la.dataset.listAdd;const inp=$("#li-"+k);const ok=addToList(k,inp&&inp.value);if(ok)toast("Added");else if(inp&&inp.value)toast("Already on the list");return}
+ const la=t.closest("[data-list-add]");if(la){const k=la.dataset.listAdd,inp=$("#li-"+k),val=inp?inp.value:"";if(inp)inp.value="";const ok=addToList(k,val);
+  const ni=$("#li-"+k);if(ok)toast("Added");else if(val.trim()){toast("Already on the list");if(ni)ni.value=val}return}
+ const sf=t.closest("[data-setfeed]");if(sf){setFeed(sf.dataset.setfeed,sf.dataset.v,true);refreshSettings();return}
  const ld=t.closest("[data-list-del]");if(ld){removeFromList(ld.dataset.listDel,ld.dataset.v);return}
  const fo=t.closest("[data-follow]");if(fo){e.preventDefault();e.stopPropagation();const k=fo.dataset.follow,v=fo.dataset.v;const was=fo.classList.contains("on");
   if(was){const cur=lists()[k];const hit=k==="podcasts"?cur.find(x=>showMatch(v,[x])):cur.find(x=>x.toLowerCase()===v.toLowerCase());if(hit)setList(k,cur.filter(x=>x!==hit));toast("Unfollowed "+v)}
@@ -4385,12 +4577,12 @@ document.addEventListener("click",async e=>{
  const sa=t.closest("[data-say-all]");if(sa){say(sa.dataset.sayAll,sa.dataset.lang,false);return}
  const sp=t.closest("[data-say]");if(sp){say(sp.dataset.say,sp.dataset.lang,!!sp.dataset.slow);return}
 });
-document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="mv-zip"){const b=$('[data-act="mv-zip"]');if(b)b.click();return}if(e.key==="Enter"&&e.target.id==="vc-mine"){const b=$('[data-act="vocab-check"]');if(b)b.click();return}if(e.key==="Escape"&&$("#sheet").classList.contains("open"))closeSheet();if(e.key==="Enter"&&e.target.id&&e.target.id.startsWith("li-")){const b=$(`[data-list-add="${e.target.id.slice(3)}"]`);if(b)b.click()}});
+document.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches&&e.target.matches("#sec-order .s-sec")){e.preventDefault();setGo(e.target.dataset.sid);return}if(e.key==="Escape"&&S.setPage&&$("#sheet").classList.contains("open")&&$("#set-root")){setBack();return}if(e.key==="Enter"&&e.target.id==="mv-zip"){const b=$('[data-act="mv-zip"]');if(b)b.click();return}if(e.key==="Enter"&&e.target.id==="vc-mine"){const b=$('[data-act="vocab-check"]');if(b)b.click();return}if(e.key==="Escape"&&$("#sheet").classList.contains("open"))closeSheet();if(e.key==="Enter"&&e.target.id&&e.target.id.startsWith("li-")){const b=$(`[data-list-add="${e.target.id.slice(3)}"]`);if(b)b.click()}});
 document.addEventListener("change",e=>{if(e.target.matches("[data-task]")){const el=e.target,row=el.closest(".rem");if(row)row.classList.toggle("done",el.checked);completeTask(el.dataset.task,el.dataset.list,el.checked);return}if(e.target.matches("[data-mvfresh]")){setMvPref("fresh",e.target.checked);return}if(e.target.matches("[data-mvbig]")){setMvPref("bigOnly",e.target.checked);return}const c=e.target.closest("[data-sec-toggle]");if(c){const id=c.dataset.secToggle;if(c.checked){S.hidden.delete(id);(LEGACY[id]||[]).forEach(x=>S.hidden.delete(x));if(S.hidden.has("learn")){S.hidden.delete("learn");["vocab","spanish"].filter(x=>x!==id).forEach(x=>S.hidden.add(x))}}else S.hidden.add(id);setPref("hidden",[...S.hidden]);renderNav();const r=c.closest(".s-sec");if(r)r.classList.toggle("off",!c.checked)}});
 /* remember which lists are open in Settings, so a refresh keeps them open */
 document.addEventListener("toggle",e=>{const d=e.target;if(d&&d.matches&&d.matches("details[data-acc]")){S.setOpen=S.setOpen||new Set();d.open?S.setOpen.add(d.dataset.acc):S.setOpen.delete(d.dataset.acc)}},true);
 /* Settings jump bar follows the scroll */
-document.addEventListener("scroll",e=>{const p=e.target;if(!p||p.id!=="sheet-p")return;const nav=$(".set-nav",p);if(!nav)return;const y=p.scrollTop+nav.offsetHeight+30;let cur=SET_NAV[0][0];SET_NAV.forEach(([k])=>{const el=$("#ss-"+k,p);if(el&&el.offsetTop<=y)cur=k});$$("[data-setjump]",nav).forEach(b=>b.classList.toggle("on",b.dataset.setjump===cur))},true);
+document.addEventListener("scroll",e=>{const p=e.target;if(!p||p.id!=="sheet-p")return;pgNavSc();const nav=$(".set-nav",p);if(!nav)return;const y=p.scrollTop+nav.offsetHeight+30;let cur=SET_NAV[0][0];SET_NAV.forEach(([k])=>{const el=$("#ss-"+k,p);if(el&&el.offsetTop<=y)cur=k});$$("[data-setjump]",nav).forEach(b=>b.classList.toggle("on",b.dataset.setjump===cur))},true);
 
 /* breakpoint: news count changes between phone and wide layouts */
 WIDE.addEventListener?.("change",()=>{renderNews();renderBay();renderShows();renderMovies();$$(".rail").forEach(railArrows)});
@@ -4618,7 +4810,7 @@ function loadLive(){
 /* timers: weather every 10 min, stocks every minute, crypto fallback poll */
 setInterval(()=>{if(!document.hidden)loadWeather().catch(()=>{})},10*6e4);
 setInterval(()=>{if(!document.hidden)checkVersion()},5*6e4);
-setInterval(()=>{if(!document.hidden){renderFoot();renderYear()}},30e3);
+setInterval(()=>{if(!document.hidden){renderFoot();renderYear();refreshSync()}},30e3);
 setInterval(()=>{if(document.hidden)return;const live=S.live&&S.live.items||[];if(S.open==="live"&&(live.some(x=>x.state==="in")||Date.now()-(S.live&&S.live.at||0)>20*6e4))loadLiveTv(true)},2*6e4);
 setInterval(()=>{if(!document.hidden&&backend())loadStQuotes()},60e3);
 setInterval(()=>{if(!document.hidden&&!S.cx.liveOn)loadCxQuotes().then(()=>cxList().forEach(applyTick)).catch(()=>{});if(!document.hidden&&!S.cx.ws)startWs()},60e3);
