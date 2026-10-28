@@ -909,6 +909,14 @@ html{background:var(--bg)}
 .it-o.still .io-th{transition:none}
 /* swipe back: the whole page rides on the finger as one sheet; the list waits underneath */
 html,body{overscroll-behavior-x:none}
+/* a page sliding sideways must never widen the layout: the copy underneath would re-lay out mid-swipe */
+html{overflow-x:clip}
+/* DRILLED: an open section is its own page. The header, pins, other rows and footer step out,
+   so scrolling ends where the section ends; the page is at least exactly one screen tall. */
+.home.drill>.hero,.home.drill>.pinbar,.home.drill>.foot,.home.drill .it:not(.open){display:none!important}
+.home.drill{padding-bottom:0}
+.home.drill .it.open{border-top-color:transparent;border-bottom-color:transparent;padding-top:env(safe-area-inset-top,0px)}
+.home.drill .it.open .it-p{margin-bottom:0;padding-bottom:max(20px,env(safe-area-inset-bottom,0px));min-height:calc(100vh - env(safe-area-inset-top,0px) - var(--dhd,66px));min-height:calc(100dvh - env(safe-area-inset-top,0px) - var(--dhd,66px))}
 .home.sw-drag{will-change:transform}
 .home.sw-drag::before{content:"";position:absolute;top:-100vh;bottom:-100vh;left:calc(-1*var(--swl,0px));right:calc(-1*var(--swr,0px));z-index:-1;background:var(--bg);box-shadow:0 0 0 .5px var(--line),0 0 48px rgba(0,0,0,.2);pointer-events:none}
 .sw-under{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--bg);pointer-events:none;contain:strict}
@@ -1249,11 +1257,11 @@ html,body{overscroll-behavior-x:none}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--dare:#FFBE3D;--dare-ink:#FFC857;--dare-soft:rgba(255,190,61,.16)}}
 #s-coach{--hdh:58px}
 .dq{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
-.dx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(0,1.55fr) minmax(0,1fr) auto;
+.dare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(0,1.55fr) minmax(0,1fr) auto;
  grid-template-areas:"hero hero" "why swap" "week week";gap:12px;
  height:calc(100vh - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));height:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));min-height:740px}
-.dx.no-swap{grid-template-areas:"hero hero" "why why" "week week"}
-.dx>.card{margin:0!important;min-height:0;min-width:0;border-radius:22px;display:flex;flex-direction:column;padding:18px 20px}
+.dare.no-swap{grid-template-areas:"hero hero" "why why" "week week"}
+.dare>.card{margin:0!important;min-height:0;min-width:0;border-radius:22px;display:flex;flex-direction:column;padding:18px 20px}
 .dx-k{display:flex;align-items:center;gap:6px;min-height:22px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);flex:0 0 auto}
 .dx-k .dq{width:15px;height:15px}
 /* the dare */
@@ -1303,7 +1311,7 @@ a.dx-f .dq{color:var(--ink-2)}
 .dx-sw{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 15px;border-radius:999px;background:var(--fill);font-size:14px;font-weight:650;color:var(--ink);width:fit-content;max-width:100%}
 .dx-sw .dq{width:15px;height:15px;color:var(--ink-2)}
 /* the week */
-.dx>.dx-wk{grid-area:week;display:grid;grid-template-columns:196px minmax(0,1fr);align-items:center;column-gap:22px;padding:16px 22px 16px!important}
+.dare>.dx-wk{grid-area:week;display:grid;grid-template-columns:196px minmax(0,1fr);align-items:center;column-gap:22px;padding:16px 22px 16px!important}
 .dw-s{min-width:0}
 .dw-n{display:flex;align-items:baseline;gap:9px;margin-top:4px}
 .dw-n b{font-family:var(--display);font-size:52px;font-weight:700;letter-spacing:-.045em;line-height:.95;font-variant-numeric:tabular-nums;color:var(--dare-ink)}
@@ -1331,18 +1339,18 @@ a.dx-f .dq{color:var(--ink-2)}
 .dx-hero,.dx-wc,.dx-sc,.dx-wk{animation:dxIn .5s cubic-bezier(.2,.8,.2,1) both}
 .dx-wc{animation-delay:.05s}.dx-sc{animation-delay:.09s}.dx-wk{animation-delay:.13s}
 @keyframes dxIn{from{opacity:0;transform:translateY(8px)}}
-.dx.still>.card{animation:none}
-@media (prefers-reduced-motion:reduce){.dx>.card,.dx-do.just .dx-ok,.dw-c.just .dw-b{animation:none}}
+.dare.still>.card{animation:none}
+@media (prefers-reduced-motion:reduce){.dare>.card,.dx-do.just .dx-ok,.dw-c.just .dw-b{animation:none}}
 /* landscape iPad / Mac: the dare on the left, the rest stacked on the right */
 @media (min-width:1000px) and (orientation:landscape){
- .dx{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr) auto;grid-template-areas:"hero why" "hero swap" "hero week";min-height:660px}
- .dx.no-swap{grid-template-areas:"hero why" "hero why" "hero week"}
+ .dare{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr) auto;grid-template-areas:"hero why" "hero swap" "hero week";min-height:660px}
+ .dare.no-swap{grid-template-areas:"hero why" "hero why" "hero week"}
  .dx-hero{padding:20px 24px 22px!important}
  .dx-h{font-size:52px}.dx-h.l2{font-size:44px}.dx-h.l3{font-size:37px}
  .dx-why{font-size:17px;-webkit-line-clamp:5}
  .dx-wb p{font-size:19px;-webkit-line-clamp:4}.dx-wb p.l2{font-size:17px}
  .dx-sb h3{font-size:19px}.dx-sb p{-webkit-line-clamp:2}
- .dx>.dx-wk{grid-template-columns:minmax(0,1fr);row-gap:12px;padding:14px 18px!important}
+ .dare>.dx-wk{grid-template-columns:minmax(0,1fr);row-gap:12px;padding:14px 18px!important}
  .dw-s{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:12px}
  .dw-s .dx-k{flex-basis:100%}
  .dw-n b{font-size:38px}
@@ -1351,15 +1359,15 @@ a.dx-f .dq{color:var(--ink-2)}
 }
 /* phone: natural scroll */
 @media (max-width:699px){
- .dx{display:flex;flex-direction:column;height:auto;min-height:0;gap:10px}
- .dx>.card{padding:16px 16px}
+ .dare{display:flex;flex-direction:column;height:auto;min-height:0;gap:10px}
+ .dare>.card{padding:16px 16px}
  .dx-hero{padding:16px!important;min-height:520px}
  .dx-h{font-size:40px}.dx-h.l2{font-size:35px}.dx-h.l3{font-size:30px}
  .dx-why{font-size:16.5px;-webkit-line-clamp:none}
  .dx-do{min-height:58px;padding:0 16px 0 14px}.dx-dt b{font-size:17px}
  .dx-wb p{font-size:20px;-webkit-line-clamp:none}
  .dx-sb p{-webkit-line-clamp:none}
- .dx>.dx-wk{order:2;grid-template-columns:1fr;row-gap:14px;padding:14px 16px 16px!important}
+ .dare>.dx-wk{order:2;grid-template-columns:1fr;row-gap:14px;padding:14px 16px 16px!important}
  .dw-s{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:12px}
  .dw-s .dx-k{flex-basis:100%}
  .dw-n b{font-size:38px}.dw-p{margin-top:0}
@@ -2019,7 +2027,7 @@ async function fetchHealth(){try{const r=await fetch('health.json?v='+(window.SD
    HELPERS
    ================================================================= */
 /* BUILD: when this version of the page was published. Stamped automatically on every push. */
-const BUILD="2026-10-27T21:22:43-07:00";
+const BUILD="2026-10-27T22:06:35-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
@@ -2473,7 +2481,7 @@ function shell(){
  </div>`;
 }
 const RENDER={cal:()=>renderCal(),live:()=>renderLiveTv(),mkt:()=>renderMarkets(),coach:()=>renderDare(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),music:()=>renderMusic(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),health:()=>renderHealth(),vocab:()=>renderVocab(),spanish:()=>renderSpanish(),learn:()=>renderLearn()};
-function renderNav(){applyOrder();ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=isHidden(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false)}});if(S.open)drillNav($("#it-"+S.open))}
+function renderNav(){applyOrder();ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=isHidden(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false,true)}});if(S.open)drillNav($("#it-"+S.open))}
 /* the order of rows on the home page (set in Settings, synced) */
 const orderIds=()=>{const def=SECTIONS.map(x=>x[0]);const o=(pref("order",[])||[]).filter(id=>def.includes(id));return o.concat(def.filter(id=>!o.includes(id)))};
 function applyOrder(){const l=$("#list");if(!l)return;orderIds().forEach(id=>{const el=$("#it-"+id);if(el)l.appendChild(el)});if(S.open)drillNav($("#it-"+S.open))}
@@ -2624,17 +2632,18 @@ function closeEl(x,keepView){
    above closes and this one grows. Any touch or wheel hands control back at once. */
 let glideRAF=0;
 const topInset=()=>{const b=$(".sbar");return b?b.offsetHeight:0};
-function glideTo(el){
+function glideTo(el,done){
  cancelAnimationFrame(glideRAF);const r=document.documentElement;
+ let fin=false;const end=()=>{if(fin)return;fin=true;if(done)done()};
  const goal=()=>Math.max(0,Math.round(el.getBoundingClientRect().top+window.scrollY-topInset()));
  const jump=y=>{r.style.scrollBehavior="auto";window.scrollTo(0,y)};
- if(matchMedia("(prefers-reduced-motion: reduce)").matches){jump(goal());r.style.scrollBehavior="";return}
+ if(matchMedia("(prefers-reduced-motion: reduce)").matches){jump(goal());r.style.scrollBehavior="";end();return}
  const y0=window.scrollY,t0=performance.now(),D=Math.min(760,Math.max(460,Math.abs(goal()-y0)*.6));
  const ease=t=>t<.5?8*t*t*t*t:1-Math.pow(-2*t+2,4)/2;/* ease-in-out quart */
- let off=false;const stop=()=>{off=true;cancelAnimationFrame(glideRAF);r.style.scrollBehavior=""};
+ let off=false;const stop=()=>{off=true;cancelAnimationFrame(glideRAF);r.style.scrollBehavior="";end()};
  addEventListener("touchstart",stop,{once:true,passive:true});addEventListener("wheel",stop,{once:true,passive:true});
  const step=now=>{if(off)return;const p=Math.min(1,(now-t0)/D);jump(y0+(goal()-y0)*ease(p));
-  if(p<1)glideRAF=requestAnimationFrame(step);else{removeEventListener("touchstart",stop);removeEventListener("wheel",stop);r.style.scrollBehavior=""}};
+  if(p<1)glideRAF=requestAnimationFrame(step);else{removeEventListener("touchstart",stop);removeEventListener("wheel",stop);r.style.scrollBehavior="";end()}};
  glideRAF=requestAnimationFrame(step);
 }
 const CONTENT_SEL="a,button,input,select,textarea,label,summary,[role=button],[contenteditable],.card,.vid,.mv,.art,.pin,.sheet,.toast,.topbar,.pinbar,.it-hd,svg,img,canvas,video,.chart,.rail,.chips,.hist,.fcs,.seg";
@@ -2648,16 +2657,49 @@ function isContent(t){
  }
  return false;
 }
-function toggleItem(id,force){
+function toggleItem(id,force,quiet){
  const el=$("#it-"+id);if(!el)return;const open=force!=null?force:!el.classList.contains("open");
+ const home=$("#home");
+ if(!open&&home&&home.classList.contains("drill")&&S.open===id){
+  /* leaving a drilled page: the same lift-off as the swipe up, or at once when it's not his doing */
+  if(!quiet){if(!FL.anim&&!SW.on&&!SW.anim)flHome(0);return}
+  drillLeave(el);return;
+ }
  if(open&&!S.open)S.homeY=window.scrollY;if(!open)S.homeY=null;
  $$(".it.open").forEach(x=>{if(x===el)return;closeEl(x,open&&!!(x.compareDocumentPosition(el)&Node.DOCUMENT_POSITION_FOLLOWING))});
- if(open){drillNav(el);el.classList.add("open");$(".it-h",el).setAttribute("aria-expanded","true");RENDER[id]();requestAnimationFrame(()=>{$$(".rail",el).forEach(railArrows);placeThumb(id,true);glideTo(el)})}
+ if(open){drillNav(el);el.classList.add("open");$(".it-h",el).setAttribute("aria-expanded","true");RENDER[id]();requestAnimationFrame(()=>{$$(".rail",el).forEach(railArrows);placeThumb(id,true);glideTo(el,drillEnsure)})}
  else closeEl(el,false);
  S.open=open?id:null;
  try{history.replaceState(null,"",open?"#"+id:location.pathname+location.search)}catch(e){}
 }
-function openFromHash(){const h=({tip:"coach",learn:"vocab"})[location.hash.slice(1)]||location.hash.slice(1);if(RENDER[h]&&!S.hidden.has(h)){toggleItem(h,true);requestAnimationFrame(()=>{const el=$("#it-"+h);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-8,behavior:"instant"})})}}
+/* DRILLED — once an open section's title reaches the top it becomes its own page
+   (see .home.drill). Content stays exactly where it is on screen as the rest steps out. */
+function drillSync(){
+ const home=$("#home"),el=S.open&&$("#it-"+S.open);if(!home||!el||!home.classList.contains("drill"))return;
+ const hd=$(".it-hd",el);if(hd)home.style.setProperty("--dhd",(hd.offsetHeight+el.clientTop)+"px");
+}
+function drillOn(el){
+ const home=$("#home");if(!home||!el||!el.classList.contains("open")||home.classList.contains("drill"))return;
+ const p=$(".it-p",el),r=document.documentElement,y0=p?p.getBoundingClientRect().top:0;
+ home.classList.add("drill");drillSync();
+ const y1=p?p.getBoundingClientRect().top:0;
+ r.style.scrollBehavior="auto";window.scrollTo(0,Math.max(0,Math.round(window.scrollY+y1-y0)));r.style.scrollBehavior="";
+}
+const drillEnsure=()=>{if(S.open&&!SW.on&&!FL.anim)drillOn($("#it-"+S.open))};
+function drillOff(){const home=$("#home");if(home){home.classList.remove("drill");home.style.removeProperty("--dhd")}}
+/* close a drilled page in one frame (when it's hidden in Settings, say): back to the list where he was */
+function drillLeave(el){
+ const r=document.documentElement,y=S.homeY;
+ swShut(el);drillOff();S.open=null;S.homeY=null;
+ try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}
+ r.style.scrollBehavior="auto";window.scrollTo(0,y==null?Math.max(0,Math.round(el.getBoundingClientRect().top+window.scrollY-innerHeight*.3)):y);
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");r.style.scrollBehavior=""}));
+}
+addEventListener("resize",()=>drillSync());
+function openFromHash(){const h=({tip:"coach",learn:"vocab"})[location.hash.slice(1)]||location.hash.slice(1);if(!RENDER[h]||S.hidden.has(h))return;
+ const el=$("#it-"+h);if(!el)return;el.classList.add("sw-still");toggleItem(h,true);cancelAnimationFrame(glideRAF);drillOn(el);
+ document.documentElement.style.scrollBehavior="auto";window.scrollTo(0,0);document.documentElement.style.scrollBehavior="";
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");swSettle(el)}))}
 document.addEventListener("click",e=>{
  const t=e.target;
  const fb=t.closest("[data-feed]");if(fb){setFeed(fb.dataset.feed,fb.dataset.v);return}
@@ -2708,15 +2750,17 @@ function swCanStart(t){
 function swNext(el){let n=el.nextElementSibling;while(n&&(n.hidden||!n.classList.contains("it")))n=n.nextElementSibling;return n}
 function swPrev(el){let n=el.previousElementSibling;while(n&&(n.hidden||!n.classList.contains("it")))n=n.previousElementSibling;return n}
 /* a copy of the page for a gesture to land on: every row closed except `open`
-   (if given), ids stripped so nothing mistakes it for the real page */
+   (if given). It keeps its ids, because several sections are styled by them
+   (#s-mkt, #s-health…) and without them the copy lays out differently from
+   the page it lands on. The copy sits after the app in the document, so any
+   lookup by id still finds the real element first. */
 function swCopy(home,open){
  const c=home.cloneNode(true);
- c.removeAttribute("id");c.inert=true;
+ c.inert=true;
  c.querySelectorAll(".it.open").forEach(n=>n.classList.remove("open"));
  const nr=open?c.querySelector(`.it[data-it="${open.dataset.it}"]`):null;
  if(nr)nr.classList.add("open","sw-still");
  c.querySelectorAll(".it-b").forEach(n=>{if(!nr||n.closest(".it")!==nr)n.remove()});
- c.querySelectorAll("[id]").forEach(n=>{if(!(n instanceof SVGElement))n.removeAttribute("id")});
  return{c,nr};
 }
 function swStart(el,sign){
@@ -2739,6 +2783,8 @@ function swStart(el,sign){
  home.style.setProperty("--swl",hr.left+"px");home.style.setProperty("--swr",(W-hr.right)+"px");
  home.classList.add("sw-drag");
  document.body.appendChild(u);
+ if(c.classList.contains("drill")){const h=nr.querySelector(".it-hd");if(h)c.style.setProperty("--dhd",(h.offsetHeight+nr.clientTop)+"px")}
+ fitHd(nr,u);
  const cr=c.getBoundingClientRect(),rowY=homeTop+(nr.getBoundingClientRect().top-cr.top);
  const maxY=Math.max(0,Math.round(homeTop+c.offsetHeight+extra-H));
  /* the new section with its title under the status bar, feed pill already in place */
@@ -2790,6 +2836,15 @@ function swAnim(to,v,go,dur){
   if(p<1)requestAnimationFrame(step);else go?swLand():swDone()};
  requestAnimationFrame(step);
 }
+/* one-screen sections (Calendar, Dare, Health, Vocab) size themselves to the space under
+   their open title (--hdh, --hgap), measured when they render. A section rendered for a swipe
+   is still closed then, so measure again from a row whose title is open and laid out:
+   the copy before it slides in, and the real page as it lands. */
+function fitHd(row,ref){
+ const sec=row&&$(".sec",row),hd=row&&$(".it-hd",row);if(!sec||!hd||!sec.style.getPropertyValue("--hdh"))return;
+ const h=hd.offsetHeight;if(h)sec.style.setProperty("--hdh",h+"px");
+ const g=Math.round(sec.getBoundingClientRect().left-(ref?ref.getBoundingClientRect().left:0));if(g>0)sec.style.setProperty("--hgap",g+"px");
+}
 /* a tap on a neighbor's name, or an arrow key, plays the whole swipe */
 function swGo(sign){
  if(SW.on||SW.anim||FL.anim||!S.open||$("#sheet").classList.contains("open"))return;
@@ -2800,12 +2855,20 @@ function swDone(){
  const{home,u}=SW;
  home.classList.remove("sw-drag");home.style.transform="";home.style.removeProperty("--swl");home.style.removeProperty("--swr");
  if(u)u.remove();Object.assign(SW,{on:false,anim:false,el:null,next:null,fwd:false,home:null,u:null,inn:null,dim:null,samples:[]});
+ drillEnsure();
 }
 /* close a row in one frame, with no transitions, behind the copy */
 function swShut(el){
  el.classList.add("sw-still");el.classList.remove("open");$(".it-h",el).setAttribute("aria-expanded","false");
  const o=$(".it-o",el);if(o)o.style.animation="";
  const nv=$(".it-nv",el);if(nv)nv.classList.remove("still");
+}
+/* once a landed row comes out of its no-transition hold, its one-shot entrance
+   animations (cards rising in and the like) would start over; the copy already
+   showed them finished, so finish them at once. Looping ones keep running. */
+function swSettle(el){
+ if(!el||!el.getAnimations)return;
+ for(const a of el.getAnimations({subtree:true})){try{const t=a.effect&&a.effect.getComputedTiming();if(t&&isFinite(t.endTime))a.finish()}catch(e){}}
 }
 function swLand(){
  const{el,next}=SW,r=document.documentElement;
@@ -2818,11 +2881,11 @@ function swLand(){
  next.classList.add("open");$(".it-h",next).setAttribute("aria-expanded","true");
  S.open=id;
  try{history.replaceState(null,"","#"+id)}catch(e){}
- swDone();
+ swDone();drillSync();fitHd(next);/* measured once the page is back in place */
  void next.offsetHeight;
- window.scrollTo(0,Math.max(0,Math.round(next.getBoundingClientRect().top+window.scrollY-topInset())));
+ window.scrollTo(0,$("#home").classList.contains("drill")?0:Math.max(0,Math.round(next.getBoundingClientRect().top+window.scrollY-topInset())));
  $$(".rail",next).forEach(railArrows);placeThumb(id,true);
- requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");next.classList.remove("sw-still");r.style.scrollBehavior=""}));
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");next.classList.remove("sw-still");swSettle(next);r.style.scrollBehavior=""}));
 }
 /* touch */
 document.addEventListener("touchstart",e=>{
@@ -2872,8 +2935,8 @@ addEventListener("wheel",e=>{
    moving when the finger lets go, counts. The open page lifts out of the
    scroll as one screen-sized card and carries on at the flick's speed
    with a little shadow, while the list (already in place underneath)
-   drifts the last bit into place and brightens. A flick that runs into the top of
-   the page belongs to pull-to-refresh instead.
+   drifts the last bit into place and brightens. A drilled page starts at the top,
+   where pulling down also refreshes: a slow pull refreshes, a quick flick goes home.
    FL_DIR flips it: 1 = finger moving down, -1 = finger moving up.
    ================================================================= */
 const FL={on:false,anim:false},FL_DIR=1;
@@ -2900,12 +2963,12 @@ document.addEventListener("touchend",()=>{
  if(!FL.on)return;FL.on=false;
  if(SW.on||SW.anim||!S.open||$("#sheet").classList.contains("open"))return;
  const now=performance.now(),d=(FL.y-FL.y0)*FL_DIR,ax=Math.abs(FL.x-FL.x0),a=FL.pts[0],l=FL.pts[FL.pts.length-1];
- if(now-l[0]>60)return;/* paused before letting go: just a scroll */
+ if(now-l[0]>100)return;/* paused before letting go: just a scroll */
  /* quick overall, and still moving when the finger lets go */
  const dt=now-FL.t0,vEnd=l[0]>a[0]?(l[1]-a[1])/(l[0]-a[0])*FL_DIR:0,vAll=dt>0?d/dt:0;
  if(d<56||ax>d*.7||dt>320||vAll<.6||vEnd<.45)return;
  const v=Math.max(vEnd,vAll);
- const r=document.documentElement;if(FL_DIR>0?window.scrollY<=0:window.scrollY+innerHeight>=r.scrollHeight-2)return;/* ran out: that's pull to refresh */
+ PTR.stand();/* a flick, not a pull: the refresh lets go */
  flHome(v);
 },{passive:true});
 document.addEventListener("touchcancel",()=>{FL.on=false},{passive:true});
@@ -2915,7 +2978,7 @@ function flHome(v){
  const r=document.documentElement,W=innerWidth,H=innerHeight,sy=window.scrollY,hr=home.getBoundingClientRect(),homeTop=hr.top+sy;
  const extra=Math.max(0,r.scrollHeight-(homeTop+home.offsetHeight));
  /* underneath: the list, every row closed */
- const{c}=swCopy(home,null);
+ const{c}=swCopy(home,null);c.classList.remove("drill");c.style.removeProperty("--dhd");
  const u=document.createElement("div");u.className="sw-under";u.setAttribute("aria-hidden","true");
  u.innerHTML=`<div class="sw-in"></div><div class="sw-dim"></div><div class="fl-shade ${FL_DIR>0?"dn":"up"}"></div>`;
  const inn=u.querySelector(".sw-in"),dim=u.querySelector(".sw-dim"),sh=u.querySelector(".fl-shade");inn.appendChild(c);
@@ -2941,11 +3004,11 @@ function flHome(v){
   const dy=FL_DIR*x*(H+48);
   home.style.transform=`translate3d(0,${dy.toFixed(1)}px,0)`;const rk=Math.min(1,x*4);home.style.clipPath=clip(rk);home.style.setProperty("--flr",(14*rk).toFixed(1)+"px");
   sh.style.transform=`translate3d(0,${dy.toFixed(1)}px,0)`;sh.style.opacity=String(Math.min(1,x*6));
-  inn.style.transform=`translate3d(0,${(-FL_DIR*(1-x)*.08*H).toFixed(1)}px,0)`;dim.style.opacity=((1-x)*.16).toFixed(3);
+  inn.style.transform=`translate3d(0,${(-FL_DIR*(1-x)*.04*H).toFixed(1)}px,0)`;dim.style.opacity=((1-x)*.16).toFixed(3);
  };
  paint(0);
  /* begin at the flick's own speed, gather pace, and settle just off screen */
- let D=calmMotion()?1:400,sl=v*D/(H+48);if(sl>2.4){D=Math.max(220,2.4*(H+48)/v);sl=2.4}sl=Math.max(.3,sl);
+ let D=calmMotion()?1:v?250:290,sl=v*D/(H+48);if(sl>2.2){D=Math.max(170,2.2*(H+48)/v);sl=2.2}sl=Math.max(.25,sl);
  const ease=p=>sl*p+(3-2*sl)*p*p+(sl-2)*p*p*p;
  const t0=performance.now();
  const step=now=>{const p=Math.min(1,(now-t0)/D);paint(ease(p));if(p<1){requestAnimationFrame(step);return}
@@ -2953,6 +3016,7 @@ function flHome(v){
   try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}
   if(hd){hd.style.position="";hd.style.top=""}
   home.classList.remove("fl-drag","fl-dn","fl-up");if(css==null)home.removeAttribute("style");else home.setAttribute("style",css);
+  drillOff();
   r.style.scrollBehavior="auto";window.scrollTo(0,y);
   u.remove();FL.anim=false;
   requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");r.style.scrollBehavior=""}));
@@ -3204,7 +3268,7 @@ function renderDare(){
  const nxt=st.today?(st.n>=2?"Keep it alive tomorrow.":"One down. Tomorrow makes it a streak."):st.n?"Today keeps it going.":"Today starts it.";
  const meta=[st.best>st.n?`Best <b>${st.best}</b>`:"",st.total?`<b>${st.total}</b> done`:"",lwHad.length?`Last week <b>${lwDid.length} of ${lwHad.length}</b>`:""].filter(Boolean).join(" · ");
  const worth=String(sw&&d.swap.worth||d.worth||"");
- el.innerHTML=`<div class="dx${alt?"":" no-swap"}${still?" still":""}">
+ el.innerHTML=`<div class="dare${alt?"":" no-swap"}${still?" still":""}">
   <article class="card dx-hero">
    <div class="dx-hd"><span class="dx-kind">${kIcon(k.k)}</span><div class="dx-kt"><b>${esc(k.label)}</b><span>${esc(when)} · ${esc(fmtKey(d.date,{month:"short",day:"numeric"}))}${sw?" · The backup":""}</span></div>${ask}</div>
    <div class="dx-main"><h2 class="dx-h${hl}">${esc(ttl)}</h2>${cur.why?`<p class="dx-why">${esc(cur.why)}</p>`:""}${facts?`<div class="dx-facts">${facts}</div>`:""}</div>
@@ -5051,7 +5115,9 @@ const PTR=(()=>{
   }));
  }
  const safety=root.dataset.ptr?setTimeout(arrive,8000):0;
- return {go,arrive};
+ /* the swipe-home flick took this gesture: drop the pull on the spot */
+ function stand(){y0=null;if(mode!=="pull"&&mode!=="back")return;cancelAnimationFrame(raf);raf=0;last=0;restore();units=[];mode="idle";ready=false;p=0;SPR.x=SPR.v=SPR.t=0;POPS.x=POPS.v=0}
+ return {go,arrive,stand};
 })();
 
 /* =================================================================
