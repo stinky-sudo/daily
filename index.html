@@ -470,15 +470,32 @@ h1,h2,h3,p{margin:0}
 .greet-row .greet{flex:1 1 auto;min-width:0}
 /* the ring sits just below centre on the capitals of the greeting, set in a little from the right edge;
    the days left in the year sit in the middle. The drop is a relative offset so the row's height doesn't change;
-   the inset is a margin so a long greeting still shrinks to clear it */
-.yr{flex:0 0 auto;padding:0;font-size:0;line-height:0;-webkit-tap-highlight-color:transparent;position:relative;top:4px;margin-right:8px}
+   the insets are margins so a long greeting still shrinks to clear the ring and its buttons */
+.yr-o{flex:0 0 auto;font-size:0;line-height:0;margin-right:8px;--yr-dy:4px}
+.yr{padding:0;font-size:0;line-height:0;-webkit-tap-highlight-color:transparent;position:relative;top:var(--yr-dy)}
 .yr svg{display:inline-block;vertical-align:-12px;width:50px;height:50px;overflow:visible;transition:transform .2s ease}
 .yr-tk,.yr-f{fill:none;stroke:var(--c);stroke-width:2.6}
 .yr-tk{opacity:.18}
 .yr text{font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:-.04em;fill:var(--ink-2);text-anchor:middle;dominant-baseline:central;font-variant-numeric:tabular-nums}
 .yr:active svg{transform:scale(.94)}
-@media (min-width:768px){.yr{top:6px;margin-right:12px}.yr svg{width:64px;height:64px;vertical-align:-15px}}
+@media (min-width:768px){.yr-o{--yr-dy:6px;margin-right:12px}.yr svg{width:64px;height:64px;vertical-align:-15px}}
 @media (min-width:1024px){.yr svg{width:72px;height:72px;vertical-align:-16px}}
+/* theme, refresh and settings orbit the ring on a wider tablet or desktop: a concentric arc over its
+   top-left, spaced as they were in a row and kept the same distance from the ring as they sat before.
+   On a phone the weather wraps under the date, so they stay a row at the top right. */
+.hero{position:relative}
+.orb{position:absolute;top:max(calc(env(safe-area-inset-top) + 26px),44px);right:var(--g);display:flex;gap:8px;font-size:1rem;line-height:normal}
+.topbar .hero-date{min-height:38px;display:flex;align-items:center}
+@media (min-width:768px){
+  .topbar{padding-right:144px}
+  .yr-o{position:relative;margin-left:54px;--orb-r:70px}
+  .orb{position:static}
+  .orb>button{position:absolute;left:calc(50% + var(--orb-r)*cos(var(--a)) - 19px);top:calc(50% + var(--yr-dy) - var(--orb-r)*sin(var(--a)) - 19px)}
+  .orb>button:nth-child(1){--a:180deg}.orb>button:nth-child(2){--a:135deg}.orb>button:nth-child(3){--a:90deg}
+}
+@media (min-width:1024px){
+  .yr-o{--orb-r:75px}
+}
 
 /* footer: the sign-off and when the app was last updated; a note only if the morning edition is old */
 .foot{text-align:center;padding:40px var(--g) 0;font-size:13px;color:var(--ink-3);line-height:1.5}
@@ -889,7 +906,6 @@ html,body{overscroll-behavior-x:none}
 
 .topbar{grid-column:1/-1;position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;min-height:38px}
 .topbar .hero-date{order:1}
-.tb-r{order:2;margin-left:auto;display:flex;gap:8px}
 .wxr{order:3;flex:1 0 100%;display:flex;align-items:center;gap:6px 16px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--ink)}
 .wxr>span,.wxr>button{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;color:inherit;font:inherit}
 .wxr svg{width:15px;height:15px;flex:0 0 auto}
@@ -911,7 +927,6 @@ html,body{overscroll-behavior-x:none}
 .it-t .lg svg,.it-t .lg img{width:100%;height:100%;border-radius:3px}
 .it-t .lg.yt{width:19px}
 @media (min-width:768px){
-  .tb-r{order:3}
   .wxr{order:2;flex:1 1 auto;justify-content:flex-start;margin-left:18px;font-size:13.5px}
   .wxr .t{font-size:19px}
 }
@@ -2352,7 +2367,7 @@ function rowIcon(id){
 function shell(){
  $("#app").innerHTML=`
  <div class="home" id="home">
-  <header class="hero"><div class="topbar"><div class="hero-date" id="home-date"></div><div class="wxr" id="wxr" aria-label="Weather"></div><div class="tb-r"><button class="icon-btn press" id="th-btn" data-act="theme-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Theme: ${(THEMES.find(x=>x[0]===themeId())||[0,"Automatic"])[1]}">${TH_IC()[themeId()]}</button><button class="icon-btn press" data-act="refresh" aria-label="Refresh">${I.refresh}</button><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div></div><div class="greet-row"><h1 class="greet" id="greet"></h1><button class="yr press" id="yr" data-act="year"></button></div></header>
+  <header class="hero"><div class="topbar"><div class="hero-date" id="home-date"></div><div class="wxr" id="wxr" aria-label="Weather"></div></div><div class="greet-row"><h1 class="greet" id="greet"></h1><div class="yr-o"><button class="yr press" id="yr" data-act="year"></button><div class="orb"><button class="icon-btn press" id="th-btn" data-act="theme-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Theme: ${(THEMES.find(x=>x[0]===themeId())||[0,"Automatic"])[1]}">${TH_IC()[themeId()]}</button><button class="icon-btn press" data-act="refresh" aria-label="Refresh">${I.refresh}</button><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div></div></div></header>
   <section class="pinbar" id="pins" aria-label="Pinned" hidden></section>
   <div class="list" id="list">${ITEMS.map(([id,l])=>`<div class="it" id="it-${id}" data-it="${id}"><div class="it-hd"><button class="it-h" aria-expanded="false" aria-controls="ib-${id}">${rowIcon(id)}<span class="it-n">${esc(l)}</span><span class="it-t" id="tz-${id}"></span></button>${FEEDS.includes(id)?`<div class="it-o" id="io-${id}" role="group" aria-label="Show in ${esc(l)}">${feedOpts(id)}</div>`:""}<span class="it-x" aria-hidden="true"></span></div><div class="it-b" id="ib-${id}" role="region" aria-label="${esc(l)}"><div class="it-bi"><div class="it-p"><section class="sec" id="s-${id}" data-sec="${id}"></section></div></div></div></div>`).join("")}</div>
   <footer class="foot" id="foot"></footer>
@@ -4474,7 +4489,8 @@ function applyTheme(){const t=themeId(),d=SDT[t],r=document.documentElement;
  const c=d?d[1]:matchMedia("(prefers-color-scheme: dark)").matches?"#000000":"#F1F2F4";
  $$('meta[name="theme-color"]').forEach(m=>m.remove());const m=document.createElement("meta");m.name="theme-color";m.content=c;document.head.appendChild(m);renderThemeBtn()}
 /* THEME — the circle beside refresh opens a small menu: Automatic, Light, Dark.
-   Picking one applies it, then refreshes the page so the status bar matches too. */
+   Picking one crossfades the page to it in place; no refresh. The status bar colour is
+   updated as well, and is set before first paint on every load. */
 const TH_IC=()=>({auto:SKYI.swatch,light:WXI.sun,dark:WXI.moon});
 function renderThemeBtn(){const b=$("#th-btn");if(!b)return;const t=themeId();b.innerHTML=TH_IC()[t];b.setAttribute("aria-label","Theme: "+(THEMES.find(x=>x[0]===t)||[0,"Automatic"])[1])}
 function themeMenu(open){
@@ -4488,8 +4504,8 @@ function themeMenu(open){
 }
 function pickTheme(id){
  themeMenu(false);if(id===themeId())return;setPref("theme",id);
- const swap=()=>{applyTheme();redrawCharts();renderHero()},done=()=>setTimeout(()=>PTR.go(),140);
- if(document.startViewTransition&&!calmMotion())document.startViewTransition(swap).finished.then(done,done);else{swap();done()}
+ const swap=()=>{applyTheme();redrawCharts();renderHero()};
+ if(document.startViewTransition&&!calmMotion())document.startViewTransition(swap);else swap();
 }
 addEventListener("scroll",()=>themeMenu(false),{passive:true});addEventListener("resize",()=>themeMenu(false));
 function redrawCharts(){drawMk()}
