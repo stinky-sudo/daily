@@ -965,6 +965,49 @@ html,body{overscroll-behavior-x:none}
 .sw-still,.sw-still *{transition:none!important;animation:none!important}
 .sw-under.sw-fwd{z-index:20;background:transparent}
 .sw-fwd .sw-in{background:var(--bg);padding-bottom:100vh;box-shadow:0 0 0 .5px var(--line),0 0 48px rgba(0,0,0,.2)}
+/* swipe home: the open page lifts out as one screen-sized card and leaves; the list waits underneath */
+.home.fl-drag{z-index:2;will-change:transform}
+.home.fl-drag::before{content:"";position:absolute;top:0;bottom:0;left:calc(-1*var(--swl,0px));right:calc(-1*var(--swr,0px));z-index:-1;background:var(--bg);pointer-events:none}
+/* a hairline that follows the card's rounded leading edge, so it reads in dark mode too */
+.home.fl-drag::after{content:"";position:absolute;left:calc(-1*var(--swl,0px));right:calc(-1*var(--swr,0px));height:40px;z-index:20;pointer-events:none;border:0 solid var(--line)}
+.home.fl-drag.fl-dn::after{top:var(--flt,0px);border-top-width:1px;border-radius:var(--flr,0px) var(--flr,0px) 0 0}
+.home.fl-drag.fl-up::after{top:calc(var(--flt,0px) + 100vh - 40px);border-bottom-width:1px;border-radius:0 0 var(--flr,0px) var(--flr,0px)}
+.fl-shade{position:absolute;left:0;right:0;height:44px;pointer-events:none;will-change:transform}
+.fl-shade.dn{top:-44px;background:linear-gradient(to bottom,transparent,rgba(0,0,0,.1))}
+.fl-shade.up{top:100%;background:linear-gradient(to top,transparent,rgba(0,0,0,.1))}
+/* beside the open title: the sections on either side, and this section's settings */
+.it-nv{display:none}
+.it.open .it-nv{display:flex;align-items:center;flex:0 0 auto;margin-left:auto;gap:2px}
+.it.open .it-x{margin-left:12px}
+.it-nv>*{animation:nvIn .46s cubic-bezier(.2,.8,.2,1) both}
+.it-nv>:nth-child(1){animation-delay:.14s}.it-nv>:nth-child(2){animation-delay:.18s}.it-nv>:nth-child(3){animation-delay:.22s}.it-nv>:nth-child(4){animation-delay:.26s}
+.it-nv.still>*{animation:none}
+.nv-b{display:inline-flex;align-items:center;gap:2px;height:32px;padding:0 9px;border-radius:999px;font-size:13.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink-2);white-space:nowrap;transition:color .2s,background-color .2s}
+.nv-b svg{width:12px;height:12px;flex:0 0 auto;color:var(--ink-3);transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.nv-b.prev{padding-left:5px}.nv-b.next{padding-right:5px}
+.nv-b:active{background:var(--fill)}
+.nv-sep{width:1px;height:14px;background:var(--line);flex:0 0 auto}
+.nv-gear{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;margin-left:8px;background:var(--fill);color:var(--ink-2);transition:background-color .2s,color .2s}
+.nv-gear svg{width:17px;height:17px}
+@keyframes nvIn{from{opacity:0;transform:translateY(-5px) scale(.94)}to{opacity:1;transform:none}}
+@media (hover:hover) and (pointer:fine){
+  .nv-b:hover{color:var(--ink);background:var(--fill)}
+  .nv-b.prev:hover svg{transform:translateX(-2px)}.nv-b.next:hover svg{transform:translateX(2px)}
+  .nv-gear:hover{color:var(--ink);background:var(--fill-2)}
+}
+@media (min-width:768px){
+  .nv-b{height:34px;font-size:14.5px;padding:0 11px}
+  .nv-b.prev{padding-left:7px}.nv-b.next{padding-right:7px}
+  .nv-b svg{width:13px;height:13px}
+  .nv-gear{width:34px;height:34px;margin-left:10px}
+  .nv-gear svg{width:18px;height:18px}
+  .it.open .it-x{margin-left:16px}
+}
+@media (max-width:599px){
+  .nv-b{font-size:13px;padding:0 7px}
+  .nv-b.prev{padding-left:3px}.nv-b.next{padding-right:3px}
+  .it.open .it-x{margin-left:10px}
+}
 @keyframes optIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
 @keyframes feedIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .feed-in{animation:feedIn .42s cubic-bezier(.2,.8,.2,1) both}
@@ -2024,7 +2067,7 @@ async function fetchHealth(){try{const r=await fetch('health.json?v='+(window.SD
    HELPERS
    ================================================================= */
 /* BUILD: when this version of the page was published. Stamped automatically on every push. */
-const BUILD="2026-10-27T20:51:48-07:00";
+const BUILD="2026-10-27T21:22:43-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
@@ -2478,10 +2521,10 @@ function shell(){
  </div>`;
 }
 const RENDER={cal:()=>renderCal(),live:()=>renderLiveTv(),mkt:()=>renderMarkets(),coach:()=>renderDare(),news:()=>renderNews(),watch:()=>renderWatch(),listen:()=>renderListen(),music:()=>renderMusic(),bay:()=>renderBay(),shows:()=>renderShows(),movies:()=>renderMovies(),health:()=>renderHealth(),vocab:()=>renderVocab(),spanish:()=>renderSpanish(),learn:()=>renderLearn()};
-function renderNav(){applyOrder();ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=isHidden(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false)}})}
+function renderNav(){applyOrder();ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=isHidden(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false)}});if(S.open)drillNav($("#it-"+S.open))}
 /* the order of rows on the home page (set in Settings, synced) */
 const orderIds=()=>{const def=SECTIONS.map(x=>x[0]);const o=(pref("order",[])||[]).filter(id=>def.includes(id));return o.concat(def.filter(id=>!o.includes(id)))};
-function applyOrder(){const l=$("#list");if(!l)return;orderIds().forEach(id=>{const el=$("#it-"+id);if(el)l.appendChild(el)})}
+function applyOrder(){const l=$("#list");if(!l)return;orderIds().forEach(id=>{const el=$("#it-"+id);if(el)l.appendChild(el)});if(S.open)drillNav($("#it-"+S.open))}
 function observe(){}
 function renderAll(){renderCal();renderLiveTv();renderDare();renderMarkets();renderNews();renderWatch();renderListen();renderMusic();renderBay();renderShows();renderMovies();renderHealth();renderVocab();renderSpanish();renderPins();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
 
@@ -2621,6 +2664,7 @@ function closeEl(x,keepView){
  else if(top<0&&h){/* its header is scrolled away: close at once and bring the header back to the top */b.style.transition="none";x.classList.remove("open");void b.offsetHeight;window.scrollTo({top:Math.max(0,sy+top-8),behavior:"instant"});requestAnimationFrame(()=>{b.style.transition=""})}
  else x.classList.remove("open");
  $(".it-h",x).setAttribute("aria-expanded","false");const o=$(".it-o",x);if(o)o.style.animation="";
+ const nv=$(".it-nv",x);if(nv)nv.classList.remove("still");
 }
 /* Opening glides the page so the tapped title lands right under the status bar.
    A hand-rolled ease (fast start, soft landing) instead of the browser's smooth scroll:
@@ -2656,7 +2700,7 @@ function toggleItem(id,force){
  const el=$("#it-"+id);if(!el)return;const open=force!=null?force:!el.classList.contains("open");
  if(open&&!S.open)S.homeY=window.scrollY;if(!open)S.homeY=null;
  $$(".it.open").forEach(x=>{if(x===el)return;closeEl(x,open&&!!(x.compareDocumentPosition(el)&Node.DOCUMENT_POSITION_FOLLOWING))});
- if(open){el.classList.add("open");$(".it-h",el).setAttribute("aria-expanded","true");RENDER[id]();requestAnimationFrame(()=>{$$(".rail",el).forEach(railArrows);placeThumb(id,true);glideTo(el)})}
+ if(open){drillNav(el);el.classList.add("open");$(".it-h",el).setAttribute("aria-expanded","true");RENDER[id]();requestAnimationFrame(()=>{$$(".rail",el).forEach(railArrows);placeThumb(id,true);glideTo(el)})}
  else closeEl(el,false);
  S.open=open?id:null;
  try{history.replaceState(null,"",open?"#"+id:location.pathname+location.search)}catch(e){}
@@ -2665,26 +2709,35 @@ function openFromHash(){const h=({tip:"coach",learn:"vocab"})[location.hash.slic
 document.addEventListener("click",e=>{
  const t=e.target;
  const fb=t.closest("[data-feed]");if(fb){setFeed(fb.dataset.feed,fb.dataset.v);return}
- const h=t.closest(".it-hd");if(h&&!t.closest(".it-o")){toggleItem(h.closest(".it").dataset.it);return}
+ const dv=t.closest("[data-drill]");if(dv){swGo(dv.dataset.drill==="next"?-1:1);return}
+ const h=t.closest(".it-hd");if(h&&!t.closest(".it-o,.it-nv")){toggleItem(h.closest(".it").dataset.it);return}
  /* a tap on empty space — not a card, control, picture or text — closes the open section */
  if(S.open&&document.contains(t)&&!isContent(t))toggleItem(S.open,false);
 });
 document.addEventListener("keydown",e=>{if(e.key!=="Escape"||$("#sheet").classList.contains("open"))return;if(S.open)toggleItem(S.open,false)});
+/* ← and → step through the sections while one is open */
+document.addEventListener("keydown",e=>{
+ if((e.key!=="ArrowLeft"&&e.key!=="ArrowRight")||e.metaKey||e.altKey||e.ctrlKey||e.shiftKey||!S.open||$("#sheet").classList.contains("open"))return;
+ const a=document.activeElement;if(a&&a.closest&&a.closest("input,textarea,select,[contenteditable],.rail,.seg,.chart"))return;
+ e.preventDefault();swGo(e.key==="ArrowRight"?-1:1);
+});
 
 /* =================================================================
-   SWIPE — drag an open section sideways.
-   Finger moving LEFT goes on to the next section, in home-page order:
-   the next one rides in from the right on the finger, the page retreats
-   behind it, and letting go lands with its title under the status bar.
-   On the last section the page just stretches a little and springs back.
-   Finger moving RIGHT goes back to the list: the page rides on the finger
-   like a sheet; underneath, a copy of the list (parked where you were
-   before you tapped in) slides in with a little parallax, so letting go
-   lands on exactly what you saw.
-   A short or slow drag springs back. Rails, charts and other sideways
-   controls keep their own swipes, except when the drag starts at the
-   very edge of the screen, which always takes the gesture. Two-finger
-   swipes on a trackpad do the same things.
+   SWIPE — drag an open section sideways to step through the sections,
+   in home-page order (hidden rows skipped).
+   Finger moving LEFT goes on to the next section: it rides in from the
+   right on the finger, the page retreats behind it, and letting go lands
+   with its title under the status bar.
+   Finger moving RIGHT goes back to the one before: the page rides off on
+   the finger like a sheet, and the section behind it (already open, title
+   under the status bar) slides out from underneath with a little parallax,
+   so letting go lands on exactly what you saw.
+   At either end there's nothing to go to, so the page just stretches a
+   little and springs back. A short or slow drag springs back too.
+   Rails, charts and other sideways controls keep their own swipes, except
+   when the drag starts at the very edge of the screen, which always takes
+   the gesture. Two-finger trackpad swipes, the arrow keys and the names
+   beside the open title do the same things.
    ================================================================= */
 const SW={on:false,anim:false,pend:null,swallow:0};
 const SW_EDGE=26,SW_PAR=.3,SW_STRETCH=56;
@@ -2696,69 +2749,71 @@ function swBlocked(t){
  return false;
 }
 function swCanStart(t){
- if(SW.on||SW.anim||!S.open||$("#sheet").classList.contains("open"))return null;
+ if(SW.on||SW.anim||FL.anim||!S.open||$("#sheet").classList.contains("open"))return null;
  const el=$("#it-"+S.open),home=$("#home");return el&&el.classList.contains("open")&&home.contains(t)?el:null;
 }
-/* the row after this one on the home page (hidden rows skipped) */
+/* the rows on either side of this one on the home page (hidden rows skipped) */
 function swNext(el){let n=el.nextElementSibling;while(n&&(n.hidden||!n.classList.contains("it")))n=n.nextElementSibling;return n}
+function swPrev(el){let n=el.previousElementSibling;while(n&&(n.hidden||!n.classList.contains("it")))n=n.previousElementSibling;return n}
+/* a copy of the page for a gesture to land on: every row closed except `open`
+   (if given), ids stripped so nothing mistakes it for the real page */
+function swCopy(home,open){
+ const c=home.cloneNode(true);
+ c.removeAttribute("id");c.inert=true;
+ c.querySelectorAll(".it.open").forEach(n=>n.classList.remove("open"));
+ const nr=open?c.querySelector(`.it[data-it="${open.dataset.it}"]`):null;
+ if(nr)nr.classList.add("open","sw-still");
+ c.querySelectorAll(".it-b").forEach(n=>{if(!nr||n.closest(".it")!==nr)n.remove()});
+ c.querySelectorAll("[id]").forEach(n=>{if(!(n instanceof SVGElement))n.removeAttribute("id")});
+ return{c,nr};
+}
 function swStart(el,sign){
  const W=innerWidth,H=innerHeight,home=$("#home"),hr=home.getBoundingClientRect();
  const homeTop=hr.top+window.scrollY;
  const extra=Math.max(0,document.documentElement.scrollHeight-(homeTop+home.offsetHeight));
- const next=sign<0?swNext(el):null;
+ const fwd=sign<0,tgt=fwd?swNext(el):swPrev(el);
  cancelAnimationFrame(glideRAF);
- if(sign<0&&!next){/* nothing after this one: a little stretch that springs back */
+ if(!tgt){/* nothing that way: a little stretch that springs back */
   home.classList.add("sw-drag");
-  Object.assign(SW,{on:true,el,next:null,home,u:null,inn:null,dim:null,sign,W,y:0,dx:0,raw:0,samples:[],stretch:true});
+  Object.assign(SW,{on:true,el,next:null,fwd,home,u:null,inn:null,dim:null,sign,W,y:0,dx:0,raw:0,samples:[],stretch:true});
   swPaint(0);return;
  }
- if(next&&RENDER[next.dataset.it])RENDER[next.dataset.it]();/* so the copy has its content */
- /* the page as it will look once this gesture lands */
- const c=home.cloneNode(true);
- c.removeAttribute("id");c.inert=true;
- c.querySelectorAll(".it.open").forEach(n=>n.classList.remove("open"));
- const nr=next?c.querySelector(`.it[data-it="${next.dataset.it}"]`):null;
- if(nr)nr.classList.add("open","sw-still");
- c.querySelectorAll(".it-b").forEach(n=>{if(!nr||n.closest(".it")!==nr)n.remove()});
- c.querySelectorAll("[id]").forEach(n=>{if(!(n instanceof SVGElement))n.removeAttribute("id")});
- const u=document.createElement("div");u.className="sw-under"+(next?" sw-fwd":"");u.setAttribute("aria-hidden","true");
- u.innerHTML=next?'<div class="sw-dim"></div><div class="sw-in"></div>':'<div class="sw-in"></div><div class="sw-dim"></div>';
+ if(RENDER[tgt.dataset.it])RENDER[tgt.dataset.it]();/* so the copy has its content */
+ drillNav(tgt);
+ const{c,nr}=swCopy(home,tgt);
+ const u=document.createElement("div");u.className="sw-under"+(fwd?" sw-fwd":"");u.setAttribute("aria-hidden","true");
+ u.innerHTML=fwd?'<div class="sw-dim"></div><div class="sw-in"></div>':'<div class="sw-in"></div><div class="sw-dim"></div>';
  const inn=u.querySelector(".sw-in"),dim=u.querySelector(".sw-dim");inn.appendChild(c);
  home.style.setProperty("--swl",hr.left+"px");home.style.setProperty("--swr",(W-hr.right)+"px");
  home.classList.add("sw-drag");
  document.body.appendChild(u);
- const row=nr||c.querySelector(`.it[data-it="${el.dataset.it}"]`),cr=c.getBoundingClientRect();
- const rowY=homeTop+(row?row.getBoundingClientRect().top-cr.top:0),rowH=row?row.offsetHeight:0;
+ const cr=c.getBoundingClientRect(),rowY=homeTop+(nr.getBoundingClientRect().top-cr.top);
  const maxY=Math.max(0,Math.round(homeTop+c.offsetHeight+extra-H));
- let y;
- if(nr){/* next section: title under the status bar, feed pill already in place */
-  y=rowY-topInset();
-  const b=nr.querySelector(".it-o button.on"),th=nr.querySelector(".io-th");
-  if(b&&th){th.style.setProperty("--x",b.offsetLeft+"px");th.style.setProperty("--w",b.offsetWidth+"px")}
- }else{/* the list lands where you were, or with this row in easy view */
-  y=S.homeY;if(y==null||rowY<y||rowY+rowH>y+H)y=rowY-H*.3;
- }
- y=Math.max(0,Math.min(maxY,Math.round(y)));
+ /* the new section with its title under the status bar, feed pill already in place */
+ const y=Math.max(0,Math.min(maxY,Math.round(rowY-topInset())));
+ const b=nr.querySelector(".it-o button.on"),th=nr.querySelector(".io-th");
+ if(b&&th){th.style.setProperty("--x",b.offsetLeft+"px");th.style.setProperty("--w",b.offsetWidth+"px")}
  inn.style.top=(homeTop-y)+"px";
- Object.assign(SW,{on:true,el,next,home,u,inn,dim:dim,sign,W,y,dx:0,raw:0,samples:[],stretch:false});
+ Object.assign(SW,{on:true,el,next:tgt,fwd,home,u,inn,dim,sign,W,y,dx:0,raw:0,samples:[],stretch:false});
  swPaint(0);
 }
 function swPaint(dx){
- const{home,inn,dim,sign,W,next,stretch}=SW;SW.dx=dx;const p=Math.min(1,Math.abs(dx)/W);
+ const{home,inn,dim,sign,W,fwd,stretch}=SW;SW.dx=dx;const p=Math.min(1,Math.abs(dx)/W);
  if(stretch){home.style.transform=`translate3d(${dx.toFixed(1)}px,0,0)`;return}
- if(next){/* the next section rides the finger in; the page retreats behind it */
+ if(fwd){/* the next section rides the finger in; the page retreats behind it */
   home.style.transform=`translate3d(${(dx*SW_PAR).toFixed(1)}px,0,0)`;
   inn.style.transform=`translate3d(${(W+dx).toFixed(1)}px,0,0)`;
   dim.style.opacity=(p*.14).toFixed(3);
   return;
  }
+ /* the page rides off on the finger; the one behind slides out from underneath */
  home.style.transform=`translate3d(${dx.toFixed(1)}px,0,0)`;
  inn.style.transform=`translate3d(${(-sign*(1-p)*SW_PAR*W).toFixed(1)}px,0,0)`;
  dim.style.opacity=((1-p)*.14).toFixed(3);
 }
 function swMove(raw){
  const{sign,W,stretch}=SW;let dx=sign>0?Math.max(0,raw):Math.min(0,raw);
- if(stretch)dx=-SW_STRETCH*(1-1/(1+Math.abs(dx)/(W*.3)));/* rubber band */
+ if(stretch)dx=sign*SW_STRETCH*(1-1/(1+Math.abs(dx)/(W*.3)));/* rubber band */
  else if(Math.abs(dx)>W)dx=sign*W;
  const now=performance.now();SW.samples.push([now,dx]);while(SW.samples.length>2&&now-SW.samples[0][0]>100)SW.samples.shift();
  swPaint(dx);
@@ -2774,48 +2829,48 @@ function swEnd(fresh){
  const go=!stretch&&((d>W*.32&&sv>-.12)||(sv>.32&&d>24));
  swAnim(go?sign*W:0,v,go);
 }
-function swAnim(to,v,go){
+function swAnim(to,v,go,dur){
  SW.anim=true;const from=SW.dx,dist=Math.abs(to-from),t0=performance.now();
  /* start at the finger's speed, then ease into place */
- const D=dist<1?1:Math.max(go?170:200,Math.min(go?340:360,3*dist/Math.max(Math.abs(v),.55)));
+ const D=dist<1?1:dur||Math.max(go?170:200,Math.min(go?340:360,3*dist/Math.max(Math.abs(v),.55)));
  const ease=t=>1-Math.pow(1-t,3);
  const step=now=>{const p=Math.min(1,(now-t0)/D);swPaint(from+(to-from)*ease(p));
   if(p<1)requestAnimationFrame(step);else go?swLand():swDone()};
  requestAnimationFrame(step);
 }
+/* a tap on a neighbor's name, or an arrow key, plays the whole swipe */
+function swGo(sign){
+ if(SW.on||SW.anim||FL.anim||!S.open||$("#sheet").classList.contains("open"))return;
+ const el=$("#it-"+S.open);if(!el||!el.classList.contains("open")||!(sign<0?swNext(el):swPrev(el)))return;
+ SW.wheel=false;swStart(el,sign);swAnim(sign*SW.W,0,true,calmMotion()?1:440);
+}
 function swDone(){
  const{home,u}=SW;
  home.classList.remove("sw-drag");home.style.transform="";home.style.removeProperty("--swl");home.style.removeProperty("--swr");
- if(u)u.remove();Object.assign(SW,{on:false,anim:false,el:null,next:null,home:null,u:null,inn:null,dim:null,samples:[]});
+ if(u)u.remove();Object.assign(SW,{on:false,anim:false,el:null,next:null,fwd:false,home:null,u:null,inn:null,dim:null,samples:[]});
 }
 /* close a row in one frame, with no transitions, behind the copy */
 function swShut(el){
  el.classList.add("sw-still");el.classList.remove("open");$(".it-h",el).setAttribute("aria-expanded","false");
  const o=$(".it-o",el);if(o)o.style.animation="";
+ const nv=$(".it-nv",el);if(nv)nv.classList.remove("still");
 }
 function swLand(){
- const{el,next,y}=SW,r=document.documentElement;
+ const{el,next}=SW,r=document.documentElement;
  swShut(el);
  r.style.scrollBehavior="auto";
- if(next){/* open the next row in one frame, exactly where the copy showed it */
-  const id=next.dataset.it,o=$(".it-o",next);
-  next.classList.add("sw-still");if(o)o.style.animation="none";/* the copy already showed the pill in place */
-  next.classList.add("open");$(".it-h",next).setAttribute("aria-expanded","true");
-  S.open=id;
-  try{history.replaceState(null,"","#"+id)}catch(e){}
-  swDone();
-  void next.offsetHeight;
-  window.scrollTo(0,Math.max(0,Math.round(next.getBoundingClientRect().top+window.scrollY-topInset())));
-  $$(".rail",next).forEach(railArrows);placeThumb(id,true);
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");next.classList.remove("sw-still");r.style.scrollBehavior=""}));
-  return;
- }
- S.open=null;S.homeY=null;
- try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}
+ /* open the new row in one frame, exactly where the copy showed it */
+ const id=next.dataset.it,o=$(".it-o",next),nv=$(".it-nv",next);
+ next.classList.add("sw-still");
+ if(o)o.style.animation="none";if(nv)nv.classList.add("still");/* the copy already showed these in place */
+ next.classList.add("open");$(".it-h",next).setAttribute("aria-expanded","true");
+ S.open=id;
+ try{history.replaceState(null,"","#"+id)}catch(e){}
  swDone();
- window.scrollTo(0,y);
- void el.offsetHeight;
- requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");r.style.scrollBehavior=""}));
+ void next.offsetHeight;
+ window.scrollTo(0,Math.max(0,Math.round(next.getBoundingClientRect().top+window.scrollY-topInset())));
+ $$(".rail",next).forEach(railArrows);placeThumb(id,true);
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");next.classList.remove("sw-still");r.style.scrollBehavior=""}));
 }
 /* touch */
 document.addEventListener("touchstart",e=>{
@@ -2857,6 +2912,119 @@ addEventListener("wheel",e=>{
  SW.raw=-e.deltaX*(e.deltaMode===1?16:1);swMove(SW.raw);
  SW.wt=setTimeout(()=>swEnd(false),120);
 },{passive:false});
+
+/* =================================================================
+   SWIPE UP — a quick flick the way you'd scroll back up the page (finger
+   moving down) closes the open section and lands on the list where you
+   left it. A normal drag still just scrolls: only a fast flick, still
+   moving when the finger lets go, counts. The open page lifts out of the
+   scroll as one screen-sized card and carries on at the flick's speed
+   with a little shadow, while the list (already in place underneath)
+   drifts the last bit into place and brightens. A flick that runs into the top of
+   the page belongs to pull-to-refresh instead.
+   FL_DIR flips it: 1 = finger moving down, -1 = finger moving up.
+   ================================================================= */
+const FL={on:false,anim:false},FL_DIR=1;
+function flBlocked(t){
+ for(let e=t;e&&e.nodeType===1&&!e.matches(".home,body");e=e.parentElement){
+  if(e.matches("input,textarea,select,[contenteditable],.chart,[data-noswipe]"))return true;
+  if(e.scrollHeight>e.clientHeight+1){const oy=getComputedStyle(e).overflowY;if(oy==="auto"||oy==="scroll")return true}
+ }
+ return false;
+}
+document.addEventListener("touchstart",e=>{
+ FL.on=false;
+ if(e.touches.length!==1||!S.open||SW.on||SW.anim||FL.anim||$("#sheet").classList.contains("open"))return;
+ const home=$("#home");if(!home||!home.contains(e.target)||flBlocked(e.target))return;
+ const t=e.touches[0],now=performance.now();
+ Object.assign(FL,{on:true,x0:t.clientX,y0:t.clientY,x:t.clientX,y:t.clientY,t0:now,pts:[[now,t.clientY]]});
+},{passive:true});
+document.addEventListener("touchmove",e=>{
+ if(!FL.on)return;if(e.touches.length!==1||SW.on){FL.on=false;return}
+ const t=e.touches[0],now=performance.now();FL.x=t.clientX;FL.y=t.clientY;
+ FL.pts.push([now,t.clientY]);while(FL.pts.length>2&&now-FL.pts[1][0]>100)FL.pts.shift();
+},{passive:true});
+document.addEventListener("touchend",()=>{
+ if(!FL.on)return;FL.on=false;
+ if(SW.on||SW.anim||!S.open||$("#sheet").classList.contains("open"))return;
+ const now=performance.now(),d=(FL.y-FL.y0)*FL_DIR,ax=Math.abs(FL.x-FL.x0),a=FL.pts[0],l=FL.pts[FL.pts.length-1];
+ if(now-l[0]>60)return;/* paused before letting go: just a scroll */
+ /* quick overall, and still moving when the finger lets go */
+ const dt=now-FL.t0,vEnd=l[0]>a[0]?(l[1]-a[1])/(l[0]-a[0])*FL_DIR:0,vAll=dt>0?d/dt:0;
+ if(d<56||ax>d*.7||dt>320||vAll<.6||vEnd<.45)return;
+ const v=Math.max(vEnd,vAll);
+ const r=document.documentElement;if(FL_DIR>0?window.scrollY<=0:window.scrollY+innerHeight>=r.scrollHeight-2)return;/* ran out: that's pull to refresh */
+ flHome(v);
+},{passive:true});
+document.addEventListener("touchcancel",()=>{FL.on=false},{passive:true});
+function flHome(v){
+ const el=S.open&&$("#it-"+S.open),home=$("#home");if(!el||!home||FL.anim)return;
+ FL.anim=true;cancelAnimationFrame(glideRAF);
+ const r=document.documentElement,W=innerWidth,H=innerHeight,sy=window.scrollY,hr=home.getBoundingClientRect(),homeTop=hr.top+sy;
+ const extra=Math.max(0,r.scrollHeight-(homeTop+home.offsetHeight));
+ /* underneath: the list, every row closed */
+ const{c}=swCopy(home,null);
+ const u=document.createElement("div");u.className="sw-under";u.setAttribute("aria-hidden","true");
+ u.innerHTML=`<div class="sw-in"></div><div class="sw-dim"></div><div class="fl-shade ${FL_DIR>0?"dn":"up"}"></div>`;
+ const inn=u.querySelector(".sw-in"),dim=u.querySelector(".sw-dim"),sh=u.querySelector(".fl-shade");inn.appendChild(c);
+ document.body.appendChild(u);
+ /* it lands where you were before you tapped in, or with this row in easy view */
+ const row=c.querySelector(`.it[data-it="${el.dataset.it}"]`),cr=c.getBoundingClientRect();
+ const rowY=homeTop+(row?row.getBoundingClientRect().top-cr.top:0),rowH=row?row.offsetHeight:0;
+ const maxY=Math.max(0,Math.round(homeTop+c.offsetHeight+extra-H));
+ let y=S.homeY;if(y==null||rowY<y||rowY+rowH>y+H)y=rowY-H*.3;
+ y=Math.max(0,Math.min(maxY,Math.round(y)));
+ inn.style.top=(homeTop-y)+"px";
+ /* lift the page out of the scroll exactly where it sits (which also ends any coasting):
+    pin the open title where it shows now, fix the page in place, clip it to the screen */
+ const hd=$(".it-hd",el),off=hd?hd.getBoundingClientRect().top-el.getBoundingClientRect().top-el.clientTop:0;
+ if(hd){hd.style.position="relative";hd.style.top=off+"px"}
+ const css=home.getAttribute("style");
+ home.style.setProperty("--swl",hr.left+"px");home.style.setProperty("--swr",(W-hr.right)+"px");
+ Object.assign(home.style,{position:"fixed",top:hr.top+"px",left:hr.left+"px",width:hr.width+"px",margin:"0"});
+ home.style.setProperty("--flt",(-hr.top).toFixed(1)+"px");
+ home.classList.add("fl-drag",FL_DIR>0?"fl-dn":"fl-up");
+ const clip=k=>`inset(${(-hr.top).toFixed(1)}px ${(-(W-hr.right)).toFixed(1)}px ${(home.offsetHeight+hr.top-H).toFixed(1)}px ${(-hr.left).toFixed(1)}px round ${(14*k).toFixed(1)}px)`;
+ const paint=x=>{/* x: how far the card has gone, 0..1 */
+  const dy=FL_DIR*x*(H+48);
+  home.style.transform=`translate3d(0,${dy.toFixed(1)}px,0)`;const rk=Math.min(1,x*4);home.style.clipPath=clip(rk);home.style.setProperty("--flr",(14*rk).toFixed(1)+"px");
+  sh.style.transform=`translate3d(0,${dy.toFixed(1)}px,0)`;sh.style.opacity=String(Math.min(1,x*6));
+  inn.style.transform=`translate3d(0,${(-FL_DIR*(1-x)*.08*H).toFixed(1)}px,0)`;dim.style.opacity=((1-x)*.16).toFixed(3);
+ };
+ paint(0);
+ /* begin at the flick's own speed, gather pace, and settle just off screen */
+ let D=calmMotion()?1:400,sl=v*D/(H+48);if(sl>2.4){D=Math.max(220,2.4*(H+48)/v);sl=2.4}sl=Math.max(.3,sl);
+ const ease=p=>sl*p+(3-2*sl)*p*p+(sl-2)*p*p*p;
+ const t0=performance.now();
+ const step=now=>{const p=Math.min(1,(now-t0)/D);paint(ease(p));if(p<1){requestAnimationFrame(step);return}
+  swShut(el);S.open=null;S.homeY=null;
+  try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}
+  if(hd){hd.style.position="";hd.style.top=""}
+  home.classList.remove("fl-drag","fl-dn","fl-up");if(css==null)home.removeAttribute("style");else home.setAttribute("style",css);
+  r.style.scrollBehavior="auto";window.scrollTo(0,y);
+  u.remove();FL.anim=false;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");r.style.scrollBehavior=""}));
+ };
+ requestAnimationFrame(step);
+}
+
+/* =================================================================
+   DRILL NAV — while a section is open, its pinned title shows the
+   sections on either side (home-page order, hidden ones skipped) and a
+   gear for this section's own page in Settings. Tapping a name goes
+   there the same way a swipe does.
+   ================================================================= */
+const secName=id=>(SECTIONS.find(x=>x[0]===id)||[id,id])[1];
+function drillNav(el){
+ const hd=el&&$(".it-hd",el);if(!hd)return;
+ let nv=$(".it-nv",hd);if(!nv){nv=document.createElement("div");nv.className="it-nv";hd.insertBefore(nv,$(".it-x",hd))}
+ const id=el.dataset.it,p=swPrev(el),n=swNext(el);
+ const btn=(x,dir)=>{if(!x)return"";const nm=esc(secName(x.dataset.it));
+  return`<button class="nv-b ${dir}" data-drill="${dir}" aria-label="${dir==="prev"?"Back to":"On to"} ${nm}">${dir==="prev"?CHEV_L:""}<span>${nm}</span>${dir==="next"?CHEV_R:""}</button>`};
+ const html=btn(p,"prev")+(p&&n?'<i class="nv-sep" aria-hidden="true"></i>':"")+btn(n,"next")+`<button class="nv-gear press" data-act="settings-page" data-sid="${id}" aria-label="${esc(secName(id))} settings">${I.gear}</button>`;
+ const k=[p&&p.dataset.it,n&&n.dataset.it,secName(p?p.dataset.it:""),secName(n?n.dataset.it:"")].join("|");
+ if(nv.dataset.k!==k){nv.dataset.k=k;nv.innerHTML=html}
+}
 
 function smoothPath(P){if(P.length<2)return"";let d=`M${P[0][0].toFixed(1)},${P[0][1].toFixed(1)}`;for(let i=0;i<P.length-1;i++){const p0=P[i-1]||P[i],p1=P[i],p2=P[i+1],p3=P[i+2]||p2;d+=`C${(p1[0]+(p2[0]-p0[0])/6).toFixed(1)},${(p1[1]+(p2[1]-p0[1])/6).toFixed(1)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(1)},${(p2[1]-(p3[1]-p1[1])/6).toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`}return d}
 function drawSky(){
