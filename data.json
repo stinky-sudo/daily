@@ -16,6 +16,57 @@
         "date": "2026-10-29",
         "url": "https://www.google.com/calendar/event?eid=MzNxOXVpaDJwbWs0ZjY2c2JtdHQ1NGJrNm9fMjAyNjEwMjkgcnVkeWxhbmdlbmthbXBAbQ",
         "kind": "birthday"
+      },
+      {
+        "title": "🎃 Halloween",
+        "allDay": true,
+        "date": "2026-10-31",
+        "url": "https://www.google.com/calendar/event?eid=ZzkwdWdpb2Zza2FsdTlrbGU2cnJpZ3A1MGsgcnVkeWxhbmdlbmthbXBAbQ"
+      },
+      {
+        "title": "🎪 Midnight Carnival Block Party — RL GRIME, NGHTMRE & more (The Midway)",
+        "start": "2026-10-31T16:00:00-07:00",
+        "end": "2026-10-31T22:00:00-07:00",
+        "loc": "The Midway, 900 Marin St, San Francisco, CA 94124",
+        "url": "https://www.google.com/calendar/event?eid=MWRiNTVwZXMxOTFoZGZvNXE3cjkzYzl1ZjAgcnVkeWxhbmdlbmthbXBAbQ"
+      },
+      {
+        "title": "Ohio State at USC",
+        "start": "2026-10-31T16:30:00-07:00",
+        "end": "2026-10-31T19:00:00-07:00",
+        "loc": "Los Angeles Memorial Coliseum",
+        "url": "https://www.google.com/calendar/event?eid=bXBmaTcxaWVlaDl1MWd0dmEybmV2NjI1NWsgcnVkeWxhbmdlbmthbXBAbQ"
+      },
+      {
+        "title": "⏰ Daylight Saving Time Ends — Fall Back",
+        "allDay": true,
+        "date": "2026-11-01",
+        "url": "https://www.google.com/calendar/event?eid=YTZvMmlxdnFxcXE1bzE5dWE1aW11dWFqZmcgcnVkeWxhbmdlbmthbXBAbQ"
+      },
+      {
+        "title": "Patrick's Birthday",
+        "allDay": true,
+        "date": "2026-11-01",
+        "url": "https://www.google.com/calendar/event?eid=dm05YWVuNWhlczN0c2QxM2Z1ZzNqdDduMTRfMjAyNjExMDEgcnVkeWxhbmdlbmthbXBAbQ",
+        "kind": "birthday"
+      },
+      {
+        "title": "💀 Dia de los Muertos — Mission District SF",
+        "start": "2026-11-02T17:00:00-08:00",
+        "end": "2026-11-02T22:00:00-08:00",
+        "url": "https://www.google.com/calendar/event?eid=ZTVxdmVjcWs2ZjVvMzA2OGVndGozZWM0cTAgcnVkeWxhbmdlbmthbXBAbQ"
+      },
+      {
+        "title": "🗳️ Election Day",
+        "allDay": true,
+        "date": "2026-11-03",
+        "url": "https://www.google.com/calendar/event?eid=bnNlcGo2cWNwN2luZzJyb2EyNDJjdmI2OGMgcnVkeWxhbmdlbmthbXBAbQ"
+      },
+      {
+        "title": "⛸️ Holiday Ice Rink at Embarcadero — Opening Night",
+        "start": "2026-11-07T17:00:00-08:00",
+        "end": "2026-11-07T21:00:00-08:00",
+        "url": "https://www.google.com/calendar/event?eid=NTNjaWRjYTBlZzA5N3QzdGplajgwbzYyb2MgcnVkeWxhbmdlbmthbXBAbQ"
       }
     ]
   },
