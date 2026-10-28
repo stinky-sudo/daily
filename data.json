@@ -2025,5 +2025,64 @@
       "quality": "Connected",
       "title": "Reach out before the birthdays"
     }
+  ],
+  "dare": {
+    "date": "2026-10-27",
+    "kind": "Wonder",
+    "title": "Watch tomorrow's sunrise",
+    "why": "Pick a spot ten minutes from home — the Shoreline lake, the Baylands boardwalk, the top deck of a parking garage — set an alarm for 6:50 and be standing there when it comes up around 7:30. Phone stays in your pocket until it's all the way up.",
+    "mins": 45,
+    "cost": "Free",
+    "place": {
+      "name": "Shoreline Lake",
+      "sub": "Mountain View",
+      "url": "https://www.google.com/maps/search/Shoreline+Lake+Mountain+View"
+    },
+    "worth": "Almost nobody takes the first hour of the day on purpose. You'll be back before most people are awake, with a better memory than anything a screen gave you all week.",
+    "src": "",
+    "swap": {
+      "kind": "Wonder",
+      "title": "Go find the moon tonight",
+      "why": "It was full last night. Walk until you've got a clear view of it, then stay five minutes longer than feels natural.",
+      "mins": 15,
+      "worth": "Fifteen minutes outside at night, looking at something that was there long before any of us. Cheapest reset there is."
+    }
+  },
+  "dareHistory": [
+    {
+      "date": "2026-10-21",
+      "kind": "Focus",
+      "title": "Finish one real thing before noon"
+    },
+    {
+      "date": "2026-10-22",
+      "kind": "Wonder",
+      "title": "Pack before noon so tonight is easy"
+    },
+    {
+      "date": "2026-10-23",
+      "kind": "Move",
+      "title": "Get daylight and a short nap, then protect tonight's sleep"
+    },
+    {
+      "date": "2026-10-24",
+      "kind": "Wonder",
+      "title": "Be fully present at Sammy's wedding"
+    },
+    {
+      "date": "2026-10-25",
+      "kind": "Give",
+      "title": "Get home easily and mark Ty's birthday"
+    },
+    {
+      "date": "2026-10-26",
+      "kind": "Focus",
+      "title": "Decide what matters most this week"
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "Wonder",
+      "title": "Watch tomorrow's sunrise"
+    }
   ]
 }
