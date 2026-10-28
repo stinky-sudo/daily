@@ -72,9 +72,6 @@ try{var q=JSON.parse(sessionStorage.getItem("sd-ptr")||"null");sessionStorage.re
   }
 }
 
-/* theme picker swatches: tiny copies of the two base palettes */
-[data-bg="light"]{--bg:#F1F2F4;--surface:#FFFFFF;--ink:#000000;--ink-3:#8F949C}
-[data-bg="dark"]{--bg:#000000;--surface:#121315;--ink:#FFFFFF;--ink-3:#6F737B}
 
 /* ============================================================
    BASE
@@ -517,25 +514,6 @@ h1,h2,h3,p{margin:0}
 .set-t{font-size:15px;font-weight:650}
 .set-s{font-size:13px;color:var(--ink-3);margin-top:2px;line-height:1.35}
 .set-help{font-size:13px;color:var(--ink-3);line-height:1.45;margin:-12px 4px 20px}
-/* theme picker: three tiles, each a tiny page with a card on it */
-.bgs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 10px;margin-top:12px}
-.bg-o{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0;font-size:13px;font-weight:600;color:var(--ink-2)}
-.bg-o i{display:block;width:100%;aspect-ratio:16/10;border-radius:14px;overflow:hidden;transition:box-shadow .2s ease,transform .3s cubic-bezier(.2,.8,.2,1)}
-.bg-o b{position:relative;display:block;height:100%;background:var(--bg);box-shadow:inset 0 0 0 1px rgba(128,128,128,.22);border-radius:inherit}
-.bg-o b::before{content:"";position:absolute;left:15%;right:15%;top:26%;bottom:26%;border-radius:8px;background:
- linear-gradient(var(--ink),var(--ink)) 10px 9px/40% 5px no-repeat,
- linear-gradient(var(--ink-3),var(--ink-3)) 10px 19px/62% 4px no-repeat,
- var(--surface)}
-.bg-o b.auto{background:linear-gradient(90deg,#F1F2F4 50%,#000 50%)}
-.bg-o b.auto::before{background:
- linear-gradient(#8F949C,#8F949C) 10px 9px/40% 5px no-repeat,
- linear-gradient(#8F949C,#8F949C) 10px 19px/62% 4px no-repeat,
- linear-gradient(90deg,#FFF 50%,#121315 50%)}
-.bg-o.on{color:var(--ink)}
-.bg-o.on i{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ink)}
-.bg-o:focus-visible{outline:none}
-.bg-o:focus-visible i{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--link)}
-@media (hover:hover) and (pointer:fine){.bg-o:hover i{transform:scale(1.035)}}
 .set-help a,.set-help button{color:var(--link);font-weight:600}
 .set-help{margin-top:-12px}
 .set-l button{font-size:13px;font-weight:600;color:var(--link)}
@@ -578,9 +556,22 @@ h1,h2,h3,p{margin:0}
 .s-sec{cursor:pointer;transition:background-color .15s}
 .s-sec:not(.drag):active{background:var(--fill)}
 @media (hover:hover) and (pointer:fine){.dragging .s-sec:hover{background:var(--surface)}.s-sec:not(.drag):hover{background:var(--fill)}}
-.s-n small.s-st{display:flex;align-items:center;gap:6px;min-width:0}
+.s-sec .s-n{flex:0 0 auto;max-width:48%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s-st{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:6px;font-size:13.5px;color:var(--ink-3)}
 .s-st .s-dot{width:7px;height:7px}
 .s-st span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s-sec.off .s-st{opacity:.45}
+/* theme menu, opened from the circle beside refresh */
+.tmenu{position:fixed;z-index:60;min-width:200px;padding:6px;border-radius:16px;background:var(--sheet-g);box-shadow:0 18px 50px -12px rgba(0,0,0,.38),0 0 0 1px var(--line);opacity:0;transform:scale(.9);transform-origin:top right;pointer-events:none;transition:opacity .16s ease,transform .24s cubic-bezier(.2,.8,.2,1)}
+.tmenu.show{opacity:1;transform:none;pointer-events:auto}
+.tmenu button{display:flex;align-items:center;gap:11px;width:100%;height:44px;padding:0 12px;border-radius:11px;font-size:15.5px;font-weight:500;color:var(--ink);text-align:left}
+.tmenu button:active{background:var(--fill)}
+@media (hover:hover) and (pointer:fine){.tmenu button:hover{background:var(--fill)}}
+.tm-ic{flex:0 0 auto;width:20px;height:20px;display:grid;place-items:center;color:var(--ink-2)}
+.tm-ic svg{width:18px;height:18px}
+.tm-l{flex:1}
+.tm-ck{flex:0 0 auto;width:17px;height:17px;color:var(--link)}
+.tm-ck svg{width:100%;height:100%}
 .s-chev.r{width:14px;height:14px;margin-left:-2px}
 .s-dot.warn{background:var(--warn-ink)}
 .s-v.err{color:var(--down)}
@@ -593,12 +584,8 @@ h1,h2,h3,p{margin:0}
 .pg-t{font-size:16px;font-weight:650;white-space:nowrap;opacity:0;transform:translateY(5px);transition:opacity .2s,transform .25s cubic-bezier(.2,.8,.2,1)}
 .pg-nav.sc .pg-t{opacity:1;transform:none}
 .pg-nav .icon-btn{justify-self:end}
-.pg-hd{display:flex;align-items:center;gap:14px;margin:8px 4px 22px}
-.pg-ic{flex:0 0 auto;width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
-.pg-ic svg{width:30px;height:30px}
-.pg-hx{min-width:0}
-.pg-hx h3{font-family:var(--display);font-size:28px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
-.pg-hx p{font-size:14px;color:var(--ink-3);line-height:1.4;margin-top:4px}
+.pg-hd{margin:4px 4px 18px}
+.pg-hd h3{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
 .set-view.in-r{animation:svIn .34s cubic-bezier(.2,.8,.2,1)}
 .set-view.in-l{animation:svBack .32s cubic-bezier(.2,.8,.2,1)}
 .set-view.pg-drag{position:relative;z-index:2;background:var(--bg);will-change:transform;box-shadow:-1px 0 0 var(--line),-18px 0 36px -18px rgba(0,0,0,.35)}
@@ -1925,7 +1912,7 @@ async function fetchHealth(){try{const r=await fetch('health.json?v='+(window.SD
    HELPERS
    ================================================================= */
 /* BUILD: when this version of the page was published. Stamped automatically on every push. */
-const BUILD="2026-10-27T20:39:39-07:00";
+const BUILD="2026-10-27T20:51:48-07:00";
 const TZ=CONFIG.tz;
 const CLAUDE_LOGO="";
 const $=(s,r=document)=>r.querySelector(s);
@@ -2372,7 +2359,7 @@ function rowIcon(id){
 function shell(){
  $("#app").innerHTML=`
  <div class="home" id="home">
-  <header class="hero"><div class="topbar"><div class="hero-date" id="home-date"></div><div class="wxr" id="wxr" aria-label="Weather"></div><div class="tb-r"><button class="icon-btn press" data-act="refresh" aria-label="Refresh">${I.refresh}</button><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div></div><div class="greet-row"><h1 class="greet" id="greet"></h1><button class="yr press" id="yr" data-act="year"></button></div></header>
+  <header class="hero"><div class="topbar"><div class="hero-date" id="home-date"></div><div class="wxr" id="wxr" aria-label="Weather"></div><div class="tb-r"><button class="icon-btn press" id="th-btn" data-act="theme-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Theme: ${(THEMES.find(x=>x[0]===themeId())||[0,"Automatic"])[1]}">${TH_IC()[themeId()]}</button><button class="icon-btn press" data-act="refresh" aria-label="Refresh">${I.refresh}</button><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div></div><div class="greet-row"><h1 class="greet" id="greet"></h1><button class="yr press" id="yr" data-act="year"></button></div></header>
   <section class="pinbar" id="pins" aria-label="Pinned" hidden></section>
   <div class="list" id="list">${ITEMS.map(([id,l])=>`<div class="it" id="it-${id}" data-it="${id}"><div class="it-hd"><button class="it-h" aria-expanded="false" aria-controls="ib-${id}">${rowIcon(id)}<span class="it-n">${esc(l)}</span><span class="it-t" id="tz-${id}"></span></button>${FEEDS.includes(id)?`<div class="it-o" id="io-${id}" role="group" aria-label="Show in ${esc(l)}">${feedOpts(id)}</div>`:""}<span class="it-x" aria-hidden="true"></span></div><div class="it-b" id="ib-${id}" role="region" aria-label="${esc(l)}"><div class="it-bi"><div class="it-p"><section class="sec" id="s-${id}" data-sec="${id}"></section></div></div></div></div>`).join("")}</div>
   <footer class="foot" id="foot"></footer>
@@ -4193,65 +4180,57 @@ const LIST_META={
 function listEditor(k){const m=LIST_META[k];return`<div class="set-pad" id="le-${k}"><div class="set-t">${m.t}</div><div class="set-s">${m.s}</div>
  <div class="tags">${lists()[k].map(v=>`<span class="tag">${esc(v)}<button data-list-del="${k}" data-v="${esc(v)}" aria-label="Remove ${esc(v)}">${I.close}</button></span>`).join("")}</div>
  <div class="inp-row"><input class="inp" id="li-${k}" placeholder="${esc(m.ph)}" autocomplete="off" autocapitalize="${k==="artists"||k==="podcasts"?"words":"off"}" spellcheck="false" aria-label="Add to ${esc(m.t)}" enterkeyhint="done"><button class="btn press" data-list-add="${k}">Add</button></div></div>`}
-/* SETTINGS — grouped like iOS Settings. The first page has Appearance, Home page, Data
-   and About. Every Home page row says where that section's data comes from and how fresh
-   it is; tap a row for the section's own page: its sync status, the show/hide switch, and
-   everything that configures it (channels, podcasts, artists, teams, tickers, movie
-   options). Touch and hold a row to drag it. Every change applies immediately. */
-const SET_COL={cal:"#2B5EF0",live:"#E8590C",mkt:"#0A9455",coach:"#1D8C8A",news:"#2B5EF0",watch:"#E62117",listen:"#1DB954",music:"#9B4DFF",bay:"#E8590C",shows:"#9B4DFF",movies:"#DD3B35",health:"#E8336D",vocab:"#4C46D6",spanish:"#D4331F"};
+/* SETTINGS — kept short. The first page is the Home page list (one line per section: its
+   name, how fresh its data is, the show switch) and a small About group. Tap a section for
+   its own page: what it follows first (channels, podcasts, artists, teams, tickers, movie
+   options), then its sync status and the switch. Touch and hold a row to drag it. The theme
+   lives on the home page, beside refresh. Every change applies immediately. */
 const setIc=(c,svg)=>`<span class="s-ic mono" aria-hidden="true">${svg}</span>`;
-const GRIP=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8.5h14M5 12h14M5 15.5h14"/></svg>`;
-const LIST_IC={channels:["watch","#E62117"],podcasts:["listen","#1DB954"],stocks:["mkt","#0A9455"],crypto:["mkt","#F7931A"],artists:["music","#9B4DFF"],teams:["live","#E8590C"]};
-const ARW={up:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14l6-6 6 6"/></svg>`,down:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10l6 6 6-6"/></svg>`};
 const CHEV_R=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5.5 6.5 6.5L9 18.5"/></svg>`;
 const CHEV_L=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5.5 8.5 12l6.5 6.5"/></svg>`;
-const SET_NAV=[["look","Appearance"],["home","Home page"],["data","Data"],["about","About"]];
+const SET_NAV=[];
 const calmMotion=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
-function setStat(c,t,d){return`<div class="s-row"><span class="s-dot ${c}"></span><span class="s-n">${esc(t)}</span><span class="s-v ${String(d).length>28?"wrap":""}">${esc(d)}</span></div>`}
+/* "8:12 PM" today, "Yesterday", otherwise "Oct 24" */
+function shortAt(t){const d=new Date(t);if(!t||isNaN(d))return"";const n=dayDiff(dayKey(d),todayKey());return n===0?fmtTime(d):n===1?"Yesterday":d.toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:TZ})}
 
 /* SYNC STATUS — each source a section draws on: its name, who provides it, a state
-   (ok, warn, err, or "" while it's still connecting) and how fresh it is. */
+   (ok, warn, err, or "" while it's still connecting), the detail for its page (d) and the
+   short form for its row on the first page (sh). */
 const SRC={
- morning:()=>{const t=Date.parse(DATA.updated||"");return{n:"Morning edition",via:"Morning edition",s:!t?"":verInfo().stale?"warn":"ok",d:t?stamp(t):"Not loaded"}},
- tasks:()=>{const b={n:"Reminders",via:"Google Tasks"};if(!backend())return{...b,s:"",d:"Needs your backend"};const c=LS.get("sd-tasks",null);
-  if(S.tasks&&!S.tasksErr)return{...b,s:"ok",d:`${S.tasks.filter(t=>!t.done).length} open`+(c&&c.t?" · "+stamp(c.t):"")};
-  return S.tasksErr?{...b,s:"err",d:"Couldn't reach it"}:{...b,s:"",d:"Connecting…"}},
- espn:()=>{const b={n:"Schedules",via:"ESPN"};if(!teamList().length)return{...b,s:"",d:"Add a team below"};
+ morning:()=>{const t=Date.parse(DATA.updated||"");return{n:"Morning edition",via:"Morning edition",s:!t?"":verInfo().stale?"warn":"ok",d:t?stamp(t):"Not loaded",sh:t?shortAt(t):"Not loaded"}},
+ tasks:()=>{const b={n:"Reminders",via:"Google Tasks"};if(!backend())return{...b,s:"",d:"Needs your backend",sh:"Not set up"};const c=LS.get("sd-tasks",null);
+  if(S.tasks&&!S.tasksErr){const n=S.tasks.filter(t=>!t.done).length;return{...b,s:"ok",d:`${n} open`+(c&&c.t?" · "+stamp(c.t):""),sh:c&&c.t?shortAt(c.t):`${n} open`}}
+  return S.tasksErr?{...b,s:"err",d:"Couldn't reach it",sh:"Can't connect"}:{...b,s:"",d:"Connecting…",sh:"Connecting…"}},
+ espn:()=>{const b={n:"Schedules",via:"ESPN"};if(!teamList().length)return{...b,s:"",d:"Add a team above",sh:"No teams"};
   const n=S.live&&S.live.items?S.live.items.length:0;
-  if(S.live&&S.live.at&&(n||!S.liveErr))return{...b,s:"ok",d:`${n} this week · ${stamp(S.live.at)}`};
-  return S.liveErr?{...b,s:"err",d:"Couldn't reach ESPN"}:{...b,s:"",d:"Checking…"}},
- stocks:()=>{const b={n:"Stock prices",via:"Yahoo Finance"};if(!backend())return{...b,s:"",d:"Not connected"};
-  return S.st.err?{...b,s:"err",d:"Can't reach your backend"}:S.st.at?{...b,s:"ok",d:stamp(S.st.at)}:{...b,s:"",d:"Connecting…"}},
+  if(S.live&&S.live.at&&(n||!S.liveErr))return{...b,s:"ok",d:`${n} this week · ${stamp(S.live.at)}`,sh:shortAt(S.live.at)};
+  return S.liveErr?{...b,s:"err",d:"Couldn't reach ESPN",sh:"Can't connect"}:{...b,s:"",d:"Checking…",sh:"Checking…"}},
+ stocks:()=>{const b={n:"Stock prices",via:"Yahoo Finance"};if(!backend())return{...b,s:"",d:"Not connected",sh:"Not set up"};
+  return S.st.err?{...b,s:"err",d:"Can't reach your backend",sh:"Can't connect"}:S.st.at?{...b,s:"ok",d:stamp(S.st.at),sh:shortAt(S.st.at)}:{...b,s:"",d:"Connecting…",sh:"Connecting…"}},
  crypto:()=>{const b={n:"Crypto prices",via:"Coinbase"};
-  return S.cx.liveOn?{...b,s:"ok",d:"Streaming live"}:S.cx.qAt?{...b,via:"CoinGecko",s:"ok",d:"Delayed · "+stamp(S.cx.qAt)}:S.cx.err?{...b,s:"err",d:"Couldn't load"}:{...b,s:"",d:"Connecting…"}},
+  return S.cx.liveOn?{...b,s:"ok",d:"Streaming live",sh:"Live"}:S.cx.qAt?{...b,via:"CoinGecko",s:"ok",d:"Delayed · "+stamp(S.cx.qAt),sh:shortAt(S.cx.qAt)}:S.cx.err?{...b,s:"err",d:"Couldn't load",sh:"Can't connect"}:{...b,s:"",d:"Connecting…",sh:"Connecting…"}},
  youtube:()=>{const b={n:"Uploads",via:"YouTube"};
-  return S.yt.error?{...b,s:"err",d:"Last check failed"}:S.yt.source==="live"&&S.yt.updated?{...b,s:"ok",d:stamp(S.yt.updated)}:{...b,s:"",d:"Checking…"}},
+  return S.yt.error?{...b,s:"err",d:"Last check failed",sh:"Check failed"}:S.yt.source==="live"&&S.yt.updated?{...b,s:"ok",d:stamp(S.yt.updated),sh:shortAt(S.yt.updated)}:{...b,s:"",d:"Checking…",sh:"Checking…"}},
  spotify:()=>{const b={n:"Episodes",via:"Spotify"},c=LS.get("sd-sp2",null);
-  if(S.sp&&S.sp.length)return{...b,s:"ok",d:`${S.sp.length} shows`+(c&&c.t?" · "+stamp(c.t):"")};
-  return S.spErr?{...b,s:"err",d:"Not responding"}:!backend()?{...b,s:"",d:"Needs your backend"}:!lists().podcasts.length?{...b,s:"",d:"Add a podcast below"}:{...b,s:"",d:"Connecting…"}},
+  if(S.sp&&S.sp.length)return{...b,s:"ok",d:`${S.sp.length} shows`+(c&&c.t?" · "+stamp(c.t):""),sh:c&&c.t?shortAt(c.t):"Live"};
+  return S.spErr?{...b,s:"err",d:"Not responding",sh:"Can't connect"}:!backend()?{...b,s:"",d:"Needs your backend",sh:"Not set up"}:!lists().podcasts.length?{...b,s:"",d:"Add a podcast above",sh:"No podcasts"}:{...b,s:"",d:"Connecting…",sh:"Connecting…"}},
  tmdb:()=>{const b={n:"Showtimes",via:"TMDB"},c=LS.get("sd-mv2",null);
-  return S.mv?{...b,s:"ok",d:c&&c.t?stamp(c.t):"Live"}:S.mvErr==="no-key"?{...b,s:"",d:"Needs a TMDB_KEY"}:S.mvErr?{...b,s:"err",d:"Not responding"}:{...b,s:"",d:"Using the morning list"}},
+  return S.mv?{...b,s:"ok",d:c&&c.t?stamp(c.t):"Live",sh:c&&c.t?shortAt(c.t):"Live"}:S.mvErr==="no-key"?{...b,s:"",d:"Needs a TMDB_KEY",sh:"Needs a key"}:S.mvErr?{...b,s:"err",d:"Not responding",sh:"Can't connect"}:{...b,s:"",d:"Using the morning list",sh:"Morning list"}},
  fitbit:()=>{const b={n:"Health data",via:"Fitbit Air"},t=HEALTH&&HEALTH.ok?Date.parse(HEALTH.fetchedAt||HEALTH.date):0;
-  return t?{...b,s:"ok",d:stamp(t)}:{...b,s:"",d:"No data yet"}},
- sync:()=>{const b={n:"Settings sync",via:"Shared with your other devices"};if(!backend())return{...b,via:"",s:"",d:"This device only"};
-  return S.sync.state==="ok"?{...b,s:"ok",d:S.sync.at?"Synced "+stamp(S.sync.at):"Synced"}:S.sync.state==="err"?{...b,via:S.sync.msg||"No response",s:"err",d:"Couldn't sync"}:{...b,s:"",d:"Syncing…"}}
+  return t?{...b,s:"ok",d:stamp(t),sh:shortAt(t)}:{...b,s:"",d:"No data yet",sh:"No data yet"}},
+ sync:()=>{const b={n:"Settings sync",via:"Shared with your other devices"};if(!backend())return{...b,via:"",s:"",d:"This device only",sh:"This device"};
+  return S.sync.state==="ok"?{...b,s:"ok",d:S.sync.at?"Synced "+stamp(S.sync.at):"Synced",sh:"Synced"}:S.sync.state==="err"?{...b,via:S.sync.msg||"No response",s:"err",d:"Couldn't sync",sh:"Can't sync"}:{...b,s:"",d:"Syncing…",sh:"Syncing…"}}
 };
 /* which sources feed each section; the first live one is what its row shows */
 const SEC_SRC={cal:["morning","tasks"],live:["espn","morning"],mkt:["stocks","crypto","morning"],coach:["morning"],news:["morning"],watch:["youtube","morning"],listen:["spotify","morning"],music:["morning"],bay:["morning"],shows:["morning"],movies:["tmdb","morning"],health:["fitbit"],vocab:["morning"],spanish:["morning"]};
 /* what the morning edition brings to each section */
 const MORNING_NOTE={cal:"Events from Google Calendar",live:"Picks for the week",mkt:"Headline, Bitcoin take and idea",coach:"Today's one thing",news:"Today's stories",watch:"Picks and suggestions",listen:"Picks and suggestions",music:"New releases and similar artists",bay:"This weekend's events",shows:"Dates for your artists",movies:"Backup list",vocab:"Today's word",spanish:"Today's phrase"};
+/* for pages with nothing to choose, a line on what the section is */
 const SEC_ABOUT={
  cal:"The next few days from Google Calendar, plus your Google Tasks reminders.",
- live:"Games, fights and launches for your teams, with where to watch them.",
- mkt:"Your stocks and crypto, with the day's headline and one idea.",
  coach:"One thing to do today, picked around what your days need.",
  news:"The day's stories, picked each morning.",
- watch:"New uploads from your channels in the last 5 days, plus a few suggestions.",
- listen:"New episodes from your podcasts in the last 5 days, plus a few suggestions.",
- music:"New releases from your artists, and similar artists to try.",
  bay:"Things to do around the Bay this weekend.",
- shows:"Bay Area dates for your artists.",
- movies:"What's playing near you now, and what's coming soon.",
  health:"Steps and sleep from your Fitbit Air, with one thing to focus on.",
  vocab:"A new word each morning, with the two before it.",
  spanish:"A new phrase each morning, with audio."
@@ -4263,10 +4242,10 @@ function secState(id){
  const xs=(SEC_SRC[id]||["morning"]).map(k=>[k,SRC[k]()]);
  const worst=xs.reduce((a,b)=>ST_RANK[b[1].s]<ST_RANK[a[1].s]?b:a);
  const main=xs.find(x=>x[1].s==="err")||xs.find(x=>x[0]!=="morning")||xs[0];
- return{s:worst[1].s,t:main[1].via+" · "+main[1].d};
+ return{s:worst[1].s,t:main[1].via+" · "+main[1].d,sh:main[1].sh};
 }
-function secStIn(id){const x=secState(id);return`<i class="s-dot ${x.s}" aria-hidden="true"></i><span>${esc(x.t)}</span>`}
-function srcIn(k,id){const x=SRC[k](),sub=k==="morning"?MORNING_NOTE[id]||"":x.via;
+function secStIn(id){const x=secState(id);return`<i class="s-dot ${x.s}" aria-hidden="true"></i><span>${esc(x.sh)}</span>`}
+function srcIn(k,id){const x=SRC[k](),sub=id==="main"?"":k==="morning"?MORNING_NOTE[id]||"":x.via;
  return`<span class="s-dot ${x.s}" aria-hidden="true"></span><span class="s-n">${esc(x.n)}${sub?`<small>${esc(sub)}</small>`:""}</span><span class="s-v${x.s==="err"?" err":x.s==="warn"?" warn":""}">${esc(x.d)}</span>`}
 const srcRow=(k,id)=>`<div class="s-row" data-st="src:${k}:${id}">${srcIn(k,id)}</div>`;
 /* update the status lines in place (no redraw, so scrolling and typing aren't disturbed) */
@@ -4274,57 +4253,42 @@ function refreshSync(){const p=$("#sheet-p");if(!p||!$("#sheet").classList.conta
  $$("[data-st]",p).forEach(el=>{const[k,a,b]=el.dataset.st.split(":"),h=k==="sec"?secStIn(a):srcIn(a,b);if(el._h!==h){el.innerHTML=h;el._h=h}})}
 
 function settingsHTML(){
- const t=themeId(),ord=orderIds(),names=Object.fromEntries(SECTIONS);
- const nPins=pinList().length,nHid=Object.keys(DISM()).length,vi=verInfo();
+ const ord=orderIds(),names=Object.fromEntries(SECTIONS),nHid=Object.keys(DISM()).length,vi=verInfo();
+ const app=vi.state==="new"?"Newer version ready":vi.state==="pending"?"Publishing an update…":vi.state==="ok"?"Updated "+stamp(vi.at):vi.status;
  return`<div class="set-view" id="set-root" data-view="main"><div class="sheet-h"><h3 id="sheet-title">Settings</h3><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
- <nav class="set-nav noscroll" aria-label="Settings sections">${SET_NAV.map(([k,l])=>`<button class="press" data-setjump="${k}">${l}</button>`).join("")}</nav>
+ <div class="set-l"><span>Home page</span><button data-act="order-reset">Reset order</button></div>
+ <div class="set-g" id="sec-order">${ord.map(id=>`<div class="s-row s-sec${isHidden(id)?" off":""}" data-sid="${id}" role="button" tabindex="0" aria-label="${esc(names[id]||id)} settings">${setIc("",MI[id]||"")}<span class="s-n">${esc(names[id]||id)}</span><span class="s-st" data-st="sec:${id}">${secStIn(id)}</span><input type="checkbox" class="sw" data-sec-toggle="${id}" aria-label="Show ${esc(names[id])}" ${isHidden(id)?"":"checked"}><span class="s-chev r" aria-hidden="true">${CHEV_R}</span></div>`).join("")}</div>
+ <p class="set-help">Tap a section for its settings. Touch and hold to move it.</p>
 
- <section class="set-sec" id="ss-look"><div class="set-l">Appearance</div>
- <div class="set-g">
-  <div class="set-pad"><div class="set-t">Theme</div><div class="set-s">Automatic switches between light and dark with your device.</div>
-   <div class="bgs" role="radiogroup" aria-label="Theme">${THEMES.map(([x,l])=>`<button class="bg-o press${x===t?" on":""}" data-theme-set="${x}" role="radio" aria-checked="${x===t}"><i aria-hidden="true"><b ${x==="auto"?`class="auto"`:`data-bg="${x}"`}></b></i>${l}</button>`).join("")}</div></div>
- </div></section>
-
- <section class="set-sec" id="ss-home"><div class="set-l"><span>Home page</span><button data-act="order-reset">Reset order</button></div>
- <div class="set-g" id="sec-order">${ord.map(id=>`<div class="s-row s-sec${isHidden(id)?" off":""}" data-sid="${id}" role="button" tabindex="0" aria-label="${esc(names[id]||id)} settings">${setIc("",MI[id]||"")}<span class="s-n">${esc(names[id]||id)}<small class="s-st" data-st="sec:${id}">${secStIn(id)}</small></span>
-  <input type="checkbox" class="sw" data-sec-toggle="${id}" aria-label="Show ${esc(names[id])}" ${isHidden(id)?"":"checked"}><span class="s-chev r" aria-hidden="true">${CHEV_R}</span></div>`).join("")}</div>
- <p class="set-help">Tap a section for its settings and sync details. Touch and hold to drag it up or down; the switch shows or hides it. All of it syncs to your other devices.</p></section>
-
- <section class="set-sec" id="ss-data"><div class="set-l">Data</div>
+ <div class="set-l">About</div>
  <div class="set-g">
   ${srcRow("sync","main")}
-  <div class="s-row"><span class="s-n">Pinned items</span><span class="s-v num">${nPins}</span></div>
-  <div class="s-row"><span class="s-n">Hidden items</span><span class="s-v num">${nHid}</span>${nHid?`<button class="s-link" data-act="restore-hidden">Restore all</button>`:""}</div>
-  <button class="s-row s-btn" data-act="refresh"><span class="s-n" style="color:var(--link)">Refresh now</span></button>
+  <div class="s-row"><span class="s-n">Morning edition</span><span class="s-v ${vi.stale?"warn":""}">${esc(vi.data)}</span></div>
+  <div class="s-row"><span class="s-n">App</span><span class="s-v ${vi.state==="new"?"warn":""}">${esc(app)}</span>${vi.state==="new"?`<button class="s-link" data-act="refresh">Load</button>`:""}</div>
+  ${nHid?`<div class="s-row"><span class="s-n">Hidden items</span><span class="s-v num">${nHid}</span><button class="s-link" data-act="restore-hidden">Restore</button></div>`:""}
   <button class="s-row s-btn" data-act="clear-cache"><span class="s-n" style="color:var(--down)">Clear cached data</span><span class="s-v">Keeps your settings</span></button>
  </div>
- <p class="set-help">Everything runs through your Stinky's Daily Apps Script.</p></section>
-
- <section class="set-sec" id="ss-about"><div class="set-l">About</div>
- <div class="set-g">
-  <div class="s-row"><span class="s-n">Edition</span><span class="s-v">${esc(fmtKey(ED,{weekday:"short",month:"short",day:"numeric"}))}</span></div>
-  <div class="s-row"><span class="s-n">Morning data</span><span class="s-v ${vi.stale?"warn":""}">${esc(vi.data)}</span></div>
-  <div class="s-row"><span class="s-n">App version</span><span class="s-v">${esc(vi.app)}</span></div>
-  <div class="s-row"><span class="s-n">Status</span><span class="s-v ${vi.state==="new"?"warn":""}">${esc(vi.status)}</span>${vi.state==="new"?`<button class="s-link" data-act="refresh">Load</button>`:""}</div>
- </div>
- <p class="set-help" style="margin-top:-12px">Weather from Open-Meteo, crypto from CoinGecko and Coinbase, stocks from Yahoo Finance through your backend.</p></section></div>`;
+ <p class="set-help">Weather from Open-Meteo, crypto from CoinGecko and Coinbase, stocks from Yahoo Finance. Settings, reminders, podcasts and movies run through your Stinky's Daily Apps Script.</p></div>`;
 }
 
-/* A SECTION'S PAGE — back to Settings, the section's name, its sync status first,
-   then the switch and whatever configures it. */
+/* A SECTION'S PAGE — back to Settings and the section's name, then what it follows
+   (the lists and choices), then its sync status, the switch, and anything advanced. */
 const LIST_SEC={channels:"watch",podcasts:"listen",stocks:"mkt",crypto:"mkt",artists:"music",teams:"live"};
-function listGroup(k,label,note){const m=LIST_META[k],l=lists()[k];
+const LIST_LABEL={channels:"Channels",podcasts:"Podcasts",stocks:"Stocks",crypto:"Crypto",artists:"Artists",teams:"Teams and events"};
+function listGroup(k,note){const m=LIST_META[k],l=lists()[k],label=LIST_LABEL[k]||m.t;
  return`<div class="set-l"><span>${esc(label)}</span><span class="set-c num">${l.length}</span></div>
- <div class="set-g"><div class="set-pad" id="le-${k}"><div class="set-s" style="margin-top:0">${esc(m.s)}${note?" "+esc(note):""}</div>
-  ${l.length?`<div class="tags">${l.map(v=>`<span class="tag">${esc(v)}<button data-list-del="${k}" data-v="${esc(v)}" aria-label="Remove ${esc(v)}">${I.close}</button></span>`).join("")}</div>`:""}
-  <div class="inp-row"><input class="inp" id="li-${k}" placeholder="${esc(m.ph)}" autocomplete="off" autocapitalize="${k==="artists"||k==="podcasts"?"words":"off"}" spellcheck="false" aria-label="Add to ${esc(label)}" enterkeyhint="done"><button class="btn press" data-list-add="${k}">Add</button></div></div></div>`}
+ <div class="set-g"><div class="set-pad" id="le-${k}">
+  ${l.length?`<div class="tags" style="margin:0 0 12px">${l.map(v=>`<span class="tag">${esc(v)}<button data-list-del="${k}" data-v="${esc(v)}" aria-label="Remove ${esc(v)}">${I.close}</button></span>`).join("")}</div>`:""}
+  <div class="inp-row" style="margin:0"><input class="inp" id="li-${k}" placeholder="${esc(m.ph)}" autocomplete="off" autocapitalize="${k==="artists"||k==="podcasts"?"words":"off"}" spellcheck="false" aria-label="Add to ${esc(label)}" enterkeyhint="done"><button class="btn press" data-list-add="${k}">Add</button></div></div></div>
+ <p class="set-help">${esc(m.s)}${note?" "+esc(note):""}</p>`}
 const feedGroup=id=>{const v=feedF(id),n=Object.fromEntries(SECTIONS)[id];
- return`<div class="set-l"><span>Show</span></div><div class="set-g"><div class="set-pad"><div class="seg" role="group" aria-label="Show in ${esc(n)}" style="margin-top:0">${FEED_OPTS.map(([k,l])=>`<button class="${k===v?"on":""}" data-setfeed="${id}" data-v="${k}" aria-pressed="${k===v}">${l}</button>`).join("")}</div>
- <div class="set-s" style="margin-top:8px">The same choice as the pill on the ${esc(n)} row.</div></div></div>`};
+ return`<div class="set-l"><span>Filter</span></div><div class="set-g"><div class="set-pad"><div class="seg" role="group" aria-label="Show in ${esc(n)}" style="margin-top:0">${FEED_OPTS.map(([k,l])=>`<button class="${k===v?"on":""}" data-setfeed="${id}" data-v="${k}" aria-pressed="${k===v}">${l}</button>`).join("")}</div></div></div>
+ <p class="set-help">The same choice as the pill on the ${esc(n)} row.</p>`};
 function ytKeyGroup(){const stored=!!LS.get("sd-yt-key","");
- return`<div class="set-l"><span>API key</span></div><div class="set-g"><div class="set-pad"><div class="set-t">${stored?"Using your own key":"Using the built-in key"}</div><div class="set-s">Only needed if the built-in key runs out. A key stays on this device and doesn't sync.</div>
+ return`<div class="set-l"><span>API key</span></div><div class="set-g"><div class="set-pad"><div class="set-t">${stored?"Using your own key":"Using the built-in key"}</div>
  <div class="inp-row"><input class="inp" id="yt-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${stored?"Paste a new key to replace it":"Paste a YouTube API key"}" aria-label="YouTube API key"><button class="btn press" data-act="yt-save">Save</button></div>
- ${stored?`<button class="s-link danger" data-act="yt-clear">Remove your key</button>`:""}</div></div>`}
+ ${stored?`<button class="s-link danger" data-act="yt-clear">Remove your key</button>`:""}</div></div>
+ <p class="set-help">Only needed if the built-in key runs out. A key stays on this device and doesn't sync.</p>`}
 function mvSetHTML(){
  const o=mvPrefs();const seg=(k,opts)=>`<div class="seg" role="tablist">${opts.map(([v,l])=>`<button class="${o[k]===v?"on":""}" data-mvp="${k}" data-v="${v}" role="tab" aria-selected="${o[k]===v}">${l}</button>`).join("")}</div>`;
  const m=S.mv||DATA.movies||{};const gs=[...new Set([...(m.now||[]),...(m.soon||[])].flatMap(mvGenres).concat(o.hide))].sort();
@@ -4341,26 +4305,29 @@ function mvSetHTML(){
   <div class="set-pad"><div class="set-t">How far ahead to look</div>${seg("soon",[[30,"1 month"],[90,"3 months"],[180,"6 months"]])}</div>
   <label class="set-r"><span><span class="set-t" style="display:block">Big releases only</span><span class="set-s">Coming soon shows just the ones marked as big.</span></span><input type="checkbox" class="sw" data-mvbig ${o.bigOnly?"checked":""}></label>
  </div>
- ${gs.length?`<div class="set-l"><span>Genres</span></div><div class="set-g"><div class="set-pad"><div class="set-s" style="margin-top:0">Tap a genre to hide it.</div><div class="tags">${gs.map(g=>{const off=o.hide.some(h=>norm(h)===norm(g));return`<button class="tag gtog ${off?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off}">${esc(g)}</button>`}).join("")}</div></div></div>`:""}`;
+ ${gs.length?`<div class="set-l"><span>Genres</span></div><div class="set-g"><div class="set-pad"><div class="tags" style="margin-top:0">${gs.map(g=>{const off=o.hide.some(h=>norm(h)===norm(g));return`<button class="tag gtog ${off?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off}">${esc(g)}</button>`}).join("")}</div></div></div><p class="set-help">Tap a genre to hide it.</p>`:""}`;
 }
+/* top: what the section follows; after: anything advanced, below sync */
 const PAGE_BODY={
- watch:()=>feedGroup("watch")+listGroup("channels","Channels")+ytKeyGroup(),
- listen:()=>feedGroup("listen")+listGroup("podcasts","Podcasts"),
- music:()=>listGroup("artists","Artists","Shows uses this list too."),
- shows:()=>listGroup("artists","Artists","The same list as Music."),
- live:()=>listGroup("teams","Teams and events"),
- mkt:()=>listGroup("stocks","Stocks")+listGroup("crypto","Crypto"),
- movies:()=>mvSetHTML()
+ watch:{top:()=>listGroup("channels")+feedGroup("watch"),after:()=>ytKeyGroup()},
+ listen:{top:()=>listGroup("podcasts")+feedGroup("listen")},
+ music:{top:()=>listGroup("artists","Shows uses this list too.")},
+ shows:{top:()=>listGroup("artists","The same list as Music.")},
+ live:{top:()=>listGroup("teams")},
+ mkt:{top:()=>listGroup("stocks")+listGroup("crypto")},
+ movies:{top:()=>mvSetHTML()}
 };
 function pageHTML(id){
- const name=Object.fromEntries(SECTIONS)[id]||id;
+ const name=Object.fromEntries(SECTIONS)[id]||id,pb=PAGE_BODY[id]||{};
  return`<div class="set-view" id="set-root" data-view="${id}">
  <div class="pg-nav"><button class="pg-back press" data-act="set-back" aria-label="Back to Settings">${CHEV_L}<span>Settings</span></button><span class="pg-t" aria-hidden="true">${esc(name)}</span><button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
- <header class="pg-hd"><span class="pg-ic" aria-hidden="true">${MI[id]||""}</span><div class="pg-hx"><h3 id="sheet-title">${esc(name)}</h3><p>${esc(SEC_ABOUT[id]||"")}</p></div></header>
+ <header class="pg-hd"><h3 id="sheet-title">${esc(name)}</h3></header>
+ ${pb.top?pb.top():""}
  <div class="set-l"><span>Sync</span>${SEC_RELOAD[id]?`<button data-act="set-reload" data-sid="${id}">Check now</button>`:""}</div>
  <div class="set-g">${(SEC_SRC[id]||["morning"]).map(k=>srcRow(k,id)).join("")}${srcRow("sync",id)}</div>
  <div class="set-g"><label class="s-row"><span class="s-n">Show on Home page</span><input type="checkbox" class="sw" data-sec-toggle="${id}" aria-label="Show ${esc(name)} on the Home page" ${isHidden(id)?"":"checked"}></label></div>
- ${PAGE_BODY[id]?PAGE_BODY[id]():""}
+ ${!pb.top&&SEC_ABOUT[id]?`<p class="set-help">${esc(SEC_ABOUT[id])}</p>`:""}
+ ${pb.after?pb.after():""}
  </div>`;
 }
 /* which view the sheet shows: the main list, or one section's page */
@@ -4504,15 +4471,37 @@ function applyTheme(){const t=themeId(),d=SDT[t],r=document.documentElement;
  if(d){r.dataset.theme=d[0];r.style.colorScheme=d[0]}else{delete r.dataset.theme;r.style.colorScheme=""}
  r.style.background="";
  const c=d?d[1]:matchMedia("(prefers-color-scheme: dark)").matches?"#000000":"#F1F2F4";
- $$('meta[name="theme-color"]').forEach(m=>m.remove());const m=document.createElement("meta");m.name="theme-color";m.content=c;document.head.appendChild(m)}
+ $$('meta[name="theme-color"]').forEach(m=>m.remove());const m=document.createElement("meta");m.name="theme-color";m.content=c;document.head.appendChild(m);renderThemeBtn()}
+/* THEME — the circle beside refresh opens a small menu: Automatic, Light, Dark.
+   Picking one applies it, then refreshes the page so the status bar matches too. */
+const TH_IC=()=>({auto:SKYI.swatch,light:WXI.sun,dark:WXI.moon});
+function renderThemeBtn(){const b=$("#th-btn");if(!b)return;const t=themeId();b.innerHTML=TH_IC()[t];b.setAttribute("aria-label","Theme: "+(THEMES.find(x=>x[0]===t)||[0,"Automatic"])[1])}
+function themeMenu(open){
+ let m=$("#tmenu");const b=$("#th-btn");
+ if(open===false||(open==null&&m&&m.classList.contains("show"))){if(m&&m.classList.contains("show")){m.classList.remove("show");if(b)b.setAttribute("aria-expanded","false")}return}
+ if(!b)return;
+ if(!m){m=document.createElement("div");m.id="tmenu";m.className="tmenu";m.setAttribute("role","menu");m.setAttribute("aria-label","Theme");document.body.appendChild(m)}
+ const t=themeId();m.innerHTML=THEMES.map(([x,l])=>`<button role="menuitemradio" aria-checked="${x===t}" data-theme-pick="${x}"><span class="tm-ic" aria-hidden="true">${TH_IC()[x]}</span><span class="tm-l">${l}</span><span class="tm-ck" aria-hidden="true">${x===t?I.check:""}</span></button>`).join("");
+ const r=b.getBoundingClientRect();m.style.top=Math.round(r.bottom+8)+"px";m.style.right=Math.max(8,Math.round(document.documentElement.clientWidth-r.right))+"px";
+ b.setAttribute("aria-expanded","true");requestAnimationFrame(()=>m.classList.add("show"));
+}
+function pickTheme(id){
+ themeMenu(false);if(id===themeId())return;setPref("theme",id);
+ const swap=()=>{applyTheme();redrawCharts();renderHero()},done=()=>setTimeout(()=>PTR.go(),140);
+ if(document.startViewTransition&&!calmMotion())document.startViewTransition(swap).finished.then(done,done);else{swap();done()}
+}
+addEventListener("scroll",()=>themeMenu(false),{passive:true});addEventListener("resize",()=>themeMenu(false));
 function redrawCharts(){drawMk()}
 document.addEventListener("click",async e=>{
  const t=e.target;
+ const tp=t.closest("[data-theme-pick]");if(tp){pickTheme(tp.dataset.themePick);return}
+ if($("#tmenu.show")&&!t.closest("#tmenu,#th-btn")){themeMenu(false);if(!t.closest("[data-act],a,button,input"))return}
  /* a Home page row in Settings opens that section's page (not after a drag, not from its switch) */
  const srow=t.closest("#sec-order .s-sec");if(srow){if(t.closest(".sw")||Date.now()<(SD.noClick||0))return;setGo(srow.dataset.sid);return}
  const a=t.closest("[data-act]");
  if(a){const act=a.dataset.act;
   if(act==="settings"){openSettings();return}
+  if(act==="theme-menu"){themeMenu();return}
   if(act==="settings-page"){openSettings(a.dataset.sid);return}
   if(act==="set-back"){setBack();return}
   if(act==="set-reload"){const id=a.dataset.sid,f=SEC_RELOAD[id];if(!f||a.disabled)return;a.disabled=true;a.textContent="Checking…";try{await f()}catch(err){}refreshSettings();const x=secState(id);toast(x.s==="err"?x.t:"Up to date");return}
@@ -4554,11 +4543,6 @@ document.addEventListener("click",async e=>{
   if(k==="channels")LS.del("sd-yt-cache");
   if(k==="artists"){renderShows();renderMusic();loadMusicArt()}
   $$(`[data-follow="${k}"]`).forEach(b=>{if(b.dataset.v.toLowerCase()!==v.toLowerCase())return;b.classList.toggle("on",!was);b.setAttribute("aria-pressed",!was);b.innerHTML=!was?I.check:I.plus;b.dataset.tip=!was?"Following · tap to unfollow":"Follow";b.setAttribute("aria-label",!was?"Following":"Follow")});refreshSettings();return}
- const th=t.closest("[data-theme-set]");if(th){const id=th.dataset.themeSet;if(th.classList.contains("on"))return;setPref("theme",id);
-  /* match by id: syncing can redraw the settings sheet before this runs */
-  const swap=()=>{applyTheme();$$("[data-theme-set]").forEach(b=>{const on=b.dataset.themeSet===id;b.classList.toggle("on",on);b.setAttribute("aria-checked",on)});redrawCharts();renderHero()};
-  /* cross-fade the whole page when the browser can */
-  if(document.startViewTransition&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.startViewTransition(swap);else swap();return}
 
  const mvp=t.closest("[data-mvp]");if(mvp){const k=mvp.dataset.mvp,raw=mvp.dataset.v;setMvPref(k,/^\d+$/.test(raw)?+raw:raw);return}
  const mvg=t.closest("[data-mvg]");if(mvg){const g=mvg.dataset.mvg,o=mvPrefs();const has=o.hide.some(h=>norm(h)===norm(g));setMvPref("hide",has?o.hide.filter(h=>norm(h)!==norm(g)):o.hide.concat([g]));return}
@@ -4577,7 +4561,7 @@ document.addEventListener("click",async e=>{
  const sa=t.closest("[data-say-all]");if(sa){say(sa.dataset.sayAll,sa.dataset.lang,false);return}
  const sp=t.closest("[data-say]");if(sp){say(sp.dataset.say,sp.dataset.lang,!!sp.dataset.slow);return}
 });
-document.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches&&e.target.matches("#sec-order .s-sec")){e.preventDefault();setGo(e.target.dataset.sid);return}if(e.key==="Escape"&&S.setPage&&$("#sheet").classList.contains("open")&&$("#set-root")){setBack();return}if(e.key==="Enter"&&e.target.id==="mv-zip"){const b=$('[data-act="mv-zip"]');if(b)b.click();return}if(e.key==="Enter"&&e.target.id==="vc-mine"){const b=$('[data-act="vocab-check"]');if(b)b.click();return}if(e.key==="Escape"&&$("#sheet").classList.contains("open"))closeSheet();if(e.key==="Enter"&&e.target.id&&e.target.id.startsWith("li-")){const b=$(`[data-list-add="${e.target.id.slice(3)}"]`);if(b)b.click()}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#tmenu.show")){themeMenu(false);return}if((e.key==="Enter"||e.key===" ")&&e.target.matches&&e.target.matches("#sec-order .s-sec")){e.preventDefault();setGo(e.target.dataset.sid);return}if(e.key==="Escape"&&S.setPage&&$("#sheet").classList.contains("open")&&$("#set-root")){setBack();return}if(e.key==="Enter"&&e.target.id==="mv-zip"){const b=$('[data-act="mv-zip"]');if(b)b.click();return}if(e.key==="Enter"&&e.target.id==="vc-mine"){const b=$('[data-act="vocab-check"]');if(b)b.click();return}if(e.key==="Escape"&&$("#sheet").classList.contains("open"))closeSheet();if(e.key==="Enter"&&e.target.id&&e.target.id.startsWith("li-")){const b=$(`[data-list-add="${e.target.id.slice(3)}"]`);if(b)b.click()}});
 document.addEventListener("change",e=>{if(e.target.matches("[data-task]")){const el=e.target,row=el.closest(".rem");if(row)row.classList.toggle("done",el.checked);completeTask(el.dataset.task,el.dataset.list,el.checked);return}if(e.target.matches("[data-mvfresh]")){setMvPref("fresh",e.target.checked);return}if(e.target.matches("[data-mvbig]")){setMvPref("bigOnly",e.target.checked);return}const c=e.target.closest("[data-sec-toggle]");if(c){const id=c.dataset.secToggle;if(c.checked){S.hidden.delete(id);(LEGACY[id]||[]).forEach(x=>S.hidden.delete(x));if(S.hidden.has("learn")){S.hidden.delete("learn");["vocab","spanish"].filter(x=>x!==id).forEach(x=>S.hidden.add(x))}}else S.hidden.add(id);setPref("hidden",[...S.hidden]);renderNav();const r=c.closest(".s-sec");if(r)r.classList.toggle("off",!c.checked)}});
 /* remember which lists are open in Settings, so a refresh keeps them open */
 document.addEventListener("toggle",e=>{const d=e.target;if(d&&d.matches&&d.matches("details[data-acc]")){S.setOpen=S.setOpen||new Set();d.open?S.setOpen.add(d.dataset.acc):S.setOpen.delete(d.dataset.acc)}},true);
