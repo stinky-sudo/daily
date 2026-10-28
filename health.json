@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-28T03:32:43.926Z",
+ "fetchedAt": "2026-10-28T05:32:36.579Z",
  "date": "2026-10-27",
  "days": {
   "2026-10-22": {
@@ -670,11 +670,11 @@
    ]
   },
   "2026-10-27": {
-   "steps": 11372,
-   "dist": 8942100,
-   "cal": 3366,
+   "steps": 11384,
+   "dist": 8951700,
+   "cal": 3553,
    "active": {
-    "light": 223,
+    "light": 224,
     "moderate": 7,
     "vigorous": 52
    },
@@ -683,7 +683,7 @@
     "cardio": 0,
     "peak": 0
    },
-   "rhr": 56,
+   "rhr": 57,
    "hrv": 57.9,
    "spo2": 97.1,
    "spo2Lo": 95.1,
@@ -732,7 +732,7 @@
    }
   },
   "steps": {
-   "countSum": "11372"
+   "countSum": "11384"
   }
  },
  "distance": {
@@ -757,7 +757,7 @@
    }
   },
   "distance": {
-   "millimetersSum": "8942100"
+   "millimetersSum": "8951700"
   }
  },
  "activeMinutes": {
@@ -785,7 +785,7 @@
    "activeMinutesRollupByActivityLevel": [
     {
      "activityLevel": "LIGHT",
-     "activeMinutesSum": "223"
+     "activeMinutesSum": "224"
     },
     {
      "activityLevel": "MODERATE",
@@ -820,7 +820,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 3366.0126120000004
+   "kcalSum": 3552.90972
   }
  },
  "activeZoneMinutes": {
@@ -866,7 +866,7 @@
      "month": 10,
      "day": 27
     },
-    "beatsPerMinute": "56",
+    "beatsPerMinute": "57",
     "dailyRestingHeartRateMetadata": {
      "calculationMethod": "WITH_SLEEP"
     }
