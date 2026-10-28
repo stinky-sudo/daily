@@ -468,16 +468,17 @@ h1,h2,h3,p{margin:0}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--q1:#6E9CFF;--q2:#36CF7F;--q3:#FFC23A;--q4:#FF6E4E}}
 .greet-row{grid-column:1/-1;display:flex;align-items:baseline;gap:14px}
 .greet-row .greet{flex:1 1 auto;min-width:0}
-/* the ring is centred on the capitals of the greeting (it drops a little below the baseline to get there);
-   the days left in the year sit in the middle */
-.yr{flex:0 0 auto;padding:0;font-size:0;line-height:0;-webkit-tap-highlight-color:transparent}
-.yr svg{display:inline-block;vertical-align:-9px;width:44px;height:44px;overflow:visible;transition:transform .2s ease}
+/* the ring sits just below centre on the capitals of the greeting, set in a little from the right edge;
+   the days left in the year sit in the middle. The drop is a relative offset so the row's height doesn't change;
+   the inset is a margin so a long greeting still shrinks to clear it */
+.yr{flex:0 0 auto;padding:0;font-size:0;line-height:0;-webkit-tap-highlight-color:transparent;position:relative;top:4px;margin-right:8px}
+.yr svg{display:inline-block;vertical-align:-12px;width:50px;height:50px;overflow:visible;transition:transform .2s ease}
 .yr-tk,.yr-f{fill:none;stroke:var(--c);stroke-width:2.6}
 .yr-tk{opacity:.18}
 .yr text{font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:-.04em;fill:var(--ink-2);text-anchor:middle;dominant-baseline:central;font-variant-numeric:tabular-nums}
 .yr:active svg{transform:scale(.94)}
-@media (min-width:768px){.yr svg{width:56px;height:56px;vertical-align:-11px}}
-@media (min-width:1024px){.yr svg{width:64px;height:64px;vertical-align:-12px}}
+@media (min-width:768px){.yr{top:6px;margin-right:12px}.yr svg{width:64px;height:64px;vertical-align:-15px}}
+@media (min-width:1024px){.yr svg{width:72px;height:72px;vertical-align:-16px}}
 
 /* footer: the sign-off and when the app was last updated; a note only if the morning edition is old */
 .foot{text-align:center;padding:40px var(--g) 0;font-size:13px;color:var(--ink-3);line-height:1.5}
