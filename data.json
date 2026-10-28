@@ -1,6 +1,6 @@
 {
-  "edition": "2026-10-27",
-  "updated": "2026-10-27T05:20:00-07:00",
+  "edition": "2026-10-28",
+  "updated": "2026-10-28T05:25:00-07:00",
   "weatherFallback": {
     "hi": 67,
     "lo": 50,
@@ -8,7 +8,7 @@
     "code": 1
   },
   "calendar": {
-    "summary": "Nothing is scheduled today or tomorrow, and Thursday's only entry is Paige's birthday, so this is open time to use on purpose. Halloween is Saturday, and clocks fall back early Sunday morning for an extra hour. Patrick's birthday is Sunday, and your Dia de los Muertos procession entry in the Mission is Monday evening at 5 PM. Send Paige a note before Thursday and decide what you want finished before the weekend.",
+    "summary": "Today and tomorrow are open, and Thursday's only entry is Paige's birthday. Saturday is the busy day: Ohio State at USC kicks off at 4:30 PM Pacific while the RL Grime and NGHTMRE block party at The Midway runs 4 to 10 PM, so decide which one you are watching live. Clocks fall back early Sunday, which is also Patrick's birthday. Your Dia de los Muertos entry in the Mission is Monday at 5 PM.",
     "events": [
       {
         "title": "Paige's Birthday",
@@ -55,34 +55,22 @@
         "start": "2026-11-02T17:00:00-08:00",
         "end": "2026-11-02T22:00:00-08:00",
         "url": "https://www.google.com/calendar/event?eid=ZTVxdmVjcWs2ZjVvMzA2OGVndGozZWM0cTAgcnVkeWxhbmdlbmthbXBAbQ"
-      },
-      {
-        "title": "🗳️ Election Day",
-        "allDay": true,
-        "date": "2026-11-03",
-        "url": "https://www.google.com/calendar/event?eid=bnNlcGo2cWNwN2luZzJyb2EyNDJjdmI2OGMgcnVkeWxhbmdlbmthbXBAbQ"
-      },
-      {
-        "title": "⛸️ Holiday Ice Rink at Embarcadero — Opening Night",
-        "start": "2026-11-07T17:00:00-08:00",
-        "end": "2026-11-07T21:00:00-08:00",
-        "url": "https://www.google.com/calendar/event?eid=NTNjaWRjYTBlZzA5N3QzdGplajgwbzYyb2MgcnVkeWxhbmdlbmthbXBAbQ"
       }
     ]
   },
   "tip": {
-    "cat": "Body",
-    "title": "Do three one-minute bursts of hard effort",
-    "mins": "5 min",
-    "why": "In a study of about 25,000 adults who did no leisure exercise, those whose wearable data showed around three one-to-two-minute bursts of vigorous activity a day had roughly 38 to 40 percent lower risk of dying over the follow-up than those with none. It is observational, so it shows an association, but it suggests short bursts are worth trying on a busy day.",
+    "cat": "Mind",
+    "title": "Take a 20-minute break in a green space",
+    "mins": "20 min",
+    "why": "In an eight-week field study, people who spent 10 minutes or more in a nature setting a few times a week saw their stress hormone cortisol fall, and the biggest drop per minute came at 20 to 30 minutes. It was a small study of city residents, so treat it as encouraging rather than settled.",
     "how": [
-      "Pick something that gets you breathing hard: stairs, a fast uphill walk or a brisk carry.",
-      "Go hard for 60 seconds, three times spread across the day.",
-      "Add a bout whenever you are already moving, such as before a meeting or on the way to the car."
+      "Pick a park, trail or tree-lined street within a short walk.",
+      "Stay about 20 minutes and keep your phone in your pocket.",
+      "Sit or walk slowly; you do not need to exercise."
     ],
-    "src": "Stamatakis et al., Nature Medicine (2022)",
-    "url": "https://doi.org/10.1038/s41591-022-02100-x",
-    "ask": "What does the research say about very short bursts of vigorous activity, and how strong is the evidence that they cause better health?"
+    "src": "Hunter, Gillespie and Chen, Frontiers in Psychology (2019)",
+    "url": "https://doi.org/10.3389/fpsyg.2019.00722",
+    "ask": "What does the research say about how long a nature break needs to be to lower stress, and how strong is the evidence?"
   },
   "tipLog": [
     "Dim the lights two hours before bed",
@@ -93,25 +81,26 @@
     "Walk for ten minutes after a big meal",
     "Write tomorrow's to-do list before bed",
     "Turn your top task into an if-then plan",
-    "Do three one-minute bursts of hard effort"
+    "Do three one-minute bursts of hard effort",
+    "Take a 20-minute break in a green space"
   ],
   "markets": {
-    "asOf": "2026-10-26",
-    "headline": "Stocks rose on Monday after Anthropic's IPO filing, with the Nasdaq up 0.8% and Tesla up 5.2% on a Barclays upgrade.",
+    "asOf": "2026-10-27",
+    "headline": "Stocks rose for a second day on Tuesday as chipmakers led and oil fell, with the Nasdaq up 1.2% and Tesla up 4.0% ahead of the Fed decision.",
     "points": [
-      "Anthropic's IPO filing revived enthusiasm for AI and chip stocks: the Nasdaq gained 0.8%, the S&P 500 0.7%, and the PHLX semiconductor index rose more than 3% after a weak October.",
-      "Meta said it plans to raise up to $95 billion in equity for AI data centers and related infrastructure, which weighed on sentiment even as the broader tech group rallied.",
-      "Tesla jumped 5.2% to $391.62 after Barclays upgraded it to Overweight and raised its target to $450 from $370, citing possible SpaceX merger value and a recovery in autos.",
-      "WTI crude fell 1.8% to $101.48 and the 10-year Treasury yield held near 4.99%. A Fed decision and more big-tech earnings come later this week."
+      "The S&P 500 closed at 7,722.60 (+0.6%) and the Nasdaq at 26,477.81 (+1.2%) as semiconductor stocks rallied again after Anthropic's IPO filing; the Dow was nearly flat at 52,377.57, held back by a 3.4% drop in Sherwin-Williams after a profit miss.",
+      "Meta's plan to raise about $95 billion in equity for AI infrastructure drew anchor buyers: Nvidia said it would put $3 billion into the offering and AMD $1 billion, and Nvidia said Meta would expand its Vera Rubin deployment.",
+      "Tesla rose 4.0% to $407.46, extending Monday's Barclays-upgrade jump on hopes tied to a possible SpaceX combination.",
+      "The Fed announces its decision at 2 PM Eastern today (11 AM Pacific); markets expect a hold at 3.75% to 4%, with traders watching for hints of a December hike. Microsoft, Alphabet and other big-tech earnings land this week. The Russell 2000 row below still shows Monday's close because Tuesday's could not be confirmed."
     ],
     "tickers": [
       {
         "sym": "^GSPC",
         "name": "S&P 500",
-        "value": 7676.77,
-        "chg": 53.09,
-        "pct": 0.7,
-        "ytd": 12.15,
+        "value": 7722.6,
+        "chg": 45.83,
+        "pct": 0.6,
+        "ytd": 12.82,
         "closes": [
           [
             "2026-10-05",
@@ -160,16 +149,20 @@
           [
             "2026-10-26",
             7676.77
+          ],
+          [
+            "2026-10-27",
+            7722.6
           ]
         ]
       },
       {
         "sym": "^IXIC",
         "name": "Nasdaq",
-        "value": 26169.38,
-        "chg": 214.04,
-        "pct": 0.82,
-        "ytd": 12.59,
+        "value": 26477.81,
+        "chg": 308.43,
+        "pct": 1.18,
+        "ytd": 13.92,
         "closes": [
           [
             "2026-10-05",
@@ -218,16 +211,20 @@
           [
             "2026-10-26",
             26169.38
+          ],
+          [
+            "2026-10-27",
+            26477.81
           ]
         ]
       },
       {
         "sym": "^DJI",
         "name": "Dow Jones",
-        "value": 52361.58,
-        "chg": 146.42,
-        "pct": 0.28,
-        "ytd": 8.94,
+        "value": 52377.57,
+        "chg": 15.99,
+        "pct": 0.03,
+        "ytd": 8.97,
         "closes": [
           [
             "2026-10-05",
@@ -276,6 +273,10 @@
           [
             "2026-10-26",
             52361.58
+          ],
+          [
+            "2026-10-27",
+            52377.57
           ]
         ]
       },
@@ -328,10 +329,10 @@
       {
         "sym": "TSLA",
         "name": "Tesla",
-        "value": 391.62,
-        "chg": 19.4,
-        "pct": 5.21,
-        "ytd": -12.92,
+        "value": 407.46,
+        "chg": 15.84,
+        "pct": 4.04,
+        "ytd": -9.4,
         "closes": [
           [
             "2026-10-01",
@@ -388,6 +389,10 @@
           [
             "2026-10-26",
             391.62
+          ],
+          [
+            "2026-10-27",
+            407.46
           ]
         ]
       }
@@ -505,17 +510,6 @@
       "ask": "How might a public Anthropic change competition with OpenAI and the funding landscape for AI and robotics startups?"
     },
     {
-      "id": "n5",
-      "tag": "AI",
-      "title": "OpenAI upgrades ChatGPT and Codex with GPT-6.1 Terra",
-      "blurb": "The new model is aimed at speed and computer use at a lower price, with API pricing starting at $1 per million input tokens and $5 per million output tokens.",
-      "src": "9to5Mac",
-      "domain": "9to5mac.com",
-      "date": "2026-10-26",
-      "url": "https://9to5mac.com/2026/10/26/openai-upgrades-chatgpt-and-codex-with-new-gpt-6-1-terra-model/",
-      "ask": "If computer use gets this much cheaper, which workflows become worth automating first, and how does it change what agents can do for robot software teams?"
-    },
-    {
       "id": "n6",
       "tag": "Tech",
       "title": "Meta plans to raise up to $95 billion in equity for AI infrastructure",
@@ -527,17 +521,6 @@
       "ask": "What does a mega-cap issuing equity, not debt, for AI data centers say about how the cost of the AI build-out is being financed?"
     },
     {
-      "id": "n7",
-      "tag": "Tech",
-      "title": "Barclays upgrades Tesla to Overweight, raising its target to $450",
-      "blurb": "Analyst Dan Levy cited possible value from a Tesla and SpaceX combination and a recovery in the core auto business. Tesla rose about 5% on Monday.",
-      "src": "24/7 Wall St.",
-      "domain": "247wallst.com",
-      "date": "2026-10-26",
-      "url": "https://247wallst.com/investing/2026/10/26/tesla-rises-6-as-barclays-upgrade-cites-spacex-merger-potential-lucid-drops-4-rivian-slips/",
-      "ask": "How much of Tesla's move is merger speculation versus operating progress, and where do Optimus and robotaxi fit in that story?"
-    },
-    {
       "id": "n8",
       "tag": "Tech",
       "title": "SpaceX agrees to a roughly $40B equipment lease with Apollo to buy Nvidia GPUs",
@@ -547,63 +530,74 @@
       "date": "2026-10-26",
       "url": "https://techstartups.com/2026/10/26/tech-news-today-october-26-2026-nvidia-metas-95b-ai-funding-plan-spacexs-40b-chip-deal-and-anthropic-security-breach/",
       "ask": "Why would SpaceX finance GPUs through a lease, and what does it suggest about its AI ambitions next to Tesla and xAI?"
+    },
+    {
+      "id": "n9",
+      "tag": "Tech",
+      "title": "Nvidia and AMD to invest $4 billion in Meta as the AI partnership deepens",
+      "blurb": "Nvidia said it will put $3 billion into Meta's equity offering and AMD $1 billion, and that Meta will expand its Vera Rubin deployment. The money is part of Meta's plan to raise about $95 billion for AI infrastructure.",
+      "src": "CNBC",
+      "domain": "cnbc.com",
+      "date": "2026-10-27",
+      "url": "https://www.cnbc.com/2026/10/27/nvidia-invest-meta.html",
+      "ask": "When chip suppliers invest in a customer that buys their chips, what does that do to the real demand signal, and how should I read it?"
+    },
+    {
+      "id": "n10",
+      "tag": "AI",
+      "title": "Anthropic's IPO leads a $235 billion day of AI dealmaking",
+      "blurb": "Axios counts roughly $235 billion in AI financing in one day, spanning Anthropic's IPO filing, Meta's equity raise and SpaceX's chip-lease deal with Apollo.",
+      "src": "Axios",
+      "domain": "axios.com",
+      "date": "2026-10-27",
+      "url": "https://www.axios.com/2026/10/27/anthropic-ipo-meta-spacex-ai-deals",
+      "ask": "What does a single day of $235 billion in AI financing say about how the buildout is being paid for, and where is the fragility?"
     }
   ],
   "youtube": [
     {
-      "id": "6f7ojkd4_Wc",
+      "id": "yJxZef1Ylok",
       "channel": "OpenAI",
       "handle": "@OpenAI",
-      "title": "Hunt bugs with your dot",
-      "desc": "An OpenAI engineer shows how she uses her dot to gather feedback, track bugs in ChatGPT and fix them with Codex.",
-      "published": "2026-10-23T22:05:37Z",
-      "secs": 312,
-      "views": 64353,
-      "url": "https://www.youtube.com/watch?v=6f7ojkd4_Wc"
+      "title": "How Legora is transforming legal work with OpenAI",
+      "desc": "A look at how the legal AI company Legora builds on OpenAI's models.",
+      "published": "2026-10-28T09:45:14Z",
+      "secs": 155,
+      "views": 1140,
+      "url": "https://www.youtube.com/watch?v=yJxZef1Ylok"
     },
     {
-      "id": "V39_L7uh66M",
+      "id": "UOfmD1fY-i8",
       "channel": "OpenAI",
       "handle": "@OpenAI",
-      "title": "How AT&T is building AI-powered legal workflows with OpenAI",
-      "desc": "AT&T's legal team describes how AI is changing its work and what it plans to build next.",
-      "published": "2026-10-23T18:32:03Z",
-      "secs": 113,
-      "views": 14555,
-      "url": "https://www.youtube.com/watch?v=V39_L7uh66M"
+      "title": "Building the future of legal work with AI | Legora CEO Max Junestrand",
+      "desc": "Legora's CEO on where AI is taking legal work.",
+      "published": "2026-10-28T09:45:18Z",
+      "secs": 222,
+      "views": 666,
+      "url": "https://www.youtube.com/watch?v=UOfmD1fY-i8"
+    },
+    {
+      "id": "ai1gIWacf0I",
+      "channel": "Marques Brownlee",
+      "handle": "@mkbhd",
+      "title": "This can SEE Sound!",
+      "desc": "Marques Brownlee shows a device that makes sound visible.",
+      "published": "2026-10-27T20:14:55Z",
+      "secs": 91,
+      "views": 1133268,
+      "url": "https://www.youtube.com/watch?v=ai1gIWacf0I"
     },
     {
       "id": "eyZEqSPeMwg",
       "channel": "Veritasium",
       "handle": "@veritasium",
       "title": "No device could prove Einstein wrong... until now",
-      "desc": "Veritasium asks whether atomic clocks can test Einstein's theory of gravity.",
+      "desc": "Veritasium on a new test of Einstein's physics.",
       "published": "2026-10-23T18:46:44Z",
       "secs": 2068,
-      "views": 5747864,
+      "views": 6268500,
       "url": "https://www.youtube.com/watch?v=eyZEqSPeMwg"
-    },
-    {
-      "id": "yx0gM_l60VY",
-      "channel": "Channel 5 with Andrew Callaghan",
-      "handle": "@channel5YouTube",
-      "title": "Looksmaxxing Sleepaway Camp",
-      "desc": "A Channel 5 report from a summer camp built around looksmaxxing.",
-      "published": "2026-10-22T16:00:00Z",
-      "secs": 2505,
-      "views": 2689757,
-      "url": "https://www.youtube.com/watch?v=yx0gM_l60VY"
-    },
-    {
-      "id": "AoFwpf43wK0",
-      "channel": "Figure",
-      "handle": "@figureai",
-      "title": "Figure All Hands 2026",
-      "desc": "Figure's all-hands presentation for 2026.",
-      "published": "2026-10-22T15:31:17Z",
-      "secs": 3673,
-      "views": 51727,
-      "url": "https://www.youtube.com/watch?v=AoFwpf43wK0"
     }
   ],
   "spotify": [
@@ -659,29 +653,12 @@
     },
     {
       "show": "The Diary Of A CEO with Steven Bartlett",
-      "title": "President Zelenskyy: Peace Is A Huge Compromise, The Horrific Atrocities Of Russian War Crimes!",
-      "desc": "Steven Bartlett interviews Ukraine's President Zelenskyy.",
-      "published": "2026-10-22",
-      "secs": 6617,
+      "title": "Most Replayed Moment: How AI Companies Are Gaslighting You - Karen Hao",
+      "desc": "A short clip of the most replayed moment from Steven Bartlett's conversation with Karen Hao on AI companies.",
+      "published": "2026-10-23",
+      "secs": 1447,
       "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
-      "url": "https://open.spotify.com/episode/0MOYxDHYadej7XgGtUF8S0"
-    },
-    {
-      "show": "Huberman Lab",
-      "title": "Essentials: Developing a Rational Approach to Supplementation for Health & Performance",
-      "desc": "An Essentials episode from Andrew Huberman on supplementation for health and performance.",
-      "published": "2026-10-22",
-      "secs": 2288,
-      "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
-      "url": "https://open.spotify.com/episode/6L9wYBBFPl02eNTdBdWKfx"
-    },
-    {
-      "show": "Modern Wisdom",
-      "title": "Why Men & Women Are Giving Up On Each Other - Daniel Cox - #1166",
-      "desc": "Chris Williamson talks with Daniel Cox about why men and women are drifting apart.",
-      "published": "2026-10-22",
-      "secs": 6843,
-      "url": "https://open.spotify.com/episode/77zHEXL9Mu3u1Ajk2qz1pa"
+      "url": "https://open.spotify.com/episode/7MDIkELsIsRX0zVnVNrchE"
     }
   ],
   "discover": {
@@ -868,75 +845,73 @@
     "items": [
       {
         "id": "b1",
-        "title": "Eric Prydz at Club Darc, Pier 48",
-        "where": "Pier 48, San Francisco",
-        "blurb": "Halloween night with Eric Prydz at Pier 48, with Tiga and Kelly Lee Owens (DJ set) in support. 21 and over.",
-        "date": "2026-10-31",
-        "url": "https://hoodline.com/2026/08/eric-prydz-brings-halloween-rave-to-sf-s-pier-48-as-club-darc-returns/",
-        "tickets": "https://www.eventworld.com/eric-prydz-san-francisco-bilety-10-31-2026/event/537809",
+        "title": "Ghost Ship VIII",
+        "where": "San Francisco",
+        "blurb": "An adults-only Halloween dance event with multiple stages and art installations, listed for 9 PM to 3 AM.",
+        "date": "2026-10-30",
+        "url": "https://www.sfstation.com/music/calendar/bay-area/10-31-2026",
         "cal": {
-          "start": "2026-10-31T20:00",
-          "end": "2026-10-31T23:59",
-          "location": "Pier 48, San Francisco, CA",
-          "tips": "Listings show an 8 PM start; the end time is a placeholder. Resale prices run roughly $105 to $140 and up, so check Club Darc's site for the official box office. Bring government ID."
+          "start": "2026-10-30T21:00",
+          "end": "2026-10-31T03:00",
+          "location": "San Francisco, CA",
+          "tips": "Venue and ticket details were not confirmed; check the organizer's page before planning a ride home."
         }
       },
       {
         "id": "b2",
-        "title": "The Addams Family at Palo Alto Players",
-        "where": "Lucie Stern Theatre, Palo Alto",
-        "blurb": "The musical runs Oct 30 to Nov 15 at the Lucie Stern Theatre, with tickets from $24.",
-        "date": "2026-10-31",
-        "endDate": "2026-11-15",
-        "url": "https://www.broadwayworld.com/article/THE-ADDAMS-FAMILY-Comes-to-Palo-Alto-Players-20260925",
+        "title": "Final weekend of Ocean Beach bonfires",
+        "where": "Ocean Beach, San Francisco",
+        "blurb": "Fire rings are first come, first served, and Friday's session runs 3 to 9:30 PM. This is the last weekend of the 2026 season.",
+        "date": "2026-10-30",
+        "url": "https://www.sftourismtips.com/halloween-events-sf-bay-area.html",
+        "free": true,
         "cal": {
-          "start": "2026-10-31T19:30",
-          "end": "2026-10-31T22:00",
-          "location": "1305 Middlefield Rd, Palo Alto, CA",
-          "tips": "The showtime here is a placeholder; confirm the schedule at paplayers.org or 650-329-0891. A free courtyard Halloween party for ticket holders follows opening night, per one listing."
+          "start": "2026-10-30T16:00",
+          "end": "2026-10-30T21:30",
+          "location": "Ocean Beach, San Francisco, CA",
+          "tips": "Bring warm layers. Check SF Rec and Park rules for what you can burn; hours come from a single listing."
         }
       },
       {
         "id": "b3",
-        "title": "San Jose Sharks vs. Ottawa Senators",
-        "where": "SAP Center, San Jose",
-        "blurb": "A Halloween Saturday afternoon game in San Jose, a short drive from Mountain View.",
+        "title": "Knocked Loose with Denzel Curry",
+        "where": "Cow Palace, Daly City",
+        "blurb": "A Halloween night show at the Cow Palace, listed for 7 PM.",
         "date": "2026-10-31",
-        "url": "https://www.sftourismtips.com/san-francisco-sports-events.html",
+        "url": "https://www.sfstation.com/music/calendar/bay-area/10-31-2026",
         "cal": {
-          "start": "2026-10-31T13:00",
-          "end": "2026-10-31T15:30",
-          "location": "525 W Santa Clara St, San Jose, CA",
-          "tips": "Listed for a 1 PM start; confirm on the Sharks' site. Caltrain to Diridon is the easy way in."
+          "start": "2026-10-31T19:00",
+          "end": "2026-10-31T23:00",
+          "location": "Cow Palace, Daly City, CA",
+          "tips": "Time is from a listing; confirm doors and tickets with the venue."
         }
       },
       {
         "id": "b4",
-        "title": "Halloween edition of the Downtown Palo Alto Farmers' Market",
-        "where": "Downtown Palo Alto",
-        "blurb": "The Saturday market runs a Halloween morning with trick-or-treating, games and pumpkins for sale.",
+        "title": "Galactic at The Fillmore",
+        "where": "The Fillmore, San Francisco",
+        "blurb": "The New Orleans funk band on Halloween night, listed for 8 PM.",
         "date": "2026-10-31",
-        "url": "https://reddoorca.com/blog/palo-alto-skips-the-big-halloween-festival-so-the-holiday-comes-down-to-three-days",
-        "free": true,
+        "url": "https://www.sfstation.com/music/calendar/bay-area/10-31-2026",
         "cal": {
-          "start": "2026-10-31T09:00",
-          "end": "2026-10-31T11:30",
-          "location": "Downtown Palo Alto, CA",
-          "tips": "Hours are a placeholder; check the market's schedule. Arrive early for parking, or take Caltrain to University Ave."
+          "start": "2026-10-31T20:00",
+          "end": "2026-10-31T23:00",
+          "location": "1805 Geary Blvd, San Francisco, CA",
+          "tips": "Time is from a listing; confirm with The Fillmore."
         }
       },
       {
         "id": "b5",
-        "title": "Halloween Eve DJ party at the de Young",
-        "where": "de Young Museum, San Francisco",
-        "blurb": "An after-hours costume party in the museum with DJ sets from In Session, 6 to 10 PM. General admission is $45.",
-        "date": "2026-10-30",
-        "url": "https://sf.funcheap.com/city-guide/bay-areas-halloween-party-guide/",
+        "title": "Halloween activities at the Hiller Aviation Museum",
+        "where": "Hiller Aviation Museum, San Carlos",
+        "blurb": "Kids' Halloween activities run Oct 31 and Nov 1, a Peninsula option about 20 minutes up the road from Mountain View.",
+        "date": "2026-11-01",
+        "url": "https://www.sftourismtips.com/halloween-events-sf-bay-area.html",
         "cal": {
-          "start": "2026-10-30T18:00",
-          "end": "2026-10-30T22:00",
-          "location": "50 Hagiwara Tea Garden Dr, San Francisco, CA",
-          "tips": "Tickets were listed at $45 general admission; confirm with the museum before going. Take the 44 or the N Judah plus a short walk."
+          "start": "2026-11-01T10:00",
+          "end": "2026-11-01T14:00",
+          "location": "601 Skyway Rd, San Carlos, CA",
+          "tips": "Hours are a placeholder; confirm at hiller.org."
         }
       }
     ]
@@ -977,7 +952,12 @@
     "The Addams Family at Palo Alto Players",
     "San Jose Sharks vs. Ottawa Senators",
     "Downtown Palo Alto Farmers' Market Halloween",
-    "Halloween Eve DJ party at the de Young"
+    "Halloween Eve DJ party at the de Young",
+    "Ghost Ship VIII",
+    "Final weekend of Ocean Beach bonfires",
+    "Knocked Loose with Denzel Curry",
+    "Galactic at The Fillmore",
+    "Halloween activities at the Hiller Aviation Museum"
   ],
   "shows": {
     "note": "No Bay Area dates found through April 2027 for Chris Lake, Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
@@ -1239,6 +1219,32 @@
   },
   "vocab": [
     {
+      "date": "2026-10-28",
+      "word": "Perspicacious",
+      "pron": "per-spih-KAY-shus",
+      "pos": "adjective",
+      "def": "Quick to notice and understand things that others miss.",
+      "ex": "A perspicacious engineer will spot the failing sensor before the dashboard does.",
+      "cards": [
+        {
+          "f": "Root",
+          "b": "Latin perspicax, from perspicere, 'to see through'"
+        },
+        {
+          "f": "Synonym",
+          "b": "astute, shrewd, discerning"
+        },
+        {
+          "f": "Use it for",
+          "b": "people or comments that show sharp insight into a situation, not just general intelligence"
+        }
+      ],
+      "examples": [
+        "A perspicacious engineer will spot the failing sensor before the dashboard does.",
+        "Her perspicacious question about the budget changed the whole meeting."
+      ]
+    },
+    {
       "date": "2026-10-27",
       "word": "Ephemeral",
       "pron": "ih-FEM-er-ul",
@@ -1393,35 +1399,72 @@
         "She handled the delayed flight with equanimity, reading a book while everyone else queued at the desk.",
         "The best on-call engineers meet a 3 a.m. page with equanimity, not panic."
       ]
-    },
-    {
-      "date": "2026-10-21",
-      "word": "Sanguine",
-      "pron": "SANG-gwin",
-      "pos": "adjective",
-      "def": "Calmly optimistic, especially when things look uncertain.",
-      "ex": "The team stayed sanguine about the demo, even after the gripper missed twice in rehearsal.",
-      "cards": [
-        {
-          "f": "Root",
-          "b": "Latin sanguis, blood: a 'sanguine' temperament was once blamed on blood"
-        },
-        {
-          "f": "Synonym",
-          "b": "upbeat, unworried, confident"
-        },
-        {
-          "f": "Watch out",
-          "b": "sanguinary means bloodthirsty"
-        }
-      ],
-      "examples": [
-        "The team stayed sanguine about the demo, even after the gripper missed twice in rehearsal.",
-        "She's more sanguine about the market than I am; she thinks last week's sell-off was mostly nerves."
-      ]
     }
   ],
   "spanish": [
+    {
+      "date": "2026-10-28",
+      "phrase": "¡Estoy hecho polvo!",
+      "pron": "ess-TOY EH-choh POHL-voh",
+      "reg": "Mexico · casual",
+      "meaning": "I'm wiped out!",
+      "note": "Literally 'I'm made into dust.' A common casual way to say you are exhausted. Women say 'hecha polvo.'",
+      "cards": [
+        {
+          "es": "Estoy muerto",
+          "en": "I'm dead tired"
+        },
+        {
+          "es": "No doy más",
+          "en": "I can't go on"
+        },
+        {
+          "es": "Ando bien cansado",
+          "en": "I'm really tired"
+        }
+      ],
+      "parts": [
+        {
+          "es": "Estoy",
+          "en": "I am"
+        },
+        {
+          "es": "hecho",
+          "en": "made / turned into"
+        },
+        {
+          "es": "polvo",
+          "en": "dust"
+        }
+      ],
+      "dialog": [
+        {
+          "es": "¿Cómo dormiste?",
+          "en": "How did you sleep?"
+        },
+        {
+          "es": "Poquito. ¡Estoy hecho polvo!",
+          "en": "Very little. I'm wiped out!"
+        },
+        {
+          "es": "Échate un café.",
+          "en": "Have a coffee."
+        },
+        {
+          "es": "Mejor una siesta.",
+          "en": "A nap is better."
+        }
+      ],
+      "use": "Say it after a short night or a long day, to a friend or coworker.",
+      "quiz": {
+        "options": [
+          "I'm wiped out",
+          "I'm very hungry",
+          "I'm running late"
+        ],
+        "answer": 0
+      }
+    },
     {
       "date": "2026-10-27",
       "phrase": "¡No hay bronca!",
@@ -1843,49 +1886,6 @@
         ],
         "answer": 0
       }
-    },
-    {
-      "date": "2026-10-21",
-      "phrase": "¿Qué onda?",
-      "pron": "keh OHN-dah",
-      "reg": "Mexico · casual",
-      "meaning": "What's up? / How's it going?",
-      "note": "The everyday Mexican hello between friends. 'Onda' literally means wave, as in vibe. A relaxed reply is 'Nada, aquí nomás.'",
-      "cards": [
-        {
-          "es": "¿Qué tal?",
-          "en": "How's it going?"
-        },
-        {
-          "es": "Nada, aquí nomás",
-          "en": "Not much, just here"
-        },
-        {
-          "es": "¿Qué onda con…?",
-          "en": "What's the deal with…?"
-        }
-      ],
-      "parts": [
-        {
-          "es": "¿Qué",
-          "en": "what"
-        },
-        {
-          "es": "onda?",
-          "en": "wave / vibe"
-        }
-      ],
-      "dialog": [
-        {
-          "es": "¡Qué onda! ¿Cómo has estado?",
-          "en": "What's up! How have you been?"
-        },
-        {
-          "es": "Bien, aquí nomás. ¿Y tú?",
-          "en": "Good, nothing new. And you?"
-        }
-      ],
-      "use": "Open your next text to a friend with it instead of 'hey'."
     }
   ],
   "learnLog": {
@@ -1899,7 +1899,8 @@
       "Convivial",
       "Sedulous",
       "Laconic",
-      "Ephemeral"
+      "Ephemeral",
+      "Perspicacious"
     ],
     "phrases": [
       "¡Aguas!",
@@ -1911,7 +1912,8 @@
       "¡Que vivan los novios!",
       "Ahorita vengo, voy por unos tacos",
       "¡Qué chido está tu carro!",
-      "¡No hay bronca!"
+      "¡No hay bronca!",
+      "¡Estoy hecho polvo!"
     ]
   },
   "coach": {
@@ -2078,39 +2080,22 @@
     }
   ],
   "dare": {
-    "date": "2026-10-27",
-    "options": [
-      {
-        "kind": "Wonder",
-        "title": "Go find the moon tonight",
-        "why": "It was full last night and it's well up in the east by now. Walk until you've got a clear view of it, then stay five minutes longer than feels natural.",
-        "mins": 15,
-        "cost": "Free",
-        "place": null,
-        "worth": "Fifteen minutes outside at night, looking at something that was there long before any of us. Cheapest reset there is.",
-        "src": ""
-      },
-      {
-        "kind": "Create",
-        "title": "Write 100 words you'll never show anyone",
-        "why": "Phone notes, timer on 10 minutes. Write about whatever's actually on your mind this week, unfiltered, then close it and don't reread it tonight.",
-        "mins": 10,
-        "cost": "Free",
-        "place": null,
-        "worth": "Writing honestly about what's on your mind, even for a few minutes, tends to leave people clearer and calmer afterward.",
-        "src": "James Pennebaker · expressive writing"
-      },
-      {
-        "kind": "Learn",
-        "title": "Learn one card trick before bed",
-        "why": "Grab a deck (or order one and do this tomorrow). Pick one simple self-working trick from a tutorial, run it ten times until you don't need to think, then show it to the next person you see.",
-        "mins": 20,
-        "cost": "Free",
-        "place": null,
-        "worth": "A small party skill you'll keep for life, and the fastest way to make a stranger laugh.",
-        "src": ""
-      }
-    ]
+    "date": "2026-10-28",
+    "kind": "Connect",
+    "title": "Call someone from your Austin life",
+    "why": "Nothing on the calendar today, and you're running on about five hours of sleep, so keep this one easy. Pick one person you haven't talked to in a year, call instead of texting, and open with 'I was thinking about you.' Walk while you talk, and stay on until the call ends on its own.",
+    "mins": 20,
+    "cost": "Free",
+    "place": null,
+    "worth": "People tend to guess a call out of the blue will feel awkward, and it usually lands better than they expect. You get a friend back, and so do they.",
+    "src": "",
+    "swap": {
+      "kind": "Learn",
+      "title": "Learn one knot you'll actually use",
+      "why": "Look up the bowline or the trucker's hitch, tie it ten times with a shoelace or cord, then tie it once with your eyes closed.",
+      "mins": 15,
+      "worth": "Ten minutes for a skill you will use for the rest of your life."
+    }
   },
   "dareHistory": [
     {
@@ -2157,6 +2142,11 @@
       "date": "2026-10-27",
       "kind": "Learn",
       "title": "Learn one card trick before bed"
+    },
+    {
+      "date": "2026-10-28",
+      "kind": "Connect",
+      "title": "Call someone from your Austin life"
     }
   ]
 }
