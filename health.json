@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-28T07:32:42.617Z",
+ "fetchedAt": "2026-10-28T09:32:40.921Z",
  "date": "2026-10-27",
  "days": {
   "2026-10-22": {
@@ -638,8 +638,6 @@
     "cardio": 0,
     "peak": 0
    },
-   "rhr": 59,
-   "hrv": 44.2,
    "spo2": 97.3,
    "spo2Lo": 94.7,
    "spo2Hi": 99.6,
@@ -710,7 +708,7 @@
    ]
   },
   "2026-10-28": {
-   "cal": 47,
+   "cal": 220,
    "exercise": [
     {
      "type": "walking",
@@ -745,7 +743,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 47.477316
+   "kcalSum": 220.317696
   }
  },
  "activeZoneMinutes": null,
