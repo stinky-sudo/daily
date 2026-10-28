@@ -183,82 +183,94 @@ h1,h2,h3,p{margin:0}
 .mini svg{width:14px;height:14px}
 .mini.on{color:var(--ink);background:var(--fill-2)}
 
-/* ──────────────── CALENDAR · eight days (Oct 27 v2) ────────────────
-   Today and the next seven days, one full-width card each, every card the same height.
+/* ──────────────── CALENDAR · five days (Oct 27 v3) ────────────────
+   Today and the next four days, one full-width card each, every card the same height.
    Sized like Health and Vocab: exactly the space under the pinned title, with the gap
-   below the last card equal to the side gutter. Each card: a date tile, the day's events
-   and reminders, the forecast, and a 6 AM – midnight strip showing when things happen.
-   iPad upright: eight rows. Landscape / Mac: two columns of four, still top to bottom.
-   Phone: stacks and scrolls, cards still all one height. */
-#s-cal{--hdh:58px;--c1:#2B5EF0;--c2:#9B4DFF;--c3:#E8590C;--c4:#0E9F8E;--cbd:#E8336D}
+   below the last card equal to the side gutter. Each card: a date tile carrying the
+   forecast, the day's events and reminders (no times: the strip shows when), and a
+   6 AM – midnight strip with the timed events at true scale.
+   iPad upright and landscape: five rows. Phone: stacks and scrolls, cards one height. */
+#s-cal{--hdh:58px;--lh:28px;--c1:#2B5EF0;--c2:#9B4DFF;--c3:#E8590C;--c4:#0E9F8E;--cbd:#E8336D}
 :root[data-theme="dark"] #s-cal{--c1:#7A9DFF;--c2:#B985FF;--c3:#FF8A4C;--c4:#3CCFBE;--cbd:#FF6B9B}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #s-cal{--c1:#7A9DFF;--c2:#B985FF;--c3:#FF8A4C;--c4:#3CCFBE;--cbd:#FF6B9B}}
 .ev-ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--fill);font-size:19px;flex:0 0 auto;color:var(--ink-2)}
 .ev-ic svg{width:18px;height:18px}
-.dys{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(8,minmax(0,1fr));gap:10px;
+.dys{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(5,minmax(0,1fr));gap:12px;
  height:calc(100vh - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));height:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));min-height:740px}
-.dy{display:grid;grid-template-columns:62px minmax(0,1fr) auto;grid-template-rows:minmax(0,1fr) auto;column-gap:16px;row-gap:8px;
- min-height:0;min-width:0;padding:11px 18px 12px 11px;border-radius:20px}
-/* date tile: tap it to open that day in Google Calendar */
-.dy-d{grid-row:1/-1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:0;border-radius:13px;background:var(--fill);color:var(--ink)}
-.dy-d small{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2)}
-.dy-d b{font-family:var(--display);font-size:28px;font-weight:700;letter-spacing:-.03em;line-height:1.04;font-variant-numeric:tabular-nums}
-.dy-d span{font-size:11px;font-weight:600;color:var(--ink-3)}
+.dy{display:grid;grid-template-columns:84px minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;column-gap:20px;row-gap:12px;
+ min-height:0;min-width:0;padding:14px 20px 16px 14px;border-radius:22px}
+/* date tile with the day's forecast; tap it to open that day in Google Calendar */
+.dy-d{grid-row:1/-1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:0;border-radius:15px;background:var(--fill);color:var(--ink);padding:8px 4px}
+.dy-d small{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2)}
+.dy-d>b{font-family:var(--display);font-size:36px;font-weight:700;letter-spacing:-.035em;line-height:1.02;font-variant-numeric:tabular-nums}
+.dy-d>span{font-size:12px;font-weight:600;color:var(--ink-3)}
+.dy-dw{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);width:58px;font-variant-numeric:tabular-nums}
+.dy-dw .wi{display:grid;color:var(--ink-3)}.dy-dw .wi svg{width:20px;height:20px}
+.dy-dw .wi.sun{color:#F5A524}.dy-dw .wi.rain,.dy-dw .wi.storm{color:var(--c1)}
+.dy-dw b{font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:0;line-height:1.2}
+.dy-dw b i{font-style:normal;font-weight:600;color:var(--ink-3);margin-left:3px}
+.dy-dw em{font-style:normal;font-size:11.5px;font-weight:700;color:var(--c1)}
 .dy.dwk .dy-d{background:var(--link-soft)}.dy.dwk .dy-d small{color:var(--link)}
 .dy.today .dy-d{background:var(--ink);color:var(--surface)}
-.dy.today .dy-d small,.dy.today .dy-d span{color:var(--surface);opacity:.72}
-/* the day's things, one line each; whatever doesn't fit becomes "+N more" */
-.dy-l{grid-column:2;grid-row:1;display:flex;flex-direction:column;justify-content:flex-start;padding-top:1px;min-height:0;min-width:0;overflow:hidden}
-.di{display:flex;align-items:center;gap:10px;flex:0 0 24px;height:24px;min-width:0;font-size:14.5px;color:var(--ink)}
+.dy.today .dy-d small,.dy.today .dy-d>span,.dy.today .dy-dw b i,.dy.today .dy-dw .wi{color:var(--surface);opacity:.75}
+.dy.today .dy-dw .wi.sun{color:#F5A524;opacity:1}
+.dy.today .dy-dw{border-top-color:rgba(127,127,127,.35)}
+/* the day's things, one line each; a full day flows into a second column, then "+N more" */
+.dy-l{grid-column:2;grid-row:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;min-width:0;overflow:hidden}
+.di{display:flex;align-items:center;gap:10px;flex:0 0 var(--lh);height:var(--lh);min-width:0;font-size:16px;color:var(--ink)}
 .di[hidden]{display:none}
-/* a full day flows into two columns, still in time order (down the first, then the second) */
-.dy-l.two{display:grid;grid-auto-flow:column;grid-template-rows:repeat(var(--cap),24px);grid-auto-columns:minmax(0,1fr);column-gap:22px;align-content:start}
-.dy-l.two .di-w{flex-basis:58px}
-.di-m{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:var(--k,var(--c1))}
+.dy-l.two{display:grid;grid-auto-flow:column;grid-template-rows:repeat(var(--cap),var(--lh));grid-auto-columns:minmax(0,1fr);column-gap:24px;align-content:start}
+.di-m{flex:0 0 auto;width:9px;height:9px;margin:0 4px;border-radius:50%;background:var(--k,var(--c1))}
 .di-m.ad{border-radius:2.5px;background:var(--ink-3);opacity:.55}
 .di-m.bd{border-radius:2.5px;background:var(--cbd)}
-.di-w{flex:0 0 62px;font-size:12.5px;font-weight:600;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
-.di-x{flex:1;min-width:0;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.di-x{flex:0 1 auto;min-width:0;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .di-x em{font-style:normal;font-weight:500;color:var(--ink-3)}
 .di.bd .di-x{color:var(--cbd)}
 .di.gone{opacity:.42}
-.di.dnow .di-w{color:var(--up)}
+.di.dnow .di-m{background:var(--up);box-shadow:0 0 0 3px var(--up-soft)}
+.di-now{flex:0 0 auto;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--up)}
 .di.rm{cursor:pointer}
-.di.rm .rem-x{width:16px;height:16px;margin:0 -4px;box-shadow:inset 0 0 0 1.6px var(--ink-3)}
+.di.rm .rem-x{width:17px;height:17px;margin:0;box-shadow:inset 0 0 0 1.6px var(--ink-3)}
 .di.rm .rem-x:checked{box-shadow:none}
-.di.rm .rem-x:checked::after{width:4px;height:7px;border-width:0 2px 2px 0}
-.di.rm.late .di-w{color:var(--warn-ink)}.di.rm.late .rem-x{box-shadow:inset 0 0 0 1.6px var(--warn)}
+.di.rm .rem-x:checked::after{width:4px;height:8px;border-width:0 2px 2px 0}
+.di.rm .di-x{font-weight:500}
+.di.rm.late .rem-x{box-shadow:inset 0 0 0 1.6px var(--warn)}.di.rm.late .di-x{color:var(--warn-ink)}
 .di.rm.done .di-x{text-decoration:line-through;color:var(--ink-3)}
-.di-more{flex:0 0 24px;height:24px;display:flex;align-items:center;padding-left:18px;font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.di-more{flex:0 0 var(--lh);height:var(--lh);display:flex;align-items:center;padding-left:20px;font-size:13.5px;font-weight:600;color:var(--ink-3)}
 .di-more[hidden]{display:none}
-.di-none{flex:0 0 24px;display:flex;align-items:center;font-size:14px;font-weight:500;color:var(--ink-3)}
+.di-none{flex:0 0 var(--lh);display:flex;align-items:center;font-size:15.5px;font-weight:500;color:var(--ink-3)}
 @media (hover:hover){a.di:hover .di-x{color:var(--link)}a.di.bd:hover .di-x{color:var(--cbd);text-decoration:underline}}
-/* forecast */
-.dy-w{grid-column:3;grid-row:1;align-self:start;margin-top:1px;display:flex;align-items:center;gap:5px;height:24px;font-size:13.5px;font-weight:650;white-space:nowrap;font-variant-numeric:tabular-nums}
-.dy-w .wi{display:grid;color:var(--ink-3)}.dy-w .wi svg{width:17px;height:17px}
-.dy-w .wi.sun{color:#F5A524}.dy-w .wi.rain,.dy-w .wi.storm{color:var(--c1)}
-.dy-w i{font-style:normal;font-weight:600;color:var(--ink-3)}
-.dy-w .pp{font-size:12px;font-weight:650;color:var(--c1);margin-left:2px}
-/* the day strip: 6 AM to midnight, timed events at true scale */
-.dy-t{grid-column:2/-1;grid-row:2;position:relative;height:18px;border-radius:5px;overflow:hidden;background-color:var(--fill);background-image:linear-gradient(to right,var(--fill-2) 1px,transparent 1px);background-size:calc(100%/6) 100%}
+/* the day strip: 6 AM to midnight, timed events at true scale, hours marked */
+.dy-t{grid-column:2;grid-row:2;position:relative;height:22px;border-radius:6px;overflow:hidden;background-color:var(--fill);background-image:linear-gradient(to right,var(--fill-2) 1px,transparent 1px);background-size:calc(100%/6) 100%}
 .dy-p{position:absolute;left:0;top:0;bottom:0;width:calc(var(--x)*1%);background:var(--fill-2)}
-.dbar{position:absolute;left:calc(var(--l)*1%);width:calc(var(--w)*1%);min-width:5px;top:calc(2px + var(--r)*(100% - 4px)/var(--n));height:calc((100% - 4px)/var(--n) - 1px);border-radius:3.5px;background:var(--k,var(--c1));z-index:1}
+.dbar{position:absolute;left:calc(var(--l)*1%);width:calc(var(--w)*1%);min-width:5px;top:calc(3px + var(--r)*(100% - 6px)/var(--n));height:calc((100% - 6px)/var(--n) - 1px);border-radius:4px;background:var(--k,var(--c1));z-index:1}
 .dbar.gone{opacity:.38}
 .dy-now{position:absolute;top:0;bottom:0;left:calc(var(--x)*1%);width:2px;margin-left:-1px;background:var(--down);z-index:2}
-.dy-hr{position:absolute;top:0;bottom:0;display:flex;align-items:center;padding-left:4px;font-size:9.5px;font-weight:700;letter-spacing:.02em;color:var(--ink-3);pointer-events:none}
+.dy-hr{position:absolute;top:0;bottom:0;display:flex;align-items:center;padding-left:5px;font-size:10px;font-weight:700;letter-spacing:.02em;color:var(--ink-3);pointer-events:none}
 .cv-note{font-size:12px;color:var(--ink-3);text-align:center;margin-top:8px}
-/* landscape iPad / Mac: two columns of four, read top to bottom */
+/* landscape iPad / Mac: same five rows, a little tighter */
 @media (min-width:1000px) and (orientation:landscape){
- .dys{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr));grid-auto-flow:column;min-height:600px}
- .dy{grid-template-columns:58px minmax(0,1fr) auto;padding:11px 16px 12px 11px}
+ .dys{gap:10px;min-height:600px}
+ #s-cal{--lh:26px}
+ .dy{grid-template-columns:150px minmax(0,1fr);padding:11px 20px 12px 11px;row-gap:9px}
+ .dy-d{flex-direction:row;flex-wrap:wrap;align-content:center;column-gap:8px;padding:6px 10px}
+ .dy-d small{flex-basis:100%;text-align:center}
+ .dy-d>b{font-size:30px}.dy-d>span{align-self:center}
+ .dy-dw{flex-basis:100%;flex-direction:row;justify-content:center;width:auto;margin-top:6px;padding-top:6px;gap:5px}
+ .dy-dw .wi svg{width:17px;height:17px}
+ .di{font-size:15px}.dy-t{height:18px}
 }
 /* phone: natural scroll, every card still one height */
 @media (max-width:699px){
- .dys{height:auto;min-height:0;grid-template-rows:none;grid-auto-rows:124px;gap:8px}
- .dy{grid-template-columns:52px minmax(0,1fr) auto;column-gap:12px;padding:10px 14px 11px 10px;border-radius:18px}
- .dy-d b{font-size:24px}.dy-d small,.dy-d span{font-size:10.5px}
- .di{font-size:14px;gap:8px}.di-w{flex-basis:54px;font-size:12px}
- .dy-w{font-size:12.5px;gap:4px}.dy-w .pp{display:none}
+ .dys{height:auto;min-height:0;grid-template-rows:none;grid-auto-rows:150px;gap:10px}
+ #s-cal{--lh:26px}
+ .dy{grid-template-columns:62px minmax(0,1fr);column-gap:13px;row-gap:10px;padding:11px 14px 13px 11px;border-radius:19px}
+ .dy-d{padding:6px 2px}
+ .dy-d>b{font-size:28px}.dy-d small,.dy-d>span{font-size:10.5px}
+ .dy-dw{width:46px;margin-top:6px;padding-top:6px}.dy-dw .wi svg{width:17px;height:17px}
+ .dy-dw b{font-size:12.5px}.dy-dw b i{display:none}
+ .di{font-size:15px;gap:9px}
+ .dy-t{height:18px}.dy-hr{font-size:9px;padding-left:3px}
 }
 
 /* try today */
@@ -1981,7 +1993,7 @@ const CONFIG={
    Schema:
    - edition YYYY-MM-DD (Pacific), updated ISO time.
    - calendar.summary: 2–4 sentences on the next few days. calendar.events:
-     today + the next 7 days (8 days), INCLUDING birthday events (kind:"birthday").
+     today + the next 4 days (5 days), INCLUDING birthday events (kind:"birthday").
      {title,start,end,loc?,tz?:"CT",url} or {title,allDay:true,date,endDate?,url,kind?}
    - dare: today's dare {date,kind,title,why,mins?,cost?,place?:{name,sub?,url?},worth,src?,
      swap?:{kind,title,why,mins?,worth?}} — kind is Explore, Create, Move, Give, Connect,
@@ -2561,7 +2573,7 @@ function teaser(id){
   return mo(`${w?w.cur.temp:fb.hi}°`)+tx(esc(w?info.l:fb.cond))+mo(`H${w?w.hi:fb.hi}° L${w?w.lo:fb.lo}°`)+(nxt?mo(esc(nxt)):"")}
  if(id==="cal"){const up=upcoming();const e=up.find(x=>!x.allDay&&x.en>now&&x.key===tk)||up[0];
   const nRem=(S.tasks||[]).filter(t=>!t.done&&t.due&&t.due<=tk).length;
-  if(!e)return lg(I.gcal)+(nRem?mo(`${nRem} ${nRem===1?"reminder":"reminders"}`)+tx("today"):tx("Nothing this week","q"));
+  if(!e)return lg(I.gcal)+(nRem?mo(`${nRem} ${nRem===1?"reminder":"reminders"}`)+tx("today"):tx("Nothing in the next 5 days","q"));
   const p=splitEmoji(e.title);const when=e.allDay?(e.kind==="birthday"?"Birthday":"All day"):(e.tz==="CT"?fmtTime(e.s,"America/Chicago")+" CT":fmtTime(e.s));
   const rest=up.length>1?mo(`+${up.length-1} more`):"";
   return lg(I.gcal)+(e.key!==tk?kk(esc(relDay(e.key).slice(0,3))):"")+mo(esc(when))+tx(esc(p.t))+rest+(nRem?mo(`${nRem} ${nRem===1?"reminder":"reminders"}`):"")}
@@ -3080,11 +3092,11 @@ async function loadWeather(){
 }
 
 /* =================================================================
-   CALENDAR — today and the next seven days, one card each, all the
-   same size: the date, the day's events and reminders, the forecast,
-   and a 6 AM – midnight strip showing when things happen (Oct 27 v2).
+   CALENDAR — today and the next four days, one card each, all the
+   same size: the date and forecast, the day's events and reminders
+   (no times), and a 6 AM – midnight strip showing when (Oct 27 v3).
    ================================================================= */
-const CAL_DAYS=8,CAL_H0=6,CAL_H1=24;
+const CAL_DAYS=5,CAL_H0=6,CAL_H1=24;
 /* hour of the day, minutes as a fraction, in a time zone */
 const hourIn=(d,z=TZ)=>{const p={};new Intl.DateTimeFormat("en-US",{timeZone:z,hour:"numeric",minute:"numeric",hourCycle:"h23"}).formatToParts(d).forEach(x=>p[x.type]=x.value);return(+p.hour%24)+(+p.minute)/60};
 function evWhen(e){
@@ -3109,16 +3121,16 @@ function renderCal(){
  const tmTime=(e,d)=>e.tz==="CT"?fmtTime(d,"America/Chicago")+" CT":fmtTime(d);
  const wxd={};((S.wx&&S.wx.days)||[]).forEach(x=>wxd[x.d]=x);
  /* a reminder: ticking it completes the task in Google Tasks */
- const remLine=t=>{const late=t.due&&t.due<tk;return`<label class="di rm${late?" late":""}" data-tip="${esc(t.title)}"><input type="checkbox" class="rem-x" data-task="${esc(t.id)}" data-list="${esc(t.list)}" aria-label="Done: ${esc(t.title)}"><span class="di-w">${late?"Overdue":t.due?"Reminder":"Anytime"}</span><span class="di-x">${esc(t.title)}</span></label>`};
+ const remLine=t=>{const late=t.due&&t.due<tk;return`<label class="di rm${late?" late":""}" data-tip="${esc(t.title)}"><input type="checkbox" class="rem-x" data-task="${esc(t.id)}" data-list="${esc(t.list)}" aria-label="Done: ${esc(t.title)}"><span class="di-x">${esc(t.title)}</span></label>`};
  const cards=days.map((k,i)=>{
   const ad=EVENTS.filter(e=>adOn(e,k)).sort((a,b)=>(b.kind==="birthday")-(a.kind==="birthday"));
   const tm=EVENTS.filter(e=>tmOn(e,k)).sort((a,b)=>a.s-b.s);
   const rem=tasks.filter(t=>t.due===k||(i===0&&t.due&&t.due<tk)).sort((a,b)=>a.due.localeCompare(b.due)).concat(i===0?tasks.filter(t=>!t.due):[]);
   const lines=[];
   ad.forEach(e=>{const p=splitEmoji(e.title),bd=e.kind==="birthday",goes=e.endDate&&addDays(e.endDate,-1)>k;
-   lines.push(`<a class="di${bd?" bd":""}" href="${esc(e.url)}" target="_blank" rel="noopener"><i class="di-m ${bd?"bd":"ad"}"></i><span class="di-w">${bd?"Birthday":"All day"}</span><span class="di-x">${bd?"🎂 "+esc(who(e)):(p.e?esc(p.e)+" ":"")+esc(p.t)}${goes?" →":""}</span></a>`)});
+   lines.push(`<a class="di${bd?" bd":""}" href="${esc(e.url)}" target="_blank" rel="noopener"><i class="di-m ${bd?"bd":"ad"}"></i><span class="di-x">${bd?"🎂 "+esc(who(e)):(p.e?esc(p.e)+" ":"")+esc(p.t)}${goes?" →":""}</span></a>`)});
   tm.forEach((e,j)=>{const p=splitEmoji(e.title),spill=e.key!==k,live=i===0&&e.s<=now&&e.en>now,gone=i===0&&e.en<=now;
-   lines.push(`<a class="di${live?" dnow":""}${gone?" gone":""}" href="${esc(e.url)}" target="_blank" rel="noopener" style="--k:${col(j)}" data-tip="${esc(evWhen(e))}"><i class="di-m"></i><span class="di-w">${live?"Now":spill?"→ "+esc(tmTime(e,e.en)):esc(tmTime(e,e.s))}</span><span class="di-x">${p.e?esc(p.e)+" ":""}${esc(p.t)}${e.loc?` <em>· ${esc(e.loc.split(",")[0])}</em>`:""}</span></a>`)});
+   lines.push(`<a class="di${live?" dnow":""}${gone?" gone":""}" href="${esc(e.url)}" target="_blank" rel="noopener" style="--k:${col(j)}" data-tip="${esc(spill?"Until "+tmTime(e,e.en):evWhen(e))}"><i class="di-m"></i><span class="di-x">${p.e?esc(p.e)+" ":""}${esc(p.t)}${e.loc?` <em>· ${esc(e.loc.split(",")[0])}</em>`:""}</span>${live?`<span class="di-now">Now</span>`:""}</a>`)});
   rem.forEach(t=>lines.push(remLine(t)));
   /* the strip: overlapping events share its height */
   const blocks=tm.map((e,j)=>({e,j,s:e.key===k?hourIn(e.s):0,en:endKey(e)===k?hourIn(e.en)||CAL_H1:CAL_H1})).map(b=>({...b,s:Math.max(CAL_H0,b.s),en:Math.min(CAL_H1,b.en)})).filter(b=>b.en>b.s);
@@ -3126,16 +3138,16 @@ function renderCal(){
   const n=Math.max(1,ends.length);
   const bars=blocks.map(b=>{const l=pct(b.s),w=pct(b.en)-l,gone=i===0&&b.e.en<=now;return`<i class="dbar${gone?" gone":""}" style="--l:${l.toFixed(2)};--w:${w.toFixed(2)};--r:${b.r};--n:${n};--k:${col(b.j)}"></i>`}).join("");
   const onNow=i===0&&nowH>CAL_H0&&nowH<CAL_H1;
-  const hrs=i===0?[9,12,15,18,21].map(h=>`<span class="dy-hr" style="left:${pct(h).toFixed(2)}%">${h===12?"12p":h>12?(h-12)+"p":h+"a"}</span>`).join(""):"";
+  const hrs=[9,12,15,18,21].map(h=>`<span class="dy-hr" style="left:${pct(h).toFixed(2)}%">${h===12?"12p":h>12?(h-12)+"p":h+"a"}</span>`).join("");
   const strip=`<div class="dy-t" aria-hidden="true">${onNow?`<i class="dy-p" style="--x:${pct(nowH).toFixed(2)}"></i>`:""}${hrs}${bars}${onNow?`<i class="dy-now" style="--x:${pct(nowH).toFixed(2)}"></i>`:""}</div>`;
   const w=wxd[k],f=w?wxInfo(w.code,1):null;
-  const wx=w?`<span class="dy-w" title="${esc(f.l)}"><span class="wi ${f.i}">${WXI[f.i]}</span>${w.hi}°<i>${w.lo}°</i>${w.pp>=30?`<b class="pp">${w.pp}%</b>`:""}</span>`:"";
+  const wx=w?`<span class="dy-dw" title="${esc(f.l)}${w.pp>=30?` · ${w.pp}% chance of rain`:""}"><span class="wi ${f.i}">${WXI[f.i]}</span><b>${w.hi}°<i>${w.lo}°</i></b>${w.pp>=30?`<em>${w.pp}%</em>`:""}</span>`:"";
   const [y,m,d]=k.split("-"),dayUrl=`https://calendar.google.com/calendar/r/day/${y}/${+m}/${+d}`;
   const dow=keyDate(k).getUTCDay();
   return`<article class="card dy${i===0?" today":""}${dow===0||dow===6?" dwk":""}">
-   <a class="dy-d press" href="${dayUrl}" target="_blank" rel="noopener" aria-label="Open ${esc(fmtKey(k,{weekday:"long",month:"long",day:"numeric"}))} in Google Calendar"><small>${esc(fmtKey(k,{weekday:"short"}))}</small><b>${+d}</b><span>${i===0?"Today":i===1?"Tomorrow":esc(fmtKey(k,{month:"short"}))}</span></a>
+   <a class="dy-d press" href="${dayUrl}" target="_blank" rel="noopener" aria-label="Open ${esc(fmtKey(k,{weekday:"long",month:"long",day:"numeric"}))} in Google Calendar"><small>${esc(fmtKey(k,{weekday:"short"}))}</small><b>${+d}</b><span>${i===0?"Today":i===1?"Tomorrow":esc(fmtKey(k,{month:"short"}))}</span>${wx}</a>
    <div class="dy-l">${lines.length?lines.join(""):`<span class="di-none">Nothing planned</span>`}<a class="di-more" href="${dayUrl}" target="_blank" rel="noopener" hidden></a></div>
-   ${wx}${strip}
+   ${strip}
   </article>`}).join("");
  el.innerHTML=`<div class="dys">${cards}</div>${S.tasksErr&&!S.tasks?`<p class="cv-note">Reminders need the Oct 22 backend update (${esc(S.tasksErr)}).</p>`:""}`;
  fitSec("cal");
@@ -3147,7 +3159,7 @@ function fitCalLists(){
  $$("#s-cal .dy-l").forEach(l=>{
   const it=$$(".di",l),mo=$(".di-more",l);if(!mo)return;
   it.forEach(x=>x.hidden=false);mo.hidden=true;l.classList.remove("two");
-  const cap=Math.floor((l.clientHeight-1)/24);if(!cap||it.length<=cap)return;
+  const lh=parseFloat(getComputedStyle(l.closest("#s-cal")).getPropertyValue("--lh"))||28,cap=Math.floor(l.clientHeight/lh);if(!cap||it.length<=cap)return;
   /* too many for one column: two columns on a wide card, and "+N more" only if even that overflows */
   const two=l.clientWidth>=460,room=two?cap*2:cap;if(two){l.classList.add("two");l.style.setProperty("--cap",cap)}if(it.length<=room)return;
   const keep=room-1;it.forEach((x,j)=>x.hidden=j>=keep);
