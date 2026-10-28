@@ -1,7 +1,7 @@
 {
  "ok": true,
  "v": 2,
- "fetchedAt": "2026-10-28T01:32:47.236Z",
+ "fetchedAt": "2026-10-28T03:32:43.926Z",
  "date": "2026-10-27",
  "days": {
   "2026-10-22": {
@@ -37,6 +37,11 @@
     "end": "2026-10-22T14:13:00Z"
    },
    "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-28T01:26:12.800Z",
+     "mins": 46
+    },
     {
      "type": "walking",
      "start": "2026-10-26T17:27:00.200Z",
@@ -94,6 +99,11 @@
    "exercise": [
     {
      "type": "walking",
+     "start": "2026-10-28T01:26:12.800Z",
+     "mins": 46
+    },
+    {
+     "type": "walking",
      "start": "2026-10-26T17:27:00.200Z",
      "mins": 16
     },
@@ -116,11 +126,6 @@
      "type": "walking",
      "start": "2026-10-21T00:48:35.600Z",
      "mins": 38
-    },
-    {
-     "type": "walking",
-     "start": "2026-10-21T00:16:52.400Z",
-     "mins": 20
     }
    ]
   },
@@ -509,6 +514,11 @@
    "exercise": [
     {
      "type": "walking",
+     "start": "2026-10-28T01:26:12.800Z",
+     "mins": 46
+    },
+    {
+     "type": "walking",
      "start": "2026-10-26T17:27:00.200Z",
      "mins": 16
     },
@@ -543,6 +553,11 @@
    },
    "rhr": 58,
    "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-28T01:26:12.800Z",
+     "mins": 46
+    },
     {
      "type": "walking",
      "start": "2026-10-26T17:27:00.200Z",
@@ -594,6 +609,11 @@
    "exercise": [
     {
      "type": "walking",
+     "start": "2026-10-28T01:26:12.800Z",
+     "mins": 46
+    },
+    {
+     "type": "walking",
      "start": "2026-10-26T17:27:00.200Z",
      "mins": 16
     },
@@ -639,26 +659,31 @@
    "exercise": [
     {
      "type": "walking",
+     "start": "2026-10-28T01:26:12.800Z",
+     "mins": 46
+    },
+    {
+     "type": "walking",
      "start": "2026-10-26T17:27:00.200Z",
      "mins": 16
     }
    ]
   },
   "2026-10-27": {
-   "steps": 7373,
-   "dist": 5779500,
-   "cal": 2859,
+   "steps": 11372,
+   "dist": 8942100,
+   "cal": 3366,
    "active": {
-    "light": 225,
-    "moderate": 5,
-    "vigorous": 6
+    "light": 223,
+    "moderate": 7,
+    "vigorous": 52
    },
    "azm": {
     "fatburn": 17,
     "cardio": 0,
     "peak": 0
    },
-   "rhr": 57,
+   "rhr": 56,
    "hrv": 57.9,
    "spo2": 97.1,
    "spo2Lo": 95.1,
@@ -675,7 +700,14 @@
     "wake": 419,
     "start": "2026-10-27T07:07:00Z",
     "end": "2026-10-27T13:59:00Z"
-   }
+   },
+   "exercise": [
+    {
+     "type": "walking",
+     "start": "2026-10-28T01:26:12.800Z",
+     "mins": 46
+    }
+   ]
   }
  },
  "steps": {
@@ -700,7 +732,7 @@
    }
   },
   "steps": {
-   "countSum": "7373"
+   "countSum": "11372"
   }
  },
  "distance": {
@@ -725,7 +757,7 @@
    }
   },
   "distance": {
-   "millimetersSum": "5779500"
+   "millimetersSum": "8942100"
   }
  },
  "activeMinutes": {
@@ -753,15 +785,15 @@
    "activeMinutesRollupByActivityLevel": [
     {
      "activityLevel": "LIGHT",
-     "activeMinutesSum": "225"
+     "activeMinutesSum": "223"
     },
     {
      "activityLevel": "MODERATE",
-     "activeMinutesSum": "5"
+     "activeMinutesSum": "7"
     },
     {
      "activityLevel": "VIGOROUS",
-     "activeMinutesSum": "6"
+     "activeMinutesSum": "52"
     }
    ]
   }
@@ -788,7 +820,7 @@
    }
   },
   "totalCalories": {
-   "kcalSum": 2858.9663520000004
+   "kcalSum": 3366.0126120000004
   }
  },
  "activeZoneMinutes": {
@@ -834,7 +866,7 @@
      "month": 10,
      "day": 27
     },
-    "beatsPerMinute": "57",
+    "beatsPerMinute": "56",
     "dailyRestingHeartRateMetadata": {
      "calculationMethod": "WITH_SLEEP"
     }
@@ -1256,5 +1288,44 @@
    }
   }
  ],
- "exercise": null
+ "exercise": [
+  {
+   "name": "users/4457912432455127948/dataTypes/exercise/dataPoints/7742150086434413816",
+   "dataSource": {
+    "recordingMethod": "PASSIVELY_MEASURED",
+    "device": {
+     "formFactor": "FITNESS_BAND",
+     "displayName": "Fitbit Air"
+    },
+    "platform": "FITBIT"
+   },
+   "exercise": {
+    "interval": {
+     "startTime": "2026-10-28T01:26:12.800Z",
+     "startUtcOffset": "-25200s",
+     "endTime": "2026-10-28T02:11:59.800Z",
+     "endUtcOffset": "-25200s"
+    },
+    "exerciseType": "WALKING",
+    "metricsSummary": {
+     "caloriesKcal": 406,
+     "distanceMillimeters": 3334000,
+     "steps": "4227",
+     "averagePaceSecondsPerMeter": 0.8239352129574086,
+     "averageHeartRateBeatsPerMinute": "98",
+     "heartRateZoneDurations": {
+      "lightTime": "2700s",
+      "moderateTime": "0s",
+      "vigorousTime": "0s",
+      "peakTime": "0s"
+     }
+    },
+    "exerciseMetadata": {},
+    "displayName": "Walk",
+    "activeDuration": "2747s",
+    "updateTime": "2026-10-28T02:32:00.725347Z",
+    "createTime": "2026-10-28T02:32:00.725347Z"
+   }
+  }
+ ]
 }
