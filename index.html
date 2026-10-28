@@ -1258,133 +1258,117 @@ html{overflow-x:clip}
 .mv-rail{align-items:start}
 .cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
 /* dismiss */
-/* ──────────────── DARE · one screen ────────────────
-   One thing a day that makes life richer. House style: white cards, SF Display headline,
-   grey eyebrows, one accent (a warm gold) used only where it means something — the done
-   state, the streak, the day's kind. No gradients, no glow.
-   iPad upright: the dare on top, "why bother" | "if today's a no", the week along the bottom.
-   Landscape / Mac: the dare on the left, the rest stacked on the right. Phone: stacks and scrolls. */
-:root{--dare:#E7A21A;--dare-ink:#9E6700;--dare-soft:rgba(231,162,26,.14);--dare-on:#1C1400}
-:root[data-theme="dark"]{--dare:#FFBE3D;--dare-ink:#FFC857;--dare-soft:rgba(255,190,61,.16)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--dare:#FFBE3D;--dare-ink:#FFC857;--dare-soft:rgba(255,190,61,.16)}}
+/* ──────────────── DARE · three cards (Oct 27 v3) ────────────────
+   Three dares a day, any one keeps the streak. Same frame as Vocab: three full-width cards of
+   the same height under the pinned title, with a slim streak bar on top.
+   The whole page carries one accent that tells you where you stand: amber while today's still
+   open, green once one is done (the streak bar fills solid, the done card rings, the others
+   step back, and every kind tile turns). The swap is animated through registered colors.
+   iPad upright: streak, then three rows. Landscape / Mac: three columns. Phone: stacks. */
+@property --da{syntax:"<color>";inherits:true;initial-value:#E39B12}
+@property --da-ink{syntax:"<color>";inherits:true;initial-value:#9A6200}
+@property --da-soft{syntax:"<color>";inherits:true;initial-value:rgba(227,155,18,.13)}
+@property --da-on{syntax:"<color>";inherits:true;initial-value:#1C1400}
+:root{--dt:#E39B12;--dt-ink:#9A6200;--dt-soft:rgba(227,155,18,.13);--dt-on:#1C1400;
+ --dd:#0A9455;--dd-ink:#077A45;--dd-soft:rgba(10,148,85,.12);--dd-on:#FFFFFF}
+:root[data-theme="dark"]{--dt:#FFBE3D;--dt-ink:#FFC857;--dt-soft:rgba(255,190,61,.15);--dt-on:#231800;--dd:#2FCB7C;--dd-ink:#4FDB93;--dd-soft:rgba(47,203,124,.15);--dd-on:#00240F}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--dt:#FFBE3D;--dt-ink:#FFC857;--dt-soft:rgba(255,190,61,.15);--dt-on:#231800;--dd:#2FCB7C;--dd-ink:#4FDB93;--dd-soft:rgba(47,203,124,.15);--dd-on:#00240F}}
 #s-coach{--hdh:58px}
 .dq{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
-.dare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(0,1.55fr) minmax(0,1fr) auto;
- grid-template-areas:"hero hero" "why swap" "week week";gap:12px;
+.dare{--da:var(--dt);--da-ink:var(--dt-ink);--da-soft:var(--dt-soft);--da-on:var(--dt-on);
+ transition:--da .6s ease,--da-ink .6s ease,--da-soft .6s ease,--da-on .6s ease;
+ display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto repeat(var(--n,3),minmax(0,1fr));gap:12px;
  height:calc(100vh - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));height:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - var(--hpt,18px) - var(--hgap,24px));min-height:740px}
-.dare.no-swap{grid-template-areas:"hero hero" "why why" "week week"}
-.dare>.card{margin:0!important;min-height:0;min-width:0;border-radius:22px;display:flex;flex-direction:column;padding:18px 20px}
-.dx-k{display:flex;align-items:center;gap:6px;min-height:22px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);flex:0 0 auto}
-.dx-k .dq{width:15px;height:15px}
-/* the dare */
-.dx-hero{grid-area:hero;padding:18px 22px 20px!important}
-.dx-hd{display:flex;align-items:center;gap:11px;min-height:38px;flex:0 0 auto}
-.dx-kind{flex:0 0 auto;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--dare-soft);color:var(--dare-ink)}
-.dx-kind .dq{width:19px;height:19px;stroke-width:2}
-.dx-kt{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
-.dx-kt b{font-size:15.5px;font-weight:700;letter-spacing:-.005em;line-height:1.2}
-.dx-kt span{font-size:13px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.dx-main{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:10px 0 16px}
-.dx-h{font-family:var(--display);font-size:58px;line-height:1.02;letter-spacing:-.034em;font-weight:700;text-wrap:balance;max-width:17ch;padding-bottom:.06em}
-.dx-h.l2{font-size:48px;max-width:19ch}.dx-h.l3{font-size:40px;max-width:22ch}
-.dx-why{font-size:18.5px;line-height:1.48;color:var(--ink-2);margin-top:14px;max-width:58ch;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-.dx-facts{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
-.dx-f{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:999px;background:var(--fill);font-size:13.5px;font-weight:600;color:var(--ink-2);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
-.dx-f .dq{width:14px;height:14px;color:var(--ink-3)}
-a.dx-f{color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
-a.dx-f .dq{color:var(--ink-2)}
-/* the button: black until it's done, then gold */
-.dx-do{flex:0 0 auto;display:flex;align-items:center;gap:14px;width:100%;min-height:62px;padding:0 20px 0 16px;border-radius:18px;text-align:left;
- background:var(--ink);color:var(--bg);transition:background .35s ease,color .35s ease}
-.dx-ok{flex:0 0 auto;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 2px currentColor;opacity:.55;transition:opacity .3s ease,background .3s ease,box-shadow .3s ease}
-.dx-ok svg{width:18px;height:18px}
-.dx-ok svg path{stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .35s .05s ease-out}
-.dx-dt{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
-.dx-dt b{font-size:18px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
-.dx-dt small{font-size:13px;font-weight:500;opacity:.6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.dx-do.on{background:var(--dare);color:var(--dare-on)}
-.dx-do.on .dx-ok{opacity:1;background:var(--dare-on);color:var(--dare);box-shadow:none}
-.dx-do.on .dx-ok svg path{stroke-dashoffset:0}
-.dx-do.on .dx-dt small{opacity:.72}
-.dx-do.just .dx-ok{animation:dxPop .5s cubic-bezier(.2,1.5,.4,1) both}
-@keyframes dxPop{0%{transform:scale(.8)}55%{transform:scale(1.16)}100%{transform:scale(1)}}
-/* why bother */
-.dx-wc{grid-area:why}
-.dx-wb{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:8px 0}
-.dx-wb p{font-family:var(--display);font-size:21px;line-height:1.32;font-weight:600;letter-spacing:-.015em;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
-.dx-wb p.l2{font-size:19px}
-.dx-src{flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-/* if today's a no */
-.dx-sc{grid-area:swap}
-.dx-sb{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:8px 0}
-.dx-sb h3{display:flex;align-items:flex-start;gap:10px;font-family:var(--display);font-size:21px;line-height:1.22;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
-.dx-sb h3 .dx-kind{width:28px;height:28px;border-radius:8px;margin-top:-1px}.dx-sb h3 .dx-kind .dq{width:16px;height:16px}
-.dx-sb p{font-size:14.5px;line-height:1.45;color:var(--ink-2);margin-top:8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.dx-sw{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 15px;border-radius:999px;background:var(--fill);font-size:14px;font-weight:650;color:var(--ink);width:fit-content;max-width:100%}
-.dx-sw .dq{width:15px;height:15px;color:var(--ink-2)}
-/* the week */
-.dare>.dx-wk{grid-area:week;display:grid;grid-template-columns:196px minmax(0,1fr);align-items:center;column-gap:22px;padding:16px 22px 16px!important}
-.dw-s{min-width:0}
-.dw-n{display:flex;align-items:baseline;gap:9px;margin-top:4px}
-.dw-n b{font-family:var(--display);font-size:52px;font-weight:700;letter-spacing:-.045em;line-height:.95;font-variant-numeric:tabular-nums;color:var(--dare-ink)}
-.dw-n.zero b{color:var(--ink-3)}
-.dw-n span{font-size:15px;font-weight:650;line-height:1.2;color:var(--ink)}
-.dw-p{font-size:13px;font-weight:500;line-height:1.4;color:var(--ink-3);margin-top:6px}
-.dw-p b{font-weight:650;color:var(--ink-2)}
-.dw-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
-.dw-c{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
-.dw-w{font-size:12.5px;font-weight:600;color:var(--ink-3)}
-.dw-c.t .dw-w{color:var(--ink);font-weight:750}
-.dw-b{width:100%;max-width:56px;aspect-ratio:1;border-radius:16px;display:grid;place-items:center;background:var(--fill);color:var(--ink-3);transition:background .35s ease,box-shadow .35s ease,color .35s ease}
-.dw-b .dq{width:22px;height:22px}
-.dw-b em{font-style:normal;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
-.dw-q{max-width:100%;font-size:11.5px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:14px}
-.dw-c.fut .dw-b{background:transparent;box-shadow:inset 0 0 0 1.5px var(--line)}
-.dw-c.none .dw-b i{width:5px;height:5px;border-radius:50%;background:var(--fill-2)}
-.dw-c.miss .dw-b{background:transparent;box-shadow:inset 0 0 0 1.5px var(--fill-2)}
-.dw-c.miss .dw-b .dq{opacity:.45}
-.dw-c.now .dw-b{color:var(--dare-ink);background:var(--dare-soft);box-shadow:inset 0 0 0 2px var(--dare)}
-.dw-c.now .dw-q{color:var(--dare-ink)}
-.dw-c.on .dw-b{color:var(--dare-on);background:var(--dare)}
-.dw-c.on .dw-q{color:var(--ink-2)}
-.dw-c.just .dw-b{animation:dxPop .5s cubic-bezier(.2,1.5,.4,1) both}
-.dx-hero,.dx-wc,.dx-sc,.dx-wk{animation:dxIn .5s cubic-bezier(.2,.8,.2,1) both}
-.dx-wc{animation-delay:.05s}.dx-sc{animation-delay:.09s}.dx-wk{animation-delay:.13s}
+.dare.done{--da:var(--dd);--da-ink:var(--dd-ink);--da-soft:var(--dd-soft);--da-on:var(--dd-on)}
+.dare>.card{margin:0!important;min-height:0;min-width:0;border-radius:22px}
+/* the streak bar: white while today's open, solid accent once it's done */
+.ds{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;column-gap:18px;padding:12px 18px 12px 14px!important;
+ transition:background-color .6s ease,color .6s ease}
+.ds-f{flex:0 0 auto;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--da-soft);color:var(--da-ink);transition:background-color .6s ease,color .6s ease}
+.ds-f .dq{width:24px;height:24px;stroke-width:2}
+.ds-l{display:flex;align-items:center;gap:14px;min-width:0}
+.ds-n{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.ds-n b{font-family:var(--display);font-size:40px;font-weight:700;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums;color:var(--da-ink)}
+.ds-n span{font-size:15px;font-weight:650}
+.ds-m{min-width:0;font-size:14.5px;font-weight:550;line-height:1.3;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ds-m b{font-weight:700;color:var(--ink)}
+.ds-r{display:flex;flex-direction:column;align-items:flex-end;gap:6px;min-width:0}
+.ds-r span{font-size:13.5px;font-weight:600;color:var(--ink-3);white-space:nowrap}
+.ds-r span b{font-size:15px;font-weight:750;color:var(--ink);font-variant-numeric:tabular-nums}
+.ds-p{width:150px;height:6px;border-radius:3px;background:var(--fill-2);overflow:hidden}
+.ds-p i{display:block;height:100%;border-radius:3px;background:var(--da);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.dare.done .ds{background:var(--da);color:var(--da-on)}
+.dare.done .ds-f{background:color-mix(in srgb,var(--da-on) 16%,transparent);color:var(--da-on)}
+.dare.done .ds-n b,.dare.done .ds-m,.dare.done .ds-m b,.dare.done .ds-r span,.dare.done .ds-r span b{color:var(--da-on)}
+.dare.done .ds-m,.dare.done .ds-r span{opacity:.82}
+.dare.done .ds-p{background:color-mix(in srgb,var(--da-on) 22%,transparent)}
+.dare.done .ds-p i{background:var(--da-on)}
+/* a dare card: kind | what to do | why it's worth it | did it */
+.dc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);grid-template-rows:auto minmax(0,1fr) auto;column-gap:24px;
+ padding:14px 20px 14px!important;transition:opacity .45s ease,background-color .45s ease,box-shadow .45s ease}
+.dc-h{grid-column:1/-1;display:flex;align-items:center;gap:10px;min-height:38px;min-width:0}
+.dk{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--da-soft);color:var(--da-ink)}
+.dk .dq{width:17px;height:17px;stroke-width:2}
+.dc-k{font-size:15.5px;font-weight:700;white-space:nowrap}
+.dc-s{flex:1;min-width:0;font-size:13.5px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dc-w{display:flex;flex-direction:column;justify-content:center;min-height:0;min-width:0;padding:6px 0 4px}
+.dc-t{font-family:var(--display);font-size:36px;line-height:1.06;letter-spacing:-.03em;font-weight:700;text-wrap:balance;padding-bottom:.04em}
+.dc-t.l2{font-size:31px}
+.dc-why{font-size:15.5px;line-height:1.45;color:var(--ink-2);margin-top:8px;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.dc-x{display:flex;flex-direction:column;justify-content:center;min-height:0;min-width:0;padding:6px 0 4px}
+.dc-wb{position:relative;margin:0;padding:12px 14px 13px 42px;border-radius:15px;background:var(--da-soft);min-height:0;transition:background-color .6s ease}
+.dc-wb .dq{position:absolute;left:14px;top:13px;width:17px;height:17px;color:var(--da-ink)}
+.dc-wb p{font-size:15px;line-height:1.45;font-weight:550;color:var(--ink);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.dc-wb small{display:block;margin-top:6px;font-size:12.5px;font-weight:600;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dc-f{grid-column:1/-1;display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);min-width:0}
+.dc-c{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:999px;background:var(--fill);font-size:13.5px;font-weight:600;color:var(--ink-2);white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.dc-c .dq{width:14px;height:14px;color:var(--ink-3)}
+a.dc-c{color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+a.dc-c .dq{color:var(--ink-2)}
+.dc-do{margin-left:auto;flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 17px 0 9px;border-radius:999px;
+ background:var(--da-soft);color:var(--da-ink);font-size:15px;font-weight:700;transition:background-color .35s ease,color .35s ease}
+.dc-ok{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 2px currentColor;transition:background-color .3s ease,box-shadow .3s ease,color .3s ease}
+.dc-ok svg{width:14px;height:14px}
+.dc-ok svg path{stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .35s .05s ease-out}
+/* done: this card rings and fills, its button goes solid; the other two step back */
+.dc.on{background:color-mix(in srgb,var(--da) 8%,var(--surface));box-shadow:inset 0 0 0 2px var(--da)}
+.dc.on .dc-do{background:var(--da);color:var(--da-on)}
+.dc.on .dc-s{color:var(--da-ink)}
+.dc.on .dc-ok{background:var(--da-on);color:var(--da);box-shadow:none}
+.dc.on .dc-ok svg path{stroke-dashoffset:0}
+.dc.off{opacity:.5}
+.dc.off:focus-within{opacity:1}
+@media (hover:hover){.dc.off:hover{opacity:1}}
+.dc.just .dc-ok{animation:dxPop .5s cubic-bezier(.2,1.5,.4,1) both}
+@keyframes dxPop{0%{transform:scale(.8)}55%{transform:scale(1.18)}100%{transform:scale(1)}}
+.ds,.dc{animation:dxIn .5s cubic-bezier(.2,.8,.2,1) both}
+.dc{animation-delay:calc(.05s + var(--i,0) * .045s)}
 @keyframes dxIn{from{opacity:0;transform:translateY(8px)}}
 .dare.still>.card{animation:none}
-@media (prefers-reduced-motion:reduce){.dare>.card,.dx-do.just .dx-ok,.dw-c.just .dw-b{animation:none}}
-/* landscape iPad / Mac: the dare on the left, the rest stacked on the right */
+@media (prefers-reduced-motion:reduce){.dare,.dare>.card,.dc.just .dc-ok{animation:none;transition:none}}
+/* landscape iPad / Mac: streak across the top, three columns */
 @media (min-width:1000px) and (orientation:landscape){
- .dare{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr) auto;grid-template-areas:"hero why" "hero swap" "hero week";min-height:660px}
- .dare.no-swap{grid-template-areas:"hero why" "hero why" "hero week"}
- .dx-hero{padding:20px 24px 22px!important}
- .dx-h{font-size:52px}.dx-h.l2{font-size:44px}.dx-h.l3{font-size:37px}
- .dx-why{font-size:17px;-webkit-line-clamp:5}
- .dx-wb p{font-size:19px;-webkit-line-clamp:4}.dx-wb p.l2{font-size:17px}
- .dx-sb h3{font-size:19px}.dx-sb p{-webkit-line-clamp:2}
- .dare>.dx-wk{grid-template-columns:minmax(0,1fr);row-gap:12px;padding:14px 18px!important}
- .dw-s{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:12px}
- .dw-s .dx-k{flex-basis:100%}
- .dw-n b{font-size:38px}
- .dw-p{margin-top:0}
- .dw-b{max-width:50px;border-radius:14px}
+ .dare{grid-template-columns:repeat(var(--n,3),minmax(0,1fr));grid-template-rows:auto minmax(0,1fr);min-height:600px}
+ .ds{grid-column:1/-1}
+ .dc{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr) auto;padding:16px 18px!important}
+ .dc-w{justify-content:flex-start;padding:12px 0 12px}
+ .dc-t{font-size:32px}.dc-t.l2{font-size:28px}
+ .dc-why{-webkit-line-clamp:5}
+ .dc-x{justify-content:flex-start}
+ .dc-wb p{-webkit-line-clamp:5}
+ .dc-f{flex-wrap:wrap}
 }
 /* phone: natural scroll */
 @media (max-width:699px){
  .dare{display:flex;flex-direction:column;height:auto;min-height:0;gap:10px}
- .dare>.card{padding:16px 16px}
- .dx-hero{padding:16px!important;min-height:520px}
- .dx-h{font-size:40px}.dx-h.l2{font-size:35px}.dx-h.l3{font-size:30px}
- .dx-why{font-size:16.5px;-webkit-line-clamp:none}
- .dx-do{min-height:58px;padding:0 16px 0 14px}.dx-dt b{font-size:17px}
- .dx-wb p{font-size:20px;-webkit-line-clamp:none}
- .dx-sb p{-webkit-line-clamp:none}
- .dare>.dx-wk{order:2;grid-template-columns:1fr;row-gap:14px;padding:14px 16px 16px!important}
- .dw-s{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:12px}
- .dw-s .dx-k{flex-basis:100%}
- .dw-n b{font-size:38px}.dw-p{margin-top:0}
- .dw-l{gap:5px}.dw-b{border-radius:13px}.dw-b .dq{width:18px;height:18px}.dw-q{font-size:10.5px}
- .dx-wc{order:3}.dx-sc{order:4}
+ .ds{grid-template-columns:auto minmax(0,1fr);row-gap:10px;padding:12px 14px!important}
+ .ds-m{grid-column:1/-1;grid-row:2;white-space:normal}
+ .ds-p{width:96px}
+ .dc{grid-template-columns:1fr;padding:14px 16px!important}
+ .dc-w{padding:10px 0 12px}
+ .dc-t{font-size:30px}.dc-t.l2{font-size:27px}
+ .dc-why,.dc-wb p{-webkit-line-clamp:none}
+ .dc-f{flex-wrap:wrap}
 }
 /* reminders in the agenda */
 .rems{margin:6px 0 4px;padding-top:8px;border-top:1px dashed var(--line)}
@@ -1995,11 +1979,11 @@ const CONFIG={
    - calendar.summary: 2–4 sentences on the next few days. calendar.events:
      today + the next 4 days (5 days), INCLUDING birthday events (kind:"birthday").
      {title,start,end,loc?,tz?:"CT",url} or {title,allDay:true,date,endDate?,url,kind?}
-   - dare: today's dare {date,kind,title,why,mins?,cost?,place?:{name,sub?,url?},worth,src?,
-     swap?:{kind,title,why,mins?,worth?}} — kind is Explore, Create, Move, Give, Connect,
-     Learn, Grow, Wonder, Brave or Focus. The older coach {quality,focus,one,idea} is still read.
-   - dareHistory: [{date,kind,title}] for the last 42 days, oldest first (the week strip);
-     coachHistory [{date,quality,title}] is mapped onto kinds as a fallback.
+   - dare: today's three {date,options:[{kind,title,why,mins?,cost?,place?:{name,sub?,url?},worth,src?}]}
+     — kind is Explore, Create, Move, Give, Connect, Learn, Grow, Wonder, Brave or Focus.
+     Older shapes (one dare + swap, or the coach {quality,focus,one,idea}) are still read.
+   - dareHistory: [{date,kind,title}], one per option offered, last 42 days (only the
+     morning edition reads it, to avoid repeats).
      (tip {cat,title,why,how[]} is still read as a fallback.)
    - markets.tickers: one per stock in the lists, Yahoo symbols (^GSPC…),
      {sym,name,value,chg,pct,ytd,closes:[[YYYY-MM-DD,close],…~1 month]}.
@@ -2584,7 +2568,7 @@ function teaser(id){
   if(sym){const n=cxNow(sym);out.push(sym==="BTC"?lg(I.btc):kk(esc(sym)),`<span class="m" data-px="${sym}" data-dp0>${n?usd(n.price,0):"—"}</span>`,n?`<span class="m chg ${n.pct<0?"dn":""}" data-pill="${sym}">${pct(n.pct)}</span>`:"")}
   if(DATA.pick)out.push(kk("Idea"),tx(esc(DATA.pick.sym)));
   return out.join("")}
- if(id==="coach"){const{cur}=dareNow(),did=coachDidOn(todayKey()),st=coachStreak();return (did?mo("Done","up"):kk(esc(dareK(cur.kind).label)))+(st.n>=2?mo(`${st.n} in a row`):"")+tx(esc(cur.title))}
+ if(id==="coach"){const d=dareData(),dn=dareDone().filter(i=>i<d.opts.length),st=coachStreak();return dn.length?mo("Done","up")+(st.n>=2?mo(`${st.n} in a row`):"")+tx(esc(d.opts[dn[0]].title)):kk(d.opts.length>1?`${d.opts.length} dares`:"Dare")+(st.n>=1?mo(`${st.n} in a row`):"")+tx(esc(d.opts.map(o=>o.title).join(" · ")))}
  if(id==="vocab"){const v=VOCAB[VOCAB.length-1];return v?tx(esc(v.word),"ser")+(v.def?tx(esc(v.def.replace(/\.$/,"")),"q"):v.pos?tx(esc(v.pos),"q"):""):tx("No word yet","q")}
  if(id==="spanish"){const e=SPAN[SPAN.length-1];return e?`<span class="tx ser" lang="es">${esc(e.phrase)}</span>`+tx(esc(e.meaning),"q"):tx("No phrase yet","q")}
  if(id==="news"){const n=DATA.news;if(!n.length)return tx("Nothing today","q");const top=n[0];return mo(String(n.length)+" stories")+(top.domain?lg(`<img src="${favicon(top.domain)}" alt="" onerror="this.parentNode.remove()">`):"")+tx(esc(top.title))}
@@ -3196,12 +3180,11 @@ function renderTip(){
 }
 
 /* =================================================================
-   DARE — one thing a day that makes life richer: somewhere new, something
-   made, someone helped, a small act of nerve. The morning data writes it
-   (DATA.dare, with a smaller backup for days that don't fit) and keeps the
-   last few weeks (DATA.dareHistory). Tapping "Did it" is synced (pref
-   coachLog, kept from the old Coach so nothing's lost) and drives the week
-   and the streak. The section keeps its internal id "coach".
+   DARE — three things to pick from each day that make life richer:
+   somewhere new, something made, someone helped, a small act of nerve.
+   The morning data writes them (DATA.dare.options). Tapping "Did it" on
+   any one is synced (pref coachLog: today's date → the indices done) and
+   keeps the streak. The section keeps its internal id "coach".
    ================================================================= */
 const DARE_K={
  Explore:["Explore",`<circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>`],
@@ -3227,72 +3210,65 @@ const DX_IC={spark:`<svg class="dq" viewBox="0 0 24 24" aria-hidden="true"><path
  pin:`<svg class="dq" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6.5-5.6 6.5-11a6.5 6.5 0 1 0-13 0c0 5.4 6.5 11 6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>`,
  week:`<svg class="dq" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>`};
 /* one dare, normalised */
-const dareShape=(o,fb)=>o&&o.title?{kind:o.kind||fb.kind||"Explore",title:o.title,why:o.why||o.detail||"",mins:o.mins,cost:o.cost,place:o.place&&o.place.name?o.place:null,worth:o.worth||""}:null;
+const dareShape=o=>o&&o.title?{kind:dareK(o.kind||o.quality).k,title:o.title,why:o.why||o.detail||"",mins:o.mins,cost:o.cost,place:o.place&&o.place.name?o.place:null,worth:o.worth||"",src:o.src||""}:null;
+/* today's options: dare.options, or older shapes (one dare + its backup, or the Coach's one thing) */
 function dareData(){
  const d=DATA.dare;
- if(d&&d.title){
-  const main=dareShape(d,{});
-  return{date:d.date||ED,...main,worth:d.worth||"",src:d.src||"",swap:dareShape(d.swap,{kind:d.kind})};
- }
- /* older data: the Coach's one thing becomes the dare */
+ if(d&&Array.isArray(d.options)&&d.options.length)return{date:d.date||ED,opts:d.options.map(dareShape).filter(Boolean).slice(0,3)};
+ if(d&&d.title)return{date:d.date||ED,opts:[dareShape(d),dareShape(d.swap)].filter(Boolean)};
  const c=DATA.coach;
- if(c&&c.focus&&c.focus.title){
-  const m0=(c.moves||[])[0],one=c.one&&c.one.text?c.one:m0;
-  return{date:c.date||ED,kind:dareK(c.quality||(m0&&m0.area)).k,title:c.focus.title,why:one?one.text:c.focus.why||"",mins:one&&one.mins,worth:c.idea?[c.idea.line,c.idea.body].filter(Boolean).join(" "):"",src:c.idea&&c.idea.src||"",swap:null};
- }
- const t=todaysTip();
- return{date:ED,kind:"Move",title:t.title,why:t.why||"",worth:"",src:"",swap:null};
+ if(c&&c.focus&&c.focus.title){const m0=(c.moves||[])[0],one=c.one&&c.one.text?c.one:m0;
+  return{date:c.date||ED,opts:[{kind:dareK(c.quality||(m0&&m0.area)).k,title:c.focus.title,why:one?one.text:c.focus.why||"",mins:one&&one.mins,worth:c.idea?[c.idea.line,c.idea.body].filter(Boolean).join(" "):"",src:c.idea&&c.idea.src||"",place:null}]}}
+ const t=todaysTip();return{date:ED,opts:[{kind:"Move",title:t.title,why:t.why||"",worth:"",src:"",place:null}]};
 }
-const coachLog=()=>pref("coachLog",{})||{};
-const dareSwap=()=>!!(pref("dareSwap",{})||{})[todayKey()];
-/* did it on day k? any mark counts (the old Coach logged move indices, the dare logs 0 or 1 for the backup) */
-const coachDidOn=k=>{const l=coachLog()[k];return Array.isArray(l)&&l.length>0};
-function dareHist(){const m={};((DATA.dareHistory||[]).length?DATA.dareHistory:(DATA.coachHistory||[]).map(h=>({date:h.date,kind:dareK(h.quality).k,title:h.title}))).forEach(h=>{if(h&&h.date)m[h.date]=h});const d=dareData();m[d.date]={date:d.date,kind:d.kind,title:d.title};return m}
+function coachLog(){return pref("coachLog",{})||{}}
+function dareDone(k){const l=coachLog()[k||todayKey()];return Array.isArray(l)?l:[]}
+/* did it on day k? any mark counts (the old Coach logged move indices too) */
+function coachDidOn(k){return dareDone(k).length>0}
+/* the streak, and how many days done out of how many since the first one.
+   Today only counts toward "of" once it's done, so an open evening never reads as a miss. */
 function coachStreak(){
  const tk=todayKey(),today=coachDidOn(tk);let k=today?tk:addDays(tk,-1),n=0;
  while(n<400&&coachDidOn(k)){n++;k=addDays(k,-1)}
- const keys=Object.keys(coachLog()).sort();let best=0,run=0,total=0;
- if(keys.length)for(let d=keys[0],g=0;d<=tk&&g<400;d=addDays(d,1),g++){if(coachDidOn(d)){run++;total++;if(run>best)best=run}else run=0}
- return{n,today,best:Math.max(best,n),total};
+ const keys=Object.keys(coachLog()).filter(coachDidOn).sort();let best=0,run=0,total=0,days=0;
+ if(keys.length)for(let d=keys[0],g=0;d<=tk&&g<400;d=addDays(d,1),g++){const on=coachDidOn(d);if(d===tk&&!on)break;days++;if(on){run++;total++;if(run>best)best=run}else run=0}
+ return{n,today,best:Math.max(best,n),total,days};
 }
-const coachWeek=(off=0)=>{const tk=todayKey(),dow=(keyDate(tk).getUTCDay()+6)%7,mon=addDays(tk,off*7-dow);return[...Array(7)].map((_,i)=>addDays(mon,i))};
-function toggleMove(i){const log={...coachLog()},k=todayKey(),on=!coachDidOn(k);log[k]=on?[i]:[];
- Object.keys(log).sort().slice(0,-60).forEach(d=>delete log[d]);if(on)S.dareJust=k;S.dareStill=true;setPref("coachLog",log);renderDare();renderTeasers()}
-function toggleSwap(){const s={...(pref("dareSwap",{})||{})},k=todayKey();s[k]?delete s[k]:s[k]=true;Object.keys(s).sort().slice(0,-14).forEach(d=>delete s[d]);S.dareStill=true;setPref("dareSwap",s);renderDare();renderTeasers()}
-/* the dare in play today: the backup if he took it */
-function dareNow(){const d=dareData(),sw=dareSwap()&&d.swap;return{d,cur:sw?{...d.swap,date:d.date}:d,alt:sw?{kind:d.kind,title:d.title,why:d.why,mins:d.mins,cost:d.cost,place:d.place}:d.swap,sw:!!sw}}
+function toggleMove(i){const log={...coachLog()},k=todayKey(),old=dareDone(k),cur=new Set(old),on=!cur.has(i);on?cur.add(i):cur.delete(i);log[k]=[...cur].sort();
+ Object.keys(log).sort().slice(0,-120).forEach(d=>delete log[d]);if(on)S.dareJust=i;S.dareStill=true;S.darePrev=old.slice();setPref("coachLog",log);renderDare();renderTeasers()}
+function dareCard(o,i,done,just){
+ const k=dareK(o.kind),on=done.includes(i),off=done.length&&!on;
+ const ttl=o.title||"",chips=[o.mins?`<span class="dc-c">${DX_IC.clock}${esc(o.mins)} min</span>`:"",o.cost?`<span class="dc-c">${DX_IC.tag}${esc(o.cost)}</span>`:""].join("");
+ const ask=askBtn([`You're my adventurous, encouraging friend. One of today's dares (${k.label.toLowerCase()}): ${ttl}.`,o.why||"",
+  on?"I did it. Ask me how it went, what surprised me, and what I'd try next.":"Help me actually pull it off today: the exact plan, what to bring or prepare, what's most likely to stop me, and one way to make it even better."].filter(Boolean).join("\n"),"Plan it with Claude");
+ const place=o.place?`<a class="dc-c press" href="${esc(o.place.url||"https://www.google.com/maps/search/"+encodeURIComponent(o.place.name))}" target="_blank" rel="noopener">${DX_IC.pin}${esc(o.place.name)}${o.place.sub?` · ${esc(o.place.sub)}`:""}</a>`:"";
+ return`<article class="card dc${on?" on":""}${off?" off":""}${on&&just===i?" just":""}" style="--i:${i}">
+  <div class="dc-h"><span class="dk">${kIcon(k.k)}</span><span class="dc-k">${esc(k.label)}</span><span class="dc-s">${on?"Done today":done.length?"Also an option":`Option ${i+1}`}</span>${ask}</div>
+  <div class="dc-w"><h3 class="dc-t${ttl.length>30?" l2":""}">${esc(ttl)}</h3>${o.why?`<p class="dc-why">${esc(o.why)}</p>`:""}</div>
+  <div class="dc-x">${o.worth?`<figure class="dc-wb">${DX_IC.spark}<p>${esc(o.worth)}</p>${o.src?`<small>${esc(o.src)}</small>`:""}</figure>`:""}</div>
+  <div class="dc-f">${chips}${place}<button class="dc-do press" data-move="${i}" aria-pressed="${on}"><span class="dc-ok">${I.check}</span>${on?"Done":"Did it"}</button></div>
+ </article>`;
+}
 function renderDare(){
  const el=$("#s-coach");if(!el)return;
- const{d,cur,alt,sw}=dareNow(),k=dareK(cur.kind),tk=todayKey(),did=coachDidOn(tk),st=coachStreak(),hist=dareHist();
- const just=S.dareJust===tk,still=S.dareStill;S.dareJust=null;S.dareStill=false;
- const ttl=cur.title||"",hl=ttl.length>62?" l3":ttl.length>42?" l2":"";
- const when=d.date===tk?"Today":d.date===addDays(tk,-1)?"Yesterday":fmtKey(d.date,{weekday:"long"});
- const ask=askBtn([`You're my adventurous, encouraging friend. Today's dare (${k.label.toLowerCase()}): ${ttl}.`,cur.why||"",
-  did?"I did it. Ask me how it went, what surprised me, and what I'd try next.":"Help me actually pull it off today: the exact plan, what to bring or prepare, what's most likely to stop me, and one way to make it even better."].filter(Boolean).join("\n"),"Plan it with Claude");
- const facts=[cur.mins?`<span class="dx-f">${DX_IC.clock}${esc(cur.mins)} min</span>`:"",cur.cost?`<span class="dx-f">${DX_IC.tag}${esc(cur.cost)}</span>`:"",
-  cur.place?(cur.place.url||cur.place.name?`<a class="dx-f press" href="${esc(cur.place.url||"https://www.google.com/maps/search/"+encodeURIComponent(cur.place.name))}" target="_blank" rel="noopener">${DX_IC.pin}${esc(cur.place.name)}${cur.place.sub?` · ${esc(cur.place.sub)}`:""}</a>`:""):""].filter(Boolean).join("");
- /* the week: Mon–Sun, each day shows what it was about and whether it got done */
- const wk=coachWeek(0),lw=coachWeek(-1),lwHad=lw.filter(x=>hist[x]||coachDidOn(x)),lwDid=lw.filter(coachDidOn);
- const cells=wk.map(x=>{const h=hist[x],fut=x>tk,on=!fut&&coachDidOn(x),isT=x===tk;
-  const cls=fut?"fut":on?"on":isT?"now":h?"miss":"none",kk2=h?dareK(h.kind||h.quality):null;
-  const lab=`${fmtKey(x,{weekday:"long",month:"short",day:"numeric"})}${kk2?`: ${kk2.label}`:""}${fut?"":on?", done":isT?", not done yet":h?", not done":""}`;
-  return`<li class="dw-c ${cls}${isT?" t":""}${isT&&just?" just":""}" aria-label="${esc(lab)}"><span class="dw-w">${esc(fmtKey(x,{weekday:"short"}))}</span><span class="dw-b">${fut?`<em>${esc(fmtKey(x,{day:"numeric"}))}</em>`:kk2?kIcon(kk2.k):"<i></i>"}</span><span class="dw-q">${kk2&&!fut?esc(kk2.label):""}</span></li>`}).join("");
- const nxt=st.today?(st.n>=2?"Keep it alive tomorrow.":"One down. Tomorrow makes it a streak."):st.n?"Today keeps it going.":"Today starts it.";
- const meta=[st.best>st.n?`Best <b>${st.best}</b>`:"",st.total?`<b>${st.total}</b> done`:"",lwHad.length?`Last week <b>${lwDid.length} of ${lwHad.length}</b>`:""].filter(Boolean).join(" · ");
- const worth=String(sw&&d.swap.worth||d.worth||"");
- el.innerHTML=`<div class="dare${alt?"":" no-swap"}${still?" still":""}">
-  <article class="card dx-hero">
-   <div class="dx-hd"><span class="dx-kind">${kIcon(k.k)}</span><div class="dx-kt"><b>${esc(k.label)}</b><span>${esc(when)} · ${esc(fmtKey(d.date,{month:"short",day:"numeric"}))}${sw?" · The backup":""}</span></div>${ask}</div>
-   <div class="dx-main"><h2 class="dx-h${hl}">${esc(ttl)}</h2>${cur.why?`<p class="dx-why">${esc(cur.why)}</p>`:""}${facts?`<div class="dx-facts">${facts}</div>`:""}</div>
-   <button class="dx-do press${did?" on":""}${just?" just":""}" data-move="${sw?1:0}" aria-pressed="${did}"><span class="dx-ok">${I.check}</span><span class="dx-dt"><b>${did?"Done":"Did it"}</b><small>${did?(st.n>=2?`${st.n} days in a row`:"Streak started"):"Tap once it's done"}</small></span></button>
-  </article>
-  ${worth?`<article class="card dx-wc"><div class="dx-k">${DX_IC.spark}<span>Why bother</span></div><div class="dx-wb"><p${worth.length>150?' class="l2"':""}>${esc(worth)}</p></div>${d.src?`<p class="dx-src">${esc(d.src)}</p>`:""}</article>`:""}
-  ${alt?`<article class="card dx-sc"><div class="dx-k">${DX_IC.swap}<span>${sw?"The original":"If today's a no"}</span></div><div class="dx-sb"><h3><span class="dx-kind">${kIcon(alt.kind)}</span><span>${esc(alt.title)}</span></h3>${alt.why?`<p>${esc(alt.why)}</p>`:""}</div><button class="dx-sw press" data-dare-swap="1">${DX_IC.swap}${sw?"Switch back":"Take this one instead"}${alt.mins?` · ${esc(alt.mins)} min`:""}</button></article>`:""}
-  <article class="card dx-wk">
-   <div class="dw-s"><div class="dx-k">${DX_IC.flame}<span>Streak</span></div><div class="dw-n${st.n?"":" zero"}"><b>${st.n}</b><span>${st.n===1?"day in a row":"days in a row"}</span></div><p class="dw-p">${nxt}${meta?`<br>${meta}`:""}</p></div>
-   <ul class="dw-l">${cells}</ul>
-  </article>
+ const d=dareData(),tk=todayKey(),done=dareDone(tk).filter(i=>i<d.opts.length),st=coachStreak();
+ const just=S.dareJust,still=S.dareStill;S.dareJust=null;S.dareStill=false;
+ const n=d.opts.length,isDone=done.length>0,first=isDone?d.opts[done[0]]:null;
+ const msg=isDone?`Done today: <b>${esc(first.title)}</b>${done.length>1?` +${done.length-1} more`:""}`:n>1?`Pick one. Any of the ${n===2?"two":"three"} keeps it going.`:"Today's dare keeps it going.";
+ const pct=st.days?Math.round(st.total/st.days*100):0;
+ el.innerHTML=`<div class="dare${isDone?" done":""}${still?" still":""}" style="--n:${n}">
+  <section class="card ds" aria-label="Streak">
+   <div class="ds-l"><span class="ds-f">${DX_IC.flame}</span><div class="ds-n"><b>${st.n}</b><span>day streak</span></div></div>
+   <p class="ds-m">${msg}</p>
+   <div class="ds-r"><span>${st.days?`<b>${st.total}</b> of <b>${st.days}</b> days`:"Day one"}</span><span class="ds-p" aria-hidden="true"><i style="width:${pct}%"></i></span></div>
+  </section>
+  ${d.opts.map((o,i)=>dareCard(o,i,done,just)).join("")}
  </div>`;
+ /* after a tap: paint the old state first, then flip, so the accent sweeps amber ↔ green */
+ const prev=S.darePrev;S.darePrev=null;
+ if(still&&prev&&!calmMotion()){const root=$(".dare",el);
+  const paint=dn=>{root.classList.toggle("done",dn.length>0);$$(".dc",root).forEach((c,i)=>{c.classList.toggle("on",dn.includes(i));c.classList.toggle("off",dn.length>0&&!dn.includes(i))})};
+  paint(prev);root.offsetWidth;requestAnimationFrame(()=>paint(done))}
  fitSec("coach");
 }
 
@@ -4925,7 +4901,6 @@ document.addEventListener("click",async e=>{
  const fl=t.closest("[data-flip]");if(fl){fl.classList.toggle("open");return}
  const sj=t.closest("[data-setjump]");if(sj){const p=$("#sheet-p"),el=$("#ss-"+sj.dataset.setjump),nav=$(".set-nav",p);if(p&&el)p.scrollTo({top:el.offsetTop-(nav?nav.offsetHeight:0)-6,behavior:"smooth"});return}
  const mv=t.closest("[data-move]");if(mv){toggleMove(+mv.dataset.move);return}
- if(t.closest("[data-dare-swap]")){toggleSwap();return}
  const qz=t.closest("[data-quiz]");if(qz){S.quiz={phrase:(SPAN[S.learn.s==null?SPAN.length-1:S.learn.s]||{}).phrase,picked:+qz.dataset.quiz};renderSpanish();return}
  const sa=t.closest("[data-say-all]");if(sa){say(sa.dataset.sayAll,sa.dataset.lang,false);return}
  const sp=t.closest("[data-say]");if(sp){say(sp.dataset.say,sp.dataset.lang,!!sp.dataset.slow);return}

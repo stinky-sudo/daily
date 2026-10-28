@@ -2079,25 +2079,38 @@
   ],
   "dare": {
     "date": "2026-10-27",
-    "kind": "Wonder",
-    "title": "Watch tomorrow's sunrise",
-    "why": "Pick a spot ten minutes from home — the Shoreline lake, the Baylands boardwalk, the top deck of a parking garage — set an alarm for 6:50 and be standing there when it comes up around 7:30. Phone stays in your pocket until it's all the way up.",
-    "mins": 45,
-    "cost": "Free",
-    "place": {
-      "name": "Shoreline Lake",
-      "sub": "Mountain View",
-      "url": "https://www.google.com/maps/search/Shoreline+Lake+Mountain+View"
-    },
-    "worth": "Almost nobody takes the first hour of the day on purpose. You'll be back before most people are awake, with a better memory than anything a screen gave you all week.",
-    "src": "",
-    "swap": {
-      "kind": "Wonder",
-      "title": "Go find the moon tonight",
-      "why": "It was full last night. Walk until you've got a clear view of it, then stay five minutes longer than feels natural.",
-      "mins": 15,
-      "worth": "Fifteen minutes outside at night, looking at something that was there long before any of us. Cheapest reset there is."
-    }
+    "options": [
+      {
+        "kind": "Wonder",
+        "title": "Go find the moon tonight",
+        "why": "It was full last night and it's well up in the east by now. Walk until you've got a clear view of it, then stay five minutes longer than feels natural.",
+        "mins": 15,
+        "cost": "Free",
+        "place": null,
+        "worth": "Fifteen minutes outside at night, looking at something that was there long before any of us. Cheapest reset there is.",
+        "src": ""
+      },
+      {
+        "kind": "Create",
+        "title": "Write 100 words you'll never show anyone",
+        "why": "Phone notes, timer on 10 minutes. Write about whatever's actually on your mind this week, unfiltered, then close it and don't reread it tonight.",
+        "mins": 10,
+        "cost": "Free",
+        "place": null,
+        "worth": "Writing honestly about what's on your mind, even for a few minutes, tends to leave people clearer and calmer afterward.",
+        "src": "James Pennebaker · expressive writing"
+      },
+      {
+        "kind": "Learn",
+        "title": "Learn one card trick before bed",
+        "why": "Grab a deck (or order one and do this tomorrow). Pick one simple self-working trick from a tutorial, run it ten times until you don't need to think, then show it to the next person you see.",
+        "mins": 20,
+        "cost": "Free",
+        "place": null,
+        "worth": "A small party skill you'll keep for life, and the fastest way to make a stranger laugh.",
+        "src": ""
+      }
+    ]
   },
   "dareHistory": [
     {
@@ -2133,7 +2146,17 @@
     {
       "date": "2026-10-27",
       "kind": "Wonder",
-      "title": "Watch tomorrow's sunrise"
+      "title": "Go find the moon tonight"
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "Create",
+      "title": "Write 100 words you'll never show anyone"
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "Learn",
+      "title": "Learn one card trick before bed"
     }
   ]
 }
