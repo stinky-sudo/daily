@@ -1,6 +1,6 @@
 {
-  "edition": "2026-10-28",
-  "updated": "2026-10-28T05:25:00-07:00",
+  "edition": "2026-10-29",
+  "updated": "2026-10-29T05:30:00-07:00",
   "weatherFallback": {
     "hi": 67,
     "lo": 50,
@@ -8,7 +8,7 @@
     "code": 1
   },
   "calendar": {
-    "summary": "Today and tomorrow are open, and Thursday's only entry is Paige's birthday. Saturday is the busy day: Ohio State at USC kicks off at 4:30 PM Pacific while the RL Grime and NGHTMRE block party at The Midway runs 4 to 10 PM, so decide which one you are watching live. Clocks fall back early Sunday, which is also Patrick's birthday. Your Dia de los Muertos entry in the Mission is Monday at 5 PM.",
+    "summary": "Today is open apart from Paige's birthday. Saturday is the full day: Ohio State at USC kicks off at 4:30 PM Pacific while RL Grime and NGHTMRE at The Midway run 4 to 10 PM, so pick which one you watch live. Clocks fall back at 2 AM Sunday, which is also Patrick's birthday. Monday at 5 PM is Dia de los Muertos in the Mission.",
     "events": [
       {
         "title": "Paige's Birthday",
@@ -59,18 +59,18 @@
     ]
   },
   "tip": {
-    "cat": "Mind",
-    "title": "Take a 20-minute break in a green space",
-    "mins": "20 min",
-    "why": "In an eight-week field study, people who spent 10 minutes or more in a nature setting a few times a week saw their stress hormone cortisol fall, and the biggest drop per minute came at 20 to 30 minutes. It was a small study of city residents, so treat it as encouraging rather than settled.",
+    "cat": "Sleep",
+    "title": "Take a 10-minute nap after a short night",
+    "mins": "10 min",
+    "why": "In a sleep-lab study, healthy adults restricted to five hours of sleep took naps of 0, 5, 10, 20 or 30 minutes. The 10-minute nap gave the best mix of benefits, with lower sleepiness and better performance within minutes that lasted about 2.5 hours. Longer naps left people groggy first. It was a small lab study, so treat it as a useful guide.",
     "how": [
-      "Pick a park, trail or tree-lined street within a short walk.",
-      "Stay about 20 minutes and keep your phone in your pocket.",
-      "Sit or walk slowly; you do not need to exercise."
+      "Set a timer for 10 minutes, ideally before 3 PM.",
+      "Lie down or recline somewhere dim and quiet; you do not have to fall fully asleep.",
+      "Get up when the timer ends and step into daylight."
     ],
-    "src": "Hunter, Gillespie and Chen, Frontiers in Psychology (2019)",
-    "url": "https://doi.org/10.3389/fpsyg.2019.00722",
-    "ask": "What does the research say about how long a nature break needs to be to lower stress, and how strong is the evidence?"
+    "src": "Brooks and Lack, Sleep (2006)",
+    "url": "https://doi.org/10.1093/sleep/29.6.831",
+    "ask": "What does research say about the best nap length after a short night's sleep, and who should avoid napping?"
   },
   "tipLog": [
     "Dim the lights two hours before bed",
@@ -82,25 +82,26 @@
     "Write tomorrow's to-do list before bed",
     "Turn your top task into an if-then plan",
     "Do three one-minute bursts of hard effort",
-    "Take a 20-minute break in a green space"
+    "Take a 20-minute break in a green space",
+    "Take a 10-minute nap after a short night"
   ],
   "markets": {
-    "asOf": "2026-10-27",
-    "headline": "Stocks rose for a second day on Tuesday as chipmakers led and oil fell, with the Nasdaq up 1.2% and Tesla up 4.0% ahead of the Fed decision.",
+    "asOf": "2026-10-28",
+    "headline": "Stocks edged up for a third day on Wednesday after the Fed held rates, with the Nasdaq up 0.3% and Tesla down 0.8%; Alphabet fell after hours on a weaker quarter.",
     "points": [
-      "The S&P 500 closed at 7,722.60 (+0.6%) and the Nasdaq at 26,477.81 (+1.2%) as semiconductor stocks rallied again after Anthropic's IPO filing; the Dow was nearly flat at 52,377.57, held back by a 3.4% drop in Sherwin-Williams after a profit miss.",
-      "Meta's plan to raise about $95 billion in equity for AI infrastructure drew anchor buyers: Nvidia said it would put $3 billion into the offering and AMD $1 billion, and Nvidia said Meta would expand its Vera Rubin deployment.",
-      "Tesla rose 4.0% to $407.46, extending Monday's Barclays-upgrade jump on hopes tied to a possible SpaceX combination.",
-      "The Fed announces its decision at 2 PM Eastern today (11 AM Pacific); markets expect a hold at 3.75% to 4%, with traders watching for hints of a December hike. Microsoft, Alphabet and other big-tech earnings land this week. The Russell 2000 row below still shows Monday's close because Tuesday's could not be confirmed."
+      "The S&P 500 closed at 7,743.98 (+0.3%), the Nasdaq at 26,549.85 (+0.3%) and the Dow at 52,475.10 (+0.2%) after the Fed left its benchmark rate at 3.75% to 4%.",
+      "The Fed vote was 10 to 2, and both dissenters wanted a quarter-point increase; CME FedWatch put the odds of a December hike near 85%.",
+      "Tesla slipped 0.8% to $404.22 after a two-day rally tied to speculation about a SpaceX combination; Reuters reported no terms have been agreed.",
+      "After the close, Microsoft beat expectations and gained over 4% in extended trading, while Alphabet missed and fell more than 7%, renewing worries about AI spending. The Russell 2000 row still shows Monday's close because later closes could not be confirmed."
     ],
     "tickers": [
       {
         "sym": "^GSPC",
         "name": "S&P 500",
-        "value": 7722.6,
-        "chg": 45.83,
-        "pct": 0.6,
-        "ytd": 12.82,
+        "value": 7743.98,
+        "chg": 21.38,
+        "pct": 0.28,
+        "ytd": 13.13,
         "closes": [
           [
             "2026-10-05",
@@ -153,16 +154,20 @@
           [
             "2026-10-27",
             7722.6
+          ],
+          [
+            "2026-10-28",
+            7743.98
           ]
         ]
       },
       {
         "sym": "^IXIC",
         "name": "Nasdaq",
-        "value": 26477.81,
-        "chg": 308.43,
-        "pct": 1.18,
-        "ytd": 13.92,
+        "value": 26549.85,
+        "chg": 72.04,
+        "pct": 0.27,
+        "ytd": 14.23,
         "closes": [
           [
             "2026-10-05",
@@ -215,16 +220,20 @@
           [
             "2026-10-27",
             26477.81
+          ],
+          [
+            "2026-10-28",
+            26549.85
           ]
         ]
       },
       {
         "sym": "^DJI",
         "name": "Dow Jones",
-        "value": 52377.57,
-        "chg": 15.99,
-        "pct": 0.03,
-        "ytd": 8.97,
+        "value": 52475.1,
+        "chg": 97.53,
+        "pct": 0.19,
+        "ytd": 9.17,
         "closes": [
           [
             "2026-10-05",
@@ -277,6 +286,10 @@
           [
             "2026-10-27",
             52377.57
+          ],
+          [
+            "2026-10-28",
+            52475.1
           ]
         ]
       },
@@ -329,10 +342,10 @@
       {
         "sym": "TSLA",
         "name": "Tesla",
-        "value": 407.46,
-        "chg": 15.84,
-        "pct": 4.04,
-        "ytd": -9.4,
+        "value": 404.22,
+        "chg": -3.24,
+        "pct": -0.8,
+        "ytd": -10.12,
         "closes": [
           [
             "2026-10-01",
@@ -393,6 +406,10 @@
           [
             "2026-10-27",
             407.46
+          ],
+          [
+            "2026-10-28",
+            404.22
           ]
         ]
       }
@@ -466,17 +483,6 @@
   },
   "news": [
     {
-      "id": "n1",
-      "tag": "Robotics",
-      "title": "Tesla says Optimus production has started in Fremont",
-      "blurb": "Tesla describes its California Optimus operation as in an early ramp phase, with hardware and manufacturing processes still evolving. Tech Times notes the robot has no buyers yet, and the news came alongside a 43% drop in quarterly profit.",
-      "src": "Tech Times",
-      "domain": "techtimes.com",
-      "date": "2026-10-26",
-      "url": "https://techtimes.com/articles/329474/20261026/tesla-posts-43-profit-drop-optimus-hits-fremont-line-robot-has-no-buyers-yet.htm",
-      "ask": "What does an early-ramp Optimus line in Fremont tell us about how fast humanoid manufacturing can scale, and what has to be true before there are paying customers?"
-    },
-    {
       "id": "n2",
       "tag": "Robotics",
       "title": "GXO extends Agility's Digit humanoids to North Carolina and Tennessee",
@@ -486,50 +492,6 @@
       "date": "2026-10-27",
       "url": "https://www.techtimes.com/articles/329537/20261027/gxo-extends-digit-humanoid-robot-north-carolina-tennessee-after-100000-tote-milestone.htm",
       "ask": "Is a 100,000-tote milestone the kind of evidence a warehouse operator needs to scale humanoids, and what metrics would you want to see next?"
-    },
-    {
-      "id": "n3",
-      "tag": "Robotics",
-      "title": "Bedrock Robotics raises $600M at a $4.1B valuation for self-driving excavators",
-      "blurb": "The two-year-old company says its autonomous excavators now run fully autonomously on live customer sites. CapitalG and Emergence Capital co-led the Series C.",
-      "src": "TechCrunch",
-      "domain": "techcrunch.com",
-      "date": "2026-10-26",
-      "url": "https://techcrunch.com/2026/10/26/this-startups-self-driving-excavators-help-dig-up-600m-in-new-funding",
-      "ask": "What does the speed of Bedrock's valuation jump say about investor appetite for physical AI outside humanoids, and what can humanoid teams learn from its job-site deployments?"
-    },
-    {
-      "id": "n4",
-      "tag": "AI",
-      "title": "Anthropic files for an IPO",
-      "blurb": "The filing reports $16.29 billion in revenue for the six months ended June and warns of potentially catastrophic risks from AI. Anthropic plans to list on the Nasdaq as ANT, with a debut as soon as Nov 16 according to reports.",
-      "src": "CNN",
-      "domain": "cnn.com",
-      "date": "2026-10-26",
-      "url": "https://www.cnn.com/2026/10/26/tech/anthropic-files-ipo",
-      "ask": "How might a public Anthropic change competition with OpenAI and the funding landscape for AI and robotics startups?"
-    },
-    {
-      "id": "n6",
-      "tag": "Tech",
-      "title": "Meta plans to raise up to $95 billion in equity for AI infrastructure",
-      "blurb": "One report says Meta is launching $35 billion in common and preferred stock with a further $60 billion share sale planned later. Another says Nvidia, Broadcom and AMD have expressed interest in buying up to $5 billion of the shares.",
-      "src": "Tech Startups",
-      "domain": "techstartups.com",
-      "date": "2026-10-26",
-      "url": "https://techstartups.com/2026/10/26/tech-news-today-october-26-2026-nvidia-metas-95b-ai-funding-plan-spacexs-40b-chip-deal-and-anthropic-security-breach/",
-      "ask": "What does a mega-cap issuing equity, not debt, for AI data centers say about how the cost of the AI build-out is being financed?"
-    },
-    {
-      "id": "n8",
-      "tag": "Tech",
-      "title": "SpaceX agrees to a roughly $40B equipment lease with Apollo to buy Nvidia GPUs",
-      "blurb": "Bloomberg reports the financing will fund GPU purchases, according to a Tech Startups roundup. The roundup did not link the original Bloomberg report, so treat the details as secondhand.",
-      "src": "Tech Startups",
-      "domain": "techstartups.com",
-      "date": "2026-10-26",
-      "url": "https://techstartups.com/2026/10/26/tech-news-today-october-26-2026-nvidia-metas-95b-ai-funding-plan-spacexs-40b-chip-deal-and-anthropic-security-breach/",
-      "ask": "Why would SpaceX finance GPUs through a lease, and what does it suggest about its AI ambitions next to Tesla and xAI?"
     },
     {
       "id": "n9",
@@ -552,30 +514,41 @@
       "date": "2026-10-27",
       "url": "https://www.axios.com/2026/10/27/anthropic-ipo-meta-spacex-ai-deals",
       "ask": "What does a single day of $235 billion in AI financing say about how the buildout is being paid for, and where is the fragility?"
+    },
+    {
+      "id": "n11",
+      "tag": "Robotics",
+      "title": "Unitree's quarterly revenue jumps 70% in its first report since listing",
+      "blurb": "Third-quarter revenue rose 70% from a year earlier, though net profit fell. The report follows a demo video of its H2-X humanoid performing combat moves that helped drive a recent share rally.",
+      "src": "The Standard",
+      "domain": "thestandard.com.hk",
+      "date": "2026-10-28",
+      "url": "https://thestandard.com.hk/finance/article/346809/Unitrees-quarterly-revenue-surges-70pc-in-test-for-Chinas-robotics-sector",
+      "ask": "Revenue up 70% while profit fell: what does that say about the cost of scaling humanoid production, and how does it compare with US makers?"
+    },
+    {
+      "id": "n12",
+      "tag": "AI",
+      "title": "Alphabet misses estimates and AI spending worries return",
+      "blurb": "Alphabet's quarterly results came in below expectations and its shares fell more than 7% after hours, while Microsoft beat and rose over 4%. The split put AI capital spending back in focus.",
+      "src": "Yahoo Finance",
+      "domain": "finance.yahoo.com",
+      "date": "2026-10-28",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/p-500-nasdaq-futures-dip-001028850.html",
+      "ask": "Why did Microsoft's AI spending read as a strength while Alphabet's read as a worry, and what would change that view?"
     }
   ],
   "youtube": [
     {
-      "id": "yJxZef1Ylok",
-      "channel": "OpenAI",
-      "handle": "@OpenAI",
-      "title": "How Legora is transforming legal work with OpenAI",
-      "desc": "A look at how the legal AI company Legora builds on OpenAI's models.",
-      "published": "2026-10-28T09:45:14Z",
-      "secs": 155,
-      "views": 1140,
-      "url": "https://www.youtube.com/watch?v=yJxZef1Ylok"
-    },
-    {
-      "id": "UOfmD1fY-i8",
-      "channel": "OpenAI",
-      "handle": "@OpenAI",
-      "title": "Building the future of legal work with AI | Legora CEO Max Junestrand",
-      "desc": "Legora's CEO on where AI is taking legal work.",
-      "published": "2026-10-28T09:45:18Z",
-      "secs": 222,
-      "views": 666,
-      "url": "https://www.youtube.com/watch?v=UOfmD1fY-i8"
+      "id": "2reQut8WNGc",
+      "channel": "Marques Brownlee",
+      "handle": "@mkbhd",
+      "title": "Macbook PROLED XDR Impressions: They Said They Wouldn't!",
+      "desc": "Marques Brownlee shares first impressions of a new MacBook Pro display.",
+      "published": "2026-10-29T02:50:34Z",
+      "secs": 654,
+      "views": 3681363,
+      "url": "https://www.youtube.com/watch?v=2reQut8WNGc"
     },
     {
       "id": "ai1gIWacf0I",
@@ -585,22 +558,89 @@
       "desc": "Marques Brownlee shows a device that makes sound visible.",
       "published": "2026-10-27T20:14:55Z",
       "secs": 91,
-      "views": 1133268,
+      "views": 1936826,
       "url": "https://www.youtube.com/watch?v=ai1gIWacf0I"
     },
     {
-      "id": "eyZEqSPeMwg",
-      "channel": "Veritasium",
-      "handle": "@veritasium",
-      "title": "No device could prove Einstein wrong... until now",
-      "desc": "Veritasium on a new test of Einstein's physics.",
-      "published": "2026-10-23T18:46:44Z",
-      "secs": 2068,
-      "views": 6268500,
-      "url": "https://www.youtube.com/watch?v=eyZEqSPeMwg"
+      "id": "YcpC3-59yhE",
+      "channel": "Channel 5 with Andrew Callaghan",
+      "handle": "@channel5YouTube",
+      "title": "Israeli Election Day",
+      "desc": "Andrew Callaghan reports from Israel on election day.",
+      "published": "2026-10-28T14:00:30Z",
+      "secs": 1251,
+      "views": 923964,
+      "url": "https://www.youtube.com/watch?v=YcpC3-59yhE"
+    },
+    {
+      "id": "S19ag-Ifa8Y",
+      "channel": "Not Just Bikes",
+      "handle": "@NotJustBikes",
+      "title": "This Small City's LRT is so Good it Made me Angry",
+      "desc": "Not Just Bikes on a small city's light rail system.",
+      "published": "2026-10-28T19:08:00Z",
+      "secs": 1510,
+      "views": 286738,
+      "url": "https://www.youtube.com/watch?v=S19ag-Ifa8Y"
+    },
+    {
+      "id": "ujmyzWSj8IU",
+      "channel": "OpenAI",
+      "handle": "@OpenAI",
+      "title": "API credits, now in ChatGPT Pro and Business plans",
+      "desc": "OpenAI explains API credits now included in ChatGPT Pro and Business plans.",
+      "published": "2026-10-28T23:45:26Z",
+      "secs": 146,
+      "views": 26556,
+      "url": "https://www.youtube.com/watch?v=ujmyzWSj8IU"
+    },
+    {
+      "id": "M2Oa42hF67E",
+      "channel": "OpenAI",
+      "handle": "@OpenAI",
+      "title": "From legal bottleneck to business partner | Legora’s Emma Kadri Bergström",
+      "desc": "A Legora leader on how legal teams use OpenAI's models.",
+      "published": "2026-10-28T09:45:24Z",
+      "secs": 242,
+      "views": 7708,
+      "url": "https://www.youtube.com/watch?v=M2Oa42hF67E"
     }
   ],
   "spotify": [
+    {
+      "show": "Modern Wisdom",
+      "title": "35 Emotions Explained By Evolutionary Psychology - Rob Kurzban - #1169",
+      "desc": "Chris Williamson and Rob Kurzban on what emotions are for.",
+      "published": "2026-10-29",
+      "secs": 8874,
+      "url": "https://open.spotify.com/episode/4OSSEuIhC5lHBFBMDAYpNE"
+    },
+    {
+      "show": "Huberman Lab",
+      "title": "Essentials: How Smells Influence Our Hormones, Health & Behavior | Dr. Noam Sobel",
+      "desc": "An Essentials edition on how smell shapes hormones, health and behavior.",
+      "published": "2026-10-29",
+      "secs": 2096,
+      "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
+      "url": "https://open.spotify.com/episode/4AUzxA8vfL7UmON6G7GvrL"
+    },
+    {
+      "show": "The Diary Of A CEO with Steven Bartlett",
+      "title": "Dr. Sarah Paine: Why The World Is Turning Away From America",
+      "desc": "Steven Bartlett talks with historian Sarah Paine about America's standing in the world.",
+      "published": "2026-10-29",
+      "secs": 6119,
+      "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
+      "url": "https://open.spotify.com/episode/1zbWOUYwd8SnvWuBDogO20"
+    },
+    {
+      "show": "Moonshots with Peter Diamandis",
+      "title": "Anthropic’s $2T IPO, Elon Predicts Neocloud Death, and China’s Kimi Catches Up | #306",
+      "desc": "Peter Diamandis and guests on Anthropic's IPO, neoclouds and China's Kimi model.",
+      "published": "2026-10-28",
+      "secs": 8187,
+      "url": "https://open.spotify.com/episode/3LOBLYg9toAji6S6QGivO7"
+    },
     {
       "show": "Lex Fridman Podcast",
       "title": "#503 – AI Crisis in Math: Navier-Stokes, Riemann Hypothesis & Complexity Theory",
@@ -618,15 +658,6 @@
       "url": "https://open.spotify.com/episode/7MTRvvAwPANExOBfdRgFPR"
     },
     {
-      "show": "The Diary Of A CEO with Steven Bartlett",
-      "title": "Mark Cuban",
-      "desc": "Steven Bartlett talks with Mark Cuban.",
-      "published": "2026-10-26",
-      "secs": 5488,
-      "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
-      "url": "https://open.spotify.com/episode/3enxPgCiYXHX7dQZXygd4J"
-    },
-    {
       "show": "Huberman Lab",
       "title": "Unlocking Persistent Motivation & Extreme Resilience | Ross Edgley",
       "desc": "Andrew Huberman talks with endurance athlete Ross Edgley about motivation and resilience.",
@@ -636,29 +667,13 @@
       "url": "https://open.spotify.com/episode/0gwA0hBS82SmlaWwtR90IF"
     },
     {
-      "show": "Modern Wisdom",
-      "title": "Positive Psychology Founder: How To Stop Your Negative Thoughts - Martin Seligman - #1167",
-      "desc": "Chris Williamson talks with Martin Seligman about positive psychology and negative thoughts.",
-      "published": "2026-10-24",
-      "secs": 4847,
-      "url": "https://open.spotify.com/episode/0JmpuYcvC7RmMFjSYuNIDM"
-    },
-    {
-      "show": "Moonshots with Peter Diamandis",
-      "title": "SpaceX’s AI Business Up 830%, OpenAI Agents Lie, and Startup Turns Mercury Into Gold | EP #305",
-      "desc": "Peter Diamandis and guests cover SpaceX's AI business, OpenAI agents and a startup that turns mercury into gold.",
-      "published": "2026-10-23",
-      "secs": 8700,
-      "url": "https://open.spotify.com/episode/24T3yjsYCGiSHisfGUGjgu"
-    },
-    {
       "show": "The Diary Of A CEO with Steven Bartlett",
-      "title": "Most Replayed Moment: How AI Companies Are Gaslighting You - Karen Hao",
-      "desc": "A short clip of the most replayed moment from Steven Bartlett's conversation with Karen Hao on AI companies.",
-      "published": "2026-10-23",
-      "secs": 1447,
+      "title": "Mark Cuban: The Next Market Crash Is Where The Real Money Is Made!",
+      "desc": "Steven Bartlett talks with Mark Cuban about markets and the next downturn.",
+      "published": "2026-10-26",
+      "secs": 5488,
       "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
-      "url": "https://open.spotify.com/episode/7MDIkELsIsRX0zVnVNrchE"
+      "url": "https://open.spotify.com/episode/3enxPgCiYXHX7dQZXygd4J"
     }
   ],
   "discover": {
@@ -1219,6 +1234,32 @@
   },
   "vocab": [
     {
+      "date": "2026-10-29",
+      "word": "Ineffable",
+      "pron": "in-EF-uh-bul",
+      "pos": "adjective",
+      "def": "Too great or extraordinary to be put into words.",
+      "ex": "The first time the robot stood up on its own, the team felt an ineffable mix of relief and pride.",
+      "cards": [
+        {
+          "f": "Root",
+          "b": "Latin ineffabilis, from in- 'not' + effari 'to speak out'"
+        },
+        {
+          "f": "Synonym",
+          "b": "inexpressible, indescribable, unspeakable"
+        },
+        {
+          "f": "Use it for",
+          "b": "feelings, beauty or experiences that words fall short of, usually in a good way"
+        }
+      ],
+      "examples": [
+        "The first time the robot stood up on its own, the team felt an ineffable mix of relief and pride.",
+        "There was something ineffable about the view from the ridge at sunset."
+      ]
+    },
+    {
       "date": "2026-10-28",
       "word": "Perspicacious",
       "pron": "per-spih-KAY-shus",
@@ -1373,35 +1414,84 @@
         "The salient point of the demo was that the hand worked without retraining.",
         "Skip the background and lead with the three salient numbers."
       ]
-    },
-    {
-      "date": "2026-10-22",
-      "word": "Equanimity",
-      "pron": "ee-kwuh-NIM-ih-tee",
-      "pos": "noun",
-      "def": "Mental calm and evenness of temper, especially under stress.",
-      "ex": "She handled the delayed flight with equanimity, reading a book while everyone else queued at the desk.",
-      "cards": [
-        {
-          "f": "Root",
-          "b": "Latin aequus, even, plus animus, mind: an even mind"
-        },
-        {
-          "f": "Synonym",
-          "b": "composure, poise, calm"
-        },
-        {
-          "f": "Use it for",
-          "b": "how you take delays, bad news or a long travel day"
-        }
-      ],
-      "examples": [
-        "She handled the delayed flight with equanimity, reading a book while everyone else queued at the desk.",
-        "The best on-call engineers meet a 3 a.m. page with equanimity, not panic."
-      ]
     }
   ],
   "spanish": [
+    {
+      "date": "2026-10-29",
+      "phrase": "¿Cómo te fue en la chamba?",
+      "pron": "KOH-moh teh fweh en lah CHAM-bah",
+      "reg": "Mexico · casual",
+      "meaning": "How did work go?",
+      "note": "'Chamba' is casual Mexican slang for work or a job. Use it with friends and coworkers, not in a formal email.",
+      "cards": [
+        {
+          "es": "¿Mucha chamba hoy?",
+          "en": "Lots of work today?"
+        },
+        {
+          "es": "Salí tarde de la chamba",
+          "en": "I left work late"
+        },
+        {
+          "es": "Tengo chamba pendiente",
+          "en": "I have work left to do"
+        }
+      ],
+      "parts": [
+        {
+          "es": "¿Cómo",
+          "en": "how"
+        },
+        {
+          "es": "te",
+          "en": "to you"
+        },
+        {
+          "es": "fue",
+          "en": "it went"
+        },
+        {
+          "es": "en",
+          "en": "at / in"
+        },
+        {
+          "es": "la",
+          "en": "the"
+        },
+        {
+          "es": "chamba?",
+          "en": "work (slang)"
+        }
+      ],
+      "dialog": [
+        {
+          "es": "¿Cómo te fue en la chamba?",
+          "en": "How did work go?"
+        },
+        {
+          "es": "Pesadito, pero ya acabé.",
+          "en": "A bit heavy, but I'm done."
+        },
+        {
+          "es": "Entonces ya cénate algo rico.",
+          "en": "Then go eat something good."
+        },
+        {
+          "es": "Va, vamos por unos tacos.",
+          "en": "Sure, let's go get tacos."
+        }
+      ],
+      "use": "Ask it to a friend or coworker when they come home or log off for the day.",
+      "quiz": {
+        "options": [
+          "How did work go?",
+          "Where did you eat?",
+          "How are your friends?"
+        ],
+        "answer": 0
+      }
+    },
     {
       "date": "2026-10-28",
       "phrase": "¡Estoy hecho polvo!",
@@ -1815,77 +1905,6 @@
         ],
         "answer": 0
       }
-    },
-    {
-      "date": "2026-10-22",
-      "phrase": "¡No manches, está bien padre!",
-      "pron": "noh MAHN-chehs, eh-STAH byen PAH-dreh",
-      "reg": "Mexico · casual",
-      "meaning": "No way, that's really cool!",
-      "note": "'No manches' is the everyday Mexican way to say 'no way' or 'you're kidding', and 'padre' means great. Friendly with friends; keep it out of formal settings.",
-      "cards": [
-        {
-          "es": "¡Qué padre!",
-          "en": "How cool!"
-        },
-        {
-          "es": "No manches, ¿en serio?",
-          "en": "No way, really?"
-        },
-        {
-          "es": "Está chido",
-          "en": "It's cool"
-        }
-      ],
-      "parts": [
-        {
-          "es": "¡No",
-          "en": "no"
-        },
-        {
-          "es": "manches,",
-          "en": "don't mess (literally: don't stain)"
-        },
-        {
-          "es": "está",
-          "en": "it is"
-        },
-        {
-          "es": "bien",
-          "en": "really / very"
-        },
-        {
-          "es": "padre!",
-          "en": "cool / great"
-        }
-      ],
-      "dialog": [
-        {
-          "es": "Mira, conseguí boletos para el concierto.",
-          "en": "Look, I got tickets for the concert."
-        },
-        {
-          "es": "¡No manches, está bien padre!",
-          "en": "No way, that's really cool!"
-        },
-        {
-          "es": "Y tenemos lugares al frente.",
-          "en": "And we have spots up front."
-        },
-        {
-          "es": "¡No manches! ¿Cuándo es?",
-          "en": "No way! When is it?"
-        }
-      ],
-      "use": "Say it next time a friend shares good news, instead of 'wow'.",
-      "quiz": {
-        "options": [
-          "No way, that's really cool!",
-          "Don't touch it, it's dirty.",
-          "Be careful, it's very expensive."
-        ],
-        "answer": 0
-      }
     }
   ],
   "learnLog": {
@@ -1900,7 +1919,8 @@
       "Sedulous",
       "Laconic",
       "Ephemeral",
-      "Perspicacious"
+      "Perspicacious",
+      "Ineffable"
     ],
     "phrases": [
       "¡Aguas!",
@@ -1913,7 +1933,8 @@
       "Ahorita vengo, voy por unos tacos",
       "¡Qué chido está tu carro!",
       "¡No hay bronca!",
-      "¡Estoy hecho polvo!"
+      "¡Estoy hecho polvo!",
+      "¿Cómo te fue en la chamba?"
     ]
   },
   "coach": {
@@ -1983,18 +2004,6 @@
     "releases": []
   },
   "live": [
-    {
-      "kind": "game",
-      "title": "76ers at Pacers",
-      "sub": "NBA regular season",
-      "when": "2026-10-28T16:00:00-07:00",
-      "where": "Gainbridge Fieldhouse, Indianapolis",
-      "tv": [
-        "ESPN"
-      ],
-      "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
-      "note": "Tips off at 7 PM ET."
-    },
     {
       "kind": "game",
       "title": "Knicks at 76ers",
@@ -2080,21 +2089,25 @@
     }
   ],
   "dare": {
-    "date": "2026-10-28",
-    "kind": "Connect",
-    "title": "Call someone from your Austin life",
-    "why": "Nothing on the calendar today, and you're running on about five hours of sleep, so keep this one easy. Pick one person you haven't talked to in a year, call instead of texting, and open with 'I was thinking about you.' Walk while you talk, and stay on until the call ends on its own.",
-    "mins": 20,
-    "cost": "Free",
-    "place": null,
-    "worth": "People tend to guess a call out of the blue will feel awkward, and it usually lands better than they expect. You get a friend back, and so do they.",
+    "date": "2026-10-29",
+    "kind": "Explore",
+    "title": "Eat somewhere you can't pronounce",
+    "why": "Sleep was short again, so keep it gentle. Walk Castro Street at lunch or just after 5, pick the menu with the name you can't say, and ask the server what they'd order. Order exactly that, and say the name out loud when you do.",
+    "mins": 45,
+    "cost": "$",
+    "place": {
+      "name": "Castro Street",
+      "sub": "Downtown Mountain View",
+      "url": "https://www.google.com/maps/search/?api=1&query=Castro+Street+Mountain+View+CA"
+    },
+    "worth": "Most of us order the same five things. One unfamiliar plate is a cheap way to meet a new taste, and the server usually loves being asked.",
     "src": "",
     "swap": {
-      "kind": "Learn",
-      "title": "Learn one knot you'll actually use",
-      "why": "Look up the bowline or the trucker's hitch, tie it ten times with a shoelace or cord, then tie it once with your eyes closed.",
-      "mins": 15,
-      "worth": "Ten minutes for a skill you will use for the rest of your life."
+      "kind": "Brave",
+      "title": "Ask a stranger one real question",
+      "why": "Today, in a line or at a counter, ask someone something you're curious about, like 'What's the best thing you've eaten this month?' Listen to the whole answer.",
+      "mins": 10,
+      "worth": "A small, low-risk dose of nerve, and strangers tend to enjoy being asked."
     }
   },
   "dareHistory": [
@@ -2147,6 +2160,11 @@
       "date": "2026-10-28",
       "kind": "Connect",
       "title": "Call someone from your Austin life"
+    },
+    {
+      "date": "2026-10-29",
+      "kind": "Explore",
+      "title": "Eat somewhere you can't pronounce"
     }
   ]
 }
