@@ -1,2170 +1,2183 @@
 {
-  "edition": "2026-10-29",
-  "updated": "2026-10-29T05:30:00-07:00",
-  "weatherFallback": {
-    "hi": 67,
-    "lo": 50,
-    "cond": "Mostly sunny",
-    "code": 1
-  },
-  "calendar": {
-    "summary": "Today is open apart from Paige's birthday. Saturday is the full day: Ohio State at USC kicks off at 4:30 PM Pacific while RL Grime and NGHTMRE at The Midway run 4 to 10 PM, so pick which one you watch live. Clocks fall back at 2 AM Sunday, which is also Patrick's birthday. Monday at 5 PM is Dia de los Muertos in the Mission.",
-    "events": [
-      {
-        "title": "Paige's Birthday",
-        "allDay": true,
-        "date": "2026-10-29",
-        "url": "https://www.google.com/calendar/event?eid=MzNxOXVpaDJwbWs0ZjY2c2JtdHQ1NGJrNm9fMjAyNjEwMjkgcnVkeWxhbmdlbmthbXBAbQ",
-        "kind": "birthday"
-      },
-      {
-        "title": "🎃 Halloween",
-        "allDay": true,
-        "date": "2026-10-31",
-        "url": "https://www.google.com/calendar/event?eid=ZzkwdWdpb2Zza2FsdTlrbGU2cnJpZ3A1MGsgcnVkeWxhbmdlbmthbXBAbQ"
-      },
-      {
-        "title": "🎪 Midnight Carnival Block Party — RL GRIME, NGHTMRE & more (The Midway)",
-        "start": "2026-10-31T16:00:00-07:00",
-        "end": "2026-10-31T22:00:00-07:00",
-        "loc": "The Midway, 900 Marin St, San Francisco, CA 94124",
-        "url": "https://www.google.com/calendar/event?eid=MWRiNTVwZXMxOTFoZGZvNXE3cjkzYzl1ZjAgcnVkeWxhbmdlbmthbXBAbQ"
-      },
-      {
-        "title": "Ohio State at USC",
-        "start": "2026-10-31T16:30:00-07:00",
-        "end": "2026-10-31T19:00:00-07:00",
-        "loc": "Los Angeles Memorial Coliseum",
-        "url": "https://www.google.com/calendar/event?eid=bXBmaTcxaWVlaDl1MWd0dmEybmV2NjI1NWsgcnVkeWxhbmdlbmthbXBAbQ"
-      },
-      {
-        "title": "⏰ Daylight Saving Time Ends — Fall Back",
-        "allDay": true,
-        "date": "2026-11-01",
-        "url": "https://www.google.com/calendar/event?eid=YTZvMmlxdnFxcXE1bzE5dWE1aW11dWFqZmcgcnVkeWxhbmdlbmthbXBAbQ"
-      },
-      {
-        "title": "Patrick's Birthday",
-        "allDay": true,
-        "date": "2026-11-01",
-        "url": "https://www.google.com/calendar/event?eid=dm05YWVuNWhlczN0c2QxM2Z1ZzNqdDduMTRfMjAyNjExMDEgcnVkeWxhbmdlbmthbXBAbQ",
-        "kind": "birthday"
-      },
-      {
-        "title": "💀 Dia de los Muertos — Mission District SF",
-        "start": "2026-11-02T17:00:00-08:00",
-        "end": "2026-11-02T22:00:00-08:00",
-        "url": "https://www.google.com/calendar/event?eid=ZTVxdmVjcWs2ZjVvMzA2OGVndGozZWM0cTAgcnVkeWxhbmdlbmthbXBAbQ"
-      }
-    ]
-  },
-  "tip": {
-    "cat": "Sleep",
-    "title": "Take a 10-minute nap after a short night",
-    "mins": "10 min",
-    "why": "In a sleep-lab study, healthy adults restricted to five hours of sleep took naps of 0, 5, 10, 20 or 30 minutes. The 10-minute nap gave the best mix of benefits, with lower sleepiness and better performance within minutes that lasted about 2.5 hours. Longer naps left people groggy first. It was a small lab study, so treat it as a useful guide.",
-    "how": [
-      "Set a timer for 10 minutes, ideally before 3 PM.",
-      "Lie down or recline somewhere dim and quiet; you do not have to fall fully asleep.",
-      "Get up when the timer ends and step into daylight."
-    ],
-    "src": "Brooks and Lack, Sleep (2006)",
-    "url": "https://doi.org/10.1093/sleep/29.6.831",
-    "ask": "What does research say about the best nap length after a short night's sleep, and who should avoid napping?"
-  },
-  "tipLog": [
-    "Dim the lights two hours before bed",
-    "Pre-hydrate before a hot day out",
-    "Start a red-eye rested, then chase morning light",
-    "Move your legs every couple of hours on the red-eye",
-    "Try five minutes of cyclic sighing to settle nerves",
-    "Walk for ten minutes after a big meal",
-    "Write tomorrow's to-do list before bed",
-    "Turn your top task into an if-then plan",
-    "Do three one-minute bursts of hard effort",
-    "Take a 20-minute break in a green space",
-    "Take a 10-minute nap after a short night"
-  ],
-  "markets": {
-    "asOf": "2026-10-28",
-    "headline": "Stocks edged up for a third day on Wednesday after the Fed held rates, with the Nasdaq up 0.3% and Tesla down 0.8%; Alphabet fell after hours on a weaker quarter.",
-    "points": [
-      "The S&P 500 closed at 7,743.98 (+0.3%), the Nasdaq at 26,549.85 (+0.3%) and the Dow at 52,475.10 (+0.2%) after the Fed left its benchmark rate at 3.75% to 4%.",
-      "The Fed vote was 10 to 2, and both dissenters wanted a quarter-point increase; CME FedWatch put the odds of a December hike near 85%.",
-      "Tesla slipped 0.8% to $404.22 after a two-day rally tied to speculation about a SpaceX combination; Reuters reported no terms have been agreed.",
-      "After the close, Microsoft beat expectations and gained over 4% in extended trading, while Alphabet missed and fell more than 7%, renewing worries about AI spending. The Russell 2000 row still shows Monday's close because later closes could not be confirmed."
-    ],
-    "tickers": [
-      {
-        "sym": "^GSPC",
-        "name": "S&P 500",
-        "value": 7743.98,
-        "chg": 21.38,
-        "pct": 0.28,
-        "ytd": 13.13,
-        "closes": [
-          [
-            "2026-10-05",
-            7773.95
-          ],
-          [
-            "2026-10-09",
-            7811.54
-          ],
-          [
-            "2026-10-12",
-            7807.24
-          ],
-          [
-            "2026-10-14",
-            7718.94
-          ],
-          [
-            "2026-10-15",
-            7744.06
-          ],
-          [
-            "2026-10-16",
-            7659.44
-          ],
-          [
-            "2026-10-19",
-            7690.73
-          ],
-          [
-            "2026-10-20",
-            7712.57
-          ],
-          [
-            "2026-10-21",
-            7757.17
-          ],
-          [
-            "2026-10-22",
-            7663.43
-          ],
-          [
-            "2026-10-23",
-            7623.68
-          ],
-          [
-            "2026-10-26",
-            7676.77
-          ],
-          [
-            "2026-10-27",
-            7722.6
-          ],
-          [
-            "2026-10-28",
-            7743.98
-          ]
-        ]
-      },
-      {
-        "sym": "^IXIC",
-        "name": "Nasdaq",
-        "value": 26549.85,
-        "chg": 72.04,
-        "pct": 0.27,
-        "ytd": 14.23,
-        "closes": [
-          [
-            "2026-10-05",
-            27477.31
-          ],
-          [
-            "2026-10-09",
-            27366.17
-          ],
-          [
-            "2026-10-12",
-            27245.9
-          ],
-          [
-            "2026-10-13",
-            27204.38
-          ],
-          [
-            "2026-10-15",
-            26713.03
-          ],
-          [
-            "2026-10-16",
-            26140.03
-          ],
-          [
-            "2026-10-19",
-            26430.89
-          ],
-          [
-            "2026-10-20",
-            26424.82
-          ],
-          [
-            "2026-10-21",
-            26702.86
-          ],
-          [
-            "2026-10-22",
-            26008.86
-          ],
-          [
-            "2026-10-23",
-            25955.34
-          ],
-          [
-            "2026-10-26",
-            26169.38
-          ],
-          [
-            "2026-10-27",
-            26477.81
-          ],
-          [
-            "2026-10-28",
-            26549.85
-          ]
-        ]
-      },
-      {
-        "sym": "^DJI",
-        "name": "Dow Jones",
-        "value": 52475.1,
-        "chg": 97.53,
-        "pct": 0.19,
-        "ytd": 9.17,
-        "closes": [
-          [
-            "2026-10-05",
-            51267.9
-          ],
-          [
-            "2026-10-09",
-            51654.95
-          ],
-          [
-            "2026-10-12",
-            51850.55
-          ],
-          [
-            "2026-10-13",
-            51670.1
-          ],
-          [
-            "2026-10-15",
-            52177.69
-          ],
-          [
-            "2026-10-16",
-            52002.41
-          ],
-          [
-            "2026-10-19",
-            51966.03
-          ],
-          [
-            "2026-10-20",
-            52495.88
-          ],
-          [
-            "2026-10-21",
-            52856.09
-          ],
-          [
-            "2026-10-22",
-            52867.98
-          ],
-          [
-            "2026-10-23",
-            52215.16
-          ],
-          [
-            "2026-10-26",
-            52361.58
-          ],
-          [
-            "2026-10-27",
-            52377.57
-          ],
-          [
-            "2026-10-28",
-            52475.1
-          ]
-        ]
-      },
-      {
-        "sym": "^RUT",
-        "name": "Russell 2000",
-        "value": 2787.81,
-        "chg": 11.92,
-        "pct": 0.43,
-        "ytd": 12.33,
-        "closes": [
-          [
-            "2026-10-12",
-            2794.48
-          ],
-          [
-            "2026-10-13",
-            2783.37
-          ],
-          [
-            "2026-10-15",
-            2767.27
-          ],
-          [
-            "2026-10-16",
-            2719.57
-          ],
-          [
-            "2026-10-20",
-            2773.42
-          ],
-          [
-            "2026-10-21",
-            2781.02
-          ],
-          [
-            "2026-10-22",
-            2784.03
-          ],
-          [
-            "2026-10-23",
-            2775.89
-          ],
-          [
-            "2026-10-26",
-            2787.81
-          ]
-        ]
-      },
-      {
-        "sym": "TSLA",
-        "name": "Tesla",
-        "value": 404.22,
-        "chg": -3.24,
-        "pct": -0.8,
-        "ytd": -10.12,
-        "closes": [
-          [
-            "2026-10-01",
-            354.11
-          ],
-          [
-            "2026-10-02",
-            370.59
-          ],
-          [
-            "2026-10-05",
-            378.73
-          ],
-          [
-            "2026-10-09",
-            382.7
-          ],
-          [
-            "2026-10-13",
-            375.23
-          ],
-          [
-            "2026-10-14",
-            367.16
-          ],
-          [
-            "2026-10-15",
-            362.44
-          ],
-          [
-            "2026-10-16",
-            354.72
-          ],
-          [
-            "2026-10-19",
-            368.06
-          ],
-          [
-            "2026-10-20",
-            373.71
-          ],
-          [
-            "2026-10-21",
-            386.47
-          ],
-          [
-            "2026-10-22",
-            374.58
-          ],
-          [
-            "2026-10-23",
-            372.22
-          ],
-          [
-            "2026-10-26",
-            391.62
-          ],
-          [
-            "2026-10-27",
-            407.46
-          ],
-          [
-            "2026-10-28",
-            404.22
-          ]
-        ]
-      }
-    ]
-  },
-  "pick": {
-    "sym": "STX",
-    "name": "Seagate Technology",
-    "theme": "Data storage for AI",
-    "close": 644.21,
-    "pct": 2.18,
-    "asOf": "2026-10-26",
-    "what": "Seagate makes hard disk drives and storage systems, with large data-center customers that store the data behind cloud and AI services.",
-    "why": "It rose 2.2% on Oct 26 to $644.21 after falling roughly 30% over the past month, and the consensus of 26 analysts reads Strong Buy with an average target near $1,138. Barclays kept a Buy with a $1,250 target and Bank of America a Buy with $1,200 on Oct 21. An idea to research, not a recommendation.",
-    "risk": "The stock is still far below its 52-week high of $1,145, and a roughly 30% drop in a month shows how fast sentiment can turn. UBS rates it Hold, and demand depends on AI data-center spending holding up.",
-    "rating": {
-      "label": "Strong Buy",
-      "total": 26
-    },
-    "target": 1138,
-    "hi52": 1145.0,
-    "closes": [
-      [
-        "2026-10-23",
-        630.49
-      ],
-      [
-        "2026-10-26",
-        644.21
-      ]
-    ],
-    "history": [
-      {
-        "date": "2026-10-26",
-        "sym": "STX",
-        "price": 644.21
-      },
-      {
-        "date": "2026-10-23",
-        "sym": "NET",
-        "price": 325.73
-      },
-      {
-        "date": "2026-10-22",
-        "sym": "COHR",
-        "price": 207.82
-      },
-      {
-        "date": "2026-10-21",
-        "sym": "TER",
-        "price": 345.49
-      },
-      {
-        "date": "2026-10-16",
-        "sym": "CRWV",
-        "price": 61.39
-      },
-      {
-        "date": "2026-10-09",
-        "sym": "MRVL",
-        "price": 275.35
-      }
-    ]
-  },
-  "btc": {
-    "source": "Benjamin Cowen",
-    "channel": "@benjaminjcowen",
-    "sourceUrl": "https://www.youtube.com/watch?v=bWdXPK3Hlok",
-    "summaryDate": "2026-10-25",
-    "summary": "In his Oct 25 video, \"Bitcoin: Bears Regaining Control,\" and in posts around it, Cowen said two straight weekly closes below the level he had been watching confirm that the September breakout was a fakeout, and that the rally has now been fully unwound. His next downside reference is the bull market support band, the zone formed by the 20-week average and 21-week exponential average. He ticked off two of nine steps on a bearish Q4 roadmap tied to the pattern of weakness late in US midterm years, and said the roadmap is void only if Bitcoin reclaims and holds that level. The next steps depend on the Fed decision and inflation data."
-  },
-  "news": [
-    {
-      "id": "n2",
-      "tag": "Robotics",
-      "title": "GXO extends Agility's Digit humanoids to North Carolina and Tennessee",
-      "blurb": "After Digit moved more than 100,000 totes at GXO's Georgia site, GXO will deploy the humanoids at two more US sites, with operations scheduled to begin in early 2027.",
-      "src": "Tech Times",
-      "domain": "techtimes.com",
-      "date": "2026-10-27",
-      "url": "https://www.techtimes.com/articles/329537/20261027/gxo-extends-digit-humanoid-robot-north-carolina-tennessee-after-100000-tote-milestone.htm",
-      "ask": "Is a 100,000-tote milestone the kind of evidence a warehouse operator needs to scale humanoids, and what metrics would you want to see next?"
-    },
-    {
-      "id": "n9",
-      "tag": "Tech",
-      "title": "Nvidia and AMD to invest $4 billion in Meta as the AI partnership deepens",
-      "blurb": "Nvidia said it will put $3 billion into Meta's equity offering and AMD $1 billion, and that Meta will expand its Vera Rubin deployment. The money is part of Meta's plan to raise about $95 billion for AI infrastructure.",
-      "src": "CNBC",
-      "domain": "cnbc.com",
-      "date": "2026-10-27",
-      "url": "https://www.cnbc.com/2026/10/27/nvidia-invest-meta.html",
-      "ask": "When chip suppliers invest in a customer that buys their chips, what does that do to the real demand signal, and how should I read it?"
-    },
-    {
-      "id": "n10",
-      "tag": "AI",
-      "title": "Anthropic's IPO leads a $235 billion day of AI dealmaking",
-      "blurb": "Axios counts roughly $235 billion in AI financing in one day, spanning Anthropic's IPO filing, Meta's equity raise and SpaceX's chip-lease deal with Apollo.",
-      "src": "Axios",
-      "domain": "axios.com",
-      "date": "2026-10-27",
-      "url": "https://www.axios.com/2026/10/27/anthropic-ipo-meta-spacex-ai-deals",
-      "ask": "What does a single day of $235 billion in AI financing say about how the buildout is being paid for, and where is the fragility?"
-    },
-    {
-      "id": "n11",
-      "tag": "Robotics",
-      "title": "Unitree's quarterly revenue jumps 70% in its first report since listing",
-      "blurb": "Third-quarter revenue rose 70% from a year earlier, though net profit fell. The report follows a demo video of its H2-X humanoid performing combat moves that helped drive a recent share rally.",
-      "src": "The Standard",
-      "domain": "thestandard.com.hk",
-      "date": "2026-10-28",
-      "url": "https://thestandard.com.hk/finance/article/346809/Unitrees-quarterly-revenue-surges-70pc-in-test-for-Chinas-robotics-sector",
-      "ask": "Revenue up 70% while profit fell: what does that say about the cost of scaling humanoid production, and how does it compare with US makers?"
-    },
-    {
-      "id": "n12",
-      "tag": "AI",
-      "title": "Alphabet misses estimates and AI spending worries return",
-      "blurb": "Alphabet's quarterly results came in below expectations and its shares fell more than 7% after hours, while Microsoft beat and rose over 4%. The split put AI capital spending back in focus.",
-      "src": "Yahoo Finance",
-      "domain": "finance.yahoo.com",
-      "date": "2026-10-28",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/p-500-nasdaq-futures-dip-001028850.html",
-      "ask": "Why did Microsoft's AI spending read as a strength while Alphabet's read as a worry, and what would change that view?"
-    }
-  ],
-  "youtube": [
-    {
-      "id": "2reQut8WNGc",
-      "channel": "Marques Brownlee",
-      "handle": "@mkbhd",
-      "title": "Macbook PROLED XDR Impressions: They Said They Wouldn't!",
-      "desc": "Marques Brownlee shares first impressions of a new MacBook Pro display.",
-      "published": "2026-10-29T02:50:34Z",
-      "secs": 654,
-      "views": 3681363,
-      "url": "https://www.youtube.com/watch?v=2reQut8WNGc"
-    },
-    {
-      "id": "ai1gIWacf0I",
-      "channel": "Marques Brownlee",
-      "handle": "@mkbhd",
-      "title": "This can SEE Sound!",
-      "desc": "Marques Brownlee shows a device that makes sound visible.",
-      "published": "2026-10-27T20:14:55Z",
-      "secs": 91,
-      "views": 1936826,
-      "url": "https://www.youtube.com/watch?v=ai1gIWacf0I"
-    },
-    {
-      "id": "YcpC3-59yhE",
-      "channel": "Channel 5 with Andrew Callaghan",
-      "handle": "@channel5YouTube",
-      "title": "Israeli Election Day",
-      "desc": "Andrew Callaghan reports from Israel on election day.",
-      "published": "2026-10-28T14:00:30Z",
-      "secs": 1251,
-      "views": 923964,
-      "url": "https://www.youtube.com/watch?v=YcpC3-59yhE"
-    },
-    {
-      "id": "S19ag-Ifa8Y",
-      "channel": "Not Just Bikes",
-      "handle": "@NotJustBikes",
-      "title": "This Small City's LRT is so Good it Made me Angry",
-      "desc": "Not Just Bikes on a small city's light rail system.",
-      "published": "2026-10-28T19:08:00Z",
-      "secs": 1510,
-      "views": 286738,
-      "url": "https://www.youtube.com/watch?v=S19ag-Ifa8Y"
-    },
-    {
-      "id": "ujmyzWSj8IU",
-      "channel": "OpenAI",
-      "handle": "@OpenAI",
-      "title": "API credits, now in ChatGPT Pro and Business plans",
-      "desc": "OpenAI explains API credits now included in ChatGPT Pro and Business plans.",
-      "published": "2026-10-28T23:45:26Z",
-      "secs": 146,
-      "views": 26556,
-      "url": "https://www.youtube.com/watch?v=ujmyzWSj8IU"
-    },
-    {
-      "id": "M2Oa42hF67E",
-      "channel": "OpenAI",
-      "handle": "@OpenAI",
-      "title": "From legal bottleneck to business partner | Legora’s Emma Kadri Bergström",
-      "desc": "A Legora leader on how legal teams use OpenAI's models.",
-      "published": "2026-10-28T09:45:24Z",
-      "secs": 242,
-      "views": 7708,
-      "url": "https://www.youtube.com/watch?v=M2Oa42hF67E"
-    }
-  ],
-  "spotify": [
-    {
-      "show": "Modern Wisdom",
-      "title": "35 Emotions Explained By Evolutionary Psychology - Rob Kurzban - #1169",
-      "desc": "Chris Williamson and Rob Kurzban on what emotions are for.",
-      "published": "2026-10-29",
-      "secs": 8874,
-      "url": "https://open.spotify.com/episode/4OSSEuIhC5lHBFBMDAYpNE"
-    },
-    {
-      "show": "Huberman Lab",
-      "title": "Essentials: How Smells Influence Our Hormones, Health & Behavior | Dr. Noam Sobel",
-      "desc": "An Essentials edition on how smell shapes hormones, health and behavior.",
-      "published": "2026-10-29",
-      "secs": 2096,
-      "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
-      "url": "https://open.spotify.com/episode/4AUzxA8vfL7UmON6G7GvrL"
-    },
-    {
-      "show": "The Diary Of A CEO with Steven Bartlett",
-      "title": "Dr. Sarah Paine: Why The World Is Turning Away From America",
-      "desc": "Steven Bartlett talks with historian Sarah Paine about America's standing in the world.",
-      "published": "2026-10-29",
-      "secs": 6119,
-      "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
-      "url": "https://open.spotify.com/episode/1zbWOUYwd8SnvWuBDogO20"
-    },
-    {
-      "show": "Moonshots with Peter Diamandis",
-      "title": "Anthropic’s $2T IPO, Elon Predicts Neocloud Death, and China’s Kimi Catches Up | #306",
-      "desc": "Peter Diamandis and guests on Anthropic's IPO, neoclouds and China's Kimi model.",
-      "published": "2026-10-28",
-      "secs": 8187,
-      "url": "https://open.spotify.com/episode/3LOBLYg9toAji6S6QGivO7"
-    },
-    {
-      "show": "Lex Fridman Podcast",
-      "title": "#503 – AI Crisis in Math: Navier-Stokes, Riemann Hypothesis & Complexity Theory",
-      "desc": "Lex Fridman on how AI is changing mathematics, from Navier-Stokes and the Riemann hypothesis to complexity theory.",
-      "published": "2026-10-26",
-      "secs": 13327,
-      "url": "https://open.spotify.com/episode/0ndqMvnUJkNmQrhK98R09Y"
-    },
-    {
-      "show": "Modern Wisdom",
-      "title": "Crypto Scams, Dopamine Websites, Tasteful Slop & Vape Shop Energy - Rabbit Hole #6 - #1168",
-      "desc": "Chris Williamson's sixth Rabbit Hole episode on crypto scams, dopamine-driven websites and low-effort content.",
-      "published": "2026-10-26",
-      "secs": 7679,
-      "url": "https://open.spotify.com/episode/7MTRvvAwPANExOBfdRgFPR"
-    },
-    {
-      "show": "Huberman Lab",
-      "title": "Unlocking Persistent Motivation & Extreme Resilience | Ross Edgley",
-      "desc": "Andrew Huberman talks with endurance athlete Ross Edgley about motivation and resilience.",
-      "published": "2026-10-26",
-      "secs": 9817,
-      "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
-      "url": "https://open.spotify.com/episode/0gwA0hBS82SmlaWwtR90IF"
-    },
-    {
-      "show": "The Diary Of A CEO with Steven Bartlett",
-      "title": "Mark Cuban: The Next Market Crash Is Where The Real Money Is Made!",
-      "desc": "Steven Bartlett talks with Mark Cuban about markets and the next downturn.",
-      "published": "2026-10-26",
-      "secs": 5488,
-      "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
-      "url": "https://open.spotify.com/episode/3enxPgCiYXHX7dQZXygd4J"
-    }
-  ],
-  "discover": {
-    "youtube": [
-      {
-        "handle": "@Computerphile",
-        "channel": "Computerphile",
-        "seed": "@veritasium",
-        "because": "Because you like Veritasium: researchers explaining computing and AI ideas in plain terms, posting weekly."
-      },
-      {
-        "handle": "@TomScottGo",
-        "channel": "Tom Scott",
-        "seed": "@veritasium",
-        "because": "Because you like Veritasium: curious, well-researched explainers on how the world works."
-      },
-      {
-        "handle": "@NVIDIA",
-        "channel": "NVIDIA",
-        "seed": "@figureai",
-        "because": "Because you follow Figure: frequent uploads on robotics simulation and the AI chips behind humanoids."
-      },
-      {
-        "handle": "@UnitreeRobotics",
-        "channel": "Unitree Robotics",
-        "seed": "@figureai",
-        "because": "Because you follow Figure: demos from Unitree, the largest maker of low-cost humanoids."
-      },
-      {
-        "handle": "@3blue1brown",
-        "channel": "3Blue1Brown",
-        "seed": "@veritasium",
-        "because": "Because you like Veritasium: visual math explanations that also cover neural networks."
-      },
-      {
-        "handle": "@UrAvgConsumer",
-        "channel": "UrAvgConsumer",
-        "seed": "@mkbhd",
-        "because": "Because you like MKBHD: daily consumer-tech reviews and news from a fast-posting channel."
-      },
-      {
-        "handle": "@minutephysics",
-        "channel": "minutephysics",
-        "seed": "@veritasium",
-        "because": "Because you like Veritasium: short, clear physics explainers that post every couple of weeks."
-      },
-      {
-        "handle": "@Numberphile",
-        "channel": "Numberphile",
-        "seed": "@veritasium",
-        "because": "Because you like Veritasium: mathematicians explaining ideas, with new videos several times a week."
-      },
-      {
-        "handle": "@TheAIGRID",
-        "channel": "TheAIGRID",
-        "seed": "@OpenAI",
-        "because": "Because you follow OpenAI: near-daily coverage of new AI models and tools."
-      },
-      {
-        "handle": "@AIExplained-official",
-        "channel": "AI Explained",
-        "seed": "@OpenAI",
-        "because": "Because you follow OpenAI: careful, benchmark-focused breakdowns of new models."
-      }
-    ],
-    "spotify": [],
-    "artists": [
-      {
-        "name": "Mau P",
-        "because": "Like Chris Lake",
-        "url": "https://open.spotify.com/artist/0w1sbtZVQoK6GzV4A4OkCv"
-      },
-      {
-        "name": "Odd Mob",
-        "because": "Like Chris Lake",
-        "url": "https://open.spotify.com/artist/4qLwtWhlhyAoQ4S9mSrDW9"
-      },
-      {
-        "name": "Dylan Matthew",
-        "because": "Like Slander",
-        "url": "https://open.spotify.com/artist/6d0ZjIp5L7Ygy2l02HskRX"
-      },
-      {
-        "name": "SABAI",
-        "because": "Like Slander",
-        "url": "https://open.spotify.com/artist/4OaSyxqlkp7aVpAZwF02QZ"
-      },
-      {
-        "name": "piri",
-        "because": "Like Sam Gellaitry",
-        "url": "https://open.spotify.com/artist/4DpmPt7gfAAq7WEx0E1X8s"
-      },
-      {
-        "name": "KAYTRANADA",
-        "because": "Like Sam Gellaitry",
-        "url": "https://open.spotify.com/artist/6qgnBH6iDM91ipVXv28OMu"
-      },
-      {
-        "name": "Matroda",
-        "because": "Like Chris Lake",
-        "url": "https://open.spotify.com/artist/45lcbTsX07JWzmTIjcdyBz"
-      },
-      {
-        "name": "Metro Boomin",
-        "because": "Like Don Toliver",
-        "url": "https://open.spotify.com/artist/0iEtIxbK0KxaSlF7G42ZOp"
-      }
-    ],
-    "podcasts": [
-      {
-        "show": "The Joe Rogan Experience",
-        "seed": "Lex Fridman Podcast",
-        "because": "Because you like Lex Fridman: open-ended conversations, often with fighters, comedians and scientists."
-      },
-      {
-        "show": "No Priors: Artificial Intelligence | Technology | Startups",
-        "seed": "Lex Fridman Podcast",
-        "because": "Because you like Lex Fridman: AI founders and researchers on what they're building now."
-      },
-      {
-        "show": "Hard Fork",
-        "seed": "Moonshots with Peter Diamandis",
-        "because": "Because you like Moonshots: a weekly, skeptical look at AI and tech news from The New York Times."
-      },
-      {
-        "show": "The Tim Ferriss Show",
-        "seed": "Modern Wisdom",
-        "because": "Because you like Modern Wisdom: long interviews about how top performers train, think and work."
-      },
-      {
-        "show": "The Knowledge Project",
-        "seed": "Modern Wisdom",
-        "because": "Because you like Modern Wisdom: Shane Parrish on decision-making, with founders and investors."
-      },
-      {
-        "show": "FoundMyFitness",
-        "seed": "Huberman Lab",
-        "because": "Because you like Huberman Lab: Rhonda Patrick on nutrition, aging and the research behind them."
-      }
-    ]
-  },
-  "discoverLog": [
-    "@matthew_berman",
-    "Huberman Lab",
-    "@AustinEvans",
-    "@JerryRigEverything",
-    "@PracticalEngineeringChannel",
-    "@kurzgesagt",
-    "@WendoverProductions",
-    "@AIDailyBrief",
-    "All-In with Chamath, Jason, Sacks & Friedberg",
-    "The Peter Attia Drive",
-    "@Dave2D",
-    "@LinusTechTips",
-    "@Mrwhosetheboss",
-    "@CityNerd",
-    "@TheB1M",
-    "@TwoMinutePapers",
-    "@DwarkeshPatel",
-    "@SabineHossenfelder",
-    "@Fireship",
-    "Dwarkesh Podcast",
-    "My First Million",
-    "@MarkRober",
-    "@CleoAbram",
-    "@IEEESpectrum",
-    "@Vsauce",
-    "@theverge",
-    "@BostonDynamics",
-    "No Priors: Artificial Intelligence | Technology | Startups",
-    "@Computerphile",
-    "@TomScottGo",
-    "@NVIDIA",
-    "@UnitreeRobotics",
-    "@3blue1brown",
-    "@UrAvgConsumer",
-    "@minutephysics",
-    "@Numberphile",
-    "@TheAIGRID",
-    "@AIExplained-official"
-  ],
-  "bay": {
-    "range": "Oct 30 – Nov 1",
-    "items": [
-      {
-        "id": "b1",
-        "title": "Ghost Ship VIII",
-        "where": "San Francisco",
-        "blurb": "An adults-only Halloween dance event with multiple stages and art installations, listed for 9 PM to 3 AM.",
-        "date": "2026-10-30",
-        "url": "https://www.sfstation.com/music/calendar/bay-area/10-31-2026",
-        "cal": {
-          "start": "2026-10-30T21:00",
-          "end": "2026-10-31T03:00",
-          "location": "San Francisco, CA",
-          "tips": "Venue and ticket details were not confirmed; check the organizer's page before planning a ride home."
-        }
-      },
-      {
-        "id": "b2",
-        "title": "Final weekend of Ocean Beach bonfires",
-        "where": "Ocean Beach, San Francisco",
-        "blurb": "Fire rings are first come, first served, and Friday's session runs 3 to 9:30 PM. This is the last weekend of the 2026 season.",
-        "date": "2026-10-30",
-        "url": "https://www.sftourismtips.com/halloween-events-sf-bay-area.html",
-        "free": true,
-        "cal": {
-          "start": "2026-10-30T16:00",
-          "end": "2026-10-30T21:30",
-          "location": "Ocean Beach, San Francisco, CA",
-          "tips": "Bring warm layers. Check SF Rec and Park rules for what you can burn; hours come from a single listing."
-        }
-      },
-      {
-        "id": "b3",
-        "title": "Knocked Loose with Denzel Curry",
-        "where": "Cow Palace, Daly City",
-        "blurb": "A Halloween night show at the Cow Palace, listed for 7 PM.",
-        "date": "2026-10-31",
-        "url": "https://www.sfstation.com/music/calendar/bay-area/10-31-2026",
-        "cal": {
-          "start": "2026-10-31T19:00",
-          "end": "2026-10-31T23:00",
-          "location": "Cow Palace, Daly City, CA",
-          "tips": "Time is from a listing; confirm doors and tickets with the venue."
-        }
-      },
-      {
-        "id": "b4",
-        "title": "Galactic at The Fillmore",
-        "where": "The Fillmore, San Francisco",
-        "blurb": "The New Orleans funk band on Halloween night, listed for 8 PM.",
-        "date": "2026-10-31",
-        "url": "https://www.sfstation.com/music/calendar/bay-area/10-31-2026",
-        "cal": {
-          "start": "2026-10-31T20:00",
-          "end": "2026-10-31T23:00",
-          "location": "1805 Geary Blvd, San Francisco, CA",
-          "tips": "Time is from a listing; confirm with The Fillmore."
-        }
-      },
-      {
-        "id": "b5",
-        "title": "Halloween activities at the Hiller Aviation Museum",
-        "where": "Hiller Aviation Museum, San Carlos",
-        "blurb": "Kids' Halloween activities run Oct 31 and Nov 1, a Peninsula option about 20 minutes up the road from Mountain View.",
-        "date": "2026-11-01",
-        "url": "https://www.sftourismtips.com/halloween-events-sf-bay-area.html",
-        "cal": {
-          "start": "2026-11-01T10:00",
-          "end": "2026-11-01T14:00",
-          "location": "601 Skyway Rd, San Carlos, CA",
-          "tips": "Hours are a placeholder; confirm at hiller.org."
-        }
-      }
-    ]
-  },
-  "bayLog": [
-    "Bart Skils at Public Works",
-    "ScHoolboy Q – 10 Years of Blank Face LP",
-    "Vulfpeck at Greek Theatre",
-    "Half Moon Bay Pumpkin Festival",
-    "Rush – Fifty Something at SAP Center",
-    "WNBA Finals Game 1",
-    "Bay Area Science Festival",
-    "Epik High",
-    "Dinosaur Jr.",
-    "Warriors home opener",
-    "Ivy Lab at Public Works",
-    "World of Dumplings",
-    "TheatreWorks Dracula",
-    "Winchester Festival Fright Nights",
-    "Jai Wolf at Regency Ballroom",
-    "Sofi Tukker at Cow Palace",
-    "Sandcastle Classic",
-    "Yerba Buena Gardens Festival",
-    "Julia Jacklin at Castro Theatre",
-    "Marc Rebillet, Franc Moody and Chromeo at The Midway",
-    "RADwood NorCal",
-    "Children's Halloween Haunt at History Park",
-    "Kishi Bashi at The Fillmore",
-    "Joy Oladokun at Castro Theatre",
-    "One Song All Night: Fleetwood Mac's Dreams tribute",
-    "Downtown Burlingame Fall Fest",
-    "Shpongle at the Fox Theater",
-    "Knocked Loose and Denzel Curry at the Cow Palace",
-    "Oh, Mary! at the Curran Theatre",
-    "Halloween trick-or-treating on Castro Street",
-    "Ocean Beach bonfires",
-    "Eric Prydz at Club Darc, Pier 48",
-    "The Addams Family at Palo Alto Players",
-    "San Jose Sharks vs. Ottawa Senators",
-    "Downtown Palo Alto Farmers' Market Halloween",
-    "Halloween Eve DJ party at the de Young",
-    "Ghost Ship VIII",
-    "Final weekend of Ocean Beach bonfires",
-    "Knocked Loose with Denzel Curry",
-    "Galactic at The Fillmore",
-    "Halloween activities at the Hiller Aviation Museum"
-  ],
-  "shows": {
-    "note": "No Bay Area dates found through April 2027 for Chris Lake, Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
-    "items": [
-      {
-        "artist": "Sam Gellaitry",
-        "title": "Sammy Virji with Sam Gellaitry",
-        "date": "2026-11-13",
-        "time": "20:00",
-        "venue": "Cow Palace",
-        "city": "Daly City",
-        "match": "list",
-        "price": "Resale from ~$99",
-        "url": "https://apeconcerts.com/events/sammy-virji-261113/",
-        "cal": {
-          "start": "2026-11-13T20:00",
-          "end": "2026-11-14T00:00",
-          "location": "Cow Palace, Daly City, CA",
-          "tips": "18+; doors 7 PM, show 8 PM. Caltrain's Bayshore stop is about a mile away."
-        }
-      },
-      {
-        "artist": "John Summit",
-        "title": "John Summit – CTRL ESCAPE Arena Tour",
-        "date": "2026-12-04",
-        "time": "19:00",
-        "venue": "Oakland Arena",
-        "city": "Oakland",
-        "match": "like",
-        "like": "Chris Lake",
-        "why": "Arena-size tech house, same lane as Chris Lake.",
-        "price": "About $44–$247 on Ticketmaster",
-        "url": "https://www.ticketmaster.com/john-summit-ctrl-escape-arena-tour-oakland-12-04-2026/event/1C0064B3BCEE6B02",
-        "cal": {
-          "start": "2026-12-04T19:00",
-          "end": "2026-12-04T23:00",
-          "location": "Oakland Arena, Oakland, CA",
-          "tips": "Doors 6 PM. BART to Coliseum."
-        }
-      },
-      {
-        "artist": "Virtual Riot",
-        "title": "Virtual Riot & Blanke",
-        "date": "2026-12-12",
-        "time": "20:00",
-        "venue": "San Jose Civic",
-        "city": "San Jose",
-        "match": "like",
-        "like": "Slander",
-        "why": "Heavy bass close to Slander's dubstep side, and the nearest show to home.",
-        "price": "Resale from ~$49",
-        "url": "https://app.discotech.me/events/38228936-virtual-riot-and-blanke-far-from-home-tour-at-san-jose-civic",
-        "cal": {
-          "start": "2026-12-12T20:00",
-          "end": "2026-12-13T00:00",
-          "location": "San Jose Civic, San Jose, CA",
-          "tips": "Clear-bag policy. Caltrain to Diridon or VTA light rail to Convention Center."
-        }
-      },
-      {
-        "artist": "Illenium",
-        "title": "Illenium",
-        "date": "2026-12-30",
-        "time": "20:00",
-        "venue": "Bill Graham Civic Auditorium",
-        "city": "San Francisco",
-        "match": "like",
-        "like": "Slander",
-        "why": "Melodic bass, the closest match to Slander. The Dec 31 show is sold out.",
-        "price": "Resale from ~$159",
-        "url": "https://apeconcerts.com/events/illenium-261230/",
-        "cal": {
-          "start": "2026-12-30T20:00",
-          "end": "2026-12-30T23:30",
-          "location": "Bill Graham Civic Auditorium, San Francisco, CA",
-          "tips": "18+; doors 7 PM. BART to Civic Center."
-        }
-      },
-      {
-        "artist": "RÜFÜS DU SOL",
-        "title": "RÜFÜS DU SOL (DJ set) with Dixon b2b Jimi Jules",
-        "date": "2027-01-03",
-        "time": "16:00",
-        "venue": "Pier 80 Warehouse",
-        "city": "San Francisco",
-        "match": "like",
-        "like": "Chris Lake",
-        "why": "A long melodic-house afternoon into night; a DJ set, not the live band.",
-        "price": "$99.50–$349.50 on Tixr",
-        "url": "https://www.tixr.com/groups/npulive/events/r-f-s-du-sol-dj-set-dixon-b2b-jimi-jules-more-205796",
-        "cal": {
-          "start": "2027-01-03T16:00",
-          "end": "2027-01-03T23:00",
-          "location": "Pier 80 Warehouse, 401 Cesar Chavez St, San Francisco, CA",
-          "tips": "21+; all sales final. Muni T Third runs nearby."
-        }
-      }
-    ]
-  },
-  "movies": {
-    "now": [
-      {
-        "title": "Clayface",
-        "genre": "Superhero horror",
-        "rating": "R",
-        "score": 75,
-        "released": "2026-10-23",
-        "blurb": "DC Studios' body-horror take on the Batman villain, Certified Fresh on Rotten Tomatoes. It opened to $9.5M on Friday including previews, with a $23M to $25M weekend estimated.",
-        "url": "https://comicbookmovie.com/batman/clayface/clayface-rotten-tomatoes-score-revealed-critics-weigh-in-on-crowd-pleasing-uneven-dcu-movie-a230563"
-      },
-      {
-        "title": "Wildwood",
-        "genre": "Animated fantasy",
-        "rating": "PG-13",
-        "released": "2026-10-23",
-        "blurb": "Laika's PG-13 animated adaptation opened to about $12M for third place, with an A CinemaScore, and is showing at AMC Sunnyvale 12.",
-        "url": "https://en.wikipedia.org/wiki/Wildwood_(film)"
-      },
-      {
-        "title": "Street Fighter",
-        "genre": "Action",
-        "rating": "PG-13",
-        "runtime": 119,
-        "score": 41,
-        "released": "2026-10-16",
-        "blurb": "Kitao Sakurai's live-action take on the fighting game opened at No. 1 with about $31M; its second weekend is projected near $11M.",
-        "url": "https://www.rottentomatoes.com/m/street_fighter_2026"
-      },
-      {
-        "title": "You Can See Everything",
-        "genre": "Documentary",
-        "rating": "R",
-        "runtime": 174,
-        "score": 97,
-        "released": "2026-10-16",
-        "blurb": "Nathan Fielder and Lance Oppenheim follow Elizabeth Holmes in her final weeks before prison. It opened to about $15M on 855 screens and expands to about 2,600 this weekend, forecast at $19M to $25M.",
-        "url": "https://www.rottentomatoes.com/m/you_can_see_everything"
-      },
-      {
-        "title": "Whalefall",
-        "genre": "Survival thriller",
-        "rating": "PG-13",
-        "runtime": 106,
-        "score": 72,
-        "released": "2026-10-16",
-        "blurb": "A diver (Austin Abrams) is swallowed by a sperm whale while searching for his father's remains; Josh Brolin co-stars. Opened to $8M.",
-        "url": "https://www.rottentomatoes.com/m/whalefall"
-      },
-      {
-        "title": "Sense and Sensibility",
-        "genre": "Period drama",
-        "rating": "PG",
-        "runtime": 132,
-        "score": 78,
-        "released": "2026-10-16",
-        "blurb": "Daisy Edgar-Jones and Esmé Creed-Miles play the Dashwood sisters in Georgia Oakley's Austen adaptation.",
-        "url": "https://www.rottentomatoes.com/m/sense_and_sensibility_2026"
-      },
-      {
-        "title": "Other Mommy",
-        "genre": "Horror",
-        "rating": "R",
-        "runtime": 93,
-        "score": 19,
-        "released": "2026-10-09",
-        "blurb": "Jessica Chastain plays a mother and her sinister double. Down about 70% in its second weekend, with about $44.9M so far.",
-        "url": "https://www.rottentomatoes.com/m/other_mommy"
-      },
-      {
-        "title": "Verity",
-        "genre": "Thriller",
-        "rating": "R",
-        "score": 31,
-        "released": "2026-10-02",
-        "blurb": "Anne Hathaway, Dakota Johnson and Josh Hartnett in the Colleen Hoover thriller; $6.2M last weekend.",
-        "url": "https://www.rottentomatoes.com/m/verity"
-      },
-      {
-        "title": "Heart of the Beast",
-        "genre": "Survival thriller",
-        "rating": "PG-13",
-        "runtime": 101,
-        "score": 85,
-        "released": "2026-09-25",
-        "blurb": "Brad Pitt plays a Special Forces veteran stranded in Alaska with his combat dog after a plane crash. About $58M domestic.",
-        "url": "https://www.rottentomatoes.com/m/heart_of_the_beast"
-      },
-      {
-        "title": "Resident Evil",
-        "genre": "Horror",
-        "rating": "R",
-        "score": 96,
-        "released": "2026-09-18",
-        "blurb": "Zach Cregger's reboot is past $100M domestic and still made $5.5M last weekend.",
-        "url": "https://www.rottentomatoes.com/m/resident_evil_2026"
-      }
-    ],
-    "soon": [
-      {
-        "title": "Godzilla Minus Zero",
-        "genre": "Monster",
-        "date": "2026-11-06",
-        "blurb": "Takashi Yamazaki's sequel to the Oscar-winning Godzilla Minus One, released in the US by GKIDS.",
-        "url": "https://www.fangoria.com/godzilla-minus-zero-release-date/"
-      },
-      {
-        "title": "The Cat in the Hat",
-        "genre": "Animation",
-        "date": "2026-11-06",
-        "blurb": "Dr. Seuss' story gets a new animated adaptation."
-      },
-      {
-        "title": "The Hunger Games: Sunrise on the Reaping",
-        "genre": "Sci-fi",
-        "date": "2026-11-20",
-        "big": true,
-        "blurb": "Haymitch's Games, 24 years before Katniss."
-      },
-      {
-        "title": "Focker-in-Law",
-        "genre": "Comedy",
-        "date": "2026-11-25",
-        "blurb": "Ben Stiller and Robert De Niro, back for Thanksgiving."
-      },
-      {
-        "title": "Hexed",
-        "genre": "Animation",
-        "date": "2026-11-25",
-        "blurb": "Disney's animated Thanksgiving release."
-      },
-      {
-        "title": "Violent Night 2",
-        "genre": "Action comedy",
-        "date": "2026-12-04",
-        "blurb": "The holiday action sequel."
-      },
-      {
-        "title": "Avengers: Doomsday",
-        "genre": "Marvel",
-        "date": "2026-12-18",
-        "big": true,
-        "blurb": "Robert Downey Jr. returns as Doctor Doom.",
-        "url": "https://avclub.com/avengers-doomsday-dune-part-three-same-day-release-december-18"
-      },
-      {
-        "title": "Dune: Part Three",
-        "genre": "Sci-fi",
-        "date": "2026-12-18",
-        "big": true,
-        "blurb": "Denis Villeneuve closes the trilogy, opening the same day as Avengers."
-      },
-      {
-        "title": "Jumanji: Open World",
-        "genre": "Adventure",
-        "date": "2026-12-25",
-        "blurb": "Dwayne Johnson, Jack Black, Kevin Hart and Karen Gillan return; moved from Dec 11 to Christmas."
-      }
-    ]
-  },
-  "vocab": [
-    {
-      "date": "2026-10-29",
-      "word": "Ineffable",
-      "pron": "in-EF-uh-bul",
-      "pos": "adjective",
-      "def": "Too great or extraordinary to be put into words.",
-      "ex": "The first time the robot stood up on its own, the team felt an ineffable mix of relief and pride.",
-      "cards": [
-        {
-          "f": "Root",
-          "b": "Latin ineffabilis, from in- 'not' + effari 'to speak out'"
-        },
-        {
-          "f": "Synonym",
-          "b": "inexpressible, indescribable, unspeakable"
-        },
-        {
-          "f": "Use it for",
-          "b": "feelings, beauty or experiences that words fall short of, usually in a good way"
-        }
-      ],
-      "examples": [
-        "The first time the robot stood up on its own, the team felt an ineffable mix of relief and pride.",
-        "There was something ineffable about the view from the ridge at sunset."
-      ]
-    },
-    {
-      "date": "2026-10-28",
-      "word": "Perspicacious",
-      "pron": "per-spih-KAY-shus",
-      "pos": "adjective",
-      "def": "Quick to notice and understand things that others miss.",
-      "ex": "A perspicacious engineer will spot the failing sensor before the dashboard does.",
-      "cards": [
-        {
-          "f": "Root",
-          "b": "Latin perspicax, from perspicere, 'to see through'"
-        },
-        {
-          "f": "Synonym",
-          "b": "astute, shrewd, discerning"
-        },
-        {
-          "f": "Use it for",
-          "b": "people or comments that show sharp insight into a situation, not just general intelligence"
-        }
-      ],
-      "examples": [
-        "A perspicacious engineer will spot the failing sensor before the dashboard does.",
-        "Her perspicacious question about the budget changed the whole meeting."
-      ]
-    },
-    {
-      "date": "2026-10-27",
-      "word": "Ephemeral",
-      "pron": "ih-FEM-er-ul",
-      "pos": "adjective",
-      "def": "Lasting for a very short time.",
-      "ex": "The fall color in the foothills is ephemeral; by mid-November most of it is gone.",
-      "cards": [
-        {
-          "f": "Root",
-          "b": "Greek ephemeros, 'lasting a day', from epi 'on' and hemera 'day'"
-        },
-        {
-          "f": "Synonym",
-          "b": "fleeting, transient, short-lived"
-        },
-        {
-          "f": "Use it for",
-          "b": "things that are expected to disappear quickly, like trends, moments, messages or blossoms"
-        }
-      ],
-      "examples": [
-        "The fall color in the foothills is ephemeral; by mid-November most of it is gone.",
-        "Some chat apps make messages ephemeral by deleting them after a day."
-      ]
-    },
-    {
-      "date": "2026-10-26",
-      "word": "Laconic",
-      "pron": "luh-KON-ik",
-      "pos": "adjective",
-      "def": "Using very few words; brief and to the point.",
-      "ex": "Her laconic reply, 'Shipped,' told the team everything they needed to know.",
-      "cards": [
-        {
-          "f": "Root",
-          "b": "Greek Lakonikos, 'of Laconia', the region of Sparta, whose people were known for short, blunt speech"
-        },
-        {
-          "f": "Synonym",
-          "b": "terse, succinct, concise"
-        },
-        {
-          "f": "Use it for",
-          "b": "describing a person, a reply or a style of writing that says a lot in few words"
-        }
-      ],
-      "examples": [
-        "Her laconic reply, 'Shipped,' told the team everything they needed to know.",
-        "He was a laconic host, but nobody ever left his dinners hungry or confused."
-      ]
-    },
-    {
-      "date": "2026-10-25",
-      "word": "Sedulous",
-      "pron": "SEJ-uh-lus",
-      "pos": "adjective",
-      "def": "Showing steady, careful and persistent effort.",
-      "ex": "The sedulous engineer re-ran every calibration before the demo.",
-      "cards": [
-        {
-          "f": "Root",
-          "b": "Latin sedulus, diligent or attentive"
-        },
-        {
-          "f": "Synonym",
-          "b": "diligent, assiduous, industrious"
-        },
-        {
-          "f": "Use it for",
-          "b": "praising careful, patient work, like testing, editing or research"
-        }
-      ],
-      "examples": [
-        "The sedulous engineer re-ran every calibration before the demo.",
-        "Her sedulous note-taking meant nothing from the meeting was lost."
-      ]
-    },
-    {
-      "date": "2026-10-24",
-      "word": "Convivial",
-      "pron": "kun-VIV-ee-ul",
-      "pos": "adjective",
-      "def": "Friendly, lively and welcoming, especially of a gathering, a host or an atmosphere around food and drink.",
-      "ex": "The reception had a convivial mood, with strangers swapping stories at every table.",
-      "cards": [
-        {
-          "f": "Root",
-          "b": "Latin convivium, a feast: con- (together) plus vivere (to live)"
-        },
-        {
-          "f": "Synonym",
-          "b": "sociable, genial, festive"
-        },
-        {
-          "f": "Use it for",
-          "b": "describing a party, a dinner, a host or the mood of a room"
-        }
-      ],
-      "examples": [
-        "The reception had a convivial mood, with strangers swapping stories at every table.",
-        "She is a convivial host who always makes sure everyone has a drink and someone to talk to."
-      ]
-    },
-    {
-      "date": "2026-10-23",
-      "word": "Salient",
-      "pron": "SAY-lee-ent",
-      "pos": "adjective",
-      "def": "Most noticeable or important; standing out from the rest.",
-      "ex": "The salient point of the demo was that the hand worked without retraining.",
-      "cards": [
-        {
-          "f": "Root",
-          "b": "Latin salire, to leap: a salient fact leaps out at you"
-        },
-        {
-          "f": "Synonym",
-          "b": "prominent, key, striking"
-        },
-        {
-          "f": "Use it for",
-          "b": "naming the main point in a report, a meeting or a demo"
-        }
-      ],
-      "examples": [
-        "The salient point of the demo was that the hand worked without retraining.",
-        "Skip the background and lead with the three salient numbers."
-      ]
-    }
-  ],
-  "spanish": [
-    {
-      "date": "2026-10-29",
-      "phrase": "¿Cómo te fue en la chamba?",
-      "pron": "KOH-moh teh fweh en lah CHAM-bah",
-      "reg": "Mexico · casual",
-      "meaning": "How did work go?",
-      "note": "'Chamba' is casual Mexican slang for work or a job. Use it with friends and coworkers, not in a formal email.",
-      "cards": [
-        {
-          "es": "¿Mucha chamba hoy?",
-          "en": "Lots of work today?"
-        },
-        {
-          "es": "Salí tarde de la chamba",
-          "en": "I left work late"
-        },
-        {
-          "es": "Tengo chamba pendiente",
-          "en": "I have work left to do"
-        }
-      ],
-      "parts": [
-        {
-          "es": "¿Cómo",
-          "en": "how"
-        },
-        {
-          "es": "te",
-          "en": "to you"
-        },
-        {
-          "es": "fue",
-          "en": "it went"
-        },
-        {
-          "es": "en",
-          "en": "at / in"
-        },
-        {
-          "es": "la",
-          "en": "the"
-        },
-        {
-          "es": "chamba?",
-          "en": "work (slang)"
-        }
-      ],
-      "dialog": [
-        {
-          "es": "¿Cómo te fue en la chamba?",
-          "en": "How did work go?"
-        },
-        {
-          "es": "Pesadito, pero ya acabé.",
-          "en": "A bit heavy, but I'm done."
-        },
-        {
-          "es": "Entonces ya cénate algo rico.",
-          "en": "Then go eat something good."
-        },
-        {
-          "es": "Va, vamos por unos tacos.",
-          "en": "Sure, let's go get tacos."
-        }
-      ],
-      "use": "Ask it to a friend or coworker when they come home or log off for the day.",
-      "quiz": {
-        "options": [
-          "How did work go?",
-          "Where did you eat?",
-          "How are your friends?"
-        ],
-        "answer": 0
-      }
-    },
-    {
-      "date": "2026-10-28",
-      "phrase": "¡Estoy hecho polvo!",
-      "pron": "ess-TOY EH-choh POHL-voh",
-      "reg": "Mexico · casual",
-      "meaning": "I'm wiped out!",
-      "note": "Literally 'I'm made into dust.' A common casual way to say you are exhausted. Women say 'hecha polvo.'",
-      "cards": [
-        {
-          "es": "Estoy muerto",
-          "en": "I'm dead tired"
-        },
-        {
-          "es": "No doy más",
-          "en": "I can't go on"
-        },
-        {
-          "es": "Ando bien cansado",
-          "en": "I'm really tired"
-        }
-      ],
-      "parts": [
-        {
-          "es": "Estoy",
-          "en": "I am"
-        },
-        {
-          "es": "hecho",
-          "en": "made / turned into"
-        },
-        {
-          "es": "polvo",
-          "en": "dust"
-        }
-      ],
-      "dialog": [
-        {
-          "es": "¿Cómo dormiste?",
-          "en": "How did you sleep?"
-        },
-        {
-          "es": "Poquito. ¡Estoy hecho polvo!",
-          "en": "Very little. I'm wiped out!"
-        },
-        {
-          "es": "Échate un café.",
-          "en": "Have a coffee."
-        },
-        {
-          "es": "Mejor una siesta.",
-          "en": "A nap is better."
-        }
-      ],
-      "use": "Say it after a short night or a long day, to a friend or coworker.",
-      "quiz": {
-        "options": [
-          "I'm wiped out",
-          "I'm very hungry",
-          "I'm running late"
-        ],
-        "answer": 0
-      }
-    },
-    {
-      "date": "2026-10-27",
-      "phrase": "¡No hay bronca!",
-      "pron": "noh eye BROHN-kah",
-      "reg": "Mexico · casual",
-      "meaning": "No problem!",
-      "note": "'Bronca' means trouble or a problem in casual Mexican Spanish. Say it to wave off an apology or reassure someone; it is friendly and informal.",
-      "cards": [
-        {
-          "es": "No pasa nada",
-          "en": "It's no big deal"
-        },
-        {
-          "es": "Sin problema",
-          "en": "No problem"
-        },
-        {
-          "es": "Todo bien",
-          "en": "All good"
-        }
-      ],
-      "parts": [
-        {
-          "es": "¡No",
-          "en": "no / there is not"
-        },
-        {
-          "es": "hay",
-          "en": "there is"
-        },
-        {
-          "es": "bronca",
-          "en": "trouble / a problem"
-        }
-      ],
-      "dialog": [
-        {
-          "es": "Perdón, llegué tarde.",
-          "en": "Sorry, I got here late."
-        },
-        {
-          "es": "¡No hay bronca! Apenas empezamos.",
-          "en": "No problem! We just started."
-        },
-        {
-          "es": "Gracias, ya traigo el café.",
-          "en": "Thanks, I already have the coffee."
-        },
-        {
-          "es": "Perfecto, siéntate.",
-          "en": "Perfect, sit down."
-        }
-      ],
-      "use": "Say it when a friend apologizes for being late or asks if a small favor is okay.",
-      "quiz": {
-        "options": [
-          "No problem!",
-          "I am very tired.",
-          "See you tomorrow."
-        ],
-        "answer": 0
-      }
-    },
-    {
-      "date": "2026-10-26",
-      "phrase": "¡Qué chido está tu carro!",
-      "pron": "keh CHEE-doh eh-STAH too KAH-rroh",
-      "reg": "Mexico · casual",
-      "meaning": "Your car is so cool!",
-      "note": "'Chido' is very common casual Mexican slang for cool or great. It is friendly and informal, fine with friends and peers.",
-      "cards": [
-        {
-          "es": "¡Qué padre!",
-          "en": "How cool!"
-        },
-        {
-          "es": "¡Está de pelos!",
-          "en": "It's awesome!"
-        },
-        {
-          "es": "¡Qué buena onda!",
-          "en": "How nice of you!"
-        }
-      ],
-      "parts": [
-        {
-          "es": "¡Qué",
-          "en": "how / what a"
-        },
-        {
-          "es": "chido",
-          "en": "cool"
-        },
-        {
-          "es": "está",
-          "en": "is"
-        },
-        {
-          "es": "tu",
-          "en": "your"
-        },
-        {
-          "es": "carro",
-          "en": "car"
-        }
-      ],
-      "dialog": [
-        {
-          "es": "¿Viste mi carro nuevo?",
-          "en": "Did you see my new car?"
-        },
-        {
-          "es": "¡Sí! ¡Qué chido está tu carro!",
-          "en": "Yes! Your car is so cool!"
-        },
-        {
-          "es": "Gracias, lo compré ayer.",
-          "en": "Thanks, I bought it yesterday."
-        },
-        {
-          "es": "¡Qué padre! Felicidades.",
-          "en": "How nice! Congratulations."
-        }
-      ],
-      "use": "Say it when a friend shows you something you like, like a car, a phone or a new place.",
-      "quiz": {
-        "options": [
-          "Your car is so cool!",
-          "Your car is very old.",
-          "Where did you park your car?"
-        ],
-        "answer": 0
-      }
-    },
-    {
-      "date": "2026-10-25",
-      "phrase": "Ahorita vengo, voy por unos tacos",
-      "pron": "ah-oh-REE-tah VEN-goh, voy por OO-nohs TAH-kohs",
-      "reg": "Mexico · casual",
-      "meaning": "I'll be right back, I'm getting some tacos.",
-      "note": "'Ahorita' is flexible in Mexico: it can mean right now or a while from now, depending on tone. 'Ahorita vengo' is the usual way to say you are stepping out and coming back soon.",
-      "cards": [
-        {
-          "es": "Ahorita regreso",
-          "en": "I'll be back in a bit"
-        },
-        {
-          "es": "Ya vengo",
-          "en": "I'm coming right back"
-        },
-        {
-          "es": "No tardo",
-          "en": "I won't be long"
-        }
-      ],
-      "parts": [
-        {
-          "es": "Ahorita",
-          "en": "in a little while / right now"
-        },
-        {
-          "es": "vengo",
-          "en": "I come (back)"
-        },
-        {
-          "es": "voy",
-          "en": "I'm going"
-        },
-        {
-          "es": "por",
-          "en": "to get / for"
-        },
-        {
-          "es": "unos",
-          "en": "some"
-        },
-        {
-          "es": "tacos",
-          "en": "tacos"
-        }
-      ],
-      "dialog": [
-        {
-          "es": "¿A dónde vas?",
-          "en": "Where are you going?"
-        },
-        {
-          "es": "Ahorita vengo, voy por unos tacos.",
-          "en": "I'll be right back, I'm getting some tacos."
-        },
-        {
-          "es": "¿Me traes dos de pastor?",
-          "en": "Can you bring me two al pastor?"
-        },
-        {
-          "es": "Claro, ahorita te los traigo.",
-          "en": "Sure, I'll bring them in a bit."
-        }
-      ],
-      "use": "Say it when you step out of a room or a shop for a few minutes and plan to come back.",
-      "quiz": {
-        "options": [
-          "I'll be right back, I'm getting some tacos.",
-          "I already ate all the tacos.",
-          "The tacos are too expensive."
-        ],
-        "answer": 0
-      }
-    },
-    {
-      "date": "2026-10-24",
-      "phrase": "¡Que vivan los novios!",
-      "pron": "keh VEE-vahn lohs NOH-vyohs",
-      "reg": "Mexico · festive",
-      "meaning": "Long live the newlyweds!",
-      "note": "The standard cheer at a Mexican wedding toast, shouted by the whole room. 'Novios' means the bride and groom, or a couple who are engaged or newly married. It's for weddings and anniversaries.",
-      "cards": [
-        {
-          "es": "¡Salud!",
-          "en": "Cheers!"
-        },
-        {
-          "es": "¡Felicidades!",
-          "en": "Congratulations!"
-        },
-        {
-          "es": "¡Que se besen!",
-          "en": "Kiss! (the crowd's chant)"
-        }
-      ],
-      "parts": [
-        {
-          "es": "Que",
-          "en": "may / let"
-        },
-        {
-          "es": "vivan",
-          "en": "they live"
-        },
-        {
-          "es": "los",
-          "en": "the"
-        },
-        {
-          "es": "novios",
-          "en": "bride and groom"
-        }
-      ],
-      "dialog": [
-        {
-          "es": "¡Ya llegó la hora del brindis!",
-          "en": "It's time for the toast!"
-        },
-        {
-          "es": "¡Salud! ¡Que vivan los novios!",
-          "en": "Cheers! Long live the newlyweds!"
-        },
-        {
-          "es": "¡Y que bailen toda la noche!",
-          "en": "And may they dance all night!"
-        },
-        {
-          "es": "¡Eso! Ahora sí, a la pista.",
-          "en": "Exactly! Now, to the dance floor."
-        }
-      ],
-      "use": "Say it when someone raises a glass at a wedding, or after a friend announces an engagement.",
-      "quiz": {
-        "options": [
-          "Long live the newlyweds!",
-          "Congratulations on the new house!",
-          "The bus leaves in five minutes."
-        ],
-        "answer": 0
-      }
-    },
-    {
-      "date": "2026-10-23",
-      "phrase": "Ni modo, ya será para la próxima",
-      "pron": "nee MOH-doh, yah seh-RAH PAH-rah lah PROHK-see-mah",
-      "reg": "Mexico · casual",
-      "meaning": "Oh well, there's always next time.",
-      "note": "'Ni modo' is the everyday Mexican shrug for something that can't be changed. Add 'ya será para la próxima' after a missed plan to move on lightly; it's not for serious losses.",
-      "cards": [
-        {
-          "es": "Ni modo",
-          "en": "Oh well"
-        },
-        {
-          "es": "¿Qué le vamos a hacer?",
-          "en": "What can you do?"
-        },
-        {
-          "es": "Para la próxima",
-          "en": "Next time"
-        }
-      ],
-      "parts": [
-        {
-          "es": "Ni",
-          "en": "no / not"
-        },
-        {
-          "es": "modo,",
-          "en": "way / option (no way around it)"
-        },
-        {
-          "es": "ya",
-          "en": "already / then"
-        },
-        {
-          "es": "será",
-          "en": "it will be"
-        },
-        {
-          "es": "para la",
-          "en": "for the"
-        },
-        {
-          "es": "próxima",
-          "en": "next one"
-        }
-      ],
-      "dialog": [
-        {
-          "es": "Se canceló el partido por la lluvia.",
-          "en": "The game was canceled because of the rain."
-        },
-        {
-          "es": "Ni modo, ya será para la próxima.",
-          "en": "Oh well, there's always next time."
-        },
-        {
-          "es": "¿Vamos por unos tacos entonces?",
-          "en": "Want to go get tacos then?"
-        },
-        {
-          "es": "¡Eso sí! Yo invito.",
-          "en": "Now you're talking! My treat."
-        }
-      ],
-      "use": "Say it when a plan falls through and you'd rather move on than complain, like a missed flight or a canceled game.",
-      "quiz": {
-        "options": [
-          "Oh well, there's always next time.",
-          "No way, that's really cool!",
-          "Hurry up, we're running late."
-        ],
-        "answer": 0
-      }
-    }
-  ],
-  "learnLog": {
-    "words": [
-      "Peripatetic",
-      "Recondite",
-      "Liminal",
-      "Sanguine",
-      "Equanimity",
-      "Salient",
-      "Convivial",
-      "Sedulous",
-      "Laconic",
-      "Ephemeral",
-      "Perspicacious",
-      "Ineffable"
-    ],
-    "phrases": [
-      "¡Aguas!",
-      "Me da igual",
-      "¡Qué calor!",
-      "¿Qué onda?",
-      "¡No manches, está bien padre!",
-      "Ni modo, ya será para la próxima",
-      "¡Que vivan los novios!",
-      "Ahorita vengo, voy por unos tacos",
-      "¡Qué chido está tu carro!",
-      "¡No hay bronca!",
-      "¡Estoy hecho polvo!",
-      "¿Cómo te fue en la chamba?"
-    ]
-  },
-  "coach": {
-    "date": "2026-10-27",
-    "quality": "Connected",
-    "theme": "Reach out",
-    "focus": {
-      "title": "Reach out before the birthdays",
-      "why": "Your calendar is empty today and tomorrow, Paige's birthday is Thursday and Patrick's is Sunday. Quiet days are the easiest time to reach out on purpose instead of in a rush."
-    },
-    "one": {
-      "text": "Draft Paige's birthday message now, with one specific memory in it, and schedule it for Thursday morning.",
-      "mins": 5
-    },
-    "idea": {
-      "line": "A short note lands harder than you expect.",
-      "body": "In experiments, people who wrote gratitude notes underestimated how surprised and happy the recipient would be, and overestimated how awkward the note would feel. The hesitation is usually wrong.",
-      "src": "Amit Kumar & Nicholas Epley · undervaluing gratitude"
-    },
-    "reflect": "Who did I make feel remembered today?",
-    "principle": "A short note lands harder than you expect.",
-    "moves": [
-      {
-        "area": "People",
-        "text": "Draft Paige's birthday message now, with one specific memory in it, and schedule it for Thursday morning.",
-        "mins": 5
-      },
-      {
-        "area": "Body",
-        "text": "Take a 20-minute walk after lunch; yesterday came to about 6,300 steps.",
-        "mins": 20
-      },
-      {
-        "area": "People",
-        "text": "Put a reminder to call Patrick on Sunday for his birthday.",
-        "mins": 2
-      }
-    ]
-  },
-  "music": {
-    "artists": [
-      {
-        "name": "Don Toliver",
-        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
-      },
-      {
-        "name": "Chris Lake",
-        "url": "https://open.spotify.com/artist/5Igpc9iLZ3YGtKeYfSrrOE"
-      },
-      {
-        "name": "Slander",
-        "url": "https://open.spotify.com/artist/20DZAfCuP1TKZl5KcY7z3Q"
-      },
-      {
-        "name": "Sam Gellaitry",
-        "url": "https://open.spotify.com/artist/07UJz804RJxqNvxFXC3h9H"
-      },
-      {
-        "name": "Kanye West",
-        "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
-      },
-      {
-        "name": "Tyler, The Creator",
-        "url": "https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF"
-      }
-    ],
-    "releases": []
-  },
-  "live": [
-    {
-      "kind": "game",
-      "title": "Knicks at 76ers",
-      "sub": "NBA Cup",
-      "when": "2026-10-30T16:30:00-07:00",
-      "where": "Xfinity Mobile Arena, Philadelphia",
-      "tv": [
-        "Prime Video"
-      ],
-      "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
-      "note": "Tips off at 7:30 PM ET."
-    },
-    {
-      "kind": "game",
-      "title": "76ers at Hornets",
-      "sub": "NBA regular season",
-      "when": "2026-10-31T15:00:00-07:00",
-      "where": "Spectrum Center, Charlotte",
-      "tv": [],
-      "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
-      "note": "6 PM ET. Sources disagree on the broadcaster (NBA TV or Peacock/NBC Sports Philadelphia), so check the local broadcast."
-    },
-    {
-      "kind": "game",
-      "title": "Ohio State at USC",
-      "sub": "Big Ten football",
-      "when": "2026-10-31T16:30:00-07:00",
-      "where": "Los Angeles Memorial Coliseum",
-      "tv": [
-        "NBC"
-      ],
-      "url": "https://ohiostatebuckeyes.com/news/2026/10/19/football-kickoff-time-at-usc-announced-for-7-30-pm-et-on-nbc",
-      "note": "Kickoff is 7:30 PM ET on NBC, as announced by Ohio State."
-    },
-    {
-      "kind": "fight",
-      "title": "UFC Fight Night: Bonfim vs. Brady",
-      "sub": "UFC",
-      "when": "2026-11-07T17:00:00-08:00",
-      "where": "UFC Apex, Las Vegas",
-      "tv": [
-        "Paramount+"
-      ],
-      "url": "https://en.wikipedia.org/wiki/UFC_Fight_Night:_Bonfim_vs._Brady",
-      "note": "Listed for 8 PM ET with the main card on Paramount+. No SpaceX launch date was confirmed this week; Starship Flight 15 has no firm date."
-    }
-  ],
-  "coachHistory": [
-    {
-      "date": "2026-10-21",
-      "quality": "Productive",
-      "title": "Finish one real thing before noon"
-    },
-    {
-      "date": "2026-10-22",
-      "quality": "Calmer",
-      "title": "Pack before noon so tonight is easy"
-    },
-    {
-      "date": "2026-10-23",
-      "quality": "Healthier",
-      "title": "Get daylight and a short nap, then protect tonight's sleep"
-    },
-    {
-      "date": "2026-10-24",
-      "quality": "Present",
-      "title": "Be fully present at Sammy's wedding"
-    },
-    {
-      "date": "2026-10-25",
-      "quality": "Generous",
-      "title": "Get home easily and mark Ty's birthday"
-    },
-    {
-      "date": "2026-10-26",
-      "quality": "Focused",
-      "title": "Decide what matters most this week"
-    },
-    {
-      "date": "2026-10-27",
-      "quality": "Connected",
-      "title": "Reach out before the birthdays"
-    }
-  ],
-  "dare": {
-    "date": "2026-10-29",
-    "kind": "Explore",
-    "title": "Eat somewhere you can't pronounce",
-    "why": "Sleep was short again, so keep it gentle. Walk Castro Street at lunch or just after 5, pick the menu with the name you can't say, and ask the server what they'd order. Order exactly that, and say the name out loud when you do.",
-    "mins": 45,
-    "cost": "$",
-    "place": {
-      "name": "Castro Street",
-      "sub": "Downtown Mountain View",
-      "url": "https://www.google.com/maps/search/?api=1&query=Castro+Street+Mountain+View+CA"
-    },
-    "worth": "Most of us order the same five things. One unfamiliar plate is a cheap way to meet a new taste, and the server usually loves being asked.",
-    "src": "",
-    "swap": {
-      "kind": "Brave",
-      "title": "Ask a stranger one real question",
-      "why": "Today, in a line or at a counter, ask someone something you're curious about, like 'What's the best thing you've eaten this month?' Listen to the whole answer.",
-      "mins": 10,
-      "worth": "A small, low-risk dose of nerve, and strangers tend to enjoy being asked."
-    }
-  },
-  "dareHistory": [
-    {
-      "date": "2026-10-21",
-      "kind": "Focus",
-      "title": "Finish one real thing before noon"
-    },
-    {
-      "date": "2026-10-22",
-      "kind": "Wonder",
-      "title": "Pack before noon so tonight is easy"
-    },
-    {
-      "date": "2026-10-23",
-      "kind": "Move",
-      "title": "Get daylight and a short nap, then protect tonight's sleep"
-    },
-    {
-      "date": "2026-10-24",
-      "kind": "Wonder",
-      "title": "Be fully present at Sammy's wedding"
-    },
-    {
-      "date": "2026-10-25",
-      "kind": "Give",
-      "title": "Get home easily and mark Ty's birthday"
-    },
-    {
-      "date": "2026-10-26",
-      "kind": "Focus",
-      "title": "Decide what matters most this week"
-    },
-    {
-      "date": "2026-10-27",
-      "kind": "Wonder",
-      "title": "Go find the moon tonight"
-    },
-    {
-      "date": "2026-10-27",
-      "kind": "Create",
-      "title": "Write 100 words you'll never show anyone"
-    },
-    {
-      "date": "2026-10-27",
-      "kind": "Learn",
-      "title": "Learn one card trick before bed"
-    },
-    {
-      "date": "2026-10-28",
-      "kind": "Connect",
-      "title": "Call someone from your Austin life"
-    },
-    {
-      "date": "2026-10-29",
-      "kind": "Explore",
-      "title": "Eat somewhere you can't pronounce"
-    }
+ "edition": "2026-10-30",
+ "updated": "2026-10-30T05:30:00-07:00",
+ "weatherFallback": {
+  "hi": 67,
+  "lo": 50,
+  "cond": "Mostly sunny",
+  "code": 1
+ },
+ "calendar": {
+  "summary": "Today is open, so it is a good day to sort out Saturday. Saturday is full: yoga at Grace Cathedral in San Francisco at 9 AM, Ohio State at USC at 4:30 PM Pacific on NBC, and RL Grime and NGHTMRE at The Midway from 4 to 10 PM. You can't do both the game and the show live, so pick one and check the Caltrain timetable. Clocks fall back at 2 AM Sunday, which is also Patrick's birthday. Monday at 5 PM is Dia de los Muertos in the Mission, and Tuesday is Election Day.",
+  "events": [
+   {
+    "title": "🎃 Halloween",
+    "allDay": true,
+    "date": "2026-10-31",
+    "url": "https://www.google.com/calendar/event?eid=ZzkwdWdpb2Zza2FsdTlrbGU2cnJpZ3A1MGsgcnVkeWxhbmdlbmthbXBAbQ"
+   },
+   {
+    "title": "Yoga @ Grace Cathedral",
+    "start": "2026-10-31T09:00:00-07:00",
+    "end": "2026-10-31T10:00:00-07:00",
+    "loc": "Grace Cathedral - 1100 California Street, San Francisco, CA, 94108 United States",
+    "url": "https://www.google.com/calendar/event?eid=NDZzN2w3NmF2aTFscWNoOGVnc2p1YnFqNTkgcnVkeWxhbmdlbmthbXBAbQ"
+   },
+   {
+    "title": "🎪 Midnight Carnival Block Party — RL GRIME, NGHTMRE & more (The Midway)",
+    "start": "2026-10-31T16:00:00-07:00",
+    "end": "2026-10-31T22:00:00-07:00",
+    "loc": "The Midway, 900 Marin St, San Francisco, CA 94124",
+    "url": "https://www.google.com/calendar/event?eid=MWRiNTVwZXMxOTFoZGZvNXE3cjkzYzl1ZjAgcnVkeWxhbmdlbmthbXBAbQ"
+   },
+   {
+    "title": "Ohio State at USC",
+    "start": "2026-10-31T16:30:00-07:00",
+    "end": "2026-10-31T19:00:00-07:00",
+    "loc": "Los Angeles Memorial Coliseum",
+    "url": "https://www.google.com/calendar/event?eid=bXBmaTcxaWVlaDl1MWd0dmEybmV2NjI1NWsgcnVkeWxhbmdlbmthbXBAbQ"
+   },
+   {
+    "title": "⏰ Daylight Saving Time Ends — Fall Back",
+    "allDay": true,
+    "date": "2026-11-01",
+    "url": "https://www.google.com/calendar/event?eid=YTZvMmlxdnFxcXE1bzE5dWE1aW11dWFqZmcgcnVkeWxhbmdlbmthbXBAbQ"
+   },
+   {
+    "title": "Patrick's Birthday",
+    "allDay": true,
+    "date": "2026-11-01",
+    "url": "https://www.google.com/calendar/event?eid=dm05YWVuNWhlczN0c2QxM2Z1ZzNqdDduMTRfMjAyNjExMDEgcnVkeWxhbmdlbmthbXBAbQ",
+    "kind": "birthday"
+   },
+   {
+    "title": "💀 Dia de los Muertos — Mission District SF",
+    "start": "2026-11-02T17:00:00-08:00",
+    "end": "2026-11-02T22:00:00-08:00",
+    "url": "https://www.google.com/calendar/event?eid=ZTVxdmVjcWs2ZjVvMzA2OGVndGozZWM0cTAgcnVkeWxhbmdlbmthbXBAbQ"
+   },
+   {
+    "title": "🗳️ Election Day",
+    "allDay": true,
+    "date": "2026-11-03",
+    "url": "https://www.google.com/calendar/event?eid=bnNlcGo2cWNwN2luZzJyb2EyNDJjdmI2OGMgcnVkeWxhbmdlbmthbXBAbQ"
+   }
   ]
+ },
+ "tip": {
+  "cat": "Hearing",
+  "title": "Wear earplugs at a loud show",
+  "mins": "1 min",
+  "why": "NIOSH's recommended limit is 85 A-weighted decibels for eight hours, and every 3 dB increase halves the safe time. Amplified music at concerts and clubs commonly runs well above 90 dB, which puts the safe time in minutes to a couple of hours. Foam or high-fidelity earplugs cut the level by roughly 15 to 30 dB depending on type and fit, so you can stay for the whole set and still hear the music.",
+  "how": [
+   "Put the earplugs in before you walk into the venue, not after your ears start ringing.",
+   "Roll foam plugs thin, pull the top of your ear up and back, and hold until they expand.",
+   "Stand away from the speaker stacks, and take a few quiet minutes outside if you can."
+  ],
+  "src": "NIOSH recommended exposure limit (85 dBA, 3 dB exchange rate)",
+  "url": "https://www.cdc.gov/niosh/noise/about/index.html",
+  "ask": "How loud is a typical concert, and how much do different types of earplugs reduce the sound?"
+ },
+ "tipLog": [
+  "Dim the lights two hours before bed",
+  "Pre-hydrate before a hot day out",
+  "Start a red-eye rested, then chase morning light",
+  "Move your legs every couple of hours on the red-eye",
+  "Try five minutes of cyclic sighing to settle nerves",
+  "Walk for ten minutes after a big meal",
+  "Write tomorrow's to-do list before bed",
+  "Turn your top task into an if-then plan",
+  "Do three one-minute bursts of hard effort",
+  "Take a 20-minute break in a green space",
+  "Take a 10-minute nap after a short night",
+  "Wear earplugs at a loud show"
+ ],
+ "markets": {
+  "asOf": "2026-10-29",
+  "headline": "Stocks fell on Thursday as Alphabet dropped about 12% after a revenue miss, pulling the Nasdaq down 1.4% while small caps rose.",
+  "points": [
+   "The S&P 500 closed at 7,720.39 (-0.3%), the Nasdaq at 26,184.72 (-1.4%) and the Dow at 52,342.56 (-0.25%), ending the S&P's three-day winning streak.",
+   "Alphabet fell roughly 12% (reports range from 11.8% to 12.6%), its worst day on record, after a revenue miss and a second straight quarter of negative free cash flow revived worries about AI spending.",
+   "Microsoft beat estimates with Azure growth of 48% against about 44% expected, but the stock gave up early gains and closed slightly lower; software and chip stocks were weak.",
+   "The Russell 2000 rose about 1.0% as money rotated into health care, real estate and staples. The Russell and Tesla rows still show their last confirmed closes (Oct 26 and Oct 28) because Thursday's levels could not be confirmed."
+  ],
+  "tickers": [
+   {
+    "sym": "^GSPC",
+    "name": "S&P 500",
+    "value": 7720.39,
+    "chg": -23.59,
+    "pct": -0.3,
+    "ytd": 12.79,
+    "closes": [
+     [
+      "2026-10-09",
+      7811.54
+     ],
+     [
+      "2026-10-12",
+      7807.24
+     ],
+     [
+      "2026-10-14",
+      7718.94
+     ],
+     [
+      "2026-10-15",
+      7744.06
+     ],
+     [
+      "2026-10-16",
+      7659.44
+     ],
+     [
+      "2026-10-19",
+      7690.73
+     ],
+     [
+      "2026-10-20",
+      7712.57
+     ],
+     [
+      "2026-10-21",
+      7757.17
+     ],
+     [
+      "2026-10-22",
+      7663.43
+     ],
+     [
+      "2026-10-23",
+      7623.68
+     ],
+     [
+      "2026-10-26",
+      7676.77
+     ],
+     [
+      "2026-10-27",
+      7722.6
+     ],
+     [
+      "2026-10-28",
+      7743.98
+     ],
+     [
+      "2026-10-29",
+      7720.39
+     ]
+    ]
+   },
+   {
+    "sym": "^IXIC",
+    "name": "Nasdaq",
+    "value": 26184.72,
+    "chg": -365.13,
+    "pct": -1.38,
+    "ytd": 12.66,
+    "closes": [
+     [
+      "2026-10-09",
+      27366.17
+     ],
+     [
+      "2026-10-12",
+      27245.9
+     ],
+     [
+      "2026-10-13",
+      27204.38
+     ],
+     [
+      "2026-10-15",
+      26713.03
+     ],
+     [
+      "2026-10-16",
+      26140.03
+     ],
+     [
+      "2026-10-19",
+      26430.89
+     ],
+     [
+      "2026-10-20",
+      26424.82
+     ],
+     [
+      "2026-10-21",
+      26702.86
+     ],
+     [
+      "2026-10-22",
+      26008.86
+     ],
+     [
+      "2026-10-23",
+      25955.34
+     ],
+     [
+      "2026-10-26",
+      26169.38
+     ],
+     [
+      "2026-10-27",
+      26477.81
+     ],
+     [
+      "2026-10-28",
+      26549.85
+     ],
+     [
+      "2026-10-29",
+      26184.72
+     ]
+    ]
+   },
+   {
+    "sym": "^DJI",
+    "name": "Dow Jones",
+    "value": 52342.56,
+    "chg": -132.54,
+    "pct": -0.25,
+    "ytd": 8.89,
+    "closes": [
+     [
+      "2026-10-09",
+      51654.95
+     ],
+     [
+      "2026-10-12",
+      51850.55
+     ],
+     [
+      "2026-10-13",
+      51670.1
+     ],
+     [
+      "2026-10-15",
+      52177.69
+     ],
+     [
+      "2026-10-16",
+      52002.41
+     ],
+     [
+      "2026-10-19",
+      51966.03
+     ],
+     [
+      "2026-10-20",
+      52495.88
+     ],
+     [
+      "2026-10-21",
+      52856.09
+     ],
+     [
+      "2026-10-22",
+      52867.98
+     ],
+     [
+      "2026-10-23",
+      52215.16
+     ],
+     [
+      "2026-10-26",
+      52361.58
+     ],
+     [
+      "2026-10-27",
+      52377.57
+     ],
+     [
+      "2026-10-28",
+      52475.1
+     ],
+     [
+      "2026-10-29",
+      52342.56
+     ]
+    ]
+   },
+   {
+    "sym": "^RUT",
+    "name": "Russell 2000",
+    "value": 2787.81,
+    "chg": 11.92,
+    "pct": 0.43,
+    "ytd": 12.33,
+    "closes": [
+     [
+      "2026-10-12",
+      2794.48
+     ],
+     [
+      "2026-10-13",
+      2783.37
+     ],
+     [
+      "2026-10-15",
+      2767.27
+     ],
+     [
+      "2026-10-16",
+      2719.57
+     ],
+     [
+      "2026-10-20",
+      2773.42
+     ],
+     [
+      "2026-10-21",
+      2781.02
+     ],
+     [
+      "2026-10-22",
+      2784.03
+     ],
+     [
+      "2026-10-23",
+      2775.89
+     ],
+     [
+      "2026-10-26",
+      2787.81
+     ]
+    ]
+   },
+   {
+    "sym": "TSLA",
+    "name": "Tesla",
+    "value": 404.22,
+    "chg": -3.24,
+    "pct": -0.8,
+    "ytd": -10.12,
+    "closes": [
+     [
+      "2026-10-01",
+      354.11
+     ],
+     [
+      "2026-10-02",
+      370.59
+     ],
+     [
+      "2026-10-05",
+      378.73
+     ],
+     [
+      "2026-10-09",
+      382.7
+     ],
+     [
+      "2026-10-13",
+      375.23
+     ],
+     [
+      "2026-10-14",
+      367.16
+     ],
+     [
+      "2026-10-15",
+      362.44
+     ],
+     [
+      "2026-10-16",
+      354.72
+     ],
+     [
+      "2026-10-19",
+      368.06
+     ],
+     [
+      "2026-10-20",
+      373.71
+     ],
+     [
+      "2026-10-21",
+      386.47
+     ],
+     [
+      "2026-10-22",
+      374.58
+     ],
+     [
+      "2026-10-23",
+      372.22
+     ],
+     [
+      "2026-10-26",
+      391.62
+     ],
+     [
+      "2026-10-27",
+      407.46
+     ],
+     [
+      "2026-10-28",
+      404.22
+     ]
+    ]
+   }
+  ]
+ },
+ "pick": {
+  "sym": "STX",
+  "name": "Seagate Technology",
+  "theme": "Data storage for AI",
+  "close": 644.21,
+  "pct": 2.18,
+  "asOf": "2026-10-26",
+  "what": "Seagate makes hard disk drives and storage systems, with large data-center customers that store the data behind cloud and AI services.",
+  "why": "It rose 2.2% on Oct 26 to $644.21 after falling roughly 30% over the past month, and the consensus of 26 analysts reads Strong Buy with an average target near $1,138. Barclays kept a Buy with a $1,250 target and Bank of America a Buy with $1,200 on Oct 21. An idea to research, not a recommendation.",
+  "risk": "The stock is still far below its 52-week high of $1,145, and a roughly 30% drop in a month shows how fast sentiment can turn. UBS rates it Hold, and demand depends on AI data-center spending holding up.",
+  "rating": {
+   "label": "Strong Buy",
+   "total": 26
+  },
+  "target": 1138,
+  "hi52": 1145.0,
+  "closes": [
+   [
+    "2026-10-23",
+    630.49
+   ],
+   [
+    "2026-10-26",
+    644.21
+   ]
+  ],
+  "history": [
+   {
+    "date": "2026-10-26",
+    "sym": "STX",
+    "price": 644.21
+   },
+   {
+    "date": "2026-10-23",
+    "sym": "NET",
+    "price": 325.73
+   },
+   {
+    "date": "2026-10-22",
+    "sym": "COHR",
+    "price": 207.82
+   },
+   {
+    "date": "2026-10-21",
+    "sym": "TER",
+    "price": 345.49
+   },
+   {
+    "date": "2026-10-16",
+    "sym": "CRWV",
+    "price": 61.39
+   },
+   {
+    "date": "2026-10-09",
+    "sym": "MRVL",
+    "price": 275.35
+   }
+  ]
+ },
+ "btc": {
+  "source": "Benjamin Cowen",
+  "channel": "@benjaminjcowen",
+  "sourceUrl": "https://www.youtube.com/watch?v=21mBnslOLd0",
+  "summaryDate": "2026-10-28",
+  "summary": "In his Oct 28 post-FOMC video, \"Bitcoin: Post-FOMC,\" and his posts around it, Cowen treated the Fed holding rates as the third confirmed step on his bearish Q4 roadmap, after the weekly close below his key level and the confirmed fakeout on Oct 25. He argues bitcoin is about 43 days into a roughly 50-day flat stretch that has tended to come before drops after rate-hike periods in midterm years. His next checkpoints are the PCE inflation print and the November midterms, since bitcoin put in major bottoms in Q4 after the 2014, 2018 and 2022 midterms. He says the view is wrong only if bitcoin reclaims and holds the level he has been watching."
+ },
+ "news": [
+  {
+   "id": "n12",
+   "tag": "AI",
+   "title": "Alphabet falls about 12% in its worst day on record as AI spending worries return",
+   "blurb": "Alphabet's revenue miss and negative free cash flow pulled the Nasdaq down 1.4% on Thursday, even as Microsoft's Azure grew 48%.",
+   "src": "The National",
+   "domain": "thenationalnews.com",
+   "date": "2026-10-29",
+   "url": "https://www.thenationalnews.com/business/markets/2026/10/29/alphabet-google-stocks-ai/",
+   "ask": "Does a record one-day drop mean investors doubt AI demand, or just how much it costs to serve it?"
+  },
+  {
+   "id": "n13",
+   "tag": "Tech",
+   "title": "Alphabet and Microsoft issue divergent earnings, and the S&P 500 falls",
+   "blurb": "Microsoft beat on Azure growth while Alphabet missed; the S&P 500 closed down 0.3% and software and chip stocks led the decline.",
+   "src": "TheStreet",
+   "domain": "thestreet.com",
+   "date": "2026-10-29",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-29-2026",
+   "ask": "If cloud growth is accelerating at Microsoft, why did its stock fail to hold gains?"
+  },
+  {
+   "id": "n11",
+   "tag": "Robotics",
+   "title": "Unitree's quarterly revenue jumps 70% in its first report since listing",
+   "blurb": "Third-quarter revenue rose 70% from a year earlier, though net profit fell. The report follows a demo video of its H2-X humanoid performing combat moves that helped drive a recent share rally.",
+   "src": "The Standard",
+   "domain": "thestandard.com.hk",
+   "date": "2026-10-28",
+   "url": "https://thestandard.com.hk/finance/article/346809/Unitrees-quarterly-revenue-surges-70pc-in-test-for-Chinas-robotics-sector",
+   "ask": "Revenue up 70% while profit fell: what does that say about the cost of scaling humanoid production, and how does it compare with US makers?"
+  },
+  {
+   "id": "n2",
+   "tag": "Robotics",
+   "title": "GXO extends Agility's Digit humanoids to North Carolina and Tennessee",
+   "blurb": "After Digit moved more than 100,000 totes at GXO's Georgia site, GXO will deploy the humanoids at two more US sites, with operations scheduled to begin in early 2027.",
+   "src": "Tech Times",
+   "domain": "techtimes.com",
+   "date": "2026-10-27",
+   "url": "https://www.techtimes.com/articles/329537/20261027/gxo-extends-digit-humanoid-robot-north-carolina-tennessee-after-100000-tote-milestone.htm",
+   "ask": "Is a 100,000-tote milestone the kind of evidence a warehouse operator needs to scale humanoids, and what metrics would you want to see next?"
+  },
+  {
+   "id": "n9",
+   "tag": "Tech",
+   "title": "Nvidia and AMD to invest $4 billion in Meta as the AI partnership deepens",
+   "blurb": "Nvidia said it will put $3 billion into Meta's equity offering and AMD $1 billion, and that Meta will expand its Vera Rubin deployment. The money is part of Meta's plan to raise about $95 billion for AI infrastructure.",
+   "src": "CNBC",
+   "domain": "cnbc.com",
+   "date": "2026-10-27",
+   "url": "https://www.cnbc.com/2026/10/27/nvidia-invest-meta.html",
+   "ask": "When chip suppliers invest in a customer that buys their chips, what does that do to the real demand signal, and how should I read it?"
+  },
+  {
+   "id": "n10",
+   "tag": "AI",
+   "title": "Anthropic's IPO leads a $235 billion day of AI dealmaking",
+   "blurb": "Axios counts roughly $235 billion in AI financing in one day, spanning Anthropic's IPO filing, Meta's equity raise and SpaceX's chip-lease deal with Apollo.",
+   "src": "Axios",
+   "domain": "axios.com",
+   "date": "2026-10-27",
+   "url": "https://www.axios.com/2026/10/27/anthropic-ipo-meta-spacex-ai-deals",
+   "ask": "What does a single day of $235 billion in AI financing say about how the buildout is being paid for, and where is the fragility?"
+  }
+ ],
+ "youtube": [
+  {
+   "id": "2reQut8WNGc",
+   "channel": "Marques Brownlee",
+   "handle": "@mkbhd",
+   "title": "Macbook PROLED XDR Impressions: They Said They Wouldn't!",
+   "desc": "Marques Brownlee shares first impressions of a new MacBook Pro display.",
+   "published": "2026-10-29T02:50:34Z",
+   "secs": 654,
+   "views": 8490622,
+   "url": "https://www.youtube.com/watch?v=2reQut8WNGc"
+  },
+  {
+   "id": "ai1gIWacf0I",
+   "channel": "Marques Brownlee",
+   "handle": "@mkbhd",
+   "title": "This can SEE Sound!",
+   "desc": "Marques Brownlee shows a device that makes sound visible.",
+   "published": "2026-10-27T20:14:55Z",
+   "secs": 91,
+   "views": 2180945,
+   "url": "https://www.youtube.com/watch?v=ai1gIWacf0I"
+  },
+  {
+   "id": "YcpC3-59yhE",
+   "channel": "Channel 5 with Andrew Callaghan",
+   "handle": "@channel5YouTube",
+   "title": "Israeli Election Day",
+   "desc": "Andrew Callaghan reports from Israel on election day.",
+   "published": "2026-10-28T14:00:30Z",
+   "secs": 1251,
+   "views": 1158007,
+   "url": "https://www.youtube.com/watch?v=YcpC3-59yhE"
+  },
+  {
+   "id": "S19ag-Ifa8Y",
+   "channel": "Not Just Bikes",
+   "handle": "@NotJustBikes",
+   "title": "This Small City's LRT is so Good it Made me Angry",
+   "desc": "Not Just Bikes looks at a small city's light rail system.",
+   "published": "2026-10-28T19:08:00Z",
+   "secs": 1510,
+   "views": 457541,
+   "url": "https://www.youtube.com/watch?v=S19ag-Ifa8Y"
+  },
+  {
+   "id": "ujmyzWSj8IU",
+   "channel": "OpenAI",
+   "handle": "@OpenAI",
+   "title": "API credits, now in ChatGPT Pro and Business plans",
+   "desc": "OpenAI explains API credits now included in ChatGPT Pro and Business plans.",
+   "published": "2026-10-28T23:45:26Z",
+   "secs": 146,
+   "views": 46514,
+   "url": "https://www.youtube.com/watch?v=ujmyzWSj8IU"
+  },
+  {
+   "id": "M2Oa42hF67E",
+   "channel": "OpenAI",
+   "handle": "@OpenAI",
+   "title": "From legal bottleneck to business partner | Legora’s Emma Kadri Bergström",
+   "desc": "OpenAI interviews Legora's Emma Kadri Bergström about legal teams and AI.",
+   "published": "2026-10-28T09:45:24Z",
+   "secs": 242,
+   "views": 8747,
+   "url": "https://www.youtube.com/watch?v=M2Oa42hF67E"
+  }
+ ],
+ "spotify": [
+  {
+   "show": "Modern Wisdom",
+   "title": "35 Emotions Explained By Evolutionary Psychology - Rob Kurzban - #1169",
+   "desc": "Chris Williamson and Rob Kurzban on what emotions are for.",
+   "published": "2026-10-29",
+   "secs": 8874,
+   "url": "https://open.spotify.com/episode/4OSSEuIhC5lHBFBMDAYpNE"
+  },
+  {
+   "show": "Huberman Lab",
+   "title": "Essentials: How Smells Influence Our Hormones, Health & Behavior | Dr. Noam Sobel",
+   "desc": "An Essentials edition on how smell shapes hormones, health and behavior.",
+   "published": "2026-10-29",
+   "secs": 2096,
+   "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
+   "url": "https://open.spotify.com/episode/4AUzxA8vfL7UmON6G7GvrL"
+  },
+  {
+   "show": "The Diary Of A CEO with Steven Bartlett",
+   "title": "Dr. Sarah Paine: Why The World Is Turning Away From America",
+   "desc": "Steven Bartlett talks with historian Sarah Paine about America's standing in the world.",
+   "published": "2026-10-29",
+   "secs": 6119,
+   "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
+   "url": "https://open.spotify.com/episode/1zbWOUYwd8SnvWuBDogO20"
+  },
+  {
+   "show": "Moonshots with Peter Diamandis",
+   "title": "Anthropic’s $2T IPO, Elon Predicts Neocloud Death, and China’s Kimi Catches Up | #306",
+   "desc": "Peter Diamandis and guests on Anthropic's IPO, neoclouds and China's Kimi model.",
+   "published": "2026-10-28",
+   "secs": 8187,
+   "url": "https://open.spotify.com/episode/3LOBLYg9toAji6S6QGivO7"
+  },
+  {
+   "show": "Lex Fridman Podcast",
+   "title": "#503 – AI Crisis in Math: Navier-Stokes, Riemann Hypothesis & Complexity Theory",
+   "desc": "Lex Fridman on how AI is changing mathematics, from Navier-Stokes and the Riemann hypothesis to complexity theory.",
+   "published": "2026-10-26",
+   "secs": 13327,
+   "url": "https://open.spotify.com/episode/0ndqMvnUJkNmQrhK98R09Y"
+  },
+  {
+   "show": "Modern Wisdom",
+   "title": "Crypto Scams, Dopamine Websites, Tasteful Slop & Vape Shop Energy - Rabbit Hole #6 - #1168",
+   "desc": "Chris Williamson's sixth Rabbit Hole episode on crypto scams, dopamine-driven websites and low-effort content.",
+   "published": "2026-10-26",
+   "secs": 7679,
+   "url": "https://open.spotify.com/episode/7MTRvvAwPANExOBfdRgFPR"
+  },
+  {
+   "show": "Huberman Lab",
+   "title": "Unlocking Persistent Motivation & Extreme Resilience | Ross Edgley",
+   "desc": "Andrew Huberman talks with endurance athlete Ross Edgley about motivation and resilience.",
+   "published": "2026-10-26",
+   "secs": 9817,
+   "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
+   "url": "https://open.spotify.com/episode/0gwA0hBS82SmlaWwtR90IF"
+  },
+  {
+   "show": "The Diary Of A CEO with Steven Bartlett",
+   "title": "Mark Cuban: The Next Market Crash Is Where The Real Money Is Made!",
+   "desc": "Steven Bartlett talks with Mark Cuban about markets and the next downturn.",
+   "published": "2026-10-26",
+   "secs": 5488,
+   "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
+   "url": "https://open.spotify.com/episode/3enxPgCiYXHX7dQZXygd4J"
+  }
+ ],
+ "discover": {
+  "youtube": [
+   {
+    "handle": "@Computerphile",
+    "channel": "Computerphile",
+    "seed": "@veritasium",
+    "because": "Because you like Veritasium: researchers explaining computing and AI ideas in plain terms, posting weekly."
+   },
+   {
+    "handle": "@TomScottGo",
+    "channel": "Tom Scott",
+    "seed": "@veritasium",
+    "because": "Because you like Veritasium: curious, well-researched explainers on how the world works."
+   },
+   {
+    "handle": "@NVIDIA",
+    "channel": "NVIDIA",
+    "seed": "@figureai",
+    "because": "Because you follow Figure: frequent uploads on robotics simulation and the AI chips behind humanoids."
+   },
+   {
+    "handle": "@UnitreeRobotics",
+    "channel": "Unitree Robotics",
+    "seed": "@figureai",
+    "because": "Because you follow Figure: demos from Unitree, the largest maker of low-cost humanoids."
+   },
+   {
+    "handle": "@3blue1brown",
+    "channel": "3Blue1Brown",
+    "seed": "@veritasium",
+    "because": "Because you like Veritasium: visual math explanations that also cover neural networks."
+   },
+   {
+    "handle": "@UrAvgConsumer",
+    "channel": "UrAvgConsumer",
+    "seed": "@mkbhd",
+    "because": "Because you like MKBHD: daily consumer-tech reviews and news from a fast-posting channel."
+   },
+   {
+    "handle": "@minutephysics",
+    "channel": "minutephysics",
+    "seed": "@veritasium",
+    "because": "Because you like Veritasium: short, clear physics explainers that post every couple of weeks."
+   },
+   {
+    "handle": "@Numberphile",
+    "channel": "Numberphile",
+    "seed": "@veritasium",
+    "because": "Because you like Veritasium: mathematicians explaining ideas, with new videos several times a week."
+   },
+   {
+    "handle": "@TheAIGRID",
+    "channel": "TheAIGRID",
+    "seed": "@OpenAI",
+    "because": "Because you follow OpenAI: near-daily coverage of new AI models and tools."
+   },
+   {
+    "handle": "@AIExplained-official",
+    "channel": "AI Explained",
+    "seed": "@OpenAI",
+    "because": "Because you follow OpenAI: careful, benchmark-focused breakdowns of new models."
+   }
+  ],
+  "spotify": [],
+  "artists": [
+   {
+    "name": "Mau P",
+    "because": "Like Chris Lake",
+    "url": "https://open.spotify.com/artist/0w1sbtZVQoK6GzV4A4OkCv"
+   },
+   {
+    "name": "Odd Mob",
+    "because": "Like Chris Lake",
+    "url": "https://open.spotify.com/artist/4qLwtWhlhyAoQ4S9mSrDW9"
+   },
+   {
+    "name": "Dylan Matthew",
+    "because": "Like Slander",
+    "url": "https://open.spotify.com/artist/6d0ZjIp5L7Ygy2l02HskRX"
+   },
+   {
+    "name": "SABAI",
+    "because": "Like Slander",
+    "url": "https://open.spotify.com/artist/4OaSyxqlkp7aVpAZwF02QZ"
+   },
+   {
+    "name": "piri",
+    "because": "Like Sam Gellaitry",
+    "url": "https://open.spotify.com/artist/4DpmPt7gfAAq7WEx0E1X8s"
+   },
+   {
+    "name": "KAYTRANADA",
+    "because": "Like Sam Gellaitry",
+    "url": "https://open.spotify.com/artist/6qgnBH6iDM91ipVXv28OMu"
+   },
+   {
+    "name": "Matroda",
+    "because": "Like Chris Lake",
+    "url": "https://open.spotify.com/artist/45lcbTsX07JWzmTIjcdyBz"
+   },
+   {
+    "name": "Metro Boomin",
+    "because": "Like Don Toliver",
+    "url": "https://open.spotify.com/artist/0iEtIxbK0KxaSlF7G42ZOp"
+   }
+  ],
+  "podcasts": [
+   {
+    "show": "The Joe Rogan Experience",
+    "seed": "Lex Fridman Podcast",
+    "because": "Because you like Lex Fridman: open-ended conversations, often with fighters, comedians and scientists."
+   },
+   {
+    "show": "No Priors: Artificial Intelligence | Technology | Startups",
+    "seed": "Lex Fridman Podcast",
+    "because": "Because you like Lex Fridman: AI founders and researchers on what they're building now."
+   },
+   {
+    "show": "Hard Fork",
+    "seed": "Moonshots with Peter Diamandis",
+    "because": "Because you like Moonshots: a weekly, skeptical look at AI and tech news from The New York Times."
+   },
+   {
+    "show": "The Tim Ferriss Show",
+    "seed": "Modern Wisdom",
+    "because": "Because you like Modern Wisdom: long interviews about how top performers train, think and work."
+   },
+   {
+    "show": "The Knowledge Project",
+    "seed": "Modern Wisdom",
+    "because": "Because you like Modern Wisdom: Shane Parrish on decision-making, with founders and investors."
+   },
+   {
+    "show": "FoundMyFitness",
+    "seed": "Huberman Lab",
+    "because": "Because you like Huberman Lab: Rhonda Patrick on nutrition, aging and the research behind them."
+   }
+  ]
+ },
+ "discoverLog": [
+  "@matthew_berman",
+  "Huberman Lab",
+  "@AustinEvans",
+  "@JerryRigEverything",
+  "@PracticalEngineeringChannel",
+  "@kurzgesagt",
+  "@WendoverProductions",
+  "@AIDailyBrief",
+  "All-In with Chamath, Jason, Sacks & Friedberg",
+  "The Peter Attia Drive",
+  "@Dave2D",
+  "@LinusTechTips",
+  "@Mrwhosetheboss",
+  "@CityNerd",
+  "@TheB1M",
+  "@TwoMinutePapers",
+  "@DwarkeshPatel",
+  "@SabineHossenfelder",
+  "@Fireship",
+  "Dwarkesh Podcast",
+  "My First Million",
+  "@MarkRober",
+  "@CleoAbram",
+  "@IEEESpectrum",
+  "@Vsauce",
+  "@theverge",
+  "@BostonDynamics",
+  "No Priors: Artificial Intelligence | Technology | Startups",
+  "@Computerphile",
+  "@TomScottGo",
+  "@NVIDIA",
+  "@UnitreeRobotics",
+  "@3blue1brown",
+  "@UrAvgConsumer",
+  "@minutephysics",
+  "@Numberphile",
+  "@TheAIGRID",
+  "@AIExplained-official"
+ ],
+ "bay": {
+  "range": "Oct 30 – Nov 1",
+  "items": [
+   {
+    "id": "b1",
+    "title": "Ghost Ship VIII",
+    "where": "San Francisco",
+    "blurb": "An adults-only Halloween dance event with multiple stages and art installations, listed for 9 PM to 3 AM.",
+    "date": "2026-10-30",
+    "url": "https://www.sfstation.com/music/calendar/bay-area/10-31-2026",
+    "cal": {
+     "start": "2026-10-30T21:00",
+     "end": "2026-10-31T03:00",
+     "location": "San Francisco, CA",
+     "tips": "Venue and ticket details were not confirmed; check the organizer's page before planning a ride home."
+    }
+   },
+   {
+    "id": "b2",
+    "title": "Final weekend of Ocean Beach bonfires",
+    "where": "Ocean Beach, San Francisco",
+    "blurb": "Fire rings are first come, first served, and Friday's session runs 3 to 9:30 PM. This is the last weekend of the 2026 season.",
+    "date": "2026-10-30",
+    "url": "https://www.sftourismtips.com/halloween-events-sf-bay-area.html",
+    "free": true,
+    "cal": {
+     "start": "2026-10-30T16:00",
+     "end": "2026-10-30T21:30",
+     "location": "Ocean Beach, San Francisco, CA",
+     "tips": "Bring warm layers. Check SF Rec and Park rules for what you can burn; hours come from a single listing."
+    }
+   },
+   {
+    "id": "b3",
+    "title": "Knocked Loose with Denzel Curry",
+    "where": "Cow Palace, Daly City",
+    "blurb": "A Halloween night show at the Cow Palace, listed for 7 PM.",
+    "date": "2026-10-31",
+    "url": "https://www.sfstation.com/music/calendar/bay-area/10-31-2026",
+    "cal": {
+     "start": "2026-10-31T19:00",
+     "end": "2026-10-31T23:00",
+     "location": "Cow Palace, Daly City, CA",
+     "tips": "Time is from a listing; confirm doors and tickets with the venue."
+    }
+   },
+   {
+    "id": "b4",
+    "title": "Galactic at The Fillmore",
+    "where": "The Fillmore, San Francisco",
+    "blurb": "The New Orleans funk band on Halloween night, listed for 8 PM.",
+    "date": "2026-10-31",
+    "url": "https://www.sfstation.com/music/calendar/bay-area/10-31-2026",
+    "cal": {
+     "start": "2026-10-31T20:00",
+     "end": "2026-10-31T23:00",
+     "location": "1805 Geary Blvd, San Francisco, CA",
+     "tips": "Time is from a listing; confirm with The Fillmore."
+    }
+   },
+   {
+    "id": "b5",
+    "title": "Halloween activities at the Hiller Aviation Museum",
+    "where": "Hiller Aviation Museum, San Carlos",
+    "blurb": "Kids' Halloween activities run Oct 31 and Nov 1, a Peninsula option about 20 minutes up the road from Mountain View.",
+    "date": "2026-11-01",
+    "url": "https://www.sftourismtips.com/halloween-events-sf-bay-area.html",
+    "cal": {
+     "start": "2026-11-01T10:00",
+     "end": "2026-11-01T14:00",
+     "location": "601 Skyway Rd, San Carlos, CA",
+     "tips": "Hours are a placeholder; confirm at hiller.org."
+    }
+   }
+  ]
+ },
+ "bayLog": [
+  "Bart Skils at Public Works",
+  "ScHoolboy Q – 10 Years of Blank Face LP",
+  "Vulfpeck at Greek Theatre",
+  "Half Moon Bay Pumpkin Festival",
+  "Rush – Fifty Something at SAP Center",
+  "WNBA Finals Game 1",
+  "Bay Area Science Festival",
+  "Epik High",
+  "Dinosaur Jr.",
+  "Warriors home opener",
+  "Ivy Lab at Public Works",
+  "World of Dumplings",
+  "TheatreWorks Dracula",
+  "Winchester Festival Fright Nights",
+  "Jai Wolf at Regency Ballroom",
+  "Sofi Tukker at Cow Palace",
+  "Sandcastle Classic",
+  "Yerba Buena Gardens Festival",
+  "Julia Jacklin at Castro Theatre",
+  "Marc Rebillet, Franc Moody and Chromeo at The Midway",
+  "RADwood NorCal",
+  "Children's Halloween Haunt at History Park",
+  "Kishi Bashi at The Fillmore",
+  "Joy Oladokun at Castro Theatre",
+  "One Song All Night: Fleetwood Mac's Dreams tribute",
+  "Downtown Burlingame Fall Fest",
+  "Shpongle at the Fox Theater",
+  "Knocked Loose and Denzel Curry at the Cow Palace",
+  "Oh, Mary! at the Curran Theatre",
+  "Halloween trick-or-treating on Castro Street",
+  "Ocean Beach bonfires",
+  "Eric Prydz at Club Darc, Pier 48",
+  "The Addams Family at Palo Alto Players",
+  "San Jose Sharks vs. Ottawa Senators",
+  "Downtown Palo Alto Farmers' Market Halloween",
+  "Halloween Eve DJ party at the de Young",
+  "Ghost Ship VIII",
+  "Final weekend of Ocean Beach bonfires",
+  "Knocked Loose with Denzel Curry",
+  "Galactic at The Fillmore",
+  "Halloween activities at the Hiller Aviation Museum"
+ ],
+ "shows": {
+  "note": "No Bay Area dates found through April 2027 for Chris Lake, Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
+  "items": [
+   {
+    "artist": "Sam Gellaitry",
+    "title": "Sammy Virji with Sam Gellaitry",
+    "date": "2026-11-13",
+    "time": "20:00",
+    "venue": "Cow Palace",
+    "city": "Daly City",
+    "match": "list",
+    "price": "Resale from ~$99",
+    "url": "https://apeconcerts.com/events/sammy-virji-261113/",
+    "cal": {
+     "start": "2026-11-13T20:00",
+     "end": "2026-11-14T00:00",
+     "location": "Cow Palace, Daly City, CA",
+     "tips": "18+; doors 7 PM, show 8 PM. Caltrain's Bayshore stop is about a mile away."
+    }
+   },
+   {
+    "artist": "John Summit",
+    "title": "John Summit – CTRL ESCAPE Arena Tour",
+    "date": "2026-12-04",
+    "time": "19:00",
+    "venue": "Oakland Arena",
+    "city": "Oakland",
+    "match": "like",
+    "like": "Chris Lake",
+    "why": "Arena-size tech house, same lane as Chris Lake.",
+    "price": "About $44–$247 on Ticketmaster",
+    "url": "https://www.ticketmaster.com/john-summit-ctrl-escape-arena-tour-oakland-12-04-2026/event/1C0064B3BCEE6B02",
+    "cal": {
+     "start": "2026-12-04T19:00",
+     "end": "2026-12-04T23:00",
+     "location": "Oakland Arena, Oakland, CA",
+     "tips": "Doors 6 PM. BART to Coliseum."
+    }
+   },
+   {
+    "artist": "Virtual Riot",
+    "title": "Virtual Riot & Blanke",
+    "date": "2026-12-12",
+    "time": "20:00",
+    "venue": "San Jose Civic",
+    "city": "San Jose",
+    "match": "like",
+    "like": "Slander",
+    "why": "Heavy bass close to Slander's dubstep side, and the nearest show to home.",
+    "price": "Resale from ~$49",
+    "url": "https://app.discotech.me/events/38228936-virtual-riot-and-blanke-far-from-home-tour-at-san-jose-civic",
+    "cal": {
+     "start": "2026-12-12T20:00",
+     "end": "2026-12-13T00:00",
+     "location": "San Jose Civic, San Jose, CA",
+     "tips": "Clear-bag policy. Caltrain to Diridon or VTA light rail to Convention Center."
+    }
+   },
+   {
+    "artist": "Illenium",
+    "title": "Illenium",
+    "date": "2026-12-30",
+    "time": "20:00",
+    "venue": "Bill Graham Civic Auditorium",
+    "city": "San Francisco",
+    "match": "like",
+    "like": "Slander",
+    "why": "Melodic bass, the closest match to Slander. The Dec 31 show is sold out.",
+    "price": "Resale from ~$159",
+    "url": "https://apeconcerts.com/events/illenium-261230/",
+    "cal": {
+     "start": "2026-12-30T20:00",
+     "end": "2026-12-30T23:30",
+     "location": "Bill Graham Civic Auditorium, San Francisco, CA",
+     "tips": "18+; doors 7 PM. BART to Civic Center."
+    }
+   },
+   {
+    "artist": "RÜFÜS DU SOL",
+    "title": "RÜFÜS DU SOL (DJ set) with Dixon b2b Jimi Jules",
+    "date": "2027-01-03",
+    "time": "16:00",
+    "venue": "Pier 80 Warehouse",
+    "city": "San Francisco",
+    "match": "like",
+    "like": "Chris Lake",
+    "why": "A long melodic-house afternoon into night; a DJ set, not the live band.",
+    "price": "$99.50–$349.50 on Tixr",
+    "url": "https://www.tixr.com/groups/npulive/events/r-f-s-du-sol-dj-set-dixon-b2b-jimi-jules-more-205796",
+    "cal": {
+     "start": "2027-01-03T16:00",
+     "end": "2027-01-03T23:00",
+     "location": "Pier 80 Warehouse, 401 Cesar Chavez St, San Francisco, CA",
+     "tips": "21+; all sales final. Muni T Third runs nearby."
+    }
+   }
+  ]
+ },
+ "movies": {
+  "now": [
+   {
+    "title": "Clayface",
+    "genre": "Superhero horror",
+    "rating": "R",
+    "score": 75,
+    "released": "2026-10-23",
+    "blurb": "DC Studios' body-horror take on the Batman villain, Certified Fresh on Rotten Tomatoes. It opened to $9.5M on Friday including previews, with a $23M to $25M weekend estimated.",
+    "url": "https://comicbookmovie.com/batman/clayface/clayface-rotten-tomatoes-score-revealed-critics-weigh-in-on-crowd-pleasing-uneven-dcu-movie-a230563"
+   },
+   {
+    "title": "Wildwood",
+    "genre": "Animated fantasy",
+    "rating": "PG-13",
+    "released": "2026-10-23",
+    "blurb": "Laika's PG-13 animated adaptation opened to about $12M for third place, with an A CinemaScore, and is showing at AMC Sunnyvale 12.",
+    "url": "https://en.wikipedia.org/wiki/Wildwood_(film)"
+   },
+   {
+    "title": "Street Fighter",
+    "genre": "Action",
+    "rating": "PG-13",
+    "runtime": 119,
+    "score": 41,
+    "released": "2026-10-16",
+    "blurb": "Kitao Sakurai's live-action take on the fighting game opened at No. 1 with about $31M; its second weekend is projected near $11M.",
+    "url": "https://www.rottentomatoes.com/m/street_fighter_2026"
+   },
+   {
+    "title": "You Can See Everything",
+    "genre": "Documentary",
+    "rating": "R",
+    "runtime": 174,
+    "score": 97,
+    "released": "2026-10-16",
+    "blurb": "Nathan Fielder and Lance Oppenheim follow Elizabeth Holmes in her final weeks before prison. It opened to about $15M on 855 screens and expands to about 2,600 this weekend, forecast at $19M to $25M.",
+    "url": "https://www.rottentomatoes.com/m/you_can_see_everything"
+   },
+   {
+    "title": "Whalefall",
+    "genre": "Survival thriller",
+    "rating": "PG-13",
+    "runtime": 106,
+    "score": 72,
+    "released": "2026-10-16",
+    "blurb": "A diver (Austin Abrams) is swallowed by a sperm whale while searching for his father's remains; Josh Brolin co-stars. Opened to $8M.",
+    "url": "https://www.rottentomatoes.com/m/whalefall"
+   },
+   {
+    "title": "Sense and Sensibility",
+    "genre": "Period drama",
+    "rating": "PG",
+    "runtime": 132,
+    "score": 78,
+    "released": "2026-10-16",
+    "blurb": "Daisy Edgar-Jones and Esmé Creed-Miles play the Dashwood sisters in Georgia Oakley's Austen adaptation.",
+    "url": "https://www.rottentomatoes.com/m/sense_and_sensibility_2026"
+   },
+   {
+    "title": "Other Mommy",
+    "genre": "Horror",
+    "rating": "R",
+    "runtime": 93,
+    "score": 19,
+    "released": "2026-10-09",
+    "blurb": "Jessica Chastain plays a mother and her sinister double. Down about 70% in its second weekend, with about $44.9M so far.",
+    "url": "https://www.rottentomatoes.com/m/other_mommy"
+   },
+   {
+    "title": "Verity",
+    "genre": "Thriller",
+    "rating": "R",
+    "score": 31,
+    "released": "2026-10-02",
+    "blurb": "Anne Hathaway, Dakota Johnson and Josh Hartnett in the Colleen Hoover thriller; $6.2M last weekend.",
+    "url": "https://www.rottentomatoes.com/m/verity"
+   },
+   {
+    "title": "Heart of the Beast",
+    "genre": "Survival thriller",
+    "rating": "PG-13",
+    "runtime": 101,
+    "score": 85,
+    "released": "2026-09-25",
+    "blurb": "Brad Pitt plays a Special Forces veteran stranded in Alaska with his combat dog after a plane crash. About $58M domestic.",
+    "url": "https://www.rottentomatoes.com/m/heart_of_the_beast"
+   },
+   {
+    "title": "Resident Evil",
+    "genre": "Horror",
+    "rating": "R",
+    "score": 96,
+    "released": "2026-09-18",
+    "blurb": "Zach Cregger's reboot is past $100M domestic and still made $5.5M last weekend.",
+    "url": "https://www.rottentomatoes.com/m/resident_evil_2026"
+   }
+  ],
+  "soon": [
+   {
+    "title": "Godzilla Minus Zero",
+    "genre": "Monster",
+    "date": "2026-11-06",
+    "blurb": "Takashi Yamazaki's sequel to the Oscar-winning Godzilla Minus One, released in the US by GKIDS.",
+    "url": "https://www.fangoria.com/godzilla-minus-zero-release-date/"
+   },
+   {
+    "title": "The Cat in the Hat",
+    "genre": "Animation",
+    "date": "2026-11-06",
+    "blurb": "Dr. Seuss' story gets a new animated adaptation."
+   },
+   {
+    "title": "The Hunger Games: Sunrise on the Reaping",
+    "genre": "Sci-fi",
+    "date": "2026-11-20",
+    "big": true,
+    "blurb": "Haymitch's Games, 24 years before Katniss."
+   },
+   {
+    "title": "Focker-in-Law",
+    "genre": "Comedy",
+    "date": "2026-11-25",
+    "blurb": "Ben Stiller and Robert De Niro, back for Thanksgiving."
+   },
+   {
+    "title": "Hexed",
+    "genre": "Animation",
+    "date": "2026-11-25",
+    "blurb": "Disney's animated Thanksgiving release."
+   },
+   {
+    "title": "Violent Night 2",
+    "genre": "Action comedy",
+    "date": "2026-12-04",
+    "blurb": "The holiday action sequel."
+   },
+   {
+    "title": "Avengers: Doomsday",
+    "genre": "Marvel",
+    "date": "2026-12-18",
+    "big": true,
+    "blurb": "Robert Downey Jr. returns as Doctor Doom.",
+    "url": "https://avclub.com/avengers-doomsday-dune-part-three-same-day-release-december-18"
+   },
+   {
+    "title": "Dune: Part Three",
+    "genre": "Sci-fi",
+    "date": "2026-12-18",
+    "big": true,
+    "blurb": "Denis Villeneuve closes the trilogy, opening the same day as Avengers."
+   },
+   {
+    "title": "Jumanji: Open World",
+    "genre": "Adventure",
+    "date": "2026-12-25",
+    "blurb": "Dwayne Johnson, Jack Black, Kevin Hart and Karen Gillan return; moved from Dec 11 to Christmas."
+   }
+  ]
+ },
+ "vocab": [
+  {
+   "date": "2026-10-30",
+   "word": "Ebullient",
+   "pron": "ih-BUL-yunt",
+   "pos": "adjective",
+   "def": "Cheerful and full of energy and enthusiasm.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin ebullire, 'to bubble up', from e- 'out' + bullire 'to boil'"
+    },
+    {
+     "f": "Synonym",
+     "b": "exuberant, effervescent, buoyant"
+    },
+    {
+     "f": "Use it for",
+     "b": "people or moods that seem to bubble over with good spirits"
+    }
+   ],
+   "examples": [
+    "The crowd was ebullient as the headliner walked on stage.",
+    "She gave an ebullient toast that had the whole table laughing."
+   ],
+   "ex": "The crowd was ebullient as the headliner walked on stage."
+  },
+  {
+   "date": "2026-10-29",
+   "word": "Ineffable",
+   "pron": "in-EF-uh-bul",
+   "pos": "adjective",
+   "def": "Too great or extraordinary to be put into words.",
+   "ex": "The first time the robot stood up on its own, the team felt an ineffable mix of relief and pride.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin ineffabilis, from in- 'not' + effari 'to speak out'"
+    },
+    {
+     "f": "Synonym",
+     "b": "inexpressible, indescribable, unspeakable"
+    },
+    {
+     "f": "Use it for",
+     "b": "feelings, beauty or experiences that words fall short of, usually in a good way"
+    }
+   ],
+   "examples": [
+    "The first time the robot stood up on its own, the team felt an ineffable mix of relief and pride.",
+    "There was something ineffable about the view from the ridge at sunset."
+   ]
+  },
+  {
+   "date": "2026-10-28",
+   "word": "Perspicacious",
+   "pron": "per-spih-KAY-shus",
+   "pos": "adjective",
+   "def": "Quick to notice and understand things that others miss.",
+   "ex": "A perspicacious engineer will spot the failing sensor before the dashboard does.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin perspicax, from perspicere, 'to see through'"
+    },
+    {
+     "f": "Synonym",
+     "b": "astute, shrewd, discerning"
+    },
+    {
+     "f": "Use it for",
+     "b": "people or comments that show sharp insight into a situation, not just general intelligence"
+    }
+   ],
+   "examples": [
+    "A perspicacious engineer will spot the failing sensor before the dashboard does.",
+    "Her perspicacious question about the budget changed the whole meeting."
+   ]
+  },
+  {
+   "date": "2026-10-27",
+   "word": "Ephemeral",
+   "pron": "ih-FEM-er-ul",
+   "pos": "adjective",
+   "def": "Lasting for a very short time.",
+   "ex": "The fall color in the foothills is ephemeral; by mid-November most of it is gone.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Greek ephemeros, 'lasting a day', from epi 'on' and hemera 'day'"
+    },
+    {
+     "f": "Synonym",
+     "b": "fleeting, transient, short-lived"
+    },
+    {
+     "f": "Use it for",
+     "b": "things that are expected to disappear quickly, like trends, moments, messages or blossoms"
+    }
+   ],
+   "examples": [
+    "The fall color in the foothills is ephemeral; by mid-November most of it is gone.",
+    "Some chat apps make messages ephemeral by deleting them after a day."
+   ]
+  },
+  {
+   "date": "2026-10-26",
+   "word": "Laconic",
+   "pron": "luh-KON-ik",
+   "pos": "adjective",
+   "def": "Using very few words; brief and to the point.",
+   "ex": "Her laconic reply, 'Shipped,' told the team everything they needed to know.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Greek Lakonikos, 'of Laconia', the region of Sparta, whose people were known for short, blunt speech"
+    },
+    {
+     "f": "Synonym",
+     "b": "terse, succinct, concise"
+    },
+    {
+     "f": "Use it for",
+     "b": "describing a person, a reply or a style of writing that says a lot in few words"
+    }
+   ],
+   "examples": [
+    "Her laconic reply, 'Shipped,' told the team everything they needed to know.",
+    "He was a laconic host, but nobody ever left his dinners hungry or confused."
+   ]
+  },
+  {
+   "date": "2026-10-25",
+   "word": "Sedulous",
+   "pron": "SEJ-uh-lus",
+   "pos": "adjective",
+   "def": "Showing steady, careful and persistent effort.",
+   "ex": "The sedulous engineer re-ran every calibration before the demo.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin sedulus, diligent or attentive"
+    },
+    {
+     "f": "Synonym",
+     "b": "diligent, assiduous, industrious"
+    },
+    {
+     "f": "Use it for",
+     "b": "praising careful, patient work, like testing, editing or research"
+    }
+   ],
+   "examples": [
+    "The sedulous engineer re-ran every calibration before the demo.",
+    "Her sedulous note-taking meant nothing from the meeting was lost."
+   ]
+  },
+  {
+   "date": "2026-10-24",
+   "word": "Convivial",
+   "pron": "kun-VIV-ee-ul",
+   "pos": "adjective",
+   "def": "Friendly, lively and welcoming, especially of a gathering, a host or an atmosphere around food and drink.",
+   "ex": "The reception had a convivial mood, with strangers swapping stories at every table.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin convivium, a feast: con- (together) plus vivere (to live)"
+    },
+    {
+     "f": "Synonym",
+     "b": "sociable, genial, festive"
+    },
+    {
+     "f": "Use it for",
+     "b": "describing a party, a dinner, a host or the mood of a room"
+    }
+   ],
+   "examples": [
+    "The reception had a convivial mood, with strangers swapping stories at every table.",
+    "She is a convivial host who always makes sure everyone has a drink and someone to talk to."
+   ]
+  }
+ ],
+ "spanish": [
+  {
+   "date": "2026-10-30",
+   "phrase": "¡Échale ganas!",
+   "pron": "EH-chah-leh GAH-nahs",
+   "reg": "Mexico · casual",
+   "meaning": "Give it your best! / Go for it!",
+   "note": "Friendly encouragement in Mexico, said before an exam, a game or a hard task. 'Echarle ganas' means to put real effort in.",
+   "cards": [
+    {
+     "es": "Le echo ganas",
+     "en": "I'm giving it my all"
+    },
+    {
+     "es": "¡Con ganas!",
+     "en": "With real effort!"
+    },
+    {
+     "es": "No te rindas, échale",
+     "en": "Don't give up, keep going"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¡Échale",
+     "en": "put it in (from echar)"
+    },
+    {
+     "es": "echar",
+     "en": "to throw / put in"
+    },
+    {
+     "es": "le",
+     "en": "it (filler)"
+    },
+    {
+     "es": "ganas!",
+     "en": "drive, will"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "Mañana tengo mi entrevista.",
+     "en": "I have my interview tomorrow."
+    },
+    {
+     "es": "¡Échale ganas!",
+     "en": "Give it your best!"
+    },
+    {
+     "es": "Gracias, estoy nervioso.",
+     "en": "Thanks, I'm nervous."
+    },
+    {
+     "es": "Te va a ir muy bien.",
+     "en": "It's going to go great."
+    }
+   ],
+   "use": "Say it to a friend about to do something hard, like a race, a pitch or a first day.",
+   "quiz": {
+    "options": [
+     "Give it your best!",
+     "Take it easy",
+     "See you later"
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-29",
+   "phrase": "¿Cómo te fue en la chamba?",
+   "pron": "KOH-moh teh fweh en lah CHAM-bah",
+   "reg": "Mexico · casual",
+   "meaning": "How did work go?",
+   "note": "'Chamba' is casual Mexican slang for work or a job. Use it with friends and coworkers, not in a formal email.",
+   "cards": [
+    {
+     "es": "¿Mucha chamba hoy?",
+     "en": "Lots of work today?"
+    },
+    {
+     "es": "Salí tarde de la chamba",
+     "en": "I left work late"
+    },
+    {
+     "es": "Tengo chamba pendiente",
+     "en": "I have work left to do"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¿Cómo",
+     "en": "how"
+    },
+    {
+     "es": "te",
+     "en": "to you"
+    },
+    {
+     "es": "fue",
+     "en": "it went"
+    },
+    {
+     "es": "en",
+     "en": "at / in"
+    },
+    {
+     "es": "la",
+     "en": "the"
+    },
+    {
+     "es": "chamba?",
+     "en": "work (slang)"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿Cómo te fue en la chamba?",
+     "en": "How did work go?"
+    },
+    {
+     "es": "Pesadito, pero ya acabé.",
+     "en": "A bit heavy, but I'm done."
+    },
+    {
+     "es": "Entonces ya cénate algo rico.",
+     "en": "Then go eat something good."
+    },
+    {
+     "es": "Va, vamos por unos tacos.",
+     "en": "Sure, let's go get tacos."
+    }
+   ],
+   "use": "Ask it to a friend or coworker when they come home or log off for the day.",
+   "quiz": {
+    "options": [
+     "How did work go?",
+     "Where did you eat?",
+     "How are your friends?"
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-28",
+   "phrase": "¡Estoy hecho polvo!",
+   "pron": "ess-TOY EH-choh POHL-voh",
+   "reg": "Mexico · casual",
+   "meaning": "I'm wiped out!",
+   "note": "Literally 'I'm made into dust.' A common casual way to say you are exhausted. Women say 'hecha polvo.'",
+   "cards": [
+    {
+     "es": "Estoy muerto",
+     "en": "I'm dead tired"
+    },
+    {
+     "es": "No doy más",
+     "en": "I can't go on"
+    },
+    {
+     "es": "Ando bien cansado",
+     "en": "I'm really tired"
+    }
+   ],
+   "parts": [
+    {
+     "es": "Estoy",
+     "en": "I am"
+    },
+    {
+     "es": "hecho",
+     "en": "made / turned into"
+    },
+    {
+     "es": "polvo",
+     "en": "dust"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿Cómo dormiste?",
+     "en": "How did you sleep?"
+    },
+    {
+     "es": "Poquito. ¡Estoy hecho polvo!",
+     "en": "Very little. I'm wiped out!"
+    },
+    {
+     "es": "Échate un café.",
+     "en": "Have a coffee."
+    },
+    {
+     "es": "Mejor una siesta.",
+     "en": "A nap is better."
+    }
+   ],
+   "use": "Say it after a short night or a long day, to a friend or coworker.",
+   "quiz": {
+    "options": [
+     "I'm wiped out",
+     "I'm very hungry",
+     "I'm running late"
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-27",
+   "phrase": "¡No hay bronca!",
+   "pron": "noh eye BROHN-kah",
+   "reg": "Mexico · casual",
+   "meaning": "No problem!",
+   "note": "'Bronca' means trouble or a problem in casual Mexican Spanish. Say it to wave off an apology or reassure someone; it is friendly and informal.",
+   "cards": [
+    {
+     "es": "No pasa nada",
+     "en": "It's no big deal"
+    },
+    {
+     "es": "Sin problema",
+     "en": "No problem"
+    },
+    {
+     "es": "Todo bien",
+     "en": "All good"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¡No",
+     "en": "no / there is not"
+    },
+    {
+     "es": "hay",
+     "en": "there is"
+    },
+    {
+     "es": "bronca",
+     "en": "trouble / a problem"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "Perdón, llegué tarde.",
+     "en": "Sorry, I got here late."
+    },
+    {
+     "es": "¡No hay bronca! Apenas empezamos.",
+     "en": "No problem! We just started."
+    },
+    {
+     "es": "Gracias, ya traigo el café.",
+     "en": "Thanks, I already have the coffee."
+    },
+    {
+     "es": "Perfecto, siéntate.",
+     "en": "Perfect, sit down."
+    }
+   ],
+   "use": "Say it when a friend apologizes for being late or asks if a small favor is okay.",
+   "quiz": {
+    "options": [
+     "No problem!",
+     "I am very tired.",
+     "See you tomorrow."
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-26",
+   "phrase": "¡Qué chido está tu carro!",
+   "pron": "keh CHEE-doh eh-STAH too KAH-rroh",
+   "reg": "Mexico · casual",
+   "meaning": "Your car is so cool!",
+   "note": "'Chido' is very common casual Mexican slang for cool or great. It is friendly and informal, fine with friends and peers.",
+   "cards": [
+    {
+     "es": "¡Qué padre!",
+     "en": "How cool!"
+    },
+    {
+     "es": "¡Está de pelos!",
+     "en": "It's awesome!"
+    },
+    {
+     "es": "¡Qué buena onda!",
+     "en": "How nice of you!"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¡Qué",
+     "en": "how / what a"
+    },
+    {
+     "es": "chido",
+     "en": "cool"
+    },
+    {
+     "es": "está",
+     "en": "is"
+    },
+    {
+     "es": "tu",
+     "en": "your"
+    },
+    {
+     "es": "carro",
+     "en": "car"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿Viste mi carro nuevo?",
+     "en": "Did you see my new car?"
+    },
+    {
+     "es": "¡Sí! ¡Qué chido está tu carro!",
+     "en": "Yes! Your car is so cool!"
+    },
+    {
+     "es": "Gracias, lo compré ayer.",
+     "en": "Thanks, I bought it yesterday."
+    },
+    {
+     "es": "¡Qué padre! Felicidades.",
+     "en": "How nice! Congratulations."
+    }
+   ],
+   "use": "Say it when a friend shows you something you like, like a car, a phone or a new place.",
+   "quiz": {
+    "options": [
+     "Your car is so cool!",
+     "Your car is very old.",
+     "Where did you park your car?"
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-25",
+   "phrase": "Ahorita vengo, voy por unos tacos",
+   "pron": "ah-oh-REE-tah VEN-goh, voy por OO-nohs TAH-kohs",
+   "reg": "Mexico · casual",
+   "meaning": "I'll be right back, I'm getting some tacos.",
+   "note": "'Ahorita' is flexible in Mexico: it can mean right now or a while from now, depending on tone. 'Ahorita vengo' is the usual way to say you are stepping out and coming back soon.",
+   "cards": [
+    {
+     "es": "Ahorita regreso",
+     "en": "I'll be back in a bit"
+    },
+    {
+     "es": "Ya vengo",
+     "en": "I'm coming right back"
+    },
+    {
+     "es": "No tardo",
+     "en": "I won't be long"
+    }
+   ],
+   "parts": [
+    {
+     "es": "Ahorita",
+     "en": "in a little while / right now"
+    },
+    {
+     "es": "vengo",
+     "en": "I come (back)"
+    },
+    {
+     "es": "voy",
+     "en": "I'm going"
+    },
+    {
+     "es": "por",
+     "en": "to get / for"
+    },
+    {
+     "es": "unos",
+     "en": "some"
+    },
+    {
+     "es": "tacos",
+     "en": "tacos"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿A dónde vas?",
+     "en": "Where are you going?"
+    },
+    {
+     "es": "Ahorita vengo, voy por unos tacos.",
+     "en": "I'll be right back, I'm getting some tacos."
+    },
+    {
+     "es": "¿Me traes dos de pastor?",
+     "en": "Can you bring me two al pastor?"
+    },
+    {
+     "es": "Claro, ahorita te los traigo.",
+     "en": "Sure, I'll bring them in a bit."
+    }
+   ],
+   "use": "Say it when you step out of a room or a shop for a few minutes and plan to come back.",
+   "quiz": {
+    "options": [
+     "I'll be right back, I'm getting some tacos.",
+     "I already ate all the tacos.",
+     "The tacos are too expensive."
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-24",
+   "phrase": "¡Que vivan los novios!",
+   "pron": "keh VEE-vahn lohs NOH-vyohs",
+   "reg": "Mexico · festive",
+   "meaning": "Long live the newlyweds!",
+   "note": "The standard cheer at a Mexican wedding toast, shouted by the whole room. 'Novios' means the bride and groom, or a couple who are engaged or newly married. It's for weddings and anniversaries.",
+   "cards": [
+    {
+     "es": "¡Salud!",
+     "en": "Cheers!"
+    },
+    {
+     "es": "¡Felicidades!",
+     "en": "Congratulations!"
+    },
+    {
+     "es": "¡Que se besen!",
+     "en": "Kiss! (the crowd's chant)"
+    }
+   ],
+   "parts": [
+    {
+     "es": "Que",
+     "en": "may / let"
+    },
+    {
+     "es": "vivan",
+     "en": "they live"
+    },
+    {
+     "es": "los",
+     "en": "the"
+    },
+    {
+     "es": "novios",
+     "en": "bride and groom"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¡Ya llegó la hora del brindis!",
+     "en": "It's time for the toast!"
+    },
+    {
+     "es": "¡Salud! ¡Que vivan los novios!",
+     "en": "Cheers! Long live the newlyweds!"
+    },
+    {
+     "es": "¡Y que bailen toda la noche!",
+     "en": "And may they dance all night!"
+    },
+    {
+     "es": "¡Eso! Ahora sí, a la pista.",
+     "en": "Exactly! Now, to the dance floor."
+    }
+   ],
+   "use": "Say it when someone raises a glass at a wedding, or after a friend announces an engagement.",
+   "quiz": {
+    "options": [
+     "Long live the newlyweds!",
+     "Congratulations on the new house!",
+     "The bus leaves in five minutes."
+    ],
+    "answer": 0
+   }
+  }
+ ],
+ "learnLog": {
+  "words": [
+   "Peripatetic",
+   "Recondite",
+   "Liminal",
+   "Sanguine",
+   "Equanimity",
+   "Salient",
+   "Convivial",
+   "Sedulous",
+   "Laconic",
+   "Ephemeral",
+   "Perspicacious",
+   "Ineffable",
+   "Ebullient"
+  ],
+  "phrases": [
+   "¡Aguas!",
+   "Me da igual",
+   "¡Qué calor!",
+   "¿Qué onda?",
+   "¡No manches, está bien padre!",
+   "Ni modo, ya será para la próxima",
+   "¡Que vivan los novios!",
+   "Ahorita vengo, voy por unos tacos",
+   "¡Qué chido está tu carro!",
+   "¡No hay bronca!",
+   "¡Estoy hecho polvo!",
+   "¿Cómo te fue en la chamba?",
+   "¡Échale ganas!"
+  ]
+ },
+ "coach": {
+  "date": "2026-10-27",
+  "quality": "Connected",
+  "theme": "Reach out",
+  "focus": {
+   "title": "Reach out before the birthdays",
+   "why": "Your calendar is empty today and tomorrow, Paige's birthday is Thursday and Patrick's is Sunday. Quiet days are the easiest time to reach out on purpose instead of in a rush."
+  },
+  "one": {
+   "text": "Draft Paige's birthday message now, with one specific memory in it, and schedule it for Thursday morning.",
+   "mins": 5
+  },
+  "idea": {
+   "line": "A short note lands harder than you expect.",
+   "body": "In experiments, people who wrote gratitude notes underestimated how surprised and happy the recipient would be, and overestimated how awkward the note would feel. The hesitation is usually wrong.",
+   "src": "Amit Kumar & Nicholas Epley · undervaluing gratitude"
+  },
+  "reflect": "Who did I make feel remembered today?",
+  "principle": "A short note lands harder than you expect.",
+  "moves": [
+   {
+    "area": "People",
+    "text": "Draft Paige's birthday message now, with one specific memory in it, and schedule it for Thursday morning.",
+    "mins": 5
+   },
+   {
+    "area": "Body",
+    "text": "Take a 20-minute walk after lunch; yesterday came to about 6,300 steps.",
+    "mins": 20
+   },
+   {
+    "area": "People",
+    "text": "Put a reminder to call Patrick on Sunday for his birthday.",
+    "mins": 2
+   }
+  ]
+ },
+ "music": {
+  "artists": [
+   {
+    "name": "Don Toliver",
+    "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+   },
+   {
+    "name": "Chris Lake",
+    "url": "https://open.spotify.com/artist/5Igpc9iLZ3YGtKeYfSrrOE"
+   },
+   {
+    "name": "Slander",
+    "url": "https://open.spotify.com/artist/20DZAfCuP1TKZl5KcY7z3Q"
+   },
+   {
+    "name": "Sam Gellaitry",
+    "url": "https://open.spotify.com/artist/07UJz804RJxqNvxFXC3h9H"
+   },
+   {
+    "name": "Kanye West",
+    "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
+   },
+   {
+    "name": "Tyler, The Creator",
+    "url": "https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF"
+   }
+  ],
+  "releases": []
+ },
+ "live": [
+  {
+   "kind": "game",
+   "title": "Knicks at 76ers",
+   "sub": "NBA Cup",
+   "when": "2026-10-30T16:30:00-07:00",
+   "where": "Xfinity Mobile Arena, Philadelphia",
+   "tv": [
+    "Prime Video"
+   ],
+   "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
+   "note": "Tips off at 7:30 PM ET."
+  },
+  {
+   "kind": "game",
+   "title": "76ers at Hornets",
+   "sub": "NBA regular season",
+   "when": "2026-10-31T15:00:00-07:00",
+   "where": "Spectrum Center, Charlotte",
+   "tv": [],
+   "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
+   "note": "6 PM ET. Sources disagree on the broadcaster (NBA TV or Peacock/NBC Sports Philadelphia), so check the local broadcast."
+  },
+  {
+   "kind": "game",
+   "title": "Ohio State at USC",
+   "sub": "Big Ten football",
+   "when": "2026-10-31T16:30:00-07:00",
+   "where": "Los Angeles Memorial Coliseum",
+   "tv": [
+    "NBC"
+   ],
+   "url": "https://ohiostatebuckeyes.com/news/2026/10/19/football-kickoff-time-at-usc-announced-for-7-30-pm-et-on-nbc",
+   "note": "Kickoff is 7:30 PM ET on NBC, as announced by Ohio State."
+  },
+  {
+   "kind": "fight",
+   "title": "UFC Fight Night: Bonfim vs. Brady",
+   "sub": "UFC",
+   "when": "2026-11-07T17:00:00-08:00",
+   "where": "UFC Apex, Las Vegas",
+   "tv": [
+    "Paramount+"
+   ],
+   "url": "https://en.wikipedia.org/wiki/UFC_Fight_Night:_Bonfim_vs._Brady",
+   "note": "Listed for 8 PM ET with the main card on Paramount+. No SpaceX launch date was confirmed this week; Starship Flight 15 has no firm date."
+  }
+ ],
+ "coachHistory": [
+  {
+   "date": "2026-10-21",
+   "quality": "Productive",
+   "title": "Finish one real thing before noon"
+  },
+  {
+   "date": "2026-10-22",
+   "quality": "Calmer",
+   "title": "Pack before noon so tonight is easy"
+  },
+  {
+   "date": "2026-10-23",
+   "quality": "Healthier",
+   "title": "Get daylight and a short nap, then protect tonight's sleep"
+  },
+  {
+   "date": "2026-10-24",
+   "quality": "Present",
+   "title": "Be fully present at Sammy's wedding"
+  },
+  {
+   "date": "2026-10-25",
+   "quality": "Generous",
+   "title": "Get home easily and mark Ty's birthday"
+  },
+  {
+   "date": "2026-10-26",
+   "quality": "Focused",
+   "title": "Decide what matters most this week"
+  },
+  {
+   "date": "2026-10-27",
+   "quality": "Connected",
+   "title": "Reach out before the birthdays"
+  }
+ ],
+ "dare": {
+  "date": "2026-10-30",
+  "kind": "Create",
+  "title": "Make a costume from junk",
+  "why": "Saturday's RL Grime show is a Halloween block party where costumes are basically expected, so tonight give yourself 30 minutes, a timer and one rule: nothing bought. Raid the closet, the recycling and the junk drawer, and make it something you can move in and see out of (no vision-blocking masks in a crowd). Send one photo to a friend when the timer goes off.",
+  "mins": 30,
+  "cost": "Free",
+  "place": null,
+  "worth": "A costume made in a rush has a story, and a thing you made yourself gets better reactions than anything off a rack. Constraints are what make people inventive.",
+  "src": "",
+  "swap": {
+   "kind": "Brave",
+   "title": "Compliment three strangers",
+   "why": "Today, mean it and say it out loud: the barista's earrings, the stranger's jacket, the busker's tune. Keep it short, don't ask for anything back, and keep walking.",
+   "mins": 10,
+   "worth": "Almost everyone underestimates how good a sincere compliment feels to receive, and it costs you ten seconds of nerve."
+  }
+ },
+ "dareHistory": [
+  {
+   "date": "2026-10-21",
+   "kind": "Focus",
+   "title": "Finish one real thing before noon"
+  },
+  {
+   "date": "2026-10-22",
+   "kind": "Wonder",
+   "title": "Pack before noon so tonight is easy"
+  },
+  {
+   "date": "2026-10-23",
+   "kind": "Move",
+   "title": "Get daylight and a short nap, then protect tonight's sleep"
+  },
+  {
+   "date": "2026-10-24",
+   "kind": "Wonder",
+   "title": "Be fully present at Sammy's wedding"
+  },
+  {
+   "date": "2026-10-25",
+   "kind": "Give",
+   "title": "Get home easily and mark Ty's birthday"
+  },
+  {
+   "date": "2026-10-26",
+   "kind": "Focus",
+   "title": "Decide what matters most this week"
+  },
+  {
+   "date": "2026-10-27",
+   "kind": "Wonder",
+   "title": "Go find the moon tonight"
+  },
+  {
+   "date": "2026-10-27",
+   "kind": "Create",
+   "title": "Write 100 words you'll never show anyone"
+  },
+  {
+   "date": "2026-10-27",
+   "kind": "Learn",
+   "title": "Learn one card trick before bed"
+  },
+  {
+   "date": "2026-10-28",
+   "kind": "Connect",
+   "title": "Call someone from your Austin life"
+  },
+  {
+   "date": "2026-10-29",
+   "kind": "Explore",
+   "title": "Eat somewhere you can't pronounce"
+  },
+  {
+   "date": "2026-10-30",
+   "kind": "Create",
+   "title": "Make a costume from junk"
+  }
+ ]
 }
