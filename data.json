@@ -1,6 +1,6 @@
 {
- "edition": "2026-10-30",
- "updated": "2026-10-30T05:30:00-07:00",
+ "edition": "2026-10-31",
+ "updated": "2026-10-31T05:10:00-07:00",
  "weatherFallback": {
   "hi": 67,
   "lo": 50,
@@ -8,7 +8,7 @@
   "code": 1
  },
  "calendar": {
-  "summary": "Today is open, so it is a good day to sort out Saturday. Saturday is full: yoga at Grace Cathedral in San Francisco at 9 AM, Ohio State at USC at 4:30 PM Pacific on NBC, and RL Grime and NGHTMRE at The Midway from 4 to 10 PM. You can't do both the game and the show live, so pick one and check the Caltrain timetable. Clocks fall back at 2 AM Sunday, which is also Patrick's birthday. Monday at 5 PM is Dia de los Muertos in the Mission, and Tuesday is Election Day.",
+  "summary": "Saturday is full: yoga at Grace Cathedral in San Francisco at 9 AM, Ohio State at USC at 4:30 PM Pacific on NBC, and RL Grime and NGHTMRE at The Midway from 4 to 10 PM, so you can't catch both the game and the show live. Check the Caltrain Saturday timetable and bring earplugs, layers and a costume you can see out of. Clocks fall back at 2 AM Sunday, which is also Patrick's birthday. Monday at 5 PM is Dia de los Muertos in the Mission, and Tuesday is Election Day.",
   "events": [
    {
     "title": "🎃 Halloween",
@@ -65,18 +65,18 @@
   ]
  },
  "tip": {
-  "cat": "Hearing",
-  "title": "Wear earplugs at a loud show",
+  "cat": "Sleep",
+  "title": "Use the extra hour tonight on purpose",
   "mins": "1 min",
-  "why": "NIOSH's recommended limit is 85 A-weighted decibels for eight hours, and every 3 dB increase halves the safe time. Amplified music at concerts and clubs commonly runs well above 90 dB, which puts the safe time in minutes to a couple of hours. Foam or high-fidelity earplugs cut the level by roughly 15 to 30 dB depending on type and fit, so you can stay for the whole set and still hear the music.",
+  "why": "Clocks fall back at 2 AM, and the sleep-research consensus is that a fixed wake time anchors your body clock better than sleeping in. Going to bed at your usual time and waking at your usual clock time gives you a real extra hour of sleep once, without shifting your schedule.",
   "how": [
-   "Put the earplugs in before you walk into the venue, not after your ears start ringing.",
-   "Roll foam plugs thin, pull the top of your ear up and back, and hold until they expand.",
-   "Stand away from the speaker stacks, and take a few quiet minutes outside if you can."
+   "Go to bed at your normal time, even if the show runs late.",
+   "Set the same wake-up time on your clock as usual, not an hour later.",
+   "Get outdoor light within an hour of waking to lock the new time in."
   ],
-  "src": "NIOSH recommended exposure limit (85 dBA, 3 dB exchange rate)",
-  "url": "https://www.cdc.gov/niosh/noise/about/index.html",
-  "ask": "How loud is a typical concert, and how much do different types of earplugs reduce the sound?"
+  "src": "American Academy of Sleep Medicine position on clock changes and consistent schedules",
+  "url": "https://aasm.org/advocacy/position-statements/daylight-saving-time-position-statement/",
+  "ask": "Why does a consistent wake time matter more than total sleep when clocks change?"
  },
  "tipLog": [
   "Dim the lights two hours before bed",
@@ -90,24 +90,25 @@
   "Do three one-minute bursts of hard effort",
   "Take a 20-minute break in a green space",
   "Take a 10-minute nap after a short night",
-  "Wear earplugs at a loud show"
+  "Wear earplugs at a loud show",
+  "Use the extra hour tonight on purpose"
  ],
  "markets": {
-  "asOf": "2026-10-29",
-  "headline": "Stocks fell on Thursday as Alphabet dropped about 12% after a revenue miss, pulling the Nasdaq down 1.4% while small caps rose.",
+  "asOf": "2026-10-30",
+  "headline": "Stocks fell sharply on Friday as weak results from Amazon and Intel hit tech, with the Nasdaq down about 2.9% and the S&P 500 down 1.8%.",
   "points": [
-   "The S&P 500 closed at 7,720.39 (-0.3%), the Nasdaq at 26,184.72 (-1.4%) and the Dow at 52,342.56 (-0.25%), ending the S&P's three-day winning streak.",
-   "Alphabet fell roughly 12% (reports range from 11.8% to 12.6%), its worst day on record, after a revenue miss and a second straight quarter of negative free cash flow revived worries about AI spending.",
-   "Microsoft beat estimates with Azure growth of 48% against about 44% expected, but the stock gave up early gains and closed slightly lower; software and chip stocks were weak.",
-   "The Russell 2000 rose about 1.0% as money rotated into health care, real estate and staples. The Russell and Tesla rows still show their last confirmed closes (Oct 26 and Oct 28) because Thursday's levels could not be confirmed."
+   "The S&P 500 closed at 7,580.07, down 1.82% (Yahoo Finance and Trading Economics agree). Trading Economics has the Dow down about 572 points, or 1.09%, at 51,770.",
+   "Amazon missed revenue and earnings expectations; it spent about $77 billion on property and equipment from July through September, which revived worries about AI spending.",
+   "Intel fell about 30% after weak guidance in what StockTitan called its worst day since 1974, and Reddit also fell on earnings.",
+   "Only the S&P 500 row is updated; the Nasdaq, Dow, Russell 2000 and Tesla rows still show their last confirmed closes because Friday's levels could not be cross-checked."
   ],
   "tickers": [
    {
     "sym": "^GSPC",
     "name": "S&P 500",
-    "value": 7720.39,
-    "chg": -23.59,
-    "pct": -0.3,
+    "value": 7580.07,
+    "chg": -140.32,
+    "pct": -1.82,
     "ytd": 12.79,
     "closes": [
      [
@@ -165,6 +166,10 @@
      [
       "2026-10-29",
       7720.39
+     ],
+     [
+      "2026-10-30",
+      7580.07
      ]
     ]
    },
@@ -484,11 +489,66 @@
  "btc": {
   "source": "Benjamin Cowen",
   "channel": "@benjaminjcowen",
-  "sourceUrl": "https://www.youtube.com/watch?v=21mBnslOLd0",
-  "summaryDate": "2026-10-28",
-  "summary": "In his Oct 28 post-FOMC video, \"Bitcoin: Post-FOMC,\" and his posts around it, Cowen treated the Fed holding rates as the third confirmed step on his bearish Q4 roadmap, after the weekly close below his key level and the confirmed fakeout on Oct 25. He argues bitcoin is about 43 days into a roughly 50-day flat stretch that has tended to come before drops after rate-hike periods in midterm years. His next checkpoints are the PCE inflation print and the November midterms, since bitcoin put in major bottoms in Q4 after the 2014, 2018 and 2022 midterms. He says the view is wrong only if bitcoin reclaims and holds the level he has been watching."
+  "sourceUrl": "https://www.youtube.com/watch?v=bekghgecip8",
+  "summaryDate": "2026-10-30",
+  "summary": "Cowen's latest video, \"Bitcoin: The Q4 Dump is Here\" (Oct 30), continues the bearish Q4 view from his post-FOMC video two days earlier. The title says the decline he has been warning about is now underway. Earlier this week he said the view is wrong only if bitcoin reclaims and holds the level he has been watching, and his next checkpoints are the PCE inflation print and the November midterms, since bitcoin has put in major bottoms in Q4 after midterm elections in 2014, 2018 and 2022. The video's contents beyond its title could not be confirmed, so this summary carries forward his documented framing."
  },
  "news": [
+  {
+   "id": "n14",
+   "tag": "Tech",
+   "title": "Amazon misses revenue and earnings expectations as the Nasdaq sinks",
+   "blurb": "Amazon's miss and Intel's weak guidance drove Friday's tech sell-off; Amazon spent about $77 billion on property and equipment in the quarter.",
+   "src": "Motley Fool",
+   "domain": "fool.com",
+   "date": "2026-10-30",
+   "url": "https://www.fool.com/coverage/stock-market-today/2026/10/30/stock-market-today-oct-30-amazon-misses-revenue-and-earnings-expectations/",
+   "ask": "Is Amazon's spending a bet on AI demand, or a sign the payoff is further away than investors hoped?"
+  },
+  {
+   "id": "n15",
+   "tag": "Tech",
+   "title": "Intel has its worst day in decades after weak guidance",
+   "blurb": "Intel fell about 30% and Reddit also dropped as tech earnings disappointed.",
+   "src": "TheStreet",
+   "domain": "thestreet.com",
+   "date": "2026-10-30",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-30-2026",
+   "ask": "What did Intel's guidance say about demand for its chips and its foundry plans?"
+  },
+  {
+   "id": "n16",
+   "tag": "Robotics",
+   "title": "Humanoid expands its collaboration with Nvidia for next-generation humanoid robots",
+   "blurb": "The UK-based company will build its next generation of AI-powered humanoids on Nvidia's computing platform.",
+   "src": "Robotics and Automation News",
+   "domain": "roboticsandautomationnews.com",
+   "date": "2026-10-30",
+   "url": "https://roboticsandautomationnews.com/2026/10/30/humanoid-expands-collaboration-with-nvidia-to-power-its-next-generation-of-humanoid-robots/106493",
+   "ask": "Which parts of the humanoid stack is Nvidia becoming the default for, and which are still open?"
+  },
+  {
+   "id": "n17",
+   "tag": "Robotics",
+   "title": "Agility now expects to raise $465M in its SPAC deal",
+   "blurb": "The Digit maker's proposed merger with Churchill Capital Corp XI now brings in about $155 million less than first estimated.",
+   "src": "The Robot Report",
+   "domain": "therobotreport.com",
+   "date": "2026-10-30",
+   "url": "https://therobotreport.com/humanoid-developer-agility-now-expects-raise-465m-spac-deal",
+   "ask": "What does a smaller raise say about investor appetite for humanoid companies going public?"
+  },
+  {
+   "id": "n18",
+   "tag": "Robotics",
+   "title": "AgiBot launches GO-3 Preview, a model meant to keep learning after deployment",
+   "blurb": "AgiBot says it plans to open-source the full model by the end of 2026; one trial reported an 85% task success rate.",
+   "src": "Interesting Engineering",
+   "domain": "interestingengineering.com",
+   "date": "2026-10-29",
+   "url": "https://interestingengineering.com/ai-robotics/humanoid-robot-achieves-success-with-agibot-go3",
+   "ask": "How much of an 85% success rate comes from the model, and how much from a narrow task set?"
+  },
   {
    "id": "n12",
    "tag": "AI",
@@ -558,6 +618,17 @@
  ],
  "youtube": [
   {
+   "id": "YFe8LFCgT68",
+   "channel": "Channel 5 with Andrew Callaghan",
+   "handle": "@channel5YouTube",
+   "title": "Berlin Club Scene",
+   "desc": "Andrew Callaghan visits Berlin's club scene.",
+   "published": "2026-10-30T16:17:14Z",
+   "secs": 1910,
+   "views": 638154,
+   "url": "https://www.youtube.com/watch?v=YFe8LFCgT68"
+  },
+  {
    "id": "2reQut8WNGc",
    "channel": "Marques Brownlee",
    "handle": "@mkbhd",
@@ -565,19 +636,19 @@
    "desc": "Marques Brownlee shares first impressions of a new MacBook Pro display.",
    "published": "2026-10-29T02:50:34Z",
    "secs": 654,
-   "views": 8490622,
+   "views": 9744978,
    "url": "https://www.youtube.com/watch?v=2reQut8WNGc"
   },
   {
-   "id": "ai1gIWacf0I",
-   "channel": "Marques Brownlee",
-   "handle": "@mkbhd",
-   "title": "This can SEE Sound!",
-   "desc": "Marques Brownlee shows a device that makes sound visible.",
-   "published": "2026-10-27T20:14:55Z",
-   "secs": 91,
-   "views": 2180945,
-   "url": "https://www.youtube.com/watch?v=ai1gIWacf0I"
+   "id": "S19ag-Ifa8Y",
+   "channel": "NotJustBikes",
+   "handle": "@NotJustBikes",
+   "title": "This Small City's LRT is so Good it Made me Angry",
+   "desc": "NotJustBikes on a small city's light rail system.",
+   "published": "2026-10-28T19:08:00Z",
+   "secs": 1510,
+   "views": 570691,
+   "url": "https://www.youtube.com/watch?v=S19ag-Ifa8Y"
   },
   {
    "id": "YcpC3-59yhE",
@@ -587,41 +658,30 @@
    "desc": "Andrew Callaghan reports from Israel on election day.",
    "published": "2026-10-28T14:00:30Z",
    "secs": 1251,
-   "views": 1158007,
+   "views": 1259787,
    "url": "https://www.youtube.com/watch?v=YcpC3-59yhE"
-  },
-  {
-   "id": "S19ag-Ifa8Y",
-   "channel": "Not Just Bikes",
-   "handle": "@NotJustBikes",
-   "title": "This Small City's LRT is so Good it Made me Angry",
-   "desc": "Not Just Bikes looks at a small city's light rail system.",
-   "published": "2026-10-28T19:08:00Z",
-   "secs": 1510,
-   "views": 457541,
-   "url": "https://www.youtube.com/watch?v=S19ag-Ifa8Y"
   },
   {
    "id": "ujmyzWSj8IU",
    "channel": "OpenAI",
    "handle": "@OpenAI",
    "title": "API credits, now in ChatGPT Pro and Business plans",
-   "desc": "OpenAI explains API credits now included in ChatGPT Pro and Business plans.",
+   "desc": "OpenAI announces API credits for ChatGPT Pro and Business plans.",
    "published": "2026-10-28T23:45:26Z",
    "secs": 146,
-   "views": 46514,
+   "views": 51704,
    "url": "https://www.youtube.com/watch?v=ujmyzWSj8IU"
   },
   {
-   "id": "M2Oa42hF67E",
-   "channel": "OpenAI",
-   "handle": "@OpenAI",
-   "title": "From legal bottleneck to business partner | Legora’s Emma Kadri Bergström",
-   "desc": "OpenAI interviews Legora's Emma Kadri Bergström about legal teams and AI.",
-   "published": "2026-10-28T09:45:24Z",
-   "secs": 242,
-   "views": 8747,
-   "url": "https://www.youtube.com/watch?v=M2Oa42hF67E"
+   "id": "ai1gIWacf0I",
+   "channel": "Marques Brownlee",
+   "handle": "@mkbhd",
+   "title": "This can SEE Sound!",
+   "desc": "Marques Brownlee shows a device that makes sound visible.",
+   "published": "2026-10-27T20:14:55Z",
+   "secs": 91,
+   "views": 2334068,
+   "url": "https://www.youtube.com/watch?v=ai1gIWacf0I"
   }
  ],
  "spotify": [
@@ -874,37 +934,8 @@
   "@AIExplained-official"
  ],
  "bay": {
-  "range": "Oct 30 – Nov 1",
+  "range": "Oct 31 – Nov 1",
   "items": [
-   {
-    "id": "b1",
-    "title": "Ghost Ship VIII",
-    "where": "San Francisco",
-    "blurb": "An adults-only Halloween dance event with multiple stages and art installations, listed for 9 PM to 3 AM.",
-    "date": "2026-10-30",
-    "url": "https://www.sfstation.com/music/calendar/bay-area/10-31-2026",
-    "cal": {
-     "start": "2026-10-30T21:00",
-     "end": "2026-10-31T03:00",
-     "location": "San Francisco, CA",
-     "tips": "Venue and ticket details were not confirmed; check the organizer's page before planning a ride home."
-    }
-   },
-   {
-    "id": "b2",
-    "title": "Final weekend of Ocean Beach bonfires",
-    "where": "Ocean Beach, San Francisco",
-    "blurb": "Fire rings are first come, first served, and Friday's session runs 3 to 9:30 PM. This is the last weekend of the 2026 season.",
-    "date": "2026-10-30",
-    "url": "https://www.sftourismtips.com/halloween-events-sf-bay-area.html",
-    "free": true,
-    "cal": {
-     "start": "2026-10-30T16:00",
-     "end": "2026-10-30T21:30",
-     "location": "Ocean Beach, San Francisco, CA",
-     "tips": "Bring warm layers. Check SF Rec and Park rules for what you can burn; hours come from a single listing."
-    }
-   },
    {
     "id": "b3",
     "title": "Knocked Loose with Denzel Curry",
@@ -1252,6 +1283,32 @@
  },
  "vocab": [
   {
+   "date": "2026-10-31",
+   "word": "Uncanny",
+   "pron": "un-KAN-ee",
+   "pos": "adjective",
+   "def": "Strange in a way that is unsettling, especially because it is almost but not quite familiar.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "From un- 'not' + canny, from Scots 'canny', 'safe, knowing'; so literally 'not safe'"
+    },
+    {
+     "f": "Synonym",
+     "b": "eerie, unsettling, strange"
+    },
+    {
+     "f": "Use it for",
+     "b": "things that look almost human or familiar but feel slightly wrong"
+    }
+   ],
+   "examples": [
+    "The robot's smile was so close to real that it felt uncanny.",
+    "There was an uncanny quiet on the street after midnight."
+   ],
+   "ex": "The robot's smile was so close to real that it felt uncanny."
+  },
+  {
    "date": "2026-10-30",
    "word": "Ebullient",
    "pron": "ih-BUL-yunt",
@@ -1435,6 +1492,65 @@
   }
  ],
  "spanish": [
+  {
+   "date": "2026-10-31",
+   "phrase": "¡Qué padre!",
+   "pron": "keh PAH-dreh",
+   "reg": "Mexico · casual",
+   "meaning": "How cool! / That's awesome!",
+   "note": "Very common in Mexico for anything you like: a costume, a song, a plan. 'Padre' here means great, not father.",
+   "cards": [
+    {
+     "es": "Está bien padre",
+     "en": "It's really cool"
+    },
+    {
+     "es": "¡Qué padre disfraz!",
+     "en": "What a cool costume!"
+    },
+    {
+     "es": "Qué padre plan",
+     "en": "What a great plan"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¡Qué",
+     "en": "what / how"
+    },
+    {
+     "es": "padre!",
+     "en": "cool, great (slang)"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "Mira mi disfraz de esqueleto.",
+     "en": "Look at my skeleton costume."
+    },
+    {
+     "es": "¡Qué padre!",
+     "en": "How cool!"
+    },
+    {
+     "es": "Lo hice yo mismo.",
+     "en": "I made it myself."
+    },
+    {
+     "es": "¡Qué padre, te quedó increíble!",
+     "en": "How cool, it turned out amazing!"
+    }
+   ],
+   "use": "Say it when someone shows you something you genuinely like.",
+   "quiz": {
+    "options": [
+     "How cool!",
+     "How far!",
+     "What time?"
+    ],
+    "answer": 0
+   }
+  },
   {
    "date": "2026-10-30",
    "phrase": "¡Échale ganas!",
@@ -1931,7 +2047,8 @@
    "Ephemeral",
    "Perspicacious",
    "Ineffable",
-   "Ebullient"
+   "Ebullient",
+   "Uncanny"
   ],
   "phrases": [
    "¡Aguas!",
@@ -1946,7 +2063,8 @@
    "¡No hay bronca!",
    "¡Estoy hecho polvo!",
    "¿Cómo te fue en la chamba?",
-   "¡Échale ganas!"
+   "¡Échale ganas!",
+   "¡Qué padre!"
   ]
  },
  "coach": {
@@ -2016,18 +2134,6 @@
   "releases": []
  },
  "live": [
-  {
-   "kind": "game",
-   "title": "Knicks at 76ers",
-   "sub": "NBA Cup",
-   "when": "2026-10-30T16:30:00-07:00",
-   "where": "Xfinity Mobile Arena, Philadelphia",
-   "tv": [
-    "Prime Video"
-   ],
-   "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
-   "note": "Tips off at 7:30 PM ET."
-  },
   {
    "kind": "game",
    "title": "76ers at Hornets",
@@ -2101,21 +2207,25 @@
   }
  ],
  "dare": {
-  "date": "2026-10-30",
-  "kind": "Create",
-  "title": "Make a costume from junk",
-  "why": "Saturday's RL Grime show is a Halloween block party where costumes are basically expected, so tonight give yourself 30 minutes, a timer and one rule: nothing bought. Raid the closet, the recycling and the junk drawer, and make it something you can move in and see out of (no vision-blocking masks in a crowd). Send one photo to a friend when the timer goes off.",
-  "mins": 30,
+  "date": "2026-10-31",
+  "kind": "Brave",
+  "title": "Ask a stranger about their costume",
+  "why": "You're going to a Halloween block party, so use it: pick the best costume you see on the Caltrain platform or in line at The Midway and ask who they are and how they made it. Phone stays in your pocket, and listen for the whole story before you say anything about yours.",
+  "mins": 10,
   "cost": "Free",
-  "place": null,
-  "worth": "A costume made in a rush has a story, and a thing you made yourself gets better reactions than anything off a rack. Constraints are what make people inventive.",
+  "place": {
+   "name": "The Midway",
+   "sub": "Dogpatch, San Francisco",
+   "url": "https://www.google.com/maps/search/?api=1&query=The+Midway+900+Marin+St+San+Francisco"
+  },
+  "worth": "People who dressed up want to be asked. It's the easiest hard conversation of the year, and you'll probably leave with a story you didn't have this morning.",
   "src": "",
   "swap": {
-   "kind": "Brave",
-   "title": "Compliment three strangers",
-   "why": "Today, mean it and say it out loud: the barista's earrings, the stranger's jacket, the busker's tune. Keep it short, don't ask for anything back, and keep walking.",
+   "kind": "Wonder",
+   "title": "Watch the sun go down",
+   "why": "Sunset is around 6:10 PM today. Step outside five minutes early, face west and watch it go with nothing in your hands.",
    "mins": 10,
-   "worth": "Almost everyone underestimates how good a sincere compliment feels to receive, and it costs you ten seconds of nerve."
+   "worth": "Sunsets are free, short and different every day, and almost nobody stops for them."
   }
  },
  "dareHistory": [
@@ -2178,6 +2288,11 @@
    "date": "2026-10-30",
    "kind": "Create",
    "title": "Make a costume from junk"
+  },
+  {
+   "date": "2026-10-31",
+   "kind": "Brave",
+   "title": "Ask a stranger about their costume"
   }
  ]
 }
