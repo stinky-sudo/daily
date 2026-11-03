@@ -1491,7 +1491,7 @@ a.dc-c .dq{color:var(--ink-2)}
 .mu-ava .ava{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;font-size:30px;font-weight:700}
 .mu-ava.sm{width:46px;height:46px;flex:0 0 46px;box-shadow:none}
 .mu-ava.sm .ava{font-size:18px}
-.mu-a b{font-size:13.5px;font-weight:650;line-height:1.2}
+.mu-a b{font-size:13.5px;font-weight:650;line-height:1.2;max-width:100%;overflow-wrap:anywhere}
 .mu-a small{font-size:11.5px;color:var(--ink-3);line-height:1.2}
 .mu-sl{padding:4px 0}
 .mu-s{display:flex;align-items:center;gap:12px;padding:10px 16px;border-top:1px solid var(--line)}
@@ -2492,9 +2492,20 @@ async function pushCfg(){
 }
 /* save right away (app going to the background, or about to reload) */
 function flushCfg(){clearTimeout(pushT);return cfg().dirty?pushCfg():Promise.resolve()}
+/* One-time additions to a synced list. Each runs once, right after this device has the
+   server's copy, and the marker syncs too: every device gets the same list and anything
+   removed later stays removed. */
+const LIST_SEEDS=[{id:"artists202611",k:"artists",add:["Drake","Mac Miller","The Notorious B.I.G.","Kid Cudi","J. Cole","Kendrick Lamar","PARTYNEXTDOOR","Jack Harlow","Post Malone","BigXthaPlug","Kota the Friend","XXXTENTACION","Kodak Black","Travis Scott","Future","Metro Boomin","ScHoolboy Q","Chance the Rapper","Aminé","Kofi Stone","Daniel Caesar","Charles Bradley","Darondo","Leon Bridges","Alicia Keys","Sam Cooke","Bobby Caldwell","The Beatles","Bob Dylan","Johnny Cash","Tom Petty and the Heartbreakers","Elton John","ABBA","Father John Misty","Lukas Nelson and Promise of the Real","Bishop Gunn","Tyler Childers","Bad Bunny","Goth Babe","Mt. Joy","Royel Otis","Balu Brigada","Chris Staples","Quinn XCII","Ashes To Amber","Richy Mitch & The Coal Miners","nimino","oskar med k","ODESZA","RL Grime","Sammy Virji","Louis The Child","Ganja White Night","Flume","RÜFÜS DU SOL","Stavroz","Conrad.","The Dare","eric404","Jkyl & Hyde","Kerala Dust"]}];
+function applyListSeeds(){
+ LIST_SEEDS.forEach(s=>{
+  const done=pref("listSeeds",[]);if(done.includes(s.id))return;
+  const cur=lists()[s.k],has=n=>cur.some(x=>norm(x)===norm(n));
+  setList(s.k,cur.concat(s.add.filter(n=>!has(n))));setPref("listSeeds",done.concat([s.id]));listsChanged([s.k]);
+ });
+}
 async function pullCfg(){
  if(!backend())return;
- try{const r=await be({fn:"config"});if(r.config&&r.config.v===3)adoptCfg(r.config);else if(r.config&&r.config.lists){adoptCfg({lists:r.config.lists,listsAt:Object.fromEntries(Object.keys(r.config.lists).map(k=>[k,r.config.updated||0]))});cfg().dirty=true;queuePush()}else{cfg().dirty=true;queuePush()}S.sync={state:"ok",at:Date.now()}}
+ try{const r=await be({fn:"config"});if(r.config&&r.config.v===3){adoptCfg(r.config);applyListSeeds()}else if(r.config&&r.config.lists){adoptCfg({lists:r.config.lists,listsAt:Object.fromEntries(Object.keys(r.config.lists).map(k=>[k,r.config.updated||0]))});cfg().dirty=true;queuePush()}else{cfg().dirty=true;queuePush()}S.sync={state:"ok",at:Date.now()}}
  catch(e){S.sync={state:"err",msg:e.message}}
  refreshSettings();
 }
