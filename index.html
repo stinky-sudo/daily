@@ -1256,7 +1256,7 @@ html{overflow-x:clip}
 .mv .meta{font-size:12.5px;color:var(--ink-3);margin-top:2px}
 .mv p{font-size:13px;line-height:1.4;color:var(--ink-2);margin-top:5px}
 .mv .chips2{margin-top:7px}
-/* poster cards are narrow: five slightly smaller circles, wrapping if a screen is tighter still */
+/* poster cards are narrow: slightly smaller circles, wrapping if a screen is tighter still */
 .mv .acts{display:flex;flex-wrap:wrap;gap:4px;margin-top:9px}.mv .acts .ib{width:32px;height:32px}.mv .acts .ib svg,.mv .acts .ib img{width:17px;height:17px}.mv .acts .ib.dx svg{width:13px;height:13px}
 .score{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 7px;border-radius:999px;font-size:11.5px;font-weight:700;background:var(--fill);color:var(--ink-2)}
 .score.fresh{background:rgba(250,50,10,.12);color:#E2381B}
@@ -1326,7 +1326,7 @@ html{overflow-x:clip}
   .grp-t{font-size:13.5px}
   .pin-x b{font-size:15.5px}.pin-s{font-size:13.5px}.pin-k{font-size:11.5px}
   .pin-th{flex-basis:60px;height:60px}
-  /* poster cards are narrow on a tablet: five smaller circles on one line, with the finger target reaching past each */
+  /* poster cards are narrow on a tablet: smaller circles on one line, with the finger target reaching past each */
   .mv .acts{flex-wrap:nowrap;justify-content:space-between;gap:4px}.mv .acts .ib{width:32px;height:32px}.mv .acts .ib::after{content:"";position:absolute;inset:-6px -2px}
 }
 /* iPad upright: two pins per view with a peek of the next */
@@ -4561,7 +4561,7 @@ function mvData(){const m=S.mv||DATA.movies||{};const tk=todayKey();const P=LS.g
 function renderMovies(){
  const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,live,total}=mvData();const o=mvPrefs();
  const nowChip=x=>{if(!x.released)return"";const d=dayDiff(x.released,tk);return d<=3?`<span class="cd now"><i></i>New</span>`:d<7?`<span class="cd soon">Opened ${esc(fmtKey(x.released,{weekday:"short"}))}</span>`:`<span class="cd">Week ${Math.floor(d/7)+1}</span>`};
- el.innerHTML=`${now.length?`<div class="grp-t">In theaters<span>${now.length}${live?" of "+total+" · TMDB":""} · last ${o.win} days</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(showtimesUrl(x.title),I.ticket,"Showtimes & tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" "+String(x.released||x.date||"").slice(0,4)+" movie")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:["In theaters",x.rating].filter(Boolean).join(" · "),img:x.poster,url:showtimesUrl(x.title)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div>`:""}
+ el.innerHTML=`${now.length?`<div class="grp-t">In theaters<span>${now.length}${live?" of "+total+" · TMDB":""} · last ${o.win} days</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" movie near me")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:["In theaters",x.rating].filter(Boolean).join(" · "),img:x.poster,url:showtimesUrl(x.title)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div>`:""}
  ${!now.length?`<div class="card"><div class="empty-row">No movies listed today.</div></div>`:""}`;
 }
 /* Movies come live from TMDB through the backend (when a TMDB_KEY script property is set);
