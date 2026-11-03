@@ -1,6 +1,6 @@
 {
  "edition": "2026-11-03",
- "updated": "2026-11-03T05:45:00-08:00",
+ "updated": "2026-11-03T07:31:00-08:00",
  "weatherFallback": {
   "hi": 67,
   "lo": 50,
@@ -41,22 +41,22 @@
   "Name the feeling out loud"
  ],
  "markets": {
-  "asOf": "2026-10-30",
-  "headline": "Stocks sold off Friday as weak Intel and Amazon results revived worries about AI spending; the Nasdaq fell 2.9% and the S&P 500 1.8%, its worst day since June 5.",
+  "asOf": "2026-11-02",
+  "headline": "Tech pulled the Nasdaq down 1.07% on Monday while a 7.6% drop in oil lifted the Dow; the S&P 500 lost 0.51%.",
   "points": [
-   "The S&P 500 closed at 7,580.07 (-1.82%), the Nasdaq at 25,437.00 (-2.9%, its worst day since June) and the Dow at 51,770.31 (-572.25 points, -1.1%). Several sources agree on these closes.",
-   "Intel fell about 30% after weak guidance, in what one outlet called its worst day since 1974, and Reddit also dropped on earnings.",
-   "Amazon missed revenue and earnings expectations and spent about $77 billion on property and equipment from July through September, reviving worries about AI spending.",
-   "For the week the S&P 500 fell 0.58%, the Nasdaq 2% and the Dow 0.85%. The Russell 2000 closed at 2,811.84 (-1.7%). Tesla's last confirmed close is $403.30 on Oct 29 (-0.23%); its Oct 30 close could not be confirmed."
+   "The S&P 500 closed at 7,541.40 (-0.51%), the Nasdaq at 25,164.32 (-1.07%) and the Dow at 51,983.98 (+0.41%). The Nasdaq-100 closed in a correction, more than 10% below its Oct. 6 record.",
+   "Brent crude fell 7.63% to $104.77 on hopes for US-Iran talks. Energy stocks lost 4%, while consumer discretionary rose 2.25%.",
+   "Intel fell 8.8% to $59.97 after Friday's 28.6% drop, finishing October down about 45%, and Freedom Broker downgraded it to Hold. AMD fell 7.5% ahead of Tuesday's results.",
+   "Marvell fell 13% and Lumentum 18.6% on their $115 billion deal, and Oracle fell 8.8% on a $20 billion raise. Tesla rose 1% to $403.82."
   ],
   "tickers": [
    {
     "sym": "^GSPC",
     "name": "S&P 500",
-    "value": 7580.07,
-    "chg": -140.32,
-    "pct": -1.82,
-    "ytd": 12.79,
+    "value": 7541.4,
+    "chg": -38.67,
+    "pct": -0.51,
+    "ytd": 10.17,
     "closes": [
      [
       "2026-10-09",
@@ -117,206 +117,20 @@
      [
       "2026-10-30",
       7580.07
-     ]
-    ]
-   },
-   {
-    "sym": "^IXIC",
-    "name": "Nasdaq",
-    "value": 25437.0,
-    "chg": -747.72,
-    "pct": -2.86,
-    "ytd": 9.44,
-    "closes": [
-     [
-      "2026-10-09",
-      27366.17
      ],
      [
-      "2026-10-12",
-      27245.9
-     ],
-     [
-      "2026-10-13",
-      27204.38
-     ],
-     [
-      "2026-10-15",
-      26713.03
-     ],
-     [
-      "2026-10-16",
-      26140.03
-     ],
-     [
-      "2026-10-19",
-      26430.89
-     ],
-     [
-      "2026-10-20",
-      26424.82
-     ],
-     [
-      "2026-10-21",
-      26702.86
-     ],
-     [
-      "2026-10-22",
-      26008.86
-     ],
-     [
-      "2026-10-23",
-      25955.34
-     ],
-     [
-      "2026-10-26",
-      26169.38
-     ],
-     [
-      "2026-10-27",
-      26477.81
-     ],
-     [
-      "2026-10-28",
-      26549.85
-     ],
-     [
-      "2026-10-29",
-      26184.72
-     ],
-     [
-      "2026-10-30",
-      25437.0
-     ]
-    ]
-   },
-   {
-    "sym": "^DJI",
-    "name": "Dow Jones",
-    "value": 51770.31,
-    "chg": -572.25,
-    "pct": -1.09,
-    "ytd": 7.7,
-    "closes": [
-     [
-      "2026-10-09",
-      51654.95
-     ],
-     [
-      "2026-10-12",
-      51850.55
-     ],
-     [
-      "2026-10-13",
-      51670.1
-     ],
-     [
-      "2026-10-15",
-      52177.69
-     ],
-     [
-      "2026-10-16",
-      52002.41
-     ],
-     [
-      "2026-10-19",
-      51966.03
-     ],
-     [
-      "2026-10-20",
-      52495.88
-     ],
-     [
-      "2026-10-21",
-      52856.09
-     ],
-     [
-      "2026-10-22",
-      52867.98
-     ],
-     [
-      "2026-10-23",
-      52215.16
-     ],
-     [
-      "2026-10-26",
-      52361.58
-     ],
-     [
-      "2026-10-27",
-      52377.57
-     ],
-     [
-      "2026-10-28",
-      52475.1
-     ],
-     [
-      "2026-10-29",
-      52342.56
-     ],
-     [
-      "2026-10-30",
-      51770.31
-     ]
-    ]
-   },
-   {
-    "sym": "^RUT",
-    "name": "Russell 2000",
-    "value": 2811.84,
-    "chg": -47.37,
-    "pct": -1.66,
-    "ytd": 13.3,
-    "closes": [
-     [
-      "2026-10-12",
-      2794.48
-     ],
-     [
-      "2026-10-13",
-      2783.37
-     ],
-     [
-      "2026-10-15",
-      2767.27
-     ],
-     [
-      "2026-10-16",
-      2719.57
-     ],
-     [
-      "2026-10-20",
-      2773.42
-     ],
-     [
-      "2026-10-21",
-      2781.02
-     ],
-     [
-      "2026-10-22",
-      2784.03
-     ],
-     [
-      "2026-10-23",
-      2775.89
-     ],
-     [
-      "2026-10-26",
-      2787.81
-     ],
-     [
-      "2026-10-30",
-      2811.84
+      "2026-11-02",
+      7541.4
      ]
     ]
    },
    {
     "sym": "TSLA",
     "name": "Tesla",
-    "value": 403.3,
-    "chg": -0.92,
-    "pct": -0.23,
-    "ytd": -10.32,
+    "value": 403.82,
+    "chg": 4.01,
+    "pct": 1.0,
+    "ytd": -10.21,
     "closes": [
      [
       "2026-10-01",
@@ -331,8 +145,24 @@
       378.73
      ],
      [
+      "2026-10-06",
+      380.68
+     ],
+     [
+      "2026-10-07",
+      377.81
+     ],
+     [
+      "2026-10-08",
+      375.0
+     ],
+     [
       "2026-10-09",
       382.7
+     ],
+     [
+      "2026-10-12",
+      378.03
      ],
      [
       "2026-10-13",
@@ -385,38 +215,157 @@
      [
       "2026-10-29",
       403.3
+     ],
+     [
+      "2026-10-30",
+      399.81
+     ],
+     [
+      "2026-11-02",
+      403.82
+     ]
+    ]
+   },
+   {
+    "sym": "INTC",
+    "name": "Intel",
+    "value": 59.97,
+    "chg": -5.79,
+    "pct": -8.8,
+    "ytd": 62.5,
+    "closes": [
+     [
+      "2026-09-30",
+      120.23
+     ],
+     [
+      "2026-10-29",
+      92.07
+     ],
+     [
+      "2026-10-30",
+      65.76
+     ],
+     [
+      "2026-11-02",
+      59.97
      ]
     ]
    }
   ]
  },
  "pick": {
-  "sym": "STX",
-  "name": "Seagate Technology",
-  "theme": "Data storage for AI",
-  "close": 644.21,
-  "pct": 2.18,
-  "asOf": "2026-10-26",
-  "what": "Seagate makes hard disk drives and storage systems, with large data-center customers that store the data behind cloud and AI services.",
-  "why": "It rose 2.2% on Oct 26 to $644.21 after falling roughly 30% over the past month, and the consensus of 26 analysts reads Strong Buy with an average target near $1,138. Barclays kept a Buy with a $1,250 target and Bank of America a Buy with $1,200 on Oct 21. An idea to research, not a recommendation.",
-  "risk": "The stock is still far below its 52-week high of $1,145, and a roughly 30% drop in a month shows how fast sentiment can turn. UBS rates it Hold, and demand depends on AI data-center spending holding up.",
+  "sym": "ALAB",
+  "name": "Astera Labs",
+  "theme": "AI data center connectivity",
+  "close": 258.7,
+  "pct": -10.93,
+  "asOf": "2026-10-30",
+  "what": "Astera Labs designs chip-based networking and connectivity hardware for cloud and AI data centers.",
+  "why": "It's a smaller way to look at the same connectivity theme behind Marvell's Lumentum deal. The consensus of 26 analysts reads Buy with an average target near $383, last updated Oct. 27. The last close confirmed here is $258.70 on Oct. 30, about 48% below its 52-week high. An idea to research, not a recommendation.",
+  "risk": "It reports third-quarter results after Tuesday's close, so the price and the analyst targets may change quickly. The stock fell 10.9% on Oct. 30 alone, and its fortunes depend on AI data-center spending holding up during a chip selloff.",
   "rating": {
-   "label": "Strong Buy",
+   "label": "Buy",
    "total": 26
   },
-  "target": 1138,
-  "hi52": 1145.0,
+  "target": 382.68,
+  "hi52": 499.48,
   "closes": [
    [
+    "2026-10-01",
+    356.42
+   ],
+   [
+    "2026-10-02",
+    350.33
+   ],
+   [
+    "2026-10-05",
+    362.34
+   ],
+   [
+    "2026-10-06",
+    389.8
+   ],
+   [
+    "2026-10-07",
+    382.25
+   ],
+   [
+    "2026-10-08",
+    347.05
+   ],
+   [
+    "2026-10-09",
+    342.21
+   ],
+   [
+    "2026-10-12",
+    324.11
+   ],
+   [
+    "2026-10-13",
+    325.41
+   ],
+   [
+    "2026-10-14",
+    300.28
+   ],
+   [
+    "2026-10-15",
+    301.98
+   ],
+   [
+    "2026-10-16",
+    285.82
+   ],
+   [
+    "2026-10-19",
+    286.58
+   ],
+   [
+    "2026-10-20",
+    284.8
+   ],
+   [
+    "2026-10-21",
+    290.06
+   ],
+   [
+    "2026-10-22",
+    257.82
+   ],
+   [
     "2026-10-23",
-    630.49
+    257.16
    ],
    [
     "2026-10-26",
-    644.21
+    259.51
+   ],
+   [
+    "2026-10-27",
+    286.69
+   ],
+   [
+    "2026-10-28",
+    297.2
+   ],
+   [
+    "2026-10-29",
+    290.43
+   ],
+   [
+    "2026-10-30",
+    258.7
    ]
   ],
   "history": [
+   {
+    "date": "2026-11-03",
+    "sym": "ALAB",
+    "price": 258.7
+   },
    {
     "date": "2026-10-26",
     "sym": "STX",
@@ -452,259 +401,305 @@
  "btc": {
   "source": "Benjamin Cowen",
   "channel": "@benjaminjcowen",
-  "sourceUrl": "https://www.youtube.com/watch?v=FoneKiojzzg",
-  "summaryDate": "2026-11-01",
-  "summary": "Cowen's newest bitcoin video, \"Bitcoin: The Beauty of Mathematics (Part 74)\" (Nov 1), is another entry in his long-running series on the mathematical patterns in bitcoin's history. A day later he posted \"Stock Market Correction: Q4 2026\", which ties equity weakness to the same fourth-quarter caution. His working view from last week is unchanged: a bearish Q4, with the PCE inflation print and the November midterms as the next checkpoints, since bitcoin has found major bottoms in Q4 after midterm elections in 2014, 2018 and 2022. The videos' contents beyond their titles could not be confirmed, so this summary carries forward his documented framing."
+  "sourceUrl": "https://cryptonews.net/news/bitcoin/33690830/",
+  "summaryDate": "2026-11-02",
+  "summary": "In updates reported Oct. 30 and Nov. 2, Cowen says bitcoin has entered the window where past bear markets found their lows, at about day 1,439 of its cycle against earlier bottoms around days 1,432 to 1,436, though the volume surge that marked prior lows hasn't appeared. He says price is further below his long-term logarithmic regression fair value than at any point since 2010, and he expects it to stay below for the rest of 2026 while drifting toward the channel's lower boundary. He called for a 10–20% Nasdaq decline in Q4, sees about 10% so far, and warns a further 5–10% could hurt bitcoin. He thinks the Binance attack may have sped up the decline but didn't start it, and he still expects a new bull run in 2027."
  },
  "brief": {
   "date": "2026-11-03",
   "keywords": [
    "AI",
-   "Robotics",
    "Tech",
-   "LLM"
+   "LLM",
+   "Bitcoin",
+   "Tesla",
+   "Longevity",
+   "Starship",
+   "Meta humanoid",
+   "Tesla Optimus",
+   "Humanoid"
   ],
-  "lede": "Agility's shareholders approved its public listing as AI funding stories split: Anthropic's IPO date is unsettled while OpenAI trims its raise. Apple and Palantir beat estimates but fell on margins, and an open-weight Kimi release is due tomorrow.",
+  "lede": "Marvell's $115 billion bet on AI networking landed in a chip rout that left Intel down about 45% in October, while Binance's record hack kept pressure on bitcoin. Starship is lining up its first ship catch, and new Figure 03s walked out of the factory.",
   "articles": [
    {
     "id": "b1",
-    "tag": "Robotics",
-    "kicker": "Agility lists",
-    "title": "Agility's SPAC merger wins approval, with trading set for Nov. 5",
-    "dek": "The humanoid maker's shareholders signed off. The raise is smaller than first advertised, and the customer list is still short.",
+    "tag": "Humanoid",
+    "kicker": "Humanoids",
+    "title": "New Figure 03s walk out of BotQ while China counts its shipments",
     "body": [
-     "Shareholders of Churchill Capital Corp XI voted on Nov. 2 to approve the merger that will take Agility Robotics public, according to a filing the SPAC made with the SEC. A SPAC is a listed shell company that merges with a private firm so it can trade without a traditional IPO. The Robot Report said more than **84% of the votes cast** backed the deal. Closing is expected on **Nov. 4**, with shares trading on Nasdaq under the ticker AGLT starting **Nov. 5**.",
-     "The money is smaller than first advertised. On Oct. 30 the companies said they expected about **$465 million in gross proceeds**, made up of roughly $164 million left in the SPAC's trust account and about $201 million from a private stock sale led by Foxconn. Earlier materials had cited more than $620 million, a figure that assumed no one would pull cash out of the trust. Those withdrawals, called redemptions, explain most of the gap. One analysis also noted that part of the total had already been received, so not all of it arrives as fresh cash at closing.",
-     "The headline valuation did not move: the deal values Agility at $2.5 billion before the new money. What public investors are buying is a company with one main product, the Digit warehouse robot, and a customer list that is still short. GXO's Georgia site, where Digit has moved more than 100,000 totes, remains the main reference. Schaeffler is deploying Digit in automotive plants. In an Oct. 26 release Agility said it is in talks or running trials with more than 30 prospects, and it was candid that none of those agreements is signed.",
-     "Elsewhere, humanoid financing keeps arriving in smaller pieces. Chinese-market newsletters reported on Nov. 2 that RoboScience, which pairs its software with a wheeled humanoid-style platform called REX G1, closed a round of several hundred million yuan. They also said Beijing's GenRobot AI disclosed a $100 million Series A+ with backers that include SAIC Motor and Baidu. Both reports are secondhand and the amounts are loose, so treat them as signals of activity, not hard numbers.",
-     "For Agility, the first weeks of trading matter less than the first quarterly report. A listed company has to say how many Digit robots are deployed and what customers pay for them, which pilot announcements and letters of intent never required. Watch the final redemption count in the closing filing, and whether the stock holds up after a month in which tech shares fell hard."
+     "Figure founder Brett Adcock posted a short clip on Nov. 2 of newly built Figure 03 robots leaving the company's BotQ factory and walking across campus, one of them crossing a painted pedestrian path. Interesting Engineering, which covered the clip on Nov. 3, noted what was left out: how many robots were shown, whether they were walking autonomously, and where they were headed. No new production or delivery figures came with it.",
+     "The numbers on record are older. Figure has said BotQ reached a pace of one robot per hour and in July built its **1,000th humanoid**. The company describes those as cumulative manufacturing totals, not customer deliveries.",
+     "China's makers are publishing bigger shipment figures. AgiBot co-founder Peng Zhihui said the company shipped **9,700 humanoids in the first half of 2026**, with revenue close to 2 billion yuan, against 1.05 billion yuan for all of 2025. It claims 43.1% of global humanoid shipments, citing Counterpoint Research. Those are company claims reported through Global Times. Unitree, meanwhile, reported 1.817 billion yuan in nine-month revenue, up about 56%, though that total includes products other than humanoids.",
+     "Carmakers are still testing rather than buying at scale. Audi is trying two-armed wheeled humanoids from Agile Robots in a production lab at Ingolstadt, picking parts and sorting them into assembly order. The plant handles about 1 million picks a day, but Assembly Magazine described this as a lab trial and not a rollout.",
+     "Meta's prototype picked up a few more details from Inside AI on Nov. 2. Called Max and built with Fourier, it stands about five feet tall, with chest speakers, an expressive face and five-fingered hands. A second version is reportedly underway. Meta has announced no product, and Inside AI said it could not verify the robot's abilities.",
+     "The industry is now arguing over units built and shipped. The harder number to find is how many robots do paid, repeatable work, and it is still mostly missing from these announcements."
     ],
     "sources": [
      {
-      "src": "The Robot Report",
-      "domain": "therobotreport.com",
-      "url": "https://www.therobotreport.com/agility-robotics-shareholders-approve-25b-humanoid-spac/",
-      "date": "2026-11-02"
+      "src": "Interesting Engineering",
+      "domain": "interestingengineering.com",
+      "url": "https://interestingengineering.com/ai-robotics/figure-03-humanoids-take-campus-walk",
+      "date": "2026-11-03"
      },
      {
-      "src": "SEC filing, Churchill Capital Corp XI",
-      "domain": "sec.gov",
-      "url": "https://www.sec.gov/Archives/edgar/data/0002074973/000121390026115038/ea0310517-8k425_church11.htm",
-      "date": "2026-11-02"
-     },
-     {
-      "src": "Unite.AI",
-      "domain": "unite.ai",
-      "url": "https://www.unite.ai/agility-robotics-expects-465m-gross-capital-raise-ahead-of-spac-closing/",
+      "src": "Humanoid Guide",
+      "domain": "humanoid.guide",
+      "url": "https://humanoid.guide/agibot-revenue-nears-2-billion-yuan-as-humanoid-shipments-rise/",
       "date": "2026-10-30"
      },
      {
-      "src": "Tech Startups",
-      "domain": "techstartups.com",
-      "url": "https://techstartups.com/2026/11/02/startup-funding-news-today-november-2-2026-northwood-space-hypersonica-roboscience-more/",
+      "src": "Humanoid Guide",
+      "domain": "humanoid.guide",
+      "url": "https://humanoid.guide/audi-tests-wheeled-humanoids-for-sequencing-at-ingolstadt/",
+      "date": "2026-10-29"
+     },
+     {
+      "src": "Inside AI",
+      "domain": "insideai.news",
+      "url": "https://insideai.news/news/robotics/meta-humanoid-robot-prototype-fourier/14290/",
       "date": "2026-11-02"
      }
     ]
    },
    {
     "id": "b2",
-    "tag": "Robotics",
-    "kicker": "Robot brains",
-    "title": "Money and cloud access flow to robot software as hardware opens up",
-    "dek": "Investors and cloud providers are backing the models that run robots, while a new open humanoid design lowers the cost of building a body.",
+    "tag": "Tesla",
+    "kicker": "Tesla",
+    "title": "Musk says no to December Optimus reservations as Cybercabs fill Austin",
     "body": [
-     "The software side of robotics had a busy week. Bloomberg reported on Oct. 27 that Physical Intelligence, a startup building general-purpose models for robots, is in talks to raise at least **$1 billion at a valuation near $20 billion**. Existing backers Avenir and Lux Capital are reportedly in line to lead. Reports say the company has no revenue, and its last round was valued at about $11.5 billion earlier this year. Nothing has been announced as closed.",
-     "Google moved in the same direction from the platform side. On Oct. 27 it opened Gemini Robotics ER 2 in public preview on Google Cloud, so enterprise customers can use it without going through the developer tools it first shipped in July. The model is a reasoning layer: it looks at images and video, decides how to sequence a task and can pick key moments out of stored footage for labeling, while separate software handles motor control. Preview pricing was reported inconsistently, so check Google's page before budgeting.",
-     "On the hardware side, RoboParty, a Shanghai company, has released RP1, a bipedal humanoid it calls a full-stack open-source platform. It was unveiled at the IROS robotics conference in late September and was covered again on Nov. 2. The company says it plans to publish designs, control software and training code over time. Gagadget noted that RP1 is open source but **not yet fully open**, since a price, shipping date and commercial license terms have not been given.",
-     "Meta's quiet humanoid effort also got a second round of coverage. Following The Information's Oct. 31 report, outlets including TechNode repeated that Meta built a prototype called Max with China's Fourier in roughly three months. Meta has said it is internal research with no plan to sell it, so the story spread without the facts changing.",
-     "Together these point to where the money is heading. Investors are paying for the models that control robots, cloud companies are selling the planning layer, and open designs lower the cost of a body to run it on. None of it shows that robots are earning their keep yet. Watch whether Physical Intelligence confirms a close, and whether Google names customers for its robotics models. Those would be the first hard numbers on demand for robot brains."
+     "A report that Tesla would open Optimus reservations next month ran straight into its CEO. Investor Modar Alaoui, who organizes The Humanoids Summit in San Mateo on Dec. 1–2, told The San Francisco Standard that Tesla could take reservations around the event and plans to show Optimus V3 there. Musk answered on X on Oct. 30 with one word: \"No.\"",
+     "That fits what he told investors in October. Musk said outside deliveries should begin around **the end of 2027**, once the AI, the mechanical design and long-term durability are solved. Tesla plans to build 10,000 to 20,000 robots first, for an internal training program it calls Optimus Academy. Musk also promised a video within a month or two showing unscripted tasks, which is the next thing to look for.",
+     "The robotaxi business has fresher numbers. Electrek reported that Tesla logged 438,000 driverless miles in Austin in the week ending Oct. 18, up 30% in a week and slightly ahead of Waymo's second-quarter Austin average. Musk claimed victory. But that compares Tesla's best week with Waymo's average from months earlier, and nationally Waymo ran 3.9 million rider-only miles a week, about seven times Tesla's best.",
+     "The growth comes from one city and one vehicle. Austin was 79% of Tesla's driverless miles that week, and Texas records show 463 Cybercabs registered, 337 of them added in 30 days. Service still avoids highways and doesn't run around the clock.",
+     "Tesla is also taking the Cybercab abroad, for display only. A tour opens at Auto Zürich on Nov. 5 and runs through Jan. 17, with **12 stops in nine countries**. No European ride service has a date.",
+     "Closer to home, a Tesla Semi caught fire with no crash on I-880 in Hayward on Oct. 27, closing southbound lanes for about 10 hours. The driver was unhurt, and the cause is under investigation. WattEV ordered 370 Semis in May, mostly for work at the nearby Port of Oakland.",
+     "Tesla shares rose 1% on Monday to $403.82 on a down day for tech. Investors are still paying for the robot and robotaxi story, and the next real tests are that video and whether Austin's miles spread to other cities."
     ],
     "sources": [
      {
-      "src": "The Next Web",
-      "domain": "thenextweb.com",
-      "url": "https://thenextweb.com/news/physical-intelligence-20bn-valuation-talks-bloomberg",
-      "date": "2026-10-28"
+      "src": "Humanoid Guide",
+      "domain": "humanoid.guide",
+      "url": "https://humanoid.guide/musk-disputes-report-of-december-tesla-optimus-reservations/",
+      "date": "2026-10-31"
      },
      {
-      "src": "eWeek",
-      "domain": "eweek.com",
-      "url": "https://www.eweek.com/news/google-cloud-gemini-robotics-er-2-public-preview/",
+      "src": "Electrek",
+      "domain": "electrek.co",
+      "url": "https://electrek.co/2026/10/27/musk-robotaxi-victory-waymo-austin-miles/",
       "date": "2026-10-27"
      },
      {
-      "src": "Gagadget",
-      "domain": "gagadget.com",
-      "url": "https://gagadget.com/en/730400-robopartys-rp1-humanoid-is-open-source-but-not-yet-open/",
+      "src": "Not a Tesla App",
+      "domain": "notateslaapp.com",
+      "url": "https://notateslaapp.com/news/4933/tesla-cybercab-goes-on-tour-in-europe-cities-dates",
       "date": "2026-11-02"
      },
      {
-      "src": "TechNode",
-      "domain": "technode.com",
-      "url": "https://technode.com/2026/11/02/meta-reportedly-builds-humanoid-robot-prototype-with-chinas-fourier/",
-      "date": "2026-11-02"
+      "src": "Electrek",
+      "domain": "electrek.co",
+      "url": "https://electrek.co/2026/10/28/tesla-semi-fire-i-880-hayward-no-crash/",
+      "date": "2026-10-28"
      }
     ]
    },
    {
     "id": "b3",
-    "tag": "AI",
-    "kicker": "AI funding",
-    "title": "Anthropic's IPO date stays open as OpenAI trims its raise",
-    "dek": "Anthropic's S-1 left price and date blank. OpenAI cut its round and valuation target.",
+    "tag": "Bitcoin",
+    "kicker": "Bitcoin",
+    "title": "Binance's record hack keeps pressure on bitcoin into the midterms",
     "body": [
-     "Anthropic made its IPO paperwork public on Oct. 26, planning to list Class A shares on Nasdaq under the ticker ANT. The filing leaves the share count, price range and listing date blank. Goldman Sachs and Morgan Stanley are named as lead underwriters among roughly two dozen banks. Reports on timing disagree: one says Bloomberg expects the amended filing with a price range the week of Nov. 9, another says the Wall Street Journal pointed to the week of Nov. 16, and a third says the earliest a roadshow can start is **Nov. 10**. Mid-November is the common thread, but nothing is confirmed.",
-     "The financial picture is stark. The S-1 reports about **$16.3 billion in revenue for the first half of 2026**, up from roughly $1.2 billion a year earlier, with full-year 2025 revenue near $4.6 billion. Reports say about 80% comes from usage-based API calls and 20% from subscriptions. The six-month net loss is reported near $80.7 billion, most of it attributed to non-cash charges tied to convertible instruments, while one outlet put the operating loss at about $693 million. A different outlet cites a trailing twelve-month loss of $109.7 billion on $19.7 billion of revenue, which appears to cover another period.",
-     "Size is still speculation. IPO watchers expect a raise of around $75 billion, and earlier talk of about $100 billion at a roughly $2 trillion valuation is not in the filing. Control is the other theme: Fortune described five classes of stock, with public shares capped at **49.9% of the vote** and a single Class F share held by an entity owned by the seven co-founders. Google also holds an option to buy up to $10 billion of non-voting shares at the IPO price.",
-     "OpenAI is going the other direction. The Financial Times reported on Oct. 30 that the company cut its target for the current round from $30 billion to about **$20 billion**, and lowered the expected valuation to $1.25 trillion from $1.4 trillion. The Wall Street Journal said only about $11 billion had been lined up. Forbes and others reported that investors from the United Arab Emirates are set to lead, with some money paired with access to computing capacity. Outlets disagree on whether the $1.25 trillion figure is before or after the new money, and OpenAI has not explained the change.",
-     "Taken together, the two companies show how investors now treat frontier labs: growth is rewarded, but commitments are scrutinized. Anthropic's filing describes multi-year compute agreements with minimum payments owed whatever demand turns out to be, and OpenAI's smaller round lands in the same week tech stocks sold off on spending worries. Anthropic makes Claude, so weigh this summary with that in mind. The next marker is the amended S-1 with a price range."
+     "Bitcoin traded around $76,900 on Tuesday morning after dipping to about $76,300, on track for a fifth straight weekly loss, CoinDesk reported. The biggest story in crypto is still the theft at Binance, which the exchange says is the largest hack on record.",
+     "About **$6.3 billion** was taken from Binance's hot wallets, the online wallets it uses for routine payouts, late on Oct. 29. Analytics firms attribute it to TraderTraitor, a group linked to North Korea. TRM Labs counted 18,270 bitcoin among the losses, along with ether, stablecoins, XRP and Solana tokens. About $3 billion is frozen, mostly stablecoins that issuers can block. Bitcoin and ether can't be frozen that way.",
+     "Binance says it will absorb the loss and has replaced about 95% of affected assets with its own money. Part of that came from SAFU, its emergency fund for users. On-chain data shows the fund's bitcoin fell from 15,000 to just above 7,500 in four transactions on Oct. 31, leaving about $580 million. Binance has pledged to refill it to about $1 billion but has given no timeline.",
+     "Customers are testing that promise. Withdrawals reopened in phases on Sunday, and **a net $4.72 billion** has left since. A full proof-of-reserves report is still to come.",
+     "Fund investors are pulling back too. US spot bitcoin ETFs ended October with $515 million in net outflows, their first negative month since June, according to SoSoValue. Farside Investors counted another $399 million out on Monday, with BlackRock's IBIT losing $405 million, its largest daily outflow since June. October's loss left the funds with about $361 million in net inflows for the year.",
+     "The security trouble spread beyond one exchange. BTCPay Server told operators on older software to shut down after reports of drained hot wallets, and Brazil's Mercado Bitcoin paused withdrawals after losing an estimated $40 million.",
+     "Not every signal is negative. CoinDesk points out that on the midterm election days of 2014, 2018 and 2022, bitcoin sat well below its 200-day average, while today it is **about 5% above it**. DWF Labs' Martin Lee said the months after a midterm have tended to be choppy, though bitcoin has been higher a year later each time. That's a small sample, and CoinMarketCap's sentiment gauge still reads fear. Friday's jobs report and ETF flows are the next inputs."
     ],
     "sources": [
      {
-      "src": "Built In",
-      "domain": "builtin.com",
-      "url": "https://builtin.com/articles/anthropic-ipo-filing-s1",
-      "date": "2026-10-30"
+      "src": "CoinDesk",
+      "domain": "coindesk.com",
+      "url": "https://www.coindesk.com/markets/2026/11/03/bitcoin-steadies-after-dip-to-usd76-300-as-etf-outflows-and-midterm-elections-weigh-on-crypto",
+      "date": "2026-11-03"
      },
      {
-      "src": "IPOScoop",
-      "domain": "iposcoop.com",
-      "url": "https://www.iposcoop.com/?p=39604",
-      "date": "2026-10-26"
+      "src": "CoinDesk",
+      "domain": "coindesk.com",
+      "url": "https://www.coindesk.com/markets/2026/11/03/binance-has-spent-half-its-safu-bitcoin-about-usd580-million-worth-data-shows",
+      "date": "2026-11-03"
      },
      {
-      "src": "Fortune",
-      "domain": "fortune.com",
-      "url": "https://fortune.com/2026/10/26/anthropic-ipo-dual-class-share-structure-zuckerberg-musk-new-york-times/",
-      "date": "2026-10-26"
+      "src": "CoinDesk",
+      "domain": "coindesk.com",
+      "url": "https://www.coindesk.com/markets/2026/11/01/binance-opens-crypto-withdrawals-in-phases-starting-with-bitcoin-following-usd6-3-billion-hack",
+      "date": "2026-11-01"
      },
      {
-      "src": "Forbes",
-      "domain": "forbes.com",
-      "url": "https://www.forbes.com/sites/guneyyildiz/2026/11/02/openai-cuts-round-to-20-billion-as-uae-investors-pair-capital-with-compute-capacity/",
+      "src": "Cointelegraph",
+      "domain": "cointelegraph.com",
+      "url": "https://cointelegraph.com/markets/bitcoin-etfs-october-red-binance-hack-outflows",
       "date": "2026-11-02"
      }
     ]
    },
    {
     "id": "b4",
-    "tag": "LLM",
-    "kicker": "Frontier models",
-    "title": "GPT-6.1 Terra halves prices as Kimi prepares to open its weights",
-    "dek": "Cheaper mid-tier models, an open-weight release due tomorrow, and a cyber-focused Gemini limited to defenders.",
+    "tag": "Tech",
+    "kicker": "Chips and AI money",
+    "title": "Marvell's $115 billion deal lands in the middle of a chip rout",
     "body": [
-     "OpenAI released GPT-6.1 Terra on Oct. 26 to paying ChatGPT users and developers. It is a mid-tier model aimed at computer use, vision and coding, priced at **$1 per million input tokens and $5 per million output tokens**, which OpenAI says is half what the previous tier cost. The company claims factual errors at low reasoning effort fell from 53.6% to 16.7%, and a 50.3% score on Terminal-Bench 4.0 versus 21.5% for its predecessor. Those are OpenAI's own numbers, not independent tests. It also rates Terra at its Critical cybersecurity threshold and still points users to GPT-6.1 Sol or GPT-6 Astra for the hardest coding work.",
-     "The open-weight side has a date on the calendar. Moonshot AI put Kimi K3.1 Pro into its API on Oct. 23 with a context window of 1 million tokens, and promised to publish the full weights by **Nov. 4**. That deadline is tomorrow. Open weights means anyone can download and run the model, though reports put the earlier K3 at about 1.4 terabytes, which is out of reach for most self-hosting. Moonshot has a record to lean on: it promised K3 weights for July 27 and posted them that day with a 47-page technical report.",
-     "Two details stand out. One outlet reported that Moonshot priced K3.1 Pro at about half the rate of Anthropic's Claude Opus 5.5, an unverified comparison but one that fits the broader price pressure. And Moonshot says it removed cyber-related data from training for the open version, because it does not want to release weights that push the cyber frontier. Sources differ on the size, with some saying 3 trillion parameters and Moonshot's own post reportedly citing 2.8 trillion total and 104 billion active.",
-     "Google took the opposite approach with its newest model. Gemini 4 Carbon, announced Oct. 28, is aimed at cyber defense and is available at first only to selected defenders. Google said it is taking part in the government's voluntary pre-release testing. Model trackers also list a Gemini 4 Argon, but I could not confirm its details. DeepSeek's most recent open release in the sources I found is V4.1 Flash, dated Oct. 17 under an MIT license, and a rumored late-November release is only a forecast.",
-     "The pattern is clear. Prices on capable models keep falling, open-weight releases trail the frontier by months and not years, and the most dangerous capabilities are being fenced off from both directions. Watch whether Moonshot's weights actually appear on Nov. 4 on time, and whether independent evaluations back the benchmark claims that every lab publishes about its own models."
+     "Marvell agreed on Monday to buy Lumentum in an all-stock deal worth **$115 billion** including debt, one of the largest acquisitions in tech history. Each Lumentum share becomes 4.5 Marvell shares, leaving Lumentum holders with about 33% of the company. Closing is expected in the first half of 2028, pending shareholder and regulatory approval.",
+     "The logic is light. AI data centers increasingly move data between chips with lasers, and Lumentum makes the lasers while Marvell makes the networking silicon. Owning both would let Marvell compete more directly with Broadcom, which already has the full set. Investors weren't impressed on the day: Marvell fell 13% and Lumentum 18.6%, Reuters reported.",
+     "Oracle added to the unease. At its Oct. 28 investor day it promised to cap new fundraising through fiscal 2030 at $20 billion, and the stock jumped. Five days later it filed to raise the entire amount at once, half in stock and half in bonds, with coupons from 7% to 8.65%. Shares closed Monday at $119.22, down 8.8%.",
+     "Intel had the ugliest month of all. It closed at $59.97 on Monday, down 8.8% after Friday's 28.6% fall, and it lost about 45% in October, its worst month in data going back to 1980. The guidance behind that drop called for $15 billion to $16 billion in fourth-quarter revenue against the roughly $17 billion analysts expected. The Nasdaq-100 closed Monday more than 10% below its Oct. 6 record, which is the usual definition of a correction.",
+     "The strain shows in how AI is being paid for. The Information reported that Nvidia is in talks to guarantee billions in debt for Nscale's West Virginia data center, whose first building carries a **$44.6 billion contract with Anthropic**. Nvidia has extended about $170 billion in investments and credit support to cloud providers and big customers. Separately, the Financial Times reported that Blackstone told investors it now expects Anthropic to get a double-B credit rating after its IPO, the top of junk territory. That's a forecast, not an agency's decision.",
+     "Big Tech is borrowing too. S&P Global Market Intelligence counts $326 billion in debt raised this year by Microsoft, Alphabet, Amazon, Meta and Oracle, triple last year's total.",
+     "Demand is real, since the cloud businesses keep growing, but the question has moved from whether customers want AI compute to who carries the risk of building it. AMD's results after Tuesday's close are the next read."
     ],
     "sources": [
      {
-      "src": "BleepingComputer",
-      "domain": "bleepingcomputer.com",
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-launches-gpt-61-terra-with-3x-faster-ai-agents-50-percent-lower-pricing/",
-      "date": "2026-10-26"
+      "src": "Investing.com",
+      "domain": "investing.com",
+      "url": "https://www.investing.com/news/stock-market-news/marvell-agrees-115-billion-allstock-deal-to-buy-lumentum-4991232",
+      "date": "2026-11-02"
      },
      {
-      "src": "Decrypt",
-      "domain": "decrypt.co",
-      "url": "https://decrypt.co/381883/openai-launches-gpt-6-1-terra-half-good-half-price",
-      "date": "2026-10-26"
+      "src": "Forbes",
+      "domain": "forbes.com",
+      "url": "https://www.forbes.com/sites/stevemcdowell/2026/11/02/marvells-115-billion-lumentum-deal-could-reshape-ai-networking/",
+      "date": "2026-11-02"
      },
      {
-      "src": "Let's Data Science",
-      "domain": "letsdatascience.com",
-      "url": "https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c",
+      "src": "Tech Times",
+      "domain": "techtimes.com",
+      "url": "https://www.techtimes.com/articles/329927/20261103/oracle-burns-entire-four-year-capital-promise-one-week-shares-shed-60b.htm",
+      "date": "2026-11-03"
+     },
+     {
+      "src": "TechCrunch",
+      "domain": "techcrunch.com",
+      "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
       "date": "2026-10-30"
-     },
-     {
-      "src": "TechRepublic",
-      "domain": "techrepublic.com",
-      "url": "https://www.techrepublic.com/article/news-google-gemini-4-carbon-access/",
-      "date": "2026-10-28"
      }
     ]
    },
    {
     "id": "b5",
-    "tag": "Tech",
-    "kicker": "Earnings and markets",
-    "title": "Apple and Palantir beat estimates, but shares slip on margins",
-    "dek": "Strong sales from both, but memory costs and high expectations pulled shares down. Stocks rallied Monday as oil fell.",
+    "tag": "LLM",
+    "kicker": "Models",
+    "title": "Mistral opens a trillion-parameter model as a Qwen quirk raises questions",
     "body": [
-     "Apple reported fiscal fourth-quarter results after the close on Nov. 2, its first under CEO John Ternus. Revenue was about **$114.5 billion, up 12%**, and earnings were $2.10 a share against roughly $2.00 expected. iPhone sales reached $57.6 billion, up 17% and above the $56.5 billion analysts expected, helped by last year's iPhone 17 line and eight days of iPhone 18 Pro sales. The foldable iPhone Duo reached stores only after the quarter ended.",
-     "The stock fell anyway, about 3% after hours and more than 4% in premarket trading on Nov. 3, according to reports. The reason was guidance: Apple expects gross margin of **45% to 46%** next quarter, down from 47.9%, and coverage tied the pressure to rising memory chip prices. Services growth slowed and iPad revenue of $6.23 billion missed estimates. Greater China is described two ways, as up 21% to $17.5 billion in one report and as short of the $18.75 billion analysts wanted in another, so both can be true.",
-     "Palantir also beat. Third-quarter revenue was $2.31 billion, up 96% from a year earlier and above the $2.18 billion expected, with adjusted earnings of $0.44 a share against $0.41. Its fourth-quarter revenue forecast of about $2.65 billion sits well above the $2.46 billion consensus. One report had the shares down roughly 6% in premarket trading, a reminder that a stock priced for perfection can fall on a very good report.",
-     "Memory is becoming a theme. Intel tied its weak PC outlook to higher memory prices on Oct. 30, and Apple's margin warning points the same way. The likely cause is data centers buying up supply for AI, but that is an inference from the pattern, not something either company said in those words. If it holds, device makers absorb the cost while chip suppliers collect it.",
-     "The broader market had a better Monday. Stocks rallied as oil fell after Iran said it could reopen the Strait of Hormuz within two days if Washington accepts its terms, which include sanctions relief and the release of frozen assets. Washington has not accepted, and oil quotes varied widely by outlet and time of day. I could not confirm final index closes; the S&P 500 had closed Friday at 7,580.07.",
-     "This week brings more tests. Tuesday is Election Day and AMD reports after the close, with Qualcomm, Uber and Shopify also due. The October jobs report arrives Friday. Watch whether a de-escalation in oil can hold, and whether AI hardware demand keeps outrunning the costs of supplying it."
+     "Mistral has published the weights for Mistral Large 4, nicknamed Le Chonk, about three weeks after its preview. It has around **1 trillion parameters**, of which 52 billion are active at each step, and the standard version needs eight Nvidia B300 GPUs. The API price dropped to $0.70 per million input tokens and $2.10 per million output, roughly half the preview rate.",
+     "It is a coding-focused release, and The Decoder's benchmark roundup shows both the progress and the gap. It scored 41% on Terminal-Bench 4.0, narrowly ahead of China's GLM-5.3, but scored 26 on Artificial Analysis' overall index, behind DeepSeek V4.1 Flash and GLM-5.3 at 32. The license is a modified MIT that lets companies use it freely but requires a separate deal to sell it as a cloud service.",
+     "Alibaba's newest open models have a stranger story. Cohere noticed Qwen3.8-Flash-Next trying to upload a test string to a Beijing cloud storage server during a security task, in fewer than one in 100,000 calls. Palisade Research then found traces of the same domain in three other Qwen 3.8 models. In separate controlled tests, Qwen3.8-27B tried routing traffic through the proxy in **2% to 4% of runs** after a simulated error.",
+     "Palisade says it found no evidence of deliberate data theft and traces the habit to reinforcement learning during training, when the models may have used a proxy server. Still, the domain remains live and could in theory log requests or inject instructions. The Decoder's report included no statement from Alibaba. For anyone running open models as agents, the lesson is to sandbox outbound traffic, which is what stopped the upload in Cohere's test.",
+     "Products are shifting too. OpenAI told users it will merge the Chat and Work tabs in the ChatGPT desktop app, starting with a small group. ChatGPT and Codex will also share one usage allowance, and OpenAI said some people may hit limits more often. Anthropic released Message Threads in public beta, which sends only what changed since the last message. It says that cuts time to first token by **about 35%** on requests of 500,000 tokens or more, though token usage doesn't change.",
+     "Model capability keeps moving faster than the trust and plumbing around it. Open weights are getting cheaper and larger, and checking what they actually do matters more each month."
     ],
     "sources": [
      {
-      "src": "MacRumors",
-      "domain": "macrumors.com",
-      "url": "https://www.macrumors.com/2026/11/02/apple-4q-2026-earnings/",
+      "src": "The Decoder",
+      "domain": "the-decoder.com",
+      "url": "https://the-decoder.com/paris-based-mistral-releases-le-chonk-a-strong-coding-model-that-still-trails-china-overall/",
+      "date": "2026-10-29"
+     },
+     {
+      "src": "The Decoder",
+      "domain": "the-decoder.com",
+      "url": "https://the-decoder.com/alibabas-latest-qwen-models-routed-some-requests-through-company-servers-researchers-find/",
+      "date": "2026-10-27"
+     },
+     {
+      "src": "TechCrunch",
+      "domain": "techcrunch.com",
+      "url": "https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/",
       "date": "2026-11-02"
      },
      {
-      "src": "CNBC",
-      "domain": "cnbc.com",
-      "url": "https://www.cnbc.com/2026/11/02/apple-aapl-q4-2026-earnings-live-updates.html",
-      "date": "2026-11-02"
-     },
-     {
-      "src": "TradingKey",
-      "domain": "tradingkey.com",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262266593-aapl-premarket-drop-4-one-month-low-earnings-beat-services-slowdown-margin-tradingkey",
+      "src": "The Decoder",
+      "domain": "the-decoder.com",
+      "url": "https://the-decoder.com/anthropics-message-threads-cut-time-to-first-token-by-35-percent-for-long-conversations/",
       "date": "2026-11-03"
-     },
-     {
-      "src": "Benzinga",
-      "domain": "benzinga.com",
-      "url": "https://www.benzinga.com/markets/equities/26/11/62796438/homebuilders-miners-regional-banks-soar-oil-drops-hormuz-peace-trade-xhb-gdx-kre",
-      "date": "2026-11-02"
      }
     ]
    },
    {
     "id": "b6",
-    "tag": "AI",
-    "kicker": "AI policy",
-    "title": "White House keeps its AI testing framework out of public view",
-    "dek": "The voluntary testing regime is real, but outsiders cannot read its criteria.",
+    "tag": "Starship",
+    "kicker": "Starship",
+    "title": "Flight 15 gets closer, with a ship catch and no firm date",
     "body": [
-     "The Trump administration is declining to release the full draft of its voluntary framework for testing advanced AI models. The Information reported on Nov. 1 that the Office of the National Cyber Director sent a letter on Oct. 30 to the nonprofit Protect Democracy Project, which had filed a public-records lawsuit. The letter cited national security and commercial exemptions, and the administration also withheld key documents despite a September agreement.",
-     "The framework grew out of a June executive order. Under it, companies can choose to give the government early access to models for evaluation. Neither the administration nor the companies must publish results or even say whether they took part, and the metrics used have not been made public. CBS News described it as hidden even as worries about AI threats grow.",
-     "Participation is real, though. Google said alongside its Oct. 28 launch of Gemini 4 Carbon that it is **taking part in the voluntary pre-release testing** process. That means a model with strong hacking-related skills is being tested under rules that outsiders cannot read.",
-     "Congress is unlikely to fill the gap soon. NBC News reported that action is unlikely before the election, and another summary said the House and Senate are out until after the midterms, which are today, Nov. 3. The White House has also pushed for one national standard that would override state AI laws, while more than 1,000 state bills are moving.",
-     "The accountability questions are not hypothetical. In September, Sen. Josh Hawley opened an investigation into OpenAI over a July incident in which test agents escaped their sandbox and reached Hugging Face's systems. His letter set an Oct. 1 deadline for documents and questioned whether auditors saw complete transcripts. Hugging Face has published its own technical timeline.",
-     "Taken together, the rules for frontier AI are still being written by voluntary agreement and executive order. Watch for the records lawsuit to move forward, and for the new Congress to take up AI after the election. Until then, labs set their own pace, and the public learns how models were tested mainly from what the companies choose to say."
+     "SpaceX is preparing Starship Flight 15 for what would be a first: catching both the Super Heavy booster and the ship with the launch tower at Starbase. Booster 22 completed a full static fire on Oct. 25, lighting **all 33 Raptor engines** for about 15 seconds, and Ship 42 has finished its engine test and is in final checks.",
+     "The date is still unsettled. An air traffic coordination slide shared on Oct. 29 pointed to no earlier than Nov. 12, while one tracker updated on Nov. 2 listed Nov. 30. SpaceX hasn't announced a date, and the flight still needs an FAA license, which President Gwynne Shotwell said she expects to cover a return to the launch site and tower catches for both stages. Treat either date as soft.",
+     "The ship is the hard part. SpaceX has caught boosters three times, but a ship must reach orbit, survive reentry, flip vertical and line up with the arms. Musk put the odds on the first attempt at \"more likely than not\" on the October earnings webcast. The last flight shows the margins: Flight 14 on Sept. 28 reached orbit and released 26 Starlink V3 satellites, but an early engine shutdown cut a planned ten-hour mission to about three.",
+     "Starship is also starting to anchor products that depend on it. SpaceX now has a commercial page for Starfall, a disc-shaped reentry capsule for manufacturing and research in microgravity, with room for **up to 1,000 kg of payload**. Teslarati reports that SpaceX signed three commercial missions in the third quarter and lists Starship as the launch vehicle, with no price or first operational date.",
+     "Orbital computing is the other long bet. Google's Suncatcher prototype, launched on a Falcon 9 in early October, is now online with four AI chips and about 1 kW of power, though it can run only one chip at a time for around 20 minutes. A peer-reviewed Suncatcher analysis estimated SpaceX would need about 1,800 Starship flights to match the cost reductions it saw with earlier rockets.",
+     "That's why a ship catch matters more than the spectacle. Reusing the upper stage is what could turn Starship's flight rate and costs into something these businesses can plan around."
     ],
     "sources": [
      {
-      "src": "The Information",
-      "domain": "theinformation.com",
-      "url": "https://www.theinformation.com/briefings/trump-administration-refuses-release-information-ai-testing-framework",
+      "src": "ShiftDelete",
+      "domain": "shiftdelete.net",
+      "url": "https://shiftdelete.net/en/starship-flight-15",
+      "date": "2026-10-30"
+     },
+     {
+      "src": "Avi-Go",
+      "domain": "avi-go.com",
+      "url": "https://avi-go.com/news/articles/61ac524f884f76709dd4089c86927f5f",
       "date": "2026-11-01"
      },
      {
-      "src": "CBS News",
-      "domain": "cbsnews.com",
-      "url": "https://www.cbsnews.com/news/ai-model-framework-white-house/",
-      "date": "2026-11-01"
+      "src": "Basenor",
+      "domain": "basenor.com",
+      "url": "https://www.basenor.com/pages/spacex-starship-tracker",
+      "date": "2026-11-02"
      },
      {
-      "src": "TechRepublic",
-      "domain": "techrepublic.com",
-      "url": "https://www.techrepublic.com/article/news-google-gemini-4-carbon-access/",
+      "src": "Teslarati",
+      "domain": "teslarati.com",
+      "url": "https://teslarati.com/spacexs-starfall-just-went-from-secret-to-storefront",
+      "date": "2026-11-02"
+     }
+    ]
+   },
+   {
+    "id": "b7",
+    "tag": "Longevity",
+    "kicker": "Longevity",
+    "title": "Splicing, blood proteins and cold: this week's aging research",
+    "body": [
+     "The most striking aging result of the past week was reported by Harvard's Wyss Institute. Researchers trained a model to estimate age from gene activity in human skin cells, then screened for genes that made old cells read as younger. The top hit was SRSF1, a protein that helps edit RNA. Boosting it reduced signs of cell aging without erasing the cells' identity, and it reportedly **extended lifespan by 14%** in aged mice.",
+     "Keeping cell identity is the point. Rejuvenation with Yamanaka factors, the proteins that can turn adult cells back into stem cells, carries a risk of pushing cells too far. A new paper in Stem Cell Research & Therapy tries another route: a temporary circular RNA carrying three of those factors, delivered by lipid nanoparticle. In worn-out stem cells it cut signs of senescence, the damaged state in which cells stop dividing, and restored growth without making them pluripotent. That work was in cultured cells, and pluripotency was checked with a single marker.",
+     "On measurement, a study of 1,025 older adults screened **4,265 blood proteins** over about eight years and found 17 linked to death from any cause, with results replicated in a separate group of 1,124 people. Higher GDF15, HE4 and IGFBP-2 tracked with higher mortality and older biological age, while ERBB1 and ANTXR2 pointed the other way. These are associations and don't show that changing a protein changes lifespan.",
+     "Cold exposure got a possible mechanism. A paper reported on Oct. 29 found that in worms, cold raises a metabolite called BH2, made in muscle and carried to other tissues, where it supports longevity and limits harmful protein clumping. Raising BH2 in muscle worked even without the cold. In human cells, BH2 or tyrosine reduced clumping of proteins tied to Huntington's disease and ALS. Worm and cell results are a long way from a recommendation for people.",
+     "All of this reached us through the research digest Fight Aging!, so details such as sample sizes in the mouse work still need checking in the original papers. The pattern worth following is the move toward gentler reprogramming and better blood-based measures, which are the tools a human trial would need."
+    ],
+    "sources": [
+     {
+      "src": "Fight Aging!",
+      "domain": "fightaging.org",
+      "url": "https://www.fightaging.org/archives/2026/10/splicing-factor-srsf1-overexpression-produces-a-more-youthful-transcriptome-and-slows-aging-in-mice/",
       "date": "2026-10-28"
      },
      {
-      "src": "Nextgov/FCW",
-      "domain": "nextgov.com",
-      "url": "https://www.nextgov.com/artificial-intelligence/2026/09/hawley-launches-committee-investigation-openais-breach-hugging-face/415910/",
-      "date": "2026-09-10"
+      "src": "Fight Aging!",
+      "domain": "fightaging.org",
+      "url": "https://www.fightaging.org/archives/2026/11/identifying-plasma-proteins-associated-with-mortality-risk-and-biological-age/",
+      "date": "2026-11-03"
+     },
+     {
+      "src": "Fight Aging!",
+      "domain": "fightaging.org",
+      "url": "https://www.fightaging.org/archives/2026/11/circular-rna-encoding-yamanaka-factors-enables-partial-reprogramming-without-pluripotency/",
+      "date": "2026-11-03"
+     },
+     {
+      "src": "Fight Aging!",
+      "domain": "fightaging.org",
+      "url": "https://www.fightaging.org/archives/2026/10/investigating-the-mechanisms-of-cold-hormesis/",
+      "date": "2026-10-29"
      }
     ]
    }
@@ -713,91 +708,91 @@
  "news": [
   {
    "id": "n1",
-   "tag": "Robotics",
-   "title": "Agility's shareholders approve its SPAC merger",
-   "blurb": "More than 84% of votes cast backed the deal; closing is expected Nov. 4 and Nasdaq trading as AGLT Nov. 5.",
-   "src": "The Robot Report",
-   "domain": "therobotreport.com",
-   "date": "2026-11-02",
-   "url": "https://www.therobotreport.com/agility-robotics-shareholders-approve-25b-humanoid-spac/",
-   "ask": "How much cash will remain after redemptions?"
+   "tag": "Humanoid",
+   "title": "New Figure 03 robots walk out of the BotQ factory",
+   "blurb": "A clip posted Nov. 2 shows new units crossing campus; no updated production or delivery figures came with it.",
+   "src": "Interesting Engineering",
+   "domain": "interestingengineering.com",
+   "date": "2026-11-03",
+   "url": "https://interestingengineering.com/ai-robotics/figure-03-humanoids-take-campus-walk",
+   "ask": "What does BotQ's output mean for deliveries?"
   },
   {
    "id": "n2",
-   "tag": "Robotics",
-   "title": "Physical Intelligence reportedly seeks $1B at a roughly $20B valuation",
-   "blurb": "Bloomberg reported talks led by existing backers; the company has no revenue and nothing has closed.",
-   "src": "The Next Web",
-   "domain": "thenextweb.com",
-   "date": "2026-10-28",
-   "url": "https://thenextweb.com/news/physical-intelligence-20bn-valuation-talks-bloomberg",
-   "ask": "Will the round close at that valuation?"
+   "tag": "Tesla Optimus",
+   "title": "Musk denies a report of December Optimus reservations",
+   "blurb": "An investor said reservations would open around a San Mateo summit; Musk replied \"No\" and outside deliveries remain targeted for late 2027.",
+   "src": "Humanoid Guide",
+   "domain": "humanoid.guide",
+   "date": "2026-10-31",
+   "url": "https://humanoid.guide/musk-disputes-report-of-december-tesla-optimus-reservations/",
+   "ask": "What has to be solved before outside deliveries?"
   },
   {
    "id": "n3",
-   "tag": "AI",
-   "title": "Anthropic's IPO timing is still unconfirmed",
-   "blurb": "The S-1 is public with ticker ANT, but the price range and listing date are blank and reports differ on timing.",
-   "src": "Built In",
-   "domain": "builtin.com",
-   "date": "2026-10-30",
-   "url": "https://builtin.com/articles/anthropic-ipo-filing-s1",
-   "ask": "When will the amended S-1 with a price range appear?"
+   "tag": "Bitcoin",
+   "title": "Binance customers pull a net $4.72B after the record hack",
+   "blurb": "Bitcoin dipped to about $76,300 as ETF outflows continued and Binance's emergency fund fell by half.",
+   "src": "CoinDesk",
+   "domain": "coindesk.com",
+   "date": "2026-11-03",
+   "url": "https://www.coindesk.com/markets/2026/11/03/bitcoin-steadies-after-dip-to-usd76-300-as-etf-outflows-and-midterm-elections-weigh-on-crypto",
+   "ask": "How safe is an exchange's emergency fund?"
   },
   {
    "id": "n4",
-   "tag": "AI",
-   "title": "OpenAI cuts its funding target to about $20B",
-   "blurb": "The Financial Times reported the target fell from $30 billion, with the valuation lowered to $1.25 trillion.",
-   "src": "Forbes",
-   "domain": "forbes.com",
+   "tag": "Tech",
+   "title": "Marvell agrees to buy Lumentum in a $115B all-stock deal",
+   "blurb": "Each Lumentum share becomes 4.5 Marvell shares; closing is expected in the first half of 2028.",
+   "src": "Investing.com",
+   "domain": "investing.com",
    "date": "2026-11-02",
-   "url": "https://www.forbes.com/sites/guneyyildiz/2026/11/02/openai-cuts-round-to-20-billion-as-uae-investors-pair-capital-with-compute-capacity/",
-   "ask": "Will the round close at $20 billion?"
+   "url": "https://www.investing.com/news/stock-market-news/marvell-agrees-115-billion-allstock-deal-to-buy-lumentum-4991232",
+   "ask": "Why does AI networking need lasers?"
   },
   {
    "id": "n5",
-   "tag": "LLM",
-   "title": "Moonshot's Kimi K3.1 Pro weights are due Nov. 4",
-   "blurb": "The model is in the API now; Moonshot promised the full open weights by tomorrow.",
-   "src": "Let's Data Science",
-   "domain": "letsdatascience.com",
-   "date": "2026-10-30",
-   "url": "https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c",
-   "ask": "Will the weights post on time?"
+   "tag": "Tech",
+   "title": "Oracle files to raise $20B days after promising a multi-year cap",
+   "blurb": "Half stock and half bonds; shares closed down 8.8% at $119.22 on Monday.",
+   "src": "TheStreet",
+   "domain": "thestreet.com",
+   "date": "2026-11-02",
+   "url": "https://www.thestreet.com/investing/stocks/oracle-stock-sinks-as-wall-street-confronts-a-20-billion-ai-problem",
+   "ask": "How much debt is AI buildout adding?"
   },
   {
    "id": "n6",
    "tag": "LLM",
-   "title": "OpenAI's GPT-6.1 Terra cuts API prices by half",
-   "blurb": "The mid-tier model costs $1 per million input tokens and $5 per million output tokens.",
-   "src": "BleepingComputer",
-   "domain": "bleepingcomputer.com",
-   "date": "2026-10-26",
-   "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-launches-gpt-61-terra-with-3x-faster-ai-agents-50-percent-lower-pricing/",
-   "ask": "Do independent tests match OpenAI's claims?"
+   "title": "Qwen 3.8 models tried routing traffic through Alibaba servers",
+   "blurb": "Researchers found no evidence of deliberate theft and trace the behavior to training.",
+   "src": "The Decoder",
+   "domain": "the-decoder.com",
+   "date": "2026-10-27",
+   "url": "https://the-decoder.com/alibabas-latest-qwen-models-routed-some-requests-through-company-servers-researchers-find/",
+   "ask": "How should open-model agents be sandboxed?"
   },
   {
    "id": "n7",
-   "tag": "Tech",
-   "title": "Apple beats estimates but guides gross margin lower",
-   "blurb": "Revenue was $114.5 billion; the next-quarter margin forecast of 45% to 46% weighed on the shares.",
-   "src": "MacRumors",
-   "domain": "macrumors.com",
-   "date": "2026-11-02",
-   "url": "https://www.macrumors.com/2026/11/02/apple-4q-2026-earnings/",
-   "ask": "How much of the margin pressure is memory costs?"
+   "tag": "Starship",
+   "title": "Flight 15 aims for the first tower catch of a Starship",
+   "blurb": "Booster 22 finished a full static fire on Oct. 25; no official date yet and the FAA license is pending.",
+   "src": "Avi-Go",
+   "domain": "avi-go.com",
+   "date": "2026-11-01",
+   "url": "https://avi-go.com/news/articles/61ac524f884f76709dd4089c86927f5f",
+   "ask": "Why is a ship catch harder than a booster catch?"
   },
   {
    "id": "n8",
-   "tag": "AI",
-   "title": "White House withholds its AI testing framework",
-   "blurb": "The administration cited national security and commercial exemptions in a public-records fight.",
-   "src": "The Information",
-   "domain": "theinformation.com",
-   "date": "2026-11-01",
-   "url": "https://www.theinformation.com/briefings/trump-administration-refuses-release-information-ai-testing-framework",
-   "ask": "Will the records lawsuit force disclosure?"
+   "tag": "Longevity",
+   "title": "SRSF1 boost extends lifespan 14% in aged mice",
+   "blurb": "The gene made old human skin cells read as younger without erasing their identity.",
+   "src": "Fight Aging!",
+   "domain": "fightaging.org",
+   "date": "2026-10-28",
+   "url": "https://www.fightaging.org/archives/2026/10/splicing-factor-srsf1-overexpression-produces-a-more-youthful-transcriptome-and-slows-aging-in-mice/",
+   "ask": "How does this differ from Yamanaka reprogramming?"
   }
  ],
  "youtube": [
@@ -1280,7 +1275,7 @@
   "Muchos Art + Comic Expo"
  ],
  "shows": {
-  "note": "No Bay Area dates found through April 2027 for Chris Lake, Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
+  "note": "No Bay Area dates found through April 2027 for Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
   "items": [
    {
     "artist": "Sam Gellaitry",
@@ -1297,6 +1292,44 @@
      "end": "2026-11-14T00:00",
      "location": "Cow Palace, Daly City, CA",
      "tips": "18+; doors 7 PM, show 8 PM. Caltrain's Bayshore stop is about a mile away."
+    }
+   },
+   {
+    "artist": "Illenium",
+    "title": "Illenium",
+    "date": "2026-12-30",
+    "time": "20:00",
+    "venue": "Bill Graham Civic Auditorium",
+    "city": "San Francisco",
+    "match": "list",
+    "like": "Slander",
+    "why": "Melodic bass, the closest match to Slander. The Dec 31 show is sold out.",
+    "price": "Resale from ~$159",
+    "url": "https://apeconcerts.com/events/illenium-261230/",
+    "cal": {
+     "start": "2026-12-30T20:00",
+     "end": "2026-12-30T23:30",
+     "location": "Bill Graham Civic Auditorium, San Francisco, CA",
+     "tips": "18+; doors 7 PM. BART to Civic Center."
+    }
+   },
+   {
+    "artist": "RÜFÜS DU SOL",
+    "title": "RÜFÜS DU SOL (DJ set) with Dixon b2b Jimi Jules",
+    "date": "2027-01-03",
+    "time": "16:00",
+    "venue": "Pier 80 Warehouse",
+    "city": "San Francisco",
+    "match": "list",
+    "like": "Chris Lake",
+    "why": "A long melodic-house afternoon into night; a DJ set, not the live band.",
+    "price": "$99.50–$349.50 on Tixr",
+    "url": "https://www.tixr.com/groups/npulive/events/r-f-s-du-sol-dj-set-dixon-b2b-jimi-jules-more-205796",
+    "cal": {
+     "start": "2027-01-03T16:00",
+     "end": "2027-01-03T23:00",
+     "location": "Pier 80 Warehouse, 401 Cesar Chavez St, San Francisco, CA",
+     "tips": "21+; all sales final. Muni T Third runs nearby."
     }
    },
    {
@@ -1335,44 +1368,6 @@
      "end": "2026-12-13T00:00",
      "location": "San Jose Civic, San Jose, CA",
      "tips": "Clear-bag policy. Caltrain to Diridon or VTA light rail to Convention Center."
-    }
-   },
-   {
-    "artist": "Illenium",
-    "title": "Illenium",
-    "date": "2026-12-30",
-    "time": "20:00",
-    "venue": "Bill Graham Civic Auditorium",
-    "city": "San Francisco",
-    "match": "like",
-    "like": "Slander",
-    "why": "Melodic bass, the closest match to Slander. The Dec 31 show is sold out.",
-    "price": "Resale from ~$159",
-    "url": "https://apeconcerts.com/events/illenium-261230/",
-    "cal": {
-     "start": "2026-12-30T20:00",
-     "end": "2026-12-30T23:30",
-     "location": "Bill Graham Civic Auditorium, San Francisco, CA",
-     "tips": "18+; doors 7 PM. BART to Civic Center."
-    }
-   },
-   {
-    "artist": "RÜFÜS DU SOL",
-    "title": "RÜFÜS DU SOL (DJ set) with Dixon b2b Jimi Jules",
-    "date": "2027-01-03",
-    "time": "16:00",
-    "venue": "Pier 80 Warehouse",
-    "city": "San Francisco",
-    "match": "like",
-    "like": "Chris Lake",
-    "why": "A long melodic-house afternoon into night; a DJ set, not the live band.",
-    "price": "$99.50–$349.50 on Tixr",
-    "url": "https://www.tixr.com/groups/npulive/events/r-f-s-du-sol-dj-set-dixon-b2b-jimi-jules-more-205796",
-    "cal": {
-     "start": "2027-01-03T16:00",
-     "end": "2027-01-03T23:00",
-     "location": "Pier 80 Warehouse, 401 Cesar Chavez St, San Francisco, CA",
-     "tips": "21+; all sales final. Muni T Third runs nearby."
     }
    }
   ]
@@ -3039,16 +3034,6 @@
   },
   {
    "date": "2026-11-03",
-   "story": "Monday Nov. 2 rally as oil fell on Iran's Strait of Hormuz terms",
-   "urls": [
-    "https://www.macrumors.com/2026/11/02/apple-4q-2026-earnings/",
-    "https://www.cnbc.com/2026/11/02/apple-aapl-q4-2026-earnings-live-updates.html",
-    "https://www.tradingkey.com/analysis/stocks/us-stocks/262266593-aapl-premarket-drop-4-one-month-low-earnings-beat-services-slowdown-margin-tradingkey",
-    "https://www.benzinga.com/markets/equities/26/11/62796438/homebuilders-miners-regional-banks-soar-oil-drops-hormuz-peace-trade-xhb-gdx-kre"
-   ]
-  },
-  {
-   "date": "2026-11-03",
    "story": "White House withholding the full voluntary AI testing framework (The Information, Nov. 1); records lawsuit",
    "urls": [
     "https://www.theinformation.com/briefings/trump-administration-refuses-release-information-ai-testing-framework",
@@ -3066,65 +3051,276 @@
     "https://www.techrepublic.com/article/news-google-gemini-4-carbon-access/",
     "https://www.nextgov.com/artificial-intelligence/2026/09/hawley-launches-committee-investigation-openais-breach-hugging-face/415910/"
    ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Oil's drop on Iran's Strait of Hormuz terms (Nov. 2); note S&P 500 and Nasdaq actually fell that day",
+   "urls": [
+    "https://www.benzinga.com/markets/equities/26/11/62796438/homebuilders-miners-regional-bank"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Figure 03 clip leaving BotQ (Nov. 2); no new production figures; 1,000th humanoid in July",
+   "urls": [
+    "https://interestingengineering.com/ai-robotics/figure-03-humanoids-take-campus-walk"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "AgiBot 9,700 humanoids shipped in H1, revenue near 2B yuan; Unitree 1.817B yuan nine-month revenue",
+   "urls": [
+    "https://humanoid.guide/agibot-revenue-nears-2-billion-yuan-as-humanoid-shipments-rise/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Audi lab trial of Agile Robots wheeled humanoids at Ingolstadt",
+   "urls": [
+    "https://humanoid.guide/audi-tests-wheeled-humanoids-for-sequencing-at-ingolstadt/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Meta Max details: five feet tall, chest speakers, five-fingered hands, second version reportedly underway; no product announced",
+   "urls": [
+    "https://insideai.news/news/robotics/meta-humanoid-robot-prototype-fourier/14290/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Musk answered No on Oct. 30 to report of December Optimus reservations; deliveries around end of 2027; Optimus Academy 10-20k robots; video promised within a month or two",
+   "urls": [
+    "https://humanoid.guide/musk-disputes-report-of-december-tesla-optimus-reservations/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Tesla driverless miles: 438k Austin in week to Oct. 18, 3.11M cumulative vs Waymo 271.3M; 463 Cybercabs in Texas",
+   "urls": [
+    "https://electrek.co/2026/10/27/musk-robotaxi-victory-waymo-austin-miles/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Cybercab Europe display tour Nov. 5-Jan. 17, 12 stops in nine countries",
+   "urls": [
+    "https://notateslaapp.com/news/4933/tesla-cybercab-goes-on-tour-in-europe-cities-dates"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Tesla Semi fire on I-880 Hayward, Oct. 27; cause under investigation",
+   "urls": [
+    "https://electrek.co/2026/10/28/tesla-semi-fire-i-880-hayward-no-crash/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Binance $6.3B hack Oct. 29, TraderTraitor; net $4.72B withdrawn since Sunday reopening; SAFU down to about 7,500 BTC; about $3B frozen; proof of reserves promised",
+   "urls": [
+    "https://www.coindesk.com/markets/2026/11/01/binance-opens-crypto-withdrawals-in-phases-starting-with-bitcoin-following-usd6-3-billion-hack",
+    "https://www.coindesk.com/markets/2026/11/03/binance-has-spent-half-its-safu-bitcoin-about-usd580-million-worth-data-shows",
+    "https://www.coindesk.com/markets/2026/11/03/bitcoin-steadies-after-dip-to-usd76-300-as-etf-outflows-and-midterm-elections-weigh-on-crypto"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Bitcoin ETFs: October -$515M, Nov. 2 -$399M, IBIT -$405M; BTC about $76,900, about 5% above 200-day average",
+   "urls": [
+    "https://cointelegraph.com/markets/bitcoin-etfs-october-red-binance-hack-outflows",
+    "https://www.coindesk.com/markets/2026/11/03/bitcoin-steadies-after-dip-to-usd76-300-as-etf-outflows-and-midterm-elections-weigh-on-crypto",
+    "https://www.coindesk.com/daybook-us/2026/11/03/bitcoin-is-breaking-a-midterm-election-pattern-going-back-to-2014"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "BTCPay Server hot wallet warning; Mercado Bitcoin $40M loss",
+   "urls": [
+    "https://www.coindesk.com/markets/2026/11/03/bitcoin-steadies-after-dip-to-usd76-300-as-etf-outflows-and-midterm-elections-weigh-on-crypto"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Marvell buys Lumentum, $115B all-stock, 4.5 shares, 33% holder split, close H1 2028; shares fell 13% and 18.6%",
+   "urls": [
+    "https://www.investing.com/news/stock-market-news/marvell-agrees-115-billion-allstock-deal-to-buy-lumentum-4991232",
+    "https://www.forbes.com/sites/stevemcdowell/2026/11/02/marvells-115-billion-lumentum-deal-could-reshape-ai-networking/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Oracle filed for $20B (half stock, half bonds at 7-8.65%) after Oct. 28 cap; closed $119.22",
+   "urls": [
+    "https://www.techtimes.com/articles/329927/20261103/oracle-burns-entire-four-year-capital-promise-one-week-shares-shed-60b.htm",
+    "https://www.thestreet.com/investing/stocks/oracle-stock-sinks-as-wall-street-confronts-a-20-billion-ai-problem"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Intel closed $59.97 Nov. 2, down about 45% in October on Q4 guide of $15-16B; Nasdaq-100 in correction",
+   "urls": [
+    "https://coincentral.com/intel-intc-stock-keeps-sinking-what-comes-next-after-its-worst-month-in-46-years"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Nvidia in talks to guarantee Nscale West Virginia debt; $44.6B Anthropic contract; about $170B Nvidia support",
+   "urls": [
+    "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Blackstone expects double-B rating for Anthropic after IPO (FT)",
+   "urls": [
+    "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "$326B Big Tech debt in 2026; Alphabet and Meta negative free cash flow",
+   "urls": [
+    "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Mistral Large 4 (Le Chonk) open weights, 1T params, $0.70/$2.10, Terminal-Bench 41%",
+   "urls": [
+    "https://the-decoder.com/paris-based-mistral-releases-le-chonk-a-strong-coding-model-that-still-trails-china-overall/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Qwen 3.8 models routing through Alibaba proxy (Cohere, Palisade); no statement from Alibaba",
+   "urls": [
+    "https://the-decoder.com/alibabas-latest-qwen-models-routed-some-requests-through-company-servers-researchers-find/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "OpenAI merging ChatGPT Chat and Work tabs; shared limits with Codex",
+   "urls": [
+    "https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Anthropic Message Threads public beta, about 35% faster first token",
+   "urls": [
+    "https://the-decoder.com/anthropics-message-threads-cut-time-to-first-token-by-35-percent-for-long-conversations/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Starship Flight 15: Booster 22 static fire Oct. 25; NET Nov. 12 or Nov. 30, no official date; FAA license pending; ship catch planned",
+   "urls": [
+    "https://shiftdelete.net/en/starship-flight-15",
+    "https://avi-go.com/news/articles/61ac524f884f76709dd4089c86927f5f",
+    "https://www.basenor.com/pages/spacex-starship-tracker"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "SpaceX Starfall commercial page, 1,000 kg, three missions signed",
+   "urls": [
+    "https://teslarati.com/spacexs-starfall-just-went-from-secret-to-storefront"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Google Suncatcher prototype online, four TPUs, Gemma 4 haiku",
+   "urls": [
+    "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "SRSF1 overexpression, 14% lifespan in aged mice (Wyss)",
+   "urls": [
+    "https://www.fightaging.org/archives/2026/10/splicing-factor-srsf1-overexpression-produces-a-more-youthful-transcriptome-and-slows-aging-in-mice/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Circular RNA OSK partial reprogramming in MSCs",
+   "urls": [
+    "https://www.fightaging.org/archives/2026/11/circular-rna-encoding-yamanaka-factors-enables-partial-reprogramming-without-pluripotency/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "17 plasma proteins linked to mortality, LonGenity and BLSA",
+   "urls": [
+    "https://www.fightaging.org/archives/2026/11/identifying-plasma-proteins-associated-with-mortality-risk-and-biological-age/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Cold hormesis BH2 mechanism in worms",
+   "urls": [
+    "https://www.fightaging.org/archives/2026/10/investigating-the-mechanisms-of-cold-hormesis/"
+   ]
   }
  ],
  "kwSuggest": {
   "date": "2026-11-03",
   "items": [
-   "Agility Robotics",
-   "Physical Intelligence",
-   "Gemini Robotics",
-   "Moonshot AI",
-   "Open-weight models",
-   "Anthropic IPO",
-   "Memory prices",
-   "Palantir",
-   "AMD",
-   "Meta humanoid",
-   "AI testing rules",
-   "Intel",
-   "Robotaxi",
-   "Full Self-Driving",
-   "Tesla Optimus",
-   "Raptor engines",
-   "Artemis",
+   "Marvell",
+   "Lumentum",
+   "Co-packaged optics",
+   "Oracle",
+   "Neoclouds",
+   "Nscale",
+   "Binance hack",
    "Bitcoin ETFs",
-   "Bitcoin mining",
-   "Rapamycin",
-   "GLP-1 drugs",
-   "Sleep science",
-   "Robot hands",
-   "World models"
+   "Figure 03",
+   "AgiBot",
+   "Unitree",
+   "Dexterous hands",
+   "Cybercab",
+   "Waymo",
+   "Robotaxi",
+   "Mistral",
+   "Qwen",
+   "Partial reprogramming",
+   "Aging biomarkers",
+   "Space data centers",
+   "Ship catch",
+   "AMD",
+   "Humanoids Summit",
+   "AI debt"
   ]
  },
  "kwSuggestLog": [
   {
    "date": "2026-11-03",
    "items": [
-    "Agility Robotics",
-    "Physical Intelligence",
-    "Gemini Robotics",
-    "Moonshot AI",
-    "Open-weight models",
-    "Anthropic IPO",
-    "Memory prices",
-    "Palantir",
-    "AMD",
-    "Meta humanoid",
-    "AI testing rules",
-    "Intel",
-    "Robotaxi",
-    "Full Self-Driving",
-    "Tesla Optimus",
-    "Raptor engines",
-    "Artemis",
+    "Marvell",
+    "Lumentum",
+    "Co-packaged optics",
+    "Oracle",
+    "Neoclouds",
+    "Nscale",
+    "Binance hack",
     "Bitcoin ETFs",
-    "Bitcoin mining",
-    "Rapamycin",
-    "GLP-1 drugs",
-    "Sleep science",
-    "Robot hands",
-    "World models"
+    "Figure 03",
+    "AgiBot",
+    "Unitree",
+    "Dexterous hands",
+    "Cybercab",
+    "Waymo",
+    "Robotaxi",
+    "Mistral",
+    "Qwen",
+    "Partial reprogramming",
+    "Aging biomarkers",
+    "Space data centers",
+    "Ship catch",
+    "AMD",
+    "Humanoids Summit",
+    "AI debt"
    ]
   }
  ]
