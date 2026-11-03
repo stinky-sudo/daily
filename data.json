@@ -2864,5 +2864,268 @@
    "kind": "Move",
    "title": "Bike to the Bay for sunset"
   }
+ ],
+ "briefLog": [
+  {
+   "date": "2026-11-02",
+   "story": "Intel fell about 29% on Oct. 30 on its outlook; Nasdaq lost 5.3% in October, worst month since March 2025",
+   "urls": [
+    "https://www.cnn.com/2026/10/30/investing/us-stocks-ai-investment",
+    "https://www.cnbc.com/2026/10/31/intel-not-a-buy-after-drop.html",
+    "https://www.fool.com/earnings/call-transcripts/2026/10/30/intel-intc-q3-2026-earnings-call-transcript/",
+    "https://finance.yahoo.com/markets/stocks/articles/p-says-meta-t-money-173602682.html"
+   ]
+  },
+  {
+   "date": "2026-11-02",
+   "story": "S&P revised Meta's outlook to negative on Oct. 30, projecting 2027 capex above $225B",
+   "urls": [
+    "https://www.cnn.com/2026/10/30/investing/us-stocks-ai-investment",
+    "https://www.cnbc.com/2026/10/31/intel-not-a-buy-after-drop.html",
+    "https://www.fool.com/earnings/call-transcripts/2026/10/30/intel-intc-q3-2026-earnings-call-transcript/",
+    "https://finance.yahoo.com/markets/stocks/articles/p-says-meta-t-money-173602682.html"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Agility/Churchill XI shareholders approved the SPAC on Nov. 2, trading set for Nov. 5; about $465M gross proceeds, $2.5B pre-money; Digit customers GXO and Schaeffler, 30+ prospects",
+   "urls": [
+    "https://www.therobotreport.com/agility-robotics-shareholders-approve-25b-humanoid-spac/",
+    "https://www.sec.gov/Archives/edgar/data/0002074973/000121390026115038/ea0310517-8k425_church11.htm",
+    "https://www.unite.ai/agility-robotics-expects-465m-gross-capital-raise-ahead-of-spac-closing/",
+    "https://techstartups.com/2026/11/02/startup-funding-news-today-november-2-2026-northwood-space-hypersonica-roboscience-more/",
+    "https://www.agilityrobotics.com/content/agility-robotics-and-churchill-capital-corp-xi-announce-expected-gross-capital-raise-of-approximately-465-million-and-anticipated-closing-of-business-combination",
+    "https://roboticsandautomationnews.com/2026/11/02/agility-robotics-says-more-than-30-companies-considering-digit-humanoid-robot/106595/",
+    "https://www.agilityrobotics.com/content/agility-robotics-highlights-commercial-momentum-and-growing-enterprise-demand-for-digit-humanoid-robot"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "RoboScience financing and its REX G1 wheeled platform",
+   "urls": [
+    "https://www.therobotreport.com/agility-robotics-shareholders-approve-25b-humanoid-spac/",
+    "https://www.sec.gov/Archives/edgar/data/0002074973/000121390026115038/ea0310517-8k425_church11.htm",
+    "https://www.unite.ai/agility-robotics-expects-465m-gross-capital-raise-ahead-of-spac-closing/",
+    "https://techstartups.com/2026/11/02/startup-funding-news-today-november-2-2026-northwood-space-hypersonica-roboscience-more/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Physical Intelligence in talks for at least $1B near a $20B valuation (Bloomberg, Oct. 27), not closed",
+   "urls": [
+    "https://thenextweb.com/news/physical-intelligence-20bn-valuation-talks-bloomberg",
+    "https://www.eweek.com/news/google-cloud-gemini-robotics-er-2-public-preview/",
+    "https://gagadget.com/en/730400-robopartys-rp1-humanoid-is-open-source-but-not-yet-open/",
+    "https://technode.com/2026/11/02/meta-reportedly-builds-humanoid-robot-prototype-with-chinas-fourier/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Gemini Robotics ER 2 public preview on Google Cloud (Oct. 27)",
+   "urls": [
+    "https://thenextweb.com/news/physical-intelligence-20bn-valuation-talks-bloomberg",
+    "https://www.eweek.com/news/google-cloud-gemini-robotics-er-2-public-preview/",
+    "https://gagadget.com/en/730400-robopartys-rp1-humanoid-is-open-source-but-not-yet-open/",
+    "https://technode.com/2026/11/02/meta-reportedly-builds-humanoid-robot-prototype-with-chinas-fourier/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "RoboParty RP1 open-source bipedal humanoid",
+   "urls": [
+    "https://thenextweb.com/news/physical-intelligence-20bn-valuation-talks-bloomberg",
+    "https://www.eweek.com/news/google-cloud-gemini-robotics-er-2-public-preview/",
+    "https://gagadget.com/en/730400-robopartys-rp1-humanoid-is-open-source-but-not-yet-open/",
+    "https://technode.com/2026/11/02/meta-reportedly-builds-humanoid-robot-prototype-with-chinas-fourier/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Meta's humanoid prototype Max built with Fourier (The Information, Oct. 31)",
+   "urls": [
+    "https://thenextweb.com/news/physical-intelligence-20bn-valuation-talks-bloomberg",
+    "https://www.eweek.com/news/google-cloud-gemini-robotics-er-2-public-preview/",
+    "https://gagadget.com/en/730400-robopartys-rp1-humanoid-is-open-source-but-not-yet-open/",
+    "https://technode.com/2026/11/02/meta-reportedly-builds-humanoid-robot-prototype-with-chinas-fourier/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Anthropic's public S-1 (Oct. 26): ANT on Nasdaq, $16.3B first-half revenue, compute commitments, share classes; price range and date still open",
+   "urls": [
+    "https://builtin.com/articles/anthropic-ipo-filing-s1",
+    "https://www.iposcoop.com/?p=39604",
+    "https://fortune.com/2026/10/26/anthropic-ipo-dual-class-share-structure-zuckerberg-musk-new-york-times/",
+    "https://www.forbes.com/sites/guneyyildiz/2026/11/02/openai-cuts-round-to-20-billion-as-uae-investors-pair-capital-with-compute-capacity/",
+    "https://www.axios.com/2026/10/26/anthropic-ipo-risk-factors-humanity",
+    "https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html",
+    "https://venturebeat.com/technology/anthropic-files-to-go-public-on-nasdaq-as-ant-with-16-3b-in-revenue-for-first-six-months-of-2026"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "OpenAI cut its round from $30B to about $20B (FT, Oct. 30), UAE investors reported to lead",
+   "urls": [
+    "https://builtin.com/articles/anthropic-ipo-filing-s1",
+    "https://www.iposcoop.com/?p=39604",
+    "https://fortune.com/2026/10/26/anthropic-ipo-dual-class-share-structure-zuckerberg-musk-new-york-times/",
+    "https://www.forbes.com/sites/guneyyildiz/2026/11/02/openai-cuts-round-to-20-billion-as-uae-investors-pair-capital-with-compute-capacity/",
+    "https://www.trendingtopics.eu/openai-funding-round-20-billion-ai-sector/",
+    "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-launches-gpt-61-terra-with-3x-faster-ai-agents-50-percent-lower-pricing/",
+    "https://decrypt.co/381883/openai-launches-gpt-6-1-terra-half-good-half-price"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "GPT-6.1 Terra launched Oct. 26 at $1/$5 per million tokens, half the prior price",
+   "urls": [
+    "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-launches-gpt-61-terra-with-3x-faster-ai-agents-50-percent-lower-pricing/",
+    "https://decrypt.co/381883/openai-launches-gpt-6-1-terra-half-good-half-price",
+    "https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c",
+    "https://www.techrepublic.com/article/news-google-gemini-4-carbon-access/",
+    "https://www.forbes.com/sites/guneyyildiz/2026/11/02/openai-cuts-round-to-20-billion-as-uae-investors-pair-capital-with-compute-capacity/",
+    "https://www.trendingtopics.eu/openai-funding-round-20-billion-ai-sector/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Moonshot Kimi K3.1 Pro in the API since Oct. 23, weights promised by Nov. 4",
+   "urls": [
+    "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-launches-gpt-61-terra-with-3x-faster-ai-agents-50-percent-lower-pricing/",
+    "https://decrypt.co/381883/openai-launches-gpt-6-1-terra-half-good-half-price",
+    "https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c",
+    "https://www.techrepublic.com/article/news-google-gemini-4-carbon-access/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Gemini 4 Carbon (Oct. 28), a cyber-defense model limited to selected defenders",
+   "urls": [
+    "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-launches-gpt-61-terra-with-3x-faster-ai-agents-50-percent-lower-pricing/",
+    "https://decrypt.co/381883/openai-launches-gpt-6-1-terra-half-good-half-price",
+    "https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c",
+    "https://www.techrepublic.com/article/news-google-gemini-4-carbon-access/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Apple fiscal Q4 (Nov. 2): about $114.5B revenue, first under CEO John Ternus; 45-46% margin guide sent shares down",
+   "urls": [
+    "https://www.macrumors.com/2026/11/02/apple-4q-2026-earnings/",
+    "https://www.cnbc.com/2026/11/02/apple-aapl-q4-2026-earnings-live-updates.html",
+    "https://www.tradingkey.com/analysis/stocks/us-stocks/262266593-aapl-premarket-drop-4-one-month-low-earnings-beat-services-slowdown-margin-tradingkey",
+    "https://www.benzinga.com/markets/equities/26/11/62796438/homebuilders-miners-regional-banks-soar-oil-drops-hormuz-peace-trade-xhb-gdx-kre"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Palantir Q3 (Nov. 2): $2.31B revenue, up 96%; shares slipped",
+   "urls": [
+    "https://www.macrumors.com/2026/11/02/apple-4q-2026-earnings/",
+    "https://www.cnbc.com/2026/11/02/apple-aapl-q4-2026-earnings-live-updates.html",
+    "https://www.tradingkey.com/analysis/stocks/us-stocks/262266593-aapl-premarket-drop-4-one-month-low-earnings-beat-services-slowdown-margin-tradingkey",
+    "https://www.benzinga.com/markets/equities/26/11/62796438/homebuilders-miners-regional-banks-soar-oil-drops-hormuz-peace-trade-xhb-gdx-kre"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Memory prices pressuring PC and device margins (Intel, Apple)",
+   "urls": [
+    "https://www.macrumors.com/2026/11/02/apple-4q-2026-earnings/",
+    "https://www.cnbc.com/2026/11/02/apple-aapl-q4-2026-earnings-live-updates.html",
+    "https://www.tradingkey.com/analysis/stocks/us-stocks/262266593-aapl-premarket-drop-4-one-month-low-earnings-beat-services-slowdown-margin-tradingkey",
+    "https://www.benzinga.com/markets/equities/26/11/62796438/homebuilders-miners-regional-banks-soar-oil-drops-hormuz-peace-trade-xhb-gdx-kre"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Monday Nov. 2 rally as oil fell on Iran's Strait of Hormuz terms",
+   "urls": [
+    "https://www.macrumors.com/2026/11/02/apple-4q-2026-earnings/",
+    "https://www.cnbc.com/2026/11/02/apple-aapl-q4-2026-earnings-live-updates.html",
+    "https://www.tradingkey.com/analysis/stocks/us-stocks/262266593-aapl-premarket-drop-4-one-month-low-earnings-beat-services-slowdown-margin-tradingkey",
+    "https://www.benzinga.com/markets/equities/26/11/62796438/homebuilders-miners-regional-banks-soar-oil-drops-hormuz-peace-trade-xhb-gdx-kre"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "White House withholding the full voluntary AI testing framework (The Information, Nov. 1); records lawsuit",
+   "urls": [
+    "https://www.theinformation.com/briefings/trump-administration-refuses-release-information-ai-testing-framework",
+    "https://www.cbsnews.com/news/ai-model-framework-white-house/",
+    "https://www.techrepublic.com/article/news-google-gemini-4-carbon-access/",
+    "https://www.nextgov.com/artificial-intelligence/2026/09/hawley-launches-committee-investigation-openais-breach-hugging-face/415910/"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "story": "Hawley's September probe of OpenAI over test agents reaching Hugging Face",
+   "urls": [
+    "https://www.theinformation.com/briefings/trump-administration-refuses-release-information-ai-testing-framework",
+    "https://www.cbsnews.com/news/ai-model-framework-white-house/",
+    "https://www.techrepublic.com/article/news-google-gemini-4-carbon-access/",
+    "https://www.nextgov.com/artificial-intelligence/2026/09/hawley-launches-committee-investigation-openais-breach-hugging-face/415910/"
+   ]
+  }
+ ],
+ "kwSuggest": {
+  "date": "2026-11-03",
+  "items": [
+   "Agility Robotics",
+   "Physical Intelligence",
+   "Gemini Robotics",
+   "Moonshot AI",
+   "Open-weight models",
+   "Anthropic IPO",
+   "Memory prices",
+   "Palantir",
+   "AMD",
+   "Meta humanoid",
+   "AI testing rules",
+   "Intel",
+   "Robotaxi",
+   "Full Self-Driving",
+   "Tesla Optimus",
+   "Raptor engines",
+   "Artemis",
+   "Bitcoin ETFs",
+   "Bitcoin mining",
+   "Rapamycin",
+   "GLP-1 drugs",
+   "Sleep science",
+   "Robot hands",
+   "World models"
+  ]
+ },
+ "kwSuggestLog": [
+  {
+   "date": "2026-11-03",
+   "items": [
+    "Agility Robotics",
+    "Physical Intelligence",
+    "Gemini Robotics",
+    "Moonshot AI",
+    "Open-weight models",
+    "Anthropic IPO",
+    "Memory prices",
+    "Palantir",
+    "AMD",
+    "Meta humanoid",
+    "AI testing rules",
+    "Intel",
+    "Robotaxi",
+    "Full Self-Driving",
+    "Tesla Optimus",
+    "Raptor engines",
+    "Artemis",
+    "Bitcoin ETFs",
+    "Bitcoin mining",
+    "Rapamycin",
+    "GLP-1 drugs",
+    "Sleep science",
+    "Robot hands",
+    "World models"
+   ]
+  }
  ]
 }

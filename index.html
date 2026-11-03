@@ -443,6 +443,7 @@ h1,h2,h3,p{margin:0}
 .kw-grid{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
 .kw-grid .kw[hidden]{display:none}
 .kw-g[hidden]{display:none}
+.kw-g .kw-grid{margin-top:0}
 .kw-none{font-size:14px;color:var(--ink-3);padding:14px}
 
 /* watch */
@@ -2183,6 +2184,10 @@ const CONFIG={
      body:[paragraphs, **bold** ok],dek?,sources?:[{src,domain,url,date}]}]}. The page shows
      lede, kicker, title and body; dek and sources stay in the data as the record. When
      brief is missing the page falls back to news[] cards.
+   - briefLog: [{date,story,urls[]}], every story the brief has covered in the last 14 days
+     (only the morning edition reads it, so nothing gets written twice).
+   - kwSuggest: {date,items[]}, today's suggested keywords in News settings, a flat list that
+     turns over daily. kwSuggestLog: [{date,items[]}], last 14 days (morning edition only).
    - news[]: {id,tag,title,blurb,src,domain,date,url,ask?}
    - youtube[]: uploads from the channel list in the last 5 days (the page also loads these live).
    - spotify[]: episodes from the podcast list released in the last 5 days, exact titles,
@@ -4995,36 +5000,40 @@ function mvSetHTML(){
  </div>
  ${gs.length?`<div class="set-l"><span>Genres</span></div><div class="set-g"><div class="set-pad"><div class="tags" style="margin-top:0">${gs.map(g=>{const off=o.hide.some(h=>norm(h)===norm(g));return`<button class="tag gtog ${off?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off}">${esc(g)}</button>`}).join("")}</div></div></div><p class="set-help">Tap a genre to hide it.</p>`:""}`;
 }
-/* NEWS KEYWORDS — his keywords at the top (tap × to drop one), a field to type any
-   keyword (as specific as he likes), and topics to browse, YouTube/Spotify style:
-   tap to add, tap again to remove. Typing filters the topics and offers the exact
-   phrase as a new one. Stored as prefs.newsKw, so it syncs and the morning reads it. */
-const KW_GROUPS=[
- ["Robotics",["Robotics","Humanoid robots","Figure AI","Tesla Optimus","Boston Dynamics","Agility Robotics","1X","Unitree","Apptronik","Robot hands","Robot learning","Warehouse robots","Self-driving cars","Waymo","Drones"]],
- ["AI",["AI","AI agents","LLMs","VLA models","Anthropic","OpenAI","Google DeepMind","xAI","Meta AI","Open-source models","AI coding","AI policy","AI safety","AI chips"]],
- ["Tech",["Tech","Apple","Nvidia","Chips","Big Tech earnings","Startups and funding","Silicon Valley","Cybersecurity","AR and VR","Smartphones","Gadgets","Social media"]],
- ["Science and space",["SpaceX","Starship","NASA","Space","Fusion energy","Batteries","Climate tech","Biotech","Longevity","Neuroscience"]],
- ["Money",["Markets","Bitcoin","Crypto","Venture capital","IPOs","Economy","Electric vehicles","Tesla"]],
- ["Culture and sports",["Bay Area","Ohio State","76ers","UFC","NBA","Electronic music","Movies","Gaming","Travel","Japan"]]
-];
+/* NEWS KEYWORDS — his keywords at the top (tap × to drop one; only he changes these),
+   a field to type any keyword, then one flat list of suggestions: tap to add, tap again
+   to remove. The morning writes the day's suggestions (DATA.kwSuggest) from his keywords
+   and the news, so the list turns over daily; if today's are missing, KW_POOL rotates
+   instead. Typing filters the list and offers the exact phrase as a new keyword.
+   Stored as prefs.newsKw, so it syncs and the morning reads it. */
+const KW_SHOW=24;
+const KW_POOL=["Humanoid robots","AI agents","Apple","SpaceX","Markets","Bay Area","Figure AI","VLA models","Nvidia","NASA","Crypto","Ohio State","Tesla Optimus","Anthropic","Chips","Fusion energy","Venture capital","76ers","Boston Dynamics","OpenAI","Big Tech earnings","Batteries","IPOs","UFC","Agility Robotics","Google DeepMind","Startups and funding","Climate tech","Economy","NBA","1X","xAI","Silicon Valley","Biotech","Electric vehicles","Electronic music","Unitree","Meta AI","Cybersecurity","Neuroscience","Bitcoin","Movies","Apptronik","Open-source models","AR and VR","Starship","Tesla","Gaming","Robot hands","AI coding","Smartphones","Space","Travel","Robot learning","AI policy","Gadgets","Longevity","Japan","Warehouse robots","AI safety","Social media","Self-driving cars","AI chips","Tech","Waymo","LLMs","Drones","AI","Robotics"];
+const kwNear=v=>String(v).toLowerCase().replace(/s$/,"");
+let kwShown=null,kwShownDay="";
+function kwSuggestions(){
+ const mine=newsKw().map(kwNear),free=l=>l.filter(v=>!mine.includes(kwNear(v))),s=DATA.kwSuggest;
+ if(s&&s.date===todayKey()&&Array.isArray(s.items)&&free(s.items).length)return free(s.items).slice(0,KW_SHOW);
+ const p=free(KW_POOL),k=Math.min(KW_SHOW,p.length),start=p.length?Math.floor(Date.parse(todayKey())/864e5)*k%p.length:0;
+ return Array.from({length:k},(_,i)=>p[(start+i)%p.length])}
 const kwHas=(l,v)=>l.some(x=>x.toLowerCase()===String(v).toLowerCase());
-const kwIsDef=l=>norm(l.join())===norm(KW_DEF().join());
-function kwSet(arr){const was=kwIsDef(newsKw());setPref("newsKw",arr);renderNews();renderTeasers();if(was!==kwIsDef(arr)&&$("#kw-mine")){refreshSettings();kwFilter()}else kwPaint()}
+function kwSet(arr){setPref("newsKw",arr);renderNews();renderTeasers();kwPaint()}
 function kwAdd(v){v=String(v||"").trim().replace(/\s+/g," ").slice(0,48);if(!v)return false;const l=newsKw();if(kwHas(l,v))return false;kwSet([...l,v]);return true}
 function kwDel(v){kwSet(newsKw().filter(x=>x.toLowerCase()!==String(v).toLowerCase()))}
 function kwMineHTML(){const l=newsKw();
  return l.length?l.map(v=>`<span class="kw mine">${esc(v)}<button data-kw-del="${esc(v)}" aria-label="Remove ${esc(v)}">${I.close}</button></span>`).join(""):`<span class="kw-empty">No keywords yet. The brief needs at least one.</span>`}
 function kwChip(v,on){return`<button class="kw press ${on?"on":""}" data-kw-tog="${esc(v)}" aria-pressed="${on}">${on?I.check:I.plus}${esc(v)}</button>`}
-function kwGroupsHTML(){const l=newsKw();
- return KW_GROUPS.map(([g,xs])=>`<div class="set-pad kw-g" data-kwg><div class="set-t">${esc(g)}</div><div class="kw-grid">${xs.map(v=>kwChip(v,kwHas(l,v))).join("")}</div></div>`).join("")+`<div class="kw-none" id="kw-none" hidden></div>`}
+/* the list holds still while the page is open, so a chip he taps stays where it is */
+function kwSuggestHTML(){const l=newsKw(),day=todayKey();
+ if(!kwShown||kwShownDay!==day){kwShown=kwSuggestions();kwShownDay=day}
+ return`<div class="set-pad kw-g"><div class="kw-grid">${kwShown.map(v=>kwChip(v,kwHas(l,v))).join("")}</div></div><div class="kw-none" id="kw-none" hidden></div>`}
 function newsSetHTML(){const n=newsKw().length,b=DATA.brief;
  return`<div class="set-l"><span>Your keywords</span><span class="set-c num" id="kw-n">${n}</span></div>
  <div class="set-g"><div class="set-pad"><div class="kw-mine" id="kw-mine">${kwMineHTML()}</div>
   <div class="inp-row" style="margin-top:14px"><input class="inp" id="kw-in" placeholder="Add any keyword, like humanoid hands" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Add a news keyword" enterkeyhint="done"><button class="btn press" data-act="kw-add">Add</button></div></div></div>
  <p class="set-help">Each morning's brief is 5–7 short articles, about a 10-minute read, written from these. Be as broad or specific as you like. Changes show up in the next morning's edition.${b&&b.keywords&&b.keywords.length?" Today's was written from "+esc(b.keywords.join(", "))+".":""}</p>
- <div class="set-l"><span>Browse topics</span>${!kwIsDef(newsKw())?`<button data-act="kw-reset">Reset to ${esc(KW_DEF().join(", "))}</button>`:""}</div>
- <div class="set-g" id="kw-browse">${kwGroupsHTML()}</div>
- <p class="set-help">Tap a topic to add it; tap it again to remove it.</p>`}
+ <div class="set-l"><span>Suggested</span></div>
+ <div class="set-g" id="kw-browse">${kwSuggestHTML()}</div>
+ <p class="set-help">New suggestions every morning, based on your keywords and the news. Tap one to add it.</p>`}
 /* repaint the picker in place, so the keyboard and scroll position stay put */
 function kwPaint(){const m=$("#kw-mine");if(!m)return;const l=newsKw();m.innerHTML=kwMineHTML();const c=$("#kw-n");if(c)c.textContent=l.length;
  $$("[data-kw-tog]").forEach(b=>{const on=kwHas(l,b.dataset.kwTog);if(b.classList.contains("on")===on)return;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);b.innerHTML=(on?I.check:I.plus)+esc(b.dataset.kwTog)});
@@ -5033,7 +5042,7 @@ function kwFilter(){const i=$("#kw-in");if(!i)return;const q=i.value.trim().toLo
  /* hold the sheet's height while filtering so it doesn't jump around under his finger */
  const sp=$("#sheet-p");if(sp&&q&&!sp.style.minHeight)sp.style.minHeight=sp.offsetHeight+"px";
  $$("#kw-browse .kw-g").forEach(g=>{let n=0;$$("[data-kw-tog]",g).forEach(b=>{const hit=!q||b.dataset.kwTog.toLowerCase().includes(q);b.hidden=!hit;if(hit)n++});g.hidden=!n;if(n)any=true});
- const none=$("#kw-none");if(none){const exact=q&&KW_GROUPS.some(g=>g[1].some(v=>v.toLowerCase()===q));
+ const none=$("#kw-none");if(none){const exact=q&&[...$$("[data-kw-tog]")].some(b=>b.dataset.kwTog.toLowerCase()===q);
   none.hidden=!q||exact;if(q&&!exact)none.innerHTML=`<div class="kw-grid" style="margin-top:0">${kwHas(newsKw(),i.value.trim())?`<span class="kw on">${I.check}${esc(i.value.trim())}</span>`:`<button class="kw new press" data-act="kw-add">${I.plus}Add “${esc(i.value.trim())}”</button>`}</div>${any?"":`<div class="set-s" style="margin-top:8px">Not in the list, but any keyword works.</div>`}`}}
 /* top: what the section follows; after: anything advanced, below sync */
 const PAGE_BODY={
@@ -5064,9 +5073,9 @@ function paintSet(cls){
  const v=$("#set-root",p);if(v&&cls&&!calmMotion()){v.classList.add(cls);v.addEventListener("animationend",()=>v.classList.remove(cls),{once:true})}
  pgNavSc();
 }
-function openSettings(id){S.setPage=id||null;S.setY=0;openSheet(setView());pgNavSc()}
+function openSettings(id){kwShown=null;S.setPage=id||null;S.setY=0;openSheet(setView());pgNavSc()}
 /* push into a section's page; the sheet keeps its height so it doesn't jump */
-function setGo(id){const p=$("#sheet-p");if(!p)return;S.setY=p.scrollTop;p.style.minHeight=p.offsetHeight+"px";S.setPage=id;paintSet("in-r");p.scrollTop=0}
+function setGo(id){const p=$("#sheet-p");if(!p)return;kwShown=null;S.setY=p.scrollTop;p.style.minHeight=p.offsetHeight+"px";S.setPage=id;paintSet("in-r");p.scrollTop=0}
 function setBack(slid){const p=$("#sheet-p");if(!p)return;S.setPage=null;paintSet(slid?"":"in-l");p.scrollTop=S.setY||0;p.style.minHeight=""}
 /* the small title in the page's bar fades in once the big one scrolls under it */
 function pgNavSc(){const p=$("#sheet-p"),n=p&&$(".pg-nav",p);if(!n)return;const h=$(".pg-hd h3",p);n.classList.toggle("sc",!!h&&h.getBoundingClientRect().bottom<n.getBoundingClientRect().bottom)}
@@ -5249,7 +5258,6 @@ document.addEventListener("click",async e=>{
   if(act==="news-more"){S.news.open=!S.news.open;renderNews();return}
   if(act==="news-kw"){openSettings("news");return}
   if(act==="kw-add"){const i=$("#kw-in");if(!i)return;const v=i.value;if(kwAdd(v)){i.value="";kwFilter()}else if(v.trim()){toast("Already in your keywords")}return}
-  if(act==="kw-reset"){kwSet(KW_DEF().slice());return}
   if(act==="refresh"){PTR.go();return}
   if(act==="clear-cache"){Object.keys(localStorage).filter(k=>/^sd-(yt-cache|ytc-|cx-|st-|wx|place|cgid)/.test(k)).forEach(k=>LS.del(k));toast("Cache cleared");setTimeout(fresh,400);return}
   if(act==="geo"){const on=!geoOn();if(on&&!navigator.geolocation){toast("Location isn't available here");return}setPref("geo",on);toast(on?"Finding your location…":"Back to "+CONFIG.home.name);loadWeather().then(()=>{if(on&&S.wx&&!S.wx.loc.here){toast("Location is off for this app on this device — showing "+CONFIG.home.name);renderHero()}}).catch(()=>toast("Couldn't load the weather"));return}
