@@ -2495,17 +2495,19 @@ function flushCfg(){clearTimeout(pushT);return cfg().dirty?pushCfg():Promise.res
 /* One-time additions to a synced list. Each runs once, right after this device has the
    server's copy, and the marker syncs too: every device gets the same list and anything
    removed later stays removed. */
-const LIST_SEEDS=[{id:"artists202611",k:"artists",add:["Drake","Mac Miller","The Notorious B.I.G.","Kid Cudi","J. Cole","Kendrick Lamar","PARTYNEXTDOOR","Jack Harlow","Post Malone","BigXthaPlug","Kota the Friend","XXXTENTACION","Kodak Black","Travis Scott","Future","Metro Boomin","ScHoolboy Q","Chance the Rapper","Aminé","Kofi Stone","Daniel Caesar","Charles Bradley","Darondo","Leon Bridges","Alicia Keys","Sam Cooke","Bobby Caldwell","The Beatles","Bob Dylan","Johnny Cash","Tom Petty and the Heartbreakers","Elton John","ABBA","Father John Misty","Lukas Nelson and Promise of the Real","Bishop Gunn","Tyler Childers","Bad Bunny","Goth Babe","Mt. Joy","Royel Otis","Balu Brigada","Chris Staples","Quinn XCII","Ashes To Amber","Richy Mitch & The Coal Miners","nimino","oskar med k","ODESZA","RL Grime","Sammy Virji","Louis The Child","Ganja White Night","Flume","RÜFÜS DU SOL","Stavroz","Conrad.","The Dare","eric404","Jkyl & Hyde","Kerala Dust"]}];
-function applyListSeeds(){
+const LIST_SEEDS=[{id:"artists202611b",k:"artists",minBackend:11,add:["Tyler Childers","Bad Bunny","Goth Babe","Mt. Joy","Royel Otis","Balu Brigada","Chris Staples","Quinn XCII","Ashes To Amber","Richy Mitch & The Coal Miners","nimino","oskar med k","ODESZA","RL Grime","Sammy Virji","Louis The Child","Ganja White Night","Flume","RÜFÜS DU SOL","Stavroz","Conrad.","The Dare","eric404","Jkyl & Hyde","Kerala Dust","Hippie Sabotage","Childish Gambino","Khalid","TroyBoi","Wiley from Atlanta","Chris Stapleton","Bob Marley & The Wailers","Ray Charles","Big Sean","Wiz Khalifa","Russ","Frank Ocean","Felly","Milky Chance","EARTHGANG","BabyJake","Saba","Masego","Trayce Chapman","daydream Masi","Bakar","Mounika.","Spark Master Tape","Bill Withers","Frank Sinatra","BROCKHAMPTON","Surfaces","Aer","Big Wild","Sublime","Danger Incorporated","Ruslan","Brendan Bennett"]}];
+async function applyListSeeds(){
+ const info=await pingBackend();
  LIST_SEEDS.forEach(s=>{
   const done=pref("listSeeds",[]);if(done.includes(s.id))return;
+  if(s.minBackend&&!(info&&info.v>=s.minBackend))return; /* an older backend cuts lists off at 40 */
   const cur=lists()[s.k],has=n=>cur.some(x=>norm(x)===norm(n));
   setList(s.k,cur.concat(s.add.filter(n=>!has(n))));setPref("listSeeds",done.concat([s.id]));listsChanged([s.k]);
  });
 }
 async function pullCfg(){
  if(!backend())return;
- try{const r=await be({fn:"config"});if(r.config&&r.config.v===3){adoptCfg(r.config);applyListSeeds()}else if(r.config&&r.config.lists){adoptCfg({lists:r.config.lists,listsAt:Object.fromEntries(Object.keys(r.config.lists).map(k=>[k,r.config.updated||0]))});cfg().dirty=true;queuePush()}else{cfg().dirty=true;queuePush()}S.sync={state:"ok",at:Date.now()}}
+ try{const r=await be({fn:"config"});if(r.config&&r.config.v===3){adoptCfg(r.config);await applyListSeeds()}else if(r.config&&r.config.lists){adoptCfg({lists:r.config.lists,listsAt:Object.fromEntries(Object.keys(r.config.lists).map(k=>[k,r.config.updated||0]))});cfg().dirty=true;queuePush()}else{cfg().dirty=true;queuePush()}S.sync={state:"ok",at:Date.now()}}
  catch(e){S.sync={state:"err",msg:e.message}}
  refreshSettings();
 }
