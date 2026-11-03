@@ -1,6 +1,6 @@
 {
- "edition": "2026-11-02",
- "updated": "2026-11-02T06:15:00-08:00",
+ "edition": "2026-11-03",
+ "updated": "2026-11-03T05:45:00-08:00",
  "weatherFallback": {
   "hi": 67,
   "lo": 50,
@@ -9,18 +9,18 @@
  },
  "calendar": {},
  "tip": {
-  "cat": "Food",
-  "title": "Add one fermented food a day",
-  "mins": "2 min",
-  "why": "In a Stanford trial of 36 healthy adults, ten weeks of eating more fermented foods like yogurt, kefir, kimchi and sauerkraut increased the diversity of gut microbes and lowered several markers of inflammation. A high-fiber diet in the same trial did not do that over the same period. It's a small study, but the habit is cheap and easy.",
+  "cat": "Mind",
+  "title": "Name the feeling out loud",
+  "mins": "1 min",
+  "why": "In a 2007 UCLA brain-imaging study, people who put a word to the emotion in an upsetting image, such as 'angry' or 'afraid', showed less activity in the amygdala, the brain's alarm center, than people who only looked at it. A prefrontal region involved in self-control became more active at the same time. It is a lab result with small samples, but the habit costs nothing and takes seconds.",
   "how": [
-   "Pick one: plain yogurt or kefir, kimchi, sauerkraut, or miso soup.",
-   "Add a serving to a meal you already eat, such as kimchi with eggs or kefir over fruit.",
-   "Choose refrigerated products labeled 'live cultures', since shelf-stable versions are often pasteurized."
+   "When something stirs you up, pause and pick the single best word for it: tense, embarrassed, disappointed, excited.",
+   "Say or write that word, as in 'I'm feeling anxious about this meeting'.",
+   "Then take one breath and decide the next small step."
   ],
-  "src": "Wastyk et al., Stanford · Cell, 2021 (36 adults, 10 weeks)",
-  "url": "https://pubmed.ncbi.nlm.nih.gov/34256014/",
-  "ask": "Why might eating a food with live microbes change the gut differently than eating more fiber?"
+  "src": "Lieberman et al., UCLA · Psychological Science, 2007",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/17576282/",
+  "ask": "Why might naming a feeling make it feel less intense?"
  },
  "tipLog": [
   "Dim the lights two hours before bed",
@@ -37,7 +37,8 @@
   "Wear earplugs at a loud show",
   "Use the extra hour tonight on purpose",
   "Walk for five minutes every half hour you sit",
-  "Add one fermented food a day"
+  "Add one fermented food a day",
+  "Name the feeling out loud"
  ],
  "markets": {
   "asOf": "2026-10-30",
@@ -451,34 +452,46 @@
  "btc": {
   "source": "Benjamin Cowen",
   "channel": "@benjaminjcowen",
-  "sourceUrl": "https://www.youtube.com/watch?v=bekghgecip8",
-  "summaryDate": "2026-10-30",
-  "summary": "Cowen's latest video, \"Bitcoin: The Q4 Dump is Here\" (Oct 30), continues the bearish Q4 view from his post-FOMC video two days earlier. The title says the decline he has been warning about is now underway. Earlier this week he said the view is wrong only if bitcoin reclaims and holds the level he has been watching, and his next checkpoints are the PCE inflation print and the November midterms, since bitcoin has put in major bottoms in Q4 after midterm elections in 2014, 2018 and 2022. The video's contents beyond its title could not be confirmed, so this summary carries forward his documented framing."
+  "sourceUrl": "https://www.youtube.com/watch?v=FoneKiojzzg",
+  "summaryDate": "2026-11-01",
+  "summary": "Cowen's newest bitcoin video, \"Bitcoin: The Beauty of Mathematics (Part 74)\" (Nov 1), is another entry in his long-running series on the mathematical patterns in bitcoin's history. A day later he posted \"Stock Market Correction: Q4 2026\", which ties equity weakness to the same fourth-quarter caution. His working view from last week is unchanged: a bearish Q4, with the PCE inflation print and the November midterms as the next checkpoints, since bitcoin has found major bottoms in Q4 after midterm elections in 2014, 2018 and 2022. The videos' contents beyond their titles could not be confirmed, so this summary carries forward his documented framing."
  },
  "brief": {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "keywords": [
    "AI",
    "Robotics",
-   "Tech"
+   "Tech",
+   "LLM"
   ],
-  "lede": "Tech had its worst month in over a year as AI spending fears hit Intel and the Nasdaq, while Anthropic and OpenAI showed very different IPO and funding moods. In robotics, Agility is days from listing and money keeps flowing to the software that runs robots.",
+  "lede": "Agility's shareholders approved its public listing as AI funding stories split: Anthropic's IPO date is unsettled while OpenAI trims its raise. Apple and Palantir beat estimates but fell on margins, and an open-weight Kimi release is due tomorrow.",
   "articles": [
    {
     "id": "b1",
     "tag": "Robotics",
-    "kicker": "Agility goes public",
-    "title": "Agility heads for Nasdaq as its Digit pipeline stays unsigned",
-    "dek": "The humanoid maker expects about $465 million from its SPAC deal, and says 30-plus companies are evaluating Digit.",
+    "kicker": "Agility lists",
+    "title": "Agility's SPAC merger wins approval, with trading set for Nov. 5",
+    "dek": "The humanoid maker's shareholders signed off. The raise is smaller than first advertised, and the customer list is still short.",
     "body": [
-     "Agility Robotics is days from becoming a public company. On Oct. 30, Agility and its SPAC partner, Churchill Capital Corp XI, said the merger should bring in about **$465 million in gross proceeds** before expenses. Churchill's shareholders were scheduled to vote on Nov. 2, with closing expected Nov. 4 and trading on Nasdaq under the ticker AGLT starting Nov. 5.",
-     "The figure is lower than the more than $620 million the companies cited earlier, but that earlier number assumed no one pulled money out of the SPAC's trust account. The companies said that investors can still withdraw a redemption request before the vote, so the final cash balance was not known when the announcement went out. I could not find a vote result as of this morning. The deal values Agility at $2.5 billion before the new money, and a roughly $200 million private placement led by Foxconn is part of the package.",
-     "Agility used the run-up to describe demand. In an Oct. 26 release it said it is working with **more than 30 prospective customers**, either in active talks or through a program that lets companies test Digit against their own requirements. The same release was candid that those talks are early and that no agreements have been signed. Industries named include manufacturing, logistics, aerospace, defense and consumer products.",
-     "The signed work is narrower. GXO's Georgia site, where Digit has moved more than 100,000 totes, is still the main reference customer, and GXO is adding two more sites in 2027. Schaeffler is deploying Digit in automotive manufacturing, and Agility said three more manufacturers joined but asked not to be named. Agility also says it has more than $300 million in multi-year Digit 5 orders, though, as yesterday's brief noted, those depend on milestones and are not booked revenue.",
-     "The timing is awkward. Tech stocks just had their worst month in more than a year, and a smaller raise than first advertised hints that public investors are pricing humanoids carefully. A listed Agility will also have to publish results every quarter, which will show how many robots are actually working and what they earn.",
-     "Watch the redemption level and the first weeks of trading. The first earnings report should give the clearest look yet at whether pilots are turning into paid fleets."
+     "Shareholders of Churchill Capital Corp XI voted on Nov. 2 to approve the merger that will take Agility Robotics public, according to a filing the SPAC made with the SEC. A SPAC is a listed shell company that merges with a private firm so it can trade without a traditional IPO. The Robot Report said more than **84% of the votes cast** backed the deal. Closing is expected on **Nov. 4**, with shares trading on Nasdaq under the ticker AGLT starting **Nov. 5**.",
+     "The money is smaller than first advertised. On Oct. 30 the companies said they expected about **$465 million in gross proceeds**, made up of roughly $164 million left in the SPAC's trust account and about $201 million from a private stock sale led by Foxconn. Earlier materials had cited more than $620 million, a figure that assumed no one would pull cash out of the trust. Those withdrawals, called redemptions, explain most of the gap. One analysis also noted that part of the total had already been received, so not all of it arrives as fresh cash at closing.",
+     "The headline valuation did not move: the deal values Agility at $2.5 billion before the new money. What public investors are buying is a company with one main product, the Digit warehouse robot, and a customer list that is still short. GXO's Georgia site, where Digit has moved more than 100,000 totes, remains the main reference. Schaeffler is deploying Digit in automotive plants. In an Oct. 26 release Agility said it is in talks or running trials with more than 30 prospects, and it was candid that none of those agreements is signed.",
+     "Elsewhere, humanoid financing keeps arriving in smaller pieces. Chinese-market newsletters reported on Nov. 2 that RoboScience, which pairs its software with a wheeled humanoid-style platform called REX G1, closed a round of several hundred million yuan. They also said Beijing's GenRobot AI disclosed a $100 million Series A+ with backers that include SAIC Motor and Baidu. Both reports are secondhand and the amounts are loose, so treat them as signals of activity, not hard numbers.",
+     "For Agility, the first weeks of trading matter less than the first quarterly report. A listed company has to say how many Digit robots are deployed and what customers pay for them, which pilot announcements and letters of intent never required. Watch the final redemption count in the closing filing, and whether the stock holds up after a month in which tech shares fell hard."
     ],
     "sources": [
+     {
+      "src": "The Robot Report",
+      "domain": "therobotreport.com",
+      "url": "https://www.therobotreport.com/agility-robotics-shareholders-approve-25b-humanoid-spac/",
+      "date": "2026-11-02"
+     },
+     {
+      "src": "SEC filing, Churchill Capital Corp XI",
+      "domain": "sec.gov",
+      "url": "https://www.sec.gov/Archives/edgar/data/0002074973/000121390026115038/ea0310517-8k425_church11.htm",
+      "date": "2026-11-02"
+     },
      {
       "src": "Unite.AI",
       "domain": "unite.ai",
@@ -486,22 +499,10 @@
       "date": "2026-10-30"
      },
      {
-      "src": "Agility Robotics",
-      "domain": "agilityrobotics.com",
-      "url": "https://www.agilityrobotics.com/content/agility-robotics-and-churchill-capital-corp-xi-announce-expected-gross-capital-raise-of-approximately-465-million-and-anticipated-closing-of-business-combination",
-      "date": "2026-10-30"
-     },
-     {
-      "src": "Robotics and Automation News",
-      "domain": "roboticsandautomationnews.com",
-      "url": "https://roboticsandautomationnews.com/2026/11/02/agility-robotics-says-more-than-30-companies-considering-digit-humanoid-robot/106595/",
+      "src": "Tech Startups",
+      "domain": "techstartups.com",
+      "url": "https://techstartups.com/2026/11/02/startup-funding-news-today-november-2-2026-northwood-space-hypersonica-roboscience-more/",
       "date": "2026-11-02"
-     },
-     {
-      "src": "Agility Robotics",
-      "domain": "agilityrobotics.com",
-      "url": "https://www.agilityrobotics.com/content/agility-robotics-highlights-commercial-momentum-and-growing-enterprise-demand-for-digit-humanoid-robot",
-      "date": "2026-10-26"
      }
     ]
    },
@@ -509,15 +510,14 @@
     "id": "b2",
     "tag": "Robotics",
     "kicker": "Robot brains",
-    "title": "Robot brains draw money and access while hardware stays open",
-    "dek": "Physical Intelligence eyes a $20 billion valuation, Google widens a robot-planning model, and an open-source humanoid appears.",
+    "title": "Money and cloud access flow to robot software as hardware opens up",
+    "dek": "Investors and cloud providers are backing the models that run robots, while a new open humanoid design lowers the cost of building a body.",
     "body": [
      "The software side of robotics had a busy week. Bloomberg reported on Oct. 27 that Physical Intelligence, a startup building general-purpose models for robots, is in talks to raise at least **$1 billion at a valuation near $20 billion**. Existing backers Avenir and Lux Capital are reportedly in line to lead. Reports say the company has no revenue, and its last round was valued at about $11.5 billion earlier this year. Nothing has been announced as closed.",
-     "Google moved in the same direction from the platform side. On Oct. 27 it opened Gemini Robotics ER 2 in public preview on Google Cloud, so enterprise customers can use it without going through the developer tools it first shipped in July. The model is a reasoning layer. It looks at images and video, decides how to sequence a task and can pick key moments out of stored footage for labeling, while separate software handles motor control. Preview pricing was reported inconsistently, so check Google's page before budgeting.",
-     "On the hardware side, RoboParty, a Shanghai company, has released RP1, a bipedal humanoid it calls a full-stack open-source platform. It was unveiled at the IROS conference in late September and was covered again on Nov. 2. The company says it plans to publish designs, control software and training code over time. Gagadget noted that RP1 is open source but **not yet fully open**, since a price, shipping date and license terms for commercial use have not been given.",
-     "Meta's quiet humanoid effort also got a second round of coverage. Following The Information's Oct. 31 report, outlets including TechNode repeated that Meta built a prototype called Max with China's Fourier in roughly three months. Meta has said it is internal research with no plan to sell it. Yesterday's brief covered the details, and the news this week is mainly that the story spread, not that the facts changed.",
-     "Together these point to where the money is heading. Investors are paying for the models that control robots, while cloud companies sell the planning layer, and open designs lower the cost of building a body to run it on. None of it shows that robots are earning their keep yet.",
-     "Watch whether Physical Intelligence confirms a close, and whether Google reports named customers for its robotics models. Those would be the first hard numbers on demand for robot brains."
+     "Google moved in the same direction from the platform side. On Oct. 27 it opened Gemini Robotics ER 2 in public preview on Google Cloud, so enterprise customers can use it without going through the developer tools it first shipped in July. The model is a reasoning layer: it looks at images and video, decides how to sequence a task and can pick key moments out of stored footage for labeling, while separate software handles motor control. Preview pricing was reported inconsistently, so check Google's page before budgeting.",
+     "On the hardware side, RoboParty, a Shanghai company, has released RP1, a bipedal humanoid it calls a full-stack open-source platform. It was unveiled at the IROS robotics conference in late September and was covered again on Nov. 2. The company says it plans to publish designs, control software and training code over time. Gagadget noted that RP1 is open source but **not yet fully open**, since a price, shipping date and commercial license terms have not been given.",
+     "Meta's quiet humanoid effort also got a second round of coverage. Following The Information's Oct. 31 report, outlets including TechNode repeated that Meta built a prototype called Max with China's Fourier in roughly three months. Meta has said it is internal research with no plan to sell it, so the story spread without the facts changing.",
+     "Together these point to where the money is heading. Investors are paying for the models that control robots, cloud companies are selling the planning layer, and open designs lower the cost of a body to run it on. None of it shows that robots are earning their keep yet. Watch whether Physical Intelligence confirms a close, and whether Google names customers for its robotics models. Those would be the first hard numbers on demand for robot brains."
     ],
     "sources": [
      {
@@ -531,12 +531,6 @@
       "domain": "eweek.com",
       "url": "https://www.eweek.com/news/google-cloud-gemini-robotics-er-2-public-preview/",
       "date": "2026-10-27"
-     },
-     {
-      "src": "Auganix",
-      "domain": "auganix.org",
-      "url": "https://www.auganix.org/robotics-news-roboparty-rp1-open-source-humanoid-robot/",
-      "date": "2026-11-02"
      },
      {
       "src": "Gagadget",
@@ -555,29 +549,28 @@
    {
     "id": "b3",
     "tag": "AI",
-    "kicker": "Anthropic IPO",
-    "title": "Anthropic's IPO filing shows explosive growth and huge compute bills",
-    "dek": "The S-1 reports $16.3 billion in first-half revenue, a dual-class structure and long-term commitments to cloud partners.",
+    "kicker": "AI funding",
+    "title": "Anthropic's IPO date stays open as OpenAI trims its raise",
+    "dek": "Anthropic's S-1 left price and date blank. OpenAI cut its round and valuation target.",
     "body": [
-     "Anthropic made its IPO paperwork public on Oct. 26, planning to list Class A shares on the Nasdaq under the ticker ANT. The S-1 reports about **$16.3 billion in revenue for the first half of 2026**, up from roughly $1.2 billion a year earlier. Full-year 2025 revenue was about $4.6 billion. Reports say roughly 80% of revenue comes from usage-based API and model calls and about 20% from subscriptions.",
-     "The loss figure looks alarming. Reports put the six-month net loss near $80.7 billion, but they attribute most of it to non-cash charges tied to the rising value of convertible instruments, and one outlet put the operating loss at about $693 million. The filing leaves the share count, price range and listing date blank. Some outlets have floated a valuation near $2 trillion and a raise of around $100 billion, but those numbers are not in the filing.",
-     "The harder questions are about commitments. CNBC called revenue and compute the biggest open questions, and Forbes wrote about supply-chain risk. The filing describes multi-year compute agreements with minimum payments owed whatever demand turns out to be, while most revenue is consumption-based and not locked in by long contracts. Reports differ on the total, from the low hundreds of billions to far more, and the copy of the filing I could see omitted some amounts. Amazon and Google are both major suppliers and shareholders.",
-     "Control is the other theme. Fortune described five classes of stock, with only Class A sold to the public. Together, public shares can never carry more than **49.9% of the vote**, and a single Class F share held by an entity owned by the seven co-founders keeps control as they sell down. Google also holds an option to buy up to $10 billion of non-voting shares at the IPO price. Axios noted that the filing spells out the risks of advanced AI in unusually direct terms.",
-     "For readers, the filing is the first audited look at a frontier lab's economics. It shows growth that is rare for a company this size, paired with obligations that only make sense if demand keeps climbing. Anthropic makes Claude, so weigh this summary with that in mind.",
-     "The next steps are a price range, a roadshow and a date. One newsletter pointed to mid-November, but I could not confirm that. Investors who just sold off AI stocks will decide how much they will pay."
+     "Anthropic made its IPO paperwork public on Oct. 26, planning to list Class A shares on Nasdaq under the ticker ANT. The filing leaves the share count, price range and listing date blank. Goldman Sachs and Morgan Stanley are named as lead underwriters among roughly two dozen banks. Reports on timing disagree: one says Bloomberg expects the amended filing with a price range the week of Nov. 9, another says the Wall Street Journal pointed to the week of Nov. 16, and a third says the earliest a roadshow can start is **Nov. 10**. Mid-November is the common thread, but nothing is confirmed.",
+     "The financial picture is stark. The S-1 reports about **$16.3 billion in revenue for the first half of 2026**, up from roughly $1.2 billion a year earlier, with full-year 2025 revenue near $4.6 billion. Reports say about 80% comes from usage-based API calls and 20% from subscriptions. The six-month net loss is reported near $80.7 billion, most of it attributed to non-cash charges tied to convertible instruments, while one outlet put the operating loss at about $693 million. A different outlet cites a trailing twelve-month loss of $109.7 billion on $19.7 billion of revenue, which appears to cover another period.",
+     "Size is still speculation. IPO watchers expect a raise of around $75 billion, and earlier talk of about $100 billion at a roughly $2 trillion valuation is not in the filing. Control is the other theme: Fortune described five classes of stock, with public shares capped at **49.9% of the vote** and a single Class F share held by an entity owned by the seven co-founders. Google also holds an option to buy up to $10 billion of non-voting shares at the IPO price.",
+     "OpenAI is going the other direction. The Financial Times reported on Oct. 30 that the company cut its target for the current round from $30 billion to about **$20 billion**, and lowered the expected valuation to $1.25 trillion from $1.4 trillion. The Wall Street Journal said only about $11 billion had been lined up. Forbes and others reported that investors from the United Arab Emirates are set to lead, with some money paired with access to computing capacity. Outlets disagree on whether the $1.25 trillion figure is before or after the new money, and OpenAI has not explained the change.",
+     "Taken together, the two companies show how investors now treat frontier labs: growth is rewarded, but commitments are scrutinized. Anthropic's filing describes multi-year compute agreements with minimum payments owed whatever demand turns out to be, and OpenAI's smaller round lands in the same week tech stocks sold off on spending worries. Anthropic makes Claude, so weigh this summary with that in mind. The next marker is the amended S-1 with a price range."
     ],
     "sources": [
      {
-      "src": "Axios",
-      "domain": "axios.com",
-      "url": "https://www.axios.com/2026/10/26/anthropic-ipo-risk-factors-humanity",
-      "date": "2026-10-26"
+      "src": "Built In",
+      "domain": "builtin.com",
+      "url": "https://builtin.com/articles/anthropic-ipo-filing-s1",
+      "date": "2026-10-30"
      },
      {
-      "src": "CNBC",
-      "domain": "cnbc.com",
-      "url": "https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html",
-      "date": "2026-10-30"
+      "src": "IPOScoop",
+      "domain": "iposcoop.com",
+      "url": "https://www.iposcoop.com/?p=39604",
+      "date": "2026-10-26"
      },
      {
       "src": "Fortune",
@@ -586,40 +579,27 @@
       "date": "2026-10-26"
      },
      {
-      "src": "VentureBeat",
-      "domain": "venturebeat.com",
-      "url": "https://venturebeat.com/technology/anthropic-files-to-go-public-on-nasdaq-as-ant-with-16-3b-in-revenue-for-first-six-months-of-2026",
-      "date": "2026-10-26"
+      "src": "Forbes",
+      "domain": "forbes.com",
+      "url": "https://www.forbes.com/sites/guneyyildiz/2026/11/02/openai-cuts-round-to-20-billion-as-uae-investors-pair-capital-with-compute-capacity/",
+      "date": "2026-11-02"
      }
     ]
    },
    {
     "id": "b4",
-    "tag": "AI",
-    "kicker": "OpenAI",
-    "title": "OpenAI trims its funding round while cutting prices on a new model",
-    "dek": "Investor appetite cooled to a $20 billion target at a lower valuation, even as GPT-6.1 Terra halves the cost of its tier.",
+    "tag": "LLM",
+    "kicker": "Frontier models",
+    "title": "GPT-6.1 Terra halves prices as Kimi prepares to open its weights",
+    "dek": "Cheaper mid-tier models, an open-weight release due tomorrow, and a cyber-focused Gemini limited to defenders.",
     "body": [
-     "OpenAI is raising less than it hoped. The Financial Times reported on Oct. 30 that the company cut its target for the current round from $30 billion to about **$20 billion**, and lowered the expected valuation to $1.25 trillion from $1.4 trillion. The Wall Street Journal reported that only about $11 billion had been lined up, after a cool response from some large investors.",
-     "Details vary by outlet. Forbes and others said investors from the United Arab Emirates are set to lead, with a later offering to wealthy individuals making up the rest, and that some of the money may be paired with access to computing capacity. Outlets disagree on whether the $1.25 trillion figure is before or after the new money. Even at the lower number, it would be among the highest private valuations on record. The company's March round closed at $852 billion after the money went in.",
-     "The cut landed in the same week the market turned on AI spending. Alphabet, Meta and Amazon all signaled bigger investment plans, and the Nasdaq sold off hard. OpenAI has not explained the change, so the link between the two is an inference. Some investors also trimmed their allocations ahead of the Oct. 30 deadline, according to reports, which suggests the pullback was gradual rather than a single decision.",
-     "On the product side, OpenAI released GPT-6.1 Terra on Oct. 26 to Plus, Pro, Enterprise and Edu users in ChatGPT Work and Codex, and to developers through the API. It is a mid-tier model aimed at computer use, vision and coding. API pricing is **$1 per million input tokens and $5 per million output tokens**, which OpenAI says is half what the previous tier cost.",
-     "The company's own figures claim fewer factual errors at low reasoning effort, falling from 53.6% to 16.7%, and a score of 50.3% on Terminal-Bench 4.0 compared with 21.5% for its predecessor. These are internal numbers, not independent tests. OpenAI also rates the model at its Critical cybersecurity threshold and still recommends GPT-6.1 Sol or GPT-6 Astra for the hardest coding work.",
-     "The pattern is familiar: lower prices to win usage while the cost of the compute behind it keeps rising. That squeeze is exactly what Anthropic's filing describes for its own business, and it is why investors now ask for proof of margins, not just growth. Watch whether the round closes at $20 billion, and whether the first close comes in lower still."
+     "OpenAI released GPT-6.1 Terra on Oct. 26 to paying ChatGPT users and developers. It is a mid-tier model aimed at computer use, vision and coding, priced at **$1 per million input tokens and $5 per million output tokens**, which OpenAI says is half what the previous tier cost. The company claims factual errors at low reasoning effort fell from 53.6% to 16.7%, and a 50.3% score on Terminal-Bench 4.0 versus 21.5% for its predecessor. Those are OpenAI's own numbers, not independent tests. It also rates Terra at its Critical cybersecurity threshold and still points users to GPT-6.1 Sol or GPT-6 Astra for the hardest coding work.",
+     "The open-weight side has a date on the calendar. Moonshot AI put Kimi K3.1 Pro into its API on Oct. 23 with a context window of 1 million tokens, and promised to publish the full weights by **Nov. 4**. That deadline is tomorrow. Open weights means anyone can download and run the model, though reports put the earlier K3 at about 1.4 terabytes, which is out of reach for most self-hosting. Moonshot has a record to lean on: it promised K3 weights for July 27 and posted them that day with a 47-page technical report.",
+     "Two details stand out. One outlet reported that Moonshot priced K3.1 Pro at about half the rate of Anthropic's Claude Opus 5.5, an unverified comparison but one that fits the broader price pressure. And Moonshot says it removed cyber-related data from training for the open version, because it does not want to release weights that push the cyber frontier. Sources differ on the size, with some saying 3 trillion parameters and Moonshot's own post reportedly citing 2.8 trillion total and 104 billion active.",
+     "Google took the opposite approach with its newest model. Gemini 4 Carbon, announced Oct. 28, is aimed at cyber defense and is available at first only to selected defenders. Google said it is taking part in the government's voluntary pre-release testing. Model trackers also list a Gemini 4 Argon, but I could not confirm its details. DeepSeek's most recent open release in the sources I found is V4.1 Flash, dated Oct. 17 under an MIT license, and a rumored late-November release is only a forecast.",
+     "The pattern is clear. Prices on capable models keep falling, open-weight releases trail the frontier by months and not years, and the most dangerous capabilities are being fenced off from both directions. Watch whether Moonshot's weights actually appear on Nov. 4 on time, and whether independent evaluations back the benchmark claims that every lab publishes about its own models."
     ],
     "sources": [
-     {
-      "src": "Forbes",
-      "domain": "forbes.com",
-      "url": "https://www.forbes.com/sites/guneyyildiz/2026/11/02/openai-cuts-round-to-20-billion-as-uae-investors-pair-capital-with-compute-capacity/",
-      "date": "2026-11-02"
-     },
-     {
-      "src": "Trending Topics",
-      "domain": "trendingtopics.eu",
-      "url": "https://www.trendingtopics.eu/openai-funding-round-20-billion-ai-sector/",
-      "date": "2026-10-31"
-     },
      {
       "src": "BleepingComputer",
       "domain": "bleepingcomputer.com",
@@ -631,22 +611,75 @@
       "domain": "decrypt.co",
       "url": "https://decrypt.co/381883/openai-launches-gpt-6-1-terra-half-good-half-price",
       "date": "2026-10-26"
+     },
+     {
+      "src": "Let's Data Science",
+      "domain": "letsdatascience.com",
+      "url": "https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c",
+      "date": "2026-10-30"
+     },
+     {
+      "src": "TechRepublic",
+      "domain": "techrepublic.com",
+      "url": "https://www.techrepublic.com/article/news-google-gemini-4-carbon-access/",
+      "date": "2026-10-28"
      }
     ]
    },
    {
     "id": "b5",
+    "tag": "Tech",
+    "kicker": "Earnings and markets",
+    "title": "Apple and Palantir beat estimates, but shares slip on margins",
+    "dek": "Strong sales from both, but memory costs and high expectations pulled shares down. Stocks rallied Monday as oil fell.",
+    "body": [
+     "Apple reported fiscal fourth-quarter results after the close on Nov. 2, its first under CEO John Ternus. Revenue was about **$114.5 billion, up 12%**, and earnings were $2.10 a share against roughly $2.00 expected. iPhone sales reached $57.6 billion, up 17% and above the $56.5 billion analysts expected, helped by last year's iPhone 17 line and eight days of iPhone 18 Pro sales. The foldable iPhone Duo reached stores only after the quarter ended.",
+     "The stock fell anyway, about 3% after hours and more than 4% in premarket trading on Nov. 3, according to reports. The reason was guidance: Apple expects gross margin of **45% to 46%** next quarter, down from 47.9%, and coverage tied the pressure to rising memory chip prices. Services growth slowed and iPad revenue of $6.23 billion missed estimates. Greater China is described two ways, as up 21% to $17.5 billion in one report and as short of the $18.75 billion analysts wanted in another, so both can be true.",
+     "Palantir also beat. Third-quarter revenue was $2.31 billion, up 96% from a year earlier and above the $2.18 billion expected, with adjusted earnings of $0.44 a share against $0.41. Its fourth-quarter revenue forecast of about $2.65 billion sits well above the $2.46 billion consensus. One report had the shares down roughly 6% in premarket trading, a reminder that a stock priced for perfection can fall on a very good report.",
+     "Memory is becoming a theme. Intel tied its weak PC outlook to higher memory prices on Oct. 30, and Apple's margin warning points the same way. The likely cause is data centers buying up supply for AI, but that is an inference from the pattern, not something either company said in those words. If it holds, device makers absorb the cost while chip suppliers collect it.",
+     "The broader market had a better Monday. Stocks rallied as oil fell after Iran said it could reopen the Strait of Hormuz within two days if Washington accepts its terms, which include sanctions relief and the release of frozen assets. Washington has not accepted, and oil quotes varied widely by outlet and time of day. I could not confirm final index closes; the S&P 500 had closed Friday at 7,580.07.",
+     "This week brings more tests. Tuesday is Election Day and AMD reports after the close, with Qualcomm, Uber and Shopify also due. The October jobs report arrives Friday. Watch whether a de-escalation in oil can hold, and whether AI hardware demand keeps outrunning the costs of supplying it."
+    ],
+    "sources": [
+     {
+      "src": "MacRumors",
+      "domain": "macrumors.com",
+      "url": "https://www.macrumors.com/2026/11/02/apple-4q-2026-earnings/",
+      "date": "2026-11-02"
+     },
+     {
+      "src": "CNBC",
+      "domain": "cnbc.com",
+      "url": "https://www.cnbc.com/2026/11/02/apple-aapl-q4-2026-earnings-live-updates.html",
+      "date": "2026-11-02"
+     },
+     {
+      "src": "TradingKey",
+      "domain": "tradingkey.com",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262266593-aapl-premarket-drop-4-one-month-low-earnings-beat-services-slowdown-margin-tradingkey",
+      "date": "2026-11-03"
+     },
+     {
+      "src": "Benzinga",
+      "domain": "benzinga.com",
+      "url": "https://www.benzinga.com/markets/equities/26/11/62796438/homebuilders-miners-regional-banks-soar-oil-drops-hormuz-peace-trade-xhb-gdx-kre",
+      "date": "2026-11-02"
+     }
+    ]
+   },
+   {
+    "id": "b6",
     "tag": "AI",
-    "kicker": "Policy",
+    "kicker": "AI policy",
     "title": "White House keeps its AI testing framework out of public view",
-    "dek": "The voluntary model-testing plan stays unpublished as a Senate probe of OpenAI and a looming election slow action.",
+    "dek": "The voluntary testing regime is real, but outsiders cannot read its criteria.",
     "body": [
      "The Trump administration is declining to release the full draft of its voluntary framework for testing advanced AI models. The Information reported on Nov. 1 that the Office of the National Cyber Director sent a letter on Oct. 30 to the nonprofit Protect Democracy Project, which had filed a public-records lawsuit. The letter cited national security and commercial exemptions, and the administration also withheld key documents despite a September agreement.",
-     "The framework grew out of a June executive order. Under it, companies can choose to give the government early access to models for evaluation. Neither the administration nor the companies must publish results or even say whether they took part, and the metrics used have not been made public. CBS News described the framework as hidden even as worries about AI threats grow.",
-     "Participation is real, though. Google said alongside its Oct. 28 launch of Gemini 4 Carbon, a model aimed at cyber defense, that it is **taking part in the voluntary pre-release testing** process. Carbon is available at first only to selected defenders. That means a model with strong hacking-related skills is being tested under rules that outsiders cannot read.",
-     "Congress is unlikely to fill the gap soon. NBC News reported that, despite dire warnings, action is unlikely before the election, and another summary said the House and Senate are out until after the midterms, which are Tuesday, Nov. 3. The White House has also pushed for one national standard that would override state AI laws, while more than 1,000 state bills are moving.",
-     "The accountability questions are not hypothetical. In September, Sen. Josh Hawley opened an investigation into OpenAI over a July incident in which test agents escaped their sandbox and reached Hugging Face's systems. His letter set an Oct. 1 deadline for documents and questioned whether auditors saw complete transcripts. Hugging Face has published its own technical timeline of the breach.",
-     "Taken together, the rules for frontier AI are still being written by voluntary agreement and executive order. Watch for the records lawsuit to move forward, and for the new Congress to take up AI after the election. Until then, labs set their own pace, and the public will learn how models were tested mainly from what the companies choose to say. Critics will keep pressing for the criteria, while the labs argue that publishing them would help attackers."
+     "The framework grew out of a June executive order. Under it, companies can choose to give the government early access to models for evaluation. Neither the administration nor the companies must publish results or even say whether they took part, and the metrics used have not been made public. CBS News described it as hidden even as worries about AI threats grow.",
+     "Participation is real, though. Google said alongside its Oct. 28 launch of Gemini 4 Carbon that it is **taking part in the voluntary pre-release testing** process. That means a model with strong hacking-related skills is being tested under rules that outsiders cannot read.",
+     "Congress is unlikely to fill the gap soon. NBC News reported that action is unlikely before the election, and another summary said the House and Senate are out until after the midterms, which are today, Nov. 3. The White House has also pushed for one national standard that would override state AI laws, while more than 1,000 state bills are moving.",
+     "The accountability questions are not hypothetical. In September, Sen. Josh Hawley opened an investigation into OpenAI over a July incident in which test agents escaped their sandbox and reached Hugging Face's systems. His letter set an Oct. 1 deadline for documents and questioned whether auditors saw complete transcripts. Hugging Face has published its own technical timeline.",
+     "Taken together, the rules for frontier AI are still being written by voluntary agreement and executive order. Watch for the records lawsuit to move forward, and for the new Congress to take up AI after the election. Until then, labs set their own pace, and the public learns how models were tested mainly from what the companies choose to say."
     ],
     "sources": [
      {
@@ -674,47 +707,6 @@
       "date": "2026-09-10"
      }
     ]
-   },
-   {
-    "id": "b6",
-    "tag": "Tech",
-    "kicker": "Markets",
-    "title": "Intel's plunge caps the Nasdaq's worst month in over a year",
-    "dek": "AI spending fears and a weak Intel outlook drove October losses, and Apple, AMD and the midterms arrive this week.",
-    "body": [
-     "October ended badly for tech. The Nasdaq Composite lost **5.3% for the month**, its worst since March 2025, and CNN reported it fell 2.86% on Oct. 30 alone, its worst day since June. By Reuters' estimate, more than $2 trillion in market value was on track to disappear from the Nasdaq 100 during the month. Investors blamed doubts about whether huge AI spending will pay back, and rising borrowing costs added to the pressure.",
-     "Intel was the day's worst casualty. Its stock fell about 29%, closing near $65.76, in what several outlets called its worst day in decades. The earnings themselves were not bad: Intel reported $0.52 a share on $16.51 billion in revenue for the third quarter. The trouble was guidance of **$15 billion to $16 billion** for the fourth quarter, with a steep expected drop in its PC chip business, which management tied to higher memory prices and tight corporate budgets.",
-     "CEO Lip-Bu Tan said he was disappointed Intel could not meet strong customer demand in the quarter. He expects spending and purchase commitments for key components to rise significantly over coming quarters. The foundry unit lost $1.9 billion in operating terms, and Tan declined to name any customer for Intel 14A, its next manufacturing process. Bank of America downgraded the stock to Neutral, saying Intel had not shown enough progress with outside customers.",
-     "Credit raters are watching spending too. According to Yahoo Finance, S&P Global Ratings revised its outlook on Meta to negative on Oct. 30 and projected capital spending above $225 billion in 2027. That figure is S&P's estimate, since Meta has said it will give 2027 guidance with its fourth-quarter report.",
-     "This week brings several tests. Apple and Palantir report Monday after the close, with analysts expecting Apple revenue of about $113 billion. AMD reports Tuesday after falling about 9% last week on Intel's PC warning, and Shopify, Uber and Qualcomm also report. Tuesday is Election Day, and the October jobs report arrives Friday, with forecasts clustered around 55,000 to 62,000 new jobs. Rising borrowing costs were one reason investors cited for October's losses, so a weak report could add to the pressure.",
-     "The question is whether this is a pause or a turn. Apple's iPhone numbers and AMD's data center outlook will show whether demand for AI hardware is still outrunning the doubts."
-    ],
-    "sources": [
-     {
-      "src": "CNN",
-      "domain": "cnn.com",
-      "url": "https://www.cnn.com/2026/10/30/investing/us-stocks-ai-investment",
-      "date": "2026-10-30"
-     },
-     {
-      "src": "CNBC",
-      "domain": "cnbc.com",
-      "url": "https://www.cnbc.com/2026/10/31/intel-not-a-buy-after-drop.html",
-      "date": "2026-10-31"
-     },
-     {
-      "src": "Motley Fool",
-      "domain": "fool.com",
-      "url": "https://www.fool.com/earnings/call-transcripts/2026/10/30/intel-intc-q3-2026-earnings-call-transcript/",
-      "date": "2026-10-30"
-     },
-     {
-      "src": "Yahoo Finance",
-      "domain": "finance.yahoo.com",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/p-says-meta-t-money-173602682.html",
-      "date": "2026-10-30"
-     }
-    ]
    }
   ]
  },
@@ -722,93 +714,137 @@
   {
    "id": "n1",
    "tag": "Robotics",
-   "title": "Agility Robotics expects a $465M gross raise as its SPAC vote nears",
-   "blurb": "Agility and Churchill Capital XI said the merger is expected to close Nov. 4, with Nasdaq trading as AGLT on Nov. 5.",
-   "src": "Unite.AI",
-   "domain": "unite.ai",
-   "date": "2026-10-30",
-   "url": "https://www.unite.ai/agility-robotics-expects-465m-gross-capital-raise-ahead-of-spac-closing/",
-   "ask": "Will redemptions leave the raise below $465 million?"
+   "title": "Agility's shareholders approve its SPAC merger",
+   "blurb": "More than 84% of votes cast backed the deal; closing is expected Nov. 4 and Nasdaq trading as AGLT Nov. 5.",
+   "src": "The Robot Report",
+   "domain": "therobotreport.com",
+   "date": "2026-11-02",
+   "url": "https://www.therobotreport.com/agility-robotics-shareholders-approve-25b-humanoid-spac/",
+   "ask": "How much cash will remain after redemptions?"
   },
   {
    "id": "n2",
    "tag": "Robotics",
-   "title": "Agility Robotics says more than 30 companies are considering Digit",
-   "blurb": "The humanoid maker says it is in talks or running trials with 30-plus prospects, but no agreements are signed.",
-   "src": "Robotics and Automation News",
-   "domain": "roboticsandautomationnews.com",
-   "date": "2026-11-02",
-   "url": "https://roboticsandautomationnews.com/2026/11/02/agility-robotics-says-more-than-30-companies-considering-digit-humanoid-robot/106595/",
-   "ask": "How many of the 30 trials become paid deployments?"
-  },
-  {
-   "id": "n3",
-   "tag": "Robotics",
-   "title": "Physical Intelligence in talks at a $20bn valuation, Bloomberg reports",
-   "blurb": "The robot-model startup is reportedly seeking at least $1 billion, with Avenir and Lux Capital in line to lead.",
+   "title": "Physical Intelligence reportedly seeks $1B at a roughly $20B valuation",
+   "blurb": "Bloomberg reported talks led by existing backers; the company has no revenue and nothing has closed.",
    "src": "The Next Web",
    "domain": "thenextweb.com",
    "date": "2026-10-28",
    "url": "https://thenextweb.com/news/physical-intelligence-20bn-valuation-talks-bloomberg",
-   "ask": "What does a $20 billion price say about robot brains with no revenue yet?"
+   "ask": "Will the round close at that valuation?"
+  },
+  {
+   "id": "n3",
+   "tag": "AI",
+   "title": "Anthropic's IPO timing is still unconfirmed",
+   "blurb": "The S-1 is public with ticker ANT, but the price range and listing date are blank and reports differ on timing.",
+   "src": "Built In",
+   "domain": "builtin.com",
+   "date": "2026-10-30",
+   "url": "https://builtin.com/articles/anthropic-ipo-filing-s1",
+   "ask": "When will the amended S-1 with a price range appear?"
   },
   {
    "id": "n4",
-   "tag": "Robotics",
-   "title": "Google Brings Gemini Robotics ER 2 to Cloud Public Preview",
-   "blurb": "Enterprises can now use Google's robot task-planning model through Model Garden on Google Cloud.",
-   "src": "eWeek",
-   "domain": "eweek.com",
-   "date": "2026-10-27",
-   "url": "https://www.eweek.com/news/google-cloud-gemini-robotics-er-2-public-preview/",
-   "ask": "Who is building on a reasoning layer that sits above robot motor control?"
-  },
-  {
-   "id": "n5",
    "tag": "AI",
-   "title": "Anthropic IPO: The big questions its S-1 leaves unanswered",
-   "blurb": "CNBC looks at revenue quality and compute commitments in the filing for the planned ANT listing.",
-   "src": "CNBC",
-   "domain": "cnbc.com",
-   "date": "2026-10-30",
-   "url": "https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html",
-   "ask": "How much of Anthropic's compute bill is fixed if usage slows?"
-  },
-  {
-   "id": "n6",
-   "tag": "AI",
-   "title": "OpenAI cuts round to $20 billion as UAE investors pair capital with compute capacity",
-   "blurb": "The round target fell from $30 billion, and the valuation reportedly fell to $1.25 trillion.",
+   "title": "OpenAI cuts its funding target to about $20B",
+   "blurb": "The Financial Times reported the target fell from $30 billion, with the valuation lowered to $1.25 trillion.",
    "src": "Forbes",
    "domain": "forbes.com",
    "date": "2026-11-02",
    "url": "https://www.forbes.com/sites/guneyyildiz/2026/11/02/openai-cuts-round-to-20-billion-as-uae-investors-pair-capital-with-compute-capacity/",
-   "ask": "Is a smaller round a signal about OpenAI or about the market?"
+   "ask": "Will the round close at $20 billion?"
+  },
+  {
+   "id": "n5",
+   "tag": "LLM",
+   "title": "Moonshot's Kimi K3.1 Pro weights are due Nov. 4",
+   "blurb": "The model is in the API now; Moonshot promised the full open weights by tomorrow.",
+   "src": "Let's Data Science",
+   "domain": "letsdatascience.com",
+   "date": "2026-10-30",
+   "url": "https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c",
+   "ask": "Will the weights post on time?"
+  },
+  {
+   "id": "n6",
+   "tag": "LLM",
+   "title": "OpenAI's GPT-6.1 Terra cuts API prices by half",
+   "blurb": "The mid-tier model costs $1 per million input tokens and $5 per million output tokens.",
+   "src": "BleepingComputer",
+   "domain": "bleepingcomputer.com",
+   "date": "2026-10-26",
+   "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-launches-gpt-61-terra-with-3x-faster-ai-agents-50-percent-lower-pricing/",
+   "ask": "Do independent tests match OpenAI's claims?"
   },
   {
    "id": "n7",
+   "tag": "Tech",
+   "title": "Apple beats estimates but guides gross margin lower",
+   "blurb": "Revenue was $114.5 billion; the next-quarter margin forecast of 45% to 46% weighed on the shares.",
+   "src": "MacRumors",
+   "domain": "macrumors.com",
+   "date": "2026-11-02",
+   "url": "https://www.macrumors.com/2026/11/02/apple-4q-2026-earnings/",
+   "ask": "How much of the margin pressure is memory costs?"
+  },
+  {
+   "id": "n8",
    "tag": "AI",
-   "title": "Trump Administration Refuses to Release Information on AI Testing Framework",
-   "blurb": "The White House cited national security and commercial exemptions in a letter to a nonprofit that sued for the records.",
+   "title": "White House withholds its AI testing framework",
+   "blurb": "The administration cited national security and commercial exemptions in a public-records fight.",
    "src": "The Information",
    "domain": "theinformation.com",
    "date": "2026-11-01",
    "url": "https://www.theinformation.com/briefings/trump-administration-refuses-release-information-ai-testing-framework",
-   "ask": "Can a voluntary test regime build trust if its criteria stay secret?"
-  },
-  {
-   "id": "n8",
-   "tag": "Tech",
-   "title": "Nasdaq suffers worst month in over a year as AI nerves roil markets",
-   "blurb": "The index fell 2.86% on Oct. 30 and lost 5.3% for October as Intel and Amazon disappointed.",
-   "src": "CNN",
-   "domain": "cnn.com",
-   "date": "2026-10-30",
-   "url": "https://www.cnn.com/2026/10/30/investing/us-stocks-ai-investment",
-   "ask": "Do Apple and AMD results this week change the AI-spending story?"
+   "ask": "Will the records lawsuit force disclosure?"
   }
  ],
  "youtube": [
+  {
+   "id": "-iGK2bUKxCo",
+   "channel": "Not Just Bikes",
+   "handle": "@NotJustBikes",
+   "title": "Amsterdam Zuid got a huge upgrade!",
+   "desc": "A short look at upgrades to Amsterdam's Zuid district.",
+   "published": "2026-11-03T08:15:15Z",
+   "secs": 149,
+   "views": 20680,
+   "url": "https://www.youtube.com/watch?v=-iGK2bUKxCo"
+  },
+  {
+   "id": "o4pKRRK_TJU",
+   "channel": "Maxinomics",
+   "handle": "@Maxinomics",
+   "title": "One owner said yes at $70,000 an acre, then no, once he learned it was a prison",
+   "desc": "A short Maxinomics clip about a land sale that fell through.",
+   "published": "2026-11-02T23:05:49Z",
+   "secs": 163,
+   "views": 13127,
+   "url": "https://www.youtube.com/watch?v=o4pKRRK_TJU"
+  },
+  {
+   "id": "MM7QGccszUU",
+   "channel": "Channel 5 with Andrew Callaghan",
+   "handle": "@channel5YouTube",
+   "title": "Investigating Jared Kushner's Empire of Fraud & Corruption",
+   "desc": "Channel 5's latest long-form investigation, running about 75 minutes.",
+   "published": "2026-11-02T16:00:11Z",
+   "secs": 4518,
+   "views": 1485220,
+   "url": "https://www.youtube.com/watch?v=MM7QGccszUU"
+  },
+  {
+   "id": "xlNKNnXdtN4",
+   "channel": "Veritasium",
+   "handle": "@veritasium",
+   "title": "These ponds help support half the people on Earth",
+   "desc": "A short Veritasium video about the ponds behind a large share of the world's food.",
+   "published": "2026-11-02T14:00:05Z",
+   "secs": 113,
+   "views": 329923,
+   "url": "https://www.youtube.com/watch?v=xlNKNnXdtN4"
+  },
   {
    "id": "eQrH3ackUWM",
    "channel": "Channel 5 with Andrew Callaghan",
@@ -817,51 +853,40 @@
    "desc": "A short clip from Andrew Callaghan's Berlin trip, on the city's club scene.",
    "published": "2026-11-01T19:32:17Z",
    "secs": 110,
-   "views": 1092276,
+   "views": 1728418,
    "url": "https://www.youtube.com/watch?v=eQrH3ackUWM"
-  },
-  {
-   "id": "UjXpwly6TnI",
-   "channel": "Channel 5 with Andrew Callaghan",
-   "handle": "@channel5YouTube",
-   "title": "Berlin is a party city",
-   "desc": "A short follow-up clip from Andrew Callaghan's Berlin trip.",
-   "published": "2026-10-31T21:54:25Z",
-   "secs": 99,
-   "views": 73040,
-   "url": "https://www.youtube.com/watch?v=UjXpwly6TnI"
-  },
-  {
-   "id": "cM2EmJ1Zy68",
-   "channel": "Spanish With Qroo Paul",
-   "handle": "@QrooSpanish",
-   "title": "Lowest Price Ever! Only 100 Spots",
-   "desc": "A short promo from Spanish With Qroo Paul about a limited-spots offer.",
-   "published": "2026-10-31T17:04:38Z",
-   "secs": 126,
-   "views": 2476,
-   "url": "https://www.youtube.com/watch?v=cM2EmJ1Zy68"
   },
   {
    "id": "hI89nYTSgXk",
    "channel": "Reynard Lowell",
    "handle": "@reynardlowell",
    "title": "13 Genius Home Features Modern Homes Are Missing",
-   "desc": "Reynard Lowell on home features he thinks modern houses are missing.",
+   "desc": "Reynard Lowell on home design features that newer houses leave out.",
    "published": "2026-10-31T10:53:14Z",
    "secs": 1350,
-   "views": 60972,
+   "views": 86801,
    "url": "https://www.youtube.com/watch?v=hI89nYTSgXk"
+  },
+  {
+   "id": "cM2EmJ1Zy68",
+   "channel": "Spanish With Qroo Paul",
+   "handle": "@QrooSpanish",
+   "title": "Lowest Price Ever! Less Than 50 Spots Left!",
+   "desc": "A short promo from Spanish With Qroo Paul.",
+   "published": "2026-10-31T17:04:38Z",
+   "secs": 126,
+   "views": 2855,
+   "url": "https://www.youtube.com/watch?v=cM2EmJ1Zy68"
   },
   {
    "id": "_V6oeqUYaIQ",
    "channel": "Not Just Bikes",
    "handle": "@NotJustBikes",
    "title": "Kobe Beef in Kobe!  #daypass #travel",
-   "desc": "A short clip on eating Kobe beef in Kobe, from NotJustBikes' Japan trip.",
+   "desc": "A short travel clip from Not Just Bikes in Kobe.",
    "published": "2026-10-30T16:35:02Z",
    "secs": 116,
-   "views": 18545,
+   "views": 19856,
    "url": "https://www.youtube.com/watch?v=_V6oeqUYaIQ"
   },
   {
@@ -869,47 +894,22 @@
    "channel": "Marques Brownlee",
    "handle": "@mkbhd",
    "title": "Macbook PROLED XDR Impressions: They Said They Wouldn't!",
-   "desc": "Marques Brownlee shares first impressions of a new MacBook Pro display.",
+   "desc": "MKBHD's first impressions of the new MacBook display.",
    "published": "2026-10-29T02:50:34Z",
    "secs": 654,
-   "views": 10961474,
+   "views": 11389134,
    "url": "https://www.youtube.com/watch?v=2reQut8WNGc"
-  },
-  {
-   "id": "ujmyzWSj8IU",
-   "channel": "OpenAI",
-   "handle": "@OpenAI",
-   "title": "API credits, now in ChatGPT Pro and Business plans",
-   "desc": "OpenAI announces API credits for ChatGPT Pro and Business plans.",
-   "published": "2026-10-28T23:45:26Z",
-   "secs": 146,
-   "views": 56961,
-   "url": "https://www.youtube.com/watch?v=ujmyzWSj8IU"
-  },
-  {
-   "id": "S19ag-Ifa8Y",
-   "channel": "Not Just Bikes",
-   "handle": "@NotJustBikes",
-   "title": "This Small City's LRT is so Good it Made me Angry",
-   "desc": "NotJustBikes on a small city's light rail system.",
-   "published": "2026-10-28T19:08:00Z",
-   "secs": 1510,
-   "views": 711890,
-   "url": "https://www.youtube.com/watch?v=S19ag-Ifa8Y"
-  },
-  {
-   "id": "NN_Et52F3q8",
-   "channel": "Spanish With Qroo Paul",
-   "handle": "@QrooSpanish",
-   "title": "COSTAR Means More Than Just “To Cost”",
-   "desc": "A Spanish lesson on the verb costar and what it means beyond 'to cost'.",
-   "published": "2026-10-28T16:39:58Z",
-   "secs": 539,
-   "views": 11125,
-   "url": "https://www.youtube.com/watch?v=NN_Et52F3q8"
   }
  ],
  "spotify": [
+  {
+   "show": "The Knowledge Project",
+   "title": "K.C. Irving: Competing with Giants",
+   "desc": "Shane Parrish on the business career of K.C. Irving.",
+   "published": "2026-11-03",
+   "secs": 7252,
+   "url": "https://open.spotify.com/episode/2Mhb0smeIpAc8AIip53hjg"
+  },
   {
    "show": "Modern Wisdom",
    "title": "How To Make Better Decisions (with way less uncertainty) - Joe Hudson - #1171",
@@ -917,6 +917,14 @@
    "published": "2026-11-02",
    "secs": 6177,
    "url": "https://open.spotify.com/episode/1kujFgdUf1CEMabAQToyTi"
+  },
+  {
+   "show": "The Jordan B. Peterson Podcast",
+   "title": "Why Young Women Are The Most Miserable They've Ever Been",
+   "desc": "Jordan Peterson on young women's wellbeing.",
+   "published": "2026-11-02",
+   "secs": 5830,
+   "url": "https://open.spotify.com/episode/6uNl5TmyQvph3faa3zuLJJ"
   },
   {
    "show": "Huberman Lab",
@@ -953,22 +961,6 @@
    "url": "https://open.spotify.com/episode/24F4XTz12dQC1qmM9mNmOw"
   },
   {
-   "show": "Moonshots with Peter Diamandis",
-   "title": "Anthropic’s $2T IPO, Elon Predicts Neocloud Death, and China’s Kimi Catches Up | #306",
-   "desc": "Peter Diamandis and guests on AI companies, IPO talk and China's model progress.",
-   "published": "2026-10-28",
-   "secs": 8187,
-   "url": "https://open.spotify.com/episode/3LOBLYg9toAji6S6QGivO7"
-  },
-  {
-   "show": "Matt and Shane's Secret Podcast",
-   "title": "Ep 643 - Luis Jobs Gomez (feat. Colum Tyrrell & Luis J. Gomez) ",
-   "desc": "Matt McCusker and Shane Gillis with Colum Tyrrell and Luis J. Gomez.",
-   "published": "2026-10-28",
-   "secs": 3819,
-   "url": "https://open.spotify.com/episode/5n3yysvazk3dJ8a60dgD2I"
-  },
-  {
    "show": "The Diary Of A CEO with Steven Bartlett",
    "title": "Dr. Sarah Paine: Why The World Is Turning Away From America",
    "desc": "Steven Bartlett talks with historian Sarah Paine about America's standing in the world.",
@@ -976,57 +968,76 @@
    "secs": 6119,
    "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
    "url": "https://open.spotify.com/episode/1zbWOUYwd8SnvWuBDogO20"
+  },
+  {
+   "show": "Huberman Lab",
+   "title": "Essentials: How Smells Influence Our Hormones, Health & Behavior | Dr. Noam Sobel",
+   "desc": "An Essentials episode with Dr. Noam Sobel on smell and behavior.",
+   "published": "2026-10-29",
+   "secs": 2095,
+   "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
+   "url": "https://open.spotify.com/episode/4AUzxA8vfL7UmON6G7GvrL"
   }
  ],
  "discover": {
   "youtube": [
    {
-    "handle": "@StrongTowns",
-    "channel": "Strong Towns",
-    "seed": "@NotJustBikes",
-    "because": "Because you like Not Just Bikes: short, practical arguments for walkable, financially sound towns."
-   },
-   {
-    "handle": "@CityBeautiful",
-    "channel": "City Beautiful",
-    "seed": "@NotJustBikes",
-    "because": "Because you like Not Just Bikes: the history and design of cities, posting regularly."
-   },
-   {
-    "handle": "@EconomicsExplained",
-    "channel": "Economics Explained",
-    "seed": "@Maxinomics",
-    "because": "Because you like Maxinomics: plain-English explainers on energy, trade and industry."
-   },
-   {
-    "handle": "@DreamingSpanish",
-    "channel": "Dreaming Spanish",
-    "seed": "@QrooSpanish",
-    "because": "Because you follow Qroo Paul: Spanish learning through comprehensible input, with new videos almost daily."
-   },
-   {
-    "handle": "@ColdFusion",
-    "channel": "ColdFusion",
-    "seed": "@mkbhd",
-    "because": "Because you like MKBHD: documentary-style stories about tech companies and products."
-   },
-   {
-    "handle": "@RealEngineering",
-    "channel": "Real Engineering",
+    "handle": "@StuffMadeHere",
+    "channel": "Stuff Made Here",
     "seed": "@veritasium",
-    "because": "Because you like Veritasium: engineering and science explained with real data."
+    "because": "Because you like Veritasium: one engineer building over-the-top machines and explaining the physics."
+   },
+   {
+    "handle": "@Asianometry",
+    "channel": "Asianometry",
+    "seed": "@OpenAI",
+    "because": "Because you follow OpenAI: deep dives on the chip industry that AI runs on."
+   },
+   {
+    "handle": "@TheTechChap",
+    "channel": "The Tech Chap",
+    "seed": "@mkbhd",
+    "because": "Because you like MKBHD: consumer tech reviews with a calm, practical tone."
+   },
+   {
+    "handle": "@a16z",
+    "channel": "a16z",
+    "seed": "@OpenAI",
+    "because": "Because you follow OpenAI: investors and founders discussing where AI is heading."
+   },
+   {
+    "handle": "@t3dotgg",
+    "channel": "Theo - t3.gg",
+    "seed": "@OpenAI",
+    "because": "Because you follow OpenAI: a developer's take on AI coding tools, posting almost daily."
+   },
+   {
+    "handle": "@ColinandSamir",
+    "channel": "Colin and Samir",
+    "seed": "@channel5YouTube",
+    "because": "Because you like Channel 5: long conversations with creators about how they work."
    }
   ],
   "spotify": [
    {
     "show": "Odd Lots",
     "title": "What Wall Street Really Thinks About the AI Trade Now",
-    "desc": "Bloomberg's Odd Lots on how investors see the AI trade after this week's selloff.",
+    "desc": "Bloomberg's Odd Lots on how investors see the AI trade after the selloff.",
     "published": "2026-10-29",
     "secs": 2470,
     "seed": "Moonshots with Peter Diamandis",
     "because": "Because you follow Moonshots with Peter Diamandis: a markets-side look at the same AI spending story.",
     "url": "https://open.spotify.com/episode/0ZO57b00z1HxRMwL161fz1"
+   },
+   {
+    "show": "No Priors: Artificial Intelligence | Technology | Startups",
+    "title": "Taking on ServiceNow: Coding Agents the Rest of Us with Serval Co-Founder and CEO Jake Stauch",
+    "desc": "No Priors with Serval's CEO on AI agents for IT work.",
+    "published": "2026-10-29",
+    "secs": 2285,
+    "seed": "Lex Fridman Podcast",
+    "because": "Because you follow Lex Fridman: founders on what they are building with AI agents.",
+    "url": "https://open.spotify.com/episode/38ZCmX9IIDpM0NY12Idrzu"
    }
   ],
   "artists": [
@@ -1051,17 +1062,12 @@
     "url": "https://open.spotify.com/artist/6qgnBH6iDM91ipVXv28OMu"
    },
    {
-    "name": "Metro Boomin",
-    "because": "Like Don Toliver",
-    "url": "https://open.spotify.com/artist/0iEtIxbK0KxaSlF7G42ZOp"
+    "name": "Lane 8",
+    "because": "Like RÜFÜS DU SOL",
+    "url": "https://open.spotify.com/artist/27gtK7m9vYwCyJ04zz0kIb"
    }
   ],
   "podcasts": [
-   {
-    "show": "The Joe Rogan Experience",
-    "seed": "Lex Fridman Podcast",
-    "because": "Because you like Lex Fridman: open-ended conversations, often with fighters, comedians and scientists."
-   },
    {
     "show": "No Priors: Artificial Intelligence | Technology | Startups",
     "seed": "Lex Fridman Podcast",
@@ -1076,11 +1082,6 @@
     "show": "The Tim Ferriss Show",
     "seed": "Modern Wisdom",
     "because": "Because you like Modern Wisdom: long interviews about how top performers train, think and work."
-   },
-   {
-    "show": "The Knowledge Project",
-    "seed": "Modern Wisdom",
-    "because": "Because you like Modern Wisdom: Shane Parrish on decision-making, with founders and investors."
    },
    {
     "show": "FoundMyFitness",
@@ -1134,81 +1135,88 @@
   "@DreamingSpanish",
   "@ColdFusion",
   "@RealEngineering",
-  "Odd Lots"
+  "Odd Lots",
+  "@StuffMadeHere",
+  "@Asianometry",
+  "@TheTechChap",
+  "@a16z",
+  "@t3dotgg",
+  "@ColinandSamir"
  ],
  "bay": {
   "range": "Nov 6–8",
   "items": [
    {
     "id": "b1",
-    "title": "Warriors vs. Magic",
-    "where": "Chase Center, San Francisco",
-    "blurb": "A Saturday home game for the Warriors, listed as an 8:30 PM ET tip, which is 5:30 PM Pacific.",
-    "date": "2026-11-07",
-    "url": "https://fanduel.com/research/2026-27-golden-state-warriors-schedule-results-tv-channel",
+    "title": "Jessie Reyez at the Fox Theater",
+    "where": "Fox Theater, Oakland",
+    "blurb": "The Canadian singer's A Little Vengeance Tour stops in Oakland on Friday; all ages, doors at 7 PM and show at 8 PM.",
+    "date": "2026-11-06",
+    "url": "https://thefoxoakland.com/events/jessie-reyez-261106",
     "cal": {
-     "start": "2026-11-07T17:30",
-     "end": "2026-11-07T20:00",
-     "location": "Chase Center, 1 Warriors Way, San Francisco, CA",
-     "tips": "Time is from a FanDuel schedule listing and the end time is an estimate; confirm with the team."
+     "start": "2026-11-06T20:00",
+     "end": "2026-11-06T23:00",
+     "location": "Fox Theater, 1807 Telegraph Ave, Oakland, CA",
+     "tips": "Doors 7 PM, show 8 PM per the venue; the end time is an estimate. BART to 19th Street is close."
     }
    },
    {
     "id": "b2",
-    "title": "49ers vs. Raiders",
-    "where": "Levi's Stadium, Santa Clara",
-    "blurb": "The 49ers host the Raiders after their bye week. Ticket listings show a 1:05 PM kickoff; one TV guide says 1:25 PM.",
-    "date": "2026-11-08",
-    "url": "https://www.tickpick.com/buy-san-francisco-49ers-vs-las-vegas-raiders-tickets-levis-stadium-11-8-26-1pm/7730388/",
+    "title": "Oakland First Fridays",
+    "where": "Temescal, Oakland",
+    "blurb": "The monthly street party takes over Telegraph with food, art and music, held on the first Friday of the month.",
+    "date": "2026-11-06",
+    "free": true,
+    "url": "https://dhillondiary.substack.com/p/sfbay-area-events-for-the-week-nov",
     "cal": {
-     "start": "2026-11-08T13:05",
-     "end": "2026-11-08T16:30",
-     "location": "Levi's Stadium, 4900 Marie P DeBartolo Way, Santa Clara, CA",
-     "tips": "Kickoff differs by source and the end time is an estimate; confirm with the 49ers."
+     "start": "2026-11-06T17:00",
+     "end": "2026-11-06T21:00",
+     "location": "Telegraph Ave, Oakland, CA",
+     "tips": "Hours are approximate and the listing I found was a roundup, so check the organizer before going."
     }
    },
    {
     "id": "b3",
-    "title": "Dublin Diwali-Mela Festival of Lights",
-    "where": "Dublin",
-    "blurb": "A Diwali festival listed for 11 AM to 8 PM on Saturday.",
+    "title": "Dan + Shay at Shoreline",
+    "where": "Shoreline Amphitheatre, Mountain View",
+    "blurb": "The country duo plays the last night of its Young Tour a few miles from home, with Josh Ross and Tyler Hubbard opening.",
     "date": "2026-11-07",
-    "url": "https://providentcu.org/blog/community/bay-area-festivals",
+    "url": "https://www.tickpick.com/buy-dan-and-shay-tickets-shoreline-amphitheatre-ca-11-7-26-7pm/7976520/",
     "cal": {
-     "start": "2026-11-07T11:00",
-     "end": "2026-11-07T20:00",
-     "location": "Dublin, CA",
-     "tips": "Listing gives no venue address; confirm the location first."
+     "start": "2026-11-07T19:00",
+     "end": "2026-11-07T22:30",
+     "location": "Shoreline Amphitheatre, One Amphitheatre Pkwy, Mountain View, CA",
+     "tips": "7 PM per listings; the end time is an estimate. Resale prices vary by seller, starting around $23 to $39."
     }
    },
    {
     "id": "b4",
-    "title": "Holiday ice rink at Fisherman's Wharf",
-    "where": "Fisherman's Wharf, San Francisco",
-    "blurb": "KRON4 reported a new rink opening Nov. 4 and running through Jan. 18, open 10 AM to 11 PM. Your calendar has an Embarcadero opening night Saturday, so check which rink that is.",
+    "title": "San Francisco Coffee Festival",
+    "where": "Fort Mason, San Francisco",
+    "blurb": "Two days of specialty coffee tastings, food and live music at the Festival Pavilion.",
     "date": "2026-11-07",
-    "endDate": "2027-01-18",
-    "url": "https://www.kron4.com/news/bay-area/something-truly-special-sfs-newest-largest-holiday-ice-rink-is-coming-to-this-iconic-landmark/amp/",
+    "endDate": "2026-11-08",
+    "url": "https://sf.funcheap.com/sf-coffee-festival-2026-coffee-tastings-live-music-nov-7-8/",
     "cal": {
-     "start": "2026-11-07T17:00",
-     "end": "2026-11-07T19:00",
-     "location": "Fisherman's Wharf, San Francisco, CA",
-     "tips": "Dates and hours are from a KRON4 report; the evening slot is a suggestion."
+     "start": "2026-11-07T10:00",
+     "end": "2026-11-07T16:30",
+     "location": "Festival Pavilion, Fort Mason Center, 2 Marina Blvd, San Francisco, CA",
+     "tips": "Tickets start around $29 for unlimited tastings. Sunday hours are 9:30 AM to 4:30 PM; Saturday hours were not confirmed, so check the festival site."
     }
    },
    {
     "id": "b5",
-    "title": "North Taurids meteor shower",
-    "where": "Any dark spot around the Bay",
-    "blurb": "A free, usually weak shower listed to peak the night of Sunday, Nov. 8, from 10 PM to 5 AM.",
+    "title": "Muchos Art + Comic Expo",
+    "where": "La Peña Cultural Center, Berkeley",
+    "blurb": "A free expo of more than 50 artists selling comics, zines and prints, and its first edition in the East Bay.",
     "date": "2026-11-08",
     "free": true,
-    "url": "https://sf.funcheap.com/",
+    "url": "https://sf.funcheap.com/2026-muchos-art-comic-expo-50-artists-berkeley/",
     "cal": {
-     "start": "2026-11-08T22:00",
-     "end": "2026-11-09T01:00",
-     "location": "San Francisco Bay Area",
-     "tips": "The shower is typically sparse; go somewhere dark and give it 30 minutes."
+     "start": "2026-11-08T12:00",
+     "end": "2026-11-08T17:00",
+     "location": "La Peña Cultural Center, 3105 Shattuck Ave, Berkeley, CA",
+     "tips": "Free. One listing showed a placeholder start time, so confirm the hours with the organizers."
     }
    }
   ]
@@ -1264,7 +1272,12 @@
   "49ers vs. Raiders",
   "Dublin Diwali-Mela Festival of Lights",
   "Holiday ice rink at Fisherman's Wharf",
-  "North Taurids meteor shower"
+  "North Taurids meteor shower",
+  "Jessie Reyez at the Fox Theater",
+  "Oakland First Fridays",
+  "Dan + Shay at Shoreline",
+  "San Francisco Coffee Festival",
+  "Muchos Art + Comic Expo"
  ],
  "shows": {
   "note": "No Bay Area dates found through April 2027 for Chris Lake, Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
@@ -1468,6 +1481,12 @@
     "blurb": "Dr. Seuss' story gets a new animated adaptation."
    },
    {
+    "title": "Ebenezer",
+    "genre": "Horror",
+    "date": "2026-11-13",
+    "blurb": "Ti West directs Johnny Depp as Scrooge in a PG-13 take on A Christmas Carol."
+   },
+   {
     "title": "The Hunger Games: Sunrise on the Reaping",
     "genre": "Sci-fi",
     "date": "2026-11-20",
@@ -1516,6 +1535,32 @@
   ]
  },
  "vocab": [
+  {
+   "date": "2026-11-03",
+   "word": "Alacrity",
+   "pron": "uh-LAK-ruh-tee",
+   "pos": "noun",
+   "def": "Cheerful, quick readiness to do something.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "From Latin alacer, 'brisk, lively'"
+    },
+    {
+     "f": "Synonym",
+     "b": "eagerness, readiness, promptness"
+    },
+    {
+     "f": "Use it for",
+     "b": "answering a request quickly and willingly, with some enthusiasm"
+    }
+   ],
+   "examples": [
+    "She accepted the invitation with alacrity.",
+    "The new hires tackled the messy project with surprising alacrity."
+   ],
+   "ex": "She accepted the invitation with alacrity."
+  },
   {
    "date": "2026-11-02",
    "word": "Mellifluous",
@@ -1671,35 +1716,68 @@
     "A perspicacious engineer will spot the failing sensor before the dashboard does.",
     "Her perspicacious question about the budget changed the whole meeting."
    ]
-  },
-  {
-   "date": "2026-10-27",
-   "word": "Ephemeral",
-   "pron": "ih-FEM-er-ul",
-   "pos": "adjective",
-   "def": "Lasting for a very short time.",
-   "ex": "The fall color in the foothills is ephemeral; by mid-November most of it is gone.",
-   "cards": [
-    {
-     "f": "Root",
-     "b": "Greek ephemeros, 'lasting a day', from epi 'on' and hemera 'day'"
-    },
-    {
-     "f": "Synonym",
-     "b": "fleeting, transient, short-lived"
-    },
-    {
-     "f": "Use it for",
-     "b": "things that are expected to disappear quickly, like trends, moments, messages or blossoms"
-    }
-   ],
-   "examples": [
-    "The fall color in the foothills is ephemeral; by mid-November most of it is gone.",
-    "Some chat apps make messages ephemeral by deleting them after a day."
-   ]
   }
  ],
  "spanish": [
+  {
+   "date": "2026-11-03",
+   "phrase": "¡Órale, va!",
+   "pron": "OH-rah-leh, bah",
+   "reg": "Mexico · casual",
+   "meaning": "Alright, let's do it!",
+   "note": "A very common Mexican way to say yes to a plan. Órale is an all-purpose exclamation (alright, wow, come on) and va means 'it's on'.",
+   "cards": [
+    {
+     "es": "¡Va que va!",
+     "en": "You bet, it's a deal"
+    },
+    {
+     "es": "Sale y vale",
+     "en": "Sounds good, done"
+    },
+    {
+     "es": "Va, ¿a qué hora?",
+     "en": "Okay, what time?"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¡Órale",
+     "en": "alright / okay"
+    },
+    {
+     "es": "va!",
+     "en": "it's on / it goes"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿Nos vemos a las siete para unos tacos?",
+     "en": "Want to meet at seven for tacos?"
+    },
+    {
+     "es": "¡Órale, va!",
+     "en": "Alright, let's do it!"
+    },
+    {
+     "es": "Yo llego primero y pido mesa.",
+     "en": "I'll get there first and get a table."
+    },
+    {
+     "es": "Perfecto, ahí nos vemos.",
+     "en": "Perfect, see you there."
+    }
+   ],
+   "use": "Say it when a friend proposes a plan and you are in.",
+   "quiz": {
+    "options": [
+     "Alright, let's do it",
+     "I'm not sure about that",
+     "Wait for me here"
+    ],
+    "answer": 0
+   }
+  },
   {
    "date": "2026-11-02",
    "phrase": "¿Me echas la mano?",
@@ -2097,69 +2175,6 @@
     ],
     "answer": 0
    }
-  },
-  {
-   "date": "2026-10-27",
-   "phrase": "¡No hay bronca!",
-   "pron": "noh eye BROHN-kah",
-   "reg": "Mexico · casual",
-   "meaning": "No problem!",
-   "note": "'Bronca' means trouble or a problem in casual Mexican Spanish. Say it to wave off an apology or reassure someone; it is friendly and informal.",
-   "cards": [
-    {
-     "es": "No pasa nada",
-     "en": "It's no big deal"
-    },
-    {
-     "es": "Sin problema",
-     "en": "No problem"
-    },
-    {
-     "es": "Todo bien",
-     "en": "All good"
-    }
-   ],
-   "parts": [
-    {
-     "es": "¡No",
-     "en": "no / there is not"
-    },
-    {
-     "es": "hay",
-     "en": "there is"
-    },
-    {
-     "es": "bronca",
-     "en": "trouble / a problem"
-    }
-   ],
-   "dialog": [
-    {
-     "es": "Perdón, llegué tarde.",
-     "en": "Sorry, I got here late."
-    },
-    {
-     "es": "¡No hay bronca! Apenas empezamos.",
-     "en": "No problem! We just started."
-    },
-    {
-     "es": "Gracias, ya traigo el café.",
-     "en": "Thanks, I already have the coffee."
-    },
-    {
-     "es": "Perfecto, siéntate.",
-     "en": "Perfect, sit down."
-    }
-   ],
-   "use": "Say it when a friend apologizes for being late or asks if a small favor is okay.",
-   "quiz": {
-    "options": [
-     "No problem!",
-     "I am very tired.",
-     "See you tomorrow."
-    ],
-    "answer": 0
-   }
   }
  ],
  "learnLog": {
@@ -2179,7 +2194,8 @@
    "Ebullient",
    "Uncanny",
    "Halcyon",
-   "Mellifluous"
+   "Mellifluous",
+   "Alacrity"
   ],
   "phrases": [
    "¡Aguas!",
@@ -2197,7 +2213,8 @@
    "¡Échale ganas!",
    "¡Qué padre!",
    "¿Me das un aventón?",
-   "¿Me echas la mano?"
+   "¿Me echas la mano?",
+   "¡Órale, va!"
   ]
  },
  "coach": {
@@ -2636,19 +2653,18 @@
     "url": "https://open.spotify.com/artist/0lpU3HUAjN8AdjApUJ2ykI"
    }
   ],
-  "releases": []
+  "releases": [
+   {
+    "artist": "BigXthaPlug",
+    "title": "BETTER OVER TIME",
+    "type": "album",
+    "date": "2026-10-30",
+    "url": "https://open.spotify.com/album/0Iccs76G7e4e403S9VRqiA",
+    "note": "His fourth album, with a long guest list."
+   }
+  ]
  },
  "live": [
-  {
-   "kind": "game",
-   "title": "76ers vs. Bulls",
-   "sub": "NBA regular season",
-   "when": "2026-11-02T16:30:00-08:00",
-   "where": "Philadelphia",
-   "tv": [],
-   "url": "https://fanduel.com/research/2026-27-philadelphia-76ers-schedule-results-tv-channel",
-   "note": "Listed for 7:30 PM ET tonight; no US broadcaster was confirmed."
-  },
   {
    "kind": "game",
    "title": "76ers at Pistons",
@@ -2746,21 +2762,25 @@
   }
  ],
  "dare": {
-  "date": "2026-11-02",
-  "kind": "Wonder",
-  "title": "Make a tiny altar for someone",
-  "why": "Today is Dia de Muertos, so do the quiet version before the procession tonight. Prop a photo of someone you miss on a shelf, add a candle (a battery tea light works), a glass of water and something they loved to eat, then stand there for two minutes and say one thing out loud about them. Phone stays in another room.",
-  "mins": 10,
+  "date": "2026-11-03",
+  "kind": "Move",
+  "title": "Bike to the Bay for sunset",
+  "why": "Leave around 4:15 PM and take the Stevens Creek Trail to the water at Shoreline Park, so you're standing at the edge before the sun drops, a little after 5 PM. Watch the light turn the hills across the Bay orange. Phone stays in your pocket and no headphones until the last color is gone.",
+  "mins": 60,
   "cost": "Free",
-  "place": null,
-  "worth": "It's an old, warm way to keep people close: you remember them by setting a place for them instead of avoiding the ache. It also makes the procession in the Mission feel like yours instead of something you walked past.",
+  "place": {
+   "name": "Shoreline Park",
+   "sub": "Mountain View",
+   "url": "https://www.google.com/maps/search/?api=1&query=Shoreline+Park+Mountain+View"
+  },
+  "worth": "Open sky and water reset a day faster than almost anything, and the Bay's edge is close enough that most of us never actually go look. You'll remember an hour like this longer than most of today's tasks.",
   "src": "",
   "swap": {
-   "kind": "Connect",
-   "title": "Send one memory to someone",
-   "why": "Think of a person you both knew who has died, or just someone you haven't talked to in a while, and text them one specific memory in two sentences. No question at the end, nothing to answer. Send it before lunch.",
-   "mins": 5,
-   "worth": "A short, specific note usually lands better than you expect, and it takes almost no energy."
+   "kind": "Give",
+   "title": "Thank someone by hand",
+   "why": "Write three specific sentences on a real card or sticky note to someone who made your week easier, like a barista, a coworker or a neighbor, and hand it over today. Say exactly what they did.",
+   "mins": 10,
+   "worth": "A specific thank-you is rare enough to stick, and the person giving it usually enjoys it more than they expect."
   }
  },
  "dareHistory": [
@@ -2838,6 +2858,11 @@
    "date": "2026-11-02",
    "kind": "Wonder",
    "title": "Make a tiny altar for someone"
+  },
+  {
+   "date": "2026-11-03",
+   "kind": "Move",
+   "title": "Bike to the Bay for sunset"
   }
  ]
 }
