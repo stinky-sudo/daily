@@ -1215,7 +1215,7 @@ html{overflow-x:clip}
 .tagc{margin-top:0}
 .tagc.trip{background:var(--mid-soft);color:var(--mid)}
 
-/* shared row layout for bay / shows / soon */
+/* shared row layout for bay / shows */
 .ev2{position:relative;display:flex;gap:14px;padding:15px 16px;border-top:1px solid var(--line)}
 .ev2:first-child{border-top:0}
 .evs{display:grid;gap:12px;align-content:start}
@@ -2102,8 +2102,8 @@ const CONFIG={
      things to do around the Bay over the next few days.
    - shows: {note,items[{artist,artists?[],title,date,time:"HH:MM",venue,city,match:"list"|"like",like?,
      why?,price?,trip?,soldOut?,url,cal}]} your artists' shows + similar artists, sorted by date.
-   - movies: {now[{title,genre,rating?,runtime?(min),score?(RT %),released,blurb,url?,trailer?,poster?}],
-     soon[{title,genre,date,blurb,big?,url?,trailer?,poster?}]}. url defaults to Fandango, trailer to YouTube.
+   - movies: {now[{title,genre,rating?,runtime?(min),score?(RT %),released,blurb,url?,trailer?,poster?}]}.
+     url defaults to Fandango, trailer to YouTube.
    - vocab[]: {date,word,pron,pos,def,examples:[2 natural sentences],cards:[{f,b}×3]}; today first,
      then the previous 6 days (ex is still read if examples is missing).
    - spanish[]: {date,phrase,pron,reg,meaning,note,parts:[{es,en}],dialog:[{es,en}×2],use,cards:[{es,en}×3]};
@@ -2209,7 +2209,7 @@ function renderPins(){
 const DX_RENDER={media:()=>renderMedia(),music:()=>renderMusic(),live:()=>renderLiveTv(),movies:()=>renderMovies(),shows:()=>renderShows(),bay:()=>renderBay()};
 function dismiss(k,sec,label){cfgSet(c=>c.dismissed[k]=Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers();toast((/^(ytch|spshow|art):/.test(k)?"Won't suggest "+(label||"this")+" again":"Hidden"+(label?": "+label:"")),()=>{cfgSet(c=>c.dismissed[k]=-Date.now());(DX_RENDER[sec]||(()=>{}))();renderTeasers()})}
 /* lay rows out as one card on phones, two independent columns on wide screens (each only as tall as it needs) */
-/* event lists (shows, Bay, coming soon): every item is its own card; two columns on wide screens */
+/* event lists (shows, Bay): every item is its own card; two columns on wide screens */
 function cols(rows){const c=h=>`<div class="card evc">${h}</div>`;if(!WIDE.matches||rows.length<2)return`<div class="evs">${rows.map(c).join("")}</div>`;const a=[],b=[];rows.forEach((h,i)=>(i%2?b:a).push(h));return`<div class="cols2"><div class="evs">${a.map(c).join("")}</div><div class="evs">${b.map(c).join("")}</div></div>`}
 /* icon-only actions: every follow-up is a round icon with a tooltip + aria-label */
 const ib=(href,icon,tip,cls="")=>`<a class="ib press ${cls}" href="${esc(href)}" target="_blank" rel="noopener" aria-label="${esc(tip)}" data-tip="${esc(tip)}">${icon}</a>`;
@@ -2683,7 +2683,7 @@ function teaser(id){
  if(id==="music"){const rel=musicReleases(),sug=musicSuggested();if(rel.length){const r=rel[0];return lg(I.spotify)+mo(`${rel.length} new`)+tx(esc(r.artist+" · "+r.title))}return lg(I.spotify)+mo(`${lists().artists.length} artists`)+(sug.length?tx(`${sug.length} suggested`,"q"):tx("Nothing new","q"))}
  if(id==="bay"){const it=bayItems();if(!it.length)return tx("Nothing picked yet","q");const f=it[0];return mo(esc(until(f.day,f.cal&&f.cal.start&&f.cal.start.slice(0,10)===f.day?f.cal.start.slice(11):"").l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
  if(id==="shows"){const it=showItems();if(!it.length)return tx("No shows for your artists yet","q");const f=it[0];return mo(esc(until(f.date,f.time).l))+tx(esc(f.title+(f.venue?" · "+f.venue:"")))+(it.length>1?mo(`+${it.length-1}`):"")}
- if(id==="movies"){const{now,soon}=mvData();if(!now.length&&!soon.length)return tx("Nothing listed","q");return (now.length?mo(`${now.length} playing`)+tx(esc(now[0].title))+(now[0].score?mo(now[0].score+"%",now[0].score>=60?"up":""):""):"")+(soon.length?kk("Next")+tx(esc(soon[0].title)+" · "+esc(until(soon[0].date).l.replace(/^In /,"")),"q"):"")}
+ if(id==="movies"){const{now}=mvData();if(!now.length)return tx("Nothing listed","q");return mo(`${now.length} playing`)+tx(esc(now[0].title))+(now[0].score?mo(now[0].score+"%",now[0].score>=60?"up":""):"")}
  if(id==="act"||id==="health"){if(!HEALTH.ok)return tx("Fitbit Air · no data yet","q");const r=healthLatest();if(!r)return tx("Fitbit Air · waiting for a sync","q");const parts=[];if(r.d<todayKey())parts.push(kk(esc(r.d===addDays(todayKey(),-1)?"Last night":fmtKey(r.d,{weekday:"short"}))));if(r.asleep){const h=Math.floor(r.asleep/60),m=r.asleep%60;parts.push(kk("Sleep"),tx(h+"h "+m+"m"))}if(r.steps)parts.push(mo(num(r.steps,0)),tx("steps"));if(r.rhr)parts.push(kk("HR"),tx(r.rhr+" bpm"));return parts.length?parts.join(""):tx("Fitbit Air · waiting for today's sync","q")}
  if(id==="learn"){const v=VOCAB[VOCAB.length-1],s=SPAN[SPAN.length-1];return (v?tx(esc(v.word),"ser"):"")+(s?`<span class="tx ser" lang="es">${esc(s.phrase)}</span>`:"")}
  return "";
@@ -4537,8 +4537,8 @@ const initials=t=>String(t).replace(/^(The|A|An) /i,"").split(/[\s:\-]+/).filter
 /* posters carry no text: without artwork they show a plain tile with a film icon */
 function poster(m,mini){const c=PAL[hash(m.title)%PAL.length];return`<div class="pst ${mini?"mini-pst":""}" style="--p1:${c[0]};--p2:${c[1]}">${I.film}${m.poster?`<img src="${esc(m.poster)}" alt="" loading="lazy" onerror="this.remove()">`:""}</div>`}
 /* movie options (synced): how many, order, how long a film still counts as "in theaters",
-   window for coming soon, big releases only, minimum score, hidden genres, where showtimes open, your ZIP */
-const MV_DEF={n:12,sort:"newest",win:45,soon:90,bigOnly:false,min:0,fresh:true,hide:[],zip:"94040",via:"fandango"};
+   minimum score, hidden genres, where showtimes open, your ZIP */
+const MV_DEF={n:12,sort:"newest",win:45,min:0,fresh:true,hide:[],zip:"94040",via:"fandango"};
 const mvPrefs=()=>({...MV_DEF,...pref("movies",{})});
 function setMvPref(k,v){setPref("movies",{...mvPrefs(),[k]:v});renderMovies();renderTeasers();refreshSettings()}
 const mvGenres=x=>x.genres&&x.genres.length?x.genres:String(x.genre||"").split(/\s*[·,/]\s*/).filter(Boolean);
@@ -4557,27 +4557,24 @@ function mvData(){const m=S.mv||DATA.movies||{};const tk=todayKey();const P=LS.g
  if(order&&(o.sort!=="popular"||now.some(x=>x.pop)))now=now.slice().sort(order);
  let shown=now.slice(0,o.n);
  if(o.fresh){const extra=now.filter(x=>isNew(x)&&!shown.includes(x));shown=shown.concat(extra)}
- const until=addDays(tk,o.soon);
- const soon=(m.soon||[]).filter(x=>x.date>=tk&&x.date<=until&&keep(x)&&(!o.bigOnly||x.big)).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,Math.max(o.n,8));
- return{now:shown.map(fix),soon:soon.map(fix),live:!!S.mv,total:now.length}}
+ return{now:shown.map(fix),live:!!S.mv,total:now.length}}
 function renderMovies(){
- const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,soon,live,total}=mvData();const o=mvPrefs();
+ const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,live,total}=mvData();const o=mvPrefs();
  const nowChip=x=>{if(!x.released)return"";const d=dayDiff(x.released,tk);return d<=3?`<span class="cd now"><i></i>New</span>`:d<7?`<span class="cd soon">Opened ${esc(fmtKey(x.released,{weekday:"short"}))}</span>`:`<span class="cd">Week ${Math.floor(d/7)+1}</span>`};
  el.innerHTML=`${now.length?`<div class="grp-t">In theaters<span>${now.length}${live?" of "+total+" · TMDB":""} · last ${o.win} days</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(showtimesUrl(x.title),I.ticket,"Showtimes & tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" "+String(x.released||x.date||"").slice(0,4)+" movie")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:["In theaters",x.rating].filter(Boolean).join(" · "),img:x.poster,url:showtimesUrl(x.title)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div>`:""}
- ${soon.length?`<div class="grp-t">Coming soon<span>${soon.length}${o.bigOnly?" · big releases":""}</span></div>${cols(soon.map(x=>`<article class="ev2">${poster(x,true)}<div class="ev2-x"><div class="chips2" style="margin:0 0 6px">${cdChip(x.date,null,"Opens ")}<span class="cd">${esc(fmtKey(x.date,{month:"short",day:"numeric"}))}</span>${x.big?`<span class="tagc list">Big one</span>`:""}</div><h3>${esc(x.title)}</h3>${x.genre?`<div class="where">${esc(x.genre)}</div>`:""}${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(tixUrl(x),I.ticket,x.presale?"Pre-sale tickets":"Tickets","pri")}${ib(trailerUrl(x),I.play,"Watch trailer")}${calBtn("🎬 "+x.title+" opens",{date:x.date,tips:x.blurb||""},tixUrl(x))}${gBtn(x.title+" "+String(x.date).slice(0,4)+" movie")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:"Opens "+fmtKey(x.date,{month:"short",day:"numeric"}),img:x.poster,date:x.date,url:tixUrl(x)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></div></article>`))}`:""}
- ${!now.length&&!soon.length?`<div class="card"><div class="empty-row">No movies listed today.</div></div>`:""}`;
+ ${!now.length?`<div class="card"><div class="empty-row">No movies listed today.</div></div>`:""}`;
 }
 /* Movies come live from TMDB through the backend (when a TMDB_KEY script property is set);
    otherwise from the morning data, with posters looked up on Wikipedia. */
 async function loadMovies(force){
  const c=LS.get("sd-mv2",null);
  if(!force&&c&&Date.now()-c.t<3*36e5)S.mv=c.v;
- else if(backend()){try{const r=await be({fn:"movies"},25000);if(r.now){const big=new Set(((DATA.movies||{}).soon||[]).filter(x=>x.big).map(x=>norm(x.title)));(r.soon||[]).forEach(x=>{if(big.has(norm(x.title)))x.big=true});S.mv={now:r.now,soon:r.soon||[]};S.mvErr="";LS.set("sd-mv2",{t:Date.now(),v:S.mv})}}catch(e){S.mvErr=e.message}}
+ else if(backend()){try{const r=await be({fn:"movies"},25000);if(r.now){S.mv={now:r.now};S.mvErr="";LS.set("sd-mv2",{t:Date.now(),v:S.mv})}}catch(e){S.mvErr=e.message}}
  renderMovies();renderTeasers();
  if(!S.mv)loadPosters();
 }
 async function loadPosters(){
- const c=LS.get("sd-poster",{});const m=DATA.movies||{};const all=[...(m.now||[]),...(m.soon||[])].filter(x=>!x.poster&&c[x.title]==null);if(!all.length)return;
+ const c=LS.get("sd-poster",{});const m=DATA.movies||{};const all=(m.now||[]).filter(x=>!x.poster&&c[x.title]==null);if(!all.length)return;
  await Promise.all(all.map(async x=>{const y=(x.released||x.date||"").slice(0,4);let net=false;
   for(const t of[`${x.title} (${y} film)`,`${x.title} (film)`,x.title]){try{const r=await fetch("https://en.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(t.replace(/ /g,"_")));if(!r.ok)continue;const j=await r.json();if(j.type==="disambiguation"||!/film/i.test(j.description||""))continue;const u=(j.thumbnail&&j.thumbnail.source)||"";if(u){c[x.title]=u;return}}catch(e){net=true}}
   if(!net)c[x.title]="";}));
@@ -4844,7 +4841,7 @@ function keyGroup(){const stored=!!devKey();
  <p class="set-help">Unlocks your calendar, reminders, health and settings on this device. It never syncs, so each device needs it once.</p>`}
 function mvSetHTML(){
  const o=mvPrefs();const seg=(k,opts)=>`<div class="seg" role="tablist">${opts.map(([v,l])=>`<button class="${o[k]===v?"on":""}" data-mvp="${k}" data-v="${v}" role="tab" aria-selected="${o[k]===v}">${l}</button>`).join("")}</div>`;
- const m=S.mv||DATA.movies||{};const gs=[...new Set([...(m.now||[]),...(m.soon||[])].flatMap(mvGenres).concat(o.hide))].sort();
+ const m=S.mv||DATA.movies||{};const gs=[...new Set((m.now||[]).flatMap(mvGenres).concat(o.hide))].sort();
  return`<div class="set-l"><span>In theaters</span></div><div class="set-g">
   <div class="set-pad"><div class="set-t">Near</div><div class="set-s">Showtimes and ticket links use this ZIP.</div><div class="inp-row" style="margin-top:8px"><input class="inp" id="mv-zip" inputmode="numeric" maxlength="5" value="${esc(o.zip||"")}" placeholder="ZIP, like 94040" aria-label="ZIP code" enterkeyhint="done"><button class="btn press" data-act="mv-zip">Save</button></div></div>
   <div class="set-pad"><div class="set-t">Open showtimes in</div>${seg("via",[["fandango","Fandango"],["google","Google"]])}</div>
@@ -4853,10 +4850,6 @@ function mvSetHTML(){
   <div class="set-pad"><div class="set-t">Order</div>${seg("sort",[["newest","Newest"],["popular","Popular"],["rated","Top rated"]])}</div>
   <div class="set-pad"><div class="set-t">Minimum audience score</div><div class="set-s">Brand-new films without enough ratings still show.</div>${seg("min",[[0,"Any"],[6,"6+"],[7,"7+"]])}</div>
   <label class="set-r"><span><span class="set-t" style="display:block">Always show this week's openings</span><span class="set-s">New releases appear even if they aren't popular yet.</span></span><input type="checkbox" class="sw" data-mvfresh ${o.fresh?"checked":""}></label>
- </div>
- <div class="set-l"><span>Coming soon</span></div><div class="set-g">
-  <div class="set-pad"><div class="set-t">How far ahead to look</div>${seg("soon",[[30,"1 month"],[90,"3 months"],[180,"6 months"]])}</div>
-  <label class="set-r"><span><span class="set-t" style="display:block">Big releases only</span><span class="set-s">Coming soon shows just the ones marked as big.</span></span><input type="checkbox" class="sw" data-mvbig ${o.bigOnly?"checked":""}></label>
  </div>
  ${gs.length?`<div class="set-l"><span>Genres</span></div><div class="set-g"><div class="set-pad"><div class="tags" style="margin-top:0">${gs.map(g=>{const off=o.hide.some(h=>norm(h)===norm(g));return`<button class="tag gtog ${off?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off}">${esc(g)}</button>`}).join("")}</div></div></div><p class="set-help">Tap a genre to hide it.</p>`:""}`;
 }
@@ -5161,7 +5154,7 @@ document.addEventListener("click",async e=>{
  const sp=t.closest("[data-say]");if(sp){say(sp.dataset.say,sp.dataset.lang,!!sp.dataset.slow);return}
 });
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#tmenu.show")){themeMenu(false);return}if((e.key==="Enter"||e.key===" ")&&e.target.matches&&e.target.matches("#sec-order .s-sec")){e.preventDefault();setGo(e.target.dataset.sid);return}if(e.key==="Escape"&&S.setPage&&$("#sheet").classList.contains("open")&&$("#set-root")){setBack();return}if(e.key==="Enter"&&e.target.id==="kw-in"){e.preventDefault();const b=$('[data-act="kw-add"]');if(b)b.click();return}if(e.key==="Enter"&&e.target.id==="mv-zip"){const b=$('[data-act="mv-zip"]');if(b)b.click();return}if(e.key==="Enter"&&e.target.id==="vc-mine"){const b=$('[data-act="vocab-check"]');if(b)b.click();return}if(e.key==="Escape"&&$("#sheet").classList.contains("open"))closeSheet();if(e.key==="Enter"&&e.target.id&&e.target.id.startsWith("li-")){const b=$(`[data-list-add="${e.target.id.slice(3)}"]`);if(b)b.click()}});
-document.addEventListener("change",e=>{if(e.target.matches("[data-task]")){const el=e.target,row=el.closest(".rem,.di.rm");if(row)row.classList.toggle("done",el.checked);completeTask(el.dataset.task,el.dataset.list,el.checked);return}if(e.target.matches("[data-mvfresh]")){setMvPref("fresh",e.target.checked);return}if(e.target.matches("[data-mvbig]")){setMvPref("bigOnly",e.target.checked);return}const c=e.target.closest("[data-sec-toggle]");if(c){const id=c.dataset.secToggle;if(c.checked){S.hidden.delete(id);(LEGACY[id]||[]).forEach(x=>S.hidden.delete(x));if(S.hidden.has("learn")){S.hidden.delete("learn");["vocab","spanish"].filter(x=>x!==id).forEach(x=>S.hidden.add(x))}}else S.hidden.add(id);setPref("hidden",[...S.hidden]);renderNav();const r=c.closest(".s-sec");if(r)r.classList.toggle("off",!c.checked)}});
+document.addEventListener("change",e=>{if(e.target.matches("[data-task]")){const el=e.target,row=el.closest(".rem,.di.rm");if(row)row.classList.toggle("done",el.checked);completeTask(el.dataset.task,el.dataset.list,el.checked);return}if(e.target.matches("[data-mvfresh]")){setMvPref("fresh",e.target.checked);return}const c=e.target.closest("[data-sec-toggle]");if(c){const id=c.dataset.secToggle;if(c.checked){S.hidden.delete(id);(LEGACY[id]||[]).forEach(x=>S.hidden.delete(x));if(S.hidden.has("learn")){S.hidden.delete("learn");["vocab","spanish"].filter(x=>x!==id).forEach(x=>S.hidden.add(x))}}else S.hidden.add(id);setPref("hidden",[...S.hidden]);renderNav();const r=c.closest(".s-sec");if(r)r.classList.toggle("off",!c.checked)}});
 /* remember which lists are open in Settings, so a refresh keeps them open */
 document.addEventListener("toggle",e=>{const d=e.target;if(d&&d.matches&&d.matches("details[data-acc]")){S.setOpen=S.setOpen||new Set();d.open?S.setOpen.add(d.dataset.acc):S.setOpen.delete(d.dataset.acc)}},true);
 /* Settings jump bar follows the scroll */
