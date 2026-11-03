@@ -1320,13 +1320,14 @@ html{overflow-x:clip}
   .pin-un::after{content:"";position:absolute;inset:-9px}
   /* reading sizes for a tablet held at arm's length */
   .vid h3{font-size:15.5px}.vid p{font-size:13.5px}.vid-ch{font-size:12.5px}.bec.sim{font-size:12.5px}
-  .mv h3{font-size:16.5px}.mv .meta{font-size:13.5px}.mv p{font-size:14.5px}
+  .mv h3{font-size:15.5px}.mv .meta{font-size:12.5px}.mv p{font-size:13.5px}
   .ev2 h3{font-size:17.5px}.ev2 .where{font-size:14.5px}.ev2 p{font-size:15.5px}
   .cd{height:24px;font-size:12.5px}.score{height:24px;font-size:12.5px}
   .grp-t{font-size:13.5px}
   .pin-x b{font-size:15.5px}.pin-s{font-size:13.5px}.pin-k{font-size:11.5px}
   .pin-th{flex-basis:60px;height:60px}
-  .mv .acts .ib{width:40px;height:40px}.mv .acts .ib svg,.mv .acts .ib img{width:19px;height:19px}.mv .acts{gap:6px}
+  /* poster cards are narrow on a tablet: five smaller circles on one line, with the finger target reaching past each */
+  .mv .acts{flex-wrap:nowrap;justify-content:space-between;gap:4px}.mv .acts .ib{width:32px;height:32px}.mv .acts .ib::after{content:"";position:absolute;inset:-6px -2px}
 }
 /* iPad upright: two pins per view with a peek of the next */
 @media (min-width:600px) and (max-width:1099px) and (orientation:portrait){
@@ -1338,8 +1339,9 @@ html{overflow-x:clip}
   #mk-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
   #mk-list .ix-grp:first-child{grid-row:span 2;border-right:1px solid var(--line)}
   #mk-list .ix-grp:nth-child(2) .ix-g{border-top:0}
-  /* Movies: three posters across, big enough to read */
-  .mv-rail{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px}
+  /* Movies: four posters across, compact; action circles line up along each row even when a card's text runs longer */
+  .mv-rail{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px;align-items:stretch!important}
+  .mv .acts{margin-top:auto;padding-top:9px}
 }
 /* compact, content-height layouts */
 .rail{align-items:flex-start}
