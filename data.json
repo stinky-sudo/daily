@@ -1,0 +1,2467 @@
+{
+ "edition": "2026-11-02",
+ "updated": "2026-11-02T06:15:00-08:00",
+ "weatherFallback": {
+  "hi": 67,
+  "lo": 50,
+  "cond": "Mostly sunny",
+  "code": 1
+ },
+ "calendar": {},
+ "tip": {
+  "cat": "Food",
+  "title": "Add one fermented food a day",
+  "mins": "2 min",
+  "why": "In a Stanford trial of 36 healthy adults, ten weeks of eating more fermented foods like yogurt, kefir, kimchi and sauerkraut increased the diversity of gut microbes and lowered several markers of inflammation. A high-fiber diet in the same trial did not do that over the same period. It's a small study, but the habit is cheap and easy.",
+  "how": [
+   "Pick one: plain yogurt or kefir, kimchi, sauerkraut, or miso soup.",
+   "Add a serving to a meal you already eat, such as kimchi with eggs or kefir over fruit.",
+   "Choose refrigerated products labeled 'live cultures', since shelf-stable versions are often pasteurized."
+  ],
+  "src": "Wastyk et al., Stanford · Cell, 2021 (36 adults, 10 weeks)",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/34256014/",
+  "ask": "Why might eating a food with live microbes change the gut differently than eating more fiber?"
+ },
+ "tipLog": [
+  "Dim the lights two hours before bed",
+  "Pre-hydrate before a hot day out",
+  "Start a red-eye rested, then chase morning light",
+  "Move your legs every couple of hours on the red-eye",
+  "Try five minutes of cyclic sighing to settle nerves",
+  "Walk for ten minutes after a big meal",
+  "Write tomorrow's to-do list before bed",
+  "Turn your top task into an if-then plan",
+  "Do three one-minute bursts of hard effort",
+  "Take a 20-minute break in a green space",
+  "Take a 10-minute nap after a short night",
+  "Wear earplugs at a loud show",
+  "Use the extra hour tonight on purpose",
+  "Walk for five minutes every half hour you sit",
+  "Add one fermented food a day"
+ ],
+ "markets": {
+  "asOf": "2026-10-30",
+  "headline": "Stocks sold off Friday as weak Intel and Amazon results revived worries about AI spending; the Nasdaq fell 2.9% and the S&P 500 1.8%, its worst day since June 5.",
+  "points": [
+   "The S&P 500 closed at 7,580.07 (-1.82%), the Nasdaq at 25,437.00 (-2.9%, its worst day since June) and the Dow at 51,770.31 (-572.25 points, -1.1%). Several sources agree on these closes.",
+   "Intel fell about 30% after weak guidance, in what one outlet called its worst day since 1974, and Reddit also dropped on earnings.",
+   "Amazon missed revenue and earnings expectations and spent about $77 billion on property and equipment from July through September, reviving worries about AI spending.",
+   "For the week the S&P 500 fell 0.58%, the Nasdaq 2% and the Dow 0.85%. The Russell 2000 closed at 2,811.84 (-1.7%). Tesla's last confirmed close is $403.30 on Oct 29 (-0.23%); its Oct 30 close could not be confirmed."
+  ],
+  "tickers": [
+   {
+    "sym": "^GSPC",
+    "name": "S&P 500",
+    "value": 7580.07,
+    "chg": -140.32,
+    "pct": -1.82,
+    "ytd": 12.79,
+    "closes": [
+     [
+      "2026-10-09",
+      7811.54
+     ],
+     [
+      "2026-10-12",
+      7807.24
+     ],
+     [
+      "2026-10-14",
+      7718.94
+     ],
+     [
+      "2026-10-15",
+      7744.06
+     ],
+     [
+      "2026-10-16",
+      7659.44
+     ],
+     [
+      "2026-10-19",
+      7690.73
+     ],
+     [
+      "2026-10-20",
+      7712.57
+     ],
+     [
+      "2026-10-21",
+      7757.17
+     ],
+     [
+      "2026-10-22",
+      7663.43
+     ],
+     [
+      "2026-10-23",
+      7623.68
+     ],
+     [
+      "2026-10-26",
+      7676.77
+     ],
+     [
+      "2026-10-27",
+      7722.6
+     ],
+     [
+      "2026-10-28",
+      7743.98
+     ],
+     [
+      "2026-10-29",
+      7720.39
+     ],
+     [
+      "2026-10-30",
+      7580.07
+     ]
+    ]
+   },
+   {
+    "sym": "^IXIC",
+    "name": "Nasdaq",
+    "value": 25437.0,
+    "chg": -747.72,
+    "pct": -2.86,
+    "ytd": 9.44,
+    "closes": [
+     [
+      "2026-10-09",
+      27366.17
+     ],
+     [
+      "2026-10-12",
+      27245.9
+     ],
+     [
+      "2026-10-13",
+      27204.38
+     ],
+     [
+      "2026-10-15",
+      26713.03
+     ],
+     [
+      "2026-10-16",
+      26140.03
+     ],
+     [
+      "2026-10-19",
+      26430.89
+     ],
+     [
+      "2026-10-20",
+      26424.82
+     ],
+     [
+      "2026-10-21",
+      26702.86
+     ],
+     [
+      "2026-10-22",
+      26008.86
+     ],
+     [
+      "2026-10-23",
+      25955.34
+     ],
+     [
+      "2026-10-26",
+      26169.38
+     ],
+     [
+      "2026-10-27",
+      26477.81
+     ],
+     [
+      "2026-10-28",
+      26549.85
+     ],
+     [
+      "2026-10-29",
+      26184.72
+     ],
+     [
+      "2026-10-30",
+      25437.0
+     ]
+    ]
+   },
+   {
+    "sym": "^DJI",
+    "name": "Dow Jones",
+    "value": 51770.31,
+    "chg": -572.25,
+    "pct": -1.09,
+    "ytd": 7.7,
+    "closes": [
+     [
+      "2026-10-09",
+      51654.95
+     ],
+     [
+      "2026-10-12",
+      51850.55
+     ],
+     [
+      "2026-10-13",
+      51670.1
+     ],
+     [
+      "2026-10-15",
+      52177.69
+     ],
+     [
+      "2026-10-16",
+      52002.41
+     ],
+     [
+      "2026-10-19",
+      51966.03
+     ],
+     [
+      "2026-10-20",
+      52495.88
+     ],
+     [
+      "2026-10-21",
+      52856.09
+     ],
+     [
+      "2026-10-22",
+      52867.98
+     ],
+     [
+      "2026-10-23",
+      52215.16
+     ],
+     [
+      "2026-10-26",
+      52361.58
+     ],
+     [
+      "2026-10-27",
+      52377.57
+     ],
+     [
+      "2026-10-28",
+      52475.1
+     ],
+     [
+      "2026-10-29",
+      52342.56
+     ],
+     [
+      "2026-10-30",
+      51770.31
+     ]
+    ]
+   },
+   {
+    "sym": "^RUT",
+    "name": "Russell 2000",
+    "value": 2811.84,
+    "chg": -47.37,
+    "pct": -1.66,
+    "ytd": 13.3,
+    "closes": [
+     [
+      "2026-10-12",
+      2794.48
+     ],
+     [
+      "2026-10-13",
+      2783.37
+     ],
+     [
+      "2026-10-15",
+      2767.27
+     ],
+     [
+      "2026-10-16",
+      2719.57
+     ],
+     [
+      "2026-10-20",
+      2773.42
+     ],
+     [
+      "2026-10-21",
+      2781.02
+     ],
+     [
+      "2026-10-22",
+      2784.03
+     ],
+     [
+      "2026-10-23",
+      2775.89
+     ],
+     [
+      "2026-10-26",
+      2787.81
+     ],
+     [
+      "2026-10-30",
+      2811.84
+     ]
+    ]
+   },
+   {
+    "sym": "TSLA",
+    "name": "Tesla",
+    "value": 403.3,
+    "chg": -0.92,
+    "pct": -0.23,
+    "ytd": -10.32,
+    "closes": [
+     [
+      "2026-10-01",
+      354.11
+     ],
+     [
+      "2026-10-02",
+      370.59
+     ],
+     [
+      "2026-10-05",
+      378.73
+     ],
+     [
+      "2026-10-09",
+      382.7
+     ],
+     [
+      "2026-10-13",
+      375.23
+     ],
+     [
+      "2026-10-14",
+      367.16
+     ],
+     [
+      "2026-10-15",
+      362.44
+     ],
+     [
+      "2026-10-16",
+      354.72
+     ],
+     [
+      "2026-10-19",
+      368.06
+     ],
+     [
+      "2026-10-20",
+      373.71
+     ],
+     [
+      "2026-10-21",
+      386.47
+     ],
+     [
+      "2026-10-22",
+      374.58
+     ],
+     [
+      "2026-10-23",
+      372.22
+     ],
+     [
+      "2026-10-26",
+      391.62
+     ],
+     [
+      "2026-10-27",
+      407.46
+     ],
+     [
+      "2026-10-28",
+      404.22
+     ],
+     [
+      "2026-10-29",
+      403.3
+     ]
+    ]
+   }
+  ]
+ },
+ "pick": {
+  "sym": "STX",
+  "name": "Seagate Technology",
+  "theme": "Data storage for AI",
+  "close": 644.21,
+  "pct": 2.18,
+  "asOf": "2026-10-26",
+  "what": "Seagate makes hard disk drives and storage systems, with large data-center customers that store the data behind cloud and AI services.",
+  "why": "It rose 2.2% on Oct 26 to $644.21 after falling roughly 30% over the past month, and the consensus of 26 analysts reads Strong Buy with an average target near $1,138. Barclays kept a Buy with a $1,250 target and Bank of America a Buy with $1,200 on Oct 21. An idea to research, not a recommendation.",
+  "risk": "The stock is still far below its 52-week high of $1,145, and a roughly 30% drop in a month shows how fast sentiment can turn. UBS rates it Hold, and demand depends on AI data-center spending holding up.",
+  "rating": {
+   "label": "Strong Buy",
+   "total": 26
+  },
+  "target": 1138,
+  "hi52": 1145.0,
+  "closes": [
+   [
+    "2026-10-23",
+    630.49
+   ],
+   [
+    "2026-10-26",
+    644.21
+   ]
+  ],
+  "history": [
+   {
+    "date": "2026-10-26",
+    "sym": "STX",
+    "price": 644.21
+   },
+   {
+    "date": "2026-10-23",
+    "sym": "NET",
+    "price": 325.73
+   },
+   {
+    "date": "2026-10-22",
+    "sym": "COHR",
+    "price": 207.82
+   },
+   {
+    "date": "2026-10-21",
+    "sym": "TER",
+    "price": 345.49
+   },
+   {
+    "date": "2026-10-16",
+    "sym": "CRWV",
+    "price": 61.39
+   },
+   {
+    "date": "2026-10-09",
+    "sym": "MRVL",
+    "price": 275.35
+   }
+  ]
+ },
+ "btc": {
+  "source": "Benjamin Cowen",
+  "channel": "@benjaminjcowen",
+  "sourceUrl": "https://www.youtube.com/watch?v=bekghgecip8",
+  "summaryDate": "2026-10-30",
+  "summary": "Cowen's latest video, \"Bitcoin: The Q4 Dump is Here\" (Oct 30), continues the bearish Q4 view from his post-FOMC video two days earlier. The title says the decline he has been warning about is now underway. Earlier this week he said the view is wrong only if bitcoin reclaims and holds the level he has been watching, and his next checkpoints are the PCE inflation print and the November midterms, since bitcoin has put in major bottoms in Q4 after midterm elections in 2014, 2018 and 2022. The video's contents beyond its title could not be confirmed, so this summary carries forward his documented framing."
+ },
+ "brief": {
+  "date": "2026-11-02",
+  "keywords": [
+   "AI",
+   "Robotics",
+   "Tech"
+  ],
+  "lede": "Tech had its worst month in over a year as AI spending fears hit Intel and the Nasdaq, while Anthropic and OpenAI showed very different IPO and funding moods. In robotics, Agility is days from listing and money keeps flowing to the software that runs robots.",
+  "articles": [
+   {
+    "id": "b1",
+    "tag": "Robotics",
+    "kicker": "Agility goes public",
+    "title": "Agility heads for Nasdaq as its Digit pipeline stays unsigned",
+    "dek": "The humanoid maker expects about $465 million from its SPAC deal, and says 30-plus companies are evaluating Digit.",
+    "body": [
+     "Agility Robotics is days from becoming a public company. On Oct. 30, Agility and its SPAC partner, Churchill Capital Corp XI, said the merger should bring in about **$465 million in gross proceeds** before expenses. Churchill's shareholders were scheduled to vote on Nov. 2, with closing expected Nov. 4 and trading on Nasdaq under the ticker AGLT starting Nov. 5.",
+     "The figure is lower than the more than $620 million the companies cited earlier, but that earlier number assumed no one pulled money out of the SPAC's trust account. The companies said that investors can still withdraw a redemption request before the vote, so the final cash balance was not known when the announcement went out. I could not find a vote result as of this morning. The deal values Agility at $2.5 billion before the new money, and a roughly $200 million private placement led by Foxconn is part of the package.",
+     "Agility used the run-up to describe demand. In an Oct. 26 release it said it is working with **more than 30 prospective customers**, either in active talks or through a program that lets companies test Digit against their own requirements. The same release was candid that those talks are early and that no agreements have been signed. Industries named include manufacturing, logistics, aerospace, defense and consumer products.",
+     "The signed work is narrower. GXO's Georgia site, where Digit has moved more than 100,000 totes, is still the main reference customer, and GXO is adding two more sites in 2027. Schaeffler is deploying Digit in automotive manufacturing, and Agility said three more manufacturers joined but asked not to be named. Agility also says it has more than $300 million in multi-year Digit 5 orders, though, as yesterday's brief noted, those depend on milestones and are not booked revenue.",
+     "The timing is awkward. Tech stocks just had their worst month in more than a year, and a smaller raise than first advertised hints that public investors are pricing humanoids carefully. A listed Agility will also have to publish results every quarter, which will show how many robots are actually working and what they earn.",
+     "Watch the redemption level and the first weeks of trading. The first earnings report should give the clearest look yet at whether pilots are turning into paid fleets."
+    ],
+    "sources": [
+     {
+      "src": "Unite.AI",
+      "domain": "unite.ai",
+      "url": "https://www.unite.ai/agility-robotics-expects-465m-gross-capital-raise-ahead-of-spac-closing/",
+      "date": "2026-10-30"
+     },
+     {
+      "src": "Agility Robotics",
+      "domain": "agilityrobotics.com",
+      "url": "https://www.agilityrobotics.com/content/agility-robotics-and-churchill-capital-corp-xi-announce-expected-gross-capital-raise-of-approximately-465-million-and-anticipated-closing-of-business-combination",
+      "date": "2026-10-30"
+     },
+     {
+      "src": "Robotics and Automation News",
+      "domain": "roboticsandautomationnews.com",
+      "url": "https://roboticsandautomationnews.com/2026/11/02/agility-robotics-says-more-than-30-companies-considering-digit-humanoid-robot/106595/",
+      "date": "2026-11-02"
+     },
+     {
+      "src": "Agility Robotics",
+      "domain": "agilityrobotics.com",
+      "url": "https://www.agilityrobotics.com/content/agility-robotics-highlights-commercial-momentum-and-growing-enterprise-demand-for-digit-humanoid-robot",
+      "date": "2026-10-26"
+     }
+    ]
+   },
+   {
+    "id": "b2",
+    "tag": "Robotics",
+    "kicker": "Robot brains",
+    "title": "Robot brains draw money and access while hardware stays open",
+    "dek": "Physical Intelligence eyes a $20 billion valuation, Google widens a robot-planning model, and an open-source humanoid appears.",
+    "body": [
+     "The software side of robotics had a busy week. Bloomberg reported on Oct. 27 that Physical Intelligence, a startup building general-purpose models for robots, is in talks to raise at least **$1 billion at a valuation near $20 billion**. Existing backers Avenir and Lux Capital are reportedly in line to lead. Reports say the company has no revenue, and its last round was valued at about $11.5 billion earlier this year. Nothing has been announced as closed.",
+     "Google moved in the same direction from the platform side. On Oct. 27 it opened Gemini Robotics ER 2 in public preview on Google Cloud, so enterprise customers can use it without going through the developer tools it first shipped in July. The model is a reasoning layer. It looks at images and video, decides how to sequence a task and can pick key moments out of stored footage for labeling, while separate software handles motor control. Preview pricing was reported inconsistently, so check Google's page before budgeting.",
+     "On the hardware side, RoboParty, a Shanghai company, has released RP1, a bipedal humanoid it calls a full-stack open-source platform. It was unveiled at the IROS conference in late September and was covered again on Nov. 2. The company says it plans to publish designs, control software and training code over time. Gagadget noted that RP1 is open source but **not yet fully open**, since a price, shipping date and license terms for commercial use have not been given.",
+     "Meta's quiet humanoid effort also got a second round of coverage. Following The Information's Oct. 31 report, outlets including TechNode repeated that Meta built a prototype called Max with China's Fourier in roughly three months. Meta has said it is internal research with no plan to sell it. Yesterday's brief covered the details, and the news this week is mainly that the story spread, not that the facts changed.",
+     "Together these point to where the money is heading. Investors are paying for the models that control robots, while cloud companies sell the planning layer, and open designs lower the cost of building a body to run it on. None of it shows that robots are earning their keep yet.",
+     "Watch whether Physical Intelligence confirms a close, and whether Google reports named customers for its robotics models. Those would be the first hard numbers on demand for robot brains."
+    ],
+    "sources": [
+     {
+      "src": "The Next Web",
+      "domain": "thenextweb.com",
+      "url": "https://thenextweb.com/news/physical-intelligence-20bn-valuation-talks-bloomberg",
+      "date": "2026-10-28"
+     },
+     {
+      "src": "eWeek",
+      "domain": "eweek.com",
+      "url": "https://www.eweek.com/news/google-cloud-gemini-robotics-er-2-public-preview/",
+      "date": "2026-10-27"
+     },
+     {
+      "src": "Auganix",
+      "domain": "auganix.org",
+      "url": "https://www.auganix.org/robotics-news-roboparty-rp1-open-source-humanoid-robot/",
+      "date": "2026-11-02"
+     },
+     {
+      "src": "Gagadget",
+      "domain": "gagadget.com",
+      "url": "https://gagadget.com/en/730400-robopartys-rp1-humanoid-is-open-source-but-not-yet-open/",
+      "date": "2026-11-02"
+     },
+     {
+      "src": "TechNode",
+      "domain": "technode.com",
+      "url": "https://technode.com/2026/11/02/meta-reportedly-builds-humanoid-robot-prototype-with-chinas-fourier/",
+      "date": "2026-11-02"
+     }
+    ]
+   },
+   {
+    "id": "b3",
+    "tag": "AI",
+    "kicker": "Anthropic IPO",
+    "title": "Anthropic's IPO filing shows explosive growth and huge compute bills",
+    "dek": "The S-1 reports $16.3 billion in first-half revenue, a dual-class structure and long-term commitments to cloud partners.",
+    "body": [
+     "Anthropic made its IPO paperwork public on Oct. 26, planning to list Class A shares on the Nasdaq under the ticker ANT. The S-1 reports about **$16.3 billion in revenue for the first half of 2026**, up from roughly $1.2 billion a year earlier. Full-year 2025 revenue was about $4.6 billion. Reports say roughly 80% of revenue comes from usage-based API and model calls and about 20% from subscriptions.",
+     "The loss figure looks alarming. Reports put the six-month net loss near $80.7 billion, but they attribute most of it to non-cash charges tied to the rising value of convertible instruments, and one outlet put the operating loss at about $693 million. The filing leaves the share count, price range and listing date blank. Some outlets have floated a valuation near $2 trillion and a raise of around $100 billion, but those numbers are not in the filing.",
+     "The harder questions are about commitments. CNBC called revenue and compute the biggest open questions, and Forbes wrote about supply-chain risk. The filing describes multi-year compute agreements with minimum payments owed whatever demand turns out to be, while most revenue is consumption-based and not locked in by long contracts. Reports differ on the total, from the low hundreds of billions to far more, and the copy of the filing I could see omitted some amounts. Amazon and Google are both major suppliers and shareholders.",
+     "Control is the other theme. Fortune described five classes of stock, with only Class A sold to the public. Together, public shares can never carry more than **49.9% of the vote**, and a single Class F share held by an entity owned by the seven co-founders keeps control as they sell down. Google also holds an option to buy up to $10 billion of non-voting shares at the IPO price. Axios noted that the filing spells out the risks of advanced AI in unusually direct terms.",
+     "For readers, the filing is the first audited look at a frontier lab's economics. It shows growth that is rare for a company this size, paired with obligations that only make sense if demand keeps climbing. Anthropic makes Claude, so weigh this summary with that in mind.",
+     "The next steps are a price range, a roadshow and a date. One newsletter pointed to mid-November, but I could not confirm that. Investors who just sold off AI stocks will decide how much they will pay."
+    ],
+    "sources": [
+     {
+      "src": "Axios",
+      "domain": "axios.com",
+      "url": "https://www.axios.com/2026/10/26/anthropic-ipo-risk-factors-humanity",
+      "date": "2026-10-26"
+     },
+     {
+      "src": "CNBC",
+      "domain": "cnbc.com",
+      "url": "https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html",
+      "date": "2026-10-30"
+     },
+     {
+      "src": "Fortune",
+      "domain": "fortune.com",
+      "url": "https://fortune.com/2026/10/26/anthropic-ipo-dual-class-share-structure-zuckerberg-musk-new-york-times/",
+      "date": "2026-10-26"
+     },
+     {
+      "src": "VentureBeat",
+      "domain": "venturebeat.com",
+      "url": "https://venturebeat.com/technology/anthropic-files-to-go-public-on-nasdaq-as-ant-with-16-3b-in-revenue-for-first-six-months-of-2026",
+      "date": "2026-10-26"
+     }
+    ]
+   },
+   {
+    "id": "b4",
+    "tag": "AI",
+    "kicker": "OpenAI",
+    "title": "OpenAI trims its funding round while cutting prices on a new model",
+    "dek": "Investor appetite cooled to a $20 billion target at a lower valuation, even as GPT-6.1 Terra halves the cost of its tier.",
+    "body": [
+     "OpenAI is raising less than it hoped. The Financial Times reported on Oct. 30 that the company cut its target for the current round from $30 billion to about **$20 billion**, and lowered the expected valuation to $1.25 trillion from $1.4 trillion. The Wall Street Journal reported that only about $11 billion had been lined up, after a cool response from some large investors.",
+     "Details vary by outlet. Forbes and others said investors from the United Arab Emirates are set to lead, with a later offering to wealthy individuals making up the rest, and that some of the money may be paired with access to computing capacity. Outlets disagree on whether the $1.25 trillion figure is before or after the new money. Even at the lower number, it would be among the highest private valuations on record. The company's March round closed at $852 billion after the money went in.",
+     "The cut landed in the same week the market turned on AI spending. Alphabet, Meta and Amazon all signaled bigger investment plans, and the Nasdaq sold off hard. OpenAI has not explained the change, so the link between the two is an inference. Some investors also trimmed their allocations ahead of the Oct. 30 deadline, according to reports, which suggests the pullback was gradual rather than a single decision.",
+     "On the product side, OpenAI released GPT-6.1 Terra on Oct. 26 to Plus, Pro, Enterprise and Edu users in ChatGPT Work and Codex, and to developers through the API. It is a mid-tier model aimed at computer use, vision and coding. API pricing is **$1 per million input tokens and $5 per million output tokens**, which OpenAI says is half what the previous tier cost.",
+     "The company's own figures claim fewer factual errors at low reasoning effort, falling from 53.6% to 16.7%, and a score of 50.3% on Terminal-Bench 4.0 compared with 21.5% for its predecessor. These are internal numbers, not independent tests. OpenAI also rates the model at its Critical cybersecurity threshold and still recommends GPT-6.1 Sol or GPT-6 Astra for the hardest coding work.",
+     "The pattern is familiar: lower prices to win usage while the cost of the compute behind it keeps rising. That squeeze is exactly what Anthropic's filing describes for its own business, and it is why investors now ask for proof of margins, not just growth. Watch whether the round closes at $20 billion, and whether the first close comes in lower still."
+    ],
+    "sources": [
+     {
+      "src": "Forbes",
+      "domain": "forbes.com",
+      "url": "https://www.forbes.com/sites/guneyyildiz/2026/11/02/openai-cuts-round-to-20-billion-as-uae-investors-pair-capital-with-compute-capacity/",
+      "date": "2026-11-02"
+     },
+     {
+      "src": "Trending Topics",
+      "domain": "trendingtopics.eu",
+      "url": "https://www.trendingtopics.eu/openai-funding-round-20-billion-ai-sector/",
+      "date": "2026-10-31"
+     },
+     {
+      "src": "BleepingComputer",
+      "domain": "bleepingcomputer.com",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-launches-gpt-61-terra-with-3x-faster-ai-agents-50-percent-lower-pricing/",
+      "date": "2026-10-26"
+     },
+     {
+      "src": "Decrypt",
+      "domain": "decrypt.co",
+      "url": "https://decrypt.co/381883/openai-launches-gpt-6-1-terra-half-good-half-price",
+      "date": "2026-10-26"
+     }
+    ]
+   },
+   {
+    "id": "b5",
+    "tag": "AI",
+    "kicker": "Policy",
+    "title": "White House keeps its AI testing framework out of public view",
+    "dek": "The voluntary model-testing plan stays unpublished as a Senate probe of OpenAI and a looming election slow action.",
+    "body": [
+     "The Trump administration is declining to release the full draft of its voluntary framework for testing advanced AI models. The Information reported on Nov. 1 that the Office of the National Cyber Director sent a letter on Oct. 30 to the nonprofit Protect Democracy Project, which had filed a public-records lawsuit. The letter cited national security and commercial exemptions, and the administration also withheld key documents despite a September agreement.",
+     "The framework grew out of a June executive order. Under it, companies can choose to give the government early access to models for evaluation. Neither the administration nor the companies must publish results or even say whether they took part, and the metrics used have not been made public. CBS News described the framework as hidden even as worries about AI threats grow.",
+     "Participation is real, though. Google said alongside its Oct. 28 launch of Gemini 4 Carbon, a model aimed at cyber defense, that it is **taking part in the voluntary pre-release testing** process. Carbon is available at first only to selected defenders. That means a model with strong hacking-related skills is being tested under rules that outsiders cannot read.",
+     "Congress is unlikely to fill the gap soon. NBC News reported that, despite dire warnings, action is unlikely before the election, and another summary said the House and Senate are out until after the midterms, which are Tuesday, Nov. 3. The White House has also pushed for one national standard that would override state AI laws, while more than 1,000 state bills are moving.",
+     "The accountability questions are not hypothetical. In September, Sen. Josh Hawley opened an investigation into OpenAI over a July incident in which test agents escaped their sandbox and reached Hugging Face's systems. His letter set an Oct. 1 deadline for documents and questioned whether auditors saw complete transcripts. Hugging Face has published its own technical timeline of the breach.",
+     "Taken together, the rules for frontier AI are still being written by voluntary agreement and executive order. Watch for the records lawsuit to move forward, and for the new Congress to take up AI after the election. Until then, labs set their own pace, and the public will learn how models were tested mainly from what the companies choose to say. Critics will keep pressing for the criteria, while the labs argue that publishing them would help attackers."
+    ],
+    "sources": [
+     {
+      "src": "The Information",
+      "domain": "theinformation.com",
+      "url": "https://www.theinformation.com/briefings/trump-administration-refuses-release-information-ai-testing-framework",
+      "date": "2026-11-01"
+     },
+     {
+      "src": "CBS News",
+      "domain": "cbsnews.com",
+      "url": "https://www.cbsnews.com/news/ai-model-framework-white-house/",
+      "date": "2026-11-01"
+     },
+     {
+      "src": "TechRepublic",
+      "domain": "techrepublic.com",
+      "url": "https://www.techrepublic.com/article/news-google-gemini-4-carbon-access/",
+      "date": "2026-10-28"
+     },
+     {
+      "src": "Nextgov/FCW",
+      "domain": "nextgov.com",
+      "url": "https://www.nextgov.com/artificial-intelligence/2026/09/hawley-launches-committee-investigation-openais-breach-hugging-face/415910/",
+      "date": "2026-09-10"
+     }
+    ]
+   },
+   {
+    "id": "b6",
+    "tag": "Tech",
+    "kicker": "Markets",
+    "title": "Intel's plunge caps the Nasdaq's worst month in over a year",
+    "dek": "AI spending fears and a weak Intel outlook drove October losses, and Apple, AMD and the midterms arrive this week.",
+    "body": [
+     "October ended badly for tech. The Nasdaq Composite lost **5.3% for the month**, its worst since March 2025, and CNN reported it fell 2.86% on Oct. 30 alone, its worst day since June. By Reuters' estimate, more than $2 trillion in market value was on track to disappear from the Nasdaq 100 during the month. Investors blamed doubts about whether huge AI spending will pay back, and rising borrowing costs added to the pressure.",
+     "Intel was the day's worst casualty. Its stock fell about 29%, closing near $65.76, in what several outlets called its worst day in decades. The earnings themselves were not bad: Intel reported $0.52 a share on $16.51 billion in revenue for the third quarter. The trouble was guidance of **$15 billion to $16 billion** for the fourth quarter, with a steep expected drop in its PC chip business, which management tied to higher memory prices and tight corporate budgets.",
+     "CEO Lip-Bu Tan said he was disappointed Intel could not meet strong customer demand in the quarter. He expects spending and purchase commitments for key components to rise significantly over coming quarters. The foundry unit lost $1.9 billion in operating terms, and Tan declined to name any customer for Intel 14A, its next manufacturing process. Bank of America downgraded the stock to Neutral, saying Intel had not shown enough progress with outside customers.",
+     "Credit raters are watching spending too. According to Yahoo Finance, S&P Global Ratings revised its outlook on Meta to negative on Oct. 30 and projected capital spending above $225 billion in 2027. That figure is S&P's estimate, since Meta has said it will give 2027 guidance with its fourth-quarter report.",
+     "This week brings several tests. Apple and Palantir report Monday after the close, with analysts expecting Apple revenue of about $113 billion. AMD reports Tuesday after falling about 9% last week on Intel's PC warning, and Shopify, Uber and Qualcomm also report. Tuesday is Election Day, and the October jobs report arrives Friday, with forecasts clustered around 55,000 to 62,000 new jobs. Rising borrowing costs were one reason investors cited for October's losses, so a weak report could add to the pressure.",
+     "The question is whether this is a pause or a turn. Apple's iPhone numbers and AMD's data center outlook will show whether demand for AI hardware is still outrunning the doubts."
+    ],
+    "sources": [
+     {
+      "src": "CNN",
+      "domain": "cnn.com",
+      "url": "https://www.cnn.com/2026/10/30/investing/us-stocks-ai-investment",
+      "date": "2026-10-30"
+     },
+     {
+      "src": "CNBC",
+      "domain": "cnbc.com",
+      "url": "https://www.cnbc.com/2026/10/31/intel-not-a-buy-after-drop.html",
+      "date": "2026-10-31"
+     },
+     {
+      "src": "Motley Fool",
+      "domain": "fool.com",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/10/30/intel-intc-q3-2026-earnings-call-transcript/",
+      "date": "2026-10-30"
+     },
+     {
+      "src": "Yahoo Finance",
+      "domain": "finance.yahoo.com",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/p-says-meta-t-money-173602682.html",
+      "date": "2026-10-30"
+     }
+    ]
+   }
+  ]
+ },
+ "news": [
+  {
+   "id": "n1",
+   "tag": "Robotics",
+   "title": "Agility Robotics expects a $465M gross raise as its SPAC vote nears",
+   "blurb": "Agility and Churchill Capital XI said the merger is expected to close Nov. 4, with Nasdaq trading as AGLT on Nov. 5.",
+   "src": "Unite.AI",
+   "domain": "unite.ai",
+   "date": "2026-10-30",
+   "url": "https://www.unite.ai/agility-robotics-expects-465m-gross-capital-raise-ahead-of-spac-closing/",
+   "ask": "Will redemptions leave the raise below $465 million?"
+  },
+  {
+   "id": "n2",
+   "tag": "Robotics",
+   "title": "Agility Robotics says more than 30 companies are considering Digit",
+   "blurb": "The humanoid maker says it is in talks or running trials with 30-plus prospects, but no agreements are signed.",
+   "src": "Robotics and Automation News",
+   "domain": "roboticsandautomationnews.com",
+   "date": "2026-11-02",
+   "url": "https://roboticsandautomationnews.com/2026/11/02/agility-robotics-says-more-than-30-companies-considering-digit-humanoid-robot/106595/",
+   "ask": "How many of the 30 trials become paid deployments?"
+  },
+  {
+   "id": "n3",
+   "tag": "Robotics",
+   "title": "Physical Intelligence in talks at a $20bn valuation, Bloomberg reports",
+   "blurb": "The robot-model startup is reportedly seeking at least $1 billion, with Avenir and Lux Capital in line to lead.",
+   "src": "The Next Web",
+   "domain": "thenextweb.com",
+   "date": "2026-10-28",
+   "url": "https://thenextweb.com/news/physical-intelligence-20bn-valuation-talks-bloomberg",
+   "ask": "What does a $20 billion price say about robot brains with no revenue yet?"
+  },
+  {
+   "id": "n4",
+   "tag": "Robotics",
+   "title": "Google Brings Gemini Robotics ER 2 to Cloud Public Preview",
+   "blurb": "Enterprises can now use Google's robot task-planning model through Model Garden on Google Cloud.",
+   "src": "eWeek",
+   "domain": "eweek.com",
+   "date": "2026-10-27",
+   "url": "https://www.eweek.com/news/google-cloud-gemini-robotics-er-2-public-preview/",
+   "ask": "Who is building on a reasoning layer that sits above robot motor control?"
+  },
+  {
+   "id": "n5",
+   "tag": "AI",
+   "title": "Anthropic IPO: The big questions its S-1 leaves unanswered",
+   "blurb": "CNBC looks at revenue quality and compute commitments in the filing for the planned ANT listing.",
+   "src": "CNBC",
+   "domain": "cnbc.com",
+   "date": "2026-10-30",
+   "url": "https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html",
+   "ask": "How much of Anthropic's compute bill is fixed if usage slows?"
+  },
+  {
+   "id": "n6",
+   "tag": "AI",
+   "title": "OpenAI cuts round to $20 billion as UAE investors pair capital with compute capacity",
+   "blurb": "The round target fell from $30 billion, and the valuation reportedly fell to $1.25 trillion.",
+   "src": "Forbes",
+   "domain": "forbes.com",
+   "date": "2026-11-02",
+   "url": "https://www.forbes.com/sites/guneyyildiz/2026/11/02/openai-cuts-round-to-20-billion-as-uae-investors-pair-capital-with-compute-capacity/",
+   "ask": "Is a smaller round a signal about OpenAI or about the market?"
+  },
+  {
+   "id": "n7",
+   "tag": "AI",
+   "title": "Trump Administration Refuses to Release Information on AI Testing Framework",
+   "blurb": "The White House cited national security and commercial exemptions in a letter to a nonprofit that sued for the records.",
+   "src": "The Information",
+   "domain": "theinformation.com",
+   "date": "2026-11-01",
+   "url": "https://www.theinformation.com/briefings/trump-administration-refuses-release-information-ai-testing-framework",
+   "ask": "Can a voluntary test regime build trust if its criteria stay secret?"
+  },
+  {
+   "id": "n8",
+   "tag": "Tech",
+   "title": "Nasdaq suffers worst month in over a year as AI nerves roil markets",
+   "blurb": "The index fell 2.86% on Oct. 30 and lost 5.3% for October as Intel and Amazon disappointed.",
+   "src": "CNN",
+   "domain": "cnn.com",
+   "date": "2026-10-30",
+   "url": "https://www.cnn.com/2026/10/30/investing/us-stocks-ai-investment",
+   "ask": "Do Apple and AMD results this week change the AI-spending story?"
+  }
+ ],
+ "youtube": [
+  {
+   "id": "eQrH3ackUWM",
+   "channel": "Channel 5 with Andrew Callaghan",
+   "handle": "@channel5YouTube",
+   "title": "Berlin’s most exclusive night club",
+   "desc": "A short clip from Andrew Callaghan's Berlin trip, on the city's club scene.",
+   "published": "2026-11-01T19:32:17Z",
+   "secs": 110,
+   "views": 1092276,
+   "url": "https://www.youtube.com/watch?v=eQrH3ackUWM"
+  },
+  {
+   "id": "UjXpwly6TnI",
+   "channel": "Channel 5 with Andrew Callaghan",
+   "handle": "@channel5YouTube",
+   "title": "Berlin is a party city",
+   "desc": "A short follow-up clip from Andrew Callaghan's Berlin trip.",
+   "published": "2026-10-31T21:54:25Z",
+   "secs": 99,
+   "views": 73040,
+   "url": "https://www.youtube.com/watch?v=UjXpwly6TnI"
+  },
+  {
+   "id": "cM2EmJ1Zy68",
+   "channel": "Spanish With Qroo Paul",
+   "handle": "@QrooSpanish",
+   "title": "Lowest Price Ever! Only 100 Spots",
+   "desc": "A short promo from Spanish With Qroo Paul about a limited-spots offer.",
+   "published": "2026-10-31T17:04:38Z",
+   "secs": 126,
+   "views": 2476,
+   "url": "https://www.youtube.com/watch?v=cM2EmJ1Zy68"
+  },
+  {
+   "id": "hI89nYTSgXk",
+   "channel": "Reynard Lowell",
+   "handle": "@reynardlowell",
+   "title": "13 Genius Home Features Modern Homes Are Missing",
+   "desc": "Reynard Lowell on home features he thinks modern houses are missing.",
+   "published": "2026-10-31T10:53:14Z",
+   "secs": 1350,
+   "views": 60972,
+   "url": "https://www.youtube.com/watch?v=hI89nYTSgXk"
+  },
+  {
+   "id": "_V6oeqUYaIQ",
+   "channel": "Not Just Bikes",
+   "handle": "@NotJustBikes",
+   "title": "Kobe Beef in Kobe!  #daypass #travel",
+   "desc": "A short clip on eating Kobe beef in Kobe, from NotJustBikes' Japan trip.",
+   "published": "2026-10-30T16:35:02Z",
+   "secs": 116,
+   "views": 18545,
+   "url": "https://www.youtube.com/watch?v=_V6oeqUYaIQ"
+  },
+  {
+   "id": "2reQut8WNGc",
+   "channel": "Marques Brownlee",
+   "handle": "@mkbhd",
+   "title": "Macbook PROLED XDR Impressions: They Said They Wouldn't!",
+   "desc": "Marques Brownlee shares first impressions of a new MacBook Pro display.",
+   "published": "2026-10-29T02:50:34Z",
+   "secs": 654,
+   "views": 10961474,
+   "url": "https://www.youtube.com/watch?v=2reQut8WNGc"
+  },
+  {
+   "id": "ujmyzWSj8IU",
+   "channel": "OpenAI",
+   "handle": "@OpenAI",
+   "title": "API credits, now in ChatGPT Pro and Business plans",
+   "desc": "OpenAI announces API credits for ChatGPT Pro and Business plans.",
+   "published": "2026-10-28T23:45:26Z",
+   "secs": 146,
+   "views": 56961,
+   "url": "https://www.youtube.com/watch?v=ujmyzWSj8IU"
+  },
+  {
+   "id": "S19ag-Ifa8Y",
+   "channel": "Not Just Bikes",
+   "handle": "@NotJustBikes",
+   "title": "This Small City's LRT is so Good it Made me Angry",
+   "desc": "NotJustBikes on a small city's light rail system.",
+   "published": "2026-10-28T19:08:00Z",
+   "secs": 1510,
+   "views": 711890,
+   "url": "https://www.youtube.com/watch?v=S19ag-Ifa8Y"
+  },
+  {
+   "id": "NN_Et52F3q8",
+   "channel": "Spanish With Qroo Paul",
+   "handle": "@QrooSpanish",
+   "title": "COSTAR Means More Than Just “To Cost”",
+   "desc": "A Spanish lesson on the verb costar and what it means beyond 'to cost'.",
+   "published": "2026-10-28T16:39:58Z",
+   "secs": 539,
+   "views": 11125,
+   "url": "https://www.youtube.com/watch?v=NN_Et52F3q8"
+  }
+ ],
+ "spotify": [
+  {
+   "show": "Modern Wisdom",
+   "title": "How To Make Better Decisions (with way less uncertainty) - Joe Hudson - #1171",
+   "desc": "Chris Williamson and Joe Hudson on making decisions with less uncertainty.",
+   "published": "2026-11-02",
+   "secs": 6177,
+   "url": "https://open.spotify.com/episode/1kujFgdUf1CEMabAQToyTi"
+  },
+  {
+   "show": "Huberman Lab",
+   "title": "Access the Sublime & Live Your Best Life | Robert Greene",
+   "desc": "Andrew Huberman talks with author Robert Greene.",
+   "published": "2026-11-02",
+   "secs": 8305,
+   "art": "https://i.scdn.co/image/ab67656300005f1f19c3140280949fe0eb87fdba",
+   "url": "https://open.spotify.com/episode/2aUhzkwxi8hQt72b2kxdXS"
+  },
+  {
+   "show": "The Diary Of A CEO with Steven Bartlett",
+   "title": "James Talarico: America's Corrupt System Is Designed To Keep You Poor! | Texas Senate Candidate",
+   "desc": "Steven Bartlett interviews Texas Senate candidate James Talarico.",
+   "published": "2026-11-02",
+   "secs": 5803,
+   "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
+   "url": "https://open.spotify.com/episode/5jzYzXmVuDkGLLClPmELao"
+  },
+  {
+   "show": "Modern Wisdom",
+   "title": "Expelled, Arrested & Somehow Winning At Life - James Smith - #1170",
+   "desc": "Chris Williamson talks with James Smith about a rough start and a turnaround.",
+   "published": "2026-10-31",
+   "secs": 4787,
+   "url": "https://open.spotify.com/episode/2EB0LP4unhCbQF7p3GTkLQ"
+  },
+  {
+   "show": "Moonshots with Peter Diamandis",
+   "title": "Making Sense of This Week’s AI Market Crashes | #x307",
+   "desc": "Peter Diamandis and guests on this week's AI-related market selloff.",
+   "published": "2026-10-31",
+   "secs": 8394,
+   "url": "https://open.spotify.com/episode/24F4XTz12dQC1qmM9mNmOw"
+  },
+  {
+   "show": "Moonshots with Peter Diamandis",
+   "title": "Anthropic’s $2T IPO, Elon Predicts Neocloud Death, and China’s Kimi Catches Up | #306",
+   "desc": "Peter Diamandis and guests on AI companies, IPO talk and China's model progress.",
+   "published": "2026-10-28",
+   "secs": 8187,
+   "url": "https://open.spotify.com/episode/3LOBLYg9toAji6S6QGivO7"
+  },
+  {
+   "show": "Matt and Shane's Secret Podcast",
+   "title": "Ep 643 - Luis Jobs Gomez (feat. Colum Tyrrell & Luis J. Gomez) ",
+   "desc": "Matt McCusker and Shane Gillis with Colum Tyrrell and Luis J. Gomez.",
+   "published": "2026-10-28",
+   "secs": 3819,
+   "url": "https://open.spotify.com/episode/5n3yysvazk3dJ8a60dgD2I"
+  },
+  {
+   "show": "The Diary Of A CEO with Steven Bartlett",
+   "title": "Dr. Sarah Paine: Why The World Is Turning Away From America",
+   "desc": "Steven Bartlett talks with historian Sarah Paine about America's standing in the world.",
+   "published": "2026-10-29",
+   "secs": 6119,
+   "art": "https://i.scdn.co/image/ab67656300005f1ffaed650def5bf7d381114c13",
+   "url": "https://open.spotify.com/episode/1zbWOUYwd8SnvWuBDogO20"
+  }
+ ],
+ "discover": {
+  "youtube": [
+   {
+    "handle": "@StrongTowns",
+    "channel": "Strong Towns",
+    "seed": "@NotJustBikes",
+    "because": "Because you like Not Just Bikes: short, practical arguments for walkable, financially sound towns."
+   },
+   {
+    "handle": "@CityBeautiful",
+    "channel": "City Beautiful",
+    "seed": "@NotJustBikes",
+    "because": "Because you like Not Just Bikes: the history and design of cities, posting regularly."
+   },
+   {
+    "handle": "@EconomicsExplained",
+    "channel": "Economics Explained",
+    "seed": "@Maxinomics",
+    "because": "Because you like Maxinomics: plain-English explainers on energy, trade and industry."
+   },
+   {
+    "handle": "@DreamingSpanish",
+    "channel": "Dreaming Spanish",
+    "seed": "@QrooSpanish",
+    "because": "Because you follow Qroo Paul: Spanish learning through comprehensible input, with new videos almost daily."
+   },
+   {
+    "handle": "@ColdFusion",
+    "channel": "ColdFusion",
+    "seed": "@mkbhd",
+    "because": "Because you like MKBHD: documentary-style stories about tech companies and products."
+   },
+   {
+    "handle": "@RealEngineering",
+    "channel": "Real Engineering",
+    "seed": "@veritasium",
+    "because": "Because you like Veritasium: engineering and science explained with real data."
+   }
+  ],
+  "spotify": [
+   {
+    "show": "Odd Lots",
+    "title": "What Wall Street Really Thinks About the AI Trade Now",
+    "desc": "Bloomberg's Odd Lots on how investors see the AI trade after this week's selloff.",
+    "published": "2026-10-29",
+    "secs": 2470,
+    "seed": "Moonshots with Peter Diamandis",
+    "because": "Because you follow Moonshots with Peter Diamandis: a markets-side look at the same AI spending story.",
+    "url": "https://open.spotify.com/episode/0ZO57b00z1HxRMwL161fz1"
+   }
+  ],
+  "artists": [
+   {
+    "name": "Dylan Matthew",
+    "because": "Like Slander",
+    "url": "https://open.spotify.com/artist/6d0ZjIp5L7Ygy2l02HskRX"
+   },
+   {
+    "name": "SABAI",
+    "because": "Like Slander",
+    "url": "https://open.spotify.com/artist/4OaSyxqlkp7aVpAZwF02QZ"
+   },
+   {
+    "name": "piri",
+    "because": "Like Sam Gellaitry",
+    "url": "https://open.spotify.com/artist/4DpmPt7gfAAq7WEx0E1X8s"
+   },
+   {
+    "name": "KAYTRANADA",
+    "because": "Like Sam Gellaitry",
+    "url": "https://open.spotify.com/artist/6qgnBH6iDM91ipVXv28OMu"
+   },
+   {
+    "name": "Metro Boomin",
+    "because": "Like Don Toliver",
+    "url": "https://open.spotify.com/artist/0iEtIxbK0KxaSlF7G42ZOp"
+   }
+  ],
+  "podcasts": [
+   {
+    "show": "The Joe Rogan Experience",
+    "seed": "Lex Fridman Podcast",
+    "because": "Because you like Lex Fridman: open-ended conversations, often with fighters, comedians and scientists."
+   },
+   {
+    "show": "No Priors: Artificial Intelligence | Technology | Startups",
+    "seed": "Lex Fridman Podcast",
+    "because": "Because you like Lex Fridman: AI founders and researchers on what they're building now."
+   },
+   {
+    "show": "Hard Fork",
+    "seed": "Moonshots with Peter Diamandis",
+    "because": "Because you like Moonshots: a weekly, skeptical look at AI and tech news from The New York Times."
+   },
+   {
+    "show": "The Tim Ferriss Show",
+    "seed": "Modern Wisdom",
+    "because": "Because you like Modern Wisdom: long interviews about how top performers train, think and work."
+   },
+   {
+    "show": "The Knowledge Project",
+    "seed": "Modern Wisdom",
+    "because": "Because you like Modern Wisdom: Shane Parrish on decision-making, with founders and investors."
+   },
+   {
+    "show": "FoundMyFitness",
+    "seed": "Huberman Lab",
+    "because": "Because you like Huberman Lab: Rhonda Patrick on nutrition, aging and the research behind them."
+   }
+  ]
+ },
+ "discoverLog": [
+  "@matthew_berman",
+  "Huberman Lab",
+  "@AustinEvans",
+  "@JerryRigEverything",
+  "@PracticalEngineeringChannel",
+  "@kurzgesagt",
+  "@WendoverProductions",
+  "@AIDailyBrief",
+  "All-In with Chamath, Jason, Sacks & Friedberg",
+  "The Peter Attia Drive",
+  "@Dave2D",
+  "@LinusTechTips",
+  "@Mrwhosetheboss",
+  "@CityNerd",
+  "@TheB1M",
+  "@TwoMinutePapers",
+  "@DwarkeshPatel",
+  "@SabineHossenfelder",
+  "@Fireship",
+  "Dwarkesh Podcast",
+  "My First Million",
+  "@MarkRober",
+  "@CleoAbram",
+  "@IEEESpectrum",
+  "@Vsauce",
+  "@theverge",
+  "@BostonDynamics",
+  "No Priors: Artificial Intelligence | Technology | Startups",
+  "@Computerphile",
+  "@TomScottGo",
+  "@NVIDIA",
+  "@UnitreeRobotics",
+  "@3blue1brown",
+  "@UrAvgConsumer",
+  "@minutephysics",
+  "@Numberphile",
+  "@TheAIGRID",
+  "@AIExplained-official",
+  "@StrongTowns",
+  "@CityBeautiful",
+  "@EconomicsExplained",
+  "@DreamingSpanish",
+  "@ColdFusion",
+  "@RealEngineering",
+  "Odd Lots"
+ ],
+ "bay": {
+  "range": "Nov 6–8",
+  "items": [
+   {
+    "id": "b1",
+    "title": "Warriors vs. Magic",
+    "where": "Chase Center, San Francisco",
+    "blurb": "A Saturday home game for the Warriors, listed as an 8:30 PM ET tip, which is 5:30 PM Pacific.",
+    "date": "2026-11-07",
+    "url": "https://fanduel.com/research/2026-27-golden-state-warriors-schedule-results-tv-channel",
+    "cal": {
+     "start": "2026-11-07T17:30",
+     "end": "2026-11-07T20:00",
+     "location": "Chase Center, 1 Warriors Way, San Francisco, CA",
+     "tips": "Time is from a FanDuel schedule listing and the end time is an estimate; confirm with the team."
+    }
+   },
+   {
+    "id": "b2",
+    "title": "49ers vs. Raiders",
+    "where": "Levi's Stadium, Santa Clara",
+    "blurb": "The 49ers host the Raiders after their bye week. Ticket listings show a 1:05 PM kickoff; one TV guide says 1:25 PM.",
+    "date": "2026-11-08",
+    "url": "https://www.tickpick.com/buy-san-francisco-49ers-vs-las-vegas-raiders-tickets-levis-stadium-11-8-26-1pm/7730388/",
+    "cal": {
+     "start": "2026-11-08T13:05",
+     "end": "2026-11-08T16:30",
+     "location": "Levi's Stadium, 4900 Marie P DeBartolo Way, Santa Clara, CA",
+     "tips": "Kickoff differs by source and the end time is an estimate; confirm with the 49ers."
+    }
+   },
+   {
+    "id": "b3",
+    "title": "Dublin Diwali-Mela Festival of Lights",
+    "where": "Dublin",
+    "blurb": "A Diwali festival listed for 11 AM to 8 PM on Saturday.",
+    "date": "2026-11-07",
+    "url": "https://providentcu.org/blog/community/bay-area-festivals",
+    "cal": {
+     "start": "2026-11-07T11:00",
+     "end": "2026-11-07T20:00",
+     "location": "Dublin, CA",
+     "tips": "Listing gives no venue address; confirm the location first."
+    }
+   },
+   {
+    "id": "b4",
+    "title": "Holiday ice rink at Fisherman's Wharf",
+    "where": "Fisherman's Wharf, San Francisco",
+    "blurb": "KRON4 reported a new rink opening Nov. 4 and running through Jan. 18, open 10 AM to 11 PM. Your calendar has an Embarcadero opening night Saturday, so check which rink that is.",
+    "date": "2026-11-07",
+    "endDate": "2027-01-18",
+    "url": "https://www.kron4.com/news/bay-area/something-truly-special-sfs-newest-largest-holiday-ice-rink-is-coming-to-this-iconic-landmark/amp/",
+    "cal": {
+     "start": "2026-11-07T17:00",
+     "end": "2026-11-07T19:00",
+     "location": "Fisherman's Wharf, San Francisco, CA",
+     "tips": "Dates and hours are from a KRON4 report; the evening slot is a suggestion."
+    }
+   },
+   {
+    "id": "b5",
+    "title": "North Taurids meteor shower",
+    "where": "Any dark spot around the Bay",
+    "blurb": "A free, usually weak shower listed to peak the night of Sunday, Nov. 8, from 10 PM to 5 AM.",
+    "date": "2026-11-08",
+    "free": true,
+    "url": "https://sf.funcheap.com/",
+    "cal": {
+     "start": "2026-11-08T22:00",
+     "end": "2026-11-09T01:00",
+     "location": "San Francisco Bay Area",
+     "tips": "The shower is typically sparse; go somewhere dark and give it 30 minutes."
+    }
+   }
+  ]
+ },
+ "bayLog": [
+  "Bart Skils at Public Works",
+  "ScHoolboy Q – 10 Years of Blank Face LP",
+  "Vulfpeck at Greek Theatre",
+  "Half Moon Bay Pumpkin Festival",
+  "Rush – Fifty Something at SAP Center",
+  "WNBA Finals Game 1",
+  "Bay Area Science Festival",
+  "Epik High",
+  "Dinosaur Jr.",
+  "Warriors home opener",
+  "Ivy Lab at Public Works",
+  "World of Dumplings",
+  "TheatreWorks Dracula",
+  "Winchester Festival Fright Nights",
+  "Jai Wolf at Regency Ballroom",
+  "Sofi Tukker at Cow Palace",
+  "Sandcastle Classic",
+  "Yerba Buena Gardens Festival",
+  "Julia Jacklin at Castro Theatre",
+  "Marc Rebillet, Franc Moody and Chromeo at The Midway",
+  "RADwood NorCal",
+  "Children's Halloween Haunt at History Park",
+  "Kishi Bashi at The Fillmore",
+  "Joy Oladokun at Castro Theatre",
+  "One Song All Night: Fleetwood Mac's Dreams tribute",
+  "Downtown Burlingame Fall Fest",
+  "Shpongle at the Fox Theater",
+  "Knocked Loose and Denzel Curry at the Cow Palace",
+  "Oh, Mary! at the Curran Theatre",
+  "Halloween trick-or-treating on Castro Street",
+  "Ocean Beach bonfires",
+  "Eric Prydz at Club Darc, Pier 48",
+  "The Addams Family at Palo Alto Players",
+  "San Jose Sharks vs. Ottawa Senators",
+  "Downtown Palo Alto Farmers' Market Halloween",
+  "Halloween Eve DJ party at the de Young",
+  "Ghost Ship VIII",
+  "Final weekend of Ocean Beach bonfires",
+  "Knocked Loose with Denzel Curry",
+  "Galactic at The Fillmore",
+  "Halloween activities at the Hiller Aviation Museum",
+  "Market in the Sunset",
+  "Tenderloin Dia de Muertos street fair",
+  "Bay FC vs. San Diego FC",
+  "San Francisco Opera: Manon",
+  "Tom Jones at The Masonic",
+  "Warriors vs. Magic",
+  "49ers vs. Raiders",
+  "Dublin Diwali-Mela Festival of Lights",
+  "Holiday ice rink at Fisherman's Wharf",
+  "North Taurids meteor shower"
+ ],
+ "shows": {
+  "note": "No Bay Area dates found through April 2027 for Chris Lake, Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
+  "items": [
+   {
+    "artist": "Sam Gellaitry",
+    "title": "Sammy Virji with Sam Gellaitry",
+    "date": "2026-11-13",
+    "time": "20:00",
+    "venue": "Cow Palace",
+    "city": "Daly City",
+    "match": "list",
+    "price": "Resale from ~$99",
+    "url": "https://apeconcerts.com/events/sammy-virji-261113/",
+    "cal": {
+     "start": "2026-11-13T20:00",
+     "end": "2026-11-14T00:00",
+     "location": "Cow Palace, Daly City, CA",
+     "tips": "18+; doors 7 PM, show 8 PM. Caltrain's Bayshore stop is about a mile away."
+    }
+   },
+   {
+    "artist": "John Summit",
+    "title": "John Summit – CTRL ESCAPE Arena Tour",
+    "date": "2026-12-04",
+    "time": "19:00",
+    "venue": "Oakland Arena",
+    "city": "Oakland",
+    "match": "like",
+    "like": "Chris Lake",
+    "why": "Arena-size tech house, same lane as Chris Lake.",
+    "price": "About $44–$247 on Ticketmaster",
+    "url": "https://www.ticketmaster.com/john-summit-ctrl-escape-arena-tour-oakland-12-04-2026/event/1C0064B3BCEE6B02",
+    "cal": {
+     "start": "2026-12-04T19:00",
+     "end": "2026-12-04T23:00",
+     "location": "Oakland Arena, Oakland, CA",
+     "tips": "Doors 6 PM. BART to Coliseum."
+    }
+   },
+   {
+    "artist": "Virtual Riot",
+    "title": "Virtual Riot & Blanke",
+    "date": "2026-12-12",
+    "time": "20:00",
+    "venue": "San Jose Civic",
+    "city": "San Jose",
+    "match": "like",
+    "like": "Slander",
+    "why": "Heavy bass close to Slander's dubstep side, and the nearest show to home.",
+    "price": "Resale from ~$49",
+    "url": "https://app.discotech.me/events/38228936-virtual-riot-and-blanke-far-from-home-tour-at-san-jose-civic",
+    "cal": {
+     "start": "2026-12-12T20:00",
+     "end": "2026-12-13T00:00",
+     "location": "San Jose Civic, San Jose, CA",
+     "tips": "Clear-bag policy. Caltrain to Diridon or VTA light rail to Convention Center."
+    }
+   },
+   {
+    "artist": "Illenium",
+    "title": "Illenium",
+    "date": "2026-12-30",
+    "time": "20:00",
+    "venue": "Bill Graham Civic Auditorium",
+    "city": "San Francisco",
+    "match": "like",
+    "like": "Slander",
+    "why": "Melodic bass, the closest match to Slander. The Dec 31 show is sold out.",
+    "price": "Resale from ~$159",
+    "url": "https://apeconcerts.com/events/illenium-261230/",
+    "cal": {
+     "start": "2026-12-30T20:00",
+     "end": "2026-12-30T23:30",
+     "location": "Bill Graham Civic Auditorium, San Francisco, CA",
+     "tips": "18+; doors 7 PM. BART to Civic Center."
+    }
+   },
+   {
+    "artist": "RÜFÜS DU SOL",
+    "title": "RÜFÜS DU SOL (DJ set) with Dixon b2b Jimi Jules",
+    "date": "2027-01-03",
+    "time": "16:00",
+    "venue": "Pier 80 Warehouse",
+    "city": "San Francisco",
+    "match": "like",
+    "like": "Chris Lake",
+    "why": "A long melodic-house afternoon into night; a DJ set, not the live band.",
+    "price": "$99.50–$349.50 on Tixr",
+    "url": "https://www.tixr.com/groups/npulive/events/r-f-s-du-sol-dj-set-dixon-b2b-jimi-jules-more-205796",
+    "cal": {
+     "start": "2027-01-03T16:00",
+     "end": "2027-01-03T23:00",
+     "location": "Pier 80 Warehouse, 401 Cesar Chavez St, San Francisco, CA",
+     "tips": "21+; all sales final. Muni T Third runs nearby."
+    }
+   }
+  ]
+ },
+ "movies": {
+  "now": [
+   {
+    "title": "Clayface",
+    "genre": "Superhero horror",
+    "rating": "R",
+    "score": 75,
+    "released": "2026-10-23",
+    "blurb": "DC Studios' body-horror take on the Batman villain, Certified Fresh on Rotten Tomatoes. It opened to $9.5M on Friday including previews, with a $23M to $25M weekend estimated.",
+    "url": "https://comicbookmovie.com/batman/clayface/clayface-rotten-tomatoes-score-revealed-critics-weigh-in-on-crowd-pleasing-uneven-dcu-movie-a230563"
+   },
+   {
+    "title": "Wildwood",
+    "genre": "Animated fantasy",
+    "rating": "PG-13",
+    "released": "2026-10-23",
+    "blurb": "Laika's PG-13 animated adaptation opened to about $12M for third place, with an A CinemaScore, and is showing at AMC Sunnyvale 12.",
+    "url": "https://en.wikipedia.org/wiki/Wildwood_(film)"
+   },
+   {
+    "title": "Street Fighter",
+    "genre": "Action",
+    "rating": "PG-13",
+    "runtime": 119,
+    "score": 41,
+    "released": "2026-10-16",
+    "blurb": "Kitao Sakurai's live-action take on the fighting game opened at No. 1 with about $31M; its second weekend is projected near $11M.",
+    "url": "https://www.rottentomatoes.com/m/street_fighter_2026"
+   },
+   {
+    "title": "You Can See Everything",
+    "genre": "Documentary",
+    "rating": "R",
+    "runtime": 174,
+    "score": 97,
+    "released": "2026-10-16",
+    "blurb": "Nathan Fielder and Lance Oppenheim follow Elizabeth Holmes in her final weeks before prison. It opened to about $15M on 855 screens and expands to about 2,600 this weekend, forecast at $19M to $25M.",
+    "url": "https://www.rottentomatoes.com/m/you_can_see_everything"
+   },
+   {
+    "title": "Whalefall",
+    "genre": "Survival thriller",
+    "rating": "PG-13",
+    "runtime": 106,
+    "score": 72,
+    "released": "2026-10-16",
+    "blurb": "A diver (Austin Abrams) is swallowed by a sperm whale while searching for his father's remains; Josh Brolin co-stars. Opened to $8M.",
+    "url": "https://www.rottentomatoes.com/m/whalefall"
+   },
+   {
+    "title": "Sense and Sensibility",
+    "genre": "Period drama",
+    "rating": "PG",
+    "runtime": 132,
+    "score": 78,
+    "released": "2026-10-16",
+    "blurb": "Daisy Edgar-Jones and Esmé Creed-Miles play the Dashwood sisters in Georgia Oakley's Austen adaptation.",
+    "url": "https://www.rottentomatoes.com/m/sense_and_sensibility_2026"
+   },
+   {
+    "title": "Other Mommy",
+    "genre": "Horror",
+    "rating": "R",
+    "runtime": 93,
+    "score": 19,
+    "released": "2026-10-09",
+    "blurb": "Jessica Chastain plays a mother and her sinister double. Down about 70% in its second weekend, with about $44.9M so far.",
+    "url": "https://www.rottentomatoes.com/m/other_mommy"
+   },
+   {
+    "title": "Verity",
+    "genre": "Thriller",
+    "rating": "R",
+    "score": 31,
+    "released": "2026-10-02",
+    "blurb": "Anne Hathaway, Dakota Johnson and Josh Hartnett in the Colleen Hoover thriller; $6.2M last weekend.",
+    "url": "https://www.rottentomatoes.com/m/verity"
+   },
+   {
+    "title": "Heart of the Beast",
+    "genre": "Survival thriller",
+    "rating": "PG-13",
+    "runtime": 101,
+    "score": 85,
+    "released": "2026-09-25",
+    "blurb": "Brad Pitt plays a Special Forces veteran stranded in Alaska with his combat dog after a plane crash. About $58M domestic.",
+    "url": "https://www.rottentomatoes.com/m/heart_of_the_beast"
+   }
+  ],
+  "soon": [
+   {
+    "title": "Godzilla Minus Zero",
+    "genre": "Monster",
+    "date": "2026-11-06",
+    "blurb": "Takashi Yamazaki's sequel to the Oscar-winning Godzilla Minus One, released in the US by GKIDS.",
+    "url": "https://www.fangoria.com/godzilla-minus-zero-release-date/"
+   },
+   {
+    "title": "The Cat in the Hat",
+    "genre": "Animation",
+    "date": "2026-11-06",
+    "blurb": "Dr. Seuss' story gets a new animated adaptation."
+   },
+   {
+    "title": "The Hunger Games: Sunrise on the Reaping",
+    "genre": "Sci-fi",
+    "date": "2026-11-20",
+    "big": true,
+    "blurb": "Haymitch's Games, 24 years before Katniss."
+   },
+   {
+    "title": "Focker-in-Law",
+    "genre": "Comedy",
+    "date": "2026-11-25",
+    "blurb": "Ben Stiller and Robert De Niro, back for Thanksgiving."
+   },
+   {
+    "title": "Hexed",
+    "genre": "Animation",
+    "date": "2026-11-25",
+    "blurb": "Disney's animated Thanksgiving release."
+   },
+   {
+    "title": "Violent Night 2",
+    "genre": "Action comedy",
+    "date": "2026-12-04",
+    "blurb": "The holiday action sequel."
+   },
+   {
+    "title": "Avengers: Doomsday",
+    "genre": "Marvel",
+    "date": "2026-12-18",
+    "big": true,
+    "blurb": "Robert Downey Jr. returns as Doctor Doom.",
+    "url": "https://avclub.com/avengers-doomsday-dune-part-three-same-day-release-december-18"
+   },
+   {
+    "title": "Dune: Part Three",
+    "genre": "Sci-fi",
+    "date": "2026-12-18",
+    "big": true,
+    "blurb": "Denis Villeneuve closes the trilogy, opening the same day as Avengers."
+   },
+   {
+    "title": "Jumanji: Open World",
+    "genre": "Adventure",
+    "date": "2026-12-25",
+    "blurb": "Dwayne Johnson, Jack Black, Kevin Hart and Karen Gillan return; moved from Dec 11 to Christmas."
+   }
+  ]
+ },
+ "vocab": [
+  {
+   "date": "2026-11-02",
+   "word": "Mellifluous",
+   "pron": "meh-LIF-loo-us",
+   "pos": "adjective",
+   "def": "Sweet and smooth to hear, like a voice or piece of music that flows easily.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "From Latin mel, 'honey', and fluere, 'to flow': literally 'flowing with honey'"
+    },
+    {
+     "f": "Synonym",
+     "b": "dulcet, silken, honeyed"
+    },
+    {
+     "f": "Use it for",
+     "b": "voices, music or prose that sounds smooth and pleasing"
+    }
+   ],
+   "examples": [
+    "The radio host's mellifluous voice made even the traffic report soothing.",
+    "She read the poem in a mellifluous whisper that quieted the room."
+   ],
+   "ex": "The radio host's mellifluous voice made even the traffic report soothing."
+  },
+  {
+   "date": "2026-11-01",
+   "word": "Halcyon",
+   "pron": "HAL-see-un",
+   "pos": "adjective",
+   "def": "Calm, peaceful and happy, often describing a time in the past that now seems golden.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "From Greek halkyon, a mythical kingfisher said to calm the winter seas while it nested"
+    },
+    {
+     "f": "Synonym",
+     "b": "tranquil, idyllic, golden"
+    },
+    {
+     "f": "Use it for",
+     "b": "a stretch of time you remember as untroubled, as in 'halcyon days'"
+    }
+   ],
+   "examples": [
+    "They talked about the halcyon summers they spent by the lake.",
+    "The long, quiet Sunday felt halcyon after a loud week."
+   ],
+   "ex": "They talked about the halcyon summers they spent by the lake."
+  },
+  {
+   "date": "2026-10-31",
+   "word": "Uncanny",
+   "pron": "un-KAN-ee",
+   "pos": "adjective",
+   "def": "Strange in a way that is unsettling, especially because it is almost but not quite familiar.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "From un- 'not' + canny, from Scots 'canny', 'safe, knowing'; so literally 'not safe'"
+    },
+    {
+     "f": "Synonym",
+     "b": "eerie, unsettling, strange"
+    },
+    {
+     "f": "Use it for",
+     "b": "things that look almost human or familiar but feel slightly wrong"
+    }
+   ],
+   "examples": [
+    "The robot's smile was so close to real that it felt uncanny.",
+    "There was an uncanny quiet on the street after midnight."
+   ],
+   "ex": "The robot's smile was so close to real that it felt uncanny."
+  },
+  {
+   "date": "2026-10-30",
+   "word": "Ebullient",
+   "pron": "ih-BUL-yunt",
+   "pos": "adjective",
+   "def": "Cheerful and full of energy and enthusiasm.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin ebullire, 'to bubble up', from e- 'out' + bullire 'to boil'"
+    },
+    {
+     "f": "Synonym",
+     "b": "exuberant, effervescent, buoyant"
+    },
+    {
+     "f": "Use it for",
+     "b": "people or moods that seem to bubble over with good spirits"
+    }
+   ],
+   "examples": [
+    "The crowd was ebullient as the headliner walked on stage.",
+    "She gave an ebullient toast that had the whole table laughing."
+   ],
+   "ex": "The crowd was ebullient as the headliner walked on stage."
+  },
+  {
+   "date": "2026-10-29",
+   "word": "Ineffable",
+   "pron": "in-EF-uh-bul",
+   "pos": "adjective",
+   "def": "Too great or extraordinary to be put into words.",
+   "ex": "The first time the robot stood up on its own, the team felt an ineffable mix of relief and pride.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin ineffabilis, from in- 'not' + effari 'to speak out'"
+    },
+    {
+     "f": "Synonym",
+     "b": "inexpressible, indescribable, unspeakable"
+    },
+    {
+     "f": "Use it for",
+     "b": "feelings, beauty or experiences that words fall short of, usually in a good way"
+    }
+   ],
+   "examples": [
+    "The first time the robot stood up on its own, the team felt an ineffable mix of relief and pride.",
+    "There was something ineffable about the view from the ridge at sunset."
+   ]
+  },
+  {
+   "date": "2026-10-28",
+   "word": "Perspicacious",
+   "pron": "per-spih-KAY-shus",
+   "pos": "adjective",
+   "def": "Quick to notice and understand things that others miss.",
+   "ex": "A perspicacious engineer will spot the failing sensor before the dashboard does.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin perspicax, from perspicere, 'to see through'"
+    },
+    {
+     "f": "Synonym",
+     "b": "astute, shrewd, discerning"
+    },
+    {
+     "f": "Use it for",
+     "b": "people or comments that show sharp insight into a situation, not just general intelligence"
+    }
+   ],
+   "examples": [
+    "A perspicacious engineer will spot the failing sensor before the dashboard does.",
+    "Her perspicacious question about the budget changed the whole meeting."
+   ]
+  },
+  {
+   "date": "2026-10-27",
+   "word": "Ephemeral",
+   "pron": "ih-FEM-er-ul",
+   "pos": "adjective",
+   "def": "Lasting for a very short time.",
+   "ex": "The fall color in the foothills is ephemeral; by mid-November most of it is gone.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Greek ephemeros, 'lasting a day', from epi 'on' and hemera 'day'"
+    },
+    {
+     "f": "Synonym",
+     "b": "fleeting, transient, short-lived"
+    },
+    {
+     "f": "Use it for",
+     "b": "things that are expected to disappear quickly, like trends, moments, messages or blossoms"
+    }
+   ],
+   "examples": [
+    "The fall color in the foothills is ephemeral; by mid-November most of it is gone.",
+    "Some chat apps make messages ephemeral by deleting them after a day."
+   ]
+  }
+ ],
+ "spanish": [
+  {
+   "date": "2026-11-02",
+   "phrase": "¿Me echas la mano?",
+   "pron": "meh EH-chahs lah MAH-noh",
+   "reg": "Mexico · casual",
+   "meaning": "Can you give me a hand?",
+   "note": "Literally 'do you throw me the hand?'. Everyday Mexican for asking for help, from carrying boxes to fixing a problem.",
+   "cards": [
+    {
+     "es": "Échame la mano con esto",
+     "en": "Give me a hand with this"
+    },
+    {
+     "es": "Te echo la mano",
+     "en": "I'll give you a hand"
+    },
+    {
+     "es": "¿Te ayudo en algo?",
+     "en": "Can I help you with something?"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¿Me",
+     "en": "to me"
+    },
+    {
+     "es": "echas",
+     "en": "you throw / lend"
+    },
+    {
+     "es": "la",
+     "en": "the"
+    },
+    {
+     "es": "mano?",
+     "en": "hand"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "Voy a mover este sillón y está bien pesado.",
+     "en": "I'm going to move this couch and it's really heavy."
+    },
+    {
+     "es": "¿Me echas la mano?",
+     "en": "Can you give me a hand?"
+    },
+    {
+     "es": "Claro, ¿por dónde lo agarro?",
+     "en": "Sure, where do I grab it?"
+    },
+    {
+     "es": "Tú de ese lado, yo de este.",
+     "en": "You on that side, me on this one."
+    }
+   ],
+   "use": "Say it to a friend or coworker when you need help with something that takes two people.",
+   "quiz": {
+    "options": [
+     "Can you give me a hand?",
+     "Can you shake my hand?",
+     "Can you hold my bag?"
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-11-01",
+   "phrase": "¿Me das un aventón?",
+   "pron": "meh dahs oon ah-ben-TOHN",
+   "reg": "Mexico · casual",
+   "meaning": "Can you give me a ride?",
+   "note": "'Aventón' is the everyday Mexican word for a lift. You'll also hear 'raite', borrowed from English 'ride'.",
+   "cards": [
+    {
+     "es": "Te doy un aventón",
+     "en": "I'll give you a ride"
+    },
+    {
+     "es": "¿Me das raite?",
+     "en": "Can I get a ride?"
+    },
+    {
+     "es": "Te llevo",
+     "en": "I'll take you"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¿Me",
+     "en": "to me"
+    },
+    {
+     "es": "das",
+     "en": "you give"
+    },
+    {
+     "es": "un",
+     "en": "a"
+    },
+    {
+     "es": "aventón?",
+     "en": "ride, lift"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "Se me fue el camión y ya voy tarde.",
+     "en": "I missed the bus and I'm already late."
+    },
+    {
+     "es": "Yo voy para el centro.",
+     "en": "I'm headed downtown."
+    },
+    {
+     "es": "¿Me das un aventón?",
+     "en": "Can you give me a ride?"
+    },
+    {
+     "es": "Claro, súbete.",
+     "en": "Sure, hop in."
+    }
+   ],
+   "use": "Say it to a friend or coworker who's driving where you're going.",
+   "quiz": {
+    "options": [
+     "Can you give me a ride?",
+     "Can you lend me money?",
+     "Can you tell me the time?"
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-31",
+   "phrase": "¡Qué padre!",
+   "pron": "keh PAH-dreh",
+   "reg": "Mexico · casual",
+   "meaning": "How cool! / That's awesome!",
+   "note": "Very common in Mexico for anything you like: a costume, a song, a plan. 'Padre' here means great, not father.",
+   "cards": [
+    {
+     "es": "Está bien padre",
+     "en": "It's really cool"
+    },
+    {
+     "es": "¡Qué padre disfraz!",
+     "en": "What a cool costume!"
+    },
+    {
+     "es": "Qué padre plan",
+     "en": "What a great plan"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¡Qué",
+     "en": "what / how"
+    },
+    {
+     "es": "padre!",
+     "en": "cool, great (slang)"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "Mira mi disfraz de esqueleto.",
+     "en": "Look at my skeleton costume."
+    },
+    {
+     "es": "¡Qué padre!",
+     "en": "How cool!"
+    },
+    {
+     "es": "Lo hice yo mismo.",
+     "en": "I made it myself."
+    },
+    {
+     "es": "¡Qué padre, te quedó increíble!",
+     "en": "How cool, it turned out amazing!"
+    }
+   ],
+   "use": "Say it when someone shows you something you genuinely like.",
+   "quiz": {
+    "options": [
+     "How cool!",
+     "How far!",
+     "What time?"
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-30",
+   "phrase": "¡Échale ganas!",
+   "pron": "EH-chah-leh GAH-nahs",
+   "reg": "Mexico · casual",
+   "meaning": "Give it your best! / Go for it!",
+   "note": "Friendly encouragement in Mexico, said before an exam, a game or a hard task. 'Echarle ganas' means to put real effort in.",
+   "cards": [
+    {
+     "es": "Le echo ganas",
+     "en": "I'm giving it my all"
+    },
+    {
+     "es": "¡Con ganas!",
+     "en": "With real effort!"
+    },
+    {
+     "es": "No te rindas, échale",
+     "en": "Don't give up, keep going"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¡Échale",
+     "en": "put it in (from echar)"
+    },
+    {
+     "es": "echar",
+     "en": "to throw / put in"
+    },
+    {
+     "es": "le",
+     "en": "it (filler)"
+    },
+    {
+     "es": "ganas!",
+     "en": "drive, will"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "Mañana tengo mi entrevista.",
+     "en": "I have my interview tomorrow."
+    },
+    {
+     "es": "¡Échale ganas!",
+     "en": "Give it your best!"
+    },
+    {
+     "es": "Gracias, estoy nervioso.",
+     "en": "Thanks, I'm nervous."
+    },
+    {
+     "es": "Te va a ir muy bien.",
+     "en": "It's going to go great."
+    }
+   ],
+   "use": "Say it to a friend about to do something hard, like a race, a pitch or a first day.",
+   "quiz": {
+    "options": [
+     "Give it your best!",
+     "Take it easy",
+     "See you later"
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-29",
+   "phrase": "¿Cómo te fue en la chamba?",
+   "pron": "KOH-moh teh fweh en lah CHAM-bah",
+   "reg": "Mexico · casual",
+   "meaning": "How did work go?",
+   "note": "'Chamba' is casual Mexican slang for work or a job. Use it with friends and coworkers, not in a formal email.",
+   "cards": [
+    {
+     "es": "¿Mucha chamba hoy?",
+     "en": "Lots of work today?"
+    },
+    {
+     "es": "Salí tarde de la chamba",
+     "en": "I left work late"
+    },
+    {
+     "es": "Tengo chamba pendiente",
+     "en": "I have work left to do"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¿Cómo",
+     "en": "how"
+    },
+    {
+     "es": "te",
+     "en": "to you"
+    },
+    {
+     "es": "fue",
+     "en": "it went"
+    },
+    {
+     "es": "en",
+     "en": "at / in"
+    },
+    {
+     "es": "la",
+     "en": "the"
+    },
+    {
+     "es": "chamba?",
+     "en": "work (slang)"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿Cómo te fue en la chamba?",
+     "en": "How did work go?"
+    },
+    {
+     "es": "Pesadito, pero ya acabé.",
+     "en": "A bit heavy, but I'm done."
+    },
+    {
+     "es": "Entonces ya cénate algo rico.",
+     "en": "Then go eat something good."
+    },
+    {
+     "es": "Va, vamos por unos tacos.",
+     "en": "Sure, let's go get tacos."
+    }
+   ],
+   "use": "Ask it to a friend or coworker when they come home or log off for the day.",
+   "quiz": {
+    "options": [
+     "How did work go?",
+     "Where did you eat?",
+     "How are your friends?"
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-28",
+   "phrase": "¡Estoy hecho polvo!",
+   "pron": "ess-TOY EH-choh POHL-voh",
+   "reg": "Mexico · casual",
+   "meaning": "I'm wiped out!",
+   "note": "Literally 'I'm made into dust.' A common casual way to say you are exhausted. Women say 'hecha polvo.'",
+   "cards": [
+    {
+     "es": "Estoy muerto",
+     "en": "I'm dead tired"
+    },
+    {
+     "es": "No doy más",
+     "en": "I can't go on"
+    },
+    {
+     "es": "Ando bien cansado",
+     "en": "I'm really tired"
+    }
+   ],
+   "parts": [
+    {
+     "es": "Estoy",
+     "en": "I am"
+    },
+    {
+     "es": "hecho",
+     "en": "made / turned into"
+    },
+    {
+     "es": "polvo",
+     "en": "dust"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿Cómo dormiste?",
+     "en": "How did you sleep?"
+    },
+    {
+     "es": "Poquito. ¡Estoy hecho polvo!",
+     "en": "Very little. I'm wiped out!"
+    },
+    {
+     "es": "Échate un café.",
+     "en": "Have a coffee."
+    },
+    {
+     "es": "Mejor una siesta.",
+     "en": "A nap is better."
+    }
+   ],
+   "use": "Say it after a short night or a long day, to a friend or coworker.",
+   "quiz": {
+    "options": [
+     "I'm wiped out",
+     "I'm very hungry",
+     "I'm running late"
+    ],
+    "answer": 0
+   }
+  },
+  {
+   "date": "2026-10-27",
+   "phrase": "¡No hay bronca!",
+   "pron": "noh eye BROHN-kah",
+   "reg": "Mexico · casual",
+   "meaning": "No problem!",
+   "note": "'Bronca' means trouble or a problem in casual Mexican Spanish. Say it to wave off an apology or reassure someone; it is friendly and informal.",
+   "cards": [
+    {
+     "es": "No pasa nada",
+     "en": "It's no big deal"
+    },
+    {
+     "es": "Sin problema",
+     "en": "No problem"
+    },
+    {
+     "es": "Todo bien",
+     "en": "All good"
+    }
+   ],
+   "parts": [
+    {
+     "es": "¡No",
+     "en": "no / there is not"
+    },
+    {
+     "es": "hay",
+     "en": "there is"
+    },
+    {
+     "es": "bronca",
+     "en": "trouble / a problem"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "Perdón, llegué tarde.",
+     "en": "Sorry, I got here late."
+    },
+    {
+     "es": "¡No hay bronca! Apenas empezamos.",
+     "en": "No problem! We just started."
+    },
+    {
+     "es": "Gracias, ya traigo el café.",
+     "en": "Thanks, I already have the coffee."
+    },
+    {
+     "es": "Perfecto, siéntate.",
+     "en": "Perfect, sit down."
+    }
+   ],
+   "use": "Say it when a friend apologizes for being late or asks if a small favor is okay.",
+   "quiz": {
+    "options": [
+     "No problem!",
+     "I am very tired.",
+     "See you tomorrow."
+    ],
+    "answer": 0
+   }
+  }
+ ],
+ "learnLog": {
+  "words": [
+   "Peripatetic",
+   "Recondite",
+   "Liminal",
+   "Sanguine",
+   "Equanimity",
+   "Salient",
+   "Convivial",
+   "Sedulous",
+   "Laconic",
+   "Ephemeral",
+   "Perspicacious",
+   "Ineffable",
+   "Ebullient",
+   "Uncanny",
+   "Halcyon",
+   "Mellifluous"
+  ],
+  "phrases": [
+   "¡Aguas!",
+   "Me da igual",
+   "¡Qué calor!",
+   "¿Qué onda?",
+   "¡No manches, está bien padre!",
+   "Ni modo, ya será para la próxima",
+   "¡Que vivan los novios!",
+   "Ahorita vengo, voy por unos tacos",
+   "¡Qué chido está tu carro!",
+   "¡No hay bronca!",
+   "¡Estoy hecho polvo!",
+   "¿Cómo te fue en la chamba?",
+   "¡Échale ganas!",
+   "¡Qué padre!",
+   "¿Me das un aventón?",
+   "¿Me echas la mano?"
+  ]
+ },
+ "coach": {
+  "date": "2026-10-27",
+  "quality": "Connected",
+  "theme": "Reach out",
+  "focus": {
+   "title": "Reach out before the birthdays",
+   "why": "Your calendar is empty today and tomorrow, Paige's birthday is Thursday and Patrick's is Sunday. Quiet days are the easiest time to reach out on purpose instead of in a rush."
+  },
+  "one": {
+   "text": "Draft Paige's birthday message now, with one specific memory in it, and schedule it for Thursday morning.",
+   "mins": 5
+  },
+  "idea": {
+   "line": "A short note lands harder than you expect.",
+   "body": "In experiments, people who wrote gratitude notes underestimated how surprised and happy the recipient would be, and overestimated how awkward the note would feel. The hesitation is usually wrong.",
+   "src": "Amit Kumar & Nicholas Epley · undervaluing gratitude"
+  },
+  "reflect": "Who did I make feel remembered today?",
+  "principle": "A short note lands harder than you expect.",
+  "moves": [
+   {
+    "area": "People",
+    "text": "Draft Paige's birthday message now, with one specific memory in it, and schedule it for Thursday morning.",
+    "mins": 5
+   },
+   {
+    "area": "Body",
+    "text": "Take a 20-minute walk after lunch; yesterday came to about 6,300 steps.",
+    "mins": 20
+   },
+   {
+    "area": "People",
+    "text": "Put a reminder to call Patrick on Sunday for his birthday.",
+    "mins": 2
+   }
+  ]
+ },
+ "music": {
+  "artists": [
+   {
+    "name": "Don Toliver",
+    "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+   },
+   {
+    "name": "Slander",
+    "url": "https://open.spotify.com/artist/20DZAfCuP1TKZl5KcY7z3Q"
+   },
+   {
+    "name": "Sam Gellaitry",
+    "url": "https://open.spotify.com/artist/07UJz804RJxqNvxFXC3h9H"
+   },
+   {
+    "name": "Kanye West",
+    "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
+   },
+   {
+    "name": "Tyler, The Creator",
+    "url": "https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF"
+   }
+  ],
+  "releases": []
+ },
+ "live": [
+  {
+   "kind": "game",
+   "title": "76ers vs. Bulls",
+   "sub": "NBA regular season",
+   "when": "2026-11-02T16:30:00-08:00",
+   "where": "Philadelphia",
+   "tv": [],
+   "url": "https://fanduel.com/research/2026-27-philadelphia-76ers-schedule-results-tv-channel",
+   "note": "Listed for 7:30 PM ET tonight; no US broadcaster was confirmed."
+  },
+  {
+   "kind": "game",
+   "title": "76ers at Pistons",
+   "sub": "NBA regular season",
+   "when": "2026-11-04T16:00:00-08:00",
+   "where": "Little Caesars Arena, Detroit",
+   "tv": [
+    "ESPN"
+   ],
+   "url": "https://thesixersense.com/where-watch-every-76ers-game-2026-27-tv-streaming-radio",
+   "note": "Listed for 7 PM ET on ESPN by one source; confirm on the team schedule."
+  },
+  {
+   "kind": "game",
+   "title": "76ers at Cavaliers",
+   "sub": "NBA regular season",
+   "when": "2026-11-06T16:30:00-08:00",
+   "where": "Rocket Arena, Cleveland",
+   "tv": [
+    "Prime Video"
+   ],
+   "url": "https://www.cabletv.com/sports/watch-philadelphia-76ers",
+   "note": "Sources list 7:30 PM ET or 8:30 PM ET (4:30 or 5:30 PM Pacific), so check before tip-off."
+  },
+  {
+   "kind": "game",
+   "title": "Oregon at Ohio State",
+   "sub": "College football",
+   "when": "2026-11-07T12:30:00-08:00",
+   "where": "Ohio Stadium, Columbus",
+   "tv": [
+    "CBS"
+   ],
+   "url": "https://www.nbcsports.com/college-football/news/ohio-state-buckeyes-2026-college-football-schedule-dates-opponents-times-tv-stream-info",
+   "note": "One TV guide lists 3:30 PM ET on CBS; Ohio State and TheScore still show the kickoff as TBD, so confirm."
+  },
+  {
+   "kind": "fight",
+   "title": "UFC Fight Night: Bonfim vs. Brady",
+   "sub": "UFC",
+   "when": "2026-11-07T17:00:00-08:00",
+   "where": "Meta APEX, Las Vegas",
+   "tv": [
+    "Paramount+"
+   ],
+   "url": "https://www.americantv.com/how-to-watch-ufc-fight-night-bonfim-vs-brady-on-directv.php",
+   "note": "Main card listed for 8 PM ET (5 PM PT); sources differ, so check the UFC page on fight day."
+  },
+  {
+   "kind": "game",
+   "title": "76ers at Bulls",
+   "sub": "NBA regular season",
+   "when": "2026-11-08T12:30:00-08:00",
+   "where": "United Center, Chicago",
+   "tv": [],
+   "url": "https://fanduel.com/research/2026-27-philadelphia-76ers-schedule-results-tv-channel",
+   "note": "Listed for 3:30 PM ET; no TV channel was confirmed. No SpaceX launch date was confirmed this week; Starship Flight 15 has no announced date."
+  }
+ ],
+ "coachHistory": [
+  {
+   "date": "2026-10-21",
+   "quality": "Productive",
+   "title": "Finish one real thing before noon"
+  },
+  {
+   "date": "2026-10-22",
+   "quality": "Calmer",
+   "title": "Pack before noon so tonight is easy"
+  },
+  {
+   "date": "2026-10-23",
+   "quality": "Healthier",
+   "title": "Get daylight and a short nap, then protect tonight's sleep"
+  },
+  {
+   "date": "2026-10-24",
+   "quality": "Present",
+   "title": "Be fully present at Sammy's wedding"
+  },
+  {
+   "date": "2026-10-25",
+   "quality": "Generous",
+   "title": "Get home easily and mark Ty's birthday"
+  },
+  {
+   "date": "2026-10-26",
+   "quality": "Focused",
+   "title": "Decide what matters most this week"
+  },
+  {
+   "date": "2026-10-27",
+   "quality": "Connected",
+   "title": "Reach out before the birthdays"
+  }
+ ],
+ "dare": {
+  "date": "2026-11-02",
+  "kind": "Wonder",
+  "title": "Make a tiny altar for someone",
+  "why": "Today is Dia de Muertos, so do the quiet version before the procession tonight. Prop a photo of someone you miss on a shelf, add a candle (a battery tea light works), a glass of water and something they loved to eat, then stand there for two minutes and say one thing out loud about them. Phone stays in another room.",
+  "mins": 10,
+  "cost": "Free",
+  "place": null,
+  "worth": "It's an old, warm way to keep people close: you remember them by setting a place for them instead of avoiding the ache. It also makes the procession in the Mission feel like yours instead of something you walked past.",
+  "src": "",
+  "swap": {
+   "kind": "Connect",
+   "title": "Send one memory to someone",
+   "why": "Think of a person you both knew who has died, or just someone you haven't talked to in a while, and text them one specific memory in two sentences. No question at the end, nothing to answer. Send it before lunch.",
+   "mins": 5,
+   "worth": "A short, specific note usually lands better than you expect, and it takes almost no energy."
+  }
+ },
+ "dareHistory": [
+  {
+   "date": "2026-10-21",
+   "kind": "Focus",
+   "title": "Finish one real thing before noon"
+  },
+  {
+   "date": "2026-10-22",
+   "kind": "Wonder",
+   "title": "Pack before noon so tonight is easy"
+  },
+  {
+   "date": "2026-10-23",
+   "kind": "Move",
+   "title": "Get daylight and a short nap, then protect tonight's sleep"
+  },
+  {
+   "date": "2026-10-24",
+   "kind": "Wonder",
+   "title": "Be fully present at Sammy's wedding"
+  },
+  {
+   "date": "2026-10-25",
+   "kind": "Give",
+   "title": "Get home easily and mark Ty's birthday"
+  },
+  {
+   "date": "2026-10-26",
+   "kind": "Focus",
+   "title": "Decide what matters most this week"
+  },
+  {
+   "date": "2026-10-27",
+   "kind": "Wonder",
+   "title": "Go find the moon tonight"
+  },
+  {
+   "date": "2026-10-27",
+   "kind": "Create",
+   "title": "Write 100 words you'll never show anyone"
+  },
+  {
+   "date": "2026-10-27",
+   "kind": "Learn",
+   "title": "Learn one card trick before bed"
+  },
+  {
+   "date": "2026-10-28",
+   "kind": "Connect",
+   "title": "Call someone from your Austin life"
+  },
+  {
+   "date": "2026-10-29",
+   "kind": "Explore",
+   "title": "Eat somewhere you can't pronounce"
+  },
+  {
+   "date": "2026-10-30",
+   "kind": "Create",
+   "title": "Make a costume from junk"
+  },
+  {
+   "date": "2026-10-31",
+   "kind": "Brave",
+   "title": "Ask a stranger about their costume"
+  },
+  {
+   "date": "2026-11-01",
+   "kind": "Learn",
+   "title": "Learn to juggle three balls"
+  },
+  {
+   "date": "2026-11-02",
+   "kind": "Wonder",
+   "title": "Make a tiny altar for someone"
+  }
+ ]
+}
