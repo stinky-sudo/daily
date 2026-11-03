@@ -3948,7 +3948,8 @@ function spItems(){
 const likeTxt=t=>String(t||"").replace(/^\s*(like|similar to)\s+/i,"~ ");
 function artistItems(){return(DATA.discover&&DATA.discover.artists||[]).filter(a=>!isDis("art:"+a.name))}
 /* Spotify's oEmbed endpoint gives cover art for any episode or artist link, no key needed */
-async function spArt(url){const u=String(url).split("?")[0];const m=LS.get("sd-sp-art",{});if(m[u]!=null)return m[u];try{const r=await fetch("https://open.spotify.com/oembed?url="+encodeURIComponent(u));if(!r.ok)return null;const j=await r.json();m[u]=j.thumbnail_url||"";LS.set("sd-sp-art",m);return m[u]}catch(e){return null}}
+/* many of these run at once, so re-read the saved map after the fetch: writing back the copy from before it would wipe what the others just saved */
+async function spArt(url){const u=String(url).split("?")[0];const c=LS.get("sd-sp-art",{});if(c[u]!=null)return c[u];try{const r=await fetch("https://open.spotify.com/oembed?url="+encodeURIComponent(u));if(!r.ok)return null;const j=await r.json();const m=LS.get("sd-sp-art",{});m[u]=j.thumbnail_url||"";LS.set("sd-sp-art",m);return m[u]}catch(e){return null}}
 /* podcasts + artist photos come live from Spotify through the backend */
 async function loadSpotify(force){
  const names=lists().podcasts,sig=names.join("|");const c=LS.get("sd-sp2",null);
