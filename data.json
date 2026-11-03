@@ -1275,23 +1275,110 @@
   "Muchos Art + Comic Expo"
  ],
  "shows": {
-  "note": "No Bay Area dates found through April 2027 for Slander, Don Toliver, Kanye West or Tyler, The Creator. Tyler and Don Toliver are both at Camp Flog Gnaw in L.A., Nov 14–15 (sold out).",
+  "note": "Couldn't confirm either way: PARTYNEXTDOOR, Kofi Stone, Frank Ocean, eric404, Trayce Chapman, daydream Masi, Spark Master Tape, Aer, Danger Incorporated, Brendan Bennett.",
   "items": [
    {
-    "artist": "Sam Gellaitry",
+    "artist": "Sammy Virji",
+    "artists": [
+     "Sam Gellaitry"
+    ],
     "title": "Sammy Virji with Sam Gellaitry",
     "date": "2026-11-13",
     "time": "20:00",
-    "venue": "Cow Palace",
-    "city": "Daly City",
-    "match": "list",
-    "price": "Resale from ~$99",
+    "venue": "Bill Graham Civic Auditorium",
+    "city": "San Francisco",
     "url": "https://apeconcerts.com/events/sammy-virji-261113/",
     "cal": {
      "start": "2026-11-13T20:00",
      "end": "2026-11-14T00:00",
-     "location": "Cow Palace, Daly City, CA",
-     "tips": "18+; doors 7 PM, show 8 PM. Caltrain's Bayshore stop is about a mile away."
+     "location": "Bill Graham Civic Auditorium, San Francisco, CA",
+     "tips": "Moved here from Cow Palace; Cow Palace tickets are honored as general admission. 18+; doors 7 PM, show 8 PM. BART to Civic Center."
+    }
+   },
+   {
+    "artist": "Slander",
+    "title": "Give Thanks Festival: Slander b2b Seven Lions",
+    "date": "2026-11-27",
+    "venue": "San Jose Convention Center",
+    "city": "San Jose",
+    "url": "https://www.insomniac.com/events/festivals/san-jose-ca/18/",
+    "cal": {
+     "date": "2026-11-27",
+     "location": "San Jose McEnery Convention Center, San Jose, CA",
+     "tips": "18+. Slander plays Friday; the festival also runs Nov 25 and 28. VTA light rail to Convention Center."
+    }
+   },
+   {
+    "artist": "Sublime",
+    "title": "Unwrapped: An Acoustic Holiday with Sublime",
+    "date": "2026-12-06",
+    "time": "19:00",
+    "venue": "The Venue at Thunder Valley",
+    "city": "Lincoln",
+    "trip": true,
+    "url": "https://concerts50.com/show/sublime-in-lincoln-tickets-dec-06-2026",
+    "cal": {
+     "start": "2026-12-06T19:00",
+     "end": "2026-12-06T22:30",
+     "location": "The Venue at Thunder Valley Casino Resort, Lincoln, CA",
+     "tips": "Found on resale sites only, not the venue's own page, so confirm it there first. About 2.5 hours away, past Sacramento."
+    }
+   },
+   {
+    "artist": "Father John Misty",
+    "title": "Father John Misty",
+    "date": "2026-12-15",
+    "time": "20:00",
+    "venue": "Uptown Theatre",
+    "city": "Napa",
+    "url": "https://uptowntheatrenapa.com/tm-event/father-john-misty/",
+    "cal": {
+     "start": "2026-12-15T20:00",
+     "end": "2026-12-15T23:00",
+     "location": "Uptown Theatre, Napa, CA",
+     "tips": "All ages; doors 7 PM, show 8 PM."
+    }
+   },
+   {
+    "artist": "Father John Misty",
+    "title": "Father John Misty in Grass Valley",
+    "date": "2026-12-16",
+    "venue": "The Center for the Arts",
+    "city": "Grass Valley",
+    "trip": true,
+    "url": "https://www.songkick.com/artists/5113323-father-john-misty/calendar",
+    "cal": {
+     "date": "2026-12-16",
+     "location": "The Center for the Arts, Grass Valley, CA",
+     "tips": "About 3 hours away."
+    }
+   },
+   {
+    "artist": "Father John Misty",
+    "title": "Father John Misty in Carmel, night 1",
+    "date": "2026-12-18",
+    "venue": "Sunset Center",
+    "city": "Carmel",
+    "trip": true,
+    "url": "https://www.songkick.com/artists/5113323-father-john-misty/calendar",
+    "cal": {
+     "date": "2026-12-18",
+     "location": "Sunset Center, Carmel, CA",
+     "tips": "About 1.5 hours away."
+    }
+   },
+   {
+    "artist": "Father John Misty",
+    "title": "Father John Misty in Carmel, night 2",
+    "date": "2026-12-19",
+    "venue": "Sunset Center",
+    "city": "Carmel",
+    "trip": true,
+    "url": "https://www.songkick.com/artists/5113323-father-john-misty/calendar",
+    "cal": {
+     "date": "2026-12-19",
+     "location": "Sunset Center, Carmel, CA",
+     "tips": "About 1.5 hours away."
     }
    },
    {
@@ -1301,10 +1388,7 @@
     "time": "20:00",
     "venue": "Bill Graham Civic Auditorium",
     "city": "San Francisco",
-    "match": "list",
-    "like": "Slander",
-    "why": "Melodic bass, the closest match to Slander. The Dec 31 show is sold out.",
-    "price": "Resale from ~$159",
+    "soldOut": true,
     "url": "https://apeconcerts.com/events/illenium-261230/",
     "cal": {
      "start": "2026-12-30T20:00",
@@ -1314,15 +1398,40 @@
     }
    },
    {
+    "artist": "Illenium",
+    "title": "Illenium on New Year's Eve",
+    "date": "2026-12-31",
+    "time": "20:00",
+    "venue": "Bill Graham Civic Auditorium",
+    "city": "San Francisco",
+    "url": "https://www.livenation.com/event/G5vYZ_KjPaQe2/illenium-18",
+    "cal": {
+     "start": "2026-12-31T20:00",
+     "end": "2027-01-01T01:00",
+     "location": "Bill Graham Civic Auditorium, San Francisco, CA",
+     "tips": "18+. BART to Civic Center; it runs late on New Year's Eve, but check the last train."
+    }
+   },
+   {
+    "artist": "Illenium",
+    "title": "Illenium on New Year's Day",
+    "date": "2027-01-01",
+    "venue": "Bill Graham Civic Auditorium",
+    "city": "San Francisco",
+    "url": "https://www.livenation.com/event/G5vYZ_KjPaQe2/illenium-18",
+    "cal": {
+     "date": "2027-01-01",
+     "location": "Bill Graham Civic Auditorium, San Francisco, CA",
+     "tips": "18+. BART to Civic Center."
+    }
+   },
+   {
     "artist": "RÜFÜS DU SOL",
     "title": "RÜFÜS DU SOL (DJ set) with Dixon b2b Jimi Jules",
     "date": "2027-01-03",
     "time": "16:00",
     "venue": "Pier 80 Warehouse",
     "city": "San Francisco",
-    "match": "list",
-    "like": "Chris Lake",
-    "why": "A long melodic-house afternoon into night; a DJ set, not the live band.",
     "price": "$99.50–$349.50 on Tixr",
     "url": "https://www.tixr.com/groups/npulive/events/r-f-s-du-sol-dj-set-dixon-b2b-jimi-jules-more-205796",
     "cal": {
@@ -1330,44 +1439,6 @@
      "end": "2027-01-03T23:00",
      "location": "Pier 80 Warehouse, 401 Cesar Chavez St, San Francisco, CA",
      "tips": "21+; all sales final. Muni T Third runs nearby."
-    }
-   },
-   {
-    "artist": "John Summit",
-    "title": "John Summit – CTRL ESCAPE Arena Tour",
-    "date": "2026-12-04",
-    "time": "19:00",
-    "venue": "Oakland Arena",
-    "city": "Oakland",
-    "match": "like",
-    "like": "Chris Lake",
-    "why": "Arena-size tech house, same lane as Chris Lake.",
-    "price": "About $44–$247 on Ticketmaster",
-    "url": "https://www.ticketmaster.com/john-summit-ctrl-escape-arena-tour-oakland-12-04-2026/event/1C0064B3BCEE6B02",
-    "cal": {
-     "start": "2026-12-04T19:00",
-     "end": "2026-12-04T23:00",
-     "location": "Oakland Arena, Oakland, CA",
-     "tips": "Doors 6 PM. BART to Coliseum."
-    }
-   },
-   {
-    "artist": "Virtual Riot",
-    "title": "Virtual Riot & Blanke",
-    "date": "2026-12-12",
-    "time": "20:00",
-    "venue": "San Jose Civic",
-    "city": "San Jose",
-    "match": "like",
-    "like": "Slander",
-    "why": "Heavy bass close to Slander's dubstep side, and the nearest show to home.",
-    "price": "Resale from ~$49",
-    "url": "https://app.discotech.me/events/38228936-virtual-riot-and-blanke-far-from-home-tour-at-san-jose-civic",
-    "cal": {
-     "start": "2026-12-12T20:00",
-     "end": "2026-12-13T00:00",
-     "location": "San Jose Civic, San Jose, CA",
-     "tips": "Clear-bag policy. Caltrain to Diridon or VTA light rail to Convention Center."
     }
    }
   ]

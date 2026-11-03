@@ -491,7 +491,7 @@ h1,h2,h3,p{margin:0}
  box-shadow:0 0 0 1px var(--glass-edge),0 10px 30px -10px rgba(0,0,0,.35);
  visibility:hidden;pointer-events:none;transform:translate(calc(100% + max(12px,env(safe-area-inset-right)) + 24px),-50%);
  transition:transform .26s cubic-bezier(.4,0,1,1),visibility 0s linear .26s}
-body:has(#home:not([inert],.fl-drag) #it-media.open) #mt-float,body:has(#home:not([inert],.fl-drag) #it-music.open) #st-float{visibility:visible;pointer-events:auto;transform:translate(0,-50%);
+body:has(#home:not([inert],.fl-drag) #it-media.open) #mt-float{visibility:visible;pointer-events:auto;transform:translate(0,-50%);
  transition:transform .42s cubic-bezier(.2,.8,.2,1) .1s,visibility 0s}
 .mt{width:40px;height:40px;margin:0;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto;
  color:var(--ink-2);opacity:.38;background:transparent;transition:opacity .2s,background .2s,color .2s}
@@ -502,7 +502,7 @@ body:has(#home:not([inert],.fl-drag) #it-media.open) #mt-float,body:has(#home:no
 /* phones: a horizontal pill at the bottom instead, so it doesn't sit over the cards */
 @media (max-width:599px){
  .mt-float{flex-direction:row;top:auto;right:auto;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translate(calc(50vw + 24px),0)}
- body:has(#home:not([inert],.fl-drag) #it-media.open) #mt-float,body:has(#home:not([inert],.fl-drag) #it-music.open) #st-float{transform:translate(-50%,0)}
+ body:has(#home:not([inert],.fl-drag) #it-media.open) #mt-float{transform:translate(-50%,0)}
 }
 @media (prefers-reduced-motion:reduce){.mt-float{transition:none!important}}
 /* watch + listen cards */
@@ -1497,13 +1497,17 @@ a.dc-c .dq{color:var(--ink-2)}
 .mu-a.on-show .mu-ava{box-shadow:0 0 0 2.5px var(--bg),0 0 0 5px var(--stage)}
 .mu-a.on-new .mu-ava{box-shadow:0 0 0 2.5px var(--bg),0 0 0 5px var(--soon)}
 /* lineup waveform: one bar per spot, flat until it's filled; rises when the page opens */
-.wv{display:flex;align-items:flex-end;gap:1px;height:44px;margin:2px 2px 0}
-.wv i{flex:1;min-width:0;height:var(--h,3px);border-radius:2px;background:var(--ink-3);transform-origin:bottom;transition:transform .55s cubic-bezier(.2,.8,.2,1) calc(var(--i)*4ms)}
+.wv{position:relative;display:flex;align-items:flex-end;gap:1px;height:120px;margin:2px 2px 0;cursor:pointer}
+.wv i{flex:1;min-width:0;height:var(--h,3px);border-radius:2px;background:color-mix(in srgb,var(--ink-3) 55%,transparent);transform-origin:bottom;transition:transform .55s cubic-bezier(.2,.8,.2,1) calc(var(--i)*4ms)}
 .wv i.off{height:3px;background:var(--fill-2)}
 .wv i.on-show{background:var(--stage)}
 .wv i.on-new{background:var(--soon)}
+.wv i.sel{background:var(--ink)}
+.wv-tip{position:absolute;bottom:calc(100% + 6px);left:0;transform:translateX(-50%);padding:4px 10px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:12.5px;font-weight:650;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s}
+.wv-tip.on{opacity:1}
+@media (min-width:600px){.wv{height:210px;gap:2px}.wv i{border-radius:3px}}
 .it:not(.open) .wv i{transform:scaleY(.12);transition:none}
-.wv-m{display:flex;justify-content:space-between;gap:12px;margin:8px 2px 18px;font-size:12.5px;color:var(--ink-3)}
+.wv-m{display:flex;justify-content:space-between;gap:12px;margin:10px 2px 24px;font-size:13px;color:var(--ink-3)}
 .wv-m>span:last-child{margin-left:auto;text-align:right}
 .wv-l{display:flex;gap:12px}
 .wv-k{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
@@ -1523,81 +1527,26 @@ a.dc-c .dq{color:var(--ink-2)}
 .tk .where{font-size:13.5px;color:var(--ink-2);margin-top:3px}
 .tk p{font-size:14px;line-height:1.42;color:var(--ink-2);margin-top:9px}
 .tk .acts{grid-column:1/-1;display:flex;gap:6px;margin-top:10px;align-self:end}
-.tk-faces{grid-column:2;grid-row:1/span 3;display:flex;align-self:start}
-.tk-faces img{width:42px;height:42px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--surface)}
-.tk-faces img+img{margin-left:-14px}
-.tks{display:grid;gap:12px;grid-template-columns:minmax(0,1fr)}
-.tks>.tk:only-child{grid-column:1/-1}
-.tk.big{--stub:92px}
-.tk.big .tk-stub{background:linear-gradient(165deg,#5B21B6,#A21CAF 68%,#DB2777);border-right-color:rgba(255,255,255,.7);color:#fff}
-.tk.big .tk-stub small{color:rgba(255,255,255,.82)}
-.tk.big .tk-stub b{font-size:48px}
-.tk-bar{width:62%;height:18px;margin-top:10px;opacity:.75;background:repeating-linear-gradient(90deg,#fff 0 2px,transparent 2px 4px,#fff 4px 5px,transparent 5px 9px,#fff 9px 12px,transparent 12px 14px)}
-.tk.big .tk-b{padding:18px 16px 14px 18px}
-.tk.big h3{font-family:var(--display);font-size:23px;font-weight:700;line-height:1.14;letter-spacing:-.022em}
-.tk.big .where{font-size:14.5px;margin-top:5px}
-.tk.big .tk-faces img{width:56px;height:56px}
-.tk.big .tk-faces img+img{margin-left:-18px}
-@media (min-width:600px){
- .tks{grid-template-columns:repeat(2,minmax(0,1fr))}
- .tk.big{--stub:136px}
- .tk.big .tk-stub b{font-size:72px}
- .tk.big .tk-stub small{font-size:13px}
- .tk.big .tk-b{padding:22px 22px 18px 24px;column-gap:18px}
- .tk.big h3{font-size:30px}
- .tk.big .tk-faces img{width:88px;height:88px}
- .tk.big .tk-faces img+img{margin-left:-26px}
- .tk.big p{font-size:15px}
-}
 .ib.fol.is-full{opacity:.35;cursor:default}
-/* suggested: one artist on stage, the rest in a row of circles */
-.au-q{display:flex;gap:10px;overflow-x:auto;padding:5px 4px 12px;scrollbar-width:none}
-.au-q::-webkit-scrollbar{display:none}
-.au-qb{flex:none;width:44px;height:44px;border-radius:50%;padding:0;overflow:hidden;background:var(--fill);opacity:.55;transition:opacity .2s}
-.au-qb img,.au-qb .ava{width:100%;height:100%;object-fit:cover;display:grid;place-items:center;border-radius:50%;font-size:17px;font-weight:700}
-.au-qb.on{opacity:1;overflow:visible;box-shadow:0 0 0 2.5px var(--bg),0 0 0 4.5px var(--stage)}
-.au{background:var(--surface);border-radius:18px;box-shadow:var(--shadow);padding:18px}
-.au-top{display:flex;gap:18px;align-items:center}
-.au-pic{position:relative;flex:none;width:104px;height:104px}
-.au-ph{display:block;width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--fill)}
-.au-ph img,.au-ph .ava{width:100%;height:100%;object-fit:cover;display:grid;place-items:center;font-size:40px;font-weight:700;border-radius:50%}
-.au-seed{position:absolute;right:-4px;bottom:-4px;width:38px;height:38px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--surface)}
-.au-x{flex:1;min-width:0}
-.au-x h3{font-family:var(--display);font-size:25px;font-weight:700;letter-spacing:-.022em;line-height:1.12}
-.au-like{font-size:14.5px;color:var(--ink-2);margin-top:3px}
-.au-why{font-size:14px;line-height:1.4;color:var(--ink-3);margin-top:6px}
-.au .acts{display:flex;gap:6px;margin-top:11px}
-.au-show{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-top:16px;padding-top:15px;border-top:1.5px dashed color-mix(in srgb,var(--ink-3) 45%,transparent)}
-.au-sx{flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:2px}
-.au-sx b{font-size:15.5px;font-weight:650;line-height:1.25}
-.au-sx>span{font-size:13.5px;color:var(--ink-2)}
-.au-sx .chips2{margin-top:6px}
-.au-p{font-size:12.5px;color:var(--ink-3)}
-.au-show .acts{margin-top:0}
-.au-play{margin-top:14px}
-.au-play iframe{display:block;width:100%;height:152px;border:0;border-radius:12px;background:var(--fill)}
-@media (min-width:600px){
- /* room for the side pill, so it never sits over a circle */
- #s-music>div{padding-right:46px}
- .au{padding:22px}
- .au-top{gap:24px}
- .au-pic{width:148px;height:148px}
- .au-seed{width:54px;height:54px}
- .au-x h3{font-size:32px}
- .au-like{font-size:15.5px}
- .au-why{font-size:15px}
-}
-.tk .tagc{white-space:nowrap}
-@media (max-width:599px){
- .tk.big{flex-direction:column}
- .tk.big::before,.tk.big::after{top:calc(var(--stubh) - 8px);bottom:auto}
- .tk.big{--stubh:66px}
- .tk.big::before{left:-8px}.tk.big::after{left:auto;right:-8px}
- .tk.big .tk-stub{flex:0 0 var(--stubh);flex-direction:row;justify-content:flex-start;align-items:center;gap:8px;padding:0 18px;border-right:0;border-bottom:1.5px dashed rgba(255,255,255,.7)}
- .tk.big .tk-stub b{font-size:38px}
- .tk.big .tk-bar{margin:0 0 0 auto;width:72px;height:26px}
-}
-@media (min-width:768px){.mu-row{gap:12px 8px;grid-template-columns:repeat(auto-fill,minmax(112px,1fr))}.mu-ava{width:92px;height:92px}.mu-a b{font-size:13px}}
+.tk .tagc{white-space:nowrap;margin-top:0}
+/* inside an artist's sheet */
+.mu-h{gap:10px;justify-content:flex-start}
+.mu-h h3{flex:1;min-width:0;font-size:24px;line-height:1.12}
+.mu-h .mu-ava{width:56px;height:56px;flex:0 0 56px;box-shadow:none}
+.mu-h .mu-ava .ava{font-size:22px}
+.mu-g{display:grid;gap:12px}
+.mu-g+.grp-t{margin-top:20px}
+#mu-sheet .tk{box-shadow:none}
+.mr{display:flex;gap:14px;padding:14px;border-radius:18px;background:var(--surface)}
+.mr-art{flex:0 0 92px;width:92px;height:92px;border-radius:12px;object-fit:cover}
+.mr-none{display:grid;place-items:center;color:#fff;background:hsl(var(--h) 45% 32%)}
+.mr-none svg{width:34px;height:34px}
+.mr-b{flex:1;min-width:0}
+.mr h3{font-size:16px;line-height:1.26;font-weight:650;letter-spacing:-.01em}
+.mr .where{font-size:13.5px;color:var(--ink-2);margin-top:3px}
+.mr p{font-size:14px;line-height:1.42;color:var(--ink-2);margin-top:7px}
+.mr .acts{display:flex;gap:6px;margin-top:10px}
+@media (min-width:768px){.mu-row{gap:20px 10px;grid-template-columns:repeat(5,minmax(0,1fr))}.mu-ava{width:min(100%,124px);height:auto;aspect-ratio:1}.mu-a b{font-size:14px}.mu-h .mu-ava{width:56px;height:56px;aspect-ratio:auto}}
 .h-foot{text-align:center;padding-top:16px;font-size:13px;color:var(--ink-3);line-height:1.5}
 .h-foot b{color:var(--ink-2)}
 .h-foot .warn{color:var(--warn-ink)}
@@ -2201,8 +2150,8 @@ const CONFIG={
    - discover.spotify: optional extra episodes from new shows released in the last 5 days.
    - bay: {range,items[{id,title,where,blurb,date,endDate?,free?,url,tickets?,cal:{start,end,location,tips}}]}
      things to do around the Bay over the next few days.
-   - shows: {note,items[{artist,artists?[],title,date,time:"HH:MM",venue,city,match:"list"|"like",like?,
-     why?,price?,trip?,soldOut?,url,cal}]} your artists' shows + similar artists, sorted by date.
+   - shows: {note,items[{artist,artists?[],title,date,time:"HH:MM",venue,city,price?,trip?,soldOut?,url,cal}]} every
+     show for his artists in the Bay Area or a reasonable drive (trip:true), sorted by date.
    - movies: {now[{title,genre,rating?,runtime?(min),score?(RT %),released,blurb,url?,trailer?,poster?}]}.
      url defaults to Fandango, trailer to YouTube.
    - vocab[]: {date,word,pron,pos,def,examples:[2 natural sentences],cards:[{f,b}×3]}; today first,
@@ -2781,7 +2730,7 @@ function teaser(id){
  /* the readout counts what's new from his own lists; suggestions are mentioned only when that's all there is */
  if(id==="media"){const yt=ytItems(),sp=spItems(),all=[...yt,...sp],it=all.filter(v=>!v.sugg);if(!it.length)return(all.length?mo(`${all.length} suggested`):tx("Nothing new","q"));const yc=yt.filter(v=>!v.sugg).length,sc=sp.filter(v=>!v.sugg).length;return(yc?lg(I.yt,"yt")+mo(`${yc} new`):"")+(sc?lg(I.spotify)+mo(`${sc} new`):"")}
  if(id==="live"){const it=liveItems();if(!it.length)return tx(teamList().length?(S.live?"Nothing on this week":"Checking…"):"Add your teams","q");const f=it.find(x=>x.state==="in")||it.find(x=>x.state==="pre")||it[0];const w=liveWhen(f);return (f.state==="in"?mo("Live","up"):f.state==="post"?kk("Final"):mo(esc(until(w.k,String(new Date(f.when).getHours()).padStart(2,"0")+":00").l)))+tx(esc(f.title))+(f.tv&&f.tv[0]?kk(esc(f.tv[0])):"")}
- if(id==="music"){const shows=showItems().filter(showIsMine),rel=musicReleases(),pool=musicPool();if(shows.length){const f=shows[0];return mo(esc(until(f.date,f.time).l))+tx(esc(f.title+(f.venue?" · "+f.venue:"")))+(rel.length?lg(I.spotify)+mo(`${rel.length} new`):shows.length>1?mo(`+${shows.length-1}`):"")}if(rel.length){const r=rel[0];return lg(I.spotify)+mo(`${rel.length} new`)+tx(esc(r.artist+" · "+r.title))}return lg(I.spotify)+mo(`${lists().artists.length} of ${ARTIST_CAP}`)+tx(pool.length?`${pool.length} suggested`:"Nothing new","q")}
+ if(id==="music"){const{shows,rel}=musicActivity();if(shows.length){const f=shows[0];return mo(esc(until(f.date,f.time).l))+tx(esc(f.title+(f.venue?" · "+f.venue:"")))+(rel.length?lg(I.spotify)+mo(`${rel.length} new`):shows.length>1?mo(`+${shows.length-1}`):"")}if(rel.length){const r=rel[0];return lg(I.spotify)+mo(`${rel.length} new`)+tx(esc(r.artist+" · "+r.title))}return lg(I.spotify)+mo(`${lists().artists.length} of ${ARTIST_CAP}`)+tx("Nothing new","q")}
  if(id==="bay"){const it=bayItems();if(!it.length)return tx("Nothing picked yet","q");const f=it[0];return mo(esc(until(f.day,f.cal&&f.cal.start&&f.cal.start.slice(0,10)===f.day?f.cal.start.slice(11):"").l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
  if(id==="movies"){const{now}=mvData();if(!now.length)return tx("Nothing listed","q");return mo(`${now.length} playing`)+tx(esc(now[0].title))+(now[0].score?mo(now[0].score+"%",now[0].score>=60?"up":""):"")}
  if(id==="act"||id==="health"){if(!HEALTH.ok)return tx("Fitbit Air · no data yet","q");const r=healthLatest();if(!r)return tx("Fitbit Air · waiting for a sync","q");const parts=[];if(r.d<todayKey())parts.push(kk(esc(r.d===addDays(todayKey(),-1)?"Last night":fmtKey(r.d,{weekday:"short"}))));if(r.asleep){const h=Math.floor(r.asleep/60),m=r.asleep%60;parts.push(kk("Sleep"),tx(h+"h "+m+"m"))}if(r.steps)parts.push(mo(num(r.steps,0)),tx("steps"));if(r.rhr)parts.push(kk("HR"),tx(r.rhr+" bpm"));return parts.length?parts.join(""):tx("Fitbit Air · waiting for today's sync","q")}
@@ -2903,8 +2852,8 @@ function openFromHash(){const h=({tip:"coach",learn:"vocab",shows:"music"})[loca
 document.addEventListener("click",e=>{
  const t=e.target;
  const mt=t.closest("[data-mt]");if(mt){toggleMediaF(mt.dataset.mt);return}
- const st=t.closest("#st-float [data-st]");if(st){toggleShowsF(st.dataset.st);return}
- const ms=t.closest("[data-musug]");if(ms){S.muSug=+ms.dataset.musug;renderMusic();return}
+ const mua=t.closest("[data-mu]");if(mua){muOpen(mua.dataset.mu);return}
+ const wv=t.closest("#s-music .wv");if(wv){wvTap(wv,e.clientX);return}
  if(t.closest(".mt-float"))return;
  const fb=t.closest("[data-feed]");if(fb){setFeed(fb.dataset.feed,fb.dataset.v);return}
  const dv=t.closest("[data-drill]");if(dv){swGo(dv.dataset.drill==="next"?-1:1);return}
@@ -4035,7 +3984,6 @@ function spItems(){
 }
 /* "Like Chris Lake" → "~ Chris Lake" */
 const likeTxt=t=>String(t||"").replace(/^\s*(like|similar to)\s+/i,"~ ");
-function artistItems(){return(DATA.discover&&DATA.discover.artists||[]).filter(a=>!isDis("art:"+a.name))}
 /* Spotify's oEmbed endpoint gives cover art for any episode or artist link, no key needed */
 /* many of these run at once, so re-read the saved map after the fetch: writing back the copy from before it would wipe what the others just saved */
 async function spArt(url){const u=String(url).split("?")[0];const c=LS.get("sd-sp-art",{});if(c[u]!=null)return c[u];try{const r=await fetch("https://open.spotify.com/oembed?url="+encodeURIComponent(u),window.AbortSignal&&AbortSignal.timeout?{signal:AbortSignal.timeout(8000)}:{});if(!r.ok)return null;const j=await r.json();const m=LS.get("sd-sp-art",{});m[u]=j.thumbnail_url||"";LS.set("sd-sp-art",m);return m[u]}catch(e){return null}}
@@ -4224,7 +4172,7 @@ function localIso(iso){const d=new Date(iso);const p=new Intl.DateTimeFormat("en
    music.releases (new albums/singles) and discover.artists (similar
    artists); cover art comes from Spotify's oEmbed endpoint, no key needed.
    ================================================================= */
-function artistInfo(name){const k=norm(name);const pools=[(DATA.music&&DATA.music.artists)||[],(DATA.discover&&DATA.discover.artists)||[]];for(const p of pools){const hit=p.find(a=>norm(a.name)===k);if(hit)return hit}return null}
+function artistInfo(name){const k=norm(name);return((DATA.music&&DATA.music.artists)||[]).find(a=>norm(a.name)===k)||null}
 const artistUrl=a=>(a&&a.url)||"";
 /* Spotify photos for his listed artists, built in so they show without any lookups (keyed by norm(name)). Anyone not here falls back to the oEmbed lookup below. */
 const ARTIST_ART={"dylanmatthew":"ab6761610000517487e40a2e7808a9188ba9abda","sabai":"ab676161000051744f1fc725a2c23f3bb951421d","piri":"ab676161000051741f3a898eda73082c4618e541","illenium":"ab67616100005174670c3c362b6b4e622e04fdc4","virtualriot":"ab67616100005174f02c148a51fb4b5923d0f6d9","johnsummit":"ab6761610000517420662b32f3dbabad755dfb53","dontoliver":"ab67616100005174c52b798deb89eb8414a51b7b","slander":"ab676161000051749b8109ae98ff2e165c89ba72","samgellaitry":"ab67616100005174eb72fc3c4aa67a9c56973496","kanyewest":"ab676161000051746e835a500e791bf9c27a422a","tylerthecreator":"ab67616100005174df2728294ff77dd11eeb18fb","drake":"ab676161000051744293385d324db8558179afd9","macmiller":"ab67616100005174ed3b89aa602145fde71a163a","thenotoriousbig":"e56612ae56c9007e99ab36b83efd4faf6401260d","kidcudi":"ab676161000051745f00bb6dd7a7008d14156630","jcole":"ab67616100005174c401ea77e86ee984b1ba9fc2","kendricklamar":"ab6761610000517439ba6dcd4355c03de0b50918","partynextdoor":"ab67616100005174957320981e31e862bc2fb844","jackharlow":"ab67616100005174a429476ce354e2f9047ee841","postmalone":"ab67616100005174e17c0aa1714a03d62b5ce4e0","bigxthaplug":"ab67616100005174caecec918fd007e143100ed0","kotathefriend":"ab67616100005174305f14af938528751d1fc9de","xxxtentacion":"ab67616100005174f0c20db5ef6c6fbe5135d2e4","kodakblack":"ab67616100005174cbca429e353792c21e52edae","travisscott":"ab6761610000517419c2790744c792d05570bb71","future":"ab676161000051742c472c891062acb4f3068583","metroboomin":"ab6761610000517428f1e72b31e756ea3f3a51e7","schoolboyq":"ab67616100005174a59f2f483877c8d0142f71f3","chancetherapper":"ab67616100005174d4d18d62a36a26fe36b70e2a","amin":"ab6761610000517431ad986e8e1328db4b3d83cd","kofistone":"ab67616100005174f20d8739b61d46237194bf71","danielcaesar":"ab67616100005174e4d94f7cbebb17504c25d419","charlesbradley":"ab676161000051745b855b0ad3f90d4addabf7f2","darondo":"551ecdd7db53fa31de2483ce938f7180ba01c427","leonbridges":"ab67616100005174180ad25ea84456fc0dcb7e50","aliciakeys":"ab676161000051744518cf16a45e35fc0cc82862","samcooke":"ab6761610000517441aaa3a05d2ddba59454273e","bobbycaldwell":"ab67616100005174859f0afbeb1e9631fdc20783","thebeatles":"ab67616100005174357fdaf56c64a36a36741538","bobdylan":"ab67616100005174791742524609864273747ef5","johnnycash":"ab6761610000517494a8326675bfcafb20f0a235","tompettyandtheheartbreakers":"ab67616100005174c73be691a18c338234454a0b","eltonjohn":"ab676161000051740dc33a1c53bb58a84b45d6a7","abba":"ab67616100005174144d2bd5d672fcb0f38be00b","fatherjohnmisty":"ab676161000051748a78e4e37d117b9cc90a6363","bishopgunn":"ab6761610000517478d6e4e95ebd5ea343df4b9f","tylerchilders":"ab67616100005174f4e08c9a3cea561e8f3332a5","badbunny":"ab6761610000517481f47f44084e0a09b5f0fa13","gothbabe":"ab6761610000517492ba49f3331d4d700e29e08c","mtjoy":"ab676161000051747c92602e66076f1b0bf5843b","royelotis":"ab67616100005174f9611f076ce2c0d5fbda708d","balubrigada":"ab67616100005174ccc589c6a68e2d14796bb736","chrisstaples":"ab6761610000517490a16320e477f05895eea7f3","quinnxcii":"ab676161000051745398e3663bb866d0274d7309","ashestoamber":"ab67616100005174bb1e136dae4c5f5568fc29d3","richymitchthecoalminers":"ab67616100005174a1535e32029e0c51db89f108","nimino":"ab67616100005174a1ad01d0f9d550ea556655e4","oskarmedk":"ab676161000051743d852477c0758a128a8ac2af","odesza":"ab676161000051749f4a0cbfcc9b274344681ccb","rlgrime":"ab6761610000517419a62c7027111679b497a7e6","sammyvirji":"ab6761610000517409136f2de8ce6a345e21c0f6","louisthechild":"ab676161000051740adeb76a963e72d656320447","ganjawhitenight":"ab676161000051746a093f3ca0f5e122e964b590","flume":"ab67616100005174d6ec6e1162ee709ad829cf82","rfsdusol":"ab6761610000517414324c06b24ca79a0fea7aec","stavroz":"ab676161000051743d8491154d3aa2543b20344e","conrad":"ab676161000051741cee0c15e2748fdabccab112","thedare":"ab67616100005174625f4eebd07e07e68e87b4f1","eric404":"ab67616100005174d183133a008398ce676571eb","jkylhyde":"ab67616100005174b4eec31136adc9139cdd4140","keraladust":"ab67616100005174871624e5cf536584173829ec","hippiesabotage":"ab67616100005174079af37d8d608c6ef7fa138e","childishgambino":"ab67616100005174c3dc5429b676b16d451e5f77","khalid":"ab676161000051748f77c3eddc1869e9542b04bc","troyboi":"ab676161000051741479649e75753dfcb4393103","wileyfromatlanta":"ab67616100005174a238ddd365132bd0ec08769c","chrisstapleton":"ab67616100005174a0c87c8f329b436eac8b9784","bobmarleythewailers":"357fe6ef3655b1b33855e33546e3c174a38a1a36","raycharles":"ab676161000051746fc460f10177fa38af69b8bf","bigsean":"ab676161000051743d5b14b45d4c3d10d23b03ff","wizkhalifa":"ab67616100005174c66b0a8c3268f0b6556f64a8","russ":"ab67616100005174d155a3a187977765ffd9e07a","frankocean":"ab67616100005174ee3123e593174208f9754fab","felly":"ab676161000051748d93f6f27f71b40117a8b68b","milkychance":"ab6761610000517423eb1af2ef13c5db234ff824","earthgang":"ab67616100005174c0fdef3fa0f8d02f4bbe455a","babyjake":"ab67616100005174051b9466ebddc64ebd5d1059","saba":"ab67616100005174ed8fc47f905709e79b06f12e","masego":"ab676161000051749da1e8b32a425c09f433abbc","traycechapman":"ab67616100005174b1f98a6e8544fb540187efd2","daydreammasi":"ab676161000051744956c62c3705956c90db58c6","bakar":"ab67616100005174b66dc2607e5a3376ee4401ca","mounika":"ab6761610000517497ba77169fb5e3f4e079b2bc","sparkmastertape":"ab67616100005174cb12772d63f52f8a0f1bae0e","billwithers":"2ac716bdcc95f3639d6cf3cea19e2c9bde5ed509","franksinatra":"a283ecdc6252ae305c53d283846cae2e8b22e94c","brockhampton":"ab676161000051745685a95f87c28ae5efc5ba48","surfaces":"ab676161000051746805d66a1ce51ee4a7fe5046","aer":"ab6761610000517422b3966851d82d83b1483085","bigwild":"ab67616100005174989a743a1e2b4dc8e8db7658","sublime":"ab67616100005174e726280500259dbdb97a8be4","dangerincorporated":"ab67616100005174345a897ea36847a3371e1251","ruslan":"ab6761610000517413755155324e8c83fe2b69f3","brendanbennett":"ab67616100005174c58b0151e48930090c828e81"};
@@ -4235,84 +4183,63 @@ const wds=s=>" "+String(s||"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").tri
 const showNames=s=>lists().artists.filter(n=>{const w=wds(n);return w.trim()&&(wds(s.artist)===w||(s.artists||[]).some(a=>wds(a)===w)||wds(s.title).includes(w))});
 const showIsMine=s=>showNames(s).length>0;
 function showItems(){
- const has=a=>lists().artists.some(x=>norm(x)===norm(a)),tk=todayKey(),src=DATA.shows&&DATA.shows.items?DATA.shows.items:(DATA.bay&&DATA.bay.ahead||[]);
- return src.filter(s=>s.date>=tk&&!isDis("sh:"+s.title+"|"+s.date)).filter(s=>showIsMine(s)||(s.match!=="list"&&(!s.like||has(s.like)))).sort((x,y)=>x.date.localeCompare(y.date));
-}
-/* Suggested: one entry per artist, joining a suggested artist with their nearby show if they have one. Artists with a show come first. */
-const ARTIST_LINK={illenium:"45eNHdiiabvmbp4erw26rg",virtualriot:"4FXGRMSHh2JjHxVwS8dhH1",johnsummit:"7kNqXtgeIwFtelmRjWv205"};
-function musicPool(){
- const by=new Map(),put=(name,o)=>{const k=norm(name);by.set(k,{name,...(by.get(k)||{}),...o})};
- musicSuggested().forEach(a=>put(a.name,{seed:a.seed,url:a.url}));
- showItems().filter(s=>!showIsMine(s)&&!isDis("art:"+s.artist)).forEach(s=>{const k=norm(s.artist),cur=by.get(k);put(cur?cur.name:s.artist,{seed:(cur&&cur.seed)||s.like||"",show:s})});
- return[...by.values()].map(a=>{const id=ARTIST_LINK[norm(a.name)],url=a.url||(id?"https://open.spotify.com/artist/"+id:"");return{...a,url,art:artistArt({name:a.name,url})}}).sort((x,y)=>(y.show?1:0)-(x.show?1:0));
+ const tk=todayKey(),src=DATA.shows&&DATA.shows.items?DATA.shows.items:[];
+ return src.filter(s=>s.date>=tk&&!isDis("sh:"+s.title+"|"+s.date)).filter(showIsMine).sort((x,y)=>x.date.localeCompare(y.date));
 }
 function musicArtists(){return lists().artists.map(n=>{const i=artistInfo(n)||{name:n};return{name:n,url:artistUrl(i),art:artistArt(i),genres:i.genres||[]}})}
 function musicReleases(){const list=lists().artists;return((DATA.music&&DATA.music.releases)||[]).filter(r=>r&&r.title&&r.date&&ageDays(r.date)<=21&&list.some(a=>norm(a)===norm(r.artist))&&!isDis("mu:"+norm(r.artist+r.title))).map(r=>({...r,art:r.art||artistArt({url:r.url})||artistArt(artistInfo(r.artist))})).sort((a,b)=>String(b.date).localeCompare(String(a.date)))}
-function musicSuggested(){return artistItems().filter(a=>!lists().artists.some(x=>norm(x)===norm(a.name))).map(a=>({...a,art:artistArt(a),seed:String(a.because||"").replace(/^\s*(like|similar to|because you like)\s+/i,"")})).filter(a=>!a.seed||lists().artists.some(x=>norm(x)===norm(a.seed)))}
 const letterAva=(name,cls="")=>`<span class="ava ${cls}" style="background:hsl(${hue(name)} 45% 32%);color:#fff">${esc(String(name).replace(/^The /,"").slice(0,1).toUpperCase())}</span>`;
-/* the music page's one filter: tap one to isolate it, tap it again to go back to both */
-const showsF=()=>({sub:true,sug:true,...(pref("showsF")||{})});
-function musicFloat(){
- const fl=floatPill("st-float","Music filters"),f=showsF(),t=(k,ico,cls,l)=>`<button class="mt${cls?" "+cls:""} press${f[k]?" on":""}" data-st="${k}" aria-label="${l}" aria-pressed="${f[k]}">${ico}</button>`;
- fl.innerHTML=t("sub",I.check,"","Your artists")+t("sug",MT_PLUS,"mt-sg","Suggested");
+function musicActivity(){
+ const shows=showItems(),rel=musicReleases(),next=new Map(),isNew=new Set(rel.map(r=>norm(r.artist)));
+ shows.forEach(s=>showNames(s).forEach(n=>{const k=norm(n);if(!next.has(k))next.set(k,s.date)}));
+ return{shows,rel,next,isNew};
 }
-function toggleShowsF(k){const f=showsF(),other=k==="sub"?"sug":"sub";if(f[k]&&!f[other])f[other]=true;else{f[k]=true;f[other]=false}setPref("showsF",f);S.feedAnim="music";renderMusic();S.feedAnim=null}
+/* the waveform is the page: one bar per spot, with the circles under it. A ring or a colored bar means there's something to open. */
 function renderMusic(){
- const el=$("#s-music");if(!el)return;const f=showsF(),list=lists().artists;
- const shows=f.sub?showItems().filter(showIsMine):[],rel=f.sub?musicReleases():[],pool=f.sug?musicPool():[];
- const onShow=new Set(),isNew=new Set(rel.map(r=>norm(r.artist)));showItems().forEach(s=>showNames(s).forEach(n=>onShow.add(norm(n))));
- const faces=(s,n)=>{const names=[...new Set([...showNames(s),s.artist].filter(Boolean))],imgs=names.map(a=>artistArt(artistInfo(a)||{name:a})).filter(Boolean).slice(0,n);return imgs.length?`<div class="tk-faces" aria-hidden="true">${imgs.map(a=>`<img src="${esc(a)}" alt="" loading="lazy" onerror="this.remove()">`).join("")}</div>`:""};
- const ticket=(s,hero)=>{const k="sh:"+s.title+"|"+s.date,link=s.url||`https://www.ticketmaster.com/search?q=${encodeURIComponent(s.artist||s.title)}`,tip=hero?[s.price,s.cal&&s.cal.tips]:[s.price],tipTx=tip.filter(Boolean).join(" · ");
-  return`<article class="tk${hero?" big":""}"><div class="tk-stub" aria-hidden="true"><small>${esc(fmtKey(s.date,{weekday:"short"}))}</small><b class="num">${esc(fmtKey(s.date,{day:"numeric"}))}</b><small>${esc(fmtKey(s.date,{month:"short"}))}</small>${hero?'<i class="tk-bar"></i>':""}</div><div class="tk-b">
-  <div class="chips2">${cdChip(s.date,s.time)}${s.trip?`<span class="tagc trip">Road trip</span>`:""}</div>
-  ${faces(s,hero?2:1)}<h3>${esc(s.title)}</h3>
-  <div class="where">${esc([s.venue,s.city].filter(Boolean).join(", "))}${s.time?` · ${esc(hmLabel("T"+s.time))}`:""}</div>
-  ${hero&&s.why?`<p>${esc(s.why)}</p>`:""}${tipTx?`<div class="wk-tip">${I.tip}<span>${esc(tipTx)}</span></div>`:""}
-  <div class="acts">${calBtn(s.title,s.cal,s.url)}${gBtn([s.title,s.venue,s.city,fmtKey(s.date,{month:"long",day:"numeric",year:"numeric"})].filter(Boolean).join(" "))}${pinBtn(k,{kind:"sh",title:s.title,sub:[s.venue,s.city].filter(Boolean).join(", "),date:s.time?s.date+"T"+s.time:s.date,url:link})}${dxBtn(k,"music",s.title)}</div>
- </div></article>`};
- const relCard=r=>`<article class="vid mu"><div class="vid-th pth">${r.art?`<img class="bgb" src="${esc(r.art)}" alt="" loading="lazy"><img class="sq" src="${esc(r.art)}" alt="" loading="lazy">`:`<div class="pcv" style="--h:${hue(r.artist)}">${I.spotify}</div>`}</div><div class="vid-b"><div class="vid-ch">${r.art?`<img class="ava sqa" src="${esc(r.art)}" alt="">`:letterAva(r.artist,"sqa")}<b>${esc(r.artist)}</b></div><h3 class="clamp2"><a class="stretch" href="${esc(r.url||"https://open.spotify.com/search/"+encodeURIComponent(r.artist+" "+r.title))}" target="_blank" rel="noopener">${esc(r.title)}</a></h3><div class="vid-m">${esc([r.type?r.type.charAt(0).toUpperCase()+r.type.slice(1):"Release",ago(r.date),r.tracks?r.tracks+" tracks":""].filter(Boolean).join(" · "))}</div>${r.note?`<p class="clamp2">${esc(r.note)}</p>`:""}<div class="vid-f"><span class="open-in" title="Opens in Spotify">${I.spotify}</span><span class="vid-a">${pinBtn("mu:"+norm(r.artist+r.title),{kind:"mu",title:r.title,sub:r.artist,img:r.art||"",date:r.date,url:r.url||""})}${dxBtn("mu:"+norm(r.artist+r.title),"music",r.title)}</span></div></div></article>`;
- const state=n=>onShow.has(norm(n))?"on-show":isNew.has(norm(n))?"on-new":"";
- const artistTile=a=>`<a class="mu-a press ${state(a.name)}" href="${esc(a.url||"https://open.spotify.com/search/"+encodeURIComponent(a.name)+"/artists")}" target="_blank" rel="noopener"><span class="mu-ava">${a.art?`<img src="${esc(a.art)}" alt="" loading="lazy" onerror="this.remove()">`:letterAva(a.name)}</span><b>${esc(a.name)}</b></a>`;
- /* Suggested: one artist at a time. The photo, who they're like, their show if they have one and a player, with the rest waiting as a row of circles. */
- const ava=(a,cls="")=>a.art?`<img class="${cls}" src="${esc(a.art)}" alt="" loading="lazy" onerror="this.remove()">`:letterAva(a.name,cls);
- const i=Math.min(S.muSug||0,Math.max(pool.length-1,0)),cur=pool[i];S.muSug=i;
- const seedArt=cur&&cur.seed?artistArt(artistInfo(cur.seed)||{name:cur.seed}):"";
- const stageShow=s=>{const k="sh:"+s.title+"|"+s.date,link=s.url||`https://www.google.com/search?q=${encodeURIComponent(s.title)}`;return`<div class="au-show">${dateBlock(s.date)}<div class="au-sx"><b>${esc(s.title)}</b><span>${esc([s.venue,s.city].filter(Boolean).join(", "))}${s.time?` · ${esc(hmLabel("T"+s.time))}`:""}</span><div class="chips2">${cdChip(s.date,s.time)}${s.price?`<span class="au-p">${esc(s.price)}</span>`:""}</div></div><div class="acts">${calBtn(s.title,s.cal,s.url)}${gBtn([s.title,s.venue,s.city,fmtKey(s.date,{month:"long",day:"numeric",year:"numeric"})].filter(Boolean).join(" "))}${pinBtn(k,{kind:"sh",title:s.title,sub:[s.venue,s.city].filter(Boolean).join(", "),date:s.time?s.date+"T"+s.time:s.date,url:link})}</div></div>`};
- const stage=!cur?"":`<div class="grp-t">Suggested${pool.length>1?`<span class="num">${i+1} of ${pool.length}</span>`:""}</div>
- ${pool.length>1?`<div class="au-q" role="group" aria-label="Suggested artists">${pool.map((a,n)=>`<button class="au-qb press${n===i?" on":""}" data-musug="${n}" aria-label="${esc(a.name)}" aria-pressed="${n===i}" data-tip="${esc(a.name)}">${ava(a)}</button>`).join("")}</div>`:""}
- <article class="au"><div class="au-top"><div class="au-pic"><span class="au-ph">${ava(cur)}</span>${seedArt?`<img class="au-seed" src="${esc(seedArt)}" alt="" loading="lazy" onerror="this.remove()">`:""}</div>
- <div class="au-x"><h3>${esc(cur.name)}</h3>${cur.seed?`<p class="au-like">Like ${esc(cur.seed)}</p>`:""}${cur.show&&cur.show.why?`<p class="au-why">${esc(cur.show.why)}</p>`:""}
- <div class="acts">${cur.url?ib(cur.url,I.spotify,"Open in Spotify"):ib("https://open.spotify.com/search/"+encodeURIComponent(cur.name)+"/artists",I.spotify,"Search Spotify")}${followBtn("artists",cur.name,false,"Add to your lineup")}${dxBtn("art:"+cur.name,"music",cur.name)}</div></div></div>
- ${cur.show?stageShow(cur.show):""}${cur.url?`<div class="au-play" data-url="${esc(cur.url)}"></div>`:""}</article>`;
- /* the lineup: active artists first; one bar per spot in the waveform, the unfilled ones stay flat */
- const mine=musicArtists(),rank=a=>onShow.has(norm(a.name))?0:isNew.has(norm(a.name))?1:2,tiles=mine.map((a,i)=>[a,i]).sort((x,y)=>rank(x[0])-rank(y[0])||x[1]-y[1]).map(x=>x[0]);
- const wave=Array.from({length:Math.max(ARTIST_CAP,list.length)},(_,i)=>{const n=list[i];return n?`<i class="${state(n)}" style="--h:${28+hash(n)%73}%;--i:${i}"></i>`:`<i class="off" style="--i:${i}"></i>`}).join("");
+ const el=$("#s-music");if(!el)return;const list=lists().artists,{next,isNew}=musicActivity();
+ const state=n=>next.has(norm(n))?"on-show":isNew.has(norm(n))?"on-new":"";
+ const mine=musicArtists(),rank=a=>next.has(norm(a.name))?next.get(norm(a.name)):isNew.has(norm(a.name))?"9":"99";
+ const tiles=mine.map((a,i)=>[a,i]).sort((x,y)=>rank(x[0]).localeCompare(rank(y[0]))||x[1]-y[1]).map(x=>x[0]);
+ const pic=a=>`<span class="mu-ava">${a.art?`<img src="${esc(a.art)}" alt="" loading="lazy" onerror="this.remove()">`:letterAva(a.name)}</span><b>${esc(a.name)}</b>`;
+ const artistTile=a=>{const st=state(a.name);return st?`<button class="mu-a press ${st}" data-mu="${esc(a.name)}" aria-label="${esc(a.name)}: ${st==="on-show"?"show coming up":"new music"}">${pic(a)}</button>`:`<a class="mu-a press" href="${esc(a.url||"https://open.spotify.com/search/"+encodeURIComponent(a.name)+"/artists")}" target="_blank" rel="noopener">${pic(a)}</a>`};
+ const wave=Array.from({length:Math.max(ARTIST_CAP,list.length)},(_,i)=>{const n=list[i];if(!n)return`<i class="off" style="--i:${i}"></i>`;const st=state(n),h=hash(n);return`<i class="${st}" data-n="${esc(n)}" style="--h:${st?76+h%25:24+h%49}%;--i:${i}"></i>`}).join("");
  const left=ARTIST_CAP-list.length,room=left>0?`${left} ${left===1?"spot":"spots"} left`:"Full. Remove someone in settings to add another.";
- const legend=(onShow.size?'<span class="wv-k on-show">Show coming up</span>':"")+(isNew.size?'<span class="wv-k on-new">New music</span>':"");
- const lineup=!f.sub?"":`<div class="grp-t">Lineup<span class="num">${list.length} of ${ARTIST_CAP}</span></div><div class="wv" role="img" aria-label="${list.length} of ${ARTIST_CAP} spots filled">${wave}</div><div class="wv-m"><span class="wv-l">${legend}</span><span>${esc(room)}</span></div>${mine.length?`<div class="mu-row">${tiles.map(artistTile).join("")}</div>`:`<div class="card"><div class="empty-row">Add artists in settings.</div></div>`}`;
- musicFloat();
- const html=`<div class="${S.feedAnim==="music"?"feed-in":""}">
- ${!f.sub?"":shows.length?`<div class="grp-t">Next up</div>${ticket(shows[0],true)}`:`<div class="grp-t">Shows</div><div class="card"><div class="empty-row">No upcoming dates for your artists nearby.</div></div>`}
- ${shows.length>1?`<div class="grp-t">Also coming up<span>${shows.length-1}</span></div><div class="tks">${shows.slice(1).map(s=>ticket(s)).join("")}</div>`:""}
- ${rel.length?`<div class="grp-t">New music<span>${rel.length}</span></div><div class="vgrid">${rel.map(relCard).join("")}</div>`:""}
- ${stage}
- ${lineup}${!f.sub&&!cur?'<div class="grp-t">Suggested</div><div class="card"><div class="empty-row">That\'s everyone for today.</div></div>':""}</div>`;
+ const legend=(next.size?`<span class="wv-k on-show">${next.size} with shows</span>`:"")+(isNew.size?`<span class="wv-k on-new">${isNew.size} with new music</span>`:"");
+ const html=`<div class="grp-t">Lineup<span class="num">${list.length} of ${ARTIST_CAP}</span></div><div class="wv" role="img" aria-label="${list.length} of ${ARTIST_CAP} spots filled">${wave}</div><div class="wv-m"><span class="wv-l">${legend}</span><span>${esc(room)}</span></div>${mine.length?`<div class="mu-row">${tiles.map(artistTile).join("")}</div>`:`<div class="card"><div class="empty-row">Add artists in settings.</div></div>`}`;
  if(el._h!==html){el._h=html;el.innerHTML=html}
- muPlayer();
+ /* a detail sheet that's open follows along, and closes once it has nothing left to show */
+ const ms=$("#mu-sheet");if(ms&&S.muOpen){const h=muSheet(S.muOpen);if(!h)closeSheet();else if(h!==S.muH){S.muH=h;ms.outerHTML=h}}
 }
-/* one Spotify player, loaded only while the page is open and gone the moment it closes, so nothing keeps playing */
-function muPlayer(){
- const el=$("#s-music"),it=$("#it-music");if(!el||!it)return;const open=it.classList.contains("open");
- if(!it._muObs){it._muObs=new MutationObserver(()=>{const o=it.classList.contains("open");if(o!==it._muOpen){it._muOpen=o;muPlayer()}});it._muObs.observe(it,{attributes:true,attributeFilter:["class"]});it._muOpen=open}
- $$(".au-play",el).forEach(p=>{const id=(/artist\/([A-Za-z0-9]{22})/.exec(p.dataset.url)||[])[1],fr=$("iframe",p);
-  if(!open||!id){if(fr)fr.remove();return}
-  const src=`https://open.spotify.com/embed/artist/${id}?utm_source=generator&theme=0`;
-  if(fr&&fr.dataset.a===id)return;if(fr)fr.remove();
-  p.innerHTML=`<iframe data-a="${id}" src="${src}" title="Spotify player" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`});
+/* what's behind a ringed artist: their shows, then their new music */
+function muSheet(name){
+ const k=norm(name),{shows,rel}=musicActivity(),sh=shows.filter(s=>showNames(s).some(n=>norm(n)===k)),rl=rel.filter(r=>norm(r.artist)===k);
+ if(!sh.length&&!rl.length)return"";
+ const i=artistInfo(name)||{name},art=artistArt(i),url=artistUrl(i)||"https://open.spotify.com/search/"+encodeURIComponent(name)+"/artists";
+ const ticket=s=>{const key="sh:"+s.title+"|"+s.date,link=s.url||"https://www.google.com/search?q="+encodeURIComponent(s.title),tip=[s.price,s.cal&&s.cal.tips].filter(Boolean).join(" · ");
+  return`<article class="tk"><div class="tk-stub" aria-hidden="true"><small>${esc(fmtKey(s.date,{weekday:"short"}))}</small><b class="num">${esc(fmtKey(s.date,{day:"numeric"}))}</b><small>${esc(fmtKey(s.date,{month:"short"}))}</small></div><div class="tk-b">
+  <div class="chips2">${cdChip(s.date,s.time)}${s.trip?`<span class="tagc trip">Road trip</span>`:""}${s.soldOut?`<span class="tagc">Sold out</span>`:""}</div>
+  <h3>${esc(s.title)}</h3><div class="where">${esc([s.venue,s.city].filter(Boolean).join(", "))}${s.time?` · ${esc(hmLabel("T"+s.time))}`:""}</div>
+  ${tip?`<div class="wk-tip">${I.tip}<span>${esc(tip)}</span></div>`:""}
+  <div class="acts">${calBtn(s.title,s.cal,s.url)}${gBtn([s.title,s.venue,s.city,fmtKey(s.date,{month:"long",day:"numeric",year:"numeric"})].filter(Boolean).join(" "))}${pinBtn(key,{kind:"sh",title:s.title,sub:[s.venue,s.city].filter(Boolean).join(", "),date:s.time?s.date+"T"+s.time:s.date,url:link})}${dxBtn(key,"music",s.title)}</div>
+ </div></article>`};
+ const release=r=>{const key="mu:"+norm(r.artist+r.title),link=r.url||"https://open.spotify.com/search/"+encodeURIComponent(r.artist+" "+r.title);
+  return`<article class="mr">${r.art?`<img class="mr-art" src="${esc(r.art)}" alt="" loading="lazy" onerror="this.remove()">`:`<span class="mr-art mr-none" style="--h:${hue(r.artist)}">${I.spotify}</span>`}<div class="mr-b"><h3>${esc(r.title)}</h3><div class="where">${esc([r.type?r.type.charAt(0).toUpperCase()+r.type.slice(1):"Release",ago(r.date),r.tracks?r.tracks+" tracks":""].filter(Boolean).join(" · "))}</div>${r.note?`<p>${esc(r.note)}</p>`:""}
+  <div class="acts">${ib(link,I.spotify,"Open in Spotify")}${pinBtn(key,{kind:"mu",title:r.title,sub:r.artist,img:r.art||"",date:r.date,url:r.url||""})}${dxBtn(key,"music",r.title)}</div></div></article>`};
+ return`<div id="mu-sheet"><div class="sheet-h mu-h"><span class="mu-ava">${art?`<img src="${esc(art)}" alt="" onerror="this.remove()">`:letterAva(name)}</span><h3 id="sheet-title">${esc(name)}</h3>${ib(url,I.spotify,"Open in Spotify")}<button class="icon-btn press" data-act="close-sheet" aria-label="Close">${I.close}</button></div>
+ ${sh.length?`<div class="mu-g">${sh.map(ticket).join("")}</div>`:""}${rl.length?`<div class="grp-t">New music</div><div class="mu-g">${rl.map(release).join("")}</div>`:""}</div>`;
+}
+function muOpen(name){const h=muSheet(name);if(!h)return;S.muOpen=name;S.muH=h;openSheet(h)}
+/* bars are thin, so a tap picks the nearest colored one close by; on a plain bar it just says who that is */
+function wvTap(wv,x){
+ const bars=$$("i[data-n]",wv);if(!bars.length)return;const mid=b=>{const r=b.getBoundingClientRect();return(r.left+r.right)/2},near=l=>l.reduce((m,b)=>Math.abs(mid(b)-x)<Math.abs(mid(m)-x)?b:m);
+ const on=bars.filter(b=>b.className),hit=on.length?near(on):null;if(hit&&Math.abs(mid(hit)-x)<=16){muOpen(hit.dataset.n);return}
+ const b=near(bars),w=wv.getBoundingClientRect();let tip=$(".wv-tip",wv);if(!tip){tip=document.createElement("span");tip.className="wv-tip";wv.appendChild(tip)}
+ $$("i.sel",wv).forEach(i=>i.classList.remove("sel"));b.classList.add("sel");tip.textContent=b.dataset.n;tip.style.left=Math.round(mid(b)-w.left)+"px";tip.classList.add("on");
+ clearTimeout(wv._tt);wv._tt=setTimeout(()=>{tip.classList.remove("on");b.classList.remove("sel")},1800);
 }
 /* artist photos through Spotify's oEmbed endpoint, cached like episode art */
 async function loadMusicArt(){
- const urls=[...musicArtists().filter(a=>!a.art).map(a=>a.url),...musicSuggested().filter(a=>!a.art).map(a=>a.url),...musicReleases().map(r=>r.url)].filter(Boolean);
+ const urls=[...musicArtists().filter(a=>!a.art).map(a=>a.url),...musicReleases().map(r=>r.url)].filter(Boolean);
  const oe=LS.get("sd-sp-art",{});let need=[...new Set(urls)].filter(u=>oe[String(u).split("?")[0]]==null);
  if(!need.length)return;
  /* the backend asks Spotify directly, so try it first and use oEmbed for whatever's left */
@@ -4861,7 +4788,7 @@ const LIST_META={
  podcasts:{t:"Podcasts",ph:"Show name on Spotify",s:"Episodes from the last 5 days show up in Media, with a few suggestions picked from this list."},
  stocks:{t:"Stocks",ph:"Ticker, like NVDA",s:"Shown under U.S. stocks. Indexes start with ^, like ^GSPC."},
  crypto:{t:"Crypto",ph:"Ticker, like ETH",s:"Shown under Bitcoin with live prices."},
- artists:{t:"Artists",ph:"Artist name",s:"The Music page tracks their new releases and Bay Area shows. There's room for 100, so choose carefully."},
+ artists:{t:"Artists",ph:"Artist name",s:"The Music page tracks their new releases and shows around the Bay. There's room for 100, so choose carefully."},
  teams:{t:"Live",ph:"Team or thing, like 76ers, Ohio State, UFC, SpaceX",s:"Games, fights and launches for these go in Live, with the channel they're on. Teams in the NBA, NFL, MLB, NHL and college football/basketball; also UFC, F1, and launch providers like SpaceX, NASA, Rocket Lab or Blue Origin."}
 };
 function listEditor(k){const m=LIST_META[k];return`<div class="set-pad" id="le-${k}"><div class="set-t">${m.t}</div><div class="set-s">${m.s}</div>
