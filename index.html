@@ -4153,8 +4153,7 @@ function renderLiveTv(){
    <div class="acts">${it.url?ib(it.url,I.ext,"Details","pri"):""}${it.state!=="post"?calBtn(it.title,calLocal,it.url):""}${gBtn(it.title+(it.state==="pre"?" how to watch":" score"))}${pinBtn(it.id,{kind:"lv",title:it.title,sub:[it.tv&&it.tv[0],it.where].filter(Boolean).join(" · "),date:localIso(it.when),url:it.url})}${dxBtn(it.id,"live",it.title)}</div>
   </div></article>`};
  const groups=[["Today",items.filter(it=>dayKey(new Date(it.when))===tk)],["Tomorrow",items.filter(it=>dayKey(new Date(it.when))===addDays(tk,1))],["This week",items.filter(it=>dayKey(new Date(it.when))>addDays(tk,1))]].filter(g=>g[1].length);
- el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-teams">Your teams</button></div>
- ${groups.length?groups.map(([t,g])=>`<div class="grp-t">${t}<span>${g.length}</span></div>${cols(g.map(card))}`).join(""):`<div class="card"><div class="empty-row">${teamList().length?S.live?"Nothing on for your teams in the next week.":"Checking the schedules…":"Add a team in Settings to see what's on."}</div></div>`}`;
+ el.innerHTML=`${groups.length?groups.map(([t,g])=>`<div class="grp-t">${t}<span>${g.length}</span></div>${cols(g.map(card))}`).join(""):`<div class="card"><div class="empty-row">${teamList().length?S.live?"Nothing on for your teams in the next week.":"Checking the schedules…":"Add a team in Settings to see what's on."}</div></div>`}`;
 }
 /* ISO time in Pacific without the offset, the way calUrl wants it */
 function localIso(iso){const d=new Date(iso);const p=new Intl.DateTimeFormat("en-CA",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(d);const g=t=>(p.find(x=>x.type===t)||{}).value;return`${g("year")}-${g("month")}-${g("day")}T${g("hour").replace("24","00")}:${g("minute")}`}
@@ -4177,8 +4176,7 @@ function renderMusic(){
  const relCard=r=>`<article class="vid mu"><div class="vid-th pth">${r.art?`<img class="bgb" src="${esc(r.art)}" alt="" loading="lazy"><img class="sq" src="${esc(r.art)}" alt="" loading="lazy">`:`<div class="pcv" style="--h:${hue(r.artist)}">${I.spotify}</div>`}</div><div class="vid-b"><div class="vid-ch">${r.art?`<img class="ava sqa" src="${esc(r.art)}" alt="">`:letterAva(r.artist,"sqa")}<b>${esc(r.artist)}</b></div><h3 class="clamp2"><a class="stretch" href="${esc(r.url||"https://open.spotify.com/search/"+encodeURIComponent(r.artist+" "+r.title))}" target="_blank" rel="noopener">${esc(r.title)}</a></h3><div class="vid-m">${esc([r.type?r.type.charAt(0).toUpperCase()+r.type.slice(1):"Release",ago(r.date),r.tracks?r.tracks+" tracks":""].filter(Boolean).join(" · "))}</div>${r.note?`<p class="clamp2">${esc(r.note)}</p>`:""}<div class="vid-f"><span class="open-in" title="Opens in Spotify">${I.spotify}</span><span class="vid-a">${pinBtn("mu:"+norm(r.artist+r.title),{kind:"mu",title:r.title,sub:r.artist,img:r.art||"",date:r.date,url:r.url||""})}${dxBtn("mu:"+norm(r.artist+r.title),"music",r.title)}</span></div></div></article>`;
  const artistTile=a=>`<a class="mu-a press" href="${esc(a.url||"https://open.spotify.com/search/"+encodeURIComponent(a.name)+"/artists")}" target="_blank" rel="noopener"><span class="mu-ava">${a.art?`<img src="${esc(a.art)}" alt="" loading="lazy" onerror="this.remove()">`:letterAva(a.name)}</span><b>${esc(a.name)}</b>${a.genres&&a.genres.length?`<small>${esc(a.genres.slice(0,2).join(" · "))}</small>`:""}</a>`;
  const sugRow=a=>`<div class="mu-s"><span class="mu-ava sm">${a.art?`<img src="${esc(a.art)}" alt="" loading="lazy" onerror="this.remove()">`:letterAva(a.name)}</span><div class="mu-sx"><b>${esc(a.name)}</b><small>${esc(a.seed?"~ "+a.seed:a.because||"Suggested for you")}${a.genres&&a.genres.length?" · "+esc(a.genres.slice(0,2).join(", ")):""}</small></div><span class="vid-a">${a.url?ib(a.url,I.spotify,"Open in Spotify"):""}${followBtn("artists",a.name,false,"Suggested because you like "+(a.seed||"your artists"))}${dxBtn("art:"+a.name,"music",a.name)}</span></div>`;
- el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-artists">Your artists</button></div>
- ${rel.length?`<div class="grp-t">New from your artists<span>${rel.length}</span></div><div class="vgrid">${rel.map(relCard).join("")}</div>`:`<div class="grp-t">New from your artists</div><div class="card"><div class="empty-row">Nothing new from your artists in the last 3 weeks.</div></div>`}
+ el.innerHTML=`${rel.length?`<div class="grp-t">New from your artists<span>${rel.length}</span></div><div class="vgrid">${rel.map(relCard).join("")}</div>`:`<div class="grp-t">New from your artists</div><div class="card"><div class="empty-row">Nothing new from your artists in the last 3 weeks.</div></div>`}
  <div class="grp-t">Your artists<span>${mine.length}</span></div>
  ${mine.length?`<div class="mu-row noscroll">${mine.map(artistTile).join("")}</div>`:`<div class="card"><div class="empty-row">Add artists in Settings.</div></div>`}
  ${sug.length?`<div class="grp-t">Suggested<span>${sug.length}</span></div><div class="card mu-sl">${sug.map(sugRow).join("")}</div>`:""}`;
@@ -4837,7 +4835,6 @@ function settingsHTML(){
 
 /* A SECTION'S PAGE — back to Settings and the section's name, then what it follows
    (the lists and choices), then its sync status, the switch, and anything advanced. */
-const LIST_SEC={channels:"media",podcasts:"media",stocks:"mkt",crypto:"mkt",artists:"music",teams:"live"};
 const LIST_LABEL={channels:"Channels",podcasts:"Podcasts",stocks:"Stocks",crypto:"Crypto",artists:"Artists",teams:"Teams and events"};
 function listGroup(k,note){const m=LIST_META[k],l=lists()[k],label=LIST_LABEL[k]||m.t;
  return`<div class="set-l"><span>${esc(label)}</span><span class="set-c num">${l.length}</span></div>
@@ -5109,9 +5106,6 @@ document.addEventListener("click",async e=>{
   if(act==="year"){const p=yearProgress(),q=p.q[p.cur];toast(q?`Q${p.cur+1} · day ${Math.min(q.n,Math.floor(q.n*q.f)+1)} of ${q.n} · ${Math.floor(q.f*100)}% through`:`${p.y} is done`);return}
   if(act==="order-reset"){setPref("order",[]);applyOrder();refreshSettings();toast("Back to the original order");return}
   /* "Your channels", "Movie settings" and the like open that section's page in Settings */
-  if(act==="settings-list"){openSettings(LIST_SEC[a.dataset.k]);return}
-  if(act==="settings-teams"){openSettings("live");return}
-  if(act==="settings-artists"){const sec=a.closest("[data-sec]");openSettings(sec&&sec.dataset.sec==="shows"?"shows":"music");return}
   if(act==="close-sheet"){closeSheet();return}
   if(act==="undo"){const u=toastUndo;toastUndo=null;$("#toast").classList.remove("show");if(u)u();return}
   if(act==="pins-clear"){clearPins();return}
