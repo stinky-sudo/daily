@@ -478,14 +478,20 @@ h1,h2,h3,p{margin:0}
 .bec svg{width:13px;height:13px;flex:0 0 auto;margin-top:2px;color:var(--link)}
 .dsc-acts{position:relative;z-index:1;display:flex;gap:6px;margin-top:9px}
 
-/* media source/type toggles — a frosted vertical pill floating on the right edge,
-   shown only while Media is open. Lives on <body> so page swipes never move it. */
-#mt-float{position:fixed;z-index:40;top:50%;right:max(12px,env(safe-area-inset-right));
+/* section toggles (Media, Shows) — a frosted vertical pill floating on the right edge.
+   It slides in from past the right side of the screen while its section is open and back
+   out when it closes. Lives on <body> so page swipes never move it. Only the real page
+   counts: the inert copy a swipe drags in has its own open row, and each pill should hold
+   until the swipe lands, so one leaves as the next arrives. .fl-drag is the page lifting
+   off back to the list: the pill leaves with it rather than after it. */
+.mt-float{position:fixed;z-index:40;top:50%;right:max(12px,env(safe-area-inset-right));
  display:flex;flex-direction:column;align-items:center;gap:4px;padding:5px;border-radius:999px;
  background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);
  box-shadow:0 0 0 1px var(--glass-edge),0 10px 30px -10px rgba(0,0,0,.35);
- opacity:0;pointer-events:none;transform:translate(14px,-50%);transition:opacity .25s ease,transform .3s cubic-bezier(.2,.8,.2,1)}
-body:has(#it-media.open) #mt-float{opacity:1;pointer-events:auto;transform:translate(0,-50%)}
+ visibility:hidden;pointer-events:none;transform:translate(calc(100% + max(12px,env(safe-area-inset-right)) + 24px),-50%);
+ transition:transform .26s cubic-bezier(.4,0,1,1),visibility 0s linear .26s}
+body:has(#home:not([inert],.fl-drag) #it-media.open) #mt-float,body:has(#home:not([inert],.fl-drag) #it-shows.open) #st-float{visibility:visible;pointer-events:auto;transform:translate(0,-50%);
+ transition:transform .42s cubic-bezier(.2,.8,.2,1) .1s,visibility 0s}
 .mt{width:40px;height:40px;margin:0;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto;
  color:var(--ink-2);opacity:.38;background:transparent;transition:opacity .2s,background .2s,color .2s}
 .mt.on{opacity:1;background:var(--glass-on);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
@@ -494,9 +500,10 @@ body:has(#it-media.open) #mt-float{opacity:1;pointer-events:auto;transform:trans
 .mt-gap{flex:0 0 6px}
 /* phones: a horizontal pill at the bottom instead, so it doesn't sit over the cards */
 @media (max-width:599px){
- #mt-float{flex-direction:row;top:auto;right:auto;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translate(-50%,14px)}
- body:has(#it-media.open) #mt-float{transform:translate(-50%,0)}
+ .mt-float{flex-direction:row;top:auto;right:auto;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translate(calc(50vw + 24px),0)}
+ body:has(#home:not([inert],.fl-drag) #it-media.open) #mt-float,body:has(#home:not([inert],.fl-drag) #it-shows.open) #st-float{transform:translate(-50%,0)}
 }
+@media (prefers-reduced-motion:reduce){.mt-float{transition:none!important}}
 /* watch + listen cards */
 .vid{position:relative}
 .vid-b{display:flex;flex-direction:column;flex:1;min-height:200px;padding:12px 15px 14px}
@@ -2794,7 +2801,8 @@ function openFromHash(){const h=({tip:"coach",learn:"vocab"})[location.hash.slic
 document.addEventListener("click",e=>{
  const t=e.target;
  const mt=t.closest("[data-mt]");if(mt){toggleMediaF(mt.dataset.mt);return}
- if(t.closest("#mt-float"))return;
+ const st=t.closest("[data-st]");if(st){toggleShowsF(st.dataset.st);return}
+ if(t.closest(".mt-float"))return;
  const fb=t.closest("[data-feed]");if(fb){setFeed(fb.dataset.feed,fb.dataset.v);return}
  const dv=t.closest("[data-drill]");if(dv){swGo(dv.dataset.drill==="next"?-1:1);return}
  const h=t.closest(".it-hd");if(h&&!t.closest(".it-o,.it-nv")){toggleItem(h.closest(".it").dataset.it);return}
@@ -3854,8 +3862,9 @@ function ytItems(){
 const mediaF=()=>{const d={yt:true,sp:true,sub:true,sug:true};return{...d,...(pref("mediaF")||{})}};
 const MT_PLUS=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>`;
 const MT_LABEL={yt:"YouTube",sp:"Spotify",sub:"Subscribed",sug:"Suggested"};
+function floatPill(id,label){let fl=$("#"+id);if(!fl){fl=document.createElement("div");fl.id=id;fl.className="mt-float";fl.setAttribute("role","group");fl.setAttribute("aria-label",label);document.body.appendChild(fl)}return fl}
 function mediaFloat(){
- let fl=$("#mt-float");if(!fl){fl=document.createElement("div");fl.id="mt-float";fl.setAttribute("role","group");fl.setAttribute("aria-label","Media filters");document.body.appendChild(fl)}
+ const fl=floatPill("mt-float","Media filters");
  const f=mediaF();const t=(k,ico,cls)=>`<button class="mt${cls?" "+cls:""} press${f[k]?" on":""}" data-mt="${k}" aria-label="${MT_LABEL[k]}" aria-pressed="${f[k]}">${ico}</button>`;
  fl.innerHTML=t("yt",I.yt)+t("sp",I.spotify)+`<span class="mt-gap" aria-hidden="true"></span>`+t("sub",I.check)+t("sug",MT_PLUS,"mt-sg");
 }
@@ -3987,9 +3996,16 @@ function showItems(){
  const src=DATA.shows&&DATA.shows.items?DATA.shows.items:(DATA.bay&&DATA.bay.ahead||[]);
  return src.filter(s=>s.date>=tk&&!isDis("sh:"+s.title+"|"+s.date)).filter(s=>s.match==="list"?(s.artists||[s.artist]).some(has):!s.like||has(s.like)).sort((x,y)=>x.date.localeCompare(y.date));
 }
+const showsF=()=>({sub:true,sug:true,...(pref("showsF")||{})});
+function showsFloat(){
+ const fl=floatPill("st-float","Shows filters"),f=showsF();const t=(k,ico,cls)=>`<button class="mt${cls?" "+cls:""} press${f[k]?" on":""}" data-st="${k}" aria-label="${MT_LABEL[k]}" aria-pressed="${f[k]}">${ico}</button>`;
+ fl.innerHTML=t("sub",I.check)+t("sug",MT_PLUS,"mt-sg");
+}
+/* same as Media: tap one to isolate it, tap it again to go back to both */
+function toggleShowsF(k){const f=showsF(),other=k==="sub"?"sug":"sub";if(f[k]&&!f[other])f[other]=true;else{f[k]=true;f[other]=false}setPref("showsF",f);S.feedAnim="shows";renderShows();S.feedAnim=null}
 function renderShows(){
- const el=$("#s-shows");if(!el)return;const items=showItems();const arts=lists().artists;
- const mine=items.filter(s=>s.match==="list"),like=items.filter(s=>s.match!=="list");
+ const el=$("#s-shows");if(!el)return;const f=showsF();
+ const items=showItems().filter(s=>s.match==="list"?f.sub:f.sug);
  const row=s=>{const tk=s.url||`https://www.ticketmaster.com/search?q=${encodeURIComponent(s.artist||s.title)}`;return`<article class="ev2">${dateBlock(s.date)}<div class="ev2-x">
   <div class="chips2" style="margin:0 0 6px">${cdChip(s.date,s.time)}${s.match==="list"?`<span class="tagc list">${I.check.replace("<svg",'<svg width="11" height="11"')}Your artist</span>`:s.like?`<span class="tagc" title="Similar to ${esc(s.like)}">~ ${esc(s.like)}</span>`:""}${s.trip?`<span class="tagc trip">Road trip</span>`:""}</div>
   <h3>${esc(s.title)}</h3>
@@ -3998,10 +4014,9 @@ function renderShows(){
   ${s.price||(s.cal&&s.cal.tips)?`<div class="wk-tip">${I.tip}<span>${esc([s.price,s.cal&&s.cal.tips].filter(Boolean).join(" · "))}</span></div>`:""}
   <div class="acts">${calBtn(s.title,s.cal,s.url)}${gBtn([s.title,s.venue,s.city,fmtKey(s.date,{month:"long",day:"numeric",year:"numeric"})].filter(Boolean).join(" "))}${pinBtn("sh:"+s.title+"|"+s.date,{kind:"sh",title:s.title,sub:[s.venue,s.city].filter(Boolean).join(", "),date:s.time?s.date+"T"+s.time:s.date,url:tk})}${dxBtn("sh:"+s.title+"|"+s.date,"shows",s.title)}</div>
  </div></article>`};
- el.innerHTML=`<div class="sh"><button class="aux" data-act="settings-artists">Your artists</button></div>
- <div class="grp-t">Your artists<span>${mine.length} ${mine.length===1?"show":"shows"}</span></div>
- ${mine.length?cols(mine.map(row)):`<div class="card"><div class="empty-row">No upcoming dates for your artists nearby.</div></div>`}
- ${like.length?`<div class="grp-t">Suggested<span>${like.length} ${like.length===1?"show":"shows"}</span></div>${cols(like.map(row))}`:""}`;
+ showsFloat();
+ const empty=f.sub&&f.sug?"No upcoming shows nearby.":f.sub?"No upcoming dates for your artists nearby.":"No suggested shows right now.";
+ el.innerHTML=`<div class="${S.feedAnim==="shows"?"feed-in":""}">${items.length?cols(items.map(row)):`<div class="card"><div class="empty-row">${esc(empty)}</div></div>`}</div>`;
 }
 
 /* =================================================================
