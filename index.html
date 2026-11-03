@@ -1257,7 +1257,7 @@ html{overflow-x:clip}
 .mv p{font-size:13px;line-height:1.4;color:var(--ink-2);margin-top:5px}
 .mv .chips2{margin-top:7px}
 /* poster cards are narrow: slightly smaller circles, wrapping if a screen is tighter still */
-.mv .acts{display:flex;flex-wrap:wrap;gap:4px;margin-top:9px}.mv .acts .ib{width:32px;height:32px}.mv .acts .ib svg,.mv .acts .ib img{width:17px;height:17px}.mv .acts .ib.dx svg{width:13px;height:13px}
+.mv .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.mv .acts .ib{width:32px;height:32px}.mv .acts .ib svg,.mv .acts .ib img{width:17px;height:17px}.mv .acts .ib.dx svg{width:13px;height:13px}
 .score{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 7px;border-radius:999px;font-size:11.5px;font-weight:700;background:var(--fill);color:var(--ink-2)}
 .score.fresh{background:rgba(250,50,10,.12);color:#E2381B}
 .score.rot{background:rgba(110,160,40,.14);color:#5C8F1E}
@@ -1326,8 +1326,8 @@ html{overflow-x:clip}
   .grp-t{font-size:13.5px}
   .pin-x b{font-size:15.5px}.pin-s{font-size:13.5px}.pin-k{font-size:11.5px}
   .pin-th{flex-basis:60px;height:60px}
-  /* poster cards are narrow on a tablet: smaller circles on one line, with the finger target reaching past each */
-  .mv .acts{flex-wrap:nowrap;justify-content:space-between;gap:4px}.mv .acts .ib{width:32px;height:32px}.mv .acts .ib::after{content:"";position:absolute;inset:-6px -2px}
+  /* same circles and spacing as the Shows and Live cards, with the finger target reaching past each */
+  .mv .acts{flex-wrap:nowrap}.mv .acts .ib{width:34px;height:34px}.mv .acts .ib::after{content:"";position:absolute;inset:-5px -3px}
 }
 /* iPad upright: two pins per view with a peek of the next */
 @media (min-width:600px) and (max-width:1099px) and (orientation:portrait){
