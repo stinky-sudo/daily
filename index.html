@@ -1258,8 +1258,6 @@ html{overflow-x:clip}
 /* poster cards are narrow: slightly smaller circles, wrapping if a screen is tighter still */
 .mv .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.mv .acts .ib{width:32px;height:32px}.mv .acts .ib svg,.mv .acts .ib img{width:17px;height:17px}.mv .acts .ib.dx svg{width:13px;height:13px}
 .score{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 7px;border-radius:999px;font-size:11.5px;font-weight:700;background:var(--fill);color:var(--ink-2)}
-.score.fresh{background:rgba(250,50,10,.12);color:#E2381B}
-.score.rot{background:rgba(110,160,40,.14);color:#5C8F1E}
 .mini-pst{flex:0 0 46px;height:68px;border-radius:9px}
 .mini-pst>svg{width:18px;height:18px}
 @media (min-width:768px){
@@ -2152,8 +2150,6 @@ const CONFIG={
      things to do around the Bay over the next few days.
    - shows: {note,items[{artist,artists?[],title,date,time:"HH:MM",venue,city,price?,trip?,soldOut?,url,cal}]} every
      show for his artists in the Bay Area or a reasonable drive (trip:true), sorted by date.
-   - movies: {now[{title,genre,rating?,runtime?(min),score?(RT %),released,blurb,url?,trailer?,poster?}]}.
-     trailer defaults to a YouTube search.
    - vocab[]: {date,word,pron,pos,def,examples:[2 natural sentences],cards:[{f,b}×3]}; today first,
      then the previous 6 days (ex is still read if examples is missing).
    - spanish[]: {date,phrase,pron,reg,meaning,note,parts:[{es,en}],dialog:[{es,en}×2],use,cards:[{es,en}×3]};
@@ -2731,7 +2727,7 @@ function teaser(id){
  if(id==="live"){const it=liveItems();if(!it.length)return tx(teamList().length?(S.live?"Nothing on this week":"Checking…"):"Add your teams","q");const f=it.find(x=>x.state==="in")||it.find(x=>x.state==="pre")||it[0];const w=liveWhen(f);return (f.state==="in"?mo("Live","up"):f.state==="post"?kk("Final"):mo(esc(until(w.k,String(new Date(f.when).getHours()).padStart(2,"0")+":00").l)))+tx(esc(f.title))+(f.tv&&f.tv[0]?kk(esc(f.tv[0])):"")}
  if(id==="music"){const{shows,rel}=musicActivity();if(shows.length){const f=shows[0];return mo(esc(until(f.date,f.time).l))+tx(esc(f.title+(f.venue?" · "+f.venue:"")))+(rel.length?lg(I.spotify)+mo(`${rel.length} new`):shows.length>1?mo(`+${shows.length-1}`):"")}if(rel.length){const r=rel[0];return lg(I.spotify)+mo(`${rel.length} new`)+tx(esc(r.artist+" · "+r.title))}return lg(I.spotify)+mo(`${lists().artists.length} of ${ARTIST_CAP}`)+tx("Nothing new","q")}
  if(id==="bay"){const it=bayItems();if(!it.length)return tx("Nothing picked yet","q");const f=it[0];return mo(esc(until(f.day,f.cal&&f.cal.start&&f.cal.start.slice(0,10)===f.day?f.cal.start.slice(11):"").l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
- if(id==="movies"){const{now}=mvData();if(!now.length)return tx("Nothing listed","q");return mo(`${now.length} playing`)+tx(esc(now[0].title))+(now[0].score?mo(now[0].score+"%",now[0].score>=60?"up":""):"")}
+ if(id==="movies"){const{now}=mvData();if(!now.length)return tx(mvEmpty(),"q");return mo(`${now.length} playing`)+tx(esc(now[0].title))}
  if(id==="act"||id==="health"){if(!HEALTH.ok)return tx("Fitbit Air · no data yet","q");const r=healthLatest();if(!r)return tx("Fitbit Air · waiting for a sync","q");const parts=[];if(r.asleep){const h=Math.floor(r.asleep/60),m=r.asleep%60;parts.push(kk(r.d<todayKey()?esc(fmtKey(addDays(r.d,-1),{weekday:"short"})+" night"):"Sleep"),tx(h+"h "+m+"m"))}if(r.steps)parts.push(mo(num(r.steps,0)),tx("steps"));if(r.rhr)parts.push(kk("HR"),tx(r.rhr+" bpm"));return parts.length?parts.join(""):tx("Fitbit Air · waiting for today's sync","q")}
  if(id==="learn"){const v=VOCAB[VOCAB.length-1],s=SPAN[SPAN.length-1];return (v?tx(esc(v.word),"ser"):"")+(s?`<span class="tx ser" lang="es">${esc(s.phrase)}</span>`:"")}
  return "";
@@ -4613,7 +4609,7 @@ function renderHealth(){
 
 /* MOVIES — what's playing now and what's coming */
 const trailerUrl=m=>m.trailer||`https://www.youtube.com/results?search_query=${encodeURIComponent(m.title+" official trailer")}`;
-const scoreChip=m=>m.tmdb?`<span class="score" title="TMDB audience score">★ ${(+m.tmdb).toFixed(1)}</span>`:m.score!=null?`<span class="score ${m.score>=60?"fresh":"rot"}" title="Rotten Tomatoes">${m.score>=60?"🍅":"🤢"} ${m.score}%</span>`:"";
+const scoreChip=m=>m.tmdb?`<span class="score" title="TMDB audience score">★ ${(+m.tmdb).toFixed(1)}</span>`:"";
 const PAL=[["#7A2E3A","#2A0F1E"],["#1F4E79","#0B1A2E"],["#6B4F1D","#21170A"],["#2E5E4E","#0C1F1A"],["#4B2E83","#160D2B"],["#8A3B12","#2A1006"],["#1E5C6B","#0A2127"],["#5A5A63","#1A1A1F"]];
 const initials=t=>String(t).replace(/^(The|A|An) /i,"").split(/[\s:\-]+/).filter(w=>/^[A-Za-z0-9]/.test(w)).slice(0,2).map(w=>w[0]).join("").toUpperCase();
 /* posters carry no text: without artwork they show a plain tile with a film icon */
@@ -4629,20 +4625,21 @@ function setMvSort(v){if(mvPrefs().sort===v)return;S.feedAnim="movies";setMvPref
 const mvGenres=x=>x.genres&&x.genres.length?x.genres:String(x.genre||"").split(/\s*[·,/]\s*/).filter(Boolean);
 /* showtimes near him: a Google search that lists every theater */
 const showtimesUrl=t=>"https://www.google.com/search?q="+encodeURIComponent((t?t+" ":"")+"showtimes near "+MV_AREA);
-function mvData(){const m=S.mv||DATA.movies||{};const tk=todayKey();const P=LS.get("sd-poster",{});const o=mvPrefs();const hide=new Set(o.hide.map(norm));
- const fix=x=>({...x,poster:x.poster||P[x.title]||""});
+/* why the list is empty: the page only shows the live list, or the last good copy of it */
+const mvEmpty=()=>S.mvErr==="no-key"?"Needs a TMDB key on the backend":S.mvErr?"Couldn't load movies":!devKey()?"Add your private key in Settings":S.mvBusy?"Loading movies…":"Nothing listed";
+function mvData(){const m=S.mv||{};const tk=todayKey();const o=mvPrefs();const hide=new Set(o.hide.map(norm));
  const keep=x=>!isDis("mv:"+x.title)&&!mvGenres(x).some(g=>hide.has(norm(g)));
  const isNew=x=>!!x.released&&dayDiff(x.released,tk)<=7;
- /* "in theaters" means it opened within the window and isn't a future date; older runs only count if the data says they're still playing */
- const inRun=x=>{const r=x.released||x.date;if(!r)return true;const d=dayDiff(r,tk);return d>=0&&(d<=MV_WIN||x.stillPlaying)};
+ /* "in theaters" means it opened within the window and isn't a future date */
+ const inRun=x=>{const r=x.released||x.date;if(!r)return true;const d=dayDiff(r,tk);return d>=0&&d<=MV_WIN};
  const now=(m.now||[]).filter(x=>keep(x)&&inRun(x));
  const byNew=(a,b)=>String(b.released||"").localeCompare(String(a.released||""));
  /* which 40: this week's openings always, then the most popular. The pill only reorders them, so the set holds still. */
  const picked=now.slice().sort((a,b)=>(isNew(b)-isNew(a))||((b.pop||0)-(a.pop||0))||byNew(a,b)).slice(0,MV_MAX);
- /* TMDB rates out of 10 and the morning list out of 100; films with no rating yet go last */
- const rate=x=>x.tmdb!=null?+x.tmdb:x.score!=null?x.score/10:-1;
+ /* films with no rating yet go last */
+ const rate=x=>x.tmdb!=null?+x.tmdb:-1;
  const shown=picked.sort(o.sort==="rated"?(a,b)=>(rate(b)-rate(a))||byNew(a,b):byNew);
- return{now:shown.map(fix),live:!!S.mv,total:now.length}}
+ return{now:shown,total:now.length}}
 const MV_ICO={newest:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>`,rated:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.6 2.6 5.3 5.8.85-4.2 4.1 1 5.8-5.2-2.75-5.2 2.75 1-5.8-4.2-4.1 5.8-.85z"/></svg>`};
 function mvFloat(){
  const fl=floatPill("mv-float","Sort movies");const v=mvPrefs().sort;
@@ -4650,27 +4647,22 @@ function mvFloat(){
  fl.innerHTML=t("newest","Newest")+t("rated","Top rated");
 }
 function renderMovies(){
- const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,live,total}=mvData();
+ const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,total}=mvData();
  mvFloat();
  const nowChip=x=>{if(!x.released)return"";const d=dayDiff(x.released,tk);return d<=3?`<span class="cd now"><i></i>New</span>`:d<7?`<span class="cd soon">Opened ${esc(fmtKey(x.released,{weekday:"short"}))}</span>`:`<span class="cd">Week ${Math.floor(d/7)+1}</span>`};
- el.innerHTML=`${now.length?`<div class="${S.feedAnim==="movies"?"feed-in":""}"><div class="grp-t">In theaters<span>${now.length}${live?" of "+total+" · TMDB":""}</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" movie near me")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:["In theaters",x.rating].filter(Boolean).join(" · "),img:x.poster,url:showtimesUrl(x.title)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div></div>`:""}
- ${!now.length?`<div class="card"><div class="empty-row">No movies listed today.</div></div>`:""}`;
+ el.innerHTML=`${now.length?`<div class="${S.feedAnim==="movies"?"feed-in":""}"><div class="grp-t">In theaters<span>${now.length} of ${total} · TMDB</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" movie near me")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:["In theaters",x.rating].filter(Boolean).join(" · "),img:x.poster,url:showtimesUrl(x.title)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div></div>`:""}
+ ${!now.length?`<div class="card"><div class="empty-row">${esc(mvEmpty())}</div></div>`:""}`;
 }
-/* Movies come live from TMDB through the backend (when a TMDB_KEY script property is set);
-   otherwise from the morning data, with posters looked up on Wikipedia. */
+/* Movies come live from TMDB through the backend (it needs a TMDB_KEY script property). The
+   last good list is kept on the device, so a failed refresh leaves it up rather than emptying the page. */
 async function loadMovies(force){
  const c=LS.get("sd-mv2",null);
- if(!force&&c&&Date.now()-c.t<3*36e5)S.mv=c.v;
- else if(backend()){try{const r=await be({fn:"movies"},25000);if(r.now){S.mv={now:r.now};S.mvErr="";LS.set("sd-mv2",{t:Date.now(),v:S.mv})}}catch(e){S.mvErr=e.message}}
+ if(c&&c.v)S.mv=c.v;
+ if((force||!c||Date.now()-c.t>=3*36e5)&&backend()&&devKey()){
+  S.mvBusy=true;renderMovies();renderTeasers();
+  try{const r=await be({fn:"movies"},25000);if(r.now){S.mv={now:r.now};S.mvErr="";LS.set("sd-mv2",{t:Date.now(),v:S.mv})}else S.mvErr=r.error||"empty"}catch(e){S.mvErr=e.message}
+  S.mvBusy=false}
  renderMovies();renderTeasers();
- if(!S.mv)loadPosters();
-}
-async function loadPosters(){
- const c=LS.get("sd-poster",{});const m=DATA.movies||{};const all=(m.now||[]).filter(x=>!x.poster&&c[x.title]==null);if(!all.length)return;
- await Promise.all(all.map(async x=>{const y=(x.released||x.date||"").slice(0,4);let net=false;
-  for(const t of[`${x.title} (${y} film)`,`${x.title} (film)`,x.title]){try{const r=await fetch("https://en.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(t.replace(/ /g,"_")));if(!r.ok)continue;const j=await r.json();if(j.type==="disambiguation"||!/film/i.test(j.description||""))continue;const u=(j.thumbnail&&j.thumbnail.source)||"";if(u){c[x.title]=u;return}}catch(e){net=true}}
-  if(!net)c[x.title]="";}));
- LS.set("sd-poster",c);renderMovies();
 }
 
 /* =================================================================
@@ -4854,16 +4846,16 @@ const SRC={
   if(S.sp&&S.sp.length)return{...b,s:"ok",d:`${S.sp.length} shows`+(c&&c.t?" · "+stamp(c.t):""),sh:c&&c.t?shortAt(c.t):"Live"};
   return S.spErr?{...b,s:"err",d:"Not responding",sh:"Can't connect"}:!backend()?{...b,s:"",d:"Needs your backend",sh:"Not set up"}:!lists().podcasts.length?{...b,s:"",d:"Add a podcast above",sh:"No podcasts"}:{...b,s:"",d:"Connecting…",sh:"Connecting…"}},
  tmdb:()=>{const b={n:"Film list",via:"TMDB"},c=LS.get("sd-mv2",null);
-  return S.mv?{...b,s:"ok",d:c&&c.t?stamp(c.t):"Live",sh:c&&c.t?shortAt(c.t):"Live"}:S.mvErr==="no-key"?{...b,s:"",d:"Needs a TMDB_KEY",sh:"Needs a key"}:S.mvErr?{...b,s:"err",d:"Not responding",sh:"Can't connect"}:{...b,s:"",d:"Using the morning list",sh:"Morning list"}},
+  return S.mvErr==="no-key"?{...b,s:"",d:"Needs a TMDB_KEY",sh:"Needs a key"}:S.mvErr?{...b,s:"err",d:"Not responding",sh:"Can't connect"}:S.mv?{...b,s:"ok",d:c&&c.t?stamp(c.t):"Live",sh:c&&c.t?shortAt(c.t):"Live"}:{...b,s:"",d:"Loading…",sh:"Loading…"}},
  fitbit:()=>{const b={n:"Health data",via:"Fitbit Air"},t=HEALTH&&HEALTH.ok?Date.parse(HEALTH.fetchedAt||HEALTH.date):0;
   return t?{...b,s:"ok",d:stamp(t),sh:shortAt(t)}:{...b,s:"",d:"No data yet",sh:"No data yet"}},
  sync:()=>{const b={n:"Settings sync",via:"Shared with your other devices"};if(!backend())return{...b,via:"",s:"",d:"This device only",sh:"This device"};
   return S.sync.state==="ok"?{...b,s:"ok",d:S.sync.at?"Synced "+stamp(S.sync.at):"Synced",sh:"Synced"}:S.sync.state==="err"?{...b,via:S.sync.msg||"No response",s:"err",d:"Couldn't sync",sh:"Can't sync"}:{...b,s:"",d:"Syncing…",sh:"Syncing…"}}
 };
 /* which sources feed each section; the first live one is what its row shows */
-const SEC_SRC={cal:["gcal","tasks"],live:["espn","morning"],mkt:["stocks","crypto","morning"],coach:["morning"],news:["morning"],media:["youtube","spotify","morning"],music:["morning"],bay:["morning"],movies:["tmdb","morning"],health:["fitbit"],vocab:["morning"],spanish:["morning"]};
+const SEC_SRC={cal:["gcal","tasks"],live:["espn","morning"],mkt:["stocks","crypto","morning"],coach:["morning"],news:["morning"],media:["youtube","spotify","morning"],music:["morning"],bay:["morning"],movies:["tmdb"],health:["fitbit"],vocab:["morning"],spanish:["morning"]};
 /* what the morning edition brings to each section */
-const MORNING_NOTE={live:"Picks for the week",mkt:"Headline, Bitcoin take and idea",coach:"Today's dare",news:"Today's written brief",media:"Picks and suggestions",music:"Shows, new releases and similar artists",bay:"This weekend's events",movies:"Backup list",vocab:"Today's word",spanish:"Today's phrase"};
+const MORNING_NOTE={live:"Picks for the week",mkt:"Headline, Bitcoin take and idea",coach:"Today's dare",news:"Today's written brief",media:"Picks and suggestions",music:"Shows, new releases and similar artists",bay:"This weekend's events",vocab:"Today's word",spanish:"Today's phrase"};
 /* for pages with nothing to choose, a line on what the section is */
 const SEC_ABOUT={
  cal:"The next few days from Google Calendar, plus your Google Tasks reminders.",
@@ -4931,7 +4923,7 @@ function keyGroup(){const stored=!!devKey();
  ${stored?`<button class="s-link danger" data-act="key-clear">Remove the key</button>`:""}</div></div>
  <p class="set-help">Unlocks your calendar, reminders, health and settings on this device. It never syncs, so each device needs it once.</p>`}
 function mvSetHTML(){
- const o=mvPrefs(),m=S.mv||DATA.movies||{};const gs=[...new Set((m.now||[]).flatMap(mvGenres).concat(o.hide))].sort();if(!gs.length)return"";
+ const o=mvPrefs(),m=S.mv||{};const gs=[...new Set((m.now||[]).flatMap(mvGenres).concat(o.hide))].sort();if(!gs.length)return"";
  const off=g=>o.hide.some(h=>norm(h)===norm(g));
  return`<div class="set-l"><span>Genres</span><span class="set-c num">${gs.filter(g=>!off(g)).length}</span></div><div class="set-g"><div class="set-pad"><div class="tags" style="margin:0">${gs.map(g=>`<button class="tag gtog press ${off(g)?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off(g)}" aria-label="${off(g)?"Show":"Hide"} ${esc(g)}">${esc(g)}<span aria-hidden="true">${off(g)?I.plus:I.close}</span></button>`).join("")}</div></div></div><p class="set-help">Tap a genre to hide it, and again to bring it back.</p>`;
 }
