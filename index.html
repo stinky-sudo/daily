@@ -1734,8 +1734,10 @@ a.dc-c .dq{color:var(--ink-2)}
 /* activity */
 .seg+.seg{margin-top:6px}
 .set-pad .seg{margin-top:8px}
-.tag.gtog{padding:0 12px;cursor:pointer}
-.tag.gtog.off{background:none;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink-3);text-decoration:line-through}
+.tag.gtog{cursor:pointer;color:var(--ink)}
+.tag.gtog>span{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:var(--ink-3)}
+.tag.gtog>span svg{width:12px;height:12px}
+.tag.gtog.off{color:var(--ink-3)}
 .ph-card{display:flex;gap:14px;align-items:center;padding:18px}
 .ph-card .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#E8336D;color:#fff;flex:0 0 auto}
 .ph-card .ic svg{width:24px;height:24px}
@@ -4616,24 +4618,23 @@ const PAL=[["#7A2E3A","#2A0F1E"],["#1F4E79","#0B1A2E"],["#6B4F1D","#21170A"],["#
 const initials=t=>String(t).replace(/^(The|A|An) /i,"").split(/[\s:\-]+/).filter(w=>/^[A-Za-z0-9]/.test(w)).slice(0,2).map(w=>w[0]).join("").toUpperCase();
 /* posters carry no text: without artwork they show a plain tile with a film icon */
 function poster(m,mini){const c=PAL[hash(m.title)%PAL.length];return`<div class="pst ${mini?"mini-pst":""}" style="--p1:${c[0]};--p2:${c[1]}">${I.film}${m.poster?`<img src="${esc(m.poster)}" alt="" loading="lazy" onerror="this.remove()">`:""}</div>`}
-/* movie options (synced): the order (set from the pill on the page), how long a film still
-   counts as "in theaters", hidden genres and the ZIP. Only these keys are read, so options
-   that used to live here and are still in the synced settings do nothing. */
-const MV_MAX=40;
-const MV_DEF={sort:"newest",win:45,hide:[],zip:"94040"};
-const mvPrefs=()=>{const p={...MV_DEF,...pref("movies",{})};return{sort:p.sort==="rated"?"rated":"newest",win:p.win,hide:p.hide,zip:p.zip}};
+/* movie options (synced): the order (set from the pill on the page) and hidden genres. Only
+   these keys are read, so options that used to live here and are still in the synced
+   settings do nothing. The area is fixed: Mountain View up to San Francisco. */
+const MV_MAX=40,MV_WIN=45,MV_AREA="Mountain View, CA";
+const MV_DEF={sort:"newest",hide:[]};
+const mvPrefs=()=>{const p={...MV_DEF,...pref("movies",{})};return{sort:p.sort==="rated"?"rated":"newest",hide:p.hide}};
 function setMvPref(k,v){setPref("movies",{...mvPrefs(),[k]:v});renderMovies();renderTeasers();refreshSettings()}
 function setMvSort(v){if(mvPrefs().sort===v)return;S.feedAnim="movies";setMvPref("sort",v);S.feedAnim=null}
 const mvGenres=x=>x.genres&&x.genres.length?x.genres:String(x.genre||"").split(/\s*[·,/]\s*/).filter(Boolean);
-const mvZip=()=>String(mvPrefs().zip||"94040").replace(/\D/g,"").slice(0,5)||"94040";
 /* showtimes near him: a Google search that lists every theater */
-const showtimesUrl=t=>"https://www.google.com/search?q="+encodeURIComponent((t?t+" ":"")+"showtimes near "+mvZip());
+const showtimesUrl=t=>"https://www.google.com/search?q="+encodeURIComponent((t?t+" ":"")+"showtimes near "+MV_AREA);
 function mvData(){const m=S.mv||DATA.movies||{};const tk=todayKey();const P=LS.get("sd-poster",{});const o=mvPrefs();const hide=new Set(o.hide.map(norm));
  const fix=x=>({...x,poster:x.poster||P[x.title]||""});
  const keep=x=>!isDis("mv:"+x.title)&&!mvGenres(x).some(g=>hide.has(norm(g)));
  const isNew=x=>!!x.released&&dayDiff(x.released,tk)<=7;
  /* "in theaters" means it opened within the window and isn't a future date; older runs only count if the data says they're still playing */
- const inRun=x=>{const r=x.released||x.date;if(!r)return true;const d=dayDiff(r,tk);return d>=0&&(d<=o.win||x.stillPlaying)};
+ const inRun=x=>{const r=x.released||x.date;if(!r)return true;const d=dayDiff(r,tk);return d>=0&&(d<=MV_WIN||x.stillPlaying)};
  const now=(m.now||[]).filter(x=>keep(x)&&inRun(x));
  const byNew=(a,b)=>String(b.released||"").localeCompare(String(a.released||""));
  /* which 40: this week's openings always, then the most popular. The pill only reorders them, so the set holds still. */
@@ -4649,10 +4650,10 @@ function mvFloat(){
  fl.innerHTML=t("newest","Newest")+t("rated","Top rated");
 }
 function renderMovies(){
- const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,live,total}=mvData();const o=mvPrefs();
+ const el=$("#s-movies");if(!el)return;const tk=todayKey();const{now,live,total}=mvData();
  mvFloat();
  const nowChip=x=>{if(!x.released)return"";const d=dayDiff(x.released,tk);return d<=3?`<span class="cd now"><i></i>New</span>`:d<7?`<span class="cd soon">Opened ${esc(fmtKey(x.released,{weekday:"short"}))}</span>`:`<span class="cd">Week ${Math.floor(d/7)+1}</span>`};
- el.innerHTML=`${now.length?`<div class="${S.feedAnim==="movies"?"feed-in":""}"><div class="grp-t">In theaters<span>${now.length}${live?" of "+total+" · TMDB":""} · last ${o.win} days</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" movie near me")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:["In theaters",x.rating].filter(Boolean).join(" · "),img:x.poster,url:showtimesUrl(x.title)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div></div>`:""}
+ el.innerHTML=`${now.length?`<div class="${S.feedAnim==="movies"?"feed-in":""}"><div class="grp-t">In theaters<span>${now.length}${live?" of "+total+" · TMDB":""}</span></div><div class="mv-rail noscroll">${now.map(x=>`<article class="mv">${poster(x)}<h3>${esc(x.title)}</h3><div class="meta">${esc([x.rating,x.genre,x.runtime?durText(x.runtime*60):""].filter(Boolean).join(" · "))}</div><div class="chips2">${nowChip(x)}${scoreChip(x)}</div>${x.blurb?`<p class="clamp3">${esc(x.blurb)}</p>`:""}<div class="acts">${ib(trailerUrl(x),I.play,"Watch trailer")}${gBtn(x.title+" movie near me")}${pinBtn("mv:"+x.title,{kind:"mv",title:x.title,sub:["In theaters",x.rating].filter(Boolean).join(" · "),img:x.poster,url:showtimesUrl(x.title)})}${dxBtn("mv:"+x.title,"movies",x.title)}</div></article>`).join("")}</div></div>`:""}
  ${!now.length?`<div class="card"><div class="empty-row">No movies listed today.</div></div>`:""}`;
 }
 /* Movies come live from TMDB through the backend (when a TMDB_KEY script property is set);
@@ -4852,7 +4853,7 @@ const SRC={
  spotify:()=>{const b={n:"Episodes",via:"Spotify"},c=LS.get("sd-sp2",null);
   if(S.sp&&S.sp.length)return{...b,s:"ok",d:`${S.sp.length} shows`+(c&&c.t?" · "+stamp(c.t):""),sh:c&&c.t?shortAt(c.t):"Live"};
   return S.spErr?{...b,s:"err",d:"Not responding",sh:"Can't connect"}:!backend()?{...b,s:"",d:"Needs your backend",sh:"Not set up"}:!lists().podcasts.length?{...b,s:"",d:"Add a podcast above",sh:"No podcasts"}:{...b,s:"",d:"Connecting…",sh:"Connecting…"}},
- tmdb:()=>{const b={n:"Showtimes",via:"TMDB"},c=LS.get("sd-mv2",null);
+ tmdb:()=>{const b={n:"Film list",via:"TMDB"},c=LS.get("sd-mv2",null);
   return S.mv?{...b,s:"ok",d:c&&c.t?stamp(c.t):"Live",sh:c&&c.t?shortAt(c.t):"Live"}:S.mvErr==="no-key"?{...b,s:"",d:"Needs a TMDB_KEY",sh:"Needs a key"}:S.mvErr?{...b,s:"err",d:"Not responding",sh:"Can't connect"}:{...b,s:"",d:"Using the morning list",sh:"Morning list"}},
  fitbit:()=>{const b={n:"Health data",via:"Fitbit Air"},t=HEALTH&&HEALTH.ok?Date.parse(HEALTH.fetchedAt||HEALTH.date):0;
   return t?{...b,s:"ok",d:stamp(t),sh:shortAt(t)}:{...b,s:"",d:"No data yet",sh:"No data yet"}},
@@ -4930,13 +4931,9 @@ function keyGroup(){const stored=!!devKey();
  ${stored?`<button class="s-link danger" data-act="key-clear">Remove the key</button>`:""}</div></div>
  <p class="set-help">Unlocks your calendar, reminders, health and settings on this device. It never syncs, so each device needs it once.</p>`}
 function mvSetHTML(){
- const o=mvPrefs();const seg=(k,opts)=>`<div class="seg" role="tablist">${opts.map(([v,l])=>`<button class="${o[k]===v?"on":""}" data-mvp="${k}" data-v="${v}" role="tab" aria-selected="${o[k]===v}">${l}</button>`).join("")}</div>`;
- const m=S.mv||DATA.movies||{};const gs=[...new Set((m.now||[]).flatMap(mvGenres).concat(o.hide))].sort();
- return`<div class="set-l"><span>In theaters</span></div><div class="set-g">
-  <div class="set-pad"><div class="set-t">Near</div><div class="set-s">Showtimes use this ZIP.</div><div class="inp-row" style="margin-top:8px"><input class="inp" id="mv-zip" inputmode="numeric" maxlength="5" value="${esc(o.zip||"")}" placeholder="ZIP, like 94040" aria-label="ZIP code" enterkeyhint="done"><button class="btn press" data-act="mv-zip">Save</button></div></div>
-  <div class="set-pad"><div class="set-t">Still counts as "in theaters" for</div><div class="set-s">Films that opened longer ago drop off, unless the data says they're still playing.</div>${seg("win",[[14,"2 wks"],[30,"1 mo"],[45,"6 wks"],[90,"3 mo"]])}</div>
- </div>
- ${gs.length?`<div class="set-l"><span>Genres</span></div><div class="set-g"><div class="set-pad"><div class="tags" style="margin-top:0">${gs.map(g=>{const off=o.hide.some(h=>norm(h)===norm(g));return`<button class="tag gtog ${off?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off}">${esc(g)}</button>`}).join("")}</div></div></div><p class="set-help">Tap a genre to hide it.</p>`:""}`;
+ const o=mvPrefs(),m=S.mv||DATA.movies||{};const gs=[...new Set((m.now||[]).flatMap(mvGenres).concat(o.hide))].sort();if(!gs.length)return"";
+ const off=g=>o.hide.some(h=>norm(h)===norm(g));
+ return`<div class="set-l"><span>Genres</span><span class="set-c num">${gs.filter(g=>!off(g)).length}</span></div><div class="set-g"><div class="set-pad"><div class="tags" style="margin:0">${gs.map(g=>`<button class="tag gtog press ${off(g)?"off":""}" data-mvg="${esc(g)}" aria-pressed="${!off(g)}" aria-label="${off(g)?"Show":"Hide"} ${esc(g)}">${esc(g)}<span aria-hidden="true">${off(g)?I.plus:I.close}</span></button>`).join("")}</div></div></div><p class="set-help">Tap a genre to hide it, and again to bring it back.</p>`;
 }
 /* NEWS KEYWORDS — his keywords at the top (tap × to drop one; only he changes these),
    a field to type any keyword, then one flat list of suggestions: tap to add, tap again
@@ -5187,7 +5184,6 @@ document.addEventListener("click",async e=>{
   if(act==="undo"){const u=toastUndo;toastUndo=null;$("#toast").classList.remove("show");if(u)u();return}
   if(act==="pins-clear"){clearPins();return}
   if(act==="restore-hidden"){const now=Date.now();cfgSet(c=>{for(const k in c.dismissed)if(c.dismissed[k]>0)c.dismissed[k]=-now});Object.values(DX_RENDER).forEach(f=>f());renderTeasers();refreshSettings();toast("Everything's back");return}
-  if(act==="mv-zip"){const v=(($("#mv-zip")||{}).value||"").replace(/\D/g,"").slice(0,5);if(v.length!==5){toast("Enter a 5-digit ZIP");return}setMvPref("zip",v);toast("Showtimes near "+v);return}
   if(act==="tmdb-save"){const v=($("#tmdb-key").value||"").trim();if(!v){toast("Paste a key first");return}LS.set("sd-tmdb-key",v);LS.del("sd-tmdb");toast("Loading movies…");await loadMovies(true);refreshSettings();return}
   if(act==="tmdb-clear"){LS.del("sd-tmdb-key");LS.del("sd-tmdb");S.mv=null;renderMovies();renderTeasers();refreshSettings();toast("TMDB key removed");return}
   if(act==="vocab-check"){const v=($("#vc-mine").value||"").trim(),w=a.dataset.w;window.open(askUrl(v?`I'm learning the word "${w}". Is this a natural, correct use of it? If not, show me a better version and explain briefly.\n\n"${v}"`:`Give me 3 natural sentences using "${w}", from casual to formal, and a quick trick to remember it.`),"_blank","noopener");return}
