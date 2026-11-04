@@ -102,9 +102,8 @@ h1,h2,h3,p{margin:0}
 /* ============================================================
    HERO
    ============================================================ */
-.hero{padding:max(calc(env(safe-area-inset-top) + 26px),44px) var(--g) 0}
+.hero{--hero-top:max(calc(env(safe-area-inset-top) + 8px),14px);padding:var(--hero-top) var(--g) 0}
 .hero-top{display:flex;align-items:center;justify-content:space-between;min-height:38px}
-.hero-date{font-size:15px;font-weight:600;color:var(--ink-2)}
 .icon-btn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--fill);color:var(--ink)}
 .icon-btn svg{width:19px;height:19px}
 /* line-height and a little bottom padding leave room for descenders (the g in "evening") inside the clipped box */
@@ -638,10 +637,9 @@ body:has(#home:not([inert],.fl-drag) #it-media.open) #mt-float{visibility:visibl
 @media (min-width:1024px){.yr svg{width:72px;height:72px;vertical-align:-16px}}
 /* theme, refresh and settings orbit the ring on a wider tablet or desktop: a concentric arc over its
    top-left, spaced as they were in a row and kept the same distance from the ring as they sat before.
-   On a phone the weather wraps under the date, so they stay a row at the top right. */
+   On a phone they stay a row at the top right, with the weather wrapping beside them. */
 .hero{position:relative}
-.orb{position:absolute;top:max(calc(env(safe-area-inset-top) + 26px),44px);right:var(--g);display:flex;gap:8px;font-size:1rem;line-height:normal}
-.topbar .hero-date{min-height:38px;display:flex;align-items:center}
+.orb{position:absolute;top:var(--hero-top);right:var(--g);display:flex;gap:8px;font-size:1rem;line-height:normal}
 @media (min-width:768px){
   .topbar{padding-right:144px}
   .yr-o{position:relative;margin-left:54px;--orb-r:70px}
@@ -951,7 +949,6 @@ body{overflow-x:clip}
    ============================================================ */
 html{background:var(--bg)}
 .home{position:relative;z-index:1}
-.home .hero-date{color:var(--ink);opacity:.86}
 .home .icon-btn{background:var(--fill);color:var(--ink)}
 .home .greet{color:var(--ink);margin-bottom:0}
 .home .foot{color:var(--ink-2)}
@@ -968,7 +965,6 @@ html{background:var(--bg)}
 #app.app{max-width:none;display:block;padding:0;margin:0}
 .home{max-width:560px;margin:0 auto;padding-bottom:calc(28px + env(safe-area-inset-bottom))}
 .home .hero{padding-bottom:6px}
-.home .hero-date{font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase}
 .home .greet{margin:10px 0 26px}
 
 .list{padding:0 var(--g);counter-reset:it}
@@ -1112,8 +1108,8 @@ html{overflow-x:clip}
 /* ---- v5: weather rail, zoom hover, logos ---- */
 
 .topbar{grid-column:1/-1;position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;min-height:38px}
-.topbar .hero-date{order:1}
-.wxr{order:3;flex:1 0 100%;display:flex;align-items:center;gap:6px 16px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--ink)}
+@media (max-width:767px){.topbar{padding-right:138px}}
+.wxr{flex:1 1 100%;display:flex;align-items:center;gap:6px 16px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--ink)}
 .wxr>span,.wxr>button{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;color:inherit;font:inherit}
 .wxr svg{width:15px;height:15px;flex:0 0 auto}
 .wxr .t{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:-.02em}
@@ -1134,7 +1130,7 @@ html{overflow-x:clip}
 .it-t .lg svg,.it-t .lg img{width:100%;height:100%;border-radius:3px}
 .it-t .lg.yt{width:19px}
 @media (min-width:768px){
-  .wxr{order:2;flex:1 1 auto;justify-content:flex-start;margin-left:18px;font-size:13.5px}
+  .wxr{flex:1 1 auto;justify-content:flex-start;font-size:13.5px}
   .wxr .t{font-size:19px}
 }
 @media (hover:hover) and (pointer:fine){
@@ -2623,7 +2619,7 @@ function rowIcon(id){
 function shell(){
  $("#app").innerHTML=`
  <div class="home" id="home">
-  <header class="hero"><div class="topbar"><div class="hero-date" id="home-date"></div><div class="wxr" id="wxr" aria-label="Weather"></div></div><div class="greet-row"><h1 class="greet" id="greet"></h1><div class="yr-o"><button class="yr press" id="yr" data-act="year"></button><div class="orb"><button class="icon-btn press" id="th-btn" data-act="theme-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Theme: ${(THEMES.find(x=>x[0]===themeId())||[0,"Automatic"])[1]}">${TH_IC()[themeId()]}</button><button class="icon-btn press" data-act="refresh" aria-label="Refresh">${I.refresh}</button><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div></div></div></header>
+  <header class="hero"><div class="topbar"><div class="wxr" id="wxr" aria-label="Weather"></div></div><div class="greet-row"><h1 class="greet" id="greet"></h1><div class="yr-o"><button class="yr press" id="yr" data-act="year"></button><div class="orb"><button class="icon-btn press" id="th-btn" data-act="theme-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Theme: ${(THEMES.find(x=>x[0]===themeId())||[0,"Automatic"])[1]}">${TH_IC()[themeId()]}</button><button class="icon-btn press" data-act="refresh" aria-label="Refresh">${I.refresh}</button><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div></div></div></header>
   <section class="pinbar" id="pins" aria-label="Pinned" hidden></section>
   <div class="list" id="list">${ITEMS.map(([id,l])=>`<div class="it" id="it-${id}" data-it="${id}"><div class="it-hd"><button class="it-h" aria-expanded="false" aria-controls="ib-${id}">${rowIcon(id)}<span class="it-n">${esc(l)}</span><span class="it-t" id="tz-${id}"></span></button>${FEEDS.includes(id)?`<div class="it-o" id="io-${id}" role="group" aria-label="Show in ${esc(l)}">${feedOpts(id)}</div>`:""}<span class="it-x" aria-hidden="true"></span></div><div class="it-b" id="ib-${id}" role="region" aria-label="${esc(l)}"><div class="it-bi"><div class="it-p"><section class="sec" id="s-${id}" data-sec="${id}"></section></div></div></div></div>`).join("")}</div>
   <footer class="foot" id="foot"></footer>
@@ -2660,7 +2656,6 @@ function skyCond(code){const c=+code;if(c===2)return"partly";if(c===3)return"ove
 function fitGreet(){const g=$("#greet");if(!g)return;g.style.fontSize="";const w=g.clientWidth,sw=g.scrollWidth;if(w&&sw>w){const f=parseFloat(getComputedStyle(g).fontSize);g.style.fontSize=Math.floor(f*w/sw*0.985)+"px"}}
 function renderHero(){
  if(!$("#home"))return;const now=new Date(),h=now.getHours();
- $("#home-date").textContent=now.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).replace(",","  ·");
  $("#greet").textContent=`${h<4?"Up late":h<12?"Good morning":h<17?"Good afternoon":"Good evening"}, Stinky.`;renderYear();fitGreet();
  renderWxRail();renderTeasers();
 }
