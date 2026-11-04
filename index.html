@@ -4392,7 +4392,7 @@ function renderHealth(){
   r.deepP=r.asleep&&r.deep?r.deep/r.asleep*100:0;
   r.score=score_(r);
  });
- if(!HDAYS.length){el.innerHTML=`<div class="card ph-card"><span class="ic">${I.pulse}</span><div><b>Fitbit Air</b><p>${HEALTH.v===2?"No days with data yet. Once the watch syncs, the next 2-hourly pull fills this in.":`The last pull (${HEALTH.fetchedAt?esc(fmtLocalTime(new Date(HEALTH.fetchedAt))):"5 AM"}) ran before the Fitbit had synced, so there's nothing for today yet. The Oct 22 backend update pulls every 2 hours and keeps a two-week history.`}</p></div></div>`;return}
+ if(!HDAYS.length){el.innerHTML=`<div class="card ph-card"><span class="ic">${I.pulse}</span><div><b>Fitbit Air</b><p>${HEALTH.v===2?"No days with data yet. Once the watch syncs, the next pull fills this in.":`The last pull (${HEALTH.fetchedAt?esc(fmtLocalTime(new Date(HEALTH.fetchedAt))):"5 AM"}) ran before the Fitbit had synced, so there's nothing for today yet. The Oct 22 backend update pulls every 2 hours and keeps a two-week history.`}</p></div></div>`;return}
  const T=HDAYS[Tidx];
  const band_=s=>s>=90?["Excellent","good"]:s>=80?["Good","good"]:s>=60?["Fair","warn"]:["Poor","warn"];
 
@@ -4584,7 +4584,7 @@ function renderHealth(){
  const chips=chipOrder.map(k=>`<div class="hx-chip ${M[k].st}${drivers.includes(k)?" drv":""}"><span><i></i>${M[k].l}</span><b>${M[k].v}</b></div>`).join("");
  const dev=(HEALTH.devices||[]).find(d=>d.type==="TRACKER")||(HEALTH.devices||[])[0];
  const lastSyncTxt=dev&&dev.lastSync?(()=>{const t=new Date(dev.lastSync),k=dayKey(t);return(k===TK?"":fmtKey(k,{weekday:"short"})+" ")+t.toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})})():"";
- const focus=`<div class="hx-fh"><div class="hx-fk"><svg class="i s14"><use href="#i-spark"/></svg>Focus today</div><div class="hx-fsync">${lastSyncTxt?`<span data-t="Fitbit Air<span>When your watch last sent data to Google.${dev.battery!=null?` Battery ${dev.battery}%.`:""}</span>">Watch synced ${lastSyncTxt}</span>`:""}${noNewSince?`<span data-t="Stinky's Daily<span>Last checked ${syncTxt||"recently"}. Google Health has sent nothing newer than ${esc(day_(noNewSince))}.</span>">No new data since ${esc(day_(noNewSince,"s"))}</span>`:syncTxt?`<span data-t="Stinky's Daily<span>When the Daily last pulled from Google Health. It checks every 2 hours.</span>">Updated ${syncTxt}</span>`:""}${HEALTH.v!==2?`<span class="warn">Needs backend update</span>`:""}</div></div>
+ const focus=`<div class="hx-fh"><div class="hx-fk"><svg class="i s14"><use href="#i-spark"/></svg>Focus today</div><div class="hx-fsync">${lastSyncTxt?`<span data-t="Fitbit Air<span>When your watch last sent data to Google.${dev.battery!=null?` Battery ${dev.battery}%.`:""}</span>">Watch synced ${lastSyncTxt}</span>`:""}${HEALTH.err==="not_authorized"?`<span class="warn" data-t="Stinky's Daily<span>Google Health stopped letting the Daily read your data. Run authorizeHealth in Apps Script and approve it.</span>">Google Health needs reconnecting</span>`:noNewSince?`<span data-t="Stinky's Daily<span>Last checked ${syncTxt||"recently"}. Google Health has sent nothing newer than ${esc(day_(noNewSince))}.</span>">No new data since ${esc(day_(noNewSince,"s"))}</span>`:syncTxt?`<span data-t="Stinky's Daily<span>When the Daily last pulled from Google Health. It checks every 5 minutes.</span>">Updated ${syncTxt}</span>`:""}${HEALTH.v!==2?`<span class="warn">Needs backend update</span>`:""}</div></div>
   <div class="hx-fmain"><h2>${F.title}</h2><p>${F.body}</p></div>
   <div class="hx-ev">${chips}</div>`;
 
@@ -5445,7 +5445,7 @@ const SELF=location.href.split("#")[0].split("?")[0];
 const loadedDay=todayKey();
 function fresh(h,v){const go=()=>location.replace(SELF+"?v="+(v||Date.now())+(typeof h==="string"&&h?"#"+h:""));if(!cfg().dirty||!backend())return go();Promise.race([flushCfg(),new Promise(r=>setTimeout(r,4000))]).then(go,go)}
 let hiddenAt=0;
-document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"){hiddenAt=Date.now();stopWs();flushCfg();return}const away=hiddenAt?Date.now()-hiddenAt:0;if(away>10*6e4||todayKey()!==loadedDay)fresh();else{startWs();if(away>60e3){renderHero();loadLive()}else if(away>5e3){pullCfg();loadCal(true)}}});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"){hiddenAt=Date.now();stopWs();flushCfg();return}const away=hiddenAt?Date.now()-hiddenAt:0;if(away>10*6e4||todayKey()!==loadedDay)fresh();else{startWs();if(away>60e3){renderHero();loadLive();fetchHealth().then(()=>{renderHealth();renderTeasers()})}else if(away>5e3){pullCfg();loadCal(true)}}});
 addEventListener("pageshow",e=>{if(e.persisted)fresh()});
 addEventListener("pagehide",()=>{flushCfg()});
 /* pick up changes made on your other devices while this one stays open */
