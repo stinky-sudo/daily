@@ -2074,6 +2074,115 @@ a.dc-c .dq{color:var(--ink-2)}
 /* Safari 26 / Chrome-on-iOS tint element */
 .tint{position:fixed;top:-4px;left:0;width:100%;height:12px;z-index:0;background-color:var(--bg);pointer-events:none}
 
+
+/* ============================================================
+   CLUSTERS — home page as groups of tiles. Each cluster reads as
+   one rounded shape cut into cells; a closed section is a cell, an
+   open one is its normal full page. Everything here is scoped to the
+   closed state, so drilled pages look exactly as they always did.
+   ============================================================ */
+.home:not(.drill){display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+.home:not(.drill)>.list{flex:1 0 auto}
+.home:not(.drill)>.foot{padding-top:16px}
+.home .hero{padding-bottom:0}
+.home:not(.drill) .list{display:flex;flex-wrap:wrap;align-content:stretch;gap:20px 14px;padding-top:6px}
+.cl{flex:1 1 calc(50% - 7px);min-width:0;min-height:206px;display:flex;flex-direction:column}
+.cl[hidden]{display:none}
+#cl-day{flex-basis:100%;min-height:248px}
+.cl-l{flex:0 0 auto;padding:0 4px 8px;font-size:14px;font-weight:600;letter-spacing:-.005em;color:var(--ink-2)}
+.cl-g{flex:1 1 0;min-height:0;display:grid;gap:2px;grid-auto-rows:minmax(0,1fr);border-radius:22px;overflow:hidden}
+/* how each cluster divides */
+#cl-day .cl-g{grid-template-columns:2fr 1fr 1fr}
+#cl-day[data-n="2"] .cl-g{grid-template-columns:1fr 1fr}
+#cl-day[data-n="1"] .cl-g,#cl-unwind[data-n="1"] .cl-g{grid-template-columns:1fr}
+#cl-unwind .cl-g{grid-template-columns:1fr 1fr}
+#cl-unwind[data-n="3"] .it.lead{grid-column:1/-1}
+/* a drilled page takes the whole screen: the groups fall away around it */
+.home.drill .cl,.home.drill .cl-g{display:contents}
+.home.drill .cl-l{display:none}
+.it,.it:last-child{border:0}
+.it.open{border-top:1px solid var(--line)}
+.home.drill .it.open{border-top-color:transparent}
+
+.it:not(.open){min-width:0;min-height:0;overflow:hidden;background:var(--surface);transition:background-color .18s ease}
+.it:not(.open):active{background:var(--raise)}
+.it:not(.open) .it-hd,.it:not(.open) .it-h{height:100%}
+.it:not(.open) .it-h{flex:1;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:0 9px;align-items:center;padding:14px 16px 15px}
+.it:not(.open) .it-x{display:none}
+.it:not(.open) .it-ic,.it:not(.open) .it-ic.mono svg{width:22px;height:22px}
+.it:not(.open) .it-ic{border-radius:0}
+.it:not(.open) .it-n{flex:none;margin:0;font-size:21px;letter-spacing:-.03em;line-height:1.15;overflow:hidden;text-overflow:ellipsis}
+.it:not(.open) .it-h:hover .it-n{transform:none}
+/* a closed section keeps its page width, out of sight, so anything measured while it's closed still fits */
+.it:not(.open) .it-b{position:absolute;left:var(--g);right:var(--g);height:0;overflow:hidden;visibility:hidden}
+.home:not(.drill) .list{position:relative}
+
+/* the glance, anchored to the bottom of the tile */
+.it:not(.open) .it-t{grid-column:1/-1;grid-row:2;align-self:stretch;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:5px;min-height:0;overflow:hidden;white-space:normal;font-size:15px;line-height:1.28;color:var(--ink)}
+.it:not(.open) .it-t>:first-child{margin-left:0}
+.pk-k{flex:0 0 auto;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.005em;color:var(--ink-2)}
+.pk-k.up{color:var(--up)}
+.pk-t{flex:0 0 auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-weight:500;letter-spacing:-.01em;max-width:100%}
+.pk-s{flex:0 0 auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:13.5px;line-height:1.3;color:var(--ink-2);max-width:100%}
+.pk-q{font-size:14px;line-height:1.3;color:var(--ink-3)}
+.pk-w{flex:0 0 auto;font-family:var(--serif);font-size:24px;font-style:italic;line-height:1.15;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding-right:.1em}
+/* Calendar: the next thing large, then what follows */
+.pk-t.pk-lg{font-family:var(--display);font-size:25px;font-weight:600;line-height:1.14;letter-spacing:-.025em}
+.pk-evs{flex:0 0 auto;display:flex;flex-direction:column;gap:5px;width:100%;margin-top:9px;padding-top:11px;border-top:1px solid var(--line)}
+.pk-ev{display:flex;align-items:baseline;gap:10px;min-width:0;font-size:14px;line-height:1.25;color:var(--ink-2)}
+.pk-ev i{flex:0 0 66px;font-family:var(--mono);font-style:normal;font-size:12px;font-weight:500;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pk-ev span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Health: the two numbers he cares about */
+.pk-st{flex:0 0 auto;display:flex;flex-direction:column;gap:1px}
+.pk-st+.pk-st{margin-top:8px}
+.pk-st b{font-family:var(--display);font-size:27px;font-weight:600;line-height:1.1;letter-spacing:-.03em;white-space:nowrap}
+.pk-st i{font-family:var(--mono);font-style:normal;font-size:12px;font-weight:500;color:var(--ink-2)}
+/* Markets */
+.pk-mk{flex:0 0 auto;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.pk-mk b{font-family:var(--display);font-size:25px;font-weight:600;letter-spacing:-.03em;line-height:1.15;font-variant-numeric:tabular-nums}
+.pk-mk .lg{width:20px;height:20px}
+.pk-mr{flex:0 0 auto;display:flex;align-items:center;gap:8px;min-width:0;max-width:100%;overflow:hidden;white-space:nowrap;font-size:13.5px;color:var(--ink-2)}
+.pk-mk .m,.pk-mr .m{flex:0 0 auto;font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--ink);opacity:.88}
+.pk-mk .m.chg,.pk-mr .m.up{color:var(--up)}.pk-mk .m.chg.dn,.pk-mr .m.down{color:var(--down)}
+.pk-mr .m.k{font-size:10.5px;line-height:1.25;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);padding:1px 5px 0;border:1px solid var(--line);border-radius:5px;margin-left:4px}
+/* Media: new counts beside their logos */
+.pk-ns{flex:0 0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px}
+.pk-id{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto}
+.pk-ns>span{display:inline-flex;align-items:center;gap:7px}
+.pk-ns .lg{display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center}
+.pk-ns .lg.yt{width:28px}
+.pk-ns .lg svg{width:100%;height:100%}
+.pk-ns b{font-family:var(--display);font-size:25px;font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.pk-ns i{font-family:var(--mono);font-style:normal;font-size:12px;font-weight:500;color:var(--ink-2)}
+@media (hover:hover) and (pointer:fine){.it:not(.open):hover{background:var(--raise)}}
+/* iPad landscape and laptops: wider than tall, so cells sit side by side */
+@media (min-width:1024px){
+  .cl{flex-basis:calc(50% - 7px);min-height:158px}
+  #cl-day{min-height:204px}
+  .pk-ev:nth-child(n+3){display:none}
+  #cl-world .cl-g,#cl-learn .cl-g,#cl-out .cl-g{grid-template-columns:1fr 1fr}
+  #cl-world[data-n="1"] .cl-g,#cl-learn[data-n="1"] .cl-g,#cl-out[data-n="1"] .cl-g{grid-template-columns:1fr}
+  #cl-unwind[data-n="3"] .cl-g{grid-template-columns:1.4fr 1fr 1fr}
+  #cl-unwind[data-n="3"] .it.lead{grid-column:auto}
+}
+/* phone: clusters stack, and the page scrolls */
+@media (max-width:599px){
+  .cl,#cl-day{flex-basis:100%;min-height:0}
+  .home:not(.drill) .list{gap:18px 0}
+  .cl-g{flex:0 0 auto;border-radius:20px;grid-auto-rows:auto;grid-template-columns:1fr 1fr}
+  #cl-day .cl-g,#cl-unwind .cl-g{grid-template-columns:1fr 1fr}
+  #cl-day[data-n="3"] .it.lead,#cl-unwind[data-n="3"] .it.lead{grid-column:1/-1}
+  .cl[data-n="1"] .cl-g{grid-template-columns:1fr}
+  .it:not(.open) .it-h{padding:12px 13px 13px;grid-auto-rows:auto}
+  .it:not(.open) .it-t{margin-top:16px;font-size:14px}
+  .it:not(.open) .it-n{font-size:18px}
+  .it:not(.open) .it-ic,.it:not(.open) .it-ic.mono svg{width:20px;height:20px}
+  .pk-w{font-size:20px}
+  .pk-t.pk-lg{font-size:21px}
+  .pk-mk b,.pk-ns b,.pk-st b{font-size:22px}
+  .pk-ns{gap:6px 14px}
+  .pk-id{display:none}
+}
 </style>
 </head>
 <body>
@@ -2625,21 +2734,27 @@ function rowIcon(id){
  const m={mkt:["chart","#0A9455"],news:["news","#2B5EF0"],bay:["pin","#E8590C"],movies:["film","#DD3B35"],health:["pulse","#E8336D"],learn:["book","#4C46D6"]}[id];
  return m?`<span class="it-ic tinted" style="background:${m[1]}" aria-hidden="true">${I[m[0]]}</span>`:"";
 }
+/* CLUSTERS — the home page is groups of tiles instead of one list. Related sections sit together,
+   in the order a day goes: what's on and how he's doing, then the world, the two daily lessons,
+   then the things to wind down with and the things to go out for. Positions never shift, so a tile
+   is always in the same spot under his thumb, and swiping inside a section walks this same order. */
+const CLUSTERS=[["day","Today",["cal","coach","health"]],["world","World",["news","mkt"]],["learn","Learn",["vocab","spanish"]],["unwind","Unwind",["media","music","live"]],["out","Go out",["bay","movies"]]];
+const tileHTML=id=>{const l=(ITEMS.find(x=>x[0]===id)||[id,id])[1];return`<div class="it" id="it-${id}" data-it="${id}"><div class="it-hd"><button class="it-h" aria-expanded="false" aria-controls="ib-${id}">${rowIcon(id)}<span class="it-n">${esc(l)}</span><span class="it-t" id="tz-${id}"></span></button>${FEEDS.includes(id)?`<div class="it-o" id="io-${id}" role="group" aria-label="Show in ${esc(l)}">${feedOpts(id)}</div>`:""}<span class="it-x" aria-hidden="true"></span></div><div class="it-b" id="ib-${id}" role="region" aria-label="${esc(l)}"><div class="it-bi"><div class="it-p"><section class="sec" id="s-${id}" data-sec="${id}"></section></div></div></div></div>`};
 function shell(){
  $("#app").innerHTML=`
  <div class="home" id="home">
   <header class="hero"><div class="topbar"><div class="wxr" id="wxr" aria-label="Weather"></div></div><div class="greet-row"><h1 class="greet" id="greet"></h1><div class="yr-o"><button class="yr press" id="yr" data-act="year"></button><div class="orb"><button class="icon-btn press" id="th-btn" data-act="theme-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Theme: ${(THEMES.find(x=>x[0]===themeId())||[0,"Automatic"])[1]}">${TH_IC()[themeId()]}</button><button class="icon-btn press" data-act="refresh" aria-label="Refresh">${I.refresh}</button><button class="icon-btn press" data-act="settings" aria-label="Settings">${I.gear}</button></div></div></div></header>
   <section class="pinbar" id="pins" aria-label="Pinned" hidden></section>
-  <div class="list" id="list">${ITEMS.map(([id,l])=>`<div class="it" id="it-${id}" data-it="${id}"><div class="it-hd"><button class="it-h" aria-expanded="false" aria-controls="ib-${id}">${rowIcon(id)}<span class="it-n">${esc(l)}</span><span class="it-t" id="tz-${id}"></span></button>${FEEDS.includes(id)?`<div class="it-o" id="io-${id}" role="group" aria-label="Show in ${esc(l)}">${feedOpts(id)}</div>`:""}<span class="it-x" aria-hidden="true"></span></div><div class="it-b" id="ib-${id}" role="region" aria-label="${esc(l)}"><div class="it-bi"><div class="it-p"><section class="sec" id="s-${id}" data-sec="${id}"></section></div></div></div></div>`).join("")}</div>
+  <div class="list" id="list">${CLUSTERS.map(([c,name,ids])=>`<section class="cl" id="cl-${c}" data-cl="${c}" aria-label="${esc(name)}"><div class="cl-l">${esc(name)}</div><div class="cl-g">${ids.map(tileHTML).join("")}</div></section>`).join("")}</div>
   <footer class="foot" id="foot"></footer>
  </div>`;
 }
 const RENDER={cal:()=>renderCal(),live:()=>renderLiveTv(),mkt:()=>renderMarkets(),coach:()=>renderDare(),news:()=>renderNews(),media:()=>renderMedia(),music:()=>renderMusic(),bay:()=>renderBay(),movies:()=>renderMovies(),health:()=>renderHealth(),vocab:()=>renderVocab(),spanish:()=>renderSpanish(),learn:()=>renderLearn()};
-function renderNav(){applyOrder();ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=isHidden(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false,true)}});if(S.open)drillNav($("#it-"+S.open))}
+function renderNav(){ITEMS.forEach(([id])=>{const el=$("#it-"+id);if(el){el.hidden=isHidden(id);if(el.hidden&&el.classList.contains("open"))toggleItem(id,false,true)}});applyOrder();if(S.open)drillNav($("#it-"+S.open))}
 /* the order of rows on the home page (set in Settings, synced) */
 /* Shows and Music are one page now: it takes whichever slot came first in a saved order */
 const orderIds=()=>{const def=SECTIONS.map(x=>x[0]);const o=(pref("order",[])||[]).map(id=>id==="shows"?"music":id).filter((id,i,a)=>def.includes(id)&&a.indexOf(id)===i);return o.concat(def.filter(id=>!o.includes(id)))};
-function applyOrder(){const l=$("#list");if(!l)return;orderIds().forEach(id=>{const el=$("#it-"+id);if(el)l.appendChild(el)});if(S.open)drillNav($("#it-"+S.open))}
+function applyOrder(){$$("#list .cl").forEach(c=>{const v=[...c.querySelectorAll(".it")].filter(n=>!n.hidden);c.dataset.n=v.length;c.hidden=!v.length;c.querySelectorAll(".it").forEach(n=>n.classList.toggle("lead",n===v[0]))});if(S.open)drillNav($("#it-"+S.open))}
 function observe(){}
 function renderAll(){renderCal();renderLiveTv();renderDare();renderMarkets();renderNews();renderMedia();renderMusic();renderBay();renderMovies();renderHealth();renderVocab();renderSpanish();renderPins();renderFoot();S.booted=true;renderHero();renderNav();openFromHash()}
 
@@ -2741,7 +2856,39 @@ function teaser(id){
  if(id==="learn"){const v=VOCAB[VOCAB.length-1],s=SPAN[SPAN.length-1];return (v?tx(esc(v.word),"ser"):"")+(s?`<span class="tx ser" lang="es">${esc(s.phrase)}</span>`:"")}
  return "";
 }
-function renderTeasers(){if(!S.booted)return;ITEMS.forEach(([id])=>{const el=$("#tz-"+id);if(el)el.innerHTML=teaser(id)});refreshSync()}
+/* what a tile shows: a glance at what's inside, in place of the one line a row had */
+const pkK=(x,c="")=>`<span class="pk-k ${c}">${x}</span>`,pkT=x=>`<span class="pk-t">${x}</span>`,pkS=x=>`<span class="pk-s">${x}</span>`,pkQ=x=>`<span class="pk-q">${x}</span>`;
+function peek(id){
+ const now=new Date(),tk=todayKey();
+ if(id==="cal"){const up=upcoming(),nRem=(S.tasks||[]).filter(t=>!t.done&&t.due&&t.due<=tk).length,rem=nRem?pkK(`${nRem} ${nRem===1?"reminder":"reminders"} today`):"";
+  if(!up.length)return rem+pkQ(calNeedsKey()?"Add your private key in Settings":`Nothing in the next ${CAL_DAYS} days`);
+  const e=up.find(x=>!x.allDay&&x.en>now&&x.key===tk)||up[0];
+  const when=x=>x.allDay?(x.kind==="birthday"?"Birthday":"All day"):(x.tz==="CT"?fmtTime(x.s,"America/Chicago")+" CT":fmtTime(x.s));
+  const day=x=>x.key===tk?"":dayDiff(tk,x.key)===1?"Tomorrow":dayDiff(tk,x.key)>=7?fmtKey(x.key,{month:"short",day:"numeric"}):fmtKey(x.key,{weekday:"short"});
+  const rest=up.filter(x=>x!==e).slice(0,4).map(x=>`<span class="pk-ev"><i>${esc(day(x)||when(x))}</i><span>${esc(splitEmoji(x.title).t)}</span></span>`).join("");
+  return pkK(esc([day(e),when(e)].filter(Boolean).join(" · ")))+`<span class="pk-t pk-lg">${esc(splitEmoji(e.title).t)}</span>`+(rest?`<span class="pk-evs">${rest}</span>`:"")+rem}
+ if(id==="coach"){const d=dareData(),dn=dareDone().filter(i=>i<d.opts.length),st=coachStreak(),streak=st.n>=1?pkK(`${st.n} in a row`):"";
+  return dn.length?pkK("Done","up")+pkT(esc(d.opts[dn[0]].title))+streak:d.opts.map(o=>pkT(esc(o.title))).join("")+streak}
+ if(id==="health"){if(!HEALTH.ok)return pkQ("Fitbit Air · no data yet");const r=healthLatest();if(!r)return pkQ("Fitbit Air · waiting for a sync");
+  const out=[];if(r.asleep)out.push(`<span class="pk-st"><b>${Math.floor(r.asleep/60)}h ${r.asleep%60}m</b><i>${esc(r.d<tk?fmtKey(addDays(r.d,-1),{weekday:"short"})+" night":"Sleep")}</i></span>`);
+  if(r.steps)out.push(`<span class="pk-st"><b>${num(r.steps,0)}</b><i>steps</i></span>`);
+  return out.length?out.join(""):pkQ("Fitbit Air · waiting for today's sync")}
+ if(id==="news"){if(hasBrief()){const a=DATA.brief.articles,r=bfRead(),f=a.find(x=>!r.has(x.id))||a[0];return pkK(esc(bfLeft()))+pkT(esc(f.title))}const n=DATA.news;return n.length?pkK(n.length+" stories")+pkT(esc(n[0].title)):pkQ("Nothing today")}
+ if(id==="mkt"){const cl=cxList(),sym=cl.includes("BTC")?"BTC":cl[0],c=sym&&cxNow(sym),top=sym?`<span class="pk-mk">${sym==="BTC"?lg(I.btc):kk(esc(sym))}<b data-px="${sym}" data-dp0>${c?usd(c.price,0):"—"}</b>${c?`<span class="m chg ${c.pct<0?"dn":""}" data-pill="${sym}">${pct(c.pct)}</span>`:""}</span>`:"";
+  const sm=stList().slice(0,2).map(s=>[s,stkQuote(s)]).filter(x=>x[1]).map(([s,q])=>tx(esc(IDX_S[s]||stName(s)),"nk")+mo(pct(q.pct),q.pct>=0?"up":"down")).join("");
+  return top+`<span class="pk-mr">${sm}${DATA.pick?`<span class="pk-id">${kk("Idea")}${tx(esc(DATA.pick.sym),"nk")}</span>`:""}</span>`}
+ if(id==="vocab"){const v=VOCAB[VOCAB.length-1];return v?`<span class="pk-w">${esc(v.word)}</span>`+pkS(esc((v.def||v.pos||"").replace(/\.$/,""))):pkQ("No word yet")}
+ if(id==="spanish"){const e=SPAN[SPAN.length-1];return e?`<span class="pk-w" lang="es">${esc(e.phrase)}</span>`+pkS(esc(e.meaning)):pkQ("No phrase yet")}
+ if(id==="media"){const yt=ytItems(),sp=spItems(),all=[...yt,...sp],yc=yt.filter(v=>!v.sugg).length,sc=sp.filter(v=>!v.sugg).length;
+  if(!yc&&!sc)return all.length?pkK(`${all.length} suggested`):pkQ("Nothing new");
+  return`<span class="pk-ns">${yc?`<span>${lg(I.yt,"yt")}<b>${yc}</b><i>new</i></span>`:""}${sc?`<span>${lg(I.spotify)}<b>${sc}</b><i>new</i></span>`:""}</span>`}
+ if(id==="music"){const{shows,rel}=musicActivity();if(shows.length){const f=shows[0];return pkK(esc(until(f.date,f.time).l))+pkT(esc(f.title))}if(rel.length){const r=rel[0];return pkK(`${rel.length} new`)+pkT(esc(r.artist+" · "+r.title))}return pkK(`${lists().artists.length} of ${ARTIST_CAP}`)+pkQ("Nothing new")}
+ if(id==="live"){const it=liveItems();if(!it.length)return pkQ(teamList().length?(S.live?"Nothing on this week":"Checking…"):"Add your teams");const f=it.find(x=>x.state==="in")||it.find(x=>x.state==="pre")||it[0],w=liveWhen(f);return(f.state==="in"?pkK("Live","up"):f.state==="post"?pkK("Final"):pkK(esc(until(w.k,String(new Date(f.when).getHours()).padStart(2,"0")+":00").l)))+pkT(esc(f.title))}
+ if(id==="bay"){const it=bayItems();if(!it.length)return pkQ("Nothing picked yet");const f=it[0];return pkK(esc(until(f.day,f.cal&&f.cal.start&&f.cal.start.slice(0,10)===f.day?f.cal.start.slice(11):"").l)+(it.length>1?` · +${it.length-1} more`:""))+pkT(esc(f.title))}
+ if(id==="movies"){const{now:n}=mvData();return n.length?pkK(`${n.length} playing`)+pkT(esc(n[0].title)):pkQ(mvEmpty())}
+ return"";
+}
+function renderTeasers(){if(!S.booted)return;ITEMS.forEach(([id])=>{const el=$("#tz-"+id);if(el)el.innerHTML=peek(id)});refreshSync()}
 
 /* =================================================================
    FEED FILTER — Watch and Listen can show everything, only what he
@@ -2818,12 +2965,48 @@ function toggleItem(id,force,quiet){
   if(!quiet){if(!FL.anim&&!SW.on&&!SW.anim)flHome(0);return}
   drillLeave(el);return;
  }
+ if(open&&FL.anim)return;
  if(open&&!S.open)S.homeY=window.scrollY;if(!open)S.homeY=null;
  $$(".it.open").forEach(x=>{if(x===el)return;closeEl(x,open&&!!(x.compareDocumentPosition(el)&Node.DOCUMENT_POSITION_FOLLOWING))});
- if(open){drillNav(el);el.classList.add("open");$(".it-h",el).setAttribute("aria-expanded","true");RENDER[id]();if(id==="cal")loadCal();requestAnimationFrame(()=>{$$(".rail",el).forEach(railArrows);placeThumb(id,true);glideTo(el,drillEnsure)})}
+ if(open){
+  const grow=!quiet&&!calmMotion()?tileGrowStart(el):null;
+  drillNav(el);el.classList.add("sw-still","open");$(".it-h",el).setAttribute("aria-expanded","true");
+  cancelAnimationFrame(glideRAF);drillOn(el);
+  const r=document.documentElement;r.style.scrollBehavior="auto";window.scrollTo(0,0);r.style.scrollBehavior="";
+  RENDER[id]();fitHd(el);if(id==="cal")loadCal();
+  $$(".rail",el).forEach(railArrows);placeThumb(id,true);
+  if(grow)tileGrowRun(grow);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");swSettle(el)}));
+ }
  else closeEl(el,false);
  S.open=open?id:null;
  try{history.replaceState(null,"",open?"#"+id:location.pathname+location.search)}catch(e){}
+}
+/* A tile opens into its page: the page grows out of the tile's rectangle, with the
+   tiles staying put underneath. Measured before the page changes, played after. */
+function tileGrowStart(el){
+ const home=$("#home");if(!home||home.classList.contains("drill"))return null;
+ const rect=el.getBoundingClientRect(),hr=home.getBoundingClientRect(),homeTop=hr.top+window.scrollY;
+ const{c}=swCopy(home,null);
+ const u=document.createElement("div");u.className="sw-under";u.setAttribute("aria-hidden","true");
+ u.innerHTML='<div class="sw-in"></div><div class="sw-dim"></div>';
+ const inn=u.querySelector(".sw-in");inn.appendChild(c);inn.style.top=(homeTop-window.scrollY)+"px";
+ document.body.appendChild(u);
+ return{home,rect,u,dim:u.querySelector(".sw-dim")};
+}
+function tileGrowRun({home,rect,u,dim}){
+ FL.anim=true;
+ const W=innerWidth,H=innerHeight,hr=home.getBoundingClientRect(),hh=home.offsetHeight;
+ home.style.setProperty("--swl",hr.left+"px");home.style.setProperty("--swr",(W-hr.right)+"px");
+ home.classList.add("fl-drag");
+ const ins=(t,r,b,l,rad)=>`inset(${t.toFixed(1)}px ${r.toFixed(1)}px ${b.toFixed(1)}px ${l.toFixed(1)}px round ${rad}px)`;
+ const from=ins(rect.top-hr.top,hr.right-rect.right,hr.top+hh-rect.bottom,rect.left-hr.left,12);
+ const to=ins(-hr.top,-(W-hr.right),hr.top+hh-H,-hr.left,0);
+ const ease="cubic-bezier(.22,.86,.2,1)",D=380;
+ const a=home.animate([{clipPath:from,opacity:.35,offset:0},{opacity:1,offset:.32},{clipPath:to,opacity:1,offset:1}],{duration:D,easing:ease});
+ dim.animate([{opacity:0},{opacity:.3}],{duration:D,easing:ease,fill:"forwards"});
+ const end=()=>{home.classList.remove("fl-drag");home.style.removeProperty("--swl");home.style.removeProperty("--swr");u.remove();FL.anim=false;drillSync()};
+ a.onfinish=end;a.oncancel=end;
 }
 /* DRILLED — once an open section's title reaches the top it becomes its own page
    (see .home.drill). Content stays exactly where it is on screen as the rest steps out. */
@@ -2850,7 +3033,7 @@ function drillLeave(el){
 }
 addEventListener("resize",()=>drillSync());
 function openFromHash(){const h=({tip:"coach",learn:"vocab",shows:"music"})[location.hash.slice(1)]||location.hash.slice(1);if(!RENDER[h]||S.hidden.has(h))return;
- const el=$("#it-"+h);if(!el)return;el.classList.add("sw-still");toggleItem(h,true);cancelAnimationFrame(glideRAF);drillOn(el);
+ const el=$("#it-"+h);if(!el)return;el.classList.add("sw-still");toggleItem(h,true,true);cancelAnimationFrame(glideRAF);drillOn(el);
  document.documentElement.style.scrollBehavior="auto";window.scrollTo(0,0);document.documentElement.style.scrollBehavior="";
  requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.remove("sw-still");swSettle(el)}))}
 document.addEventListener("click",e=>{
@@ -2905,8 +3088,9 @@ function swCanStart(t){
  const el=$("#it-"+S.open),home=$("#home");return el&&el.classList.contains("open")&&home.contains(t)?el:null;
 }
 /* the rows on either side of this one on the home page (hidden rows skipped) */
-function swNext(el){let n=el.nextElementSibling;while(n&&(n.hidden||!n.classList.contains("it")))n=n.nextElementSibling;return n}
-function swPrev(el){let n=el.previousElementSibling;while(n&&(n.hidden||!n.classList.contains("it")))n=n.previousElementSibling;return n}
+const swOrder=el=>[...el.closest("#list").querySelectorAll(".it")].filter(n=>!n.hidden);
+function swNext(el){const a=swOrder(el);return a[a.indexOf(el)+1]||null}
+function swPrev(el){const a=swOrder(el);return a[a.indexOf(el)-1]||null}
 /* a copy of the page for a gesture to land on: every row closed except `open`
    (if given). It keeps its ids, because several sections are styled by them
    (#s-mkt, #s-health…) and without them the copy lays out differently from
@@ -5293,7 +5477,7 @@ const PTR=(()=>{
   let u=[];
   for(const c of home.children){
    if(!vis(c))continue;
-   if(c.id==="list"){for(const it of c.children){if(!vis(it))continue;if(it.classList.contains("open")){u.push($(".it-hd",it));const sec=$(".sec",it);if(sec)u.push(...expand(sec,0))}else u.push(it)}}
+   if(c.id==="list"){const it=$(".it.open",c);if(it){u.push($(".it-hd",it));const sec=$(".sec",it);if(sec)u.push(...expand(sec,0))}else u.push(...[...c.children].filter(vis))}
    else if(c.matches(".hero"))u.push(...[...c.children].filter(vis));
    else u.push(c);
   }
