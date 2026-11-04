@@ -2733,7 +2733,7 @@ function teaser(id){
  if(id==="music"){const{shows,rel}=musicActivity();if(shows.length){const f=shows[0];return mo(esc(until(f.date,f.time).l))+tx(esc(f.title+(f.venue?" · "+f.venue:"")))+(rel.length?lg(I.spotify)+mo(`${rel.length} new`):shows.length>1?mo(`+${shows.length-1}`):"")}if(rel.length){const r=rel[0];return lg(I.spotify)+mo(`${rel.length} new`)+tx(esc(r.artist+" · "+r.title))}return lg(I.spotify)+mo(`${lists().artists.length} of ${ARTIST_CAP}`)+tx("Nothing new","q")}
  if(id==="bay"){const it=bayItems();if(!it.length)return tx("Nothing picked yet","q");const f=it[0];return mo(esc(until(f.day,f.cal&&f.cal.start&&f.cal.start.slice(0,10)===f.day?f.cal.start.slice(11):"").l))+tx(esc(f.title))+(it.length>1?mo(`+${it.length-1} more`):"")}
  if(id==="movies"){const{now}=mvData();if(!now.length)return tx("Nothing listed","q");return mo(`${now.length} playing`)+tx(esc(now[0].title))+(now[0].score?mo(now[0].score+"%",now[0].score>=60?"up":""):"")}
- if(id==="act"||id==="health"){if(!HEALTH.ok)return tx("Fitbit Air · no data yet","q");const r=healthLatest();if(!r)return tx("Fitbit Air · waiting for a sync","q");const parts=[];if(r.d<todayKey())parts.push(kk(esc(r.d===addDays(todayKey(),-1)?"Last night":fmtKey(r.d,{weekday:"short"}))));if(r.asleep){const h=Math.floor(r.asleep/60),m=r.asleep%60;parts.push(kk("Sleep"),tx(h+"h "+m+"m"))}if(r.steps)parts.push(mo(num(r.steps,0)),tx("steps"));if(r.rhr)parts.push(kk("HR"),tx(r.rhr+" bpm"));return parts.length?parts.join(""):tx("Fitbit Air · waiting for today's sync","q")}
+ if(id==="act"||id==="health"){if(!HEALTH.ok)return tx("Fitbit Air · no data yet","q");const r=healthLatest();if(!r)return tx("Fitbit Air · waiting for a sync","q");const parts=[];if(r.asleep){const h=Math.floor(r.asleep/60),m=r.asleep%60;parts.push(kk(r.d<todayKey()?esc(fmtKey(addDays(r.d,-1),{weekday:"short"})+" night"):"Sleep"),tx(h+"h "+m+"m"))}if(r.steps)parts.push(mo(num(r.steps,0)),tx("steps"));if(r.rhr)parts.push(kk("HR"),tx(r.rhr+" bpm"));return parts.length?parts.join(""):tx("Fitbit Air · waiting for today's sync","q")}
  if(id==="learn"){const v=VOCAB[VOCAB.length-1],s=SPAN[SPAN.length-1];return (v?tx(esc(v.word),"ser"):"")+(s?`<span class="tx ser" lang="es">${esc(s.phrase)}</span>`:"")}
  return "";
 }
@@ -4320,6 +4320,10 @@ function renderHealth(){
  const sign_=n=>(n<0?"−":"+")+Math.abs(n);
  const clock_=(m,short)=>{let t=((Math.round(m)%1440)+1440)%1440;let h=Math.floor(t/60),mm=t%60;const ap=h>=12?"PM":"AM";h=h%12||12;return short&&!mm?`${h} ${ap}`:`${h}:${String(mm).padStart(2,"0")} ${ap}`};
  const day_=(d,f)=>{const dt=new Date(d+"T12:00:00");return f==="n"?dt.toLocaleDateString("en-US",{weekday:"narrow"}):f==="s"?dt.toLocaleDateString("en-US",{weekday:"short"}):dt.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})};
+ /* Google files a night under the morning it ended. A night is named here by the evening it began:
+    the sleep record keyed Tue (Mon 11:41 PM → Tue 6:40 AM) is "Monday night". */
+ const nightOf_=d=>addDays(d,-1);
+ const nightTip_=d=>day_(nightOf_(d))+" night";
  const avg_=(a,k)=>a.reduce((s,r)=>s+r[k],0)/a.length;
  const clamp_=(v,a,b)=>Math.max(a,Math.min(b,v));
  const stColor_=st=>st==="st-g"?"var(--up)":st==="st-w"?"var(--warn)":st==="st-r"?"var(--down)":"var(--ink-3)";
@@ -4400,7 +4404,7 @@ function renderHealth(){
     Palette is neutral; green = goal met / good, orange = needs attention. */
  const byD={};HDAYS.forEach(r=>{byD[r.d]=r});
  const week=[];for(let i=6;i>=0;i--)week.push(addDays(TK,-i));
- const nightWeek=[];for(let i=6;i>=0;i--)nightWeek.push(addDays(T.d,-i));
+ const nightWeek=[];for(let i=6;i>=0;i--)nightWeek.push(addDays(TK,-i));
  const realNight=r=>r&&r.asleep>=180;
  const TD=byD[TK]||null;
  const hist7=HDAYS.slice(0,Tidx).slice(-7);
@@ -4408,6 +4412,7 @@ function renderHealth(){
  const f1=v=>(Math.round(v*10)/10).toFixed(1);
  const pctTxt=v=>Math.round(v)+"%";
  const [bandLbl]=band_(T.score||0);
+ const thatNight=T.d===TK?"last night":fmtKey(nightOf_(T.d),{weekday:"long"})+" night";
  const hmBig=m=>hm_(m).replace(/(\d+)h (\d+)m/,"$1<small>h</small> $2<small>m</small>").replace(/^(\d+)m$/,"$1<small>m</small>");
 
  /* ── Sleep schedule prep ── */
@@ -4442,10 +4447,10 @@ function renderHealth(){
    <div class="hx-chh"><span>Last 7 nights</span>${tgtBed!=null?`<span class="hx-aim" data-t="Target bedtime<span>Your typical bedtime this week, ±30 min — the shaded column.</span>">Aim ${clock_(tgtBed)}</span>`:""}${spread!=null?`<span class="hx-pill ${spread<=30?"good":spread<=60?"":"warn"}" data-t="Bedtime spread<span>How much your bedtime moved night to night. Under 30 min is steady.</span>">±${Math.round(spread)} min</span>`:""}</div>
    <div class="hx-sch">
     <div class="hx-schg">${ticks.map(t=>`<span style="left:${AX(t)}%"></span>`).join("")}${tgtBed!=null?`<span class="hx-tgt" style="left:${AX(tgtBed-30)}%;width:${AX(tgtBed+30)-AX(tgtBed-30)}%"></span>`:""}</div>
-    ${nightWeek.map((d,i)=>{const r=nights[i],isT=d===T.d;return`<div class="hx-row${isT?" today":""}"><span class="hx-dl">${day_(d,"s")}</span><div class="hx-trk">${r?`<span class="hx-win ${scCls(r.score)}${realNight(r)?"":" part"}" style="left:${AX(r.bed)}%;width:${Math.max(1.5,AX(r.wake)-AX(r.bed))}%" tabindex="0" data-t="${day_(d)}<span>${clock_(r.bed)} → ${clock_(r.wake)} · ${hm_(r.asleep)} asleep · score ${r.score}</span>"></span><span class="hx-wl" style="left:calc(${AX(r.wake)}% + 7px)">${hm_(r.asleep)}</span>`:`<span class="hx-nod">no data</span>`}</div><span class="hx-sc ${r?scCls(r.score):"none"}">${r?r.score:"–"}</span></div>`}).join("")}
+    ${nightWeek.map((d,i)=>{const r=nights[i],isT=d===T.d;return`<div class="hx-row${isT?" today":""}"><span class="hx-dl">${day_(nightOf_(d),"s")}</span><div class="hx-trk">${r?`<span class="hx-win ${scCls(r.score)}${realNight(r)?"":" part"}" style="left:${AX(r.bed)}%;width:${Math.max(1.5,AX(r.wake)-AX(r.bed))}%" tabindex="0" data-t="${nightTip_(d)}<span>${clock_(r.bed)} → ${clock_(r.wake)} · ${hm_(r.asleep)} asleep · score ${r.score}</span>"></span><span class="hx-wl" style="left:calc(${AX(r.wake)}% + 7px)">${hm_(r.asleep)}</span>`:`<span class="hx-nod">${d===TK?"not synced yet":"no data"}</span>`}</div><span class="hx-sc ${r?scCls(r.score):"none"}">${r?r.score:"–"}</span></div>`}).join("")}
     <div class="hx-row hx-ax"><span class="hx-dl"></span><div class="hx-trk">${ticks.map((t,i)=>`<span class="${i%2?"odd":""}" style="left:${AX(t)}%">${clock_(t,1)}</span>`).join("")}</div><span class="hx-sc hx-sch-l">Score</span></div>
    </div></div>`;
- const sleepCard=`<div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#i-moon"/></svg></span><span class="hx-t">Sleep</span>${T.asleep?`<span class="hx-s">${T.d===TK?"Last night":esc(fmtKey(T.d,{weekday:"long"}))}</span>`:""}</div>`;
+ const sleepCard=`<div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#i-moon"/></svg></span><span class="hx-t">Sleep</span>${T.asleep?`<span class="hx-s">${esc(fmtKey(nightOf_(T.d),{weekday:"long"}))} night</span>`:""}</div>`;
  const sleepCardF=`<div class="hx-split"><div class="hx-l">${sleepCard}${sleepLeft}</div>${sleepRight}</div>`;
 
  /* ── Steps card ── */
@@ -4477,7 +4482,7 @@ function renderHealth(){
  /* ── Vitals: neutral line, your usual range shaded, today's dot in status color ── */
  function vital_(o){
   const pts=HDAYS.slice(0,Tidx+1).filter(r=>r[o.key]).slice(-7);
-  const v=T[o.key];if(!v)return`<div class="card hx-v"><div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#${o.icon}"/></svg></span><span class="hx-t">${o.name}</span></div><p class="hx-empty">No reading last night.</p></div>`;
+  const v=T[o.key];if(!v)return`<div class="card hx-v"><div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#${o.icon}"/></svg></span><span class="hx-t">${o.name}</span></div><p class="hx-empty">No reading ${thatNight}.</p></div>`;
   const prior=pts.filter(r=>r!==T).map(r=>r[o.key]);
   const m=prior.length?mean_(prior):null,s=prior.length>=3?Math.max(sd_(prior),o.minSd):o.minSd;
   const st=o.status(v,m);
@@ -4489,7 +4494,7 @@ function renderHealth(){
   if(o.ref!=null&&o.ref>lo&&o.ref<hi)svg+=`<line x1="0" x2="100" y1="${Y(o.ref)}" y2="${Y(o.ref)}" stroke="var(--ink-3)" stroke-width="1" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>`;
   if(n>1)svg+=`<polyline points="${pts.map((r,i)=>X(i)+","+Y(r[o.key])).join(" ")}" fill="none" stroke="var(--ink-2)" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>`;
   svg+=`</svg>`;
-  const dots=pts.map((r,i)=>`<span class="hx-dot${r===T?" today "+st[1]:""}" style="left:${X(i)}%;top:${Y(r[o.key])}%" tabindex="0" data-t="${day_(r.d)}<span>${o.fmt(r[o.key])} ${o.unit}</span>"></span>`).join("");
+  const dots=pts.map((r,i)=>`<span class="hx-dot${r===T?" today "+st[1]:""}" style="left:${X(i)}%;top:${Y(r[o.key])}%" tabindex="0" data-t="${o.night?nightTip_(r.d):day_(r.d)}<span>${o.fmt(r[o.key])} ${o.unit}</span>"></span>`).join("");
   const d=m!=null?v-m:null;
   return`<div class="card hx-v"><div class="hx-h"><span class="hx-ic"><svg class="i s14"><use href="#${o.icon}"/></svg></span><span class="hx-t">${o.name}</span></div>
    <div class="hx-vv">${o.fmt(v)}<small>${o.unit}</small></div>
@@ -4499,16 +4504,19 @@ function renderHealth(){
  const vitals=[
   vital_({key:"rhr",name:"Resting HR",icon:"i-heart",unit:"bpm",fmt:v=>String(Math.round(v)),eps:1,minSd:1.5,
    status:(v,m)=>m!=null&&v-m>=5?["Elevated","bad"]:m!=null&&v-m>=3?["A bit high","warn"]:["Normal","good"],help:"Shaded band is your usual range. Lower is better; a jump of 5+ bpm can mean fatigue or illness."}),
-  vital_({key:"hrv",name:"HRV",icon:"i-hpulse",unit:"ms",fmt:v=>String(Math.round(v)),eps:1,minSd:3,
+  vital_({key:"hrv",night:1,name:"HRV",icon:"i-hpulse",unit:"ms",fmt:v=>String(Math.round(v)),eps:1,minSd:3,
    status:(v,m)=>m==null?["Building baseline",""]:v<m*.8?["Below usual","bad"]:v<m*.92?["A bit low","warn"]:v>m*1.08?["Above usual","good"]:["Normal","good"],help:"Shaded band is your usual range. Higher means better recovered."}),
-  vital_({key:"rr",name:"Breathing",icon:"i-wind",unit:"/min",fmt:f1,eps:.2,minSd:.4,ref:20,
+  vital_({key:"rr",night:1,name:"Breathing",icon:"i-wind",unit:"/min",fmt:f1,eps:.2,minSd:.4,ref:20,
    status:v=>v>20?["Above normal","bad"]:v>=19.5?["Top of normal","warn"]:["Normal","good"],help:"Breaths per minute while asleep. Normal is 12–20 (dashed line marks 20)."}),
-  vital_({key:"spo2",name:"Blood O₂",icon:"i-hdrop",unit:"%",fmt:f1,eps:.2,minSd:.5,ref:95,
+  vital_({key:"spo2",night:1,name:"Blood O₂",icon:"i-hdrop",unit:"%",fmt:f1,eps:.2,minSd:.5,ref:95,
    status:v=>v<95?["Low","bad"]:["Normal","good"],help:"Average overnight oxygen. 95–100% is healthy (dashed line marks 95%)."})
  ].join("");
 
  const ago=HEALTH.fetchedAt?Date.now()-new Date(HEALTH.fetchedAt).getTime():null;
  const syncTxt=ago==null?"":ago<36e5?Math.max(1,Math.round(ago/6e4))+" min ago":ago<864e5?Math.round(ago/36e5)+" hr ago":fmtKey(dayKey(new Date(HEALTH.fetchedAt)),{weekday:"short",month:"short",day:"numeric"});
+
+ /* by mid-morning today should have something; if it doesn't, say so rather than "Updated 1 min ago" */
+ const newestD=HDAYS[HDAYS.length-1].d,noNewSince=newestD<TK&&new Date().getHours()>=10?newestD:null;
 
  /* ── Focus: one change, the most impactful one, weighed across every metric the API gives ──
     Each metric gets a status against a target (or your own 14-day baseline for heart signals),
@@ -4538,13 +4546,13 @@ function renderHealth(){
  };
  const off=k=>M[k].st==="warn"||M[k].st==="bad";
  const okList=ex=>{const a=Object.keys(M).filter(k=>!ex.includes(k)&&M[k].st==="good").map(k=>M[k].fine);a.splice(4);return a.length>1?a.slice(0,-1).join(", ")+" and "+a[a.length-1]:a[0]||""};
- const stageLine=()=>{const r=off("rem"),d=off("deep");if(!r&&!d)return"";return` It's also costing you ${r&&d?`REM (${M.rem.v}) and deep sleep (${M.deep.v})`:r?`REM, which was ${M.rem.v} last night against a 20–25% target`:`deep sleep, which was ${M.deep.v} last night against a 13–23% target`}.`};
+ const stageLine=()=>{const r=off("rem"),d=off("deep");if(!r&&!d)return"";return` It's also costing you ${r&&d?`REM (${M.rem.v}) and deep sleep (${M.deep.v})`:r?`REM, which was ${M.rem.v} ${thatNight} against a 20–25% target`:`deep sleep, which was ${M.deep.v} ${thatNight} against a 13–23% target`}.`};
  const wakes=realN.map(r=>r.wake).sort((a,b)=>a-b),medWake=wakes.length?wakes[Math.floor(wakes.length/2)]:null;
  const FOCUS=[];
  if(spread!=null&&tgtBed!=null){
   const beds=realN.map(r=>r.bed),lo=Math.min(...beds),hi=Math.max(...beds);
   const worst=realN.slice().sort((a,b)=>a.score-b.score)[0],latest=realN.slice().sort((a,b)=>b.bed-a.bed)[0];
-  const tie=worst&&latest&&worst===latest&&realN.length>=3?` Your lowest-scoring night (${day_(worst.d,"s")}, ${worst.score}) was also your latest bedtime.`:"";
+  const tie=worst&&latest&&worst===latest&&realN.length>=3?` Your lowest-scoring night (${day_(nightOf_(worst.d),"s")}, ${worst.score}) was also your latest bedtime.`:"";
   FOCUS.push({imp:clamp_((spread-30)/90,0,1)+(off("rem")?.1:0)+(off("deep")?.1:0)+(off("hrv")?.1:0),keys:["bed","rem","deep","score"],
    title:`Be in bed by ${clock_(tgtBed)} every night this week`,
    body:`Your bedtime swung ±${Math.round(spread)} min over the last week, from ${clock_(lo)} to ${clock_(hi)} — the biggest gap in your data.${tie}${stageLine()}`});
@@ -4553,7 +4561,7 @@ function renderHealth(){
   const lights=medWake!=null?Math.round((medWake-465)/15)*15:null;
   FOCUS.push({imp:clamp_((450-sleepAvg)/120,0,1)*1.1+shortN*.04+(off("rem")||off("deep")?.08:0),keys:["dur","score","rem","deep"],
    title:lights!=null?`Get 7½ hours: lights out by ${clock_(lights)}`:"Add 45 minutes of sleep tonight",
-   body:`You've averaged ${hm_(sleepAvg)} a night, with ${shortN} of the last 7 nights under 7 hours. Short nights drag down recovery more than anything else you track.${stageLine()}`});
+   body:`You've averaged ${hm_(sleepAvg)} a night, with ${shortN} of the last ${nights.filter(Boolean).length} nights under 7 hours. Short nights drag down recovery more than anything else you track.${stageLine()}`});
  }
  if(wkAvg!=null)FOCUS.push({imp:clamp_((8000-wkAvg)/4000,0,1)*.75,keys:["steps"],
   title:"Walk 30 minutes every day this week",
@@ -4566,7 +4574,7 @@ function renderHealth(){
    title:"Make today a recovery day",
    body:`Your heart signals say you're run down: ${[T.rhr&&rhrB!=null?`resting HR ${T.rhr} vs your usual ${Math.round(rhrB)}`:"",T.hrv&&hrvB!=null?`HRV ${Math.round(T.hrv)} ms vs ${Math.round(hrvB)}`:"",T.rr?`breathing ${f1(T.rr)}/min`:""].filter(Boolean).join(", ")}. Skip hard training, keep moving lightly, and get to bed early.`});}
  if(T.spo2&&T.spo2<95)FOCUS.push({imp:T.spo2<93?1.4:.6,keys:["spo2"],title:"Keep an eye on your overnight oxygen",
-  body:`Blood oxygen averaged ${f1(T.spo2)}% last night, under the healthy 95–100%. If it stays low for several nights, mention it to a doctor.`});
+  body:`Blood oxygen averaged ${f1(T.spo2)}% ${thatNight}, under the healthy 95–100%. If it stays low for several nights, mention it to a doctor.`});
  let F=FOCUS.sort((a,b)=>b.imp-a.imp)[0];
  if(!F||F.imp<.15)F={keys:[],title:"Keep tonight just like last night",body:"Every signal is in range — sleep, activity and heart. The best move is repeating what you did yesterday."};
  const fine=okList(F.keys);
@@ -4576,7 +4584,7 @@ function renderHealth(){
  const chips=chipOrder.map(k=>`<div class="hx-chip ${M[k].st}${drivers.includes(k)?" drv":""}"><span><i></i>${M[k].l}</span><b>${M[k].v}</b></div>`).join("");
  const dev=(HEALTH.devices||[]).find(d=>d.type==="TRACKER")||(HEALTH.devices||[])[0];
  const lastSyncTxt=dev&&dev.lastSync?(()=>{const t=new Date(dev.lastSync),k=dayKey(t);return(k===TK?"":fmtKey(k,{weekday:"short"})+" ")+t.toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})})():"";
- const focus=`<div class="hx-fh"><div class="hx-fk"><svg class="i s14"><use href="#i-spark"/></svg>Focus today</div><div class="hx-fsync">${lastSyncTxt?`<span data-t="Fitbit Air<span>When your watch last sent data to Google.${dev.battery!=null?` Battery ${dev.battery}%.`:""}</span>">Watch synced ${lastSyncTxt}</span>`:""}${syncTxt?`<span data-t="Stinky's Daily<span>When the Daily last pulled from Google Health. It checks every 2 hours.</span>">Updated ${syncTxt}</span>`:""}${HEALTH.v!==2?`<span class="warn">Needs backend update</span>`:""}</div></div>
+ const focus=`<div class="hx-fh"><div class="hx-fk"><svg class="i s14"><use href="#i-spark"/></svg>Focus today</div><div class="hx-fsync">${lastSyncTxt?`<span data-t="Fitbit Air<span>When your watch last sent data to Google.${dev.battery!=null?` Battery ${dev.battery}%.`:""}</span>">Watch synced ${lastSyncTxt}</span>`:""}${noNewSince?`<span data-t="Stinky's Daily<span>Last checked ${syncTxt||"recently"}. Google Health has sent nothing newer than ${esc(day_(noNewSince))}.</span>">No new data since ${esc(day_(noNewSince,"s"))}</span>`:syncTxt?`<span data-t="Stinky's Daily<span>When the Daily last pulled from Google Health. It checks every 2 hours.</span>">Updated ${syncTxt}</span>`:""}${HEALTH.v!==2?`<span class="warn">Needs backend update</span>`:""}</div></div>
   <div class="hx-fmain"><h2>${F.title}</h2><p>${F.body}</p></div>
   <div class="hx-ev">${chips}</div>`;
 
