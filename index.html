@@ -2080,22 +2080,35 @@ a.dc-c .dq{color:var(--ink-2)}
    one rounded shape cut into cells; a closed section is a cell, an
    open one is its normal full page. Everything here is scoped to the
    closed state, so drilled pages look exactly as they always did.
+
+   The rules: tiles grow to fit their text, so text can't collide.
+   Every tile is name, then main line, then one quiet line. Five type
+   sizes only. Everything lines up on the same left edge and columns.
    ============================================================ */
-.home:not(.drill){display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+.home:not(.drill){display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;padding-bottom:max(12px,env(safe-area-inset-bottom))}
 .home:not(.drill)>.list{flex:1 0 auto}
-.home:not(.drill)>.foot{padding-top:16px}
+.home:not(.drill)>.foot{padding:14px var(--g) 0}
 .home .hero{padding-bottom:0}
-.home:not(.drill) .list{display:flex;flex-wrap:wrap;align-content:stretch;gap:20px 14px;padding-top:6px}
-.cl{flex:1 1 calc(50% - 7px);min-width:0;min-height:206px;display:flex;flex-direction:column}
+.home:not(.drill) .list{position:relative;display:flex;flex-wrap:wrap;align-content:stretch;gap:18px 12px}
+.cl{flex:1 1 calc(50% - 6px);min-width:0;display:flex;flex-direction:column}
 .cl[hidden]{display:none}
-#cl-day{flex-basis:100%;min-height:248px}
-.cl-l{flex:0 0 auto;padding:0 4px 8px;font-size:14px;font-weight:600;letter-spacing:-.005em;color:var(--ink-2)}
-.cl-g{flex:1 1 0;min-height:0;display:grid;gap:2px;grid-auto-rows:minmax(0,1fr);border-radius:22px;overflow:hidden}
+#cl-day{flex-basis:100%}
+/* group names, Pinned included, all speak the same way and sit on the page's left edge */
+.cl-l{flex:0 0 auto;margin:0 0 7px;font-size:14px;line-height:18px;font-weight:600;letter-spacing:-.005em;color:var(--ink-2)}
+.home .pinbar{margin:0 0 18px}
+.home .pinbar-h{margin:0 0 7px}
+.home .pinbar-h span{font-family:var(--sans);font-size:14px;line-height:18px;font-weight:600;letter-spacing:-.005em;text-transform:none;color:var(--ink-2);gap:6px}
+.home .pinbar-h span svg{display:none}
+.home .pinbar-h span b{font-weight:600;color:var(--ink-3)}
+.home .pin-row{padding-top:0;padding-bottom:0}
+.home .pin{border-radius:20px;box-shadow:none}
+.cl-g{flex:1 1 auto;display:grid;gap:2px;grid-auto-rows:1fr;border-radius:20px;overflow:hidden}
 /* how each cluster divides */
-#cl-day .cl-g{grid-template-columns:2fr 1fr 1fr}
-#cl-day[data-n="2"] .cl-g{grid-template-columns:1fr 1fr}
-#cl-day[data-n="1"] .cl-g,#cl-unwind[data-n="1"] .cl-g{grid-template-columns:1fr}
-#cl-unwind .cl-g{grid-template-columns:1fr 1fr}
+#cl-day .cl-g{grid-template-columns:repeat(3,minmax(0,1fr))}
+#cl-day[data-n="2"] .cl-g{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+#cl-day[data-n="1"] .cl-g,#cl-unwind[data-n="1"] .cl-g{grid-template-columns:minmax(0,1fr)}
+#cl-world .cl-g,#cl-learn .cl-g,#cl-out .cl-g{grid-template-columns:minmax(0,1fr)}
+#cl-unwind .cl-g{grid-template-columns:repeat(2,minmax(0,1fr))}
 #cl-unwind[data-n="3"] .it.lead{grid-column:1/-1}
 /* a drilled page takes the whole screen: the groups fall away around it */
 .home.drill .cl,.home.drill .cl-g{display:contents}
@@ -2104,84 +2117,78 @@ a.dc-c .dq{color:var(--ink-2)}
 .it.open{border-top:1px solid var(--line)}
 .home.drill .it.open{border-top-color:transparent}
 
-.it:not(.open){min-width:0;min-height:0;overflow:hidden;background:var(--surface);transition:background-color .18s ease}
+/* the tile */
+.it:not(.open){min-width:0;min-height:116px;overflow:hidden;background:var(--surface);transition:background-color .18s ease}
+#cl-day .it:not(.open){min-height:140px}
 .it:not(.open):active{background:var(--raise)}
 .it:not(.open) .it-hd,.it:not(.open) .it-h{height:100%}
-.it:not(.open) .it-h{flex:1;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:0 9px;align-items:center;padding:14px 16px 15px}
+.it:not(.open) .it-h{flex:1;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:9px 7px;align-items:center;padding:13px 15px}
 .it:not(.open) .it-x{display:none}
-.it:not(.open) .it-ic,.it:not(.open) .it-ic.mono svg{width:22px;height:22px}
-.it:not(.open) .it-ic{border-radius:0}
-.it:not(.open) .it-n{flex:none;margin:0;font-size:21px;letter-spacing:-.03em;line-height:1.15;overflow:hidden;text-overflow:ellipsis}
+.it:not(.open) .it-ic,.it:not(.open) .it-ic.mono svg{width:18px;height:18px}
+.it:not(.open) .it-ic{border-radius:0;margin-left:-1px}
+.it:not(.open) .it-n{flex:none;margin:0;font-size:16px;line-height:22px;font-weight:600;letter-spacing:-.018em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .it:not(.open) .it-h:hover .it-n{transform:none}
 /* a closed section keeps its page width, out of sight, so anything measured while it's closed still fits */
 .it:not(.open) .it-b{position:absolute;left:var(--g);right:var(--g);height:0;overflow:hidden;visibility:hidden}
-.home:not(.drill) .list{position:relative}
 
-/* the glance, anchored to the bottom of the tile */
-.it:not(.open) .it-t{grid-column:1/-1;grid-row:2;align-self:stretch;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:5px;min-height:0;overflow:hidden;white-space:normal;font-size:15px;line-height:1.28;color:var(--ink)}
+/* what's in the tile: starts right under the name, the same distance in every tile */
+.it:not(.open) .it-t{grid-column:1/-1;grid-row:2;align-self:stretch;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:3px;min-width:0;min-height:0;overflow:visible;white-space:normal;font-size:15px;line-height:20px;color:var(--ink)}
 .it:not(.open) .it-t>:first-child{margin-left:0}
-.pk-k{flex:0 0 auto;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.005em;color:var(--ink-2)}
-.pk-k.up{color:var(--up)}
-.pk-t{flex:0 0 auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-weight:500;letter-spacing:-.01em;max-width:100%}
-.pk-s{flex:0 0 auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:13.5px;line-height:1.3;color:var(--ink-2);max-width:100%}
-.pk-q{font-size:14px;line-height:1.3;color:var(--ink-3)}
-.pk-w{flex:0 0 auto;font-family:var(--serif);font-size:24px;font-style:italic;line-height:1.15;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding-right:.1em}
-/* Calendar: the next thing large, then what follows */
-.pk-t.pk-lg{font-family:var(--display);font-size:25px;font-weight:600;line-height:1.14;letter-spacing:-.025em}
-.pk-evs{flex:0 0 auto;display:flex;flex-direction:column;gap:5px;width:100%;margin-top:9px;padding-top:11px;border-top:1px solid var(--line)}
-.pk-ev{display:flex;align-items:baseline;gap:10px;min-width:0;font-size:14px;line-height:1.25;color:var(--ink-2)}
-.pk-ev i{flex:0 0 66px;font-family:var(--mono);font-style:normal;font-size:12px;font-weight:500;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pk-ev span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-/* Health: the two numbers he cares about */
-.pk-st{flex:0 0 auto;display:flex;flex-direction:column;gap:1px}
-.pk-st+.pk-st{margin-top:8px}
-.pk-st b{font-family:var(--display);font-size:27px;font-weight:600;line-height:1.1;letter-spacing:-.03em;white-space:nowrap}
-.pk-st i{font-family:var(--mono);font-style:normal;font-size:12px;font-weight:500;color:var(--ink-2)}
+/* type sizes: large 22, serif word 22, main 15, quiet 13, name 16 */
+.pk-h{flex:0 0 auto;display:block;font-family:var(--display);font-size:22px;line-height:27px;font-weight:600;letter-spacing:-.024em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pk-h.two{white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.pk-w{flex:0 0 auto;display:block;font-family:var(--serif);font-size:22px;line-height:27px;font-style:italic;letter-spacing:-.008em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:.15em}
+.pk-m{flex:0 0 auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:15px;line-height:20px;font-weight:500;letter-spacing:-.009em;color:var(--ink)}
+.pk-m.one{display:block;white-space:nowrap;text-overflow:ellipsis}
+.pk-b{flex:0 0 auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:13px;line-height:17px;color:var(--ink-2)}
+.pk-b.n{display:block;font-family:var(--mono);font-size:12px;font-weight:500;white-space:nowrap;text-overflow:ellipsis}
+.pk-b.n.up{color:var(--up)}
+.pk-q{font-size:13px;line-height:17px;color:var(--ink-3)}
+/* Calendar: then whatever else fits, whole rows only */
+.pk-evs{flex:1 1 0;min-height:0;container-type:size;display:flex;flex-flow:column wrap;align-content:flex-start;overflow:hidden;margin-top:9px;row-gap:4px}
+@container (max-height:17.5px){.pk-ev{display:none}}
+.pk-ev{flex:0 0 18px;width:100%;display:flex;align-items:baseline;gap:9px;font-size:13px;line-height:18px;color:var(--ink-2)}
+.pk-ev i{flex:0 0 60px;font-family:var(--mono);font-style:normal;font-size:12px;font-weight:500;color:var(--ink-3);white-space:nowrap;overflow:hidden}
+.pk-ev span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Health and Media: numbers, side by side, with a label under each */
+.pk-sts{flex:0 0 auto;display:flex;flex-wrap:wrap;gap:6px 22px}
+.pk-st{display:flex;flex-direction:column;gap:3px;min-width:0}
+.pk-st b{display:flex;align-items:center;gap:7px;font-family:var(--display);font-size:22px;line-height:27px;font-weight:600;letter-spacing:-.024em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.pk-st i{font-family:var(--mono);font-style:normal;font-size:12px;line-height:17px;font-weight:500;color:var(--ink-2);white-space:nowrap}
+.pk-lg{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px}
+.pk-lg.yt{width:25px}
+.pk-lg svg,.pk-lg img{width:100%;height:100%}
 /* Markets */
-.pk-mk{flex:0 0 auto;display:flex;align-items:center;gap:8px;white-space:nowrap}
-.pk-mk b{font-family:var(--display);font-size:25px;font-weight:600;letter-spacing:-.03em;line-height:1.15;font-variant-numeric:tabular-nums}
-.pk-mk .lg{width:20px;height:20px}
-.pk-mr{flex:0 0 auto;display:flex;align-items:center;gap:8px;min-width:0;max-width:100%;overflow:hidden;white-space:nowrap;font-size:13.5px;color:var(--ink-2)}
-.pk-mk .m,.pk-mr .m{flex:0 0 auto;font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--ink);opacity:.88}
-.pk-mk .m.chg,.pk-mr .m.up{color:var(--up)}.pk-mk .m.chg.dn,.pk-mr .m.down{color:var(--down)}
-.pk-mr .m.k{font-size:10.5px;line-height:1.25;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);padding:1px 5px 0;border:1px solid var(--line);border-radius:5px;margin-left:4px}
-/* Media: new counts beside their logos */
-.pk-ns{flex:0 0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px}
-.pk-id{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto}
-.pk-ns>span{display:inline-flex;align-items:center;gap:7px}
-.pk-ns .lg{display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center}
-.pk-ns .lg.yt{width:28px}
-.pk-ns .lg svg{width:100%;height:100%}
-.pk-ns b{font-family:var(--display);font-size:25px;font-weight:600;letter-spacing:-.03em;line-height:1.1}
-.pk-ns i{font-family:var(--mono);font-style:normal;font-size:12px;font-weight:500;color:var(--ink-2)}
+.pk-h.pk-px{display:flex;align-items:center;gap:7px;font-variant-numeric:tabular-nums}
+.pk-sym{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--ink-2)}
+.pk-px .m{margin-left:3px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0;color:var(--up)}
+.pk-px .m.dn{color:var(--down)}
+.pk-b.pk-mr{display:flex;flex-wrap:nowrap;gap:14px;white-space:nowrap}
+.pk-mr .m{font-family:var(--mono);font-size:12px;font-weight:500}
+.pk-mr .m.up{color:var(--up)}.pk-mr .m.down{color:var(--down)}
 @media (hover:hover) and (pointer:fine){.it:not(.open):hover{background:var(--raise)}}
 /* iPad landscape and laptops: wider than tall, so cells sit side by side */
 @media (min-width:1024px){
-  .cl{flex-basis:calc(50% - 7px);min-height:158px}
-  #cl-day{min-height:204px}
-  .pk-ev:nth-child(n+3){display:none}
-  #cl-world .cl-g,#cl-learn .cl-g,#cl-out .cl-g{grid-template-columns:1fr 1fr}
-  #cl-world[data-n="1"] .cl-g,#cl-learn[data-n="1"] .cl-g,#cl-out[data-n="1"] .cl-g{grid-template-columns:1fr}
-  #cl-unwind[data-n="3"] .cl-g{grid-template-columns:1.4fr 1fr 1fr}
+  #cl-world .cl-g,#cl-learn .cl-g,#cl-out .cl-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #cl-world[data-n="1"] .cl-g,#cl-learn[data-n="1"] .cl-g,#cl-out[data-n="1"] .cl-g{grid-template-columns:minmax(0,1fr)}
+  #cl-unwind[data-n="3"] .cl-g{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr)}
   #cl-unwind[data-n="3"] .it.lead{grid-column:auto}
 }
 /* phone: clusters stack, and the page scrolls */
 @media (max-width:599px){
-  .cl,#cl-day{flex-basis:100%;min-height:0}
-  .home:not(.drill) .list{gap:18px 0}
-  .cl-g{flex:0 0 auto;border-radius:20px;grid-auto-rows:auto;grid-template-columns:1fr 1fr}
-  #cl-day .cl-g,#cl-unwind .cl-g{grid-template-columns:1fr 1fr}
-  #cl-day[data-n="3"] .it.lead,#cl-unwind[data-n="3"] .it.lead{grid-column:1/-1}
-  .cl[data-n="1"] .cl-g{grid-template-columns:1fr}
-  .it:not(.open) .it-h{padding:12px 13px 13px;grid-auto-rows:auto}
-  .it:not(.open) .it-t{margin-top:16px;font-size:14px}
-  .it:not(.open) .it-n{font-size:18px}
-  .it:not(.open) .it-ic,.it:not(.open) .it-ic.mono svg{width:20px;height:20px}
-  .pk-w{font-size:20px}
-  .pk-t.pk-lg{font-size:21px}
-  .pk-mk b,.pk-ns b,.pk-st b{font-size:22px}
-  .pk-ns{gap:6px 14px}
-  .pk-id{display:none}
+  .cl,#cl-day{flex-basis:100%}
+  .home:not(.drill) .list{gap:16px 0}
+  #cl-day .cl-g,#cl-day[data-n="2"] .cl-g,#cl-world .cl-g,#cl-learn .cl-g,#cl-out .cl-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #cl-day[data-n="3"] .it.lead,#cl-day[data-n="2"] .it.lead{grid-column:1/-1}
+  #cl-day[data-n="2"] .it:not(.lead){grid-column:1/-1}
+  .cl[data-n="1"] .cl-g{grid-template-columns:minmax(0,1fr)!important}
+  .cl-g{grid-auto-rows:auto}
+  .it:not(.open),#cl-day .it:not(.open){min-height:104px}
+  .it:not(.open) .it-h{padding:12px 13px;grid-template-rows:auto 1fr}
+  .pk-evs{flex:0 0 auto;container-type:normal;flex-flow:column nowrap}
+  .pk-m.one{display:-webkit-box;white-space:normal}
+  .pk-mr>:nth-child(n+2){display:none}
+  .pk-ev:nth-child(n+4){display:none}
 }
 </style>
 </head>
@@ -2856,36 +2863,37 @@ function teaser(id){
  if(id==="learn"){const v=VOCAB[VOCAB.length-1],s=SPAN[SPAN.length-1];return (v?tx(esc(v.word),"ser"):"")+(s?`<span class="tx ser" lang="es">${esc(s.phrase)}</span>`:"")}
  return "";
 }
-/* what a tile shows: a glance at what's inside, in place of the one line a row had */
-const pkK=(x,c="")=>`<span class="pk-k ${c}">${x}</span>`,pkT=x=>`<span class="pk-t">${x}</span>`,pkS=x=>`<span class="pk-s">${x}</span>`,pkQ=x=>`<span class="pk-q">${x}</span>`;
+/* what a tile shows: the main thing, then one quiet line under it, the same in every tile */
+const pkM=x=>`<span class="pk-m">${x}</span>`,pk1=x=>`<span class="pk-m one">${x}</span>`,pkN=(x,c="")=>`<span class="pk-b n ${c}">${x}</span>`,pkB=x=>`<span class="pk-b">${x}</span>`,pkQ=x=>`<span class="pk-q">${x}</span>`;
+const pkSt=(v,l)=>`<span class="pk-st"><b>${v}</b><i>${l}</i></span>`;
 function peek(id){
  const now=new Date(),tk=todayKey();
- if(id==="cal"){const up=upcoming(),nRem=(S.tasks||[]).filter(t=>!t.done&&t.due&&t.due<=tk).length,rem=nRem?pkK(`${nRem} ${nRem===1?"reminder":"reminders"} today`):"";
-  if(!up.length)return rem+pkQ(calNeedsKey()?"Add your private key in Settings":`Nothing in the next ${CAL_DAYS} days`);
+ if(id==="cal"){const up=upcoming(),nRem=(S.tasks||[]).filter(t=>!t.done&&t.due&&t.due<=tk).length,rem=nRem?`${nRem} ${nRem===1?"reminder":"reminders"}`:"";
+  if(!up.length)return rem?pkM(rem+" today"):pkQ(calNeedsKey()?"Add your private key in Settings":`Nothing in the next ${CAL_DAYS} days`);
   const e=up.find(x=>!x.allDay&&x.en>now&&x.key===tk)||up[0];
   const when=x=>x.allDay?(x.kind==="birthday"?"Birthday":"All day"):(x.tz==="CT"?fmtTime(x.s,"America/Chicago")+" CT":fmtTime(x.s));
   const day=x=>x.key===tk?"":dayDiff(tk,x.key)===1?"Tomorrow":dayDiff(tk,x.key)>=7?fmtKey(x.key,{month:"short",day:"numeric"}):fmtKey(x.key,{weekday:"short"});
-  const rest=up.filter(x=>x!==e).slice(0,4).map(x=>`<span class="pk-ev"><i>${esc(day(x)||when(x))}</i><span>${esc(splitEmoji(x.title).t)}</span></span>`).join("");
-  return pkK(esc([day(e),when(e)].filter(Boolean).join(" · ")))+`<span class="pk-t pk-lg">${esc(splitEmoji(e.title).t)}</span>`+(rest?`<span class="pk-evs">${rest}</span>`:"")+rem}
- if(id==="coach"){const d=dareData(),dn=dareDone().filter(i=>i<d.opts.length),st=coachStreak(),streak=st.n>=1?pkK(`${st.n} in a row`):"";
-  return dn.length?pkK("Done","up")+pkT(esc(d.opts[dn[0]].title))+streak:d.opts.map(o=>pkT(esc(o.title))).join("")+streak}
+  const rest=up.filter(x=>x!==e).slice(0,6).map(x=>`<span class="pk-ev"><i>${esc(day(x)||when(x))}</i><span>${esc(splitEmoji(x.title).t)}</span></span>`).join("");
+  return`<span class="pk-h two">${esc(splitEmoji(e.title).t)}</span>`+pkN(esc([day(e),when(e),rem].filter(Boolean).join(" · ")))+(rest?`<span class="pk-evs">${rest}</span>`:"")}
+ if(id==="coach"){const d=dareData(),dn=dareDone().filter(i=>i<d.opts.length),st=coachStreak(),streak=st.n>=1?`${st.n} in a row`:"";
+  return dn.length?pkM(esc(d.opts[dn[0]].title))+pkN(["Done",streak].filter(Boolean).join(" · "),"up"):d.opts.map(o=>pk1(esc(o.title))).join("")+(streak?pkN(streak):"")}
  if(id==="health"){if(!HEALTH.ok)return pkQ("Fitbit Air · no data yet");const r=healthLatest();if(!r)return pkQ("Fitbit Air · waiting for a sync");
-  const out=[];if(r.asleep)out.push(`<span class="pk-st"><b>${Math.floor(r.asleep/60)}h ${r.asleep%60}m</b><i>${esc(r.d<tk?fmtKey(addDays(r.d,-1),{weekday:"short"})+" night":"Sleep")}</i></span>`);
-  if(r.steps)out.push(`<span class="pk-st"><b>${num(r.steps,0)}</b><i>steps</i></span>`);
-  return out.length?out.join(""):pkQ("Fitbit Air · waiting for today's sync")}
- if(id==="news"){if(hasBrief()){const a=DATA.brief.articles,r=bfRead(),f=a.find(x=>!r.has(x.id))||a[0];return pkK(esc(bfLeft()))+pkT(esc(f.title))}const n=DATA.news;return n.length?pkK(n.length+" stories")+pkT(esc(n[0].title)):pkQ("Nothing today")}
- if(id==="mkt"){const cl=cxList(),sym=cl.includes("BTC")?"BTC":cl[0],c=sym&&cxNow(sym),top=sym?`<span class="pk-mk">${sym==="BTC"?lg(I.btc):kk(esc(sym))}<b data-px="${sym}" data-dp0>${c?usd(c.price,0):"—"}</b>${c?`<span class="m chg ${c.pct<0?"dn":""}" data-pill="${sym}">${pct(c.pct)}</span>`:""}</span>`:"";
-  const sm=stList().slice(0,2).map(s=>[s,stkQuote(s)]).filter(x=>x[1]).map(([s,q])=>tx(esc(IDX_S[s]||stName(s)),"nk")+mo(pct(q.pct),q.pct>=0?"up":"down")).join("");
-  return top+`<span class="pk-mr">${sm}${DATA.pick?`<span class="pk-id">${kk("Idea")}${tx(esc(DATA.pick.sym),"nk")}</span>`:""}</span>`}
- if(id==="vocab"){const v=VOCAB[VOCAB.length-1];return v?`<span class="pk-w">${esc(v.word)}</span>`+pkS(esc((v.def||v.pos||"").replace(/\.$/,""))):pkQ("No word yet")}
- if(id==="spanish"){const e=SPAN[SPAN.length-1];return e?`<span class="pk-w" lang="es">${esc(e.phrase)}</span>`+pkS(esc(e.meaning)):pkQ("No phrase yet")}
+  const out=[];if(r.asleep)out.push(pkSt(`${Math.floor(r.asleep/60)}h ${r.asleep%60}m`,esc(r.d<tk?fmtKey(addDays(r.d,-1),{weekday:"short"})+" night":"sleep")));
+  if(r.steps)out.push(pkSt(num(r.steps,0),"steps"));
+  return out.length?`<span class="pk-sts">${out.join("")}</span>`:pkQ("Fitbit Air · waiting for today's sync")}
+ if(id==="news"){if(hasBrief()){const a=DATA.brief.articles,r=bfRead(),f=a.find(x=>!r.has(x.id))||a[0];return pkM(esc(f.title))+pkN(esc(bfLeft()))}const n=DATA.news;return n.length?pkM(esc(n[0].title))+pkN(n.length+" stories"):pkQ("Nothing today")}
+ if(id==="mkt"){const cl=cxList(),sym=cl.includes("BTC")?"BTC":cl[0],c=sym&&cxNow(sym),top=sym?`<span class="pk-h pk-px">${sym==="BTC"?`<span class="pk-lg">${I.btc}</span>`:`<span class="pk-sym">${esc(sym)}</span>`}<span data-px="${sym}" data-dp0>${c?usd(c.price,0):"—"}</span>${c?`<span class="m chg ${c.pct<0?"dn":""}" data-pill="${sym}">${pct(c.pct)}</span>`:""}</span>`:"";
+  const sm=stList().slice(0,2).map(s=>[s,stkQuote(s)]).filter(x=>x[1]).map(([s,q])=>`<span>${esc(IDX_S[s]||stName(s))} <span class="m ${q.pct>=0?"up":"down"}">${pct(q.pct)}</span></span>`).join("");
+  return top+(sm?`<span class="pk-b pk-mr">${sm}</span>`:"")}
+ if(id==="vocab"){const v=VOCAB[VOCAB.length-1];return v?`<span class="pk-w">${esc(v.word)}</span>`+pkB(esc((v.def||v.pos||"").replace(/\.$/,""))):pkQ("No word yet")}
+ if(id==="spanish"){const e=SPAN[SPAN.length-1];return e?`<span class="pk-w" lang="es">${esc(e.phrase)}</span>`+pkB(esc(e.meaning)):pkQ("No phrase yet")}
  if(id==="media"){const yt=ytItems(),sp=spItems(),all=[...yt,...sp],yc=yt.filter(v=>!v.sugg).length,sc=sp.filter(v=>!v.sugg).length;
-  if(!yc&&!sc)return all.length?pkK(`${all.length} suggested`):pkQ("Nothing new");
-  return`<span class="pk-ns">${yc?`<span>${lg(I.yt,"yt")}<b>${yc}</b><i>new</i></span>`:""}${sc?`<span>${lg(I.spotify)}<b>${sc}</b><i>new</i></span>`:""}</span>`}
- if(id==="music"){const{shows,rel}=musicActivity();if(shows.length){const f=shows[0];return pkK(esc(until(f.date,f.time).l))+pkT(esc(f.title))}if(rel.length){const r=rel[0];return pkK(`${rel.length} new`)+pkT(esc(r.artist+" · "+r.title))}return pkK(`${lists().artists.length} of ${ARTIST_CAP}`)+pkQ("Nothing new")}
- if(id==="live"){const it=liveItems();if(!it.length)return pkQ(teamList().length?(S.live?"Nothing on this week":"Checking…"):"Add your teams");const f=it.find(x=>x.state==="in")||it.find(x=>x.state==="pre")||it[0],w=liveWhen(f);return(f.state==="in"?pkK("Live","up"):f.state==="post"?pkK("Final"):pkK(esc(until(w.k,String(new Date(f.when).getHours()).padStart(2,"0")+":00").l)))+pkT(esc(f.title))}
- if(id==="bay"){const it=bayItems();if(!it.length)return pkQ("Nothing picked yet");const f=it[0];return pkK(esc(until(f.day,f.cal&&f.cal.start&&f.cal.start.slice(0,10)===f.day?f.cal.start.slice(11):"").l)+(it.length>1?` · +${it.length-1} more`:""))+pkT(esc(f.title))}
- if(id==="movies"){const{now:n}=mvData();return n.length?pkK(`${n.length} playing`)+pkT(esc(n[0].title)):pkQ(mvEmpty())}
+  if(!yc&&!sc)return all.length?pkM(`${all.length} suggested`):pkQ("Nothing new");
+  return`<span class="pk-sts">${yc?pkSt(`<span class="pk-lg yt">${I.yt}</span>${yc}`,"new"):""}${sc?pkSt(`<span class="pk-lg">${I.spotify}</span>${sc}`,"new"):""}</span>`}
+ if(id==="music"){const{shows,rel}=musicActivity();if(shows.length){const f=shows[0];return pkM(esc(f.title))+pkN(esc(until(f.date,f.time).l))}if(rel.length){const r=rel[0];return pkM(esc(r.artist+" · "+r.title))+pkN(`${rel.length} new`)}return pkQ("Nothing new")}
+ if(id==="live"){const it=liveItems();if(!it.length)return pkQ(teamList().length?(S.live?"Nothing on this week":"Checking…"):"Add your teams");const f=it.find(x=>x.state==="in")||it.find(x=>x.state==="pre")||it[0],w=liveWhen(f),tv=f.tv&&f.tv[0]?" · "+esc(f.tv[0]):"";return pkM(esc(f.title))+(f.state==="in"?pkN("Live"+tv,"up"):f.state==="post"?pkN("Final"):pkN(esc(until(w.k,String(new Date(f.when).getHours()).padStart(2,"0")+":00").l)+tv))}
+ if(id==="bay"){const it=bayItems();if(!it.length)return pkQ("Nothing picked yet");const f=it[0];return pkM(esc(f.title))+pkN(esc(until(f.day,f.cal&&f.cal.start&&f.cal.start.slice(0,10)===f.day?f.cal.start.slice(11):"").l)+(it.length>1?` · +${it.length-1} more`:""))}
+ if(id==="movies"){const{now:n}=mvData();return n.length?pkM(esc(n[0].title))+pkN(`${n.length} playing`):pkQ(mvEmpty())}
  return"";
 }
 function renderTeasers(){if(!S.booted)return;ITEMS.forEach(([id])=>{const el=$("#tz-"+id);if(el)el.innerHTML=peek(id)});refreshSync()}
