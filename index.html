@@ -185,21 +185,30 @@ h1,h2,h3,p{margin:0}
 .mini svg{width:14px;height:14px}
 .mini.on{color:var(--ink);background:var(--fill-2)}
 
-/* ──────────────── CALENDAR · five days (Oct 27 v3) ────────────────
-   Today and the next four days, one full-width card each, every card the same height.
-   Sized like Health and Vocab: exactly the space under the pinned title, with the gap
-   below the last card equal to the side gutter. Each card: a date tile with the
+/* ──────────────── CALENDAR · ten days, five to a screen (Nov 3) ────────────────
+   Today and the next nine days, one full-width card each, every card the same height.
+   Sized like Health and Vocab: the first five fill exactly the space under the pinned
+   title, with the gap below the fifth equal to the side gutter; the other five continue
+   below at the same height, and the page scrolls to them. Each card: a date tile with the
    forecast in a band along its foot (one icon, high over low), the day's events and reminders (no times: the strip shows when), and a
    6 AM – midnight strip with the timed events at true scale.
-   iPad upright and landscape: five rows. Phone: stacks and scrolls, cards one height. */
+   iPad upright and landscape: five rows to a screen. Phone: stacks and scrolls, cards one height. */
 #s-cal{--hdh:58px;--lh:28px;--c1:#2B5EF0;--c2:#9B4DFF;--c3:#E8590C;--c4:#0E9F8E;--cbd:#E8336D}
 :root[data-theme="dark"] #s-cal{--c1:#7A9DFF;--c2:#B985FF;--c3:#FF8A4C;--c4:#3CCFBE;--cbd:#FF6B9B}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #s-cal{--c1:#7A9DFF;--c2:#B985FF;--c3:#FF8A4C;--c4:#3CCFBE;--cbd:#FF6B9B}}
 .ev-ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--fill);font-size:19px;flex:0 0 auto;color:var(--ink-2)}
 .ev-ic svg{width:18px;height:18px}
-.dys{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(5,minmax(0,1fr));gap:12px;
- height:calc(100vh - var(--hdh) - var(--hpt,18px) - var(--hgap,24px) - var(--note,0px));height:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - var(--hpt,18px) - var(--hgap,24px) - var(--note,0px));min-height:740px}
-.dys.noted{--note:28px}
+.dys{--dgap:12px;--dmin:740px;
+ --davail:calc(100vh - var(--hdh) - var(--hpt,18px) - var(--hgap,24px) - var(--note,0px));
+ --dh:calc((max(var(--davail),var(--dmin)) - 4*var(--dgap))/5);/* one card: a fifth of the first screen */
+ display:grid;grid-template-columns:minmax(0,1fr);grid-auto-rows:var(--dh);gap:var(--dgap)}
+@supports (height:100dvh){.dys{--davail:calc(100dvh - env(safe-area-inset-top,0px) - var(--hdh) - var(--hpt,18px) - var(--hgap,24px) - var(--note,0px))}}
+/* a note sits right under the fifth card, so it stays on the first screen */
+.dys.noted{--note:28px;grid-template-rows:repeat(5,var(--dh)) auto}
+.cv-notes{line-height:16px}
+.cv-notes .cv-note{margin:0}
+/* scrolled to the end: the gap under the tenth card matches the side gutter (the drilled page already pads 20px) */
+.home.drill .dys{margin-bottom:calc(min(var(--hgap,24px),64px) - 20px)}
 .dy{display:grid;grid-template-columns:84px minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;column-gap:20px;row-gap:12px;
  min-height:0;min-width:0;padding:14px 20px 16px 14px;border-radius:22px}
 /* date tile, tap it to open that day in Google Calendar: the date centered above, the
@@ -258,9 +267,9 @@ h1,h2,h3,p{margin:0}
 .dy-now{position:absolute;top:0;bottom:0;left:calc(var(--x)*1%);width:2px;margin-left:-1px;background:var(--down);z-index:2}
 .dy-hr{position:absolute;top:0;bottom:0;display:flex;align-items:center;padding-left:5px;font-size:10px;font-weight:700;letter-spacing:.02em;color:var(--ink-3);pointer-events:none}
 .cv-note{font-size:12px;color:var(--ink-3);text-align:center;margin-top:8px}
-/* landscape iPad / Mac: same five rows, a little tighter */
+/* landscape iPad / Mac: same five rows to a screen, a little tighter */
 @media (min-width:1000px) and (orientation:landscape){
- .dys{gap:10px;min-height:600px}
+ .dys{--dgap:10px;--dmin:600px}
  #s-cal{--lh:26px}
  .dy{padding:11px 20px 12px 11px;row-gap:9px}
  .di{font-size:15px}.dy-t{height:18px}
@@ -278,7 +287,7 @@ h1,h2,h3,p{margin:0}
 }
 /* phone: natural scroll, every card still one height */
 @media (max-width:699px){
- .dys{height:auto;min-height:0;grid-template-rows:none;grid-auto-rows:150px;gap:10px}
+ .dys{--dh:150px;--dgap:10px}
  #s-cal{--lh:26px}
  .dy{grid-template-columns:66px minmax(0,1fr);column-gap:13px;row-gap:10px;padding:11px 14px 13px 11px;border-radius:19px}
  .dy-dd{padding:4px 2px;gap:1px}
@@ -2706,10 +2715,10 @@ function teaser(id){
   return mo(`${w?w.cur.temp:fb.hi}°`)+tx(esc(w?info.l:fb.cond))+mo(`H${w?w.hi:fb.hi}° L${w?w.lo:fb.lo}°`)+(nxt?mo(esc(nxt)):"")}
  if(id==="cal"){const up=upcoming();const e=up.find(x=>!x.allDay&&x.en>now&&x.key===tk)||up[0];
   const nRem=(S.tasks||[]).filter(t=>!t.done&&t.due&&t.due<=tk).length;
-  if(!e)return lg(I.gcal)+(nRem?mo(`${nRem} ${nRem===1?"reminder":"reminders"}`)+tx("today"):tx(calNeedsKey()?"Add your private key in Settings":"Nothing in the next 5 days","q"));
+  if(!e)return lg(I.gcal)+(nRem?mo(`${nRem} ${nRem===1?"reminder":"reminders"}`)+tx("today"):tx(calNeedsKey()?"Add your private key in Settings":`Nothing in the next ${CAL_DAYS} days`,"q"));
   const p=splitEmoji(e.title);const when=e.allDay?(e.kind==="birthday"?"Birthday":"All day"):(e.tz==="CT"?fmtTime(e.s,"America/Chicago")+" CT":fmtTime(e.s));
   const rest=up.length>1?mo(`+${up.length-1} more`):"";
-  return lg(I.gcal)+(e.key!==tk?kk(esc(relDay(e.key).slice(0,3))):"")+mo(esc(when))+tx(esc(p.t))+rest+(nRem?mo(`${nRem} ${nRem===1?"reminder":"reminders"}`):"")}
+  return lg(I.gcal)+(e.key!==tk?kk(esc(dayDiff(tk,e.key)>=7?fmtKey(e.key,{month:"short",day:"numeric"}):relDay(e.key).slice(0,3))):"")+mo(esc(when))+tx(esc(p.t))+rest+(nRem?mo(`${nRem} ${nRem===1?"reminder":"reminders"}`):"")}
  if(id==="mkt"){const out=[];
   const st=stList().slice(0,2).map(s=>[s,stkQuote(s)]).filter(x=>x[1]);
   if(st.length){out.push(lg(I.rh,"rh"));st.forEach(([s,q])=>out.push(tx(esc(IDX_S[s]||stName(s)),"nk"),mo(pct(q.pct),q.pct>=0?"up":"down")))}
@@ -3217,7 +3226,7 @@ async function placeName(lat,lon){const k=lat.toFixed(2)+","+lon.toFixed(2);cons
 async function loadWeather(){
  let L={...CONFIG.home,here:false};
  const g=await getCoords();if(g)L={lat:g.lat,lon:g.lon,name:(await placeName(g.lat,g.lon))||"Here",here:true};
- const u=`https://api.open-meteo.com/v1/forecast?latitude=${L.lat.toFixed(2)}&longitude=${L.lon.toFixed(2)}&current=temperature_2m,apparent_temperature,weather_code,is_day&hourly=temperature_2m,weather_code,precipitation_probability&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max&temperature_unit=fahrenheit&timezone=auto&forecast_days=8`;
+ const u=`https://api.open-meteo.com/v1/forecast?latitude=${L.lat.toFixed(2)}&longitude=${L.lon.toFixed(2)}&current=temperature_2m,apparent_temperature,weather_code,is_day&hourly=temperature_2m,weather_code,precipitation_probability&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max&temperature_unit=fahrenheit&timezone=auto&forecast_days=${CAL_DAYS}`;
  const r=await fetch(u);if(!r.ok)throw new Error("weather "+r.status);const j=await r.json();
  const now=String(j.current.time).slice(0,16);const hourKey=now.slice(0,13)+":00";
  let idx=j.hourly.time.indexOf(hourKey);if(idx<0)idx=0;
@@ -3230,11 +3239,11 @@ async function loadWeather(){
 }
 
 /* =================================================================
-   CALENDAR — today and the next four days, one card each, all the
-   same size: the date and forecast, the day's events and reminders
-   (no times), and a 6 AM – midnight strip showing when (Oct 27 v3).
+   CALENDAR — today and the next nine days, one card each, all the
+   same size, five to a screen: the date and forecast, the day's events
+   and reminders (no times), and a 6 AM – midnight strip showing when.
    ================================================================= */
-const CAL_DAYS=5,CAL_H0=6,CAL_H1=24;
+const CAL_DAYS=10,CAL_FOLD=5,CAL_H0=6,CAL_H1=24;
 /* hour of the day, minutes as a fraction, in a time zone */
 const hourIn=(d,z=TZ)=>{const p={};new Intl.DateTimeFormat("en-US",{timeZone:z,hour:"numeric",minute:"numeric",hourCycle:"h23"}).formatToParts(d).forEach(x=>p[x.type]=x.value);return(+p.hour%24)+(+p.minute)/60};
 function evWhen(e){
@@ -3287,9 +3296,10 @@ function renderCal(){
    <a class="dy-d press" href="${dayUrl}" target="_blank" rel="noopener" aria-label="Open ${esc(fmtKey(k,{weekday:"long",month:"long",day:"numeric"}))} in Google Calendar${w?`. ${esc(f.l)}, high ${w.hi}, low ${w.lo}`:""}"><span class="dy-dd"><small>${esc(fmtKey(k,{weekday:"short"}))}</small><b>${+d}</b><span>${i===0?"Today":i===1?"Tomorrow":esc(fmtKey(k,{month:"short"}))}</span></span>${wx}</a>
    <div class="dy-l">${lines.length?lines.join(""):`<span class="di-none">${calNeedsKey()?"Not connected":"Nothing planned"}</span>`}<a class="di-more" href="${dayUrl}" target="_blank" rel="noopener" hidden></a></div>
    ${strip}
-  </article>`}).join("");
+  </article>`});
  const calNote=S.calErr==="key"?"Your private key wasn't accepted. Check it in Settings.":calNeedsKey()?"Add your private key in Settings to see your events.":S.calErr==="old"?"Your backend needs its update to show events.":S.calErr&&S.calAt?`Couldn't reach your calendar. Showing it as of ${stamp(S.calAt)}.`:S.calErr?"Couldn't reach your calendar.":"";
- el.innerHTML=`<div class="dys${calNote?" noted":""}">${cards}</div>${calNote?`<p class="cv-note">${esc(calNote)}</p>`:""}${S.tasksErr&&!S.tasks?`<p class="cv-note">Reminders need the Oct 22 backend update (${esc(S.tasksErr)}).</p>`:""}`;
+ const notes=(calNote?`<p class="cv-note">${esc(calNote)}</p>`:"")+(S.tasksErr&&!S.tasks?`<p class="cv-note">Reminders need the Oct 22 backend update (${esc(S.tasksErr)}).</p>`:"");
+ el.innerHTML=`<div class="dys${notes?" noted":""}">${cards.slice(0,CAL_FOLD).join("")}${notes?`<div class="cv-notes">${notes}</div>`:""}${cards.slice(CAL_FOLD).join("")}</div>`;
  fitSec("cal");
  requestAnimationFrame(()=>requestAnimationFrame(fitCalLists));
  if(!window.__calFit){window.__calFit=1;addEventListener("resize",()=>requestAnimationFrame(()=>requestAnimationFrame(fitCalLists)))}
