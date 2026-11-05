@@ -1,6 +1,6 @@
 {
- "edition": "2026-11-04",
- "updated": "2026-11-04T06:05:00-08:00",
+ "edition": "2026-11-05",
+ "updated": "2026-11-05T06:20:00-08:00",
  "weatherFallback": {
   "hi": 67,
   "lo": 49,
@@ -9,18 +9,18 @@
  },
  "calendar": {},
  "tip": {
-  "cat": "Focus",
-  "title": "Put your phone in another room",
-  "mins": "2 min",
-  "why": "In a 2017 experiment at the University of Texas at Austin, 520 students took attention and reasoning tests with their phone on the desk, in a pocket or bag, or in another room. Those with the phone in another room scored best on working memory and fluid intelligence, even though every phone was silenced. Later replication attempts found weaker effects, so treat it as a modest edge, but moving a phone costs nothing.",
+  "cat": "Learning",
+  "title": "Quiz yourself instead of rereading",
+  "mins": "10 min",
+  "why": "In a 2006 experiment, students studied a prose passage and then either reread it or took a recall test on it. A week later the students who had been tested remembered far more than those who reread, even though rereading felt more effective in the moment. Pulling an idea out of memory is itself what makes it stick.",
   "how": [
-   "Before a block of focused work, carry your phone to another room, not just face down on the desk.",
-   "Set a timer for 25 to 50 minutes and do one task until it rings.",
-   "Check the phone once as a reward, then decide whether to go again."
+   "After reading something you want to keep, close it and write down everything you remember in two minutes.",
+   "Open it again and fix the gaps in a different color.",
+   "Repeat tomorrow and again in a few days, for just the gaps."
   ],
-  "src": "Ward et al., UT Austin · Journal of the Association for Consumer Research, 2017",
-  "url": "https://doi.org/10.1086/691462",
-  "ask": "What would I notice if my phone were out of sight for one hour?"
+  "src": "Roediger & Karpicke · Psychological Science, 2006",
+  "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x",
+  "ask": "What could I write down from memory right now about the last thing I read?"
  },
  "tipLog": [
   "Dim the lights two hours before bed",
@@ -39,7 +39,8 @@
   "Walk for five minutes every half hour you sit",
   "Add one fermented food a day",
   "Name the feeling out loud",
-  "Put your phone in another room"
+  "Put your phone in another room",
+  "Quiz yourself instead of rereading"
  ],
  "markets": {
   "asOf": "2026-11-03",
@@ -627,6 +628,28 @@
  ],
  "youtube": [
   {
+   "id": "NdGheCcLj-E",
+   "channel": "Not Just Bikes",
+   "handle": "@NotJustBikes",
+   "title": "Singapore Built a \"Car-Lite\" Town (and it's full of cars)",
+   "desc": "Not Just Bikes visits a Singapore town planned to need fewer cars.",
+   "published": "2026-11-04T17:02:19Z",
+   "secs": 1545,
+   "views": 180797,
+   "url": "https://www.youtube.com/watch?v=NdGheCcLj-E"
+  },
+  {
+   "id": "KfODG5REyss",
+   "channel": "Veritasium",
+   "handle": "@veritasium",
+   "title": "The Closest Thing We Have to Alien Matter",
+   "desc": "Veritasium on strange matter and what it reveals about physics.",
+   "published": "2026-11-04T15:52:59Z",
+   "secs": 3956,
+   "views": 2906550,
+   "url": "https://www.youtube.com/watch?v=KfODG5REyss"
+  },
+  {
    "id": "YPpo08zsK8s",
    "channel": "Channel 5 with Andrew Callaghan",
    "handle": "@channel5YouTube",
@@ -634,7 +657,7 @@
    "desc": "A short Channel 5 interview with Albania's prime minister.",
    "published": "2026-11-03T17:28:52Z",
    "secs": 94,
-   "views": 175583,
+   "views": 381325,
    "url": "https://www.youtube.com/watch?v=YPpo08zsK8s"
   },
   {
@@ -645,7 +668,7 @@
    "desc": "Marques Brownlee's take on the OLED iPad Mini.",
    "published": "2026-11-03T14:01:31Z",
    "secs": 780,
-   "views": 6252559,
+   "views": 8606924,
    "url": "https://www.youtube.com/watch?v=g6Die8gVFn0"
   },
   {
@@ -656,7 +679,7 @@
    "desc": "A short look at upgrades to Amsterdam's Zuid district.",
    "published": "2026-11-03T08:15:15Z",
    "secs": 149,
-   "views": 155275,
+   "views": 191861,
    "url": "https://www.youtube.com/watch?v=-iGK2bUKxCo"
   },
   {
@@ -664,10 +687,10 @@
    "channel": "Maxinomics",
    "handle": "@Maxinomics",
    "title": "One owner said yes at $70,000 an acre, then no, once he learned it was a prison",
-   "desc": "A short Maxinomics clip about a land sale that fell through.",
+   "desc": "A short Maxinomics clip on a land sale that fell through.",
    "published": "2026-11-02T23:05:49Z",
    "secs": 163,
-   "views": 23755,
+   "views": 27798,
    "url": "https://www.youtube.com/watch?v=o4pKRRK_TJU"
   },
   {
@@ -678,7 +701,7 @@
    "desc": "A long Channel 5 investigation into Jared Kushner's business dealings.",
    "published": "2026-11-02T16:00:11Z",
    "secs": 4518,
-   "views": 2439096,
+   "views": 2864956,
    "url": "https://www.youtube.com/watch?v=MM7QGccszUU"
   },
   {
@@ -686,33 +709,22 @@
    "channel": "Veritasium",
    "handle": "@veritasium",
    "title": "These ponds help support half the people on Earth",
-   "desc": "Veritasium on how ponds support food for half the world.",
+   "desc": "A short Veritasium clip on ponds and the world's food supply.",
    "published": "2026-11-02T14:00:05Z",
    "secs": 113,
-   "views": 399906,
+   "views": 445475,
    "url": "https://www.youtube.com/watch?v=xlNKNnXdtN4"
   },
   {
-   "id": "hI89nYTSgXk",
-   "channel": "Reynard Lowell",
-   "handle": "@reynardlowell",
-   "title": "13 Genius Old Home Features That Put New Homes to Shame",
-   "desc": "Reynard Lowell on old home features that new homes lack.",
-   "published": "2026-10-31T10:53:14Z",
-   "secs": 1350,
-   "views": 99687,
-   "url": "https://www.youtube.com/watch?v=hI89nYTSgXk"
-  },
-  {
-   "id": "_V6oeqUYaIQ",
-   "channel": "Not Just Bikes",
-   "handle": "@NotJustBikes",
-   "title": "Kobe Beef in Kobe!  #daypass #travel",
-   "desc": "A short Not Just Bikes travel clip from Kobe.",
-   "published": "2026-10-30T16:35:02Z",
-   "secs": 116,
-   "views": 20602,
-   "url": "https://www.youtube.com/watch?v=_V6oeqUYaIQ"
+   "id": "cM2EmJ1Zy68",
+   "channel": "Spanish With Qroo Paul",
+   "handle": "@QrooSpanish",
+   "title": "Lowest Price Ever! Less Than 50 Spots Left",
+   "desc": "A Qroo Spanish promotion for its Spanish program.",
+   "published": "2026-10-31T17:04:38Z",
+   "secs": 126,
+   "views": 3252,
+   "url": "https://www.youtube.com/watch?v=cM2EmJ1Zy68"
   }
  ],
  "spotify": [
@@ -1258,6 +1270,32 @@
  },
  "vocab": [
   {
+   "date": "2026-11-05",
+   "word": "Susurrus",
+   "pron": "soo-SUR-us",
+   "pos": "noun",
+   "def": "A soft whispering or rustling sound.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "From Latin susurrus, 'a whisper', a word that imitates its own sound"
+    },
+    {
+     "f": "Synonym",
+     "b": "murmur, rustle, whisper"
+    },
+    {
+     "f": "Use it for",
+     "b": "leaves, quiet voices, or water, anything that sounds like soft whispering"
+    }
+   ],
+   "examples": [
+    "A susurrus of leaves followed him down the trail.",
+    "The susurrus of the crowd settled as the lights went down."
+   ],
+   "ex": "A susurrus of leaves followed him down the trail."
+  },
+  {
    "date": "2026-11-04",
    "word": "Petrichor",
    "pron": "PET-rih-kor",
@@ -1412,35 +1450,72 @@
     "She gave an ebullient toast that had the whole table laughing."
    ],
    "ex": "The crowd was ebullient as the headliner walked on stage."
-  },
-  {
-   "date": "2026-10-29",
-   "word": "Ineffable",
-   "pron": "in-EF-uh-bul",
-   "pos": "adjective",
-   "def": "Too great or extraordinary to be put into words.",
-   "ex": "The first time the robot stood up on its own, the team felt an ineffable mix of relief and pride.",
-   "cards": [
-    {
-     "f": "Root",
-     "b": "Latin ineffabilis, from in- 'not' + effari 'to speak out'"
-    },
-    {
-     "f": "Synonym",
-     "b": "inexpressible, indescribable, unspeakable"
-    },
-    {
-     "f": "Use it for",
-     "b": "feelings, beauty or experiences that words fall short of, usually in a good way"
-    }
-   ],
-   "examples": [
-    "The first time the robot stood up on its own, the team felt an ineffable mix of relief and pride.",
-    "There was something ineffable about the view from the ridge at sunset."
-   ]
   }
  ],
  "spanish": [
+  {
+   "date": "2026-11-05",
+   "phrase": "Échame un grito",
+   "pron": "EH-chah-meh oon GREE-toh",
+   "reg": "Mexico · casual",
+   "meaning": "Give me a shout / hit me up",
+   "note": "In casual Mexican Spanish, 'echar un grito' means to get in touch, usually by call or message. People say it when making loose plans or ending a chat.",
+   "cards": [
+    {
+     "es": "Te echo un grito",
+     "en": "I'll hit you up"
+    },
+    {
+     "es": "Échame un telefonazo",
+     "en": "Give me a quick call"
+    },
+    {
+     "es": "Mándame un mensaje",
+     "en": "Send me a message"
+    }
+   ],
+   "parts": [
+    {
+     "es": "Échame",
+     "en": "throw me / give me"
+    },
+    {
+     "es": "un",
+     "en": "a"
+    },
+    {
+     "es": "grito",
+     "en": "shout"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "Voy a estar por tu zona el sábado.",
+     "en": "I'll be in your area on Saturday."
+    },
+    {
+     "es": "¡Qué bien! Échame un grito cuando llegues.",
+     "en": "Great! Hit me up when you get here."
+    },
+    {
+     "es": "Va, te echo un grito.",
+     "en": "Okay, I'll hit you up."
+    },
+    {
+     "es": "Perfecto, ahí nos vemos.",
+     "en": "Perfect, see you there."
+    }
+   ],
+   "use": "Say it when you want a friend to get in touch about plans.",
+   "quiz": {
+    "options": [
+     "Give me a shout",
+     "Throw me a ball",
+     "Scream at me"
+    ],
+    "answer": 0
+   }
+  },
   {
    "date": "2026-11-04",
    "phrase": "Me late la idea",
@@ -1826,81 +1901,6 @@
     ],
     "answer": 0
    }
-  },
-  {
-   "date": "2026-10-29",
-   "phrase": "¿Cómo te fue en la chamba?",
-   "pron": "KOH-moh teh fweh en lah CHAM-bah",
-   "reg": "Mexico · casual",
-   "meaning": "How did work go?",
-   "note": "'Chamba' is casual Mexican slang for work or a job. Use it with friends and coworkers, not in a formal email.",
-   "cards": [
-    {
-     "es": "¿Mucha chamba hoy?",
-     "en": "Lots of work today?"
-    },
-    {
-     "es": "Salí tarde de la chamba",
-     "en": "I left work late"
-    },
-    {
-     "es": "Tengo chamba pendiente",
-     "en": "I have work left to do"
-    }
-   ],
-   "parts": [
-    {
-     "es": "¿Cómo",
-     "en": "how"
-    },
-    {
-     "es": "te",
-     "en": "to you"
-    },
-    {
-     "es": "fue",
-     "en": "it went"
-    },
-    {
-     "es": "en",
-     "en": "at / in"
-    },
-    {
-     "es": "la",
-     "en": "the"
-    },
-    {
-     "es": "chamba?",
-     "en": "work (slang)"
-    }
-   ],
-   "dialog": [
-    {
-     "es": "¿Cómo te fue en la chamba?",
-     "en": "How did work go?"
-    },
-    {
-     "es": "Pesadito, pero ya acabé.",
-     "en": "A bit heavy, but I'm done."
-    },
-    {
-     "es": "Entonces ya cénate algo rico.",
-     "en": "Then go eat something good."
-    },
-    {
-     "es": "Va, vamos por unos tacos.",
-     "en": "Sure, let's go get tacos."
-    }
-   ],
-   "use": "Ask it to a friend or coworker when they come home or log off for the day.",
-   "quiz": {
-    "options": [
-     "How did work go?",
-     "Where did you eat?",
-     "How are your friends?"
-    ],
-    "answer": 0
-   }
   }
  ],
  "learnLog": {
@@ -1922,7 +1922,8 @@
    "Halcyon",
    "Mellifluous",
    "Alacrity",
-   "Petrichor"
+   "Petrichor",
+   "Susurrus"
   ],
   "phrases": [
    "¡Aguas!",
@@ -1942,7 +1943,8 @@
    "¿Me das un aventón?",
    "¿Me echas la mano?",
    "¡Órale, va!",
-   "Me late la idea"
+   "Me late la idea",
+   "Échame un grito"
   ]
  },
  "coach": {
@@ -2492,25 +2494,21 @@
   }
  ],
  "dare": {
-  "date": "2026-11-04",
-  "kind": "Explore",
-  "title": "Find five kinds of mushroom",
-  "why": "Last night's rain woke the ground up. Drive to Rancho San Antonio, which is open until sunset (5:09 PM tonight), and walk the shaded paths under the oaks and along the creek, eyes down. Count five different kinds, from fans on logs to tiny orange caps in the leaf litter, photograph them and leave them where they are.",
-  "mins": 75,
+  "date": "2026-11-05",
+  "kind": "Connect",
+  "title": "Ask someone for their best mistake",
+  "why": "Pick one person a few years ahead of you in your work or a craft you love and message or catch them today with one question: what's one mistake you're glad you made? Write their answer down word for word, ask one follow-up, and don't offer advice back.",
+  "mins": 20,
   "cost": "Free",
-  "place": {
-   "name": "Rancho San Antonio Open Space Preserve",
-   "sub": "Los Altos, about 15 min by car",
-   "url": "https://www.google.com/maps/search/?api=1&query=Rancho+San+Antonio+Open+Space+Preserve"
-  },
-  "worth": "Looking for one specific thing changes what you see, and the first week after a storm is when the forest floor puts on its best show. You'll walk away knowing something you didn't know yesterday.",
+  "place": null,
+  "worth": "People rarely get asked this, and the answers are usually the best thing they know. You walk away with a real story and a closer tie to someone who's already walked the road.",
   "src": "",
   "swap": {
-   "kind": "Wonder",
-   "title": "Watch the sky finish clearing",
-   "why": "Step outside at 4:45 PM with no screen, face west, and stay until the sun sets at 5:09 PM. Note the first three things you see change in the sky.",
-   "mins": 25,
-   "worth": "Ten quiet minutes of watching the day end resets you more than another scroll would."
+   "kind": "Give",
+   "title": "Send one specific thank-you",
+   "why": "Think of someone whose work made yours easier this month. Text them one sentence naming exactly what they did and what it let you do.",
+   "mins": 10,
+   "worth": "Specific thanks lands far harder than a general one, and it costs you a minute."
   }
  },
  "dareHistory": [
@@ -2598,6 +2596,11 @@
    "date": "2026-11-04",
    "kind": "Explore",
    "title": "Find five kinds of mushroom"
+  },
+  {
+   "date": "2026-11-05",
+   "kind": "Connect",
+   "title": "Ask someone for their best mistake"
   }
  ],
  "briefLog": [
@@ -3084,32 +3087,32 @@
   }
  ],
  "kwSuggest": {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "items": [
-   "Anthropic IPO",
-   "MI450",
-   "Broadcom",
-   "Texas data centers",
-   "Data center moratorium",
-   "SPCX",
-   "Humanoid shakeout",
-   "Joint modules",
-   "Embodied AI",
-   "Cybercab China",
-   "Proof of reserves",
-   "Bitcoin 200-day",
-   "Senolytics",
-   "Fisetin",
-   "Epigenetic clocks",
-   "Orbital compute",
-   "Starcloud",
-   "K2 Space",
-   "Compute commitments",
-   "Gemini 4",
-   "Neuralink",
-   "Rare earth magnets",
-   "Tesla Semi",
-   "Midterm markets"
+   "Gemini",
+   "Claude",
+   "World models",
+   "Reinforcement learning",
+   "Sim-to-real",
+   "Teleoperation",
+   "Tactile sensing",
+   "Solid-state batteries",
+   "Starlink",
+   "New Glenn",
+   "Lunar landers",
+   "Stablecoins",
+   "Ethereum ETF",
+   "Solana",
+   "GLP-1",
+   "Rapamycin",
+   "NAD+",
+   "Edge AI",
+   "Quantum computing",
+   "Autonomy",
+   "Optimus V3",
+   "Foundation models",
+   "Warehouse robots",
+   "Intel foundry"
   ]
  },
  "kwSuggestLog": [
@@ -3169,6 +3172,35 @@
     "Rare earth magnets",
     "Tesla Semi",
     "Midterm markets"
+   ]
+  },
+  {
+   "date": "2026-11-05",
+   "items": [
+    "Gemini",
+    "Claude",
+    "World models",
+    "Reinforcement learning",
+    "Sim-to-real",
+    "Teleoperation",
+    "Tactile sensing",
+    "Solid-state batteries",
+    "Starlink",
+    "New Glenn",
+    "Lunar landers",
+    "Stablecoins",
+    "Ethereum ETF",
+    "Solana",
+    "GLP-1",
+    "Rapamycin",
+    "NAD+",
+    "Edge AI",
+    "Quantum computing",
+    "Autonomy",
+    "Optimus V3",
+    "Foundation models",
+    "Warehouse robots",
+    "Intel foundry"
    ]
   }
  ]
