@@ -1,6 +1,6 @@
 {
- "edition": "2026-11-05",
- "updated": "2026-11-05T06:20:00-08:00",
+ "edition": "2026-11-06",
+ "updated": "2026-11-06T05:20:00-08:00",
  "weatherFallback": {
   "hi": 67,
   "lo": 49,
@@ -9,18 +9,18 @@
  },
  "calendar": {},
  "tip": {
-  "cat": "Learning",
-  "title": "Quiz yourself instead of rereading",
-  "mins": "10 min",
-  "why": "In a 2006 experiment, students studied a prose passage and then either reread it or took a recall test on it. A week later the students who had been tested remembered far more than those who reread, even though rereading felt more effective in the moment. Pulling an idea out of memory is itself what makes it stick.",
+  "cat": "Mindset",
+  "title": "Write down three good things tonight",
+  "mins": "5 min",
+  "why": "In a 2005 study, people who wrote down three things that went well each night, and why, for a week reported being happier and less depressed for months afterward than people who wrote about early memories. The effect built over weeks, not days, which is why the habit matters more than any single entry.",
   "how": [
-   "After reading something you want to keep, close it and write down everything you remember in two minutes.",
-   "Open it again and fix the gaps in a different color.",
-   "Repeat tomorrow and again in a few days, for just the gaps."
+   "Before bed, write three things that went well today. Small is fine: a good coffee, a problem that finally clicked.",
+   "Next to each one, write a short line on why it happened.",
+   "Do it for seven nights, then decide whether to keep going."
   ],
-  "src": "Roediger & Karpicke · Psychological Science, 2006",
-  "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x",
-  "ask": "What could I write down from memory right now about the last thing I read?"
+  "src": "Seligman, Steen, Park & Peterson · American Psychologist, 2005",
+  "url": "https://doi.org/10.1037/0003-066X.60.5.410",
+  "ask": "What went well today, and what did I do to make it happen?"
  },
  "tipLog": [
   "Dim the lights two hours before bed",
@@ -40,7 +40,8 @@
   "Add one fermented food a day",
   "Name the feeling out loud",
   "Put your phone in another room",
-  "Quiz yourself instead of rereading"
+  "Quiz yourself instead of rereading",
+  "Write down three good things tonight"
  ],
  "markets": {
   "asOf": "2026-11-03",
@@ -628,6 +629,28 @@
  ],
  "youtube": [
   {
+   "id": "5CkXJdd06Xc",
+   "channel": "Maxinomics",
+   "handle": "@Maxinomics",
+   "title": "A big data center running a particular cooling system all day can go through a million gallons",
+   "desc": "A short look at how much water data center cooling can use.",
+   "published": "2026-11-06T00:59:57Z",
+   "secs": 124,
+   "views": 20363,
+   "url": "https://www.youtube.com/watch?v=5CkXJdd06Xc"
+  },
+  {
+   "id": "MNGYJ_DowDM",
+   "channel": "Qroo Spanish",
+   "handle": "@QrooSpanish",
+   "title": "How to Say “Don’t Bother” in Spanish (And More)",
+   "desc": "A Spanish lesson on saying 'don't bother' and related phrases.",
+   "published": "2026-11-05T14:22:45Z",
+   "secs": 369,
+   "views": 4618,
+   "url": "https://www.youtube.com/watch?v=MNGYJ_DowDM"
+  },
+  {
    "id": "NdGheCcLj-E",
    "channel": "Not Just Bikes",
    "handle": "@NotJustBikes",
@@ -635,18 +658,18 @@
    "desc": "Not Just Bikes visits a Singapore town planned to need fewer cars.",
    "published": "2026-11-04T17:02:19Z",
    "secs": 1545,
-   "views": 180797,
+   "views": 289750,
    "url": "https://www.youtube.com/watch?v=NdGheCcLj-E"
   },
   {
    "id": "KfODG5REyss",
    "channel": "Veritasium",
    "handle": "@veritasium",
-   "title": "The Closest Thing We Have to Alien Matter",
-   "desc": "Veritasium on strange matter and what it reveals about physics.",
+   "title": "I finally saw quantum physics with my own eyes...",
+   "desc": "Veritasium on seeing quantum physics directly.",
    "published": "2026-11-04T15:52:59Z",
    "secs": 3956,
-   "views": 2906550,
+   "views": 5706431,
    "url": "https://www.youtube.com/watch?v=KfODG5REyss"
   },
   {
@@ -657,7 +680,7 @@
    "desc": "A short Channel 5 interview with Albania's prime minister.",
    "published": "2026-11-03T17:28:52Z",
    "secs": 94,
-   "views": 381325,
+   "views": 454138,
    "url": "https://www.youtube.com/watch?v=YPpo08zsK8s"
   },
   {
@@ -665,10 +688,10 @@
    "channel": "Marques Brownlee",
    "handle": "@mkbhd",
    "title": "OLED iPad Mini is The Most Apple Product They've Ever Appled",
-   "desc": "Marques Brownlee's take on the OLED iPad Mini.",
+   "desc": "Marques Brownlee on the OLED iPad Mini.",
    "published": "2026-11-03T14:01:31Z",
    "secs": 780,
-   "views": 8606924,
+   "views": 9727726,
    "url": "https://www.youtube.com/watch?v=g6Die8gVFn0"
   },
   {
@@ -676,10 +699,10 @@
    "channel": "Not Just Bikes",
    "handle": "@NotJustBikes",
    "title": "Amsterdam Zuid got a huge upgrade!",
-   "desc": "A short look at upgrades to Amsterdam's Zuid district.",
+   "desc": "Not Just Bikes on a street upgrade in Amsterdam Zuid.",
    "published": "2026-11-03T08:15:15Z",
    "secs": 149,
-   "views": 191861,
+   "views": 206656,
    "url": "https://www.youtube.com/watch?v=-iGK2bUKxCo"
   },
   {
@@ -687,10 +710,10 @@
    "channel": "Maxinomics",
    "handle": "@Maxinomics",
    "title": "One owner said yes at $70,000 an acre, then no, once he learned it was a prison",
-   "desc": "A short Maxinomics clip on a land sale that fell through.",
+   "desc": "A short Maxinomics story on a land sale that fell through.",
    "published": "2026-11-02T23:05:49Z",
    "secs": 163,
-   "views": 27798,
+   "views": 31358,
    "url": "https://www.youtube.com/watch?v=o4pKRRK_TJU"
   },
   {
@@ -698,10 +721,10 @@
    "channel": "Channel 5 with Andrew Callaghan",
    "handle": "@channel5YouTube",
    "title": "Investigating Jared Kushner's Empire of Fraud & Corruption",
-   "desc": "A long Channel 5 investigation into Jared Kushner's business dealings.",
+   "desc": "Channel 5 on Jared Kushner's business dealings.",
    "published": "2026-11-02T16:00:11Z",
    "secs": 4518,
-   "views": 2864956,
+   "views": 3167653,
    "url": "https://www.youtube.com/watch?v=MM7QGccszUU"
   },
   {
@@ -709,31 +732,52 @@
    "channel": "Veritasium",
    "handle": "@veritasium",
    "title": "These ponds help support half the people on Earth",
-   "desc": "A short Veritasium clip on ponds and the world's food supply.",
+   "desc": "A short Veritasium video on ponds that feed much of the world.",
    "published": "2026-11-02T14:00:05Z",
    "secs": 113,
-   "views": 445475,
+   "views": 464954,
    "url": "https://www.youtube.com/watch?v=xlNKNnXdtN4"
-  },
-  {
-   "id": "cM2EmJ1Zy68",
-   "channel": "Spanish With Qroo Paul",
-   "handle": "@QrooSpanish",
-   "title": "Lowest Price Ever! Less Than 50 Spots Left",
-   "desc": "A Qroo Spanish promotion for its Spanish program.",
-   "published": "2026-10-31T17:04:38Z",
-   "secs": 126,
-   "views": 3252,
-   "url": "https://www.youtube.com/watch?v=cM2EmJ1Zy68"
   }
  ],
  "spotify": [
+  {
+   "show": "The Diary Of A CEO with Steven Bartlett",
+   "title": "Iran War Expert: If This Escalation Continues, 2027 Will Be Devastating! | Prof Robert Pape",
+   "desc": "Steven Bartlett talks with Prof. Robert Pape about the Iran conflict.",
+   "published": "2026-11-05",
+   "secs": 5378,
+   "url": "https://open.spotify.com/episode/5CGcMFkCZQRIO8VSuWZYQ8"
+  },
+  {
+   "show": "Modern Wisdom",
+   "title": "How War Shaped Human Evolution - David Geary - #1172",
+   "desc": "Chris Williamson and David Geary on war and human evolution.",
+   "published": "2026-11-05",
+   "secs": 4286,
+   "url": "https://open.spotify.com/episode/2PLYu6FRX63tZwxprZVSaY"
+  },
+  {
+   "show": "Huberman Lab",
+   "title": "Essentials: Cold & Heat Exposure for Metabolic Health | Dr. Susanna Søberg",
+   "desc": "An Essentials episode on cold and heat exposure and metabolic health.",
+   "published": "2026-11-05",
+   "secs": 2301,
+   "url": "https://open.spotify.com/episode/3K9C7dXPTcuSAFt6fvhqrw"
+  },
+  {
+   "show": "Moonshots with Peter Diamandis",
+   "title": "Big Tech’s $3T AI Bet, Claude Writes 90% of Anthropic’s Code, AIs Editing AI Brains | EP #308",
+   "desc": "Peter Diamandis and guests on AI spending and research.",
+   "published": "2026-11-04",
+   "secs": 6834,
+   "url": "https://open.spotify.com/episode/39VaxQcj7mZs3TnzhgL3lD"
+  },
   {
    "show": "Matt and Shane's Secret Podcast",
    "title": "Ep 644 - Bum Check (feat. SWIM)",
    "desc": "Matt McCusker and Shane Gillis in the show's latest episode.",
    "published": "2026-11-04",
-   "secs": 4184,
+   "secs": 4183,
    "url": "https://open.spotify.com/episode/2n78xgfBl4kKT41ogNyW49"
   },
   {
@@ -741,7 +785,7 @@
    "title": "K.C. Irving: Competing with Giants",
    "desc": "Shane Parrish on the business career of K.C. Irving.",
    "published": "2026-11-03",
-   "secs": 7253,
+   "secs": 7252,
    "url": "https://open.spotify.com/episode/2Mhb0smeIpAc8AIip53hjg"
   },
   {
@@ -749,13 +793,13 @@
    "title": "How To Make Better Decisions (with way less uncertainty) - Joe Hudson - #1171",
    "desc": "Chris Williamson and Joe Hudson on making decisions with less uncertainty.",
    "published": "2026-11-02",
-   "secs": 6177,
+   "secs": 6176,
    "url": "https://open.spotify.com/episode/1kujFgdUf1CEMabAQToyTi"
   },
   {
    "show": "Huberman Lab",
    "title": "Access the Sublime & Live Your Best Life | Robert Greene",
-   "desc": "Andrew Huberman talks with author Robert Greene.",
+   "desc": "Andrew Huberman talks with Robert Greene.",
    "published": "2026-11-02",
    "secs": 8305,
    "url": "https://open.spotify.com/episode/2aUhzkwxi8hQt72b2kxdXS"
@@ -765,32 +809,16 @@
    "title": "James Talarico: America's Corrupt System Is Designed To Keep You Poor! | Texas Senate Candidate",
    "desc": "Steven Bartlett interviews Texas Senate candidate James Talarico.",
    "published": "2026-11-02",
-   "secs": 5803,
+   "secs": 5802,
    "url": "https://open.spotify.com/episode/5jzYzXmVuDkGLLClPmELao"
   },
   {
    "show": "The Jordan B. Peterson Podcast",
    "title": "Why Young Women Are The Most Miserable They've Ever Been",
-   "desc": "A new Jordan B. Peterson Podcast episode.",
+   "desc": "Jordan Peterson on young women's well-being.",
    "published": "2026-11-02",
-   "secs": 5831,
+   "secs": 5830,
    "url": "https://open.spotify.com/episode/6uNl5TmyQvph3faa3zuLJJ"
-  },
-  {
-   "show": "Modern Wisdom",
-   "title": "The Art Of Growing Up (just enough) - James Smith - #1170",
-   "desc": "Chris Williamson and James Smith on growing up.",
-   "published": "2026-10-31",
-   "secs": 4787,
-   "url": "https://open.spotify.com/episode/2EB0LP4unhCbQF7p3GTkLQ"
-  },
-  {
-   "show": "Moonshots with Peter Diamandis",
-   "title": "Making Sense of This Week's AI Market Crashes | #x307",
-   "desc": "Peter Diamandis and guests on the week's AI market selloff.",
-   "published": "2026-10-31",
-   "secs": 8341,
-   "url": "https://open.spotify.com/episode/24F4XTz12dQC1qmM9mNmOw"
   }
  ],
  "discover": {
@@ -1270,6 +1298,32 @@
  },
  "vocab": [
   {
+   "date": "2026-11-06",
+   "word": "Pellucid",
+   "pron": "peh-LOO-sid",
+   "pos": "adjective",
+   "def": "Transparently clear; easy to understand.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "From Latin pellucidus, from per-, 'through', and lucidus, 'shining'"
+    },
+    {
+     "f": "Synonym",
+     "b": "limpid, transparent, lucid"
+    },
+    {
+     "f": "Use it for",
+     "b": "water or glass you can see through, and writing or explanations that are crystal clear"
+    }
+   ],
+   "examples": [
+    "The pond was so pellucid he could count the stones on the bottom.",
+    "Her pellucid explanation made the whole contract make sense."
+   ],
+   "ex": "The pond was so pellucid he could count the stones on the bottom."
+  },
+  {
    "date": "2026-11-05",
    "word": "Susurrus",
    "pron": "soo-SUR-us",
@@ -1424,35 +1478,76 @@
     "There was an uncanny quiet on the street after midnight."
    ],
    "ex": "The robot's smile was so close to real that it felt uncanny."
-  },
-  {
-   "date": "2026-10-30",
-   "word": "Ebullient",
-   "pron": "ih-BUL-yunt",
-   "pos": "adjective",
-   "def": "Cheerful and full of energy and enthusiasm.",
-   "cards": [
-    {
-     "f": "Root",
-     "b": "Latin ebullire, 'to bubble up', from e- 'out' + bullire 'to boil'"
-    },
-    {
-     "f": "Synonym",
-     "b": "exuberant, effervescent, buoyant"
-    },
-    {
-     "f": "Use it for",
-     "b": "people or moods that seem to bubble over with good spirits"
-    }
-   ],
-   "examples": [
-    "The crowd was ebullient as the headliner walked on stage.",
-    "She gave an ebullient toast that had the whole table laughing."
-   ],
-   "ex": "The crowd was ebullient as the headliner walked on stage."
   }
  ],
  "spanish": [
+  {
+   "date": "2026-11-06",
+   "phrase": "Al rato nos vemos",
+   "pron": "ahl RAH-toh nohs VEH-mohs",
+   "reg": "Mexico · casual",
+   "meaning": "See you in a bit",
+   "note": "In Mexican Spanish, 'al rato' means 'in a while' or 'later', usually the same day. It's a loose way to say goodbye when you expect to see someone again soon.",
+   "cards": [
+    {
+     "es": "Al ratito",
+     "en": "In a little while"
+    },
+    {
+     "es": "Nos vemos al rato",
+     "en": "See you in a bit"
+    },
+    {
+     "es": "Más al rato te marco",
+     "en": "I'll call you later on"
+    }
+   ],
+   "parts": [
+    {
+     "es": "Al",
+     "en": "in / at the"
+    },
+    {
+     "es": "rato",
+     "en": "while"
+    },
+    {
+     "es": "nos",
+     "en": "each other"
+    },
+    {
+     "es": "vemos",
+     "en": "we see"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "Voy a comer, ¿nos vemos después?",
+     "en": "I'm going to eat, shall we meet later?"
+    },
+    {
+     "es": "Sí, claro. ¿A qué hora sales?",
+     "en": "Sure. What time do you finish?"
+    },
+    {
+     "es": "Como a las cuatro.",
+     "en": "Around four."
+    },
+    {
+     "es": "Perfecto, al rato nos vemos.",
+     "en": "Perfect, see you in a bit."
+    }
+   ],
+   "use": "Say it when you're parting ways and expect to meet again the same day.",
+   "quiz": {
+    "options": [
+     "See you in a bit",
+     "See you next year",
+     "Nice to meet you"
+    ],
+    "answer": 0
+   }
+  },
   {
    "date": "2026-11-05",
    "phrase": "Échame un grito",
@@ -1834,73 +1929,6 @@
     ],
     "answer": 0
    }
-  },
-  {
-   "date": "2026-10-30",
-   "phrase": "¡Échale ganas!",
-   "pron": "EH-chah-leh GAH-nahs",
-   "reg": "Mexico · casual",
-   "meaning": "Give it your best! / Go for it!",
-   "note": "Friendly encouragement in Mexico, said before an exam, a game or a hard task. 'Echarle ganas' means to put real effort in.",
-   "cards": [
-    {
-     "es": "Le echo ganas",
-     "en": "I'm giving it my all"
-    },
-    {
-     "es": "¡Con ganas!",
-     "en": "With real effort!"
-    },
-    {
-     "es": "No te rindas, échale",
-     "en": "Don't give up, keep going"
-    }
-   ],
-   "parts": [
-    {
-     "es": "¡Échale",
-     "en": "put it in (from echar)"
-    },
-    {
-     "es": "echar",
-     "en": "to throw / put in"
-    },
-    {
-     "es": "le",
-     "en": "it (filler)"
-    },
-    {
-     "es": "ganas!",
-     "en": "drive, will"
-    }
-   ],
-   "dialog": [
-    {
-     "es": "Mañana tengo mi entrevista.",
-     "en": "I have my interview tomorrow."
-    },
-    {
-     "es": "¡Échale ganas!",
-     "en": "Give it your best!"
-    },
-    {
-     "es": "Gracias, estoy nervioso.",
-     "en": "Thanks, I'm nervous."
-    },
-    {
-     "es": "Te va a ir muy bien.",
-     "en": "It's going to go great."
-    }
-   ],
-   "use": "Say it to a friend about to do something hard, like a race, a pitch or a first day.",
-   "quiz": {
-    "options": [
-     "Give it your best!",
-     "Take it easy",
-     "See you later"
-    ],
-    "answer": 0
-   }
   }
  ],
  "learnLog": {
@@ -1923,7 +1951,8 @@
    "Mellifluous",
    "Alacrity",
    "Petrichor",
-   "Susurrus"
+   "Susurrus",
+   "Pellucid"
   ],
   "phrases": [
    "¡Aguas!",
@@ -1944,7 +1973,8 @@
    "¿Me echas la mano?",
    "¡Órale, va!",
    "Me late la idea",
-   "Échame un grito"
+   "Échame un grito",
+   "Al rato nos vemos"
   ]
  },
  "coach": {
@@ -2397,18 +2427,6 @@
  "live": [
   {
    "kind": "game",
-   "title": "76ers at Pistons",
-   "sub": "NBA regular season",
-   "when": "2026-11-04T16:00:00-08:00",
-   "where": "Little Caesars Arena, Detroit",
-   "tv": [
-    "ESPN"
-   ],
-   "url": "https://www.espn.com/nba/team/schedule/_/name/phi",
-   "note": "7 PM ET per Lineups.com and Sports Media Watch."
-  },
-  {
-   "kind": "game",
    "title": "76ers at Cavaliers",
    "sub": "NBA Cup",
    "when": "2026-11-06T16:30:00-08:00",
@@ -2494,21 +2512,21 @@
   }
  ],
  "dare": {
-  "date": "2026-11-05",
-  "kind": "Connect",
-  "title": "Ask someone for their best mistake",
-  "why": "Pick one person a few years ahead of you in your work or a craft you love and message or catch them today with one question: what's one mistake you're glad you made? Write their answer down word for word, ask one follow-up, and don't offer advice back.",
+  "date": "2026-11-06",
+  "kind": "Give",
+  "title": "Tip 50% and leave a note",
+  "why": "Pick somewhere small and local today, a coffee counter, a taqueria or a food truck, and tip 50% on whatever you buy. Write two lines on the receipt or a napkin: what you liked and thank you. Hand it over without explaining and walk out.",
   "mins": 20,
-  "cost": "Free",
+  "cost": "$",
   "place": null,
-  "worth": "People rarely get asked this, and the answers are usually the best thing they know. You walk away with a real story and a closer tie to someone who's already walked the road.",
+  "worth": "A big tip with a human note reaches the person, not the system. The small awkward moment of handing it over is the whole point, and you'll carry the face they make for a while.",
   "src": "",
   "swap": {
-   "kind": "Give",
-   "title": "Send one specific thank-you",
-   "why": "Think of someone whose work made yours easier this month. Text them one sentence naming exactly what they did and what it let you do.",
+   "kind": "Create",
+   "title": "Sketch your next meal in 5 minutes",
+   "why": "Before you eat, grab any pen and paper and draw the plate, bad lines and all. Label two things on it. Then eat.",
    "mins": 10,
-   "worth": "Specific thanks lands far harder than a general one, and it costs you a minute."
+   "worth": "Drawing makes you look at something you'd normally just swallow. It's a small way to notice."
   }
  },
  "dareHistory": [
@@ -2601,6 +2619,11 @@
    "date": "2026-11-05",
    "kind": "Connect",
    "title": "Ask someone for their best mistake"
+  },
+  {
+   "date": "2026-11-06",
+   "kind": "Give",
+   "title": "Tip 50% and leave a note"
   }
  ],
  "briefLog": [
@@ -3087,32 +3110,32 @@
   }
  ],
  "kwSuggest": {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "items": [
-   "Gemini",
-   "Claude",
-   "World models",
-   "Reinforcement learning",
-   "Sim-to-real",
-   "Teleoperation",
-   "Tactile sensing",
-   "Solid-state batteries",
-   "Starlink",
-   "New Glenn",
-   "Lunar landers",
-   "Stablecoins",
-   "Ethereum ETF",
-   "Solana",
-   "GLP-1",
-   "Rapamycin",
-   "NAD+",
-   "Edge AI",
-   "Quantum computing",
-   "Autonomy",
-   "Optimus V3",
-   "Foundation models",
-   "Warehouse robots",
-   "Intel foundry"
+   "Humanoid hands",
+   "Actuators",
+   "Imitation learning",
+   "Vision-language-action",
+   "Diffusion policy",
+   "Brain-computer interface",
+   "Starbase",
+   "Raptor engine",
+   "Orbital refueling",
+   "Bitcoin treasury",
+   "Hash rate",
+   "Digital gold",
+   "Healthspan",
+   "Senescence",
+   "Metformin",
+   "Blood biomarkers",
+   "Zone 2 training",
+   "Small language models",
+   "HBM memory",
+   "Power grid",
+   "Robot safety",
+   "Battery recycling",
+   "Open-source models",
+   "AI regulation"
   ]
  },
  "kwSuggestLog": [
@@ -3201,6 +3224,35 @@
     "Foundation models",
     "Warehouse robots",
     "Intel foundry"
+   ]
+  },
+  {
+   "date": "2026-11-06",
+   "items": [
+    "Humanoid hands",
+    "Actuators",
+    "Imitation learning",
+    "Vision-language-action",
+    "Diffusion policy",
+    "Brain-computer interface",
+    "Starbase",
+    "Raptor engine",
+    "Orbital refueling",
+    "Bitcoin treasury",
+    "Hash rate",
+    "Digital gold",
+    "Healthspan",
+    "Senescence",
+    "Metformin",
+    "Blood biomarkers",
+    "Zone 2 training",
+    "Small language models",
+    "HBM memory",
+    "Power grid",
+    "Robot safety",
+    "Battery recycling",
+    "Open-source models",
+    "AI regulation"
    ]
   }
  ]
