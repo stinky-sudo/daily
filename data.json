@@ -1,6 +1,6 @@
 {
- "edition": "2026-11-06",
- "updated": "2026-11-06T05:20:00-08:00",
+ "edition": "2026-11-07",
+ "updated": "2026-11-07T06:30:00-08:00",
  "weatherFallback": {
   "hi": 67,
   "lo": 49,
@@ -9,18 +9,18 @@
  },
  "calendar": {},
  "tip": {
-  "cat": "Mindset",
-  "title": "Write down three good things tonight",
-  "mins": "5 min",
-  "why": "In a 2005 study, people who wrote down three things that went well each night, and why, for a week reported being happier and less depressed for months afterward than people who wrote about early memories. The effect built over weeks, not days, which is why the habit matters more than any single entry.",
+  "cat": "Learning",
+  "title": "Space practice over several days",
+  "mins": "10 min",
+  "why": "A 2006 review pooled over 300 experiments on memory and found that studying the same material in separate sessions, with gaps between them, produced better long-term recall than putting the same total time into one sitting. Cramming feels productive because it helps tomorrow, but the spaced version is what is still there weeks later.",
   "how": [
-   "Before bed, write three things that went well today. Small is fine: a good coffee, a problem that finally clicked.",
-   "Next to each one, write a short line on why it happened.",
-   "Do it for seven nights, then decide whether to keep going."
+   "Pick one thing you want to remember, such as a new Spanish phrase or a concept from work.",
+   "Review it today for five to ten minutes, then again tomorrow, then in three days, then in a week.",
+   "Each time, try to recall it from memory first and only then check yourself."
   ],
-  "src": "Seligman, Steen, Park & Peterson · American Psychologist, 2005",
-  "url": "https://doi.org/10.1037/0003-066X.60.5.410",
-  "ask": "What went well today, and what did I do to make it happen?"
+  "src": "Cepeda, Pashler, Vul, Wixted & Rohrer · Psychological Bulletin, 2006",
+  "url": "https://doi.org/10.1037/0033-2909.132.3.354",
+  "ask": "What is one thing I could review again tomorrow instead of finishing it tonight?"
  },
  "tipLog": [
   "Dim the lights two hours before bed",
@@ -41,25 +41,26 @@
   "Name the feeling out loud",
   "Put your phone in another room",
   "Quiz yourself instead of rereading",
-  "Write down three good things tonight"
+  "Write down three good things tonight",
+  "Space practice over several days"
  ],
  "markets": {
-  "asOf": "2026-11-03",
-  "headline": "Chips led a narrow election-day rebound and Apple weighed on the Dow; the S&P 500 added 0.36% and Tesla slipped before the results came in.",
+  "asOf": "2026-11-06",
+  "headline": "Chips bounced on Friday after Thursday's rout, but a hot jobs report and fresh AI-regulation worries left all three major indexes lower for the week.",
   "points": [
-   "The S&P 500 closed at 7,568.92 (+0.36%), ending a three-day losing streak, while the Nasdaq rose 0.83% to 25,372.01 and the Dow fell 0.38% to 51,786.72. Most S&P 500 stocks still fell, and the Nasdaq-100 stayed about 10% below its record, in correction territory.",
-   "Chipmakers drove the gains after a multi-day selloff: Nvidia rose 2.29% to $206.69 and Broadcom 3.07% to $332.13, with AMD, Micron and Intel also higher. Intel gained about 4% to $62.34 after losing roughly 45% in October.",
-   "Apple dragged the Dow after warning that memory chip costs could squeeze its margin, and Palantir also fell. Brent crude slipped about 1% to near $103 on hopes of an Iran deal, and Treasuries weakened on solid job-openings data.",
-   "Tesla fell 1.32% to $398.50 before Democrats' midterm gains became clear; its shares and SpaceX's were down roughly 4% in Wednesday premarket trading. AMD reported record third-quarter results after the bell, with a fourth-quarter outlook above estimates."
+   "The S&P 500 closed at 7,376.86 (+0.31%) and the Nasdaq Composite at 24,579.42 (+1.09%), while the Dow fell 0.46% to 51,285.73. For the week the S&P 500 lost 2.68%, the Nasdaq 3.37% and the Dow 0.94%, after Thursday's 4.36% drop in the S&P 500 and 5.52% in the Nasdaq, its worst day in about 19 months.",
+   "Chipmakers rebounded: AMD jumped about 11%, Marvell about 5.7% and Micron about 5.1%, the Philadelphia chip index gained about 4.2%, and Nvidia rose 2.78% to $186.64 after losing roughly 9% on Thursday. Intel rose 7.71% to $56.28, but Atlassian fell about 16% on a weaker data-center outlook.",
+   "October payrolls rose 165,000 against forecasts near 60,000 and unemployment slipped to 4.1%, which raised the odds of a Fed rate hike next month. The 10-year Treasury yield rose about 2 basis points to roughly 4.86%.",
+   "Tesla rose 4.23% to $358.22 after falling 10.77% on Thursday, when the Democratic midterm sweep raised questions about AI regulation and the data-center buildout. SpaceX's stock (SPCX) gained about 8.6% to $134.27 after a 9% drop; Musk told investors Tesla would probably rent Optimus robots."
   ],
   "tickers": [
    {
     "sym": "^GSPC",
     "name": "S&P 500",
-    "value": 7568.92,
-    "chg": 27.52,
-    "pct": 0.36,
-    "ytd": 10.57,
+    "value": 7376.86,
+    "chg": 23.13,
+    "pct": 0.31,
+    "ytd": 7.76,
     "closes": [
      [
       "2026-10-09",
@@ -128,33 +129,29 @@
      [
       "2026-11-03",
       7568.92
+     ],
+     [
+      "2026-11-04",
+      7688.62
+     ],
+     [
+      "2026-11-05",
+      7353.73
+     ],
+     [
+      "2026-11-06",
+      7376.86
      ]
     ]
    },
    {
     "sym": "TSLA",
     "name": "Tesla",
-    "value": 398.5,
-    "chg": -5.32,
-    "pct": -1.32,
-    "ytd": -11.39,
+    "value": 358.22,
+    "chg": 14.53,
+    "pct": 4.23,
+    "ytd": -20.35,
     "closes": [
-     [
-      "2026-10-05",
-      378.73
-     ],
-     [
-      "2026-10-06",
-      380.68
-     ],
-     [
-      "2026-10-07",
-      377.81
-     ],
-     [
-      "2026-10-08",
-      375.0
-     ],
      [
       "2026-10-09",
       382.7
@@ -226,16 +223,28 @@
      [
       "2026-11-03",
       398.5
+     ],
+     [
+      "2026-11-04",
+      385.19
+     ],
+     [
+      "2026-11-05",
+      343.69
+     ],
+     [
+      "2026-11-06",
+      358.22
      ]
     ]
    },
    {
     "sym": "INTC",
     "name": "Intel",
-    "value": 62.34,
-    "chg": 2.37,
-    "pct": 3.95,
-    "ytd": 68.92,
+    "value": 56.28,
+    "chg": 4.03,
+    "pct": 7.71,
+    "ytd": 52.52,
     "closes": [
      [
       "2026-10-29",
@@ -252,38 +261,51 @@
      [
       "2026-11-03",
       62.34
+     ],
+     [
+      "2026-11-05",
+      52.25
+     ],
+     [
+      "2026-11-06",
+      56.28
      ]
     ]
    }
   ]
  },
  "pick": {
-  "sym": "AVGO",
-  "name": "Broadcom",
-  "theme": "AI networking and custom chips",
-  "close": 332.13,
-  "pct": 3.07,
-  "asOf": "2026-11-03",
-  "what": "Broadcom designs networking chips, custom AI accelerators and infrastructure software, and sells to the large cloud companies building AI data centers.",
-  "why": "It sits on the networking and custom-silicon side of the AI buildout, the part of the trade that bounced hardest when chip stocks rebounded on Nov. 3. StockAnalysis lists 51 analysts at Strong Buy with an average 12-month target of about $527, and the $332.13 close is roughly 33% below its 52-week high of $495. An idea to research, not a recommendation.",
-  "risk": "The stock is still far below its high and moves with the same AI-spending worries that hit chips in October. Targets and ratings come from aggregator pages that can lag, and only two recent closes were confirmed for this edition.",
+  "sym": "CRDO",
+  "name": "Credo Technology",
+  "theme": "High-speed data connections for AI data centers",
+  "close": 120.51,
+  "pct": 7.3,
+  "asOf": "2026-11-06",
+  "what": "Credo makes the cables and chips that move data at very high speeds between servers inside AI data centers, and sells to the large cloud companies building them.",
+  "why": "It sits in the connectivity layer of the AI buildout and bounced 7.3% on Friday as chip stocks recovered. StockAnalysis lists 20 analysts at Strong Buy with an average 12-month target of about $284, and the $120.51 close is roughly 61% below its 52-week high of $308.67. MarketBeat's more conservative tally says Moderate Buy with a target near $263. An idea to research, not a recommendation.",
+  "risk": "The stock is far below its high and trades with the same AI-spending worries that hit chips this week, including the midterm-driven regulation concerns. Ratings and targets differ by provider, and only two recent closes were confirmed for this edition.",
   "rating": {
    "label": "Strong Buy",
-   "total": 51
+   "total": 20
   },
-  "target": 526.81,
-  "hi52": 495.0,
+  "target": 284.05,
+  "hi52": 308.67,
   "closes": [
    [
-    "2026-11-02",
-    322.23
+    "2026-11-05",
+    112.33
    ],
    [
-    "2026-11-03",
-    332.13
+    "2026-11-06",
+    120.51
    ]
   ],
   "history": [
+   {
+    "date": "2026-11-07",
+    "sym": "CRDO",
+    "price": 120.51
+   },
    {
     "date": "2026-11-04",
     "sym": "AVGO",
@@ -329,153 +351,162 @@
  "btc": {
   "source": "Benjamin Cowen",
   "channel": "@benjaminjcowen",
-  "sourceUrl": "https://www.youtube.com/watch?v=BBgxp2SvLuU",
-  "summaryDate": "2026-11-02",
-  "summary": "In his Nov. 2 video on a Q4 stock market correction, Cowen says a fourth-quarter dump has now hit stocks in four midterm years in a row and that this year looks on track for the same. A summary of the video says he expects the S&P 500 to test its 200-day moving average and find a bottom within the next couple of months before rebounding, with the index already below its 50-day average. He says bitcoin looks to be dumping into a fourth-quarter low, and notes that past midterm years put their lows in the first quarter, the summer or the fourth quarter. He posted another video on Nov. 3 about the midterms and markets, but I couldn't confirm what it says."
+  "sourceUrl": "https://www.youtube.com/watch?v=szWg0zCAbF0",
+  "summaryDate": "2026-11-06",
+  "summary": "Cowen's newest upload, on Nov. 6, is titled \"Bitcoin: The Bears Strike Back\" and carries a Q4 2026 label; I could not confirm what he says in it. In an Oct. 30 video he laid out two paths for bitcoin, one of which has buyers defending a roughly $73,000 to $77,000 support zone, and he has flagged a break below about $74,900 as a risk. Bitcoin is trading near $76,000 now, inside that zone, after falling 5.6% on Thursday alongside the stock selloff. He has also argued that the fourth quarter could set a new low for the cycle."
  },
  "brief": {
-  "date": "2026-11-04",
+  "date": "2026-11-07",
   "keywords": [
-   "AI",
    "Tech",
-   "LLM",
-   "Bitcoin",
-   "Tesla",
-   "Longevity",
-   "Starship",
-   "Meta humanoid",
+   "Humanoid",
    "Tesla Optimus",
-   "Humanoid"
+   "Tesla",
+   "AI",
+   "Bitcoin",
+   "Starship",
+   "SPCX"
   ],
-  "lede": "Chips rebounded on election day and AMD guided above estimates, while Democrats' midterm gains hit Tesla and SpaceX shares. Anthropic's updated IPO filing shows growth slowing, and a Chinese research firm warns of a humanoid shakeout.",
+  "lede": "Chips bounced on Friday after Thursday's rout, though a hot jobs report kept the week red. Agility's stock debut, Musk's plan to rent Optimus, Anthropic's roadshow and a Nov. 13 Starship target round out the news.",
   "articles": [
    {
     "id": "b1",
     "tag": "Tech",
-    "kicker": "Chips and politics",
-    "title": "Chips rebound on election day, then AMD guides above Wall Street",
+    "kicker": "Chips and rates",
+    "title": "Chips bounce after the worst Nasdaq day in 19 months, then a hot jobs report",
     "body": [
-     "Chipmakers bounced on Tuesday after a multi-day selloff, lifting the Nasdaq Composite 0.8% to 25,372.01. The S&P 500 gained about 0.4% to **7,568.92**, ending a three-day losing streak, while the Dow slipped about 0.4% to 51,786.72 as Apple weighed on it after warning that memory chip costs could squeeze its profit margin.",
-     "Nvidia closed up 2.29% at $206.69 and Broadcom rose 3.07% to $332.13, with Micron and Intel also higher; Intel gained about 4% after losing roughly 45% in October. Brent crude slipped about 1% to near $103 a barrel on hopes of an Iran deal. The Nasdaq-100 added 0.7% but still sits about 10% below its record, which keeps it in correction territory, and analysts described the rally as narrow.",
-     "After the close, AMD reported record third-quarter revenue of about **$13.4 billion**, up 45% from a year earlier, with data center sales of $8.5 billion, up 97%. Adjusted earnings of $2.09 a share beat expectations of roughly $1.95, and published summaries put its fourth-quarter revenue outlook near $17 billion, above the $16.3 billion analysts had pencilled in. Reports differ on the premarket reaction, but one had the shares up 7.3%.",
-     "Politics may matter as much as earnings for the AI trade this week. Democrats won a decisive midterm victory, including the Texas governor's race, where nominee Gina Hinojosa has called for an immediate moratorium on new data centers and an end to tax incentives for them. Wells Fargo estimates Texas holds about **27% of U.S. data center power capacity**, and its strategist called a Democratic win there a \"left-tail event\" for the AI trade, CNBC reported.",
-     "What it means: AMD's numbers answer the worry that AI spending is outrunning demand, at least on the chip side. The Texas result adds a different kind of risk, about where data centers can be built and at what cost. Oracle and CoreWeave were lower Wednesday morning while other AI stocks were mixed, so the market has not settled on a verdict."
+     "Chip stocks recovered on Friday, but not enough to undo a week of damage. The Nasdaq Composite rose about 1.1% to **24,579.42** and the S&P 500 gained 0.3% to 7,376.86, while the Dow slipped 0.5% to 51,285.73. All three indexes still finished the week lower, with the S&P 500 down 2.7% and the Nasdaq down 3.4%.",
+     "The bounce followed Thursday's rout, when the S&P 500 fell 4.4% and the Nasdaq 5.5%, its worst session since April 2025. Nvidia dropped roughly 9% that day and lost about **$450 billion** in market value, and CNBC reported that Qualcomm fell by a similar amount after weak guidance. Reports tied the selling to the Democratic midterm sweep, with investors worried about tougher AI regulation and a slower data-center buildout. One estimate cited by a market summary, from UBS, said 30% to 40% of planned US data-center capacity additions through 2028 could face construction delays.",
+     "On Friday AMD jumped about 11%, Marvell and Micron rose more than 5%, and the Philadelphia chip index added about 4%. Nvidia recovered 2.8% to $186.64. Not everything bounced: Atlassian fell about 16% on a weaker data-center revenue outlook, and Japan's Nikkei dropped nearly 6%.",
+     "The other shock was the labor market. October payrolls rose by **165,000** against forecasts near 60,000, and unemployment edged down to 4.1%. The 10-year Treasury yield rose to about 4.86%, and traders now see a better chance of a Fed rate hike at next month's meeting. That matters for AI stocks because higher yields make expensive growth shares harder to justify.",
+     "The next test is whether the rebound holds without help from rates. Analysts quoted this week split on whether the move simply priced in the election, or whether more pain is coming for AI infrastructure names as investors reassess demand."
     ],
     "sources": [
      {
-      "src": "StockTitan",
-      "domain": "stocktitan.net",
-      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-3-2026",
-      "date": "2026-11-03"
+      "src": "CNBC",
+      "domain": "cnbc.com",
+      "url": "https://www.cnbc.com/2026/11/05/qualcomm-earnings-chip-stocks-election.html",
+      "date": "2026-11-05"
      },
      {
-      "src": "Invezz",
-      "domain": "invezz.com",
-      "url": "https://invezz.com/news/2026/11/03/nasdaq-rises-as-chip-stocks-rebound-while-apple-and-palantir-shares-fall/",
-      "date": "2026-11-03"
-     },
-     {
-      "src": "AMD",
-      "domain": "newsroom.amd.com",
-      "url": "https://newsroom.amd.com/news/amd-reports-third-quarter-2026-earnings/",
-      "date": "2026-11-03"
+      "src": "Yahoo Finance",
+      "domain": "finance.yahoo.com",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
+      "date": "2026-11-06"
      },
      {
       "src": "CNBC",
       "domain": "cnbc.com",
-      "url": "https://www.cnbc.com/2026/11/04/ai-stocks-texas-governor-data-centers.html",
-      "date": "2026-11-04"
+      "url": "https://www.cnbc.com/2026/11/06/treasury-yields-inch-lower-as-investors-look-ahead-to-key-jobs-data-.html",
+      "date": "2026-11-06"
      }
     ]
    },
    {
     "id": "b2",
-    "tag": "AI",
-    "kicker": "Anthropic IPO",
-    "title": "Anthropic's updated IPO filing shows growth slowing as costs jump",
+    "tag": "Humanoid",
+    "kicker": "Humanoids",
+    "title": "Agility becomes the first pure-play humanoid stock, and its orders come with conditions",
     "body": [
-     "Anthropic's amended S-1, filed Nov. 2, added its first full third-quarter numbers. Revenue for the quarter ended Sept. 30 was about **$17 billion**, up from $11.56 billion in the second quarter, and nine-month revenue reached $33.24 billion.",
-     "Growth is cooling, though. Quarter-over-quarter growth was about 47%, against roughly 144% a quarter earlier, and CNBC reported that Anthropic attributed part of the slowdown to about $600 million of price reductions. Operating expenses rose to $17.5 billion, including about $5 billion of higher-cost short-term compute and a $2 billion noncash charge tied to employee donation matching.",
-     "Summaries of the filing show that turned a $974 million second-quarter operating profit into a **$567 million operating loss**. Compute and infrastructure costs took 58% of revenue, up from 48%. The filing also lists **$895.4 billion** in purchase and lease commitments, a figure analysts are now weighing against the revenue line.",
-     "The terms are still blank: no price range or share count has been filed. Reports differ on timing, with one saying a roadshow could start the week of Nov. 9 and trading begin before Thanksgiving, and another pointing to a listing around Nov. 16. Fortune reported that institutional investors are pushing for a price at the low end of the $1.5 trillion to $2 trillion valuation range being discussed.",
-     "What it means: the story has shifted from hypergrowth to scale with heavy fixed costs. The next amended filing, with a price range, will show how much of that cost investors will accept. Disclosure: this edition is assembled with Claude, which Anthropic makes."
+     "Agility Robotics began trading on Nasdaq as **AGLT** on Thursday after closing its merger with a blank-check company, Churchill Capital Corp XI. It opened at $11.26, dipped below that, and closed at **$11.51**, up 2.2% on the day, on a day when the Nasdaq fell 5.5%. The company said the deal raised about $465 million before expenses and values it near $2.5 billion.",
+     "The headline demand number is more than **$300 million** in committed multi-year orders for Digit 5, the next-generation version of its warehouse robot. Agility said those orders depend on contractual milestones and final product specifications. One filing-based report says they are for 1,000 robots from a single customer, paid for as a three-year service, and reports put first Digit 5 deliveries in the first half of 2027.",
+     "The financial picture is early-stage. One report citing its financials put 2025 revenue at about $1.8 million and the net loss at $138.1 million. A public listing now means those numbers will be scrutinized every quarter, in a market where humanoid economics are still unproven. Semafor quoted its chief executive calling it a challenging market but saying Agility is well capitalized.",
+     "What it means: this is the first real public-market price for a humanoid maker that already has robots working commercially. China's Unitree listed in Shanghai in August, but Agility is the first US pure play. How the stock trades over the coming weeks will signal whether investors will pay for humanoid revenue before it is large, or only after."
     ],
     "sources": [
      {
-      "src": "CNBC",
-      "domain": "cnbc.com",
-      "url": "https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html",
-      "date": "2026-11-02"
+      "src": "Supply Chain 24/7",
+      "domain": "supplychain247.com",
+      "url": "https://www.supplychain247.com/article/agility-robotics-debuts-on-nasdaq-after-raising-about-465-million",
+      "date": "2026-11-05"
      },
      {
-      "src": "Fortune",
-      "domain": "fortune.com",
-      "url": "https://fortune.com/2026/11/02/anthropics-growth-slowed-and-costs-jumped-in-the-third-quarter-updated-ipo-filing-shows/",
-      "date": "2026-11-02"
+      "src": "TechCrunch",
+      "domain": "techcrunch.com",
+      "url": "https://techcrunch.com/2026/11/05/agility-is-the-first-pure-humanoid-robot-company-on-the-stock-market-are-you-buying/",
+      "date": "2026-11-05"
      },
      {
-      "src": "Fortune",
-      "domain": "fortune.com",
-      "url": "https://fortune.com/2026/11/03/anthropics-third-quarter-results-mean-ipo-math-and-history-are-not-on-its-side-analysts-say/",
-      "date": "2026-11-03"
+      "src": "Semafor",
+      "domain": "semafor.com",
+      "url": "https://semafor.com/article/11/06/2026/agility-goes-public-in-us-robot-bet",
+      "date": "2026-11-06"
+     },
+     {
+      "src": "GeekWire",
+      "domain": "geekwire.com",
+      "url": "https://www.geekwire.com/2026/agility-robotics-co-founder-on-its-nasdaq-debut-lessons-from-amazon-and-the-future-of-work/",
+      "date": "2026-11-06"
      }
     ]
    },
    {
     "id": "b3",
-    "tag": "Humanoid",
-    "kicker": "Humanoids",
-    "title": "A Chinese research firm expects a humanoid shakeout within three years",
+    "tag": "Tesla Optimus",
+    "kicker": "Optimus",
+    "title": "Musk says Tesla will probably rent Optimus, as Tesla and SpaceX shares swing",
     "body": [
-     "GGII, a Chinese research firm, projects that at least **15% of China's 150-plus humanoid makers** will go bankrupt or be absorbed in mergers within three years, according to a Seoul Economic Daily report on the firm's Shenzhen conference. Its general manager, Zheng Liyao, expects the first major restructuring next year.",
-     "The same forecast has China's finished-humanoid shipments topping 50,000 units this year, against about 18,000 last year. That figure covers China only. Other trackers count differently: one firm puts global shipments near 60,000 this year, and IDC counted nearly 25,000 shipped worldwide in the first half.",
-     "The squeeze shows up in prices and funding. GGII says robot joint-module prices fell about **30%** from a year earlier, with more cuts expected next year, and ITjuzi data cited in the coverage show embodied-AI funding deals fell 45% last month, from 60 to 33. One investor quoted by Jiemian said fewer than ten companies have real repeat revenue from outside customers and expects room for perhaps 20 to 30 survivors. Morgan Stanley has also warned of a shakeout, citing IPOs running ahead of demand.",
-     "What it means: volume is real, since companies like AgiBot reported thousands of units shipped in the first half, but cheap parts and a funding pullback are squeezing the weakest makers. I found only the one report on GGII's forecast, so treat the exact percentages as one firm's view."
+     "Speaking in a fireside chat with Ron Baron at Baron Capital's annual conference on Friday, Elon Musk said Tesla will **probably rent** Optimus robots rather than sell them. Tesla still plans to start delivering to outside companies around the end of 2027, so those first deliveries now look like rentals. In a follow-up post on X, Musk wrote that Optimus would eventually be available to rent or buy, so renting looks like the starting model rather than a permanent rule.",
+     "Coverage of the talk put the build cost near **$30,000** per robot, falling toward $20,000 over time, and quoted Musk saying Optimus will be about five times as productive as an average person. Tesla gave no rental price or contract terms, so the economics remain open. Renting would let Tesla keep control of the robots and bill for output, but it also means carrying the hardware on its own books.",
+     "The talk landed in a rough week for Musk's stocks. Tesla fell 10.8% on Thursday to $343.69 as the Democratic midterm sweep raised questions about AI regulation, the data-center buildout and a possible SpaceX merger, then rose 4.2% on Friday to $358.22. SpaceX's stock fell about 9% on Thursday to $123.62 and recovered about 8.6% to $134.27 on Friday. Reports say Tesla's board formed a special committee in October to look at a closer relationship with SpaceX, though I found no direct comment from Musk on a merger at the conference.",
+     "For anyone tracking Optimus, the useful change is the business model. A rental fleet makes reliability and uptime the product, which is a harder test than a one-time sale, and the first real numbers should come with the late-2027 deliveries."
     ],
     "sources": [
      {
-      "src": "Seoul Economic Daily",
-      "domain": "en.sedaily.com",
-      "url": "https://en.sedaily.com/international/2026/11/04/china-humanoid-robot-makers-face-shakeout-report-says",
-      "date": "2026-11-04"
+      "src": "Not a Tesla App",
+      "domain": "notateslaapp.com",
+      "url": "https://www.notateslaapp.com/news/4959/musk-tesla-will-rent-optimus-robots-instead-of-selling-them",
+      "date": "2026-11-06"
+     },
+     {
+      "src": "Tesla North",
+      "domain": "teslanorth.com",
+      "url": "https://teslanorth.com/2026/11/06/baron-conference-full-recap/",
+      "date": "2026-11-06"
+     },
+     {
+      "src": "HeyGoTrade",
+      "domain": "heygotrade.com",
+      "url": "https://www.heygotrade.com/en/news/tesla-tsla-stock-news-november-6-2026/",
+      "date": "2026-11-06"
+     },
+     {
+      "src": "HeyGoTrade",
+      "domain": "heygotrade.com",
+      "url": "https://www.heygotrade.com/en/news/spacex-spcx-stock-news-november-6-2026/",
+      "date": "2026-11-06"
      }
     ]
    },
    {
     "id": "b4",
-    "tag": "Tesla",
-    "kicker": "Tesla",
-    "title": "Tesla slips on the Texas result as Cybercab heads to Shanghai",
+    "tag": "AI",
+    "kicker": "Anthropic IPO",
+    "title": "Anthropic's roadshow is expected next week, with no price range yet",
     "body": [
-     "Tesla and SpaceX shares fell in premarket trading on Wednesday after Democrats won the Texas governor's race and made broad gains in the midterms. Reuters put the declines at about 3.6% for Tesla and 3.8% for SpaceX; other trackers showed larger drops, and an earlier after-hours move was closer to 1.8%. Tesla had closed Tuesday at **$398.50**, down 1.32%.",
-     "Investors cited several worries: tighter oversight of Tesla's driverless operations, scrutiny of government contracts held by Musk's companies, and possible inquiries tied to his political spending. Reuters reported that Musk spent nearly half a billion dollars backing Republican candidates, and Hinojosa has opposed a possible sale of a beachfront state park to SpaceX.",
-     "On the product side, Tesla's Cybercab makes its China debut at the China International Import Expo in Shanghai, which runs **Nov. 5 to 10**. Reports describe a gold finish, butterfly doors and no steering wheel, with an Optimus robot displayed alongside. The European display tour starts at Auto Zürich the same day.",
-     "What it means: Tesla's stock now trades on two stories at once. The product story is a show-floor tour that puts the Cybercab in front of new audiences, while the political one is about how much regulatory friction a Democratic Texas adds for its robotaxi plans. The premarket moves are not closing prices, so Wednesday's close will be the first real read."
+     "Anthropic has still not published a price range for its planned Nasdaq listing under the ticker **ANT**. Its Nov. 2 amended filing left the offering price blank, and one outlet that checked EDGAR on Friday found no newer filing. Bloomberg and The Information, as relayed by other outlets, reported that the investor roadshow would begin the week of Nov. 9, and Reuters pointed to a mid-November debut, though no date is official.",
+     "Valuation talk has moved down with the market. Reports citing Bloomberg put discussions at **$1.2 trillion to $1.3 trillion**, possibly as low as $1.1 trillion, after the Nasdaq-100 fell 6.4% on Thursday. The Financial Times had earlier cited a target of $1.25 trillion to $1.75 trillion, and talk near $2 trillion is now seen as stale. One report said investors called $1.5 trillion a stretch.",
+     "Anthropic has not commented on these reports, and most of the figures come from secondary outlets rather than the company, so treat them as unconfirmed. The filing itself is the thing to watch: when the price range appears, it will show how much of the October growth story investors are willing to pay for.",
+     "What it means: the AI selloff arrived just as the largest AI listing of the year was getting ready to sell shares. A lower valuation would not change the business, but it would show how far the mood has moved since the filing went public."
     ],
     "sources": [
      {
-      "src": "MarketScreener",
-      "domain": "marketscreener.com",
-      "url": "https://www.marketscreener.com/news/tesla-spacex-shares-fall-after-democrats-midterm-gains-ce785fdfd98cfe2d",
-      "date": "2026-11-04"
+      "src": "FinanceFeeds",
+      "domain": "financefeeds.com",
+      "url": "https://financefeeds.com/anthropic-ipo-roadshow-looms-with-no-price-range/",
+      "date": "2026-11-06"
      },
      {
-      "src": "Reuters via Investing.com",
-      "domain": "investing.com",
-      "url": "https://investing.com/news/stock-market-news/elon-musks-business-empire-braces-for-democratic-wave-as-texas-flips-blue-4998814",
-      "date": "2026-11-04"
+      "src": "FourWeekMBA",
+      "domain": "fourweekmba.com",
+      "url": "https://fourweekmba.com/ai-anthropics-ipo-map-price-range-buyers-odds-and-risks/",
+      "date": "2026-11-06"
      },
      {
-      "src": "CNBC",
-      "domain": "cnbc.com",
-      "url": "https://www.cnbc.com/2026/11/04/ai-stocks-texas-governor-data-centers.html",
-      "date": "2026-11-04"
-     },
-     {
-      "src": "Basenor",
-      "domain": "basenor.com",
-      "url": "https://www.basenor.com/blogs/news/tesla-cybercab-arrives-at-ciie-in-gold-with-butterfly-doors",
-      "date": "2026-11-04"
+      "src": "ABAB News",
+      "domain": "ababnews.com",
+      "url": "https://www.ababnews.com/en/news/9fa74dc2-b4ec-4ca2-a859-d030a3e514d9",
+      "date": "2026-11-06"
      }
     ]
    },
@@ -483,38 +514,31 @@
     "id": "b5",
     "tag": "Bitcoin",
     "kicker": "Bitcoin",
-    "title": "Bitcoin sits near its 200-day average as ETF money keeps leaving",
+    "title": "Bitcoin sits near $76,000 as ETF outflows continue",
     "body": [
-     "Bitcoin traded between about **$76,000 and $77,000** on Tuesday, down roughly 12% for 2026 as of Monday's close and hovering near its 200-day moving average, which one analyst put around $76,460. U.S. spot bitcoin ETFs lost about $398.6 million on Nov. 2 and another $115.6 million on Nov. 3, according to Farside data cited by crypto.news, so the outflow slowed but did not stop.",
-     "Binance published a zero-knowledge proof of reserves for 10 major tokens from its Oct. 31 snapshot after the roughly $6.3 billion hack, a method that lets users check their balances are backed one-to-one. A broader snapshot was planned for Wednesday and takes 40 to 50 hours to prove, so full results should land later in the week. Binance says it has replaced about 95% of the affected assets.",
-     "Its SAFU insurance fund now holds about 7,500 BTC after a 7,499 BTC draw, roughly half what it held, and Binance has promised to rebuild it toward $1 billion without giving a date. The FBI has attributed the attack to North Korea's TraderTraitor group.",
-     "Analyst Benjamin Cowen is tying bitcoin to stocks. In a Nov. 2 video he argued that fourth-quarter corrections have hit equities in each of the last four midterm years, and a summary of it says he expects the S&P 500 to test its 200-day average before bottoming within a couple of months. Cowen has changed his calls before, so read it as one view.",
-     "What it means: with ETF flows negative and a stock correction possible, bitcoin's main support is the 200-day average. The Binance reserve proof due this week is the near-term trust test for the exchange."
+     "Bitcoin was trading around **$76,000** early Saturday, inside a narrow range after a failed attempt to recover above $80,000 this week. It fell 5.6% on Thursday, more than erasing an early gain on Wednesday, as traders dumped risk across tech and crypto after the stock rout. An IG analyst said it was dragged into the AI selloff.",
+     "US spot bitcoin ETFs lost about **$412 million** on Friday, with BlackRock's IBIT accounting for roughly $403 million, and Ethereum ETFs lost about $93 million. It was the second straight heavy outflow day. The Block reported that cumulative net flows for bitcoin ETFs this year have turned slightly negative, down about $500 million since January.",
+     "Analyst Benjamin Cowen posted a video on Friday titled \"Bitcoin: The Bears Strike Back.\" I could not confirm its contents, but his earlier framework held that buyers would need to defend a zone of roughly $73,000 to $77,000, and he has flagged a break below about $74,900 as a risk. Bitcoin is sitting on that line now.",
+     "What it means: bitcoin is trading with stocks again rather than as a hedge against them. If equities steady, the $75,000 area is the level to watch; if the Fed hike odds keep rising, ETF outflows could keep the pressure on."
     ],
     "sources": [
      {
-      "src": "crypto.news",
+      "src": "The Block",
+      "domain": "theblock.co",
+      "url": "https://www.theblock.co/news/markets/2026-11-06-crypto-etfs-see-over-half-a-billion-dollars-in-outflows-amid-post-midterm-market-slide-435873",
+      "date": "2026-11-06"
+     },
+     {
+      "src": "Crypto Briefing",
+      "domain": "cryptobriefing.com",
+      "url": "https://cryptobriefing.com/bitcoin-spot-etfs-412m-outflows-november-6/",
+      "date": "2026-11-06"
+     },
+     {
+      "src": "Crypto News",
       "domain": "crypto.news",
-      "url": "https://crypto.news/bitcoin-after-the-us-midterms-can-the-recovery-outlast-etf-selling/",
-      "date": "2026-11-03"
-     },
-     {
-      "src": "Admiral Markets",
-      "domain": "admiralmarkets.com",
-      "url": "https://admiralmarkets.com/analytics/traders-blog/bitcoin-today-november-3-2026",
-      "date": "2026-11-03"
-     },
-     {
-      "src": "crypto.news",
-      "domain": "crypto.news",
-      "url": "https://crypto.news/binance-completes-reserve-proof-for-10-tokens-after-6-3b-hack/",
-      "date": "2026-11-03"
-     },
-     {
-      "src": "Cointelegraph",
-      "domain": "cointelegraph.com",
-      "url": "https://cointelegraph.com/news/binance-safu-btc-balance-halves-recovery-unclear?amp=&amp=",
-      "date": "2026-11-02"
+      "url": "https://crypto.news/bitcoin-price-76000-etf-outflows-75000-support/",
+      "date": "2026-11-07"
      }
     ]
    },
@@ -522,38 +546,25 @@
     "id": "b6",
     "tag": "Starship",
     "kicker": "Starship",
-    "title": "Starship Flight 15 gets an FAA planning date, but no license yet",
+    "title": "Starship Flight 15 now has a Nov. 13 target, but no license yet",
     "body": [
-     "The FAA's latest planning slide, posted Oct. 29, lists Starship Flight 15 for **Nov. 12**, moved from Nov. 8 on an earlier slide. Observers stress that it is an agency planning date, not a SpaceX announcement, and that no launch license for the flight has been issued.",
-     "Booster 22 and Ship 42 have both completed static fires. The flight aims to catch both stages with the launch tower, and recovering the upper stage needs its own license. Dates usually firm up about a week out, when SpaceX posts a mission page and the FAA issues airspace closures, so the real signal should come around Nov. 5.",
-     "SpaceX now trades publicly, and its shares fell alongside Tesla's on the Texas result, so a flight date lands on a stock already reacting to politics. Elsewhere, Google's Suncatcher prototype, four TPU chips on a satellite launched aboard a Falcon 9, has run its first workload, and Google plans two more satellites in 2027.",
-     "Coverage notes it can run only one chip at a time for about 20 minutes, and Google's energy head said space data centers can cost up to **100 times** more than ground ones. SpaceX has said it expects to start deploying orbital AI compute satellites as early as 2028.",
-     "What it means: Nov. 12 is a target to watch, not a plan to count on, since slips are common. Orbital computing is still at the test stage, so expect announcements well ahead of anything that changes where AI runs."
+     "SpaceX's vice president of launch, Kiko Dontchev, has named Friday, **Nov. 13** as the target for Starship Flight 15. Earlier FAA planning slides had shown Nov. 8 and then Nov. 12, so the date has slipped by about a day since the last update. The FAA's Starship page did not yet list a license for the flight, which still has to be issued before a launch.",
+     "The flight is expected to use Booster 22 and Ship 42. The plan is for the first time to catch both the Super Heavy booster and the ship with the launch tower's arms on the same flight. Gwynne Shotwell has said she expects the license to cover a return to the launch site and a tower catch for both stages.",
+     "One aggregator lists a placeholder date of Dec. 31, but that is not a real target. Until the FAA posts the license, treat Nov. 13 as a goal, not a schedule.",
+     "What it means: a double catch would be a major step toward reusing the ship, which SpaceX needs for its planned satellite and data-center work. A delay would not be surprising, and SpaceX's stock has been moving with the broader market this week."
     ],
     "sources": [
      {
-      "src": "Starlust",
-      "domain": "starlust.org",
-      "url": "https://starlust.org/spacex-starship-flight-15-possible-launch-date-revealed/",
-      "date": "2026-11-03"
+      "src": "Teslarati",
+      "domain": "teslarati.com",
+      "url": "https://www.teslarati.com/spacex-starship-catch-nov-13/",
+      "date": "2026-11-07"
      },
      {
       "src": "Wikipedia",
       "domain": "en.wikipedia.org",
       "url": "https://en.wikipedia.org/wiki/Starship_flight_15",
-      "date": "2026-11-03"
-     },
-     {
-      "src": "Data Center Dynamics",
-      "domain": "datacenterdynamics.com",
-      "url": "https://www.datacenterdynamics.com/en/news/googles-project-suncatcher-runs-first-workload-on-orbital-tpu-but-company-admits-space-data-centers-cost-100x-more-than-terrestrial/",
-      "date": "2026-11-02"
-     },
-     {
-      "src": "The AI Insider",
-      "domain": "theaiinsider.tech",
-      "url": "https://theaiinsider.tech/2026/11/02/googles-suncatcher-prototype-space-data-center-comes-online-and-runs-ai-in-orbit",
-      "date": "2026-11-02"
+      "date": "2026-11-07"
      }
     ]
    }
@@ -563,71 +574,104 @@
   {
    "id": "n1",
    "tag": "Tech",
-   "title": "Chips rebound on election day as AMD guides above estimates",
-   "blurb": "The S&P 500 rose 0.36% to 7,568.92 and the Nasdaq 0.83%; AMD reported record revenue and a fourth-quarter outlook near $17 billion after the bell.",
-   "src": "StockTitan",
-   "domain": "stocktitan.net",
-   "date": "2026-11-03",
-   "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-3-2026",
-   "ask": "Is the chip rebound broad enough to last?"
+   "title": "Chips bounce after the worst Nasdaq day in 19 months",
+   "blurb": "The Nasdaq rose about 1.1% Friday and the S&P 500 0.3%, but all three indexes lost for the week after a hot jobs report.",
+   "src": "CNBC",
+   "domain": "cnbc.com",
+   "date": "2026-11-05",
+   "url": "https://www.cnbc.com/2026/11/05/qualcomm-earnings-chip-stocks-election.html",
+   "ask": "What would keep the chip rebound going?"
   },
   {
    "id": "n2",
-   "tag": "AI",
-   "title": "Anthropic's amended S-1 shows growth slowing",
-   "blurb": "Third-quarter revenue of about $17 billion grew 47% from the second quarter, down from roughly 144%, with a $567 million operating loss.",
-   "src": "CNBC",
-   "domain": "cnbc.com",
-   "date": "2026-11-02",
-   "url": "https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html",
-   "ask": "What would a price range reveal about investor appetite?"
+   "tag": "Humanoid",
+   "title": "Agility becomes the first pure-play humanoid stock",
+   "blurb": "AGLT closed its first day at $11.51, up 2.2%, with $300 million in conditional Digit 5 orders.",
+   "src": "Supply Chain 24/7",
+   "domain": "supplychain247.com",
+   "date": "2026-11-05",
+   "url": "https://www.supplychain247.com/article/agility-robotics-debuts-on-nasdaq-after-raising-about-465-million",
+   "ask": "Will investors pay for humanoid revenue before it is large?"
   },
   {
    "id": "n3",
-   "tag": "Humanoid",
-   "title": "GGII sees at least 15% of China's humanoid makers failing or merging",
-   "blurb": "The research firm projects China shipments above 50,000 this year while joint-module prices fall about 30%.",
-   "src": "Seoul Economic Daily",
-   "domain": "en.sedaily.com",
-   "date": "2026-11-04",
-   "url": "https://en.sedaily.com/international/2026/11/04/china-humanoid-robot-makers-face-shakeout-report-says",
-   "ask": "Which makers have real repeat customers?"
+   "tag": "Tesla Optimus",
+   "title": "Musk says Tesla will probably rent Optimus",
+   "blurb": "Build cost is near $30,000 per robot, with outside deliveries still planned around the end of 2027.",
+   "src": "Not a Tesla App",
+   "domain": "notateslaapp.com",
+   "date": "2026-11-06",
+   "url": "https://www.notateslaapp.com/news/4959/musk-tesla-will-rent-optimus-robots-instead-of-selling-them",
+   "ask": "What would a rental price need to be?"
   },
   {
    "id": "n4",
-   "tag": "Tesla",
-   "title": "Tesla and SpaceX fall premarket as Democrats win Texas",
-   "blurb": "Reuters put the declines near 3.6% and 3.8% on regulatory and political worries; Tesla closed Tuesday at $398.50.",
-   "src": "Reuters via Investing.com",
-   "domain": "investing.com",
-   "date": "2026-11-04",
-   "url": "https://investing.com/news/stock-market-news/elon-musks-business-empire-braces-for-democratic-wave-as-texas-flips-blue-4998814",
-   "ask": "How much could state politics affect robotaxi plans?"
+   "tag": "AI",
+   "title": "Anthropic's roadshow is expected next week",
+   "blurb": "No price range has been published; reports cite valuation talk near $1.2 trillion to $1.3 trillion.",
+   "src": "FinanceFeeds",
+   "domain": "financefeeds.com",
+   "date": "2026-11-06",
+   "url": "https://financefeeds.com/anthropic-ipo-roadshow-looms-with-no-price-range/",
+   "ask": "What will the price range reveal?"
   },
   {
    "id": "n5",
    "tag": "Bitcoin",
-   "title": "Bitcoin ETFs lose another $115.6 million as Binance publishes reserve proof",
-   "blurb": "Spot ETF outflows continued on Nov. 3 while bitcoin held between $76,000 and $77,000.",
-   "src": "crypto.news",
-   "domain": "crypto.news",
-   "date": "2026-11-03",
-   "url": "https://crypto.news/bitcoin-after-the-us-midterms-can-the-recovery-outlast-etf-selling/",
-   "ask": "Does bitcoin hold its 200-day average?"
+   "title": "Bitcoin sits near $76,000 as ETF outflows continue",
+   "blurb": "Spot bitcoin ETFs lost about $412 million Friday, the second heavy outflow day.",
+   "src": "The Block",
+   "domain": "theblock.co",
+   "date": "2026-11-06",
+   "url": "https://www.theblock.co/news/markets/2026-11-06-crypto-etfs-see-over-half-a-billion-dollars-in-outflows-amid-post-midterm-market-slide-435873",
+   "ask": "Will the $73,000 to $77,000 zone hold?"
   },
   {
    "id": "n6",
    "tag": "Starship",
-   "title": "FAA planning slide moves Starship Flight 15 to Nov. 12",
-   "blurb": "It is a planning date, not a SpaceX date, and no launch license has been issued.",
-   "src": "Starlust",
-   "domain": "starlust.org",
-   "date": "2026-11-03",
-   "url": "https://starlust.org/spacex-starship-flight-15-possible-launch-date-revealed/",
-   "ask": "When does the license arrive?"
+   "title": "Starship Flight 15 now has a Nov. 13 target",
+   "blurb": "The FAA license is still not listed, and the plan is a first tower catch of both stages.",
+   "src": "Teslarati",
+   "domain": "teslarati.com",
+   "date": "2026-11-07",
+   "url": "https://www.teslarati.com/spacex-starship-catch-nov-13/",
+   "ask": "Will the license arrive in time?"
   }
  ],
  "youtube": [
+  {
+   "id": "_x58r9TBois",
+   "channel": "Marques Brownlee",
+   "handle": "@mkbhd",
+   "title": "Meta VR Glasses: What Vision Pro 2 COULD Have Been!",
+   "desc": "Marques Brownlee on Meta's new VR glasses headset.",
+   "published": "2026-11-06T21:29:30Z",
+   "secs": 481,
+   "views": 2657317,
+   "url": "https://www.youtube.com/watch?v=_x58r9TBois"
+  },
+  {
+   "id": "RzHlHrz58oA",
+   "channel": "Channel 5 with Andrew Callaghan",
+   "handle": "@channel5YouTube",
+   "title": "Grimes Interview (Ft. Ivy Wolk)",
+   "desc": "Channel 5 interview with Grimes, featuring Ivy Wolk.",
+   "published": "2026-11-06T16:41:14Z",
+   "secs": 6472,
+   "views": 428475,
+   "url": "https://www.youtube.com/watch?v=RzHlHrz58oA"
+  },
+  {
+   "id": "i-QLCQow1y4",
+   "channel": "Maxinomics",
+   "handle": "@Maxinomics",
+   "title": "By 2035, there is less electricity available than in 2030, and the surplus disappears",
+   "desc": "A short look at electricity supply against data center demand by 2035.",
+   "published": "2026-11-06T16:11:49Z",
+   "secs": 145,
+   "views": 119417,
+   "url": "https://www.youtube.com/watch?v=i-QLCQow1y4"
+  },
   {
    "id": "5CkXJdd06Xc",
    "channel": "Maxinomics",
@@ -636,18 +680,18 @@
    "desc": "A short look at how much water data center cooling can use.",
    "published": "2026-11-06T00:59:57Z",
    "secs": 124,
-   "views": 20363,
+   "views": 42343,
    "url": "https://www.youtube.com/watch?v=5CkXJdd06Xc"
   },
   {
    "id": "MNGYJ_DowDM",
-   "channel": "Qroo Spanish",
+   "channel": "Spanish With Qroo Paul",
    "handle": "@QrooSpanish",
    "title": "How to Say “Don’t Bother” in Spanish (And More)",
-   "desc": "A Spanish lesson on saying 'don't bother' and related phrases.",
+   "desc": "A Spanish lesson on saying \"don't bother\" and related phrases.",
    "published": "2026-11-05T14:22:45Z",
    "secs": 369,
-   "views": 4618,
+   "views": 7335,
    "url": "https://www.youtube.com/watch?v=MNGYJ_DowDM"
   },
   {
@@ -658,7 +702,7 @@
    "desc": "Not Just Bikes visits a Singapore town planned to need fewer cars.",
    "published": "2026-11-04T17:02:19Z",
    "secs": 1545,
-   "views": 289750,
+   "views": 344055,
    "url": "https://www.youtube.com/watch?v=NdGheCcLj-E"
   },
   {
@@ -669,7 +713,7 @@
    "desc": "Veritasium on seeing quantum physics directly.",
    "published": "2026-11-04T15:52:59Z",
    "secs": 3956,
-   "views": 5706431,
+   "views": 8921368,
    "url": "https://www.youtube.com/watch?v=KfODG5REyss"
   },
   {
@@ -680,7 +724,7 @@
    "desc": "A short Channel 5 interview with Albania's prime minister.",
    "published": "2026-11-03T17:28:52Z",
    "secs": 94,
-   "views": 454138,
+   "views": 510628,
    "url": "https://www.youtube.com/watch?v=YPpo08zsK8s"
   },
   {
@@ -691,7 +735,7 @@
    "desc": "Marques Brownlee on the OLED iPad Mini.",
    "published": "2026-11-03T14:01:31Z",
    "secs": 780,
-   "views": 9727726,
+   "views": 10441494,
    "url": "https://www.youtube.com/watch?v=g6Die8gVFn0"
   },
   {
@@ -702,44 +746,30 @@
    "desc": "Not Just Bikes on a street upgrade in Amsterdam Zuid.",
    "published": "2026-11-03T08:15:15Z",
    "secs": 149,
-   "views": 206656,
+   "views": 219077,
    "url": "https://www.youtube.com/watch?v=-iGK2bUKxCo"
-  },
-  {
-   "id": "o4pKRRK_TJU",
-   "channel": "Maxinomics",
-   "handle": "@Maxinomics",
-   "title": "One owner said yes at $70,000 an acre, then no, once he learned it was a prison",
-   "desc": "A short Maxinomics story on a land sale that fell through.",
-   "published": "2026-11-02T23:05:49Z",
-   "secs": 163,
-   "views": 31358,
-   "url": "https://www.youtube.com/watch?v=o4pKRRK_TJU"
-  },
-  {
-   "id": "MM7QGccszUU",
-   "channel": "Channel 5 with Andrew Callaghan",
-   "handle": "@channel5YouTube",
-   "title": "Investigating Jared Kushner's Empire of Fraud & Corruption",
-   "desc": "Channel 5 on Jared Kushner's business dealings.",
-   "published": "2026-11-02T16:00:11Z",
-   "secs": 4518,
-   "views": 3167653,
-   "url": "https://www.youtube.com/watch?v=MM7QGccszUU"
   },
   {
    "id": "xlNKNnXdtN4",
    "channel": "Veritasium",
    "handle": "@veritasium",
    "title": "These ponds help support half the people on Earth",
-   "desc": "A short Veritasium video on ponds that feed much of the world.",
+   "desc": "Veritasium on the electric blue ponds that help support half the people on Earth.",
    "published": "2026-11-02T14:00:05Z",
    "secs": 113,
-   "views": 464954,
+   "views": 486518,
    "url": "https://www.youtube.com/watch?v=xlNKNnXdtN4"
   }
  ],
  "spotify": [
+  {
+   "show": "Modern Wisdom",
+   "title": "Your Home Might Be Destroying Your Health (& how to fix it) - Michael Feldstein - #1173",
+   "desc": "Chris Williamson and Michael Feldstein on how your home affects your health.",
+   "published": "2026-11-07",
+   "secs": 4920,
+   "url": "https://open.spotify.com/episode/1roGBPD46HlmEX8eC8uBjM"
+  },
   {
    "show": "The Diary Of A CEO with Steven Bartlett",
    "title": "Iran War Expert: If This Escalation Continues, 2027 Will Be Devastating! | Prof Robert Pape",
@@ -824,125 +854,115 @@
  "discover": {
   "youtube": [
    {
-    "handle": "@bycloudAI",
-    "channel": "bycloud",
+    "handle": "@GoogleDeepMind",
+    "channel": "Google DeepMind",
     "seed": "@OpenAI",
-    "because": "Because you follow OpenAI: fast explainers on new language-model research and engineering."
+    "because": "Because you follow OpenAI: research and product videos from another leading AI lab."
    },
    {
-    "handle": "@MachineLearningStreetTalk",
-    "channel": "Machine Learning Street Talk",
-    "seed": "@OpenAI",
-    "because": "Because you follow OpenAI: long conversations with researchers about how AI systems work."
+    "handle": "@PBSSpaceTime",
+    "channel": "PBS Space Time",
+    "seed": "@veritasium",
+    "because": "Because you like Veritasium: deep physics and cosmology explainers."
    },
    {
-    "handle": "@RealLifeLore",
-    "channel": "RealLifeLore",
+    "handle": "@JohnnyHarris",
+    "channel": "Johnny Harris",
     "seed": "@NotJustBikes",
-    "because": "Because you like Not Just Bikes: geography and infrastructure explained with maps."
+    "because": "Because you like Not Just Bikes: well-researched explainers on cities, borders and policy."
    },
    {
-    "handle": "@ycombinator",
-    "channel": "Y Combinator",
+    "handle": "@JerryRigEverything",
+    "channel": "JerryRigEverything",
+    "seed": "@mkbhd",
+    "because": "Because you like Marques Brownlee: durability tests and teardowns of new phones."
+   },
+   {
+    "handle": "@AustinEvans",
+    "channel": "Austin Evans",
+    "seed": "@mkbhd",
+    "because": "Because you like Marques Brownlee: hands-on consumer tech reviews."
+   },
+   {
+    "handle": "@agilityrobotics",
+    "channel": "Agility",
     "seed": "@figureai",
-    "because": "Because you follow Figure: founders on building hardware and AI companies."
-   },
-   {
-    "handle": "@SciShow",
-    "channel": "SciShow",
-    "seed": "@veritasium",
-    "because": "Because you like Veritasium: frequent short science explainers."
-   },
-   {
-    "handle": "@DrBenMiles",
-    "channel": "Dr Ben Miles",
-    "seed": "@veritasium",
-    "because": "Because you like Veritasium: physics and science news with the math shown."
+    "because": "Because you follow Figure: updates on humanoid robots working in warehouses."
    }
   ],
   "spotify": [
    {
-    "show": "The Shawn Ryan Show",
-    "title": "#353 Dr. Thomas Madden - Rome Historian Reveals the 7 Warning Signs of a Dying Republic",
-    "desc": "Shawn Ryan interviews historian Thomas Madden on lessons from Rome.",
-    "published": "2026-11-02",
-    "secs": 9153,
+    "show": "The Tucker Carlson Show",
+    "title": "JFK, UFOs, Atlantis and Mind Control: The Man Who Put World Famous Conspiracies to the Ultimate Test",
+    "desc": "Tucker Carlson interviews a guest who tested famous conspiracy theories.",
+    "published": "2026-11-06",
+    "secs": 4503,
+    "seed": "The Jordan B. Peterson Podcast",
+    "because": "Because you follow The Jordan B. Peterson Podcast: another long-form interview show on politics and culture.",
+    "url": "https://open.spotify.com/episode/7pIsgO0d7fq4nyH20szQq7"
+   },
+   {
+    "show": "American Alchemy with Jesse Michels",
+    "title": "Japan’s Defense Minister: “We Can’t Rule Out ALIENS!”",
+    "desc": "Jesse Michels on Japan's defense minister and the UFO question.",
+    "published": "2026-11-06",
+    "secs": 3581,
     "seed": "The Joe Rogan Experience",
-    "because": "Because you follow The Joe Rogan Experience: another long, wide-ranging interview show.",
-    "url": "https://open.spotify.com/episode/07jQ5HJLNNi6fqkCpSk3T2"
+    "because": "Because you follow The Joe Rogan Experience: long conversations on UFOs and fringe topics.",
+    "url": "https://open.spotify.com/episode/2XMwsi3ltyIBFapyGvfaiY"
    }
   ],
   "artists": [
    {
-    "name": "Seven Lions",
-    "because": "Like Slander",
-    "url": "https://open.spotify.com/artist/6fcTRFpz0yH79qSKfof7lp"
+    "name": "Tycho",
+    "because": "Like ODESZA",
+    "url": "https://open.spotify.com/artist/5oOhM2DFWab8XhSdQiITry"
    },
    {
-    "name": "Gryffin",
-    "because": "Like Slander",
-    "url": "https://open.spotify.com/artist/2ZRQcIgzPCVaT9XKhXZIzh"
+    "name": "Jai Wolf",
+    "because": "Like Flume",
+    "url": "https://open.spotify.com/artist/24V5UY0nChKpnb1TBPJhCw"
    },
    {
-    "name": "Said The Sky",
-    "because": "Like Illenium",
-    "url": "https://open.spotify.com/artist/4LZ4De2MoO3lP6QaNCfvcu"
+    "name": "Petit Biscuit",
+    "because": "Like Flume",
+    "url": "https://open.spotify.com/artist/6gK1Uct5FEdaUWRWpU4Cl2"
    },
    {
-    "name": "Crankdat",
-    "because": "Like Slander",
-    "url": "https://open.spotify.com/artist/5lCekoJW9jNq01B1wiqdAb"
+    "name": "Zach Bryan",
+    "because": "Like Tyler Childers",
+    "url": "https://open.spotify.com/artist/40ZNYROS4zLfyyBSs2PGe2"
    },
    {
-    "name": "JID",
-    "because": "Like J. Cole",
-    "url": "https://open.spotify.com/artist/6U3ybJ9UHNKEdsH7ktGBZ7"
+    "name": "Sturgill Simpson",
+    "because": "Like Chris Stapleton",
+    "url": "https://open.spotify.com/artist/3vDpQbGnzRbRVirXlfQagB"
    },
    {
-    "name": "Denzel Curry",
+    "name": "Joey Bada$$",
     "because": "Like Kendrick Lamar",
-    "url": "https://open.spotify.com/artist/6fxyWrfmjcbj5d12gXeiNV"
+    "url": "https://open.spotify.com/artist/2P5sC9cVZDToPxyomzF1UH"
+   },
+   {
+    "name": "Brent Faiyaz",
+    "because": "Like Daniel Caesar",
+    "url": "https://open.spotify.com/artist/3tlXnStJ1fFhdScmQeLpuG"
    }
   ],
   "podcasts": [
    {
-    "show": "No Priors: Artificial Intelligence | Technology | Startups",
-    "seed": "Lex Fridman Podcast",
-    "because": "Because you like Lex Fridman: AI founders and researchers on what they're building now."
+    "show": "The Tucker Carlson Show",
+    "seed": "The Jordan B. Peterson Podcast",
+    "because": "Because you follow The Jordan B. Peterson Podcast: another long-form interview show on politics and culture."
    },
    {
-    "show": "Hard Fork",
-    "seed": "Moonshots with Peter Diamandis",
-    "because": "Because you like Moonshots: a weekly, skeptical look at AI and tech news from The New York Times."
-   },
-   {
-    "show": "The Tim Ferriss Show",
-    "seed": "Modern Wisdom",
-    "because": "Because you like Modern Wisdom: long interviews about how top performers train, think and work."
-   },
-   {
-    "show": "FoundMyFitness",
-    "seed": "Huberman Lab",
-    "because": "Because you like Huberman Lab: Rhonda Patrick on nutrition, aging and the research behind them."
+    "show": "American Alchemy with Jesse Michels",
+    "seed": "The Joe Rogan Experience",
+    "because": "Because you follow The Joe Rogan Experience: long conversations on UFOs and fringe topics."
    }
   ]
  },
  "discoverLog": [
-  "@PracticalEngineeringChannel",
-  "@kurzgesagt",
-  "@WendoverProductions",
-  "@AIDailyBrief",
-  "All-In with Chamath, Jason, Sacks & Friedberg",
-  "The Peter Attia Drive",
-  "@Dave2D",
-  "@LinusTechTips",
-  "@Mrwhosetheboss",
-  "@CityNerd",
-  "@TheB1M",
-  "@TwoMinutePapers",
-  "@DwarkeshPatel",
-  "@SabineHossenfelder",
-  "@Fireship",
   "Dwarkesh Podcast",
   "My First Million",
   "@MarkRober",
@@ -987,88 +1007,74 @@
   "Said The Sky",
   "Crankdat",
   "JID",
-  "Denzel Curry"
+  "Denzel Curry",
+  "@GoogleDeepMind",
+  "@PBSSpaceTime",
+  "@JohnnyHarris",
+  "@JerryRigEverything",
+  "@AustinEvans",
+  "@agilityrobotics",
+  "The Tucker Carlson Show",
+  "American Alchemy with Jesse Michels",
+  "Tycho",
+  "Jai Wolf",
+  "Petit Biscuit",
+  "Zach Bryan",
+  "Sturgill Simpson",
+  "Joey Bada$$",
+  "Brent Faiyaz"
  ],
  "bay": {
-  "range": "Nov 6–8",
+  "range": "Nov 7–8",
   "items": [
    {
     "id": "b1",
-    "title": "Mon Laferte at SAP Center",
-    "where": "SAP Center, San Jose",
-    "blurb": "The Chilean singer's Femme Fatale Tour stops in San Jose on Friday night, a short drive from home.",
-    "date": "2026-11-06",
-    "url": "https://www.songkick.com/concerts/43125088-mon-laferte-at-sap-center-at-san-jose",
+    "title": "The Box SF Artistica Creators Fest",
+    "where": "The Box SF, San Francisco",
+    "blurb": "A free creators festival with skating performances on its second and final day.",
+    "date": "2026-11-07",
+    "free": true,
+    "url": "https://sf.funcheap.com/2026/11/07/",
     "cal": {
-     "start": "2026-11-06T20:00",
-     "end": "2026-11-06T22:30",
-     "location": "SAP Center, 525 W Santa Clara St, San Jose, CA",
-     "tips": "Ticket listings say 8 PM; I couldn't confirm doors, and the end time is an estimate. Check the SAP Center page before you go."
+     "start": "2026-11-07T11:00",
+     "end": "2026-11-07T17:00",
+     "location": "The Box SF, San Francisco, CA",
+     "tips": "11 AM to 5 PM per a Funcheap listing, no ticket needed. I couldn't confirm the street address or details on the organizer's page."
     }
    },
    {
     "id": "b2",
-    "title": "Adriatique at The Midway",
-    "where": "The Midway, San Francisco",
-    "blurb": "The Swiss-Italian melodic house duo plays a late Friday set at the Dogpatch warehouse club.",
-    "date": "2026-11-06",
-    "url": "https://www.technoairlines.com/event/adriatique-the-midway-2026-11-06",
+    "title": "Golden Gate Comedy Night",
+    "where": "San Francisco",
+    "blurb": "A free 21+ stand-up show billed as the city's most intimate comedy club.",
+    "date": "2026-11-07",
+    "free": true,
+    "url": "https://sf.funcheap.com/2026/11/07/",
     "cal": {
-     "start": "2026-11-06T22:00",
-     "end": "2026-11-07T02:00",
-     "location": "The Midway, 900 Marin St, San Francisco, CA",
-     "tips": "10 PM start per an event aggregator; the end time is an estimate. Confirm tickets and age limit on the club's page."
+     "start": "2026-11-07T19:00",
+     "end": "2026-11-07T22:30",
+     "location": "San Francisco, CA",
+     "tips": "7 to 10:30 PM per Funcheap; venue address wasn't confirmed, so check the listing and RSVP details."
     }
    },
    {
     "id": "b3",
-    "title": "Warriors vs. Heat",
-    "where": "Chase Center, San Francisco",
-    "blurb": "Golden State hosts Miami on Friday night; a calendar listing has it on NBA TV.",
-    "date": "2026-11-06",
-    "url": "https://truecalendar.com/c/warriors-nba-2026/2026",
-    "cal": {
-     "start": "2026-11-06T19:00",
-     "end": "2026-11-06T21:30",
-     "location": "Chase Center, 1 Warriors Way, San Francisco, CA",
-     "tips": "The 7 PM start is inferred from a third-party calendar, so confirm the tip-off on the Warriors' schedule. Caltrain plus Muni T Third is the easy way in."
-    }
-   },
-   {
-    "id": "b4",
-    "title": "San Francisco Fall Cider Fest",
-    "where": "SPARK Social SF, Mission Bay",
-    "blurb": "Unlimited tastings of 30-plus ciders at the food-truck lot on Saturday afternoon; guests must be 21 or older.",
-    "date": "2026-11-07",
-    "url": "https://sf.funcheap.com/2026-san-francisco-fall-cider-fest-unlimited-tastings-of-30-ciders/",
-    "cal": {
-     "start": "2026-11-07T12:00",
-     "end": "2026-11-07T16:00",
-     "location": "SPARK Social SF, 601 Mission Bay Blvd N, San Francisco, CA",
-     "tips": "Noon to 4 PM; tickets start at $45 per listings, and the organizer link wasn't confirmed, so buy through the organizer."
-    }
-   },
-   {
-    "id": "b5",
-    "title": "Latino Outdoors ridge hike",
-    "where": "Skyline Watershed Ridge Trail, Redwood City",
-    "blurb": "A free guided hike on the new six-mile Bay Area Ridge Trail segment, with views toward the Peninsula and the Pacific.",
+    "title": "Inner Sunset Flea Market season finale",
+    "where": "Inner Sunset, San Francisco",
+    "blurb": "The last market of the season with Sunset Mercantile, free to wander on Sunday daytime.",
     "date": "2026-11-08",
     "free": true,
-    "url": "https://www.sfpuc.gov/skyline-watershed-ridge-trail",
+    "url": "https://sf.funcheap.com/2026/11/08/",
     "cal": {
-     "start": "2026-11-08T11:00",
-     "end": "2026-11-08T14:00",
-     "location": "4351 Skyline Blvd, Redwood City, CA",
-     "tips": "Moderate to hard; bring lunch, water and layers. The trail needs a free SFPUC permit and parking is limited, so RSVP through the organizer and arrive early."
+     "start": "2026-11-08T10:00",
+     "end": "2026-11-08T16:00",
+     "location": "Inner Sunset, San Francisco, CA",
+     "tips": "10 AM to 4 PM per Funcheap; exact location not confirmed."
     }
    }
   ]
  },
  "bayLog": [
-  "ScHoolboy Q – 10 Years of Blank Face LP",
-  "Vulfpeck at Greek Theatre",
-  "Half Moon Bay Pumpkin Festival",
   "Rush – Fifty Something at SAP Center",
   "WNBA Finals Game 1",
   "Bay Area Science Festival",
@@ -1125,7 +1131,10 @@
   "Adriatique at The Midway",
   "Warriors vs. Heat",
   "San Francisco Fall Cider Fest",
-  "Latino Outdoors ridge hike"
+  "Latino Outdoors ridge hike",
+  "The Box SF Artistica Creators Fest",
+  "Golden Gate Comedy Night",
+  "Inner Sunset Flea Market season finale"
  ],
  "shows": {
   "note": "Couldn't confirm either way: PARTYNEXTDOOR, Kofi Stone, Frank Ocean, eric404, Trayce Chapman, daydream Masi, Spark Master Tape, Aer, Danger Incorporated, Brendan Bennett.",
@@ -1298,6 +1307,32 @@
  },
  "vocab": [
   {
+   "date": "2026-11-07",
+   "word": "Crepuscular",
+   "pron": "kreh-PUS-kyuh-ler",
+   "pos": "adjective",
+   "def": "Relating to twilight; describing animals that are most active at dawn and dusk.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "From Latin crepusculum, 'twilight'"
+    },
+    {
+     "f": "Synonym",
+     "b": "dusky, dim, twilit"
+    },
+    {
+     "f": "Use it for",
+     "b": "animals like rabbits, deer and owls that move around at dawn and dusk, or any soft low light"
+    }
+   ],
+   "examples": [
+    "The crepuscular glow made the whole street look gold.",
+    "Rabbits are crepuscular, so the best time to spot them is just after sunrise."
+   ],
+   "ex": "The crepuscular glow made the whole street look gold."
+  },
+  {
    "date": "2026-11-06",
    "word": "Pellucid",
    "pron": "peh-LOO-sid",
@@ -1452,35 +1487,76 @@
     "The long, quiet Sunday felt halcyon after a loud week."
    ],
    "ex": "They talked about the halcyon summers they spent by the lake."
-  },
-  {
-   "date": "2026-10-31",
-   "word": "Uncanny",
-   "pron": "un-KAN-ee",
-   "pos": "adjective",
-   "def": "Strange in a way that is unsettling, especially because it is almost but not quite familiar.",
-   "cards": [
-    {
-     "f": "Root",
-     "b": "From un- 'not' + canny, from Scots 'canny', 'safe, knowing'; so literally 'not safe'"
-    },
-    {
-     "f": "Synonym",
-     "b": "eerie, unsettling, strange"
-    },
-    {
-     "f": "Use it for",
-     "b": "things that look almost human or familiar but feel slightly wrong"
-    }
-   ],
-   "examples": [
-    "The robot's smile was so close to real that it felt uncanny.",
-    "There was an uncanny quiet on the street after midnight."
-   ],
-   "ex": "The robot's smile was so close to real that it felt uncanny."
   }
  ],
  "spanish": [
+  {
+   "date": "2026-11-07",
+   "phrase": "Ya estuvo, ¿nos vamos?",
+   "pron": "yah ehs-TOO-voh, nohs VAH-mohs",
+   "reg": "Mexico · casual",
+   "meaning": "That's it, shall we go?",
+   "note": "In Mexican Spanish, 'ya estuvo' closes something off. It can mean 'that's done', 'we're all set', or, with the right tone, 'that's enough'. Context and your voice do the work.",
+   "cards": [
+    {
+     "es": "Ya estuvo bueno",
+     "en": "That's enough already"
+    },
+    {
+     "es": "¿Ya estuvo?",
+     "en": "Is that everything?"
+    },
+    {
+     "es": "Ya estuvo, gracias",
+     "en": "That's all, thanks"
+    }
+   ],
+   "parts": [
+    {
+     "es": "Ya",
+     "en": "already / now"
+    },
+    {
+     "es": "estuvo",
+     "en": "it was / it is done"
+    },
+    {
+     "es": "nos",
+     "en": "us"
+    },
+    {
+     "es": "vamos",
+     "en": "we go"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿Te falta algo del súper?",
+     "en": "Do you still need anything from the store?"
+    },
+    {
+     "es": "No, ya estuvo, gracias.",
+     "en": "No, that's everything, thanks."
+    },
+    {
+     "es": "¿Seguro? Todavía hay tiempo.",
+     "en": "Sure? There's still time."
+    },
+    {
+     "es": "Sí, ya estuvo. Vámonos.",
+     "en": "Yes, we're done. Let's go."
+    }
+   ],
+   "use": "Say it when a task is finished, an order is complete, or you want to politely end something.",
+   "quiz": {
+    "options": [
+     "That's it, shall we go?",
+     "Where is the station?",
+     "See you next week"
+    ],
+    "answer": 0
+   }
+  },
   {
    "date": "2026-11-06",
    "phrase": "Al rato nos vemos",
@@ -1870,65 +1946,6 @@
     ],
     "answer": 0
    }
-  },
-  {
-   "date": "2026-10-31",
-   "phrase": "¡Qué padre!",
-   "pron": "keh PAH-dreh",
-   "reg": "Mexico · casual",
-   "meaning": "How cool! / That's awesome!",
-   "note": "Very common in Mexico for anything you like: a costume, a song, a plan. 'Padre' here means great, not father.",
-   "cards": [
-    {
-     "es": "Está bien padre",
-     "en": "It's really cool"
-    },
-    {
-     "es": "¡Qué padre disfraz!",
-     "en": "What a cool costume!"
-    },
-    {
-     "es": "Qué padre plan",
-     "en": "What a great plan"
-    }
-   ],
-   "parts": [
-    {
-     "es": "¡Qué",
-     "en": "what / how"
-    },
-    {
-     "es": "padre!",
-     "en": "cool, great (slang)"
-    }
-   ],
-   "dialog": [
-    {
-     "es": "Mira mi disfraz de esqueleto.",
-     "en": "Look at my skeleton costume."
-    },
-    {
-     "es": "¡Qué padre!",
-     "en": "How cool!"
-    },
-    {
-     "es": "Lo hice yo mismo.",
-     "en": "I made it myself."
-    },
-    {
-     "es": "¡Qué padre, te quedó increíble!",
-     "en": "How cool, it turned out amazing!"
-    }
-   ],
-   "use": "Say it when someone shows you something you genuinely like.",
-   "quiz": {
-    "options": [
-     "How cool!",
-     "How far!",
-     "What time?"
-    ],
-    "answer": 0
-   }
   }
  ],
  "learnLog": {
@@ -1952,7 +1969,8 @@
    "Alacrity",
    "Petrichor",
    "Susurrus",
-   "Pellucid"
+   "Pellucid",
+   "Crepuscular"
   ],
   "phrases": [
    "¡Aguas!",
@@ -1974,7 +1992,8 @@
    "¡Órale, va!",
    "Me late la idea",
    "Échame un grito",
-   "Al rato nos vemos"
+   "Al rato nos vemos",
+   "Ya estuvo, ¿nos vamos?"
   ]
  },
  "coach": {
@@ -2017,10 +2036,6 @@
  "music": {
   "artists": [
    {
-    "name": "Don Toliver",
-    "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
-   },
-   {
     "name": "Slander",
     "url": "https://open.spotify.com/artist/20DZAfCuP1TKZl5KcY7z3Q"
    },
@@ -2061,10 +2076,6 @@
     "url": "https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg"
    },
    {
-    "name": "PARTYNEXTDOOR",
-    "url": "https://open.spotify.com/artist/2HPaUgqeutzr3jx5a9WyDV"
-   },
-   {
     "name": "Jack Harlow",
     "url": "https://open.spotify.com/artist/2LIk90788K0zvyj2JJVwkJ"
    },
@@ -2081,10 +2092,6 @@
     "url": "https://open.spotify.com/artist/2AfU5LYBVCiCtuCCfM7uVX"
    },
    {
-    "name": "XXXTENTACION",
-    "url": "https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4"
-   },
-   {
     "name": "Kodak Black",
     "url": "https://open.spotify.com/artist/46SHBwWsqBkxI7EeeBEQG7"
    },
@@ -2097,14 +2104,6 @@
     "url": "https://open.spotify.com/artist/1RyvyyTE3xzB2ZywiAwp0i"
    },
    {
-    "name": "Metro Boomin",
-    "url": "https://open.spotify.com/artist/0iEtIxbK0KxaSlF7G42ZOp"
-   },
-   {
-    "name": "ScHoolboy Q",
-    "url": "https://open.spotify.com/artist/5IcR3N7QB1j6KBL8eImZ8m"
-   },
-   {
     "name": "Chance the Rapper",
     "url": "https://open.spotify.com/artist/1anyVhU62p31KFi8MEzkbf"
    },
@@ -2113,112 +2112,24 @@
     "url": "https://open.spotify.com/artist/3Gm5F95VdRxW3mqCn8RPBJ"
    },
    {
-    "name": "Kofi Stone",
-    "url": "https://open.spotify.com/artist/0htlZDCG9I8LSENteF1TyQ"
-   },
-   {
     "name": "Daniel Caesar",
     "url": "https://open.spotify.com/artist/20wkVLutqVOYrc0kxFs7rA"
-   },
-   {
-    "name": "Charles Bradley",
-    "url": "https://open.spotify.com/artist/462T0buQ5ScBUQCRpodDRf"
-   },
-   {
-    "name": "Darondo",
-    "url": "https://open.spotify.com/artist/4JfFdF9Row7UXtdsKtT6tc"
    },
    {
     "name": "Leon Bridges",
     "url": "https://open.spotify.com/artist/3qnGvpP8Yth1AqSBMqON5x"
    },
    {
-    "name": "Alicia Keys",
-    "url": "https://open.spotify.com/artist/3DiDSECUqqY1AuBP8qtaIa"
-   },
-   {
-    "name": "Sam Cooke",
-    "url": "https://open.spotify.com/artist/6hnWRPzGGKiapVX1UCdEAC"
-   },
-   {
-    "name": "Bobby Caldwell",
-    "url": "https://open.spotify.com/artist/4V4Z3qMCwYofWHtip6ePF6"
-   },
-   {
-    "name": "The Beatles",
-    "url": "https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2"
-   },
-   {
-    "name": "Bob Dylan",
-    "url": "https://open.spotify.com/artist/74ASZWbe4lXaubB36ztrGX"
-   },
-   {
-    "name": "Johnny Cash",
-    "url": "https://open.spotify.com/artist/6kACVPfCOnqzgfEF5ryl0x"
-   },
-   {
-    "name": "Tom Petty and the Heartbreakers",
-    "url": "https://open.spotify.com/artist/4tX2TplrkIP4v05BNC903e"
-   },
-   {
-    "name": "Elton John",
-    "url": "https://open.spotify.com/artist/3PhoLpVuITZKcymswpck5b"
-   },
-   {
     "name": "ABBA",
     "url": "https://open.spotify.com/artist/0LcJLqbBmaGUft1e9Mm8HV"
-   },
-   {
-    "name": "Father John Misty",
-    "url": "https://open.spotify.com/artist/2kGBy2WHvF0VdZyqiVCkDT"
-   },
-   {
-    "name": "Lukas Nelson and Promise of the Real",
-    "url": "https://open.spotify.com/artist/5iXYJYmMcjlTFL1qA8UfgY"
-   },
-   {
-    "name": "Bishop Gunn",
-    "url": "https://open.spotify.com/artist/78FpcvFFNC1ZTrUvWb0tlm"
    },
    {
     "name": "Tyler Childers",
     "url": "https://open.spotify.com/artist/13ZEDW6vyBF12HYcZRr4EV"
    },
    {
-    "name": "Bad Bunny",
-    "url": "https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X"
-   },
-   {
-    "name": "Goth Babe",
-    "url": "https://open.spotify.com/artist/7o96HO2zrujyATtVsqGhh3"
-   },
-   {
     "name": "Mt. Joy",
     "url": "https://open.spotify.com/artist/69tiO1fG8VWduDl3ji2qhI"
-   },
-   {
-    "name": "Royel Otis",
-    "url": "https://open.spotify.com/artist/5b5bt4mZQpJMoCRbiQ7diH"
-   },
-   {
-    "name": "Balu Brigada",
-    "url": "https://open.spotify.com/artist/6O9vGMmTwzihULICPCsNf2"
-   },
-   {
-    "name": "Chris Staples",
-    "url": "https://open.spotify.com/artist/5DAYFETp2MfJgHkgbkJvoX"
-   },
-   {
-    "name": "Quinn XCII",
-    "url": "https://open.spotify.com/artist/3ApUX1o6oSz321MMECyIYd"
-   },
-   {
-    "name": "Ashes To Amber",
-    "url": "https://open.spotify.com/artist/1VjLe0p8LUFKPbyKaQZAgu"
-   },
-   {
-    "name": "Richy Mitch & The Coal Miners",
-    "url": "https://open.spotify.com/artist/4qU7IJSReZnsLy5907Mtau"
    },
    {
     "name": "nimino",
@@ -2237,10 +2148,6 @@
     "url": "https://open.spotify.com/artist/5eIbEEQnDM8yuDVB0bimSP"
    },
    {
-    "name": "Sammy Virji",
-    "url": "https://open.spotify.com/artist/1GuqTQbuixFHD6eBkFwVcb"
-   },
-   {
     "name": "Louis The Child",
     "url": "https://open.spotify.com/artist/7wg1qvie3KqDNQbAkTdbX0"
    },
@@ -2257,28 +2164,12 @@
     "url": "https://open.spotify.com/artist/5Pb27ujIyYb33zBqVysBkj"
    },
    {
-    "name": "Stavroz",
-    "url": "https://open.spotify.com/artist/7su1fG75ZwXHA6ei9Zcy7T"
-   },
-   {
     "name": "Conrad.",
     "url": "https://open.spotify.com/artist/788qKGMEh4hfYUTy8yANRC"
    },
    {
-    "name": "The Dare",
-    "url": "https://open.spotify.com/artist/2mqiqsaX4LzFnUP7PmHGAb"
-   },
-   {
     "name": "eric404",
     "url": "https://open.spotify.com/artist/7jL3ObaJuAVhTAK0VEF2qL"
-   },
-   {
-    "name": "Jkyl & Hyde",
-    "url": "https://open.spotify.com/artist/23AH13eC6V0NB0QCkV6206"
-   },
-   {
-    "name": "Kerala Dust",
-    "url": "https://open.spotify.com/artist/6lK8O3kyFThiTmgowQZGOH"
    },
    {
     "name": "Hippie Sabotage",
@@ -2305,14 +2196,6 @@
     "url": "https://open.spotify.com/artist/4YLtscXsxbVgi031ovDDdh"
    },
    {
-    "name": "Bob Marley & The Wailers",
-    "url": "https://open.spotify.com/artist/2QsynagSdAqZj3U9HgDzjD"
-   },
-   {
-    "name": "Ray Charles",
-    "url": "https://open.spotify.com/artist/1eYhYunlNJlDoQhtYBvPsi"
-   },
-   {
     "name": "Big Sean",
     "url": "https://open.spotify.com/artist/0c173mlxpT3dSFRgMO8XPh"
    },
@@ -2337,52 +2220,8 @@
     "url": "https://open.spotify.com/artist/1hzfo8twXdOegF3xireCYs"
    },
    {
-    "name": "EARTHGANG",
-    "url": "https://open.spotify.com/artist/5MbNzCW3qokGyoo9giHA3V"
-   },
-   {
-    "name": "BabyJake",
-    "url": "https://open.spotify.com/artist/07Asx51VtMw5kbNXKrpZlq"
-   },
-   {
-    "name": "Saba",
-    "url": "https://open.spotify.com/artist/7Hjbimq43OgxaBRpFXic4x"
-   },
-   {
     "name": "Masego",
     "url": "https://open.spotify.com/artist/3ycxRkcZ67ALN3GQJ57Vig"
-   },
-   {
-    "name": "Trayce Chapman",
-    "url": "https://open.spotify.com/artist/02TJY8vnQzOHFbuWSIKMWk"
-   },
-   {
-    "name": "daydream Masi",
-    "url": "https://open.spotify.com/artist/7d1ybPEhoZkeQhKHIyl9U9"
-   },
-   {
-    "name": "Bakar",
-    "url": "https://open.spotify.com/artist/3K2Srho6NCF3o9MswGR76H"
-   },
-   {
-    "name": "Mounika.",
-    "url": "https://open.spotify.com/artist/2FdGoGN8SKxgxhUlP9aMDO"
-   },
-   {
-    "name": "Spark Master Tape",
-    "url": "https://open.spotify.com/artist/0JXPiLgbGX4n86jsocSkG6"
-   },
-   {
-    "name": "Bill Withers",
-    "url": "https://open.spotify.com/artist/1ThoqLcyIYvZn7iWbj8fsj"
-   },
-   {
-    "name": "Frank Sinatra",
-    "url": "https://open.spotify.com/artist/1Mxqyy3pSjf8kZZL4QVxS0"
-   },
-   {
-    "name": "BROCKHAMPTON",
-    "url": "https://open.spotify.com/artist/1Bl6wpkWCQ4KVgnASpvzzA"
    },
    {
     "name": "Surfaces",
@@ -2397,20 +2236,8 @@
     "url": "https://open.spotify.com/artist/0PxzGnCYBpSuaI49OR94cA"
    },
    {
-    "name": "Sublime",
-    "url": "https://open.spotify.com/artist/0EdvGhlC1FkGItLOWQzG4J"
-   },
-   {
-    "name": "Danger Incorporated",
-    "url": "https://open.spotify.com/artist/6bnlvICBjK7fuNSB1ohqS5"
-   },
-   {
-    "name": "Ruslan",
-    "url": "https://open.spotify.com/artist/2GEXrCflKZ5S5ZHBM4LNcV"
-   },
-   {
-    "name": "Brendan Bennett",
-    "url": "https://open.spotify.com/artist/0lpU3HUAjN8AdjApUJ2ykI"
+    "name": "Illenium",
+    "url": "https://open.spotify.com/artist/45eNHdiiabvmbp4erw26rg"
    }
   ],
   "releases": [
@@ -2425,18 +2252,6 @@
   ]
  },
  "live": [
-  {
-   "kind": "game",
-   "title": "76ers at Cavaliers",
-   "sub": "NBA Cup",
-   "when": "2026-11-06T16:30:00-08:00",
-   "where": "Rocket Arena, Cleveland",
-   "tv": [
-    "Prime Video"
-   ],
-   "url": "https://www.espn.com/nba/team/schedule/_/name/phi",
-   "note": "7:30 PM ET per ESPN's schedule."
-  },
   {
    "kind": "game",
    "title": "Oregon at Ohio State",
@@ -2472,6 +2287,31 @@
    ],
    "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
    "note": "3:30 PM ET; sources disagree on the broadcast, so check before tip-off."
+  },
+  {
+   "kind": "game",
+   "title": "76ers vs. Celtics",
+   "sub": "NBA regular season",
+   "when": "2026-11-10T17:00:00-08:00",
+   "where": "Xfinity Mobile Arena, Philadelphia",
+   "tv": [
+    "NBC",
+    "Peacock"
+   ],
+   "url": "https://fanduel.com/research/2026-27-philadelphia-76ers-schedule-results-tv-channel",
+   "note": "8 PM ET Tuesday per a single schedule page; I couldn't confirm it on the NBA or team site."
+  },
+  {
+   "kind": "fight",
+   "title": "UFC 334: Gane vs. Hokit",
+   "sub": "UFC",
+   "when": "2026-11-14T17:00:00-08:00",
+   "where": "Madison Square Garden, New York",
+   "tv": [
+    "Paramount+"
+   ],
+   "url": "https://www.clarosports.com/us/ufc-en-noviembre-eventos-peleadores-latinos-y-donde-ver-en-vivo/",
+   "note": "Main card about 8 PM ET (5 PM PT) per an ESPN listing; one preview says 9 PM ET, and one outlet numbers it UFC 335. Not confirmed on ufc.com."
   }
  ],
  "coachHistory": [
@@ -2512,21 +2352,25 @@
   }
  ],
  "dare": {
-  "date": "2026-11-06",
-  "kind": "Give",
-  "title": "Tip 50% and leave a note",
-  "why": "Pick somewhere small and local today, a coffee counter, a taqueria or a food truck, and tip 50% on whatever you buy. Write two lines on the receipt or a napkin: what you liked and thank you. Hand it over without explaining and walk out.",
-  "mins": 20,
-  "cost": "$",
-  "place": null,
-  "worth": "A big tip with a human note reaches the person, not the system. The small awkward moment of handing it over is the whole point, and you'll carry the face they make for a while.",
+  "date": "2026-11-07",
+  "kind": "Wonder",
+  "title": "Go look for a burrowing owl",
+  "why": "Walk out to Shoreline Park by the Kite Lot this afternoon, an hour before sunset, and look for the little owls that spend the winter in the grass near their burrows. Walk slowly, stay on the trail, keep at least 50 feet back, and put your phone away so you actually see something. You may see nothing. Looking is the whole dare.",
+  "mins": 60,
+  "cost": "Free",
+  "place": {
+   "name": "Shoreline Park, Kite Lot",
+   "sub": "Mountain View, a short ride away",
+   "url": "https://www.google.com/maps/search/?api=1&query=Shoreline+Park+Kite+Lot+Mountain+View"
+  },
+  "worth": "Burrowing owls are tiny, stand upright at the mouth of a hole, and are one of the few birds that live in plain sight of a tech campus. Spotting one makes the neighborhood feel like somewhere you've never quite looked at.",
   "src": "",
   "swap": {
-   "kind": "Create",
-   "title": "Sketch your next meal in 5 minutes",
-   "why": "Before you eat, grab any pen and paper and draw the plate, bad lines and all. Label two things on it. Then eat.",
+   "kind": "Learn",
+   "title": "Name one bird you can hear",
+   "why": "Step outside for five minutes, stand still, and listen. Pick the loudest bird, open a free bird-ID app, and match its call. Say its name out loud once.",
    "mins": 10,
-   "worth": "Drawing makes you look at something you'd normally just swallow. It's a small way to notice."
+   "worth": "Once a sound has a name, you start hearing it everywhere."
   }
  },
  "dareHistory": [
@@ -2624,6 +2468,11 @@
    "date": "2026-11-06",
    "kind": "Give",
    "title": "Tip 50% and leave a note"
+  },
+  {
+   "date": "2026-11-07",
+   "kind": "Wonder",
+   "title": "Go look for a burrowing owl"
   }
  ],
  "briefLog": [
@@ -3107,35 +2956,90 @@
     "https://www.datacenterdynamics.com/en/news/googles-project-suncatcher-runs-first-workload-on-orbital-tpu-but-company-admits-space-data-centers-cost-100x-more-than-terrestrial/",
     "https://theaiinsider.tech/2026/11/02/googles-suncatcher-prototype-space-data-center-comes-online-and-runs-ai-in-orbit"
    ]
+  },
+  {
+   "date": "2026-11-07",
+   "story": "Nov. 5 rout: S&P 500 -4.36% to 7,353.73, Nasdaq -5.52%, Nvidia about -9% (about $450B); Nov. 6 rebound S&P 7,376.86, Nasdaq 24,579.42, Dow 51,285.73; October payrolls +165k, unemployment 4.1%, 10-year about 4.86%",
+   "urls": [
+    "https://www.cnbc.com/2026/11/05/qualcomm-earnings-chip-stocks-election.html",
+    "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
+    "https://www.cnbc.com/2026/11/06/treasury-yields-inch-lower-as-investors-look-ahead-to-key-jobs-data-.html"
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "story": "Agility began trading as AGLT Nov. 5, opened $11.26, closed $11.51 (+2.2%); $465M raised, about $2.5B value; $300M+ Digit 5 orders with milestones, reportedly 1,000 robots from one customer; Digit 5 deliveries H1 2027",
+   "urls": [
+    "https://www.supplychain247.com/article/agility-robotics-debuts-on-nasdaq-after-raising-about-465-million",
+    "https://techcrunch.com/2026/11/05/agility-is-the-first-pure-humanoid-robot-company-on-the-stock-market-are-you-buying/",
+    "https://semafor.com/article/11/06/2026/agility-goes-public-in-us-robot-bet",
+    "https://www.geekwire.com/2026/agility-robotics-co-founder-on-its-nasdaq-debut-lessons-from-amazon-and-the-future-of-work/"
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "story": "Musk at Baron conference Nov. 6: Optimus probably rented, build cost about $30K; Tesla -10.77% to $343.69 Nov. 5, +4.23% to $358.22 Nov. 6; SPCX $123.62 then $134.27",
+   "urls": [
+    "https://www.notateslaapp.com/news/4959/musk-tesla-will-rent-optimus-robots-instead-of-selling-them",
+    "https://teslanorth.com/2026/11/06/baron-conference-full-recap/",
+    "https://www.heygotrade.com/en/news/tesla-tsla-stock-news-november-6-2026/",
+    "https://www.heygotrade.com/en/news/spacex-spcx-stock-news-november-6-2026/"
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "story": "Anthropic IPO: no price range, roadshow expected week of Nov. 9, valuation talk $1.2-1.3T per Bloomberg-sourced reports",
+   "urls": [
+    "https://financefeeds.com/anthropic-ipo-roadshow-looms-with-no-price-range/",
+    "https://fourweekmba.com/ai-anthropics-ipo-map-price-range-buyers-odds-and-risks/",
+    "https://www.ababnews.com/en/news/9fa74dc2-b4ec-4ca2-a859-d030a3e514d9"
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "story": "Bitcoin about $76K Nov. 7; ETF outflows $412M Nov. 6 (IBIT about $403M), Ethereum ETFs -$93M; Cowen Nov. 6 video 'The Bears Strike Back'",
+   "urls": [
+    "https://www.theblock.co/news/markets/2026-11-06-crypto-etfs-see-over-half-a-billion-dollars-in-outflows-amid-post-midterm-market-slide-435873",
+    "https://cryptobriefing.com/bitcoin-spot-etfs-412m-outflows-november-6/",
+    "https://crypto.news/bitcoin-price-76000-etf-outflows-75000-support/"
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "story": "Starship Flight 15 target Nov. 13 per SpaceX's Kiko Dontchev; FAA license not yet listed; double tower catch planned",
+   "urls": [
+    "https://www.teslarati.com/spacex-starship-catch-nov-13/",
+    "https://en.wikipedia.org/wiki/Starship_flight_15"
+   ]
   }
  ],
  "kwSuggest": {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "items": [
-   "Humanoid hands",
-   "Actuators",
-   "Imitation learning",
-   "Vision-language-action",
-   "Diffusion policy",
-   "Brain-computer interface",
-   "Starbase",
-   "Raptor engine",
-   "Orbital refueling",
-   "Bitcoin treasury",
-   "Hash rate",
-   "Digital gold",
-   "Healthspan",
-   "Senescence",
-   "Metformin",
-   "Blood biomarkers",
-   "Zone 2 training",
-   "Small language models",
-   "HBM memory",
-   "Power grid",
-   "Robot safety",
-   "Battery recycling",
-   "Open-source models",
-   "AI regulation"
+   "Agility Robotics",
+   "Digit 5",
+   "SPAC IPOs",
+   "Robot rental",
+   "Robots as a service",
+   "Humanoid IPO",
+   "Unitree IPO",
+   "Credo",
+   "Qualcomm",
+   "Nvidia",
+   "Chip selloff",
+   "Nasdaq correction",
+   "Fed rate hike",
+   "Treasury yields",
+   "Anthropic S-1",
+   "AI regulation rules",
+   "Midterm elections",
+   "Bitcoin ETF outflows",
+   "200-week average",
+   "Flight 15",
+   "Tower catch",
+   "Booster 22",
+   "Cell reprogramming",
+   "Alzheimer's"
   ]
  },
  "kwSuggestLog": [
@@ -3253,6 +3157,35 @@
     "Battery recycling",
     "Open-source models",
     "AI regulation"
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "items": [
+    "Agility Robotics",
+    "Digit 5",
+    "SPAC IPOs",
+    "Robot rental",
+    "Robots as a service",
+    "Humanoid IPO",
+    "Unitree IPO",
+    "Credo",
+    "Qualcomm",
+    "Nvidia",
+    "Chip selloff",
+    "Nasdaq correction",
+    "Fed rate hike",
+    "Treasury yields",
+    "Anthropic S-1",
+    "AI regulation rules",
+    "Midterm elections",
+    "Bitcoin ETF outflows",
+    "200-week average",
+    "Flight 15",
+    "Tower catch",
+    "Booster 22",
+    "Cell reprogramming",
+    "Alzheimer's"
    ]
   }
  ]
