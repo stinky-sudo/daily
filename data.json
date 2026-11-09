@@ -1,6 +1,6 @@
 {
- "edition": "2026-11-08",
- "updated": "2026-11-08T05:45:00-08:00",
+ "edition": "2026-11-09",
+ "updated": "2026-11-09T06:30:00-08:00",
  "weatherFallback": {
   "hi": 67,
   "lo": 49,
@@ -9,21 +9,20 @@
  },
  "calendar": {},
  "tip": {
-  "cat": "Habits",
-  "title": "Decide when and where, in advance",
-  "mins": "5 min",
-  "why": "A 2006 meta-analysis of 94 studies found that people who wrote an if-then plan, such as 'when I finish lunch, I will go for a walk', were considerably more likely to follow through than people who only set a goal. The plan hands the decision to a cue in your day so you don't have to find willpower in the moment.",
+  "cat": "Focus",
+  "title": "Single-task your next hour",
+  "mins": "60 min",
+  "why": "Organizational psychologist Sophie Leroy found that when people switch tasks before finishing, part of their attention stays on the unfinished one, and their performance on the next task drops. Giving one task a protected hour, and jotting down where you stopped before you move on, keeps that leftover thread from following you.",
   "how": [
-   "Pick one thing you keep meaning to do.",
-   "Write it as 'When X happens, I will do Y', with X a specific time, place or event.",
-   "Put the sentence somewhere you will see it, and notice the cue when it arrives."
+   "Pick the one task that matters most this morning and close everything not needed for it.",
+   "Work on it for a full hour, with notifications off.",
+   "Before you switch, write one line on where you stopped and what comes next."
   ],
-  "src": "Gollwitzer & Sheeran · Advances in Experimental Social Psychology, 2006",
-  "url": "https://doi.org/10.1016/S0065-2601(06)38002-1",
-  "ask": "What is one thing I could attach to a cue I already hit every day?"
+  "src": "Sophie Leroy · Organizational Behavior and Human Decision Processes, 2009",
+  "url": "https://doi.org/10.1016/j.obhdp.2009.04.002",
+  "ask": "Which one task deserves my first protected hour today?"
  },
  "tipLog": [
-  "Dim the lights two hours before bed",
   "Pre-hydrate before a hot day out",
   "Start a red-eye rested, then chase morning light",
   "Move your legs every couple of hours on the red-eye",
@@ -43,7 +42,8 @@
   "Quiz yourself instead of rereading",
   "Write down three good things tonight",
   "Space practice over several days",
-  "Decide when and where, in advance"
+  "Decide when and where, in advance",
+  "Single-task your next hour"
  ],
  "markets": {
   "asOf": "2026-11-06",
@@ -535,6 +535,17 @@
  ],
  "youtube": [
   {
+   "id": "izWvjrffx6g",
+   "channel": "Spanish With Qroo Paul",
+   "handle": "@QrooSpanish",
+   "title": "To Regret Doing Something in Spanish (Arrepentirse de)",
+   "desc": "New upload from Spanish With Qroo Paul.",
+   "published": "2026-11-08T18:57:41Z",
+   "secs": 523,
+   "views": 4137,
+   "url": "https://www.youtube.com/watch?v=izWvjrffx6g"
+  },
+  {
    "id": "_n-Vr8IHBd8",
    "channel": "Reynard Lowell",
    "handle": "@reynardlowell",
@@ -542,18 +553,18 @@
    "desc": "New upload from Reynard Lowell.",
    "published": "2026-11-08T11:39:44Z",
    "secs": 1228,
-   "views": 1159,
+   "views": 41565,
    "url": "https://www.youtube.com/watch?v=_n-Vr8IHBd8"
   },
   {
    "id": "0HIiKwuVH34",
    "channel": "Maxinomics",
    "handle": "@Maxinomics",
-   "title": "The Uranium Problem",
+   "title": "The Real Reason America Keeps Going to War",
    "desc": "New upload from Maxinomics.",
    "published": "2026-11-07T16:51:34Z",
    "secs": 1885,
-   "views": 543022,
+   "views": 843027,
    "url": "https://www.youtube.com/watch?v=0HIiKwuVH34"
   },
   {
@@ -561,10 +572,10 @@
    "channel": "Marques Brownlee",
    "handle": "@mkbhd",
    "title": "Meta VR Glasses: What Vision Pro 2 COULD Have Been!",
-   "desc": "Marques Brownlee on Meta's new VR glasses headset.",
+   "desc": "New upload from Marques Brownlee.",
    "published": "2026-11-06T21:29:30Z",
    "secs": 481,
-   "views": 4041957,
+   "views": 5262208,
    "url": "https://www.youtube.com/watch?v=_x58r9TBois"
   },
   {
@@ -572,10 +583,10 @@
    "channel": "Channel 5 with Andrew Callaghan",
    "handle": "@channel5YouTube",
    "title": "Grimes Interview (Ft. Ivy Wolk)",
-   "desc": "Channel 5 interview with Grimes, featuring Ivy Wolk.",
+   "desc": "New upload from Channel 5 with Andrew Callaghan.",
    "published": "2026-11-06T16:41:14Z",
    "secs": 6472,
-   "views": 540318,
+   "views": 620826,
    "url": "https://www.youtube.com/watch?v=RzHlHrz58oA"
   },
   {
@@ -583,10 +594,10 @@
    "channel": "Maxinomics",
    "handle": "@Maxinomics",
    "title": "By 2035, there is less electricity available than in 2030, and the surplus disappears",
-   "desc": "A short look at electricity supply against data center demand by 2035.",
+   "desc": "New upload from Maxinomics.",
    "published": "2026-11-06T16:11:49Z",
    "secs": 145,
-   "views": 169075,
+   "views": 185947,
    "url": "https://www.youtube.com/watch?v=i-QLCQow1y4"
   },
   {
@@ -594,10 +605,10 @@
    "channel": "Spanish With Qroo Paul",
    "handle": "@QrooSpanish",
    "title": "How to Say “Don’t Bother” in Spanish (And More)",
-   "desc": "A Spanish lesson on saying \"don't bother\" and related phrases.",
+   "desc": "New upload from Spanish With Qroo Paul.",
    "published": "2026-11-05T14:22:45Z",
    "secs": 369,
-   "views": 8824,
+   "views": 9648,
    "url": "https://www.youtube.com/watch?v=MNGYJ_DowDM"
   },
   {
@@ -605,10 +616,10 @@
    "channel": "Not Just Bikes",
    "handle": "@NotJustBikes",
    "title": "Singapore Built a \"Car-Lite\" Town (and it's full of cars)",
-   "desc": "Not Just Bikes visits a Singapore town planned to need fewer cars.",
+   "desc": "New upload from Not Just Bikes.",
    "published": "2026-11-04T17:02:19Z",
    "secs": 1545,
-   "views": 374562,
+   "views": 395203,
    "url": "https://www.youtube.com/watch?v=NdGheCcLj-E"
   },
   {
@@ -616,33 +627,11 @@
    "channel": "Veritasium",
    "handle": "@veritasium",
    "title": "I finally saw quantum mechanics with my own eyes... (It's spookier than I expected)",
-   "desc": "Veritasium on seeing quantum physics directly.",
+   "desc": "New upload from Veritasium.",
    "published": "2026-11-04T15:52:59Z",
    "secs": 3956,
-   "views": 11528504,
+   "views": 14155752,
    "url": "https://www.youtube.com/watch?v=KfODG5REyss"
-  },
-  {
-   "id": "YPpo08zsK8s",
-   "channel": "Channel 5 with Andrew Callaghan",
-   "handle": "@channel5YouTube",
-   "title": "Albanian Prime Minister Sits Down with Channel 5",
-   "desc": "A short Channel 5 interview with Albania's prime minister.",
-   "published": "2026-11-03T17:28:52Z",
-   "secs": 94,
-   "views": 548350,
-   "url": "https://www.youtube.com/watch?v=YPpo08zsK8s"
-  },
-  {
-   "id": "g6Die8gVFn0",
-   "channel": "Marques Brownlee",
-   "handle": "@mkbhd",
-   "title": "OLED iPad Mini is The Most Apple Product They've Ever Appled",
-   "desc": "Marques Brownlee on the OLED iPad Mini.",
-   "published": "2026-11-03T14:01:31Z",
-   "secs": 780,
-   "views": 10919972,
-   "url": "https://www.youtube.com/watch?v=g6Die8gVFn0"
   }
  ],
  "spotify": [
@@ -1147,6 +1136,32 @@
  },
  "vocab": [
   {
+   "date": "2026-11-09",
+   "word": "Ineluctable",
+   "pron": "in-ih-LUK-tuh-bul",
+   "pos": "adjective",
+   "def": "Impossible to avoid or escape; certain to happen no matter what you do.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Latin 'ineluctabilis', from in- (not) + eluctari (to struggle out of)"
+    },
+    {
+     "f": "Synonym",
+     "b": "inescapable, unavoidable, inevitable"
+    },
+    {
+     "f": "Use it for",
+     "b": "fate, deadlines, or facts that no amount of effort changes"
+    }
+   ],
+   "examples": [
+    "The ineluctable arrival of winter sent everyone indoors.",
+    "He felt the ineluctable pull of the old neighborhood."
+   ],
+   "ex": "The ineluctable arrival of winter sent everyone indoors."
+  },
+  {
    "date": "2026-11-08",
    "word": "Gossamer",
    "pron": "GOSS-uh-mer",
@@ -1301,35 +1316,76 @@
     "The new hires tackled the messy project with surprising alacrity."
    ],
    "ex": "She accepted the invitation with alacrity."
-  },
-  {
-   "date": "2026-11-02",
-   "word": "Mellifluous",
-   "pron": "meh-LIF-loo-us",
-   "pos": "adjective",
-   "def": "Sweet and smooth to hear, like a voice or piece of music that flows easily.",
-   "cards": [
-    {
-     "f": "Root",
-     "b": "From Latin mel, 'honey', and fluere, 'to flow': literally 'flowing with honey'"
-    },
-    {
-     "f": "Synonym",
-     "b": "dulcet, silken, honeyed"
-    },
-    {
-     "f": "Use it for",
-     "b": "voices, music or prose that sounds smooth and pleasing"
-    }
-   ],
-   "examples": [
-    "The radio host's mellifluous voice made even the traffic report soothing.",
-    "She read the poem in a mellifluous whisper that quieted the room."
-   ],
-   "ex": "The radio host's mellifluous voice made even the traffic report soothing."
   }
  ],
  "spanish": [
+  {
+   "date": "2026-11-09",
+   "phrase": "Me da flojera salir",
+   "pron": "meh dah floh-HEH-rah sah-LEER",
+   "reg": "Mexico · casual",
+   "meaning": "I can't be bothered to go out",
+   "note": "'Flojera' is laziness, but in Mexican Spanish 'me da flojera' is a relaxed way to say you don't feel like doing something. It isn't a harsh judgment of yourself. Swap in any verb: 'me da flojera cocinar'.",
+   "cards": [
+    {
+     "es": "¡Qué flojera!",
+     "en": "Ugh, what a drag!"
+    },
+    {
+     "es": "No tengo ganas",
+     "en": "I don't feel like it"
+    },
+    {
+     "es": "Me da hueva",
+     "en": "I can't be bothered (very casual)"
+    }
+   ],
+   "parts": [
+    {
+     "es": "Me",
+     "en": "to me"
+    },
+    {
+     "es": "da",
+     "en": "gives"
+    },
+    {
+     "es": "flojera",
+     "en": "laziness / reluctance"
+    },
+    {
+     "es": "salir",
+     "en": "to go out"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿Vamos al cine esta noche?",
+     "en": "Shall we go to the movies tonight?"
+    },
+    {
+     "es": "Uf, me da flojera salir.",
+     "en": "Ugh, I can't be bothered to go out."
+    },
+    {
+     "es": "Pedimos pizza y vemos algo en casa.",
+     "en": "We'll order pizza and watch something at home."
+    },
+    {
+     "es": "Ahora sí, ¡qué buena idea!",
+     "en": "Now that's a great idea!"
+    }
+   ],
+   "use": "Say it when a plan sounds fine but your couch sounds better.",
+   "quiz": {
+    "options": [
+     "I can't be bothered to go out",
+     "I'm scared to go out",
+     "I'm free to go out"
+    ],
+    "answer": 0
+   }
+  },
   {
    "date": "2026-11-08",
    "phrase": "Me cae bien tu amigo",
@@ -1719,73 +1775,6 @@
     ],
     "answer": 0
    }
-  },
-  {
-   "date": "2026-11-02",
-   "phrase": "¿Me echas la mano?",
-   "pron": "meh EH-chahs lah MAH-noh",
-   "reg": "Mexico · casual",
-   "meaning": "Can you give me a hand?",
-   "note": "Literally 'do you throw me the hand?'. Everyday Mexican for asking for help, from carrying boxes to fixing a problem.",
-   "cards": [
-    {
-     "es": "Échame la mano con esto",
-     "en": "Give me a hand with this"
-    },
-    {
-     "es": "Te echo la mano",
-     "en": "I'll give you a hand"
-    },
-    {
-     "es": "¿Te ayudo en algo?",
-     "en": "Can I help you with something?"
-    }
-   ],
-   "parts": [
-    {
-     "es": "¿Me",
-     "en": "to me"
-    },
-    {
-     "es": "echas",
-     "en": "you throw / lend"
-    },
-    {
-     "es": "la",
-     "en": "the"
-    },
-    {
-     "es": "mano?",
-     "en": "hand"
-    }
-   ],
-   "dialog": [
-    {
-     "es": "Voy a mover este sillón y está bien pesado.",
-     "en": "I'm going to move this couch and it's really heavy."
-    },
-    {
-     "es": "¿Me echas la mano?",
-     "en": "Can you give me a hand?"
-    },
-    {
-     "es": "Claro, ¿por dónde lo agarro?",
-     "en": "Sure, where do I grab it?"
-    },
-    {
-     "es": "Tú de ese lado, yo de este.",
-     "en": "You on that side, me on this one."
-    }
-   ],
-   "use": "Say it to a friend or coworker when you need help with something that takes two people.",
-   "quiz": {
-    "options": [
-     "Can you give me a hand?",
-     "Can you shake my hand?",
-     "Can you hold my bag?"
-    ],
-    "answer": 0
-   }
   }
  ],
  "learnLog": {
@@ -1811,7 +1800,8 @@
    "Susurrus",
    "Pellucid",
    "Crepuscular",
-   "Gossamer"
+   "Gossamer",
+   "Ineluctable"
   ],
   "phrases": [
    "¡Aguas!",
@@ -1835,7 +1825,8 @@
    "Échame un grito",
    "Al rato nos vemos",
    "Ya estuvo, ¿nos vamos?",
-   "Me cae bien tu amigo"
+   "Me cae bien tu amigo",
+   "Me da flojera salir"
   ]
  },
  "coach": {
@@ -2182,21 +2173,21 @@
   }
  ],
  "dare": {
-  "date": "2026-11-08",
-  "kind": "Create",
-  "title": "Make shakshuka from scratch",
-  "why": "Before the day gets going, warm olive oil in your widest pan, soften an onion and a pepper, then stir in cumin, paprika and a can of crushed tomatoes. Make four little wells, crack an egg into each, put a lid on for six minutes, and eat it straight from the pan with whatever bread you have. No recipe video: one taste-and-adjust is allowed.",
-  "mins": 35,
-  "cost": "$",
+  "date": "2026-11-09",
+  "kind": "Brave",
+  "title": "Cold-email someone you admire",
+  "why": "Pick one person whose work made you think 'I want to do that', a roboticist, a writer, a builder. Write four sentences: the one specific thing of theirs that changed how you think, one real question only they could answer, and a thank-you. Don't ask for a job or a call. Send it before noon, then close the tab.",
+  "mins": 20,
+  "cost": "Free",
   "place": null,
-  "worth": "Shakshuka looks like something a restaurant made and takes a single pan. Cooking a dish from the far side of the Mediterranean is the cheapest way to travel before breakfast.",
+  "worth": "Most people never write that email, so it stands out, and replies come more often than you'd expect. Even with no reply, putting your admiration into a clear question sharpens what you want to do next.",
   "src": "",
   "swap": {
-   "kind": "Connect",
-   "title": "Send a voice note to a faraway friend",
-   "why": "Pick someone who lives far away and record thirty seconds about one specific thing you remember doing together. Don't ask for anything.",
-   "mins": 5,
-   "worth": "A voice carries more than text, and it lands as a gift instead of a chore."
+   "kind": "Explore",
+   "title": "Walk one street you've never taken",
+   "why": "Leave your door, turn the opposite way from your usual route, and take the first street you don't recognize. Fifteen minutes out, find one thing worth a photo, then loop home.",
+   "mins": 15,
+   "worth": "A street you've never seen resets how familiar your own neighborhood feels."
   }
  },
  "dareHistory": [
@@ -2304,6 +2295,11 @@
    "date": "2026-11-08",
    "kind": "Create",
    "title": "Make shakshuka from scratch"
+  },
+  {
+   "date": "2026-11-09",
+   "kind": "Brave",
+   "title": "Cold-email someone you admire"
   }
  ],
  "briefLog": [
@@ -2878,32 +2874,32 @@
   }
  ],
  "kwSuggest": {
-  "date": "2026-11-08",
+  "date": "2026-11-09",
   "items": [
-   "Amazon robotics",
-   "Fauna Robotics",
-   "Sprout robot",
-   "Astro robot",
-   "DR02 humanoid",
-   "DEEP Robotics",
-   "Home robots",
-   "Robot butlers",
-   "Traffic robots",
-   "GPT-6 Cyber",
-   "Daybreak Red",
-   "Gemini Omni",
-   "AI video models",
-   "SynthID",
-   "Preparedness framework",
-   "Bitcoin ETF flows",
-   "IBIT",
-   "50-week average",
-   "Farside data",
-   "Vertiv",
-   "Data center cooling",
-   "Power grid AI",
-   "Agility Robotics stock",
-   "AGLT"
+   "Unitree H2",
+   "1X Neo",
+   "Xiaomi humanoid",
+   "StarBot Spark",
+   "Humanoid factories",
+   "Robot foundation models",
+   "AI IPOs",
+   "Reasoning models",
+   "AI agents",
+   "Bitcoin liquidations",
+   "Spot ETF outflows",
+   "Robotaxi expansion",
+   "FSD v14",
+   "Edge inference",
+   "Nvidia earnings",
+   "Reusable rockets",
+   "Humanoid safety standards",
+   "Robot dexterity",
+   "Humanoid pricing",
+   "Chinese humanoids",
+   "Data center power",
+   "Inference chips",
+   "Open-weight models",
+   "AI coding agents"
   ]
  },
  "kwSuggestLog": [
@@ -3079,6 +3075,35 @@
     "Power grid AI",
     "Agility Robotics stock",
     "AGLT"
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "items": [
+    "Unitree H2",
+    "1X Neo",
+    "Xiaomi humanoid",
+    "StarBot Spark",
+    "Humanoid factories",
+    "Robot foundation models",
+    "AI IPOs",
+    "Reasoning models",
+    "AI agents",
+    "Bitcoin liquidations",
+    "Spot ETF outflows",
+    "Robotaxi expansion",
+    "FSD v14",
+    "Edge inference",
+    "Nvidia earnings",
+    "Reusable rockets",
+    "Humanoid safety standards",
+    "Robot dexterity",
+    "Humanoid pricing",
+    "Chinese humanoids",
+    "Data center power",
+    "Inference chips",
+    "Open-weight models",
+    "AI coding agents"
    ]
   }
  ]
