@@ -1,6 +1,6 @@
 {
- "edition": "2026-11-09",
- "updated": "2026-11-09T06:30:00-08:00",
+ "edition": "2026-11-10",
+ "updated": "2026-11-10T06:30:00-08:00",
  "weatherFallback": {
   "hi": 67,
   "lo": 49,
@@ -9,21 +9,20 @@
  },
  "calendar": {},
  "tip": {
-  "cat": "Focus",
-  "title": "Single-task your next hour",
-  "mins": "60 min",
-  "why": "Organizational psychologist Sophie Leroy found that when people switch tasks before finishing, part of their attention stays on the unfinished one, and their performance on the next task drops. Giving one task a protected hour, and jotting down where you stopped before you move on, keeps that leftover thread from following you.",
+  "cat": "Movement",
+  "title": "Walk before the hard thinking",
+  "mins": "10 min",
+  "why": "In experiments at Stanford, Marily Oppezzo and Daniel Schwartz found that people came up with more creative ideas while walking than while sitting, and the boost carried over for a short time afterward. A short walk before work that needs fresh ideas is a cheap way to loosen up your thinking.",
   "how": [
-   "Pick the one task that matters most this morning and close everything not needed for it.",
-   "Work on it for a full hour, with notifications off.",
-   "Before you switch, write one line on where you stopped and what comes next."
+   "Pick the problem you want fresh ideas on and write it as one question.",
+   "Walk for ten minutes at an easy pace, indoors or out, without podcasts.",
+   "Sit back down and write down every idea that comes, good or not, for five minutes."
   ],
-  "src": "Sophie Leroy · Organizational Behavior and Human Decision Processes, 2009",
-  "url": "https://doi.org/10.1016/j.obhdp.2009.04.002",
-  "ask": "Which one task deserves my first protected hour today?"
+  "src": "Oppezzo & Schwartz · Journal of Experimental Psychology: Learning, Memory, and Cognition, 2014",
+  "url": "https://doi.org/10.1037/a0036577",
+  "ask": "Which problem would benefit from ten minutes of walking first?"
  },
  "tipLog": [
-  "Pre-hydrate before a hot day out",
   "Start a red-eye rested, then chase morning light",
   "Move your legs every couple of hours on the red-eye",
   "Try five minutes of cyclic sighing to settle nerves",
@@ -43,7 +42,8 @@
   "Write down three good things tonight",
   "Space practice over several days",
   "Decide when and where, in advance",
-  "Single-task your next hour"
+  "Single-task your next hour",
+  "Walk before the hard thinking"
  ],
  "markets": {
   "asOf": "2026-11-06",
@@ -535,14 +535,58 @@
  ],
  "youtube": [
   {
+   "id": "FNTz0CdqL6g",
+   "channel": "OpenAI",
+   "handle": "@OpenAI",
+   "title": "Kuken Industries searches 70 years of drawings in minutes",
+   "desc": "New upload from OpenAI.",
+   "published": "2026-11-10T02:41:23Z",
+   "secs": 180,
+   "views": 21066,
+   "url": "https://www.youtube.com/watch?v=FNTz0CdqL6g"
+  },
+  {
+   "id": "PH_iQQdLDW4",
+   "channel": "Channel 5 with Andrew Callaghan",
+   "handle": "@channel5YouTube",
+   "title": "Grimes on Artists and Tech",
+   "desc": "New upload from Channel 5 with Andrew Callaghan.",
+   "published": "2026-11-10T00:42:34Z",
+   "secs": 93,
+   "views": 20326,
+   "url": "https://www.youtube.com/watch?v=PH_iQQdLDW4"
+  },
+  {
+   "id": "2gSa-bIg4NU",
+   "channel": "Channel 5 with Andrew Callaghan",
+   "handle": "@channel5YouTube",
+   "title": "Albanian PM Walks Off",
+   "desc": "New upload from Channel 5 with Andrew Callaghan.",
+   "published": "2026-11-09T17:09:31Z",
+   "secs": 135,
+   "views": 90383,
+   "url": "https://www.youtube.com/watch?v=2gSa-bIg4NU"
+  },
+  {
+   "id": "NL65Awuv8gU",
+   "channel": "Boston Dynamics",
+   "handle": "@BostonDynamics",
+   "title": "Atlas on a Roll | Classical Motor Controls and Whole-Body RL | Boston Dynamics",
+   "desc": "New upload from Boston Dynamics.",
+   "published": "2026-11-09T15:00:35Z",
+   "secs": 171,
+   "views": 503426,
+   "url": "https://www.youtube.com/watch?v=NL65Awuv8gU"
+  },
+  {
    "id": "izWvjrffx6g",
    "channel": "Spanish With Qroo Paul",
    "handle": "@QrooSpanish",
-   "title": "To Regret Doing Something in Spanish (Arrepentirse de)",
+   "title": "How to Say You Regret Doing Something in Spanish",
    "desc": "New upload from Spanish With Qroo Paul.",
    "published": "2026-11-08T18:57:41Z",
    "secs": 523,
-   "views": 4137,
+   "views": 6740,
    "url": "https://www.youtube.com/watch?v=izWvjrffx6g"
   },
   {
@@ -553,7 +597,7 @@
    "desc": "New upload from Reynard Lowell.",
    "published": "2026-11-08T11:39:44Z",
    "secs": 1228,
-   "views": 41565,
+   "views": 84059,
    "url": "https://www.youtube.com/watch?v=_n-Vr8IHBd8"
   },
   {
@@ -564,7 +608,7 @@
    "desc": "New upload from Maxinomics.",
    "published": "2026-11-07T16:51:34Z",
    "secs": 1885,
-   "views": 843027,
+   "views": 1056506,
    "url": "https://www.youtube.com/watch?v=0HIiKwuVH34"
   },
   {
@@ -575,19 +619,8 @@
    "desc": "New upload from Marques Brownlee.",
    "published": "2026-11-06T21:29:30Z",
    "secs": 481,
-   "views": 5262208,
+   "views": 6120012,
    "url": "https://www.youtube.com/watch?v=_x58r9TBois"
-  },
-  {
-   "id": "RzHlHrz58oA",
-   "channel": "Channel 5 with Andrew Callaghan",
-   "handle": "@channel5YouTube",
-   "title": "Grimes Interview (Ft. Ivy Wolk)",
-   "desc": "New upload from Channel 5 with Andrew Callaghan.",
-   "published": "2026-11-06T16:41:14Z",
-   "secs": 6472,
-   "views": 620826,
-   "url": "https://www.youtube.com/watch?v=RzHlHrz58oA"
   },
   {
    "id": "i-QLCQow1y4",
@@ -597,7 +630,7 @@
    "desc": "New upload from Maxinomics.",
    "published": "2026-11-06T16:11:49Z",
    "secs": 145,
-   "views": 185947,
+   "views": 200004,
    "url": "https://www.youtube.com/watch?v=i-QLCQow1y4"
   },
   {
@@ -608,88 +641,58 @@
    "desc": "New upload from Spanish With Qroo Paul.",
    "published": "2026-11-05T14:22:45Z",
    "secs": 369,
-   "views": 9648,
+   "views": 10367,
    "url": "https://www.youtube.com/watch?v=MNGYJ_DowDM"
-  },
-  {
-   "id": "NdGheCcLj-E",
-   "channel": "Not Just Bikes",
-   "handle": "@NotJustBikes",
-   "title": "Singapore Built a \"Car-Lite\" Town (and it's full of cars)",
-   "desc": "New upload from Not Just Bikes.",
-   "published": "2026-11-04T17:02:19Z",
-   "secs": 1545,
-   "views": 395203,
-   "url": "https://www.youtube.com/watch?v=NdGheCcLj-E"
-  },
-  {
-   "id": "KfODG5REyss",
-   "channel": "Veritasium",
-   "handle": "@veritasium",
-   "title": "I finally saw quantum mechanics with my own eyes... (It's spookier than I expected)",
-   "desc": "New upload from Veritasium.",
-   "published": "2026-11-04T15:52:59Z",
-   "secs": 3956,
-   "views": 14155752,
-   "url": "https://www.youtube.com/watch?v=KfODG5REyss"
   }
  ],
  "spotify": [
   {
+   "show": "Huberman Lab",
+   "title": "Overcome Addictions & Obsessions of All Kinds | Dr. Anna Lembke",
+   "desc": "Andrew Huberman talks with Dr. Anna Lembke about addiction and compulsion.",
+   "published": "2026-11-09",
+   "secs": 8211,
+   "url": "https://open.spotify.com/episode/2jMJRxwPQPErrwRGo8duQQ"
+  },
+  {
    "show": "Modern Wisdom",
-   "title": "Your Home Might Be Destroying Your Health (& how to fix it) - Michael Feldstein - #1173",
-   "desc": "Chris Williamson and Michael Feldstein on how your home affects your health.",
-   "published": "2026-11-07",
-   "secs": 4920,
-   "url": "https://open.spotify.com/episode/1roGBPD46HlmEX8eC8uBjM"
+   "title": "How To Turn Your Pain Into Greatness - Bugzy Malone - #1174",
+   "desc": "Chris Williamson and Bugzy Malone on turning hardship into drive.",
+   "published": "2026-11-09",
+   "secs": 7645,
+   "url": "https://open.spotify.com/episode/0veZ2y5laAEhaGhdIQXGBF"
   },
   {
    "show": "The Diary Of A CEO with Steven Bartlett",
-   "title": "Iran War Expert: If This Escalation Continues, 2027 Will Be Devastating! | Prof Robert Pape",
-   "desc": "Steven Bartlett talks with Prof. Robert Pape about the Iran conflict.",
-   "published": "2026-11-05",
-   "secs": 5378,
-   "url": "https://open.spotify.com/episode/5CGcMFkCZQRIO8VSuWZYQ8"
+   "title": "Katt Williams: From Homeless Runaway at 13 to Comedy Icon",
+   "desc": "Steven Bartlett talks with Katt Williams about his path to comedy.",
+   "published": "2026-11-09",
+   "secs": 6608,
+   "url": "https://open.spotify.com/episode/23tLJDTAZ5adfAMcFzmbt8"
   },
   {
-   "show": "Modern Wisdom",
-   "title": "How War Shaped Human Evolution - David Geary - #1172",
-   "desc": "Chris Williamson and David Geary on war and human evolution.",
-   "published": "2026-11-05",
-   "secs": 4286,
-   "url": "https://open.spotify.com/episode/2PLYu6FRX63tZwxprZVSaY"
+   "show": "Moonshots with Peter Diamandis",
+   "title": "The Great Collision Between Politics and AI | #309",
+   "desc": "Peter Diamandis and guests on how AI and politics are colliding.",
+   "published": "2026-11-07",
+   "secs": 6372,
+   "url": "https://open.spotify.com/episode/0gXaXUv48dLADKLgd0sFBT"
+  },
+  {
+   "show": "The Knowledge Project",
+   "title": "How Elon Musk Solves Problems | Jon McNeill",
+   "desc": "Shane Parrish talks with Jon McNeill about how Elon Musk approaches problems.",
+   "published": "2026-11-10",
+   "secs": 6330,
+   "url": "https://open.spotify.com/episode/0EGGFv66qMHlnVSbKVaZUL"
   },
   {
    "show": "Huberman Lab",
    "title": "Essentials: Cold & Heat Exposure for Metabolic Health | Dr. Susanna Søberg",
    "desc": "An Essentials episode on cold and heat exposure and metabolic health.",
    "published": "2026-11-05",
-   "secs": 2301,
+   "secs": 2302,
    "url": "https://open.spotify.com/episode/3K9C7dXPTcuSAFt6fvhqrw"
-  },
-  {
-   "show": "Moonshots with Peter Diamandis",
-   "title": "Big Tech’s $3T AI Bet, Claude Writes 90% of Anthropic’s Code, AIs Editing AI Brains | EP #308",
-   "desc": "Peter Diamandis and guests on AI spending and research.",
-   "published": "2026-11-04",
-   "secs": 6834,
-   "url": "https://open.spotify.com/episode/39VaxQcj7mZs3TnzhgL3lD"
-  },
-  {
-   "show": "Matt and Shane's Secret Podcast",
-   "title": "Ep 644 - Bum Check (feat. SWIM)",
-   "desc": "Matt McCusker and Shane Gillis in the show's latest episode.",
-   "published": "2026-11-04",
-   "secs": 4183,
-   "url": "https://open.spotify.com/episode/2n78xgfBl4kKT41ogNyW49"
-  },
-  {
-   "show": "The Knowledge Project",
-   "title": "K.C. Irving: Competing with Giants",
-   "desc": "Shane Parrish on the business career of K.C. Irving.",
-   "published": "2026-11-03",
-   "secs": 7252,
-   "url": "https://open.spotify.com/episode/2Mhb0smeIpAc8AIip53hjg"
   }
  ],
  "discover": {
@@ -1136,6 +1139,32 @@
  },
  "vocab": [
   {
+   "date": "2026-11-10",
+   "word": "Aplomb",
+   "pron": "uh-PLOM",
+   "pos": "noun",
+   "def": "Calm self-confidence, especially in a tense or difficult situation.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "French 'à plomb', 'according to the plumb line', meaning upright and steady"
+    },
+    {
+     "f": "Synonym",
+     "b": "poise, composure, assurance"
+    },
+    {
+     "f": "Use it for",
+     "b": "handling pressure gracefully: a demo gone wrong, a hard question, a surprise"
+    }
+   ],
+   "examples": [
+    "She fielded the hostile question with perfect aplomb.",
+    "The robot demo failed, but he recovered with aplomb."
+   ],
+   "ex": "She fielded the hostile question with perfect aplomb."
+  },
+  {
    "date": "2026-11-09",
    "word": "Ineluctable",
    "pron": "in-ih-LUK-tuh-bul",
@@ -1290,35 +1319,72 @@
     "She opened the window just to breathe in the petrichor."
    ],
    "ex": "The petrichor after the first storm made the whole street smell alive."
-  },
-  {
-   "date": "2026-11-03",
-   "word": "Alacrity",
-   "pron": "uh-LAK-ruh-tee",
-   "pos": "noun",
-   "def": "Cheerful, quick readiness to do something.",
-   "cards": [
-    {
-     "f": "Root",
-     "b": "From Latin alacer, 'brisk, lively'"
-    },
-    {
-     "f": "Synonym",
-     "b": "eagerness, readiness, promptness"
-    },
-    {
-     "f": "Use it for",
-     "b": "answering a request quickly and willingly, with some enthusiasm"
-    }
-   ],
-   "examples": [
-    "She accepted the invitation with alacrity.",
-    "The new hires tackled the messy project with surprising alacrity."
-   ],
-   "ex": "She accepted the invitation with alacrity."
   }
  ],
  "spanish": [
+  {
+   "date": "2026-11-10",
+   "phrase": "Está de pelos",
+   "pron": "ehs-TAH deh PEH-lohs",
+   "reg": "Mexico · casual",
+   "meaning": "It's awesome",
+   "note": "Literally 'it's of hairs', but in Mexican slang 'de pelos' means excellent or really good. Use it for food, plans, music, anything you like.",
+   "cards": [
+    {
+     "es": "¡Qué padre!",
+     "en": "How cool!"
+    },
+    {
+     "es": "Está muy chido",
+     "en": "It's really cool"
+    },
+    {
+     "es": "Está increíble",
+     "en": "It's incredible"
+    }
+   ],
+   "parts": [
+    {
+     "es": "Está",
+     "en": "it is"
+    },
+    {
+     "es": "de",
+     "en": "of / from"
+    },
+    {
+     "es": "pelos",
+     "en": "hairs (slang: top quality)"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿Probaste los tacos nuevos?",
+     "en": "Did you try the new tacos?"
+    },
+    {
+     "es": "Sí, ¡están de pelos!",
+     "en": "Yes, they're awesome!"
+    },
+    {
+     "es": "¿Vamos otra vez mañana?",
+     "en": "Shall we go again tomorrow?"
+    },
+    {
+     "es": "Va, mañana vamos.",
+     "en": "Deal, we'll go tomorrow."
+    }
+   ],
+   "use": "Say it when something is better than you expected.",
+   "quiz": {
+    "options": [
+     "It's awesome",
+     "It's too expensive",
+     "It's closed"
+    ],
+    "answer": 0
+   }
+  },
   {
    "date": "2026-11-09",
    "phrase": "Me da flojera salir",
@@ -1716,65 +1782,6 @@
     ],
     "answer": 0
    }
-  },
-  {
-   "date": "2026-11-03",
-   "phrase": "¡Órale, va!",
-   "pron": "OH-rah-leh, bah",
-   "reg": "Mexico · casual",
-   "meaning": "Alright, let's do it!",
-   "note": "A very common Mexican way to say yes to a plan. Órale is an all-purpose exclamation (alright, wow, come on) and va means 'it's on'.",
-   "cards": [
-    {
-     "es": "¡Va que va!",
-     "en": "You bet, it's a deal"
-    },
-    {
-     "es": "Sale y vale",
-     "en": "Sounds good, done"
-    },
-    {
-     "es": "Va, ¿a qué hora?",
-     "en": "Okay, what time?"
-    }
-   ],
-   "parts": [
-    {
-     "es": "¡Órale",
-     "en": "alright / okay"
-    },
-    {
-     "es": "va!",
-     "en": "it's on / it goes"
-    }
-   ],
-   "dialog": [
-    {
-     "es": "¿Nos vemos a las siete para unos tacos?",
-     "en": "Want to meet at seven for tacos?"
-    },
-    {
-     "es": "¡Órale, va!",
-     "en": "Alright, let's do it!"
-    },
-    {
-     "es": "Yo llego primero y pido mesa.",
-     "en": "I'll get there first and get a table."
-    },
-    {
-     "es": "Perfecto, ahí nos vemos.",
-     "en": "Perfect, see you there."
-    }
-   ],
-   "use": "Say it when a friend proposes a plan and you are in.",
-   "quiz": {
-    "options": [
-     "Alright, let's do it",
-     "I'm not sure about that",
-     "Wait for me here"
-    ],
-    "answer": 0
-   }
   }
  ],
  "learnLog": {
@@ -1801,7 +1808,8 @@
    "Pellucid",
    "Crepuscular",
    "Gossamer",
-   "Ineluctable"
+   "Ineluctable",
+   "Aplomb"
   ],
   "phrases": [
    "¡Aguas!",
@@ -1826,7 +1834,8 @@
    "Al rato nos vemos",
    "Ya estuvo, ¿nos vamos?",
    "Me cae bien tu amigo",
-   "Me da flojera salir"
+   "Me da flojera salir",
+   "Está de pelos"
   ]
  },
  "coach": {
@@ -2173,21 +2182,21 @@
   }
  ],
  "dare": {
-  "date": "2026-11-09",
-  "kind": "Brave",
-  "title": "Cold-email someone you admire",
-  "why": "Pick one person whose work made you think 'I want to do that', a roboticist, a writer, a builder. Write four sentences: the one specific thing of theirs that changed how you think, one real question only they could answer, and a thank-you. Don't ask for a job or a call. Send it before noon, then close the tab.",
-  "mins": 20,
+  "date": "2026-11-10",
+  "kind": "Learn",
+  "title": "Learn to tie a bowline in the dark",
+  "why": "Grab a shoelace or any 3-foot cord and look up a bowline on a video once, then put the video away. Tie it around a chair leg with your eyes closed, then behind your back, until your hands know it. Do ten in a row without a miss.",
+  "mins": 25,
   "cost": "Free",
   "place": null,
-  "worth": "Most people never write that email, so it stands out, and replies come more often than you'd expect. Even with no reply, putting your admiration into a clear question sharpens what you want to do next.",
+  "worth": "The bowline is the knot sailors and climbers trust because it holds under load and still unties easily. It is a tiny skill your hands keep for good, and it makes a rope feel less mysterious.",
   "src": "",
   "swap": {
    "kind": "Explore",
-   "title": "Walk one street you've never taken",
-   "why": "Leave your door, turn the opposite way from your usual route, and take the first street you don't recognize. Fifteen minutes out, find one thing worth a photo, then loop home.",
+   "title": "Order a drink you can't pronounce",
+   "why": "Next time you pass a cafe, skip your usual and ask the barista for the strangest-sounding thing on the menu. Ask what it is, then drink it slowly.",
    "mins": 15,
-   "worth": "A street you've never seen resets how familiar your own neighborhood feels."
+   "worth": "A tiny risk with a built-in story, and sometimes a new favorite."
   }
  },
  "dareHistory": [
@@ -2300,6 +2309,11 @@
    "date": "2026-11-09",
    "kind": "Brave",
    "title": "Cold-email someone you admire"
+  },
+  {
+   "date": "2026-11-10",
+   "kind": "Learn",
+   "title": "Learn to tie a bowline in the dark"
   }
  ],
  "briefLog": [
