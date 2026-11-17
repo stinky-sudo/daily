@@ -1,29 +1,28 @@
 {
- "edition": "2026-11-16",
- "updated": "2026-11-16T05:27:19-08:00",
+ "edition": "2026-11-17",
+ "updated": "2026-11-17T05:27:20-08:00",
  "weatherFallback": {
   "hi": 61,
-  "lo": 50,
-  "cond": "Steady rain through the morning commute, showers into early afternoon, then clearing; a stronger storm arrives Wednesday",
-  "code": 61
+  "lo": 47,
+  "cond": "Cold, clear start, then sun and high clouds; rain moves in after about 10 pm tonight ahead of Wednesday's strong storm with heavy rain and gusty wind",
+  "code": 2
  },
  "calendar": {},
  "tip": {
-  "cat": "Balance",
-  "title": "Stand on one leg while you brush your teeth",
-  "mins": "2 min",
-  "why": "Balance quietly predicts how well you age, and it is trainable. In a Brazilian cohort of 1,702 adults aged 51 to 75 (Araujo and colleagues, British Journal of Sports Medicine, 2022), one in five could not stand on one leg for 10 seconds. Over a median seven years of follow-up, 17.5% of the people who failed had died, against 4.6% of those who passed, and after adjusting for age, sex, weight and conditions such as diabetes and heart disease, failing the test still went with an 84% higher risk of death from any cause. It is an observational study, so balance is a marker as much as a cause, but the skill itself responds fast to practice: a few minutes a day moves the needle within weeks, and the cheapest place to find those minutes is time you already spend standing at the sink.",
+  "cat": "Movement",
+  "title": "Climb stairs hard for one minute, three times a day",
+  "mins": "3 min",
+  "why": "You do not need a workout to get most of what a workout gives you; you need a few moments of being out of breath. In the UK Biobank, Stamatakis and colleagues (Nature Medicine, 2022) followed 25,241 adults with an average age of 62 who said they did no exercise in their leisure time, but who wore a wrist accelerometer for a week. The device picked up what they called vigorous intermittent lifestyle physical activity, or VILPA: bursts of a minute or two, such as taking the stairs fast, carrying heavy shopping or hurrying for a bus. Over about seven years of follow-up, people with the median amount, around 4.4 minutes a day spread over roughly three bouts, had 26% to 30% lower all-cause and cancer mortality and 32% to 34% lower cardiovascular mortality than people with none. It is observational, so part of the gap is that healthier people move harder, but a separate analysis of regular exercisers found the same pattern, and the dose that mattered is small enough to hide inside a normal day.",
   "how": [
-   "Tonight, brush on your left leg for the first minute and your right for the second; hold the counter at first, then hover a finger, then let go.",
-   "Fail the 10-second test? Note the number and retest in two weeks; most people add seconds quickly.",
-   "Make it harder once it is easy: close your eyes, or turn your head slowly side to side while you balance."
+   "Pick three stairwells or hills you already pass today and take each one fast enough that you could not hold a conversation at the top; 60 to 90 seconds is plenty.",
+   "If there are no stairs, walk the last two blocks to lunch at a pace that feels slightly silly, or carry the heavy grocery bags in one trip.",
+   "Count bouts, not minutes: three short bursts you actually do beat a gym session you keep postponing."
   ],
-  "src": "Araujo et al. · British Journal of Sports Medicine, 2022",
-  "url": "https://doi.org/10.1136/bjsports-2021-105360",
-  "ask": "How many seconds did you last on each leg tonight, and which side was the weak one?"
+  "src": "Stamatakis et al. · Nature Medicine, 2022",
+  "url": "https://doi.org/10.1038/s41591-022-02100-x",
+  "ask": "Which three moments in your day could turn into a one-minute burst, and did the first one leave you out of breath?"
  },
  "tipLog": [
-  "Take a 10-minute nap after a short night",
   "Wear earplugs at a loud show",
   "Use the extra hour tonight on purpose",
   "Walk for five minutes every half hour you sit",
@@ -43,30 +42,27 @@
   "Wake at the same time on weekends",
   "Eat the vegetables and protein first",
   "Stand on one leg while you brush your teeth",
-  "Stand on one leg while you brush your teeth"
+  "Stand on one leg while you brush your teeth",
+  "Climb stairs hard for one minute, three times a day"
  ],
  "markets": {
-  "asOf": "2026-11-13",
-  "headline": "Risk-off open ahead: the S&P 500 finished Friday at 7,561.67 after its best week since August, but early Monday Nasdaq 100 futures were down about 1.5% and S&P futures 0.7% with Nvidia off 4% premarket, the Nikkei down 2.4% and the Kospi down 3.6%, bitcoin near $64,600, and a week stacked with Nvidia's Tuesday report, Fed minutes and Anthropic's pricing Wednesday, then ANT's debut, retail sales and Walmart on Thursday.",
+  "asOf": "2026-11-16",
+  "headline": "Stocks fell broadly Monday as chipmakers sold off ahead of Nvidia's Tuesday report, with the S&P 500 down 1.9% to 7,416.59 and the Nasdaq off 2.5%.",
   "points": [
-   "Monday looks weak before the bell: Bloomberg's live blog had Nasdaq 100 futures down 1.5% and S&P 500 futures down 0.7% early Monday, Dow futures roughly flat, and a later snapshot showed Nasdaq futures still off about 0.9%; Nvidia fell about 4% premarket ahead of Tuesday's report, its first since Jensen Huang's exit, with the Street at roughly $2.47 in adjusted EPS. Asia set the tone: the Nikkei lost 2.42% after Japan's third-quarter GDP contracted, the Kospi fell 3.59%, and only the Hang Seng rose (+0.49%); the Stoxx 600 opened about 0.1% higher. Treasury yields edged lower after last week's biggest rise since April 2025 left the 10-year near 5.15%, and bitcoin was around $64,600 premarket, close to its lowest in three months after Saturday's dip under $62,000, dragging crypto stocks down with it. The rest of the week: Home Depot and Nvidia Tuesday, Target, Palo Alto Networks and the Fed's October minutes Wednesday, Anthropic pricing Wednesday night and trading Thursday as ANT, then Walmart and October retail sales.",
-   "Tesla's Friday close of 390.22 (-1.8%) is now confirmed by a second source, so the 387.1 print on some quote pages can be discarded; no reliable Monday premarket quote had surfaced by 5 AM PT, with the chip-led futures drop as the backdrop. The weekend was quiet on the merger front, with nothing new since both boards' special committees and Musk's recusal: the only fresh items were a Motley Fool note Sunday framing the stock as down about 13% in 2026 against a rising S&P 500 because robotaxi and Cybercab timelines slipped, a JPMorgan view that Tesla's robotaxi miles could match Waymo's in 2027, and a Monday report that an aftermarket Tesla specialist is pitching an investor-backed plan to keep the Cybertruck in production after Tesla's mid-2027 end date. Cybercab personal orders at $29,990 plus the $299 monthly fee Musk already called too high remain the main talking point going into the week.",
-   "SpaceX closed Friday at 139.11 (-0.59%), about 3% above its $135 IPO price, and the first trade on Saturday's catch of Ship 42, the first Starship upper stage ever recovered, looks muted: premarket indications ranged from -0.1% to +0.7% and +1% as AI names sold off and investors weighed the aborted booster catch, which Musk blamed on low fuel after Raptor underperformance. Morgan Stanley's Adam Jonas has said catching both stages is the milestone that would support a higher valuation, and secondary sources this morning cite an average target around $243.60 with JPMorgan at $500; no new analyst notes dated Nov 15-16 were findable. The Founders Fund stake reduction disclosed Friday is already in the price.",
-   "Intel is set to open lower again: it was down 4% to 5% premarket Monday alongside Nvidia and AMD, after Friday's 59.66 close (-2.52%, not re-verified this morning). New since Friday: a proposed shareholder class action filed Friday in federal court in San Jose alleges Intel hid how weak PC demand and excess inventory would hit revenue before the Oct 30 plunge of 28.6%, and Bank of America cut its target to $80 from $100 with a Neutral rating, citing low visibility into fourth-quarter and 2027 CPU demand; TipRanks' consensus sits at Hold. The question of what Nvidia's roughly $13 billion stake means after Huang's exit is unresolved, with one report floating a Huang return as CEO and a Lynx analyst calling that unlikely; against the $36.90 close on Dec 31 the stock is still up about 62% this year."
+   "The S&P 500 lost 145.08 points (1.92%) to 7,416.59, the Dow fell 739.38 points (1.41%) to 51,608.17, and the Nasdaq Composite dropped 2.49% to 24,509.76, its third straight decline. Semiconductors did the damage: the Philadelphia Semiconductor Index fell more than 5% with every member lower, and Yahoo Finance estimated the chip group shed over $400 billion in value in one session even though roughly 7 in 10 S&P 500 stocks rose. Nvidia closed at $156.14, down 4.12%, its lowest since July 2025, as the Commerce Department tightened rules on overseas access to advanced AI chips and at least five firms cut their Nvidia price targets (UBS to $240 from $300) while keeping Buy ratings. Asian chip shares had sold off overnight, and the Anthropic IPO later this week added to the focus on AI valuations.",
+   "Fed Chair Kevin Warsh opened a San Francisco Fed conference Monday with prepared remarks laying out three AI scenarios, including one in which AI investment returns disappoint, equity valuations fall and unemployment rises; he called them illustrative scenarios, not forecasts, and the selloff was under way before he spoke. Treasuries caught a small bid: the 10-year yield slipped more than 2 basis points to about 5.13% after touching 5.174% Friday, its highest in years, following last week's hot producer-price data; markets still price a December rate hike. Tuesday's set-up: Home Depot reports before the open (consensus EPS $3.84 on about $42.8 billion revenue), and Nvidia reports after the close, with Wall Street looking for EPS of about $2.47 on revenue near $108.8 billion in the first report hosted by interim CEO Colette Kress since Jensen Huang's resignation. Palo Alto Networks follows Wednesday after the close.",
+   "Tesla fell $10.48 (2.69%) to $379.74, giving back part of last week's gains. Reports said an all-stock acquisition of Tesla by SpaceX is now the likeliest outcome of the merger talks, with an announcement possible as early as December; no terms or filing have been disclosed, and the stock traded lower on the dilution and structure uncertainty. Separately, Tesla opened Cybercab purchases to select customers at $29,990 plus a $299 monthly subscription and extended Cybertruck production; Barclays' Dan Levy said the recent robotaxi and Cybercab updates support the robotaxi narrative, though the note did not stop the slide.",
+   "Intel dropped $4.19 (7.02%) to $55.47, far worse than the Nasdaq. A proposed shareholder class action filed Friday in federal court in San Jose names Intel, CEO Lip-Bu Tan and the CFO, covers holders from July 23 to October 29, and alleges the company concealed weak PC demand before the roughly 29% one-day plunge after its late-October report; the broader chip selloff ahead of Nvidia was the other pressure. After the close Intel fell a further 3.6% to about $53.46 when a filing showed Nvidia cut its Intel stake by 25% in the third quarter. SpaceX slipped $1.75 (1.26%) to $137.36 despite a wave of positive notes after Starship Flight 15, which caught the upper stage for the first time but lost the Super Heavy booster: Citi raised its target to $280 from $240 (Buy), Raymond James reiterated Strong Buy with an $800 target, Goldman kept Buy at $245, and Wells Fargo ($274), RBC ($225), Bernstein ($268) and Pivotal ($260) reiterated positive ratings; TipRanks shows a Strong Buy consensus (28 Buy, 5 Hold, 1 Sell) with a $267.76 average target."
   ],
   "tickers": [
    {
     "sym": "^GSPC",
     "name": "S&P 500",
-    "value": 7561.67,
-    "chg": -30.73,
-    "pct": -0.4,
-    "ytd": 10.5,
+    "value": 7416.59,
+    "chg": -145.08,
+    "pct": -1.92,
+    "ytd": 8.3,
     "closes": [
-     [
-      "2026-10-14",
-      7718.94
-     ],
      [
       "2026-10-15",
       7744.06
@@ -154,21 +150,21 @@
      [
       "2026-11-13",
       7561.67
+     ],
+     [
+      "2026-11-16",
+      7416.59
      ]
     ]
    },
    {
     "sym": "TSLA",
     "name": "Tesla",
-    "value": 390.22,
-    "chg": -7.23,
-    "pct": -1.82,
-    "ytd": -13.2,
+    "value": 379.74,
+    "chg": -10.48,
+    "pct": -2.69,
+    "ytd": -15.6,
     "closes": [
-     [
-      "2026-10-14",
-      367.16
-     ],
      [
       "2026-10-15",
       362.44
@@ -256,16 +252,20 @@
      [
       "2026-11-13",
       390.22
+     ],
+     [
+      "2026-11-16",
+      379.74
      ]
     ]
    },
    {
     "sym": "INTC",
     "name": "Intel",
-    "value": 59.66,
-    "chg": -1.54,
-    "pct": -2.52,
-    "ytd": 61.7,
+    "value": 55.47,
+    "chg": -4.19,
+    "pct": -7.02,
+    "ytd": 50.3,
     "closes": [
      [
       "2026-10-13",
@@ -326,16 +326,20 @@
      [
       "2026-11-13",
       59.66
+     ],
+     [
+      "2026-11-16",
+      55.47
      ]
     ]
    },
    {
     "sym": "SPCX",
     "name": "SpaceX",
-    "value": 139.11,
-    "chg": -0.83,
-    "pct": -0.59,
-    "ytd": 3.0,
+    "value": 137.36,
+    "chg": -1.75,
+    "pct": -1.26,
+    "ytd": 1.7,
     "closes": [
      [
       "2026-10-16",
@@ -420,60 +424,73 @@
      [
       "2026-11-13",
       139.11
+     ],
+     [
+      "2026-11-16",
+      137.36
      ]
     ]
    }
   ]
  },
  "pick": {
-  "sym": "PANW",
-  "name": "Palo Alto Networks",
-  "theme": "Cybersecurity leader 25% off its high, upgraded by KeyBanc on Friday, reports fiscal Q1 Wednesday after the close",
-  "close": 322.24,
-  "pct": -0.13,
-  "asOf": "2026-11-13",
-  "what": "Palo Alto Networks is the largest pure-play cybersecurity vendor, selling next-generation firewalls and three software platforms: Strata (network security and SASE), Prisma (cloud security) and Cortex (XSIAM security operations, endpoint and automation). It bought CyberArk in 2025 to add identity and privileged-access security and Chronosphere for observability, and its pitch to large customers is platformization: consolidating a dozen point products from smaller vendors onto one stack, which lifts recurring revenue and the next-generation security ARR it reports every quarter. Its fiscal year ends in July, so Wednesday's report covers the quarter ended October 31.",
-  "why": "On Friday Nov 13 KeyBanc upgraded the stock to Overweight from Sector Weight with a $380 target, about 18% above Thursday's close, arguing that security budgets accelerate through 2027, that Palo Alto is the main winner from vendor consolidation, and that its fiscal first-quarter checks were positive; the shares rose about 3% to 4% premarket and closed at 322.24, still in bear-market territory, roughly 25% below the $432.33 52-week high, after a 4% drop Thursday. Fiscal Q1 results come Wednesday Nov 18 after the close: consensus is about $0.97 non-GAAP EPS on roughly $3.31 billion of revenue (guide $0.96-0.98), with the whisper near $1.00, and the market is pricing an 11% move. Full-year fiscal 2027 revenue guidance of $14.10-14.20 billion is the number to watch. Deutsche Bank ($430) and Stifel ($415) kept Buy ratings in the past week, one aggregator puts the average target at $412.50, and MarketBeat's consensus was Moderate Buy with a $393.02 average target as of its most recent snapshot. An idea to research, not a recommendation.",
-  "risk": "Reported growth of about 34% is inflated by the CyberArk and Chronosphere acquisitions, and a large LLM customer's migration onto Chronosphere gave fiscal 2026 a nine-figure boost that ends this quarter, so organic net new ARR may disappoint; the CFO has also warned cloud hosting costs will grow faster than revenue, pressuring the 74.8% adjusted gross margin. A single Wednesday print with an implied 11% swing is a binary event right after Nvidia's report and Anthropic's IPO, when AI-adjacent software is being de-rated and a 10-year near 5.15% compresses multiples. CrowdStrike, Fortinet, Zscaler and Microsoft compete across every segment. Finally, several of the figures here (consensus counts, target, 52-week high) could not be re-verified from the source pages this morning because finance sites were unreachable; treat them as approximate. One more caveat on the numbers here: with finance data sites unreachable this morning, the analyst count (29 of 33 at Buy) is a mid-year Benzinga snapshot and the $393 consensus target is MarketBeat's from late summer, so check both before you lean on them.",
+  "sym": "KEYS",
+  "name": "Keysight Technologies",
+  "theme": "Test-and-measurement supplier to the AI data center and wireless buildout, reporting Thursday after a 27% pullback from its October high",
+  "close": 285.63,
+  "pct": -4.05,
+  "asOf": "2026-11-16",
+  "what": "Keysight Technologies, based in Santa Rosa, California, makes electronic design, test and measurement equipment and software: oscilloscopes, network and signal analyzers, signal generators, and simulation and network-test tools, including the Ixia and Spirent network-test businesses. Its customers are chipmakers, networking and data center equipment vendors, wireless carriers, automakers and aerospace and defense contractors who need to validate high-speed interconnects (such as 1.6T Ethernet and 224G links), 5G and early 6G radios, and power electronics. It reports in two segments, Communications Solutions and Electronic Industrial Solutions, with a large recurring software and services base. The fiscal year ends October 31, so Thursday's report covers the fourth quarter and sets guidance for fiscal 2027.",
+  "why": "KEYS closed Monday, November 16, at $285.63, down 4.05% in the chip-led selloff, about 27% below its all-time intraday high of $389.93 set October 6 and up from a November 5 closing low of $260.61. The company reports fiscal fourth-quarter results Thursday, November 19, after the close; Earnings Whispers shows consensus of about $3.09 EPS on $1.94 billion revenue (MarketBeat's figure is $3.37 on $1.95 billion), and Keysight has beaten the consensus in six of its last seven quarters by an average of about 11%. Analysts have stayed constructive through the drawdown: StockAnalysis shows a Buy consensus from 12 analysts with a $419.67 average target, MarketBeat shows Moderate Buy at $401.42, and Citi ($400) and Morgan Stanley ($425) reiterated Buy on November 12. The stock fell 8.7% on October 22 and another 9% on November 5 as AI-infrastructure names were de-rated, so the setup is a test-equipment name whose AI and 1.6T data center demand story is intact on paper but whose multiple has been cut ahead of a print that will show whether orders held up. An idea to research, not a recommendation.",
+  "risk": "Keysight is tied to capital spending by the same AI, networking and semiconductor customers that are selling off now, and Nvidia's Tuesday report and guidance could swing the whole group before Keysight prints. Earnings expectations differ by source ($3.09 to $3.37 EPS), so a result that beats one bar can miss another, and weak fiscal 2027 guidance would likely overwhelm a fourth-quarter beat. The shares have already fallen roughly 27% in six weeks and remain volatile, with multiple 8%-plus single-day drops since October.",
   "rating": {
    "label": "Buy",
-   "buy": 29,
-   "total": 33,
-   "src": "Benzinga"
+   "buy": 7,
+   "total": 8,
+   "source": "StreetAlpha 7 Buy / 1 Hold; StockAnalysis Buy (12 analysts); MarketBeat Moderate Buy"
   },
-  "target": 393.02,
-  "hi52": 432.33,
+  "target": 419.67,
+  "hi52": 389.93,
   "closes": [
    [
-    "2026-10-12",
-    403.83
+    "2026-10-09",
+    382.75
    ],
    [
-    "2026-10-16",
-    342.0
+    "2026-10-15",
+    342.08
    ],
    [
-    "2026-10-23",
-    380.55
+    "2026-10-22",
+    311.52
    ],
    [
-    "2026-10-27",
-    401.7
+    "2026-10-28",
+    335.5
    ],
    [
-    "2026-10-30",
-    365.87
+    "2026-11-03",
+    305.11
    ],
    [
-    "2026-11-12",
-    322.66
+    "2026-11-05",
+    260.61
    ],
    [
-    "2026-11-13",
-    322.24
+    "2026-11-09",
+    288.97
+   ],
+   [
+    "2026-11-16",
+    285.63
    ]
   ],
   "history": [
+   {
+    "date": "2026-11-17",
+    "sym": "KEYS",
+    "price": 285.63
+   },
    {
     "date": "2026-11-16",
     "sym": "PANW",
@@ -559,258 +576,259 @@
  "btc": {
   "source": "Benjamin Cowen",
   "channel": "@benjaminjcowen",
-  "sourceUrl": "https://www.youtube.com/watch?v=hj5ySVDYASI",
-  "summaryDate": "2026-11-14",
-  "summary": "Cowen's newest video, posted Saturday afternoon and titled Bitcoin: The Capitulation Spiral, treats the weekend's slide as the late stage of a four-year cycle rather than a surprise: in his reading, bitcoin tends to capitulate into its cycle low in the months after a US midterm election, and he still expects the weakness to run for weeks, with the Fed's December meeting as the likeliest moment for a final flush. He is watching two levels, the 200-week moving average, which he warns may not hold because prior cycle lows undercut it by around 30%, and the realized price, the average cost basis of all coins, which every previous bear market dipped below before bottoming. A low above realized price would, in his view, only buy a few months before another retest, while a deeper flush would reset the on-chain indicators and set up a cleaner 2027. His practical stance is unchanged: keep dollar-cost averaging rather than trying to call the exact bottom."
+  "sourceUrl": "https://www.youtube.com/watch?v=HcruM-mYz5E",
+  "summaryDate": "2026-11-16",
+  "summary": "Cowen's newest video, posted Monday morning and titled Bitcoin: Dubious Speculation, is his short-term read of a market sitting at three-month lows, and crypto outlets summarizing his latest commentary Monday put the emphasis on the calendar. He lines November and December up against the same stretch in past rate-hike cycles and calls them the critical months: in his view the bear market may be nearing its end in time, but that does not rule out one more price low, with late December the likeliest moment for the final flush. He expects a short-lived rebound could come first and warns against treating a bounce as the bottom; the level he keeps pointing to is the realized price, the average cost basis of all coins, which earlier bear markets dipped below before turning. His practical stance is unchanged from last week: keep dollar-cost averaging rather than trying to call the exact low."
  },
  "brief": {
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "keywords": [
    "Humanoid",
    "Embodied AI",
+   "Tech",
    "Cybercab",
    "Tesla",
-   "Starship",
-   "SPCX",
+   "LLM",
    "AI",
-   "Tech",
+   "Space data centers",
+   "SPCX",
+   "Starship",
    "Bitcoin",
    "Longevity"
   ],
-  "lede": "Jensen Huang's allies are lobbying Nvidia's board for a comeback as Taiwan's market falls 6% into his successor's first earnings; LG signs up for Korean humanoid safety certification while Foundation misses payroll; Citi lifts its SpaceX target to $280; and Strategy buys 485 bitcoin but spends six times more buying back its preferred.",
+  "lede": "XPeng puts a January 1 date on IRON humanoid production while Nvidia's board rules out a Huang comeback and chip stocks fall ahead of tonight's earnings; Tesla commits 3 billion euros to a Cybercab line in Berlin, Alibaba ships Qwen4-Max on price, and bitcoin ETFs log their first inflow in eight sessions.",
   "articles": [
    {
     "id": "b1",
     "tag": "Humanoid",
     "kicker": "Humanoids",
-    "title": "LG signs a Korean humanoid safety pact; Foundation misses payroll",
+    "title": "XPeng dates its IRON humanoid ramp to January 1, 2027",
     "body": [
-     "LG Electronics said Monday it has signed a memorandum of understanding with the Korea Institute for Robot Industry Advancement (KIRIA), a state agency, to safety-test its humanoids before they go on sale. Under the deal, signed November 13 in Seoul, LG helps build the test rigs and evaluation system for KIRIA's **Humanoid Robot Safety Certification Center** and contributes to Korean and international standards on test procedures, certification requirements, reliability and usability. LG also plans a domestic pilot safety certification for its own robots, including the CLOiD, ahead of the Nvidia-reference-platform biped it wants to unveil in the first quarter of 2027. This sets up evaluations, not a granted certification.",
-     "CNBC reported Friday that Foundation Future Industries, the Eric Trump-backed maker of the Phantom military humanoid, has not paid employees since missing its **October 30 payroll**. Sources told CNBC that CEO Sankaet Pathak borrowed about $4.6 million from the company in 2025 as a short-term loan; property records show an LLC he controls bought a $4.6 million Sausalito house that October. Pathak is the only board member and majority shareholder, and he has told staff he is trying to find money for back wages. CNBC added that the Pentagon contracts the firm cites came with its late-2024 purchase of Boardwalk Robotics. Last week the FT reported Foundation was in talks with the Israeli military for up to 1,000 Phantoms.",
-     "On software, Runway has posted open weights for Praxis-1, its robot control model, under Apache 2.0 on Hugging Face and GitHub (a secondary report dates it to November 11). Praxis-1 turns a 27 billion parameter video model into a world action model, meaning it predicts short chunks of future video and reads robot actions out of them, with thin per-robot projections so one model can drive different arms. Runway says its DROID-tuned checkpoint solved **46.2 percent of 1,200 episodes** on Nvidia's RoboLab-120 leaderboard, against 42.9 percent for FLUX 3 Action and 28.0 percent for pi0.5. Those are the company's own numbers; it says the model runs on a Jetson Thor mounted on the robot.",
-     "Humanoids Daily reported Sunday that open-source trackers built on UC Berkeley's SuperMimic paper, such as BlinkMimic (on GitHub since November 2, arXiv paper November 12), now train a Unitree G1 whole-body motion tracking policy, the low-level controller that reproduces a human motion while balancing, in minutes on one GPU.",
-     "Korea is building a certification route for consumer bipeds before LG ships one, something Europe and the US still lack for general-purpose humanoids. Foundation shows a defense pitch does not guarantee payroll. And open-weight controllers keep lowering the entry price for anyone with a G1 and a GPU."
+     "XPeng used its third-quarter earnings call on Monday, Nov. 16 to put a calendar date on its IRON humanoid. Benzinga reported that CEO He Xiaopeng said **mass production starts Jan. 1, 2027**, with an external commercial launch in the second quarter of 2027, and that he expects the robot could eventually outsell the industry's hottest premium EVs. XPeng's US-listed shares rose about 6% on the day.",
+     "The robot news arrived wrapped in mixed car results. Revenue was 24.28 billion yuan, up 19.1% from a year earlier and ahead of the roughly 23.2 billion yuan analysts expected, on 118,390 deliveries, according to the call transcript. Gross margin slipped to 18.9% from 20.1%, and the net loss widened to 0.87 billion yuan from 0.38 billion, so the humanoid program is being funded by a car business that is still losing money.",
+     "For context, IRON walked off a newly commissioned Guangzhou line on Sept. 8. XPeng says the line is more than 80% automated and is aimed at about 1,000 units a month from the end of this year. The Jan. 1 date is the first time XPeng has pinned the ramp to a specific day rather than a quarter.",
+     "Two other Asia items landed Tuesday, Nov. 17. ROBOTERA said in a press release that its humanoids now work in **11 China Post hubs across eight cities in Guangdong**, which it calls the largest logistics deployment of embodied-intelligence robots so far. The program started at the Jianggao processing center in Guangzhou, where the robots were reported sorting up to 1,200 parcels an hour at a site that handles about 6.5 million mail pieces a day; ROBOTERA did not disclose how many robots are at each hub.",
+     "On the capital side, The National reported that Abu Dhabi's Lunate plans a humanoid-robot ETF that lists on the Abu Dhabi Securities Exchange on **Dec. 8 under the ticker ROBOTS**, initially holding 41 companies spanning semiconductors, robot components, humanoid developers and software. It gives Gulf investors a packaged way into the theme.",
+     "What it means: the commercial center of gravity for humanoids still sits in China, and the capital markets around it are getting more structured. For Western makers, a dated XPeng ramp and a China Post fleet that grows by hubs rather than by demos is the yardstick investors will hold against Figure, Agility and Tesla's 2027 timelines. Watch for XPeng's first unit count in January and whether ROBOTERA publishes per-hub robot numbers."
     ],
     "sources": [
      {
-      "src": "Seoul Economic Daily",
-      "domain": "en.sedaily.com",
-      "url": "https://en.sedaily.com/business/2026/11/16/lg-electronics-partners-with-state-robot-agency-on-humanoid",
+      "src": "Benzinga",
+      "domain": "benzinga.com",
+      "url": "https://benzinga.com/markets/earnings/26/11/63304557/xpeng-ceo-bets-its-humanoid-robots-could-outsell-industrys-hottest-luxury-evs",
       "date": "2026-11-16"
      },
      {
-      "src": "Humanoid.guide",
-      "domain": "humanoid.guide",
-      "url": "https://humanoid.guide/lg-partners-with-kiria-on-humanoid-safety-before-2027-debut/",
+      "src": "The Motley Fool",
+      "domain": "fool.com",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/11/16/xpeng-xpev-q3-2026-earnings-call-transcript/",
       "date": "2026-11-16"
      },
      {
-      "src": "American Bazaar",
-      "domain": "americanbazaaronline.com",
-      "url": "https://americanbazaaronline.com/2026/11/15/foundation-future-industries-misses-payroll-sankaet-pathak-loan-492327/",
-      "date": "2026-11-15"
+      "src": "PR Newswire",
+      "domain": "prnewswire.com",
+      "url": "https://prnewswire.com/news-releases/robotera-expands-humanoid-robot-deployment-across-china-posts-guangdong-network-reaching-eight-cities-province-wide-302941865.html",
+      "date": "2026-11-17"
      },
      {
-      "src": "Humanoids Daily",
-      "domain": "humanoidsdaily.com",
-      "url": "https://www.humanoidsdaily.com/news/supermimic-blinkmimic-xmimic-humanoid-motion-tracking-minutes",
-      "date": "2026-11-15"
+      "src": "The National",
+      "domain": "thenationalnews.com",
+      "url": "https://thenationalnews.com/business/markets/2026/11/17/abu-dhabis-lunate-to-launch-humanoid-robot-focused-etf-on-adx",
+      "date": "2026-11-17"
      }
     ]
    },
    {
     "id": "b2",
-    "tag": "Cybercab",
-    "kicker": "Tesla",
-    "title": "Musk says Cybercab sales go nationwide as approvals come",
+    "tag": "Tech",
+    "kicker": "Chips",
+    "title": "Nvidia board shuts door on Huang return as chip stocks slide",
     "body": [
-     "Elon Musk said Saturday that Cybercab sales \"will be available nationwide, as we receive regulatory approval,\" Not a Tesla App reported, a day after Tesla opened invite-only orders for personal use at $29,990. In the same exchange he repeated that the mandatory $299 monthly Autonomy Subscription is too high and should match what other Teslas pay for FSD plus connectivity, roughly $115 a month. Tesla has not changed the price on the order page.",
-     "Electrek's Fred Lambert argued Sunday that the launch looks timed to win a bet rather than to serve customers. Hours after orders opened, Musk called YouTuber Marques Brownlee (MKBHD) \"a chicken\" on X. The order page, as Electrek lays it out, lists the $29,990 price, the $299 subscription, a **$1,000 non-refundable deposit**, an estimated December 2026 delivery, and availability only in Tesla's Texas Robotaxi cities, with the car operating only inside the Robotaxi geofences. Electrive's Monday write-up for European readers describes the eligible areas as Tesla's Robotaxi service zones in Texas and Florida, so the exact footprint is still being reported inconsistently.",
-     "The bet dates to the October 2024 We, Robot event, where Musk said the Cybercab would sell for under $30,000 and reach volume production before 2027. Brownlee replied, \"If they do, I'll shave my head on camera,\" and later said he would donate to cancer research in January whatever happens. A December delivery to a paying customer at $29,990 would settle it with days to spare.",
-     "Two other dates to watch: Tesla said it would notify shareholders selected to attend the **December 3 annual meeting** at Giga Texas during the week of November 16, which is this week, and the Dallas Cybercab service Ashok Elluswamy promised for November on the October 22 earnings call had not been announced as of Sunday.",
-     "\"nationwide as approvals come\" is a long road, because a two-seater with no steering wheel or pedals needs federal and state sign-off that today exists only inside Tesla's own Robotaxi zones. The near-term questions are concrete: whether the first personal Cybercabs actually hand over in December, whether the $299 fee comes down before then, and whether Dallas gets Cybercabs before the Model Y fleet grows. The MKBHD deadline is December 31."
+     "Nvidia's board is not weighing a return by Jensen Huang as chief executive, a person familiar with the matter told CNBC on Monday, and Reuters cited three people saying the same; the directors are focused on the national-security investigation into him. That puts the board against a campaign backed by Elon Musk and endorsed by President Trump, who said he would welcome Huang back; an online petition had passed **180,000 signatures** by Monday. Huang resigned on Nov. 12 after 33 years running the company, leaving CFO Colette Kress as interim chief.",
+     "The same day the Commerce Department's Bureau of Industry and Security issued an interim final rule on remote access to advanced semiconductors. It adds license requirements for shipments to Indonesia, Malaysia, Singapore, Thailand and Brazil, and requires a license when an exporter knows chips are headed to a data center that would give a covered customer more than 12 million aggregate TPP, a measure of processing performance. The stated aim is to stop Chinese firms from renting restricted hardware through third-country clouds. Existing operators get 90 days to apply, and the Biden-era AI Diffusion Rule is formally rescinded.",
+     "Chip stocks sold off. The Philadelphia Semiconductor Index fell 5.28%, Nvidia lost 4.12% to **$156.14**, its lowest close since July 2025, and AMD, Micron and Intel dropped about 5.6%, 7.6% and 7.0%. The Nasdaq Composite ended down 2.49% at 24,509.76 and the S&P 500 fell 1.92% to 7,416.59, its biggest drop since Nov. 5.",
+     "In San Francisco, Fed Chair Kevin Warsh opened the first hearing of the Fed's Productivity and Jobs Task Force by describing three scenarios staff are modeling: a productivity boom whose gains are shared, strong growth paired with automation-driven job losses, and an investment bust in which returns on AI spending disappoint, equity valuations fall and unemployment rises more sharply. \"These are illustrative scenarios, not forecasts,\" he said, according to CNBC. He did not discuss the December rate decision. Treasury yields slipped, with the 10-year near 5.13%, and futures still priced about a **91% chance of a quarter-point hike on Dec. 9**.",
+     "What comes next: Nvidia reports fiscal third-quarter results Tuesday at about 1:20 PM PT with the call at 2 PM, Kress's first as interim CEO; consensus is roughly $109 billion in revenue and $2.48 to $2.49 a share. An employee all-hands is scheduled for Wednesday at noon ET, the same day Anthropic prices its IPO, where the filed $70 to $78 range was unchanged as of Monday despite the FT reporting that bankers are weighing a price above it."
     ],
     "sources": [
      {
-      "src": "Not a Tesla App",
-      "domain": "notateslaapp.com",
-      "url": "https://www.notateslaapp.com/news/5014/musk-cybercab-sales-are-going-nationwide-299-subscription-too-high",
-      "date": "2026-11-14"
-     },
-     {
-      "src": "Electrek",
-      "domain": "electrek.co",
-      "url": "https://electrek.co/2026/11/15/tesla-cybercab-mkbhd-bet-musk-chicken/",
-      "date": "2026-11-15"
-     },
-     {
-      "src": "electrive",
-      "domain": "electrive.com",
-      "url": "https://www.electrive.com/2026/11/16/tesla-cybercab-for-private-sale-comes-without-steering-wheel-but-with-restrictions/",
+      "src": "CNBC",
+      "domain": "cnbc.com",
+      "url": "https://www.cnbc.com/2026/11/16/nvidia-ceo-jensen-huang.html",
       "date": "2026-11-16"
      },
      {
-      "src": "Carscoops",
-      "domain": "carscoops.com",
-      "url": "https://carscoops.com/2026/09/tesla-cybercab-mkbhd",
-      "date": "2026-09-01"
+      "src": "CNBC",
+      "domain": "cnbc.com",
+      "url": "https://www.cnbc.com/amp/2026/11/16/nvidia-commerce-china-lutnick.html",
+      "date": "2026-11-16"
+     },
+     {
+      "src": "CNBC",
+      "domain": "cnbc.com",
+      "url": "https://www.cnbc.com/2026/11/16/fed-ai-task-force-kevin-warsh.html",
+      "date": "2026-11-16"
+     },
+     {
+      "src": "CNN",
+      "domain": "cnn.com",
+      "url": "https://www.cnn.com/2026/11/16/business/stocks-nvidia-ai-anthropic",
+      "date": "2026-11-16"
      }
     ]
    },
    {
     "id": "b3",
-    "tag": "SPCX",
-    "kicker": "SpaceX",
-    "title": "Citi lifts its SpaceX target to $280 after the catch; Flight 16 next",
+    "tag": "Cybercab",
+    "kicker": "Tesla",
+    "title": "Tesla commits 3 billion euros to build Cybercab at Giga Berlin",
     "body": [
-     "Wall Street priced Saturday's Starship catch on Monday morning. Citi raised its SpaceX price target to **$280 from $240**, keeping a Buy, after its analysts watched Flight 15 from Starbase; the note said the firm has more conviction in SpaceX's \"Super Intelligence\" segment and lifted its fourth-quarter 2026 and first-half 2027 revenue and adjusted EBITDA estimates mostly for that segment, while keeping a long-run bull case above $900 a share. Pivotal Research reiterated Buy with a $260 target, Raymond James' Brian Gesuale reiterated Strong Buy at $800, and UBS reaffirmed Buy at $230.",
-     "The stock barely moved on it: trackers had SPCX up well under 1 percent in Monday premarket, around **$139.70 against Friday's $139.11 close**, while most AI names slipped. The shares remain roughly 38 percent below their 52-week high of $225.64.",
-     "The flight got a fuller accounting over the weekend. The Washington Post reported Sunday that SpaceX called the ship catch a \"major step\" toward full reusability, and the company said the ship deployed **26 operational Starlink V3 satellites** before returning to Starbase about 22.5 hours after liftoff. The booster, due back at Pad 2 about six and a half minutes after launch, aborted its return and splashed down offshore.",
-     "On what comes next, Space.com reports that Musk says the next launch will attempt the first double catch of booster and ship, and SpaceX says the double catch will be standard on operational missions because it allows rapid inspection, refurbishment and reflight. NASASpaceflight has reported that Ship 43 finished chopstick fit tests at Pad 2 and returned to the production site while Booster 23 headed to Massey's for cryogenic testing, and that the pair is expected to ship to Kennedy for the first Starship launch from pad 39A. Secondary trackers list a December target with December 10 as a planning date; SpaceX has not confirmed a date or a pad for Flight 16.",
-     "Elsewhere it was quiet: launch trackers show no Starlink Falcon 9 mission on November 15 or 16, the next listed flights are national-security missions from Vandenberg later this week with provisional dates, and there was no new orbital data center news from Starcloud, Google or SpaceX.",
-     "the analyst consensus now sits around $240 to $260 with Raymond James the outlier, and every note ties the next leg to Starship cadence rather than Starlink. A December Flight 16 with a double catch, possibly from Florida, is the next catalyst; the December 3 Tesla meeting and merger chatter are the other overhang."
+     "Tesla will spend about **3 billion euros (roughly $3.3 billion)** on a new Cybercab production building at Giga Berlin in Grünheide, plant manager André Thierig announced Monday, Nov. 16, with output targeted to begin in 2029. Tesla plans to file its permit application by the end of 2026 and start construction in the first half of 2027, Electrek and Tesla North reported.",
+     "Thierig called the sum a first step and said the site could eventually build as many as 1 million Cybercabs a year, taking Tesla's total investment in Berlin and Brandenburg to about $10 billion. Electrek pointed out that EU rules currently cap driverless vehicles at 1,500 per model per year, and the announcement named no market or approval path for a car with no steering wheel or pedals.",
+     "The same day Electrek tallied the Cybercab's safety record: **eight crashes on file with NHTSA**. Four happened in driverless Robotaxi service and none exceeded 5 mph; the other four had a test driver aboard with driver assistance engaged, and one of those struck another car at 53 mph. The vehicle is being sold to invited buyers for $29,990 plus a required $299 monthly Autonomy Subscription, terms Bloomberg described Monday as steep even by Musk's own account.",
+     "Markets did not reward the factory news. TSLA fell 2.69% to $379.74 on Monday, a little worse than the Nasdaq's 2.5% drop, as chip stocks sold off ahead of Nvidia's report and as reports said an all-stock acquisition of Tesla by SpaceX is now the likeliest shape of the merger talks, with an announcement possible as early as December and no terms disclosed.",
+     "Berlin would give the Cybercab a second production base after Giga Texas, and the plan is a bet that European regulators will lift the 1,500-unit cap before 2029. The permit filing due by year-end should reveal the real floor area and phasing. Nearer term, the December delivery estimate for the first personal Cybercabs in Texas and the Dec. 3 shareholder meeting are the dates to watch."
     ],
     "sources": [
      {
-      "src": "Investing.com",
-      "domain": "investing.com",
-      "url": "https://www.investing.com/news/stock-market-news/citi-raises-spacex-stock-price-target-on-starship-progress-93CH-5029136",
+      "src": "Electrek",
+      "domain": "electrek.co",
+      "url": "https://electrek.co/2026/11/16/tesla-cybercab-giga-berlin-3-billion-1-million/",
       "date": "2026-11-16"
      },
      {
-      "src": "CoinCentral",
-      "domain": "coincentral.com",
-      "url": "https://coincentral.com/spacex-spcx-stock-edges-up-after-starship-tower-catch-as-ai-names-slide",
+      "src": "Electrek",
+      "domain": "electrek.co",
+      "url": "https://electrek.co/2026/11/16/tesla-cybercab-crashes-speed-problem/",
       "date": "2026-11-16"
      },
      {
-      "src": "Washington Post",
-      "domain": "washingtonpost.com",
-      "url": "https://www.washingtonpost.com/technology/2026/11/15/spacex-catches-starship-rocket-return-earth/",
-      "date": "2026-11-15"
+      "src": "Tesla North",
+      "domain": "teslanorth.com",
+      "url": "https://teslanorth.com/2026/11/16/tesla-berlin-cybercab-3-billion-expansion-2029/",
+      "date": "2026-11-16"
      },
      {
-      "src": "Space.com",
-      "domain": "space.com",
-      "url": "https://www.space.com/space-exploration/launches-spacecraft/whats-next-for-spacexs-starship-after-epic-flight-15-chopsticks-catch",
-      "date": "2026-11-15"
+      "src": "Gotrade",
+      "domain": "heygotrade.com",
+      "url": "https://www.heygotrade.com/en/news/tesla-tsla-stock-news-november-17-2026/",
+      "date": "2026-11-17"
      }
     ]
    },
    {
     "id": "b4",
-    "tag": "AI",
-    "kicker": "Nvidia",
-    "title": "Huang allies lobby for a comeback as Kress faces her first earnings",
+    "tag": "LLM",
+    "kicker": "Frontier models",
+    "title": "Alibaba ships Qwen4-Max, selling cost per task over raw scores",
     "body": [
-     "The weekend's biggest AI-industry story was at Nvidia, not at a lab. The Financial Times reported Sunday that Jensen Huang is weighing a return as chief executive and that allies have formed a \"war room\" to lobby the board, with one ally saying the group would seek White House support and that Huang backed the effort. A petition for his reinstatement passed **160,000 signatures** and picked up Elon Musk, Decrypt reported. Nvidia and Huang's spokesperson declined to comment.",
-     "Treasury Secretary Scott Bessent pushed the other way on Sunday, saying Nvidia should look outside the company for its next CEO and questioning its export-control compliance, adding that a bank with the same record would already have regulators inside it. Fortune's Monday piece calls the comeback bid an uphill fight against congressional probes, a shareholder class action and Treasury. Commerce Secretary Howard Lutnick agreed last week to testify about his department's handling of Megaspeed, the Singapore-based Nvidia customer that Reuters says bought more than $4.8 billion of advanced chips since June 2024; Bessent said on CNBC that other agencies had wanted it on the Entity List for months, but \"Commerce has the pen.\"",
-     "Against that backdrop, Colette Kress reports Tuesday afternoon as interim CEO. CNBC's preview puts consensus near **$109.1 billion in revenue and $2.47 a share**, against guidance of $108 billion plus or minus 2%. Investors want her to reaffirm the roughly 70% growth outlook for fiscal 2028 and to size Vera Rubin's share of data-center revenue. The stock has fallen six straight weeks, the longest run since 2012.",
-     "Anthropic's IPO terms are unchanged going into Wednesday's pricing and Thursday's debut as ANT. What is new is how the shares will be handed out: reports citing Bloomberg said allocations will favor existing backers, and prospectus coverage notes that directors, officers and non-founder employees may sell **10% of their holdings from day one**, with the rest locked up for 180 days or longer.",
-     "One smaller lab item: NewsBytes reported Sunday that OpenAI has acquired Orchestra Bio, a San Francisco startup building AI tools for biotech and pharma, with no terms disclosed. Nothing new surfaced from Google DeepMind, Meta, xAI, Mistral or the Chinese labs since Sunday morning.",
-     "The things to watch are whether Nvidia's board engages with Huang before Tuesday's 1:20 PM PT release, Kress's answers on export compliance during the 2 PM call, and any Anthropic range change ahead of Wednesday's pricing. A reaffirmed fiscal 2028 outlook would matter more for the sector than the quarter itself."
+     "Alibaba released Qwen4-Max, the flagship of its fourth-generation model family. Release trackers date it Nov. 16 and one developer blog says it went live a day earlier, five days after a preview appeared on Alibaba's Token Plan. The company describes a mixture-of-experts model with a **2.4 trillion-parameter backbone and 71 billion active parameters per token**, a 1 million-token context window, text, image and video input, and reasoning switched on by default. The weights are not open.",
+     "The pitch is price rather than raw capability. API list pricing is **$1.50 per million input tokens and $4.50 per million output tokens**, with cached input at $0.075, about 25% below the Qwen3.8-Max list. In a post on X, the Qwen team said token use on its internal Work360 agent evaluation fell roughly 24% to 35% compared with Qwen3.8-Max, and by about 48% to 49% on Terminal-Bench 4.0, cutting the average cost per Work360 task from $4.43 to $1.67.",
+     "Alibaba's own scores include 75.7 on DeepSWE v1.1, 48.5 on Terminal-Bench 4.0, 51.7 on Humanity's Last Exam and a 1750 Elo on CodeArena; its own chart shows Moonshot's Kimi K3.1 well ahead on Terminal-Bench at 67.2. Independent measurements are cooler: Artificial Analysis gave it an Intelligence Index score of 43, ranking 38th of 81 models, while Vals AI scored it 63.2%, 11th of 38. VentureBeat called the result an uneven challenge to frontier rivals and noted that neither Alibaba's figure nor Artificial Analysis's own cost-per-task estimate ($3.27 versus $10.02 for Qwen3.8-Max, on a different workload) establishes a universal savings rate for customers.",
+     "Context: Alibaba previewed the Qwen 4 lineup (Max, Plus, Flash and a 27B model) at its Apsara conference on Sept. 22 without dates or prices, and commentators expect the smaller models to carry the open weights that self-hosters care about.",
+     "The takeaway: Chinese labs are now competing on the cost of completing an agent task rather than benchmark rank alone, and Alibaba is publishing token-efficiency numbers that invite independent checking. Whether the roughly 62% saving holds on customer workloads, and when the open-weight Qwen 4 models arrive, are the open questions."
     ],
     "sources": [
      {
-      "src": "Fortune",
-      "domain": "fortune.com",
-      "url": "https://fortune.com/2026/11/16/war-room-jensen-huang-nvidia-treasury-scott-bessent",
+      "src": "VentureBeat",
+      "domain": "venturebeat.com",
+      "url": "https://venturebeat.com/technology/alibabas-qwen4-max-cuts-ai-task-costs-but-benchmarks-show-an-uneven-challenge-to-frontier-rivals",
       "date": "2026-11-16"
      },
      {
-      "src": "Yahoo Finance (FT report)",
-      "domain": "tech.yahoo.com",
-      "url": "https://tech.yahoo.com/general/breaking-news/article/jensen-huang-weighs-comeback-as-nvidia-ceo-as-allies-lobby-board-ft-reports-bessent-calls-for-dramatic-shakeup-204839950.html",
-      "date": "2026-11-15"
-     },
-     {
-      "src": "CNBC",
-      "domain": "cnbc.com",
-      "url": "https://www.cnbc.com/2026/11/16/nvidia-earnings-jensen-huang-resignation.html",
+      "src": "Qwen blog",
+      "domain": "qwen.ai",
+      "url": "https://qwen.ai/blog?id=qwen4-max",
       "date": "2026-11-16"
      },
      {
-      "src": "Forbes",
-      "domain": "forbes.com",
-      "url": "https://www.forbes.com/sites/saradorn/2026/11/13/lutnick-will-testify-before-congress-amid-allegations-he-resisted-megaspeed-crackdown/",
-      "date": "2026-11-13"
+      "src": "Qwen on X",
+      "domain": "x.com",
+      "url": "https://x.com/Alibaba_Qwen/status/2122148131982946642",
+      "date": "2026-11-16"
+     },
+     {
+      "src": "DataCamp",
+      "domain": "datacamp.com",
+      "url": "https://www.datacamp.com/blog/qwen4-max",
+      "date": "2026-11-16"
      }
     ]
    },
    {
     "id": "b5",
-    "tag": "Tech",
-    "kicker": "Markets",
-    "title": "Taiwan stocks drop 6% as Nvidia week opens in Asia",
+    "tag": "Space data centers",
+    "kicker": "SpaceX",
+    "title": "Ramon.Space raises $124 million as orbital compute money grows",
     "body": [
-     "Taiwan's Taiex fell **2,635 points, or 6.03%, to 41,040.08** on Monday, closing at the session low in what Focus Taiwan called the second-largest point drop on record, behind July 17. TSMC lost 5.74% to NT$2,215 and alone accounted for roughly 1,000 points of the decline. Traders blamed worry over Jensen Huang's exit from Nvidia and futures-related selling ahead of Wednesday's settlement. The NT$500 billion National Financial Stabilization Fund was authorized to intervene on November 6, and one analyst told Focus Taiwan he expects it to step up support, with technical support near 40,000.",
-     "The selling spread across the region. Korea's Kospi closed down 3.59% at 5,100.50 on memory-chip losses, and Japan's Nikkei 225 lost 2.36% to 59,702.09, according to AP figures. Japan also reported that third-quarter GDP shrank at a **0.1% annualized rate** against a Reuters poll looking for 0.3% growth, the first contraction in a year. Private consumption fell 0.3% for a second straight quarter and imports outpaced exports, though investment in servers and chip equipment grew. LSEG pricing still gave about 76% odds of a Bank of Japan hike in December.",
-     "US futures followed: Nasdaq 100 futures were down about 0.9% and S&P 500 futures 0.4% early Monday, while European futures edged higher. Nvidia traded about 3% lower premarket, AMD was off 5.5% and Intel 5% as the selloff reached US screens, and Treasury Secretary Bessent's weekend comments about Nvidia's export compliance were cited as an extra weight on the sector.",
-     "The day's scheduled event is Fed Chair Kevin Warsh, who gives opening remarks at **noon ET (9 AM PT)** at the San Francisco Fed's Productivity and Jobs Task Force conference, his first public appearance since the late-October meeting. The slot is only about 15 minutes and he has avoided rate guidance all year, but with markets pricing a possible hike after the latest upside inflation print, the dollar was firmer into the speech, MUFG noted via FXStreet. Monday is also the 13F deadline, which brings Berkshire's third-quarter holdings.",
-     "Asia has already voted on Nvidia week, and Taiwan's fund may be the only buyer at the open Tuesday. If Kress reaffirms the fiscal 2028 outlook, Monday's rout looks like a positioning flush before settlement; if she does not, the 40,000 level on the Taiex and the 5,000 level on the Kospi are the next tests."
+     "Ramon.Space, a space computing company with roots in Israel, announced on Tuesday, Nov. 17 a **$124 million Series B led by growth equity firm PSG**, with Micron Technology, Senvest and Phoenix Financial joining earlier investors, Payload reported. The round takes the company's total funding to $180 million, and the company said the money will go to scaling production of its radiation-tolerant onboard computers to meet demand.",
+     "Ramon.Space's pitch is narrower than the Musk and Google visions. Its near-term business is processing satellite data in orbit rather than moving Earth's AI workloads into space, though it does plan to fly an orbital data center prototype in 2027 with Ingrasys, a Foxconn unit, under a partnership expanded in March.",
+     "The money is arriving as cautions grow louder. Axios reported Nov. 15 that researchers writing for the Innovation for Cool Earth Forum urged governments and companies to wait until collision, debris and military-targeting risks are better understood before putting data centers in orbit. The same piece cited Quilty Space: investment tied to orbital data centers has reached **$1.11 billion so far in 2026, up from about $197 million in 2025**, and Quilty's research director suggested companies are filing for more satellites than they will likely fly.",
+     "SpaceX stock slipped with the market. SPCX closed at $137.36 on Monday, down 1.26% as the Nasdaq fell about 2.5%, and sits roughly 39% below its 52-week high. On Starship, no FAA license for Flight 16 had been announced as of Nov. 16; the flight remains targeted no earlier than December from Launch Complex 39A in Florida, and Booster 23 still needs propellant loading and a static fire on the new pad.",
+     "What it means: private money is now flowing to the hardware layer that any orbital compute plan needs, which is also where near-term revenue exists, while the headline constellation filings remain far ahead of funded reality. The gap between $1.11 billion invested and a million-satellite application is what regulators and the Office of Space Commerce pilot will have to reconcile. Next markers: a Flight 16 license and pad tests at 39A, and whether Ramon.Space names its prototype's launch provider."
     ],
     "sources": [
      {
-      "src": "Focus Taiwan",
-      "domain": "focustaiwan.tw",
-      "url": "https://focustaiwan.tw/business/202611160014",
-      "date": "2026-11-16"
+      "src": "Payload",
+      "domain": "payloadspace.com",
+      "url": "https://payloadspace.com/ramon-space-raises-124m-in-series-b-funding/",
+      "date": "2026-11-17"
      },
      {
-      "src": "CNBC",
-      "domain": "cnbc.com",
-      "url": "https://www.cnbc.com/2026/11/16/japan-q3-gdp-energy-oil-prices.html",
-      "date": "2026-11-16"
+      "src": "Business Wire via FinancialContent",
+      "domain": "financialcontent.com",
+      "url": "https://www.financialcontent.com/article/bizwire-2026-11-17-ramonspace-raises-124-million-series-b-leading-the-next-era-of-computing-in-orbit",
+      "date": "2026-11-17"
      },
      {
-      "src": "TipRanks",
-      "domain": "tipranks.com",
-      "url": "https://www.tipranks.com/news/why-nvidia-amd-and-intel-stocks-are-tumbling-in-premarket-today-nov-16-and-what-wall-street-sees-next",
-      "date": "2026-11-16"
+      "src": "Axios",
+      "domain": "axios.com",
+      "url": "https://axios.com/2026/11/15/space-data-centers-risks-stargazing-report",
+      "date": "2026-11-15"
      },
      {
-      "src": "Saxo",
-      "domain": "home.saxo",
-      "url": "https://www.home.saxo/en-mena/content/articles/macro/market-quick-take---fed-chair-warsh-to-speak-today---16-november-2026-16112026",
-      "date": "2026-11-16"
+      "src": "Gotrade",
+      "domain": "heygotrade.com",
+      "url": "https://www.heygotrade.com/en/news/spacex-spcx-stock-news-november-17-2026/",
+      "date": "2026-11-17"
      }
     ]
    },
    {
     "id": "b6",
     "tag": "Bitcoin",
-    "kicker": "Strategy",
-    "title": "Strategy adds 485 BTC but spends six times more buying back STRC",
+    "kicker": "Crypto",
+    "title": "Spot bitcoin ETFs snap outflow streak as IBIT turns positive",
     "body": [
-     "Strategy's Monday 8-K shows the company bought **485 BTC for about $33.4 million**, an average near $68,887, between November 9 and 15, lifting holdings to 850,849 BTC at a total cost of about $64.2 billion, or roughly $75,452 per coin. The at-the-market program raised about $244.7 million net from MSTR common stock, but $206.3 million of that went to preferred repurchases rather than bitcoin; reports put the week's STRC buybacks at about $228 million, up from $188.3 million the prior week. In other words, the company is now spending far more defending its preferred than accumulating coins.",
-     "Bitcoin itself slipped again overnight. Fortune's 7:30 AM ET print was **$64,012.79, down $1,444** from Sunday morning, after Bitcoin.com showed $64,654 at 05:42 UTC and BigGo had it clinging to about $64,800 earlier in the Asian session, with Sunday's roughly $61,946 low as the line traders are watching. TokenPost noted trading volume had roughly halved versus the weekend spike. At those prices Bitcoin.com puts Strategy's position about $9.6 billion underwater.",
-     "Michael Saylor posted his usual Sunday chart with the line \"this dip may need a little more orange,\" which was the correct tell for a purchase, if a small one.",
-     "Flow data has no new prints since Friday. Reports tallying November put US spot ETF net outflows above $2.1 billion for the month, and IBIT's streak of daily outflows had reached 11 sessions through November 13. Glassnode's liquidation map shows a cluster of leveraged longs between about $59,500 and $62,600, which is why the weekend low matters.",
-     "Monday's ETF flows will show whether Sunday's capitulation drew any dip buying, Fed Chair Warsh speaks at 9 AM PT, and Nvidia reports Tuesday, which has been the macro driver for risk assets all month. A hold above $62,000 through those three events would be the first constructive signal in a week; a break opens the Glassnode cluster and then the realized price, the average cost basis of all coins, which past bear markets have undercut before bottoming."
+     "US spot bitcoin ETFs took in a net **$7.9 million on Monday**, ending a seven-session run of outflows, according to tallies based on Farside Investors data. The turn came almost entirely from BlackRock's IBIT, which drew $76.5 million and ended an 11-session outflow streak that had removed about $2.35 billion; the other funds lost a combined $68.6 million, with Grayscale's GBTC the largest at $34.6 million. The prior week's outflow was $1.07 billion, the third weekly loss in a row, and IBIT accounted for $908.4 million of it.",
+     "Prices stabilized rather than recovered. Bitcoin traded around $64,000 to $65,000 on Monday after the weekend slide to about **$62,000**, its sixth straight weekly decline, with the Fear and Greed Index still near 10 to 12, in extreme fear. Wintermute told CoinDesk the weekend's forced selling was not evidence of a bottom and that the bounce looked like short covering rather than new buying.",
+     "CoinDesk's markets desk framed Tuesday's Nvidia report as the near-term risk: a disappointment could trigger selling across risk assets and push bitcoin through support at $62,000 and then $60,000. CryptoQuant's Nick Pitto cautioned against reading much into a single day of IBIT inflows.",
+     "In Washington, the Senate Agriculture Committee holds a confirmation hearing Tuesday at 3 PM ET for CFTC nominees Nathan Anonick and Matthew Rowland; Chairman Michael Selig is currently the agency's only commissioner, and no committee vote has been scheduled, so it is unclear whether the Senate acts before January. The SEC nominees go before Senate Banking on Thursday.",
+     "What to watch: Monday's flows are one data point after two weeks of heavy redemptions, and whether IBIT's inflow repeats through Nvidia's results and Wednesday's FOMC minutes will say more than the headline. Futures still price a rate hike on Dec. 9, which has weighed on bitcoin all month."
     ],
     "sources": [
      {
-      "src": "Crypto Briefing",
-      "domain": "cryptobriefing.com",
-      "url": "https://cryptobriefing.com/strategy-scoops-up-485-bitcoin-repurchases-228-million-in-strc/",
+      "src": "CNBC",
+      "domain": "cnbc.com",
+      "url": "https://www.cnbc.com/2026/11/16/bitcoin-slides-to-62000-following-liquidation-cascade-then-rebounds-slightly.html",
       "date": "2026-11-16"
      },
      {
-      "src": "Bitcoin.com News",
-      "domain": "news.bitcoin.com",
-      "url": "https://news.bitcoin.com/crypto-news/strategy-adds-485-bitcoin-as-its-btc-treasury-sinks-9-61-billion-underwater/",
+      "src": "CoinDesk",
+      "domain": "coindesk.com",
+      "url": "https://www.coindesk.com/markets/2026/11/16/bitcoin-risks-falling-below-usd60-000-as-nvidia-earnings-threaten-to-deepen-crypto-sell-off",
       "date": "2026-11-16"
      },
      {
-      "src": "Fortune",
-      "domain": "fortune.com",
-      "url": "https://fortune.com/article/price-of-bitcoin-11-16-2026/",
+      "src": "TokenPost",
+      "domain": "tokenpost.com",
+      "url": "https://www.tokenpost.com/news/investing/59400",
       "date": "2026-11-16"
      },
      {
-      "src": "BigGo Finance",
-      "domain": "finance.biggo.com",
-      "url": "https://finance.biggo.com/news/8273fffd-0317-4686-b76c-b82fabcdcfda",
+      "src": "Bitcoin Magazine",
+      "domain": "bitcoinmagazine.com",
+      "url": "https://bitcoinmagazine.com/news/cftc-nominees-senate-hearing-tuesday",
       "date": "2026-11-16"
      }
     ]
@@ -818,32 +836,39 @@
    {
     "id": "b7",
     "tag": "Longevity",
-    "kicker": "Regeneration",
-    "title": "A brief Myc and cyclin T1 mRNA pulse regrows heart muscle in mice",
+    "kicker": "Aging research",
+    "title": "Centenarian gut enzyme signature improves metabolism in old mice",
     "body": [
-     "Fight Aging's Monday newsletter leads with a Nature Cardiovascular Research paper (Boikova and colleagues, published November 9) showing that a modified mRNA encoding Myc and cyclin T1 gets adult mouse heart muscle cells dividing again after a heart attack. The key idea is that Myc, the well-known growth gene, is normally inert in cardiomyocytes because the cells lack enough P-TEFb, the transcription elongation complex; cyclin T1 restores it. A **single transient dose** was enough to drive proliferation and improve cardiac function, and because mRNA does not integrate into the genome, the oncogene switches off within days.",
-     "A companion commentary in the same journal, \"A regenerative pulse for the injured heart,\" argues that how broadly and how long a regenerative program is switched on matters as much as how strong it is. The work builds on a 2023 preprint from the same Cambridge group. All of this is in mice; the next step is large-animal safety data showing no tumors or arrhythmias from the pulse.",
-     "The second item is a Yale review covered by ScienceDaily on November 12 and reported to be in Nature Medicine. The team built a database called TranslAGE from **51 intervention studies**, recomputed 16 epigenetic clocks plus 94 other DNA-methylation biomarkers on each one, and compared results. Prescription drugs moved the clocks most consistently, with metformin, anti-TNF biologics and semaglutide named; exercise combined with diet reliably lowered epigenetic age; over-the-counter anti-aging supplements showed little measurable effect. The authors stress that a shifted clock is a proxy, not a lifespan result.",
-     "Taken together, the week's theme is calibration: a regenerative mechanism that works only when kept brief, and a review that separates clock-moving drugs from supplements that do not. Watch for a large-animal Myc and cyclin T1 study and for the TranslAGE database being used to rank new candidates."
+     "A UC San Diego team reported in Cell Metabolism on Monday that aged mice and human centenarians share a gut-microbiome signature: more microbial deconjugation of bile acids, carried out by the bacterial enzyme bile salt hydrolase (BSH). The human comparison drew on **125 centenarians, 107 older adults and 48 younger adults**. The authors propose that some age-related microbiome changes are protective adaptations rather than signs of decline.",
+     "To test that, they engineered a bacterium native to the gut to produce BSH continuously and gave a single dose to 82-week-old mice, roughly late middle age. The strain colonized stably and kept producing the enzyme; treated animals showed improved insulin sensitivity with supportive changes in body composition and modestly better glucose tolerance. The researchers stress that none of this shows the microbial change caused long life in humans, or that the engineered bacteria extend lifespan; they call the centenarian data corroborative, not definitive.",
+     "Fight Aging's Monday post revisited a Nature Biotechnology paper (published Sept. 7) in which Insilico Medicine and Vadim Gladyshev's lab applied six proteomic aging clocks to blood from a 12-week phase 2a trial of rentosertib, a TNIK inhibitor for idiopathic pulmonary fibrosis. Across 42 patients and 2,841 measured proteins, **all six clocks predicted lower biological age in treated groups than placebo**, by roughly three to four years on several clocks and up to six on one; the 30 mg twice-daily dose was most consistent, even though 60 mg once daily gave the bigger lung-function gain. Fight Aging's caveat: proteomic clocks cannot by themselves separate reversal of aging from relief of disease, and four of the five clock-development teams are co-authors.",
+     "Also this week, the Gerontological Society of America published a report, Unit of Health: The Currency of Longevity, on using wearable and electronic-health-record data as longevity indicators, while warning that precise personal forecasts could mislead or distress users and deepen health inequities.",
+     "Why it matters: the BSH work is one of the few microbiome-aging studies to move from correlation in centenarians to an engineered intervention in old animals, but the endpoint so far is metabolic health, not lifespan. The rentosertib analysis shows how aging clocks could ride along in ordinary drug trials, which is also why the conflict-of-interest and disease-confounding caveats matter."
     ],
     "sources": [
      {
-      "src": "Fight Aging",
-      "domain": "fightaging.org",
-      "url": "https://www.fightaging.org/archives/2026/11/fight-aging-newsletter-november-16th-2026",
+      "src": "UC San Diego Today",
+      "domain": "today.ucsd.edu",
+      "url": "https://today.ucsd.edu/story/gut-microbiome-activity-linked-to-exceptional-longevity-may-support-healthier-aging",
       "date": "2026-11-16"
      },
      {
-      "src": "Nature Cardiovascular Research",
-      "domain": "nature.com",
-      "url": "https://www.nature.com/articles/s44161-026-00910-7",
-      "date": "2026-11-09"
+      "src": "Cell Metabolism",
+      "domain": "cell.com",
+      "url": "https://www.cell.com/cell-metabolism/abstract/S1550-4131(26)00453-5",
+      "date": "2026-11-16"
      },
      {
-      "src": "ScienceDaily",
-      "domain": "sciencedaily.com",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261112230452.htm",
-      "date": "2026-11-12"
+      "src": "Fight Aging",
+      "domain": "fightaging.org",
+      "url": "https://www.fightaging.org/archives/2026/11/anti-fibrotic-drug-rentosertib-reduces-proteomic-clock-age-in-humans",
+      "date": "2026-11-16"
+     },
+     {
+      "src": "EurekAlert",
+      "domain": "eurekalert.org",
+      "url": "https://www.eurekalert.org/news-releases/1152108",
+      "date": "2026-11-16"
      }
     ]
    }
@@ -853,93 +878,119 @@
   {
    "id": "n1",
    "tag": "Humanoid",
-   "title": "LG signs a Korean humanoid safety pact; Foundation misses payroll",
-   "blurb": "LG and state agency KIRIA will build the test rigs for Korea's Humanoid Robot Safety Certification Center ahead of LG's Q1 2027 biped; CNBC says Foundation Future Industries has not paid staff since October 30.",
-   "src": "Seoul Economic Daily",
-   "domain": "sedaily.com",
+   "title": "XPeng: IRON humanoid mass production starts January 1, 2027",
+   "blurb": "On its Q3 call, CEO He Xiaopeng dated the ramp and said an external commercial launch follows in Q2 2027; shares rose about 6%.",
+   "src": "Benzinga",
+   "domain": "benzinga.com",
    "date": "2026-11-16",
-   "url": "https://en.sedaily.com/business/2026/11/16/lg-electronics-partners-with-state-robot-agency-on-humanoid",
-   "ask": ""
+   "url": "https://benzinga.com/markets/earnings/26/11/63304557/xpeng-ceo-bets-its-humanoid-robots-could-outsell-industrys-hottest-luxury-evs",
+   "ask": "Will XPeng publish a unit count in January, or just another demo?"
   },
   {
    "id": "n2",
    "tag": "Humanoid",
-   "title": "Foundation Future Industries missed its October 30 payroll",
-   "blurb": "CNBC reported the Phantom maker's CEO borrowed about $4.6 million from the company in 2025 and is the sole board member; staff are still unpaid.",
-   "src": "American Bazaar",
-   "domain": "americanbazaaronline.com",
-   "date": "2026-11-15",
-   "url": "https://americanbazaaronline.com/2026/11/15/foundation-future-industries-misses-payroll-sankaet-pathak-loan-492327/",
-   "ask": ""
+   "title": "ROBOTERA humanoids now in 11 China Post hubs across eight Guangdong cities",
+   "blurb": "The company calls it the largest embodied-AI logistics deployment so far; no per-hub robot counts were disclosed.",
+   "src": "PR Newswire",
+   "domain": "prnewswire.com",
+   "date": "2026-11-17",
+   "url": "https://prnewswire.com/news-releases/robotera-expands-humanoid-robot-deployment-across-china-posts-guangdong-network-reaching-eight-cities-province-wide-302941865.html"
   },
   {
    "id": "n3",
-   "tag": "Cybercab",
-   "title": "Musk says Cybercab sales go nationwide as approvals come",
-   "blurb": "Personal Cybercab orders stay limited to Tesla's Texas Robotaxi zones with a $1,000 deposit and a December estimate; Musk again called the $299 fee too high.",
-   "src": "Not a Tesla App",
-   "domain": "notateslaapp.com",
-   "date": "2026-11-14",
-   "url": "https://www.notateslaapp.com/news/5014/musk-cybercab-sales-are-going-nationwide-299-subscription-too-high",
-   "ask": ""
+   "tag": "Tech",
+   "title": "Nvidia board not considering Huang's return, sources say",
+   "blurb": "CNBC and Reuters report directors are focused on the national-security probe; Nvidia fell 4.1% to $156.14 ahead of Tuesday's earnings as a new BIS remote-access chip rule landed.",
+   "src": "CNBC",
+   "domain": "cnbc.com",
+   "date": "2026-11-16",
+   "url": "https://www.cnbc.com/2026/11/16/nvidia-ceo-jensen-huang.html"
   },
   {
    "id": "n4",
-   "tag": "SPCX",
-   "title": "Citi lifts its SpaceX target to $280 after the Starship catch",
-   "blurb": "Citi raised its target from $240 and kept a Buy; Pivotal is at $260, Raymond James $800 and UBS $230. SPCX was up well under 1% premarket from Friday's $139.11.",
-   "src": "Investing.com",
-   "domain": "investing.com",
+   "tag": "Cybercab",
+   "title": "Tesla to spend 3 billion euros on a Cybercab building at Giga Berlin",
+   "blurb": "Permit filing by year-end, construction in H1 2027, production from 2029; the EU still caps driverless cars at 1,500 per model per year.",
+   "src": "Electrek",
+   "domain": "electrek.co",
    "date": "2026-11-16",
-   "url": "https://www.investing.com/news/stock-market-news/citi-raises-spacex-stock-price-target-on-starship-progress-93CH-5029136",
-   "ask": ""
+   "url": "https://electrek.co/2026/11/16/tesla-cybercab-giga-berlin-3-billion-1-million/"
   },
   {
    "id": "n5",
-   "tag": "AI",
-   "title": "Huang allies form a war room to lobby for his return to Nvidia",
-   "blurb": "The FT reported Sunday that Huang is weighing a comeback; a petition passed 160,000 signatures, while Treasury Secretary Bessent said the board should look outside.",
-   "src": "Fortune",
-   "domain": "fortune.com",
+   "tag": "LLM",
+   "title": "Alibaba releases Qwen4-Max at $1.50/$4.50 per million tokens",
+   "blurb": "A 2.4T-parameter MoE with 71B active and 1M context; Alibaba claims a 62% cut in cost per agent task while independent indexes rank it mid-pack.",
+   "src": "VentureBeat",
+   "domain": "venturebeat.com",
    "date": "2026-11-16",
-   "url": "https://fortune.com/2026/11/16/war-room-jensen-huang-nvidia-treasury-scott-bessent",
-   "ask": ""
+   "url": "https://venturebeat.com/technology/alibabas-qwen4-max-cuts-ai-task-costs-but-benchmarks-show-an-uneven-challenge-to-frontier-rivals"
   },
   {
    "id": "n6",
-   "tag": "Tech",
-   "title": "Taiwan's Taiex drops 6% as Nvidia week opens in Asia",
-   "blurb": "The index fell 2,635 points to 41,040.08, its second-largest point drop ever, with TSMC down 5.74%; the Kospi lost 3.59% and Japan's Q3 GDP contracted.",
-   "src": "Focus Taiwan",
-   "domain": "focustaiwan.tw",
-   "date": "2026-11-16",
-   "url": "https://focustaiwan.tw/business/202611160014",
-   "ask": ""
+   "tag": "Space data centers",
+   "title": "Ramon.Space raises $124 million Series B for in-orbit computing",
+   "blurb": "PSG led, with Micron joining; total funding reaches $180 million as Quilty Space counts $1.11 billion invested in orbital data centers this year.",
+   "src": "Payload",
+   "domain": "payloadspace.com",
+   "date": "2026-11-17",
+   "url": "https://payloadspace.com/ramon-space-raises-124m-in-series-b-funding/"
   },
   {
    "id": "n7",
    "tag": "Bitcoin",
-   "title": "Strategy adds 485 BTC but spends six times more on STRC buybacks",
-   "blurb": "Monday's 8-K shows $33.4 million of bitcoin buys against $206.3 million of preferred repurchases; holdings are 850,849 BTC at about $75,452 average.",
-   "src": "Crypto Briefing",
-   "domain": "cryptobriefing.com",
+   "title": "Spot bitcoin ETFs post $7.9 million inflow, ending seven-day outflow run",
+   "blurb": "IBIT took in $76.5 million after an 11-session streak of outflows; bitcoin held near $64,000 to $65,000 after the weekend drop to about $62,000.",
+   "src": "TokenPost",
+   "domain": "tokenpost.com",
    "date": "2026-11-16",
-   "url": "https://cryptobriefing.com/strategy-scoops-up-485-bitcoin-repurchases-228-million-in-strc/",
-   "ask": ""
+   "url": "https://www.tokenpost.com/news/investing/59400"
   },
   {
    "id": "n8",
    "tag": "Longevity",
-   "title": "A transient Myc and cyclin T1 mRNA pulse regrows mouse heart muscle",
-   "blurb": "A Nature Cardiovascular Research paper shows one dose of modified mRNA gets adult cardiomyocytes dividing after a heart attack, with the oncogene switching off within days.",
-   "src": "Fight Aging",
-   "domain": "fightaging.org",
+   "title": "Centenarian gut-enzyme signature improves metabolism in aged mice",
+   "blurb": "UC San Diego engineered a native gut bacterium to make bile salt hydrolase; one dose improved insulin sensitivity in 82-week-old mice (Cell Metabolism).",
+   "src": "UC San Diego Today",
+   "domain": "today.ucsd.edu",
    "date": "2026-11-16",
-   "url": "https://www.fightaging.org/archives/2026/11/fight-aging-newsletter-november-16th-2026",
-   "ask": ""
+   "url": "https://today.ucsd.edu/story/gut-microbiome-activity-linked-to-exceptional-longevity-may-support-healthier-aging"
   }
  ],
  "youtube": [
+  {
+   "id": "ZIpm-0RczCk",
+   "channel": "OpenAI",
+   "handle": "@OpenAI",
+   "title": "How Revolut’s lean teams take on bigger challenges with OpenAI",
+   "desc": "What can one engineer build when a project looks like it needs a whole team? At Revolut, an engineer used Codex to build an internal code review service himself",
+   "published": "2026-11-17T09:45:35Z",
+   "secs": 163,
+   "views": 2633,
+   "url": "https://www.youtube.com/watch?v=ZIpm-0RczCk"
+  },
+  {
+   "id": "R_sl8zEp9ng",
+   "channel": "OpenAI",
+   "handle": "@OpenAI",
+   "title": "How one engineer built a code review service with Codex | Revolut’s Dmitry Pitik",
+   "desc": "Dmitry Pitik thought he’d need a team of developers to build Revolut’s internal code review service. In this film, the Senior Platform Engineer explains how he",
+   "published": "2026-11-17T09:45:34Z",
+   "secs": 120,
+   "views": 1889,
+   "url": "https://www.youtube.com/watch?v=R_sl8zEp9ng"
+  },
+  {
+   "id": "YsAU7BvQ0oM",
+   "channel": "Maxinomics",
+   "handle": "@Maxinomics",
+   "title": "SpaceX could change the economics of America’s cell towers",
+   "desc": "Follow Maxinomics on social: X: https://x.com/maxinomics Instagram: https://www.instagram.com/maxinomicsmb TikTok: https://www.tiktok.com/@maxinomics",
+   "published": "2026-11-16T15:47:02Z",
+   "secs": 97,
+   "views": 52864,
+   "url": "https://www.youtube.com/watch?v=YsAU7BvQ0oM"
+  },
   {
    "id": "vP5htHaocN0",
    "channel": "Maxinomics",
@@ -948,7 +999,7 @@
    "desc": "Follow Maxinomics on social: X: https://x.com/maxinomics Instagram: https://www.instagram.com/maxinomicsmb TikTok: https://www.tiktok.com/@maxinomics",
    "published": "2026-11-15T16:00:02Z",
    "secs": 123,
-   "views": 31930,
+   "views": 42275,
    "url": "https://www.youtube.com/watch?v=vP5htHaocN0"
   },
   {
@@ -959,8 +1010,19 @@
    "desc": "",
    "published": "2026-11-15T00:11:52Z",
    "secs": 99,
-   "views": 147013,
+   "views": 169147,
    "url": "https://www.youtube.com/watch?v=_QDma-8UN44"
+  },
+  {
+   "id": "Z1iM1_OHFy8",
+   "channel": "Channel 5 with Andrew Callaghan",
+   "handle": "@channel5YouTube",
+   "title": "2026 Merch Drop",
+   "desc": "OUR ANNUAL MERCH COLLECTION IS NOW LIVE at https://channel5.news FOR THE NEXT 48 HOURS. SHOUT OUT TO EVERYONE WHO HAS SUPPORTED US ALL YEAR!!!",
+   "published": "2026-11-14T17:37:20Z",
+   "secs": 397,
+   "views": 107502,
+   "url": "https://www.youtube.com/watch?v=Z1iM1_OHFy8"
   },
   {
    "id": "2q3RsRVonr0",
@@ -970,7 +1032,7 @@
    "desc": "🎁Purchase or redeem a gift certificate https://new-form-project-c8c5fb.zapier.app/gift-portal 🚀 Qroo Spanish Crew https://www.skool.com/qroo",
    "published": "2026-11-14T13:40:35Z",
    "secs": 131,
-   "views": 1729,
+   "views": 1953,
    "url": "https://www.youtube.com/watch?v=2q3RsRVonr0"
   },
   {
@@ -978,89 +1040,34 @@
    "channel": "Reynard Lowell",
    "handle": "@reynardlowell",
    "title": "11 European Home Features That Are Simply GENIUS",
-   "desc": "Try Rayon for free at https://rayon.design/r/v4w1_yt_r_lowell  🏡 Design a home you love, without the overwhelm → https://rlowell.com/practicalhomedesign?utm_source=Youtube&utm_medium=description&utm_c",
+   "desc": "Try Rayon for free at https://rayon.design/r/v4w1_yt_r_lowell  🏡 Design a home you love, without the overwhelm → https://rlowell.com/practicalhomedesign?utm_sou",
    "published": "2026-11-14T10:30:10Z",
    "secs": 1090,
-   "views": 87671,
+   "views": 104472,
    "url": "https://www.youtube.com/watch?v=c-1HZ9Md5Ns"
-  },
-  {
-   "id": "PkAmyub12K8",
-   "channel": "OpenAI",
-   "handle": "@OpenAI",
-   "title": "How Mozilla uses GPT-6 Cyber to find and fix Firefox vulnerabilities",
-   "desc": "Mozilla is combining decades of security engineering with AI agents to strengthen Firefox’s defenses.  Brian Grinstead joins OpenAI’s Clint Gibler to discuss how the team prioritizes investigations, t",
-   "published": "2026-11-13T16:56:45Z",
-   "secs": 1219,
-   "views": 17106,
-   "url": "https://www.youtube.com/watch?v=PkAmyub12K8"
-  },
-  {
-   "id": "YmxpxJZvm4M",
-   "channel": "OpenAI",
-   "handle": "@OpenAI",
-   "title": "Cyber at the Frontier: Introducing Daybreak Red Team & Daybreak Defense Factory",
-   "desc": "Greg Brockman, Nancy Wang, Fouad Matin, Clint Gibler, Alexander Thiemann, and Matt Boyle took the stage at Cyber at the Frontier, where OpenAI introduced two cybersecurity products under one unified C",
-   "published": "2026-11-12T22:37:14Z",
-   "secs": 2078,
-   "views": 53762,
-   "url": "https://www.youtube.com/watch?v=YmxpxJZvm4M"
-  },
-  {
-   "id": "hdMszZ2ah5Q",
-   "channel": "Marques Brownlee",
-   "handle": "@mkbhd",
-   "title": "Macbook PROLED Review: It's Not About That",
-   "desc": "Incredible laptop. But don't get distracted.  Protect and make your MacBook unique with dbrand at https://dbrand.com/shop/macbook  MKBHD Merch: http://shop.MKBHD.com  Playlist of MKBHD Intro music: ht",
-   "published": "2026-11-11T18:43:56Z",
-   "secs": 914,
-   "views": 5953200,
-   "url": "https://www.youtube.com/watch?v=hdMszZ2ah5Q"
-  },
-  {
-   "id": "CjwUzZ0TOhg",
-   "channel": "Channel 5 with Andrew Callaghan",
-   "handle": "@channel5YouTube",
-   "title": "Investigating Gen Z's Sex Recession",
-   "desc": "FREE TOYS OR GIFT CARDS FOR TOYS! Everyone who signs up to my giveaway with BBoutique wins something! https://www.shopbboutique.co/vibe/andrewcallaghan-yt  #bbpartner",
-   "published": "2026-11-11T16:07:42Z",
-   "secs": 2916,
-   "views": 1924126,
-   "url": "https://www.youtube.com/watch?v=CjwUzZ0TOhg"
-  },
-  {
-   "id": "2QSkkhbl3v4",
-   "channel": "Veritasium",
-   "handle": "@veritasium",
-   "title": "Why you can't trust a test that's 99% accurate",
-   "desc": "What does it mean to get a positive result on a medical test?   Chances are you might not actually have the disease...",
-   "published": "2026-11-11T14:00:12Z",
-   "secs": 90,
-   "views": 1592768,
-   "url": "https://www.youtube.com/watch?v=2QSkkhbl3v4"
   }
  ],
  "spotify": [
   {
    "show": "Moonshots with Peter Diamandis",
+   "title": "How Figure AI Is Outcompeting China and Tesla in Robotics | Robotic Deep-Dive w/ Brett Adcock",
+   "desc": "A robotics deep-dive with Figure AI founder Brett Adcock on how the company is competing with China and Tesla in humanoid robots.",
+   "published": "2026-11-16",
+   "secs": 7932,
+   "url": "https://open.spotify.com/episode/3YGvGji1Nzlhuth6DRJ2te"
+  },
+  {
+   "show": "Moonshots with Peter Diamandis",
    "title": "Jensen’s Departure, NVIDIA’s succession plan, AI doomer response, and Demis talks RSI | MOONSHOTS #311 (recorded live)",
-   "desc": "Live-recorded roundtable on Jensen Huang stepping away from NVIDIA, who succeeds him, pushback on AI doomers, and Demis Hassabis on recursive self-improvement.",
+   "desc": "A live-recorded episode on Jensen Huang's departure and NVIDIA's succession plan, responses to AI doomers, and Demis Hassabis on recursive self-improvement.",
    "published": "2026-11-14",
    "secs": 7242,
    "url": "https://open.spotify.com/episode/0Cn8bcoR750q8A92mpQXbM"
   },
   {
-   "show": "Moonshots with Peter Diamandis",
-   "title": "Can Jensen Huang remain CEO? Inside NVIDIA’s next steps| MOONSHOTS #310",
-   "desc": "Peter and the Moonshot Mates dig into whether Jensen Huang can stay at NVIDIA's helm and what the company does next.",
-   "published": "2026-11-11",
-   "secs": 8249,
-   "url": "https://open.spotify.com/episode/0ucn4LxhQidXBDNRSaNqrj"
-  },
-  {
    "show": "Modern Wisdom",
    "title": "The Strange Freedom To Be Disliked - James Blunt - #1177",
-   "desc": "Chris Williamson talks with James Blunt about building a career while being widely mocked and the freedom that comes from not needing approval.",
+   "desc": "Chris Williamson talks with musician James Blunt about the freedom that comes from being disliked.",
    "published": "2026-11-16",
    "secs": 5661,
    "url": "https://open.spotify.com/episode/55dnaB2vsQlVASBWuuvfNh"
@@ -1068,7 +1075,7 @@
   {
    "show": "Modern Wisdom",
    "title": "“We Won 3 Grammys and Still Felt Like Failures” - Dan + Shay (Live Performance) - #1176",
-   "desc": "Country duo Dan + Shay on why awards didn't fix their sense of failure, plus a live performance.",
+   "desc": "Country duo Dan + Shay on feeling like failures despite winning three Grammys, with a live performance.",
    "published": "2026-11-14",
    "secs": 5625,
    "url": "https://open.spotify.com/episode/3Huxy00vdA2gQ8vZ6CXaKF"
@@ -1076,23 +1083,15 @@
   {
    "show": "Modern Wisdom",
    "title": "Why Atheists Keep Finding God (in everything) - Alex O’Connor - #1175",
-   "desc": "Philosopher Alex O'Connor on why secular people keep reaching for religious ideas and language.",
+   "desc": "Philosopher Alex O'Connor on why atheists keep finding God in everything.",
    "published": "2026-11-12",
    "secs": 7002,
    "url": "https://open.spotify.com/episode/5vemORhncVVMlU9yN1crDB"
   },
   {
-   "show": "Lex Fridman Podcast",
-   "title": "#504 - Russia-Ukraine War: Putin, Zelenskyy, Drones and the Future of Warfare",
-   "desc": "A three-hour conversation on the Russia-Ukraine war, its leaders, the rise of drone warfare and what it means for future conflicts.",
-   "published": "2026-11-11",
-   "secs": 10854,
-   "url": "https://open.spotify.com/episode/7ywcdUyAXA3dNFKU4xjFeY"
-  },
-  {
    "show": "The Diary Of A CEO with Steven Bartlett",
    "title": "Ex-CIA Officer: Trump Knew About The China Spy And Didn't Care! | John Kiriakou & Aliia Roza",
-   "desc": "Former CIA officer John Kiriakou and ex-intelligence operative Aliia Roza on espionage, China, and what governments hide.",
+   "desc": "Former CIA officer John Kiriakou and ex-intelligence operative Aliia Roza on espionage, including claims about a China spy case.",
    "published": "2026-11-16",
    "secs": 7468,
    "url": "https://open.spotify.com/episode/4yhRDIXgjtFOLF1Ob8k6G2"
@@ -1100,7 +1099,7 @@
   {
    "show": "The Diary Of A CEO with Steven Bartlett",
    "title": "Most Replayed Moment: The Childhood Scripts Still Running Your Life! Chase Hughes",
-   "desc": "A short highlight clip of behaviour expert Chase Hughes on the childhood programming that still drives adult behaviour.",
+   "desc": "A short most-replayed clip with behavior expert Chase Hughes on the childhood scripts that still run your life.",
    "published": "2026-11-13",
    "secs": 1409,
    "url": "https://open.spotify.com/episode/77oLDCekRALMvIqCYJMDN9"
@@ -1108,7 +1107,7 @@
   {
    "show": "The Diary Of A CEO with Steven Bartlett",
    "title": "Neurologist Dr David Perlmutter: Dementia Risk, Blood Sugar, Sleep and Alcohol",
-   "desc": "Neurologist David Perlmutter on the lifestyle levers, from blood sugar to sleep and alcohol, that shape dementia risk.",
+   "desc": "Neurologist Dr David Perlmutter on dementia risk and how blood sugar, sleep and alcohol affect the brain.",
    "published": "2026-11-12",
    "secs": 6962,
    "url": "https://open.spotify.com/episode/0c8ccidgVxh4sA4LrxdC08"
@@ -1116,7 +1115,7 @@
   {
    "show": "Huberman Lab",
    "title": "Mushrooms for the Mind & Immune System | Paul Stamets",
-   "desc": "Mycologist Paul Stamets joins Andrew Huberman to discuss medicinal and psychedelic mushrooms and their effects on cognition and immunity.",
+   "desc": "Mycologist Paul Stamets on how mushrooms affect the mind and immune system.",
    "published": "2026-11-16",
    "secs": 8936,
    "url": "https://open.spotify.com/episode/4QZGgHX4p3XJfGDtfQGjEp"
@@ -1124,15 +1123,15 @@
   {
    "show": "Huberman Lab",
    "title": "Essentials: How Emotions & Social Factors Impact Learning | Dr. Mary Helen Immordino-Yang",
-   "desc": "A condensed Essentials episode on how emotion and social context shape how the brain learns.",
+   "desc": "An Essentials episode with Dr. Mary Helen Immordino-Yang on how emotions and social factors shape learning.",
    "published": "2026-11-12",
    "secs": 2316,
    "url": "https://open.spotify.com/episode/0WYH9GLhtv8TuwpHxrifm1"
   },
   {
    "show": "Matt and Shane's Secret Podcast",
-   "title": "Ep 645 - Pimpology ",
-   "desc": "Matt McCusker and Shane Gillis riff their way through another loose, unfiltered weekly episode.",
+   "title": "Ep 645 - Pimpology",
+   "desc": "Matt McCusker and Shane Gillis riff in episode 645, titled Pimpology.",
    "published": "2026-11-12",
    "secs": 4060,
    "url": "https://open.spotify.com/episode/015NeHC2J0C7URZJ7RB3yQ"
@@ -1140,7 +1139,7 @@
   {
    "show": "The Jordan B. Peterson Podcast",
    "title": "How to Train Gratitude",
-   "desc": "Jordan Peterson on gratitude as a practice that can be deliberately trained rather than a feeling that simply happens.",
+   "desc": "Jordan Peterson on how gratitude can be deliberately trained.",
    "published": "2026-11-15",
    "secs": 6676,
    "url": "https://open.spotify.com/episode/75cgzKKHrVKp0bDtj5qcjB"
@@ -1149,161 +1148,118 @@
  "discover": {
   "youtube": [
    {
-    "handle": "@practicalengineeringchannel",
-    "channel": "Practical Engineering",
-    "seed": "@veritasium",
-    "because": "Because you follow Veritasium: Grady Hillhouse explains the built world with tabletop experiments, most recently why windows are absurd and his first mistake as an engineer, roughly one video a week."
+    "handle": "@NeverTooSmall",
+    "channel": "NEVER TOO SMALL",
+    "seed": "@reynardlowell",
+    "because": "Because you follow Reynard Lowell: architect-led tours of tiny, clever apartments, posting almost daily this month, most recently a home office that doubles as a guest room."
    },
    {
-    "handle": "@googledeepmind",
-    "channel": "Google DeepMind",
-    "seed": "@OpenAI",
-    "because": "Because you follow OpenAI: the other frontier lab's own channel, with AlphaGenome 2 and Genie 4 explainers in the last three weeks."
+    "handle": "@EconomicsExplained",
+    "channel": "Economics Explained",
+    "seed": "@memeabledata",
+    "because": "Because you follow Memeable Data: twice-weekly explainers on one economic story at a time, most recently whether Canada won the US midterms and the psychology of inflation."
    },
    {
-    "handle": "@dave2d",
-    "channel": "Dave2D",
+    "handle": "@JerryRigEverything",
+    "channel": "JerryRigEverything",
     "seed": "@mkbhd",
-    "because": "Because you follow MKBHD: Dave Lee's calmer, shorter takes on the same gear, including his own MacBook Pro OLED review on Nov 5."
+    "because": "Because you follow MKBHD: Zack Nelson's teardown and durability tests are the other half of a phone review, with several uploads a week this month."
    },
    {
-    "handle": "@wendoverproductions",
-    "channel": "Wendover Productions",
-    "seed": "@Maxinomics",
-    "because": "Because you follow Maxinomics: Sam Denby's weekly explainers on how logistics, airlines and cities actually work, most recently Waymo vs Tesla and why there are so many hotel brands."
-   },
-   {
-    "handle": "@citynerd",
-    "channel": "CityNerd",
-    "seed": "@NotJustBikes",
-    "because": "Because you follow Not Just Bikes: a former transportation planner ranking and roasting American cities, roughly weekly."
-   },
-   {
-    "handle": "@spanishafterhours",
-    "channel": "Spanish After Hours",
+    "handle": "@HolaSpanish",
+    "channel": "Hola Spanish",
     "seed": "@QrooSpanish",
-    "because": "Because you follow Qroo Spanish: slow, cozy Spanish-only podcasts for learners, posting several times a week, two new ones on Nov 15."
+    "because": "Because you follow Qroo Spanish: short, practical Spanish lessons posted every two or three days, with a new one out today on testing how good your Spanish is."
+   },
+   {
+    "handle": "@OhTheUrbanity",
+    "channel": "Oh The Urbanity!",
+    "seed": "@NotJustBikes",
+    "because": "Because you follow Not Just Bikes: a Montreal couple on cycling and city design, posting every couple of weeks, most recently on why they finally bought a cargo bike."
+   },
+   {
+    "handle": "@UnitreeRobotics",
+    "channel": "Unitree Robotics",
+    "seed": "@BostonDynamics",
+    "because": "Because you follow Boston Dynamics: Unitree's official channel posts the H2 and G1 demos everyone argues about, a few times a month, straight from the source."
    }
   ],
   "spotify": [
    {
-    "show": "The Peter Attia Drive",
-    "title": "#416 ‒ The science of mitochondria: their role in health, aging, and disease, and what the evidence says about drugs and supplements aimed at improving their function | Navdeep Chandel, Ph.D.",
-    "published": "2026-11-16",
-    "secs": 8470,
-    "url": "https://open.spotify.com/episode/55AjXCggVFjG5lHJh3bQrn",
-    "seed": "Huberman Lab",
-    "because": "Because you follow Huberman Lab: Attia's Monday release is a two-hour deep dive on mitochondria with Northwestern's Navdeep Chandel, including what the evidence says about NAD and other supplements."
+    "show": "Invest Like the Best with Patrick O'Shaughnessy",
+    "title": "Brad Gerstner & Geoffrey Canada - Raising the Floor for Every American Child - [Invest Like the Best, EP.501]",
+    "published": "2026-11-17",
+    "secs": 5063,
+    "url": "https://open.spotify.com/episode/3lQoPtcv1x3Gg86OVRgqAw",
+    "seed": "The Knowledge Project",
+    "because": "Because you follow The Knowledge Project: Patrick O'Shaughnessy's long investor conversations share Shane Parrish's focus on decision-making, here applied to Brad Gerstner's plan for child investment accounts."
    },
    {
-    "show": "No Priors: Artificial Intelligence | Technology | Startups",
-    "title": "Powering AI-Driven Drug Discovery with President of Isomorphic Labs Max Jaderberg",
-    "published": "2026-11-12",
-    "secs": 2355,
-    "url": "https://open.spotify.com/episode/2ywcu9CIDem7dIgxFN9SMJ",
-    "seed": "Lex Fridman Podcast",
-    "because": "Because you follow Lex Fridman: a 40-minute conversation with Isomorphic Labs president Max Jaderberg on turning AlphaFold into drugs."
+    "show": "The Rich Roll Podcast",
+    "title": "How To Hero: Ross Edgley On The Madness of Swimming Around Iceland & The Price Of Attempting The Impossible",
+    "published": "2026-11-16",
+    "secs": 5670,
+    "url": "https://open.spotify.com/episode/0esFqbq8hDQA1UV1o9xzCl",
+    "seed": "Huberman Lab",
+    "because": "Because you follow Huberman Lab: Rich Roll covers endurance and human performance from the practitioner side, and this one is ultra-swimmer Ross Edgley on the physiology and mindset of extreme feats."
    }
   ],
   "artists": [
    {
-    "name": "INZO",
-    "because": "Like Hippie Sabotage",
-    "url": "https://open.spotify.com/artist/18Eu7uJEMPWwwt1QUdCglQ"
+    "name": "piri",
+    "because": "Like Sam Gellaitry",
+    "url": "https://open.spotify.com/artist/4DpmPt7gfAAq7WEx0E1X8s"
    },
    {
-    "name": "Zingara",
-    "because": "Like Ganja White Night",
-    "url": "https://open.spotify.com/artist/5LxbXRVEMOw6i1WSa2YQn1"
+    "name": "Saba",
+    "because": "Like Kota the Friend",
+    "url": "https://open.spotify.com/artist/7Hjbimq43OgxaBRpFXic4x"
    },
    {
-    "name": "Porter Robinson",
-    "because": "Like ODESZA",
-    "url": "https://open.spotify.com/artist/3dz0NnIZhtKKeXZxLOxCam"
-   },
-   {
-    "name": "Rex Orange County",
-    "because": "Like Daniel Caesar",
-    "url": "https://open.spotify.com/artist/7pbDxGE6nQSZVfiFdq9lOL"
-   },
-   {
-    "name": "Snoh Aalegra",
-    "because": "Like Daniel Caesar",
-    "url": "https://open.spotify.com/artist/1A9o3Ljt67pFZ89YtPPL5X"
-   },
-   {
-    "name": "Wyatt Flores",
+    "name": "Colter Wall",
     "because": "Like Tyler Childers",
-    "url": "https://open.spotify.com/artist/46lEQmDJLJeyltECJYJv1Y"
+    "url": "https://open.spotify.com/artist/3xYXYzm9H3RzyQgBrYwIcx"
    },
    {
-    "name": "The Backseat Lovers",
+    "name": "Omar Apollo",
+    "because": "Like Daniel Caesar",
+    "url": "https://open.spotify.com/artist/5FxD8fkQZ6KcsSYupDVoSO"
+   },
+   {
+    "name": "Big Gigantic",
+    "because": "Like Louis The Child",
+    "url": "https://open.spotify.com/artist/7o7mC95EDbJKTcPAAs8C3r"
+   },
+   {
+    "name": "Caamp",
     "because": "Like Mt. Joy",
-    "url": "https://open.spotify.com/artist/6p2HnfM955TI1bX34dkLnI"
+    "url": "https://open.spotify.com/artist/0wyMPXGfOuQzNR54ujR9Ix"
+   },
+   {
+    "name": "Boogie T",
+    "because": "Like Ganja White Night",
+    "url": "https://open.spotify.com/artist/4zlw0jXUzd4dRcqI3Y1OiY"
    }
   ],
   "podcasts": [
    {
-    "show": "The Peter Attia Drive",
-    "seed": "Huberman Lab",
-    "because": "Because you follow Huberman Lab: a physician's weekly, evidence-first long interviews on longevity, training and metabolic health."
-   },
-   {
-    "show": "No Priors: Artificial Intelligence | Technology | Startups",
+    "show": "Conversations with Tyler",
     "seed": "Lex Fridman Podcast",
-    "because": "Because you follow Lex Fridman: Sarah Guo and Elad Gil interview AI founders and researchers, about 40 minutes a week."
+    "because": "Because you follow Lex Fridman Podcast: Tyler Cowen's tightly prepared interviews with thinkers like Terence Tao deliver the same intellectual range in under an hour."
    },
    {
-    "show": "Hard Fork",
-    "seed": "Moonshots with Peter Diamandis",
-    "because": "Because you follow Moonshots: the New York Times' weekly tech show, fast and funny on the same AI news cycle."
+    "show": "Lenny's Podcast: Product | Career | Growth",
+    "seed": "The Diary Of A CEO with Steven Bartlett",
+    "because": "Because you follow The Diary Of A CEO: Lenny Rachitsky interviews operators who built real products, including a recent episode on how Meta launched Muse."
    },
    {
-    "show": "Acquired",
-    "seed": "The Knowledge Project",
-    "because": "Because you follow The Knowledge Project: three-hour histories of great companies, one a month."
-   },
-   {
-    "show": "Founders",
-    "seed": "The Knowledge Project",
-    "because": "Because you follow The Knowledge Project: David Senra reads a biography a week and pulls out what the founder did differently."
-   },
-   {
-    "show": "The Robot Brains Podcast",
-    "seed": "Lex Fridman Podcast",
-    "because": "Because you follow Lex Fridman: Pieter Abbeel interviews the people building robots and robot learning."
-   },
-   {
-    "show": "Dithering",
-    "seed": "Modern Wisdom",
-    "because": "Because you follow Modern Wisdom: Ben Thompson and John Gruber, 15 minutes a day on tech, no guests, no filler."
-   },
-   {
-    "show": "The Rest Is History",
-    "seed": "Dan Carlin's Hardcore History",
-    "because": "Because you follow Hardcore History: Tom Holland and Dominic Sandbrook tell history in multi-part series, twice a week."
+    "show": "Making Sense with Sam Harris",
+    "seed": "The Jordan B. Peterson Podcast",
+    "because": "Because you follow The Jordan B. Peterson Podcast: Sam Harris tackles the same questions of meaning, morality and culture from a secular angle, often as a sharp counterpoint."
    }
   ]
  },
  "discoverLog": [
-  "JID",
-  "Denzel Curry",
-  "Earl Sweatshirt",
-  "Zach Bryan",
-  "Seven Lions",
-  "Anderson .Paak",
-  "Noah Kahan",
-  "@scottmanley",
-  "@asianometry",
-  "@stewarthicks",
-  "@pboyle",
-  "@spanishandgo",
-  "@yestheory",
-  "What So Not",
-  "Dirt Monkey",
-  "Tape B",
-  "A$AP Rocky",
-  "6LACK",
   "GIVĒON",
   "Turnpike Troubadours",
   "Vance Joy",
@@ -1345,94 +1301,108 @@
   "Founders",
   "The Robot Brains Podcast",
   "Dithering",
-  "The Rest Is History"
+  "The Rest Is History",
+  "piri",
+  "Saba",
+  "Colter Wall",
+  "Omar Apollo",
+  "Big Gigantic",
+  "Caamp",
+  "Boogie T",
+  "@NeverTooSmall",
+  "@EconomicsExplained",
+  "@JerryRigEverything",
+  "@HolaSpanish",
+  "@OhTheUrbanity",
+  "@UnitreeRobotics",
+  "Invest Like the Best with Patrick O'Shaughnessy",
+  "The Rich Roll Podcast",
+  "Conversations with Tyler",
+  "Lenny's Podcast: Product | Career | Growth",
+  "Making Sense with Sam Harris"
  ],
  "bay": {
   "range": "Nov 20-22",
   "items": [
    {
     "id": "b1",
-    "title": "Brutalismus 3000 at The Warfield",
-    "where": "The Warfield, San Francisco",
-    "blurb": "Berlin's hardcore-techno duo Brutalismus 3000 bring their Harmony US Tour to the Warfield on Saturday Nov 21 (doors 7pm, show 8pm, 16+), with Eurohead, ali rq, deBasement and techno pagan opening. Goldenvoice show, tickets via AXS (face price not shown in listings; resale was quoting about $81). Loud, sweaty, 150-BPM gabber-pop in a 2,300-cap theater, about as big as this kind of set gets in SF.",
+    "title": "Tisoki at The Midway",
+    "where": "The Midway, San Francisco",
+    "blurb": "Saturday, Nov 21, 9 PM. UK bass producer Tisoki headlines a club night in the Midway's warehouse room in Dogpatch. Ticket price was not shown in the listing, so expect a typical Midway club-night price and an age-restricted door; check the venue page before you go.",
     "date": "2026-11-21",
     "free": false,
-    "url": "https://www.axs.com/events/1554506/brutalismus-3000-tickets",
+    "url": "https://www.technoairlines.com/event/tisoki-the-midway-2026-11-21",
     "cal": {
-     "start": "2026-11-21T20:00",
-     "end": "2026-11-21T23:00",
-     "location": "The Warfield, 982 Market St, San Francisco, CA 94102",
-     "tips": "Caltrain to SF then BART/Muni one stop to Powell; the Warfield is a 3-minute walk from Powell St station. Last southbound Caltrain leaves around midnight, so plan a rideshare or crash in the city. Earplugs are strongly advised for this act, and Mid-Market can be sketchy late, so stick to Market St when leaving."
+     "start": "2026-11-21T21:00",
+     "end": "2026-11-22T02:00",
+     "location": "The Midway, 900 Marin St, San Francisco, CA 94124",
+     "tips": "From Mountain View, Caltrain to 22nd St station is about a 15-minute walk to the Midway, but the last southbound train leaves well before close, so plan a rideshare back or drive (about 45 minutes, street parking in Dogpatch). Bring ID. Earplugs recommended."
     }
    },
    {
     "id": "b2",
-    "title": "Peninsula Symphony and Stanford Symphonic Chorus",
-    "where": "Bing Concert Hall, Stanford",
-    "blurb": "Friday Nov 20, 7:30pm: the Peninsula Symphony (Mitchell Sardou Klein) joins the Stanford Symphonic Chorus and Chamber Chorale (Stephen M. Sano) for an all-British program of Walton's Crown Imperial, Anna Clyne's This Moment, Vaughan Williams' Toward the Unknown Region and Serenade to Music, and Elgar's Cockaigne Overture. Tickets listed at $32 to $37 (last season's range; confirm at purchase), Stanford students free, plus a $4 Department of Music fee. Bing's 842-seat vineyard hall is one of the best-sounding rooms in the Bay Area, and it is 15 minutes from Mountain View.",
-    "date": "2026-11-20",
-    "free": false,
-    "url": "https://peninsulasymphony.org/stanford-concert-nov-2026",
+    "title": "Market Memories cookbook event at the Ferry Plaza Farmers Market",
+    "where": "Ferry Building, San Francisco",
+    "blurb": "Saturday, Nov 21, 11 AM. A free meet-and-greet and food demo tied to the Market Memories cookbook, held during the Saturday Ferry Plaza Farmers Market, the biggest market of the week. Free. Go hungry: the market runs 8 AM to 2 PM with prepared-food stalls along the Embarcadero side.",
+    "date": "2026-11-21",
+    "free": true,
+    "url": "https://sf.funcheap.com/2026/11/21/",
     "cal": {
-     "start": "2026-11-20T19:30",
-     "end": "2026-11-20T21:30",
-     "location": "Bing Concert Hall, 327 Lasuen St, Stanford, CA 94305",
-     "tips": "Drive about 15 minutes via El Camino or 101/Embarcadero Rd; the Bing parking lot on Lasuen St is free after 4pm on weekdays. Or take Caltrain to Palo Alto and walk 20 minutes or ride the free Marguerite shuttle onto campus. Buy through the Peninsula Symphony or Stanford Live ticket link; it also plays Saturday Nov 21 at 7:30pm if Friday does not work."
+     "start": "2026-11-21T11:00",
+     "end": "2026-11-21T13:00",
+     "location": "Ferry Building, 1 Ferry Building, San Francisco, CA 94111",
+     "tips": "Caltrain from Mountain View to 4th and King, then the N or T Muni line, or a 20-minute walk up the Embarcadero. Parking near the Ferry Building is expensive; transit is easier. Bring a tote bag and cash for small vendors."
     }
    },
    {
     "id": "b3",
-    "title": "Manzanita Morning Hike, St. Joseph's Hill",
-    "where": "St. Joseph's Hill Open Space Preserve, Los Gatos",
-    "blurb": "Midpen docent-led 3.5-mile hike Sunday Nov 22, 9am-noon, climbing St. Joseph's Hill above Lexington Reservoir for views over the reservoir, Los Gatos and the Santa Clara Valley. Free (Santa Clara County Parks $6 parking fee at the boat launch lot). A good low-effort way to get out and up before the rest of your Sunday.",
-    "date": "2026-11-22",
+    "title": "Fall and winter berries docent hike, Windy Hill",
+    "where": "Windy Hill Open Space Preserve, Portola Valley",
+    "blurb": "Saturday, Nov 21, noon to 2 PM. A leisurely, family-friendly 2-mile walk around Sausal Pond on the Spring Ridge and Betsy Crowder trails, led by Midpen docent naturalists, looking at toyon, coffeeberry and other fall and winter fruit. Free. Check the event page for whether a reservation is required.",
+    "date": "2026-11-21",
     "free": true,
-    "url": "https://www.openspace.org/events/guided-activities/manzanita-morning-hike-0",
+    "url": "https://www.openspace.org/events/guided-activities/fall-winter-berries",
     "cal": {
-     "start": "2026-11-22T09:00",
-     "end": "2026-11-22T12:00",
-     "location": "Lexington Reservoir County Park boat launch lot (next to the dam), 17770 Alma Bridge Rd, Los Gatos, CA 95033",
-     "tips": "About 30 min from Mountain View via 85/17; exit Bear Creek Rd and loop back onto Alma Bridge Rd. Meet at the County boat-launch parking lot by the dam, not the Jones trailhead on the Los Gatos side; bring $6 for parking. Check the openspace.org page the night before for an Eventbrite registration button or cancellation; bring water, layers and sun protection, the hill is exposed."
+     "start": "2026-11-21T12:00",
+     "end": "2026-11-21T14:00",
+     "location": "Windy Hill Open Space Preserve, Portola Road parking area, Portola Valley, CA 94028",
+     "tips": "About 20 minutes from Mountain View via I-280 to Alpine Road, then Portola Road. The lower Portola Road lot by Sausal Pond is small, so arrive early. Bring water, layers and shoes that can handle mud after the midweek storm."
     }
    },
    {
     "id": "b4",
-    "title": "Fall Holiday Chocolate Salon",
-    "where": "SF County Fair Building, Golden Gate Park, San Francisco",
-    "blurb": "One-day chocolate festival Sunday Nov 22, 11am-4:30pm, with dozens of Bay Area and California chocolatiers, confectioners and wine/spirits makers handing out tastings, plus chef demos. Adult advance tickets are $20 (listed $25 at the door if not sold out; Eventbrite shows ~$13-27 across ticket types) and all tastings are included. It has sold out in advance in past years, so buy ahead.",
-    "date": "2026-11-22",
+    "title": "129th Big Game: Stanford at Cal",
+    "where": "California Memorial Stadium, Berkeley",
+    "blurb": "Saturday, Nov 21, 4:30 PM kickoff on ACC Network. Stanford visits Berkeley for the 129th Big Game, the first meeting between head coaches Tavita Pritchard (Stanford) and Tosh Lupoi (Cal). Stanford leads the series 66-51-11, and bowl eligibility is in play. Ticket prices vary; buy through calbears.com.",
+    "date": "2026-11-21",
     "free": false,
-    "url": "https://www.eventbrite.com/e/fall-holiday-chocolate-salon-and-festival-2026-tickets-1992262091546",
+    "url": "https://calbears.com/news/2026/11/9/football-129th-big-game-kickoff-time-announced",
     "cal": {
-     "start": "2026-11-22T11:00",
-     "end": "2026-11-22T16:30",
-     "location": "San Francisco County Fair Building (Hall of Flowers), 1199 9th Ave, San Francisco, CA 94122",
-     "tips": "Caltrain to SF then the N-Judah to 9th & Irving (the building is at the park entrance), or drive ~50 min and hunt for street parking on 9th/Lincoln. Go on an empty stomach and bring a tote for purchases; early afternoon is calmer than the opening hour. Afterwards you are 15 min from Chase Center for the Warriors tipoff."
+     "start": "2026-11-21T16:30",
+     "end": "2026-11-21T20:00",
+     "location": "California Memorial Stadium, 2227 Piedmont Ave, Berkeley, CA 94720",
+     "tips": "From Mountain View, Caltrain to Millbrae then BART to Downtown Berkeley (about 1 hr 45 min total), then a 15-minute uphill walk. Driving is 60-90 minutes with heavy game-day traffic and scarce parking. Bring a jacket; it gets cold after sunset in the upper deck."
     }
    },
    {
     "id": "b5",
-    "title": "Warriors vs. Celtics",
-    "where": "Chase Center, San Francisco",
-    "blurb": "Boston's only Bay Area visit of the season: Warriors host the Celtics Sunday Nov 22, 5:30pm tipoff at Chase Center. It is also a 'Philadelphia Era' Legends Night for the team's 80th season, with Tom Meschery attending and a Philadelphia Warriors championship pennant for the first 10,000 fans. Resale tickets were starting around $93-106; official tickets via Ticketmaster through warriors.com.",
-    "date": "2026-11-22",
+    "title": "San Jose Holiday Lights",
+    "where": "Discovery Meadow, downtown San Jose",
+    "blurb": "Open nightly 4:30 to 10:30 PM from Nov 13 through Jan 1; Friday, Nov 20 is a good first-weekend night. A walk-through holiday light display at 330 W San Carlos St next to the Children's Discovery Museum, a few blocks from SAP Center and Christmas in the Park. Admission price was not shown in the listing; check the page before going.",
+    "date": "2026-11-20",
+    "endDate": "2027-01-01",
     "free": false,
-    "url": "https://www.nba.com/warriors/news/warriors-fan-guide-november-2026",
+    "url": "https://www.sanjose.org/events/san-jose-holiday-lights-2026",
     "cal": {
-     "start": "2026-11-22T17:30",
-     "end": "2026-11-22T20:00",
-     "location": "Chase Center, 1 Warriors Way, San Francisco, CA 94158",
-     "tips": "Easiest from Mountain View is Caltrain to 4th & King, then a 15-minute walk down 3rd St or the T-Third Muni two stops to UCSF/Chase Center; a Warriors ticket covers Muni. Sunday evening Caltrain back runs hourly, so check the post-game departure before you leave. Arrive early (doors ~4pm) if you want the pennant giveaway."
+     "start": "2026-11-20T18:00",
+     "end": "2026-11-20T20:00",
+     "location": "330 W San Carlos St, San Jose, CA 95110",
+     "tips": "About 20 minutes from Mountain View on US-101, or Caltrain to San Jose Diridon and a 10-minute walk. Paid garages along W San Carlos and at the convention center. Dress warm and allow an hour."
     }
    }
   ]
  },
  "bayLog": [
-  "San Francisco Opera: Manon",
-  "Tom Jones at The Masonic",
-  "Warriors vs. Magic",
-  "49ers vs. Raiders",
-  "Dublin Diwali-Mela Festival of Lights",
   "Holiday ice rink at Fisherman's Wharf",
   "North Taurids meteor shower",
   "Jessie Reyez at the Fox Theater",
@@ -1487,10 +1457,15 @@
   "Peninsula Symphony and Stanford Symphonic Chorus",
   "Manzanita Morning Hike, St. Joseph's Hill",
   "Fall Holiday Chocolate Salon",
-  "Warriors vs. Celtics"
+  "Warriors vs. Celtics",
+  "Tisoki at The Midway",
+  "Market Memories cookbook event at the Ferry Plaza Farmers Market",
+  "Fall and winter berries docent hike, Windy Hill",
+  "129th Big Game: Stanford at Cal",
+  "San Jose Holiday Lights"
  ],
  "shows": {
-  "note": "Re-verified: Slander still on the Give Thanks bill (Songkick names Seven Lions and SLANDER for the Fri/Sat 2-day pass; aggregators show Nov 25/27/28, one resale listing says 11/27-11/29); Illenium Dec 31 at Bill Graham Civic is listed at 8 PM on Live Nation and reported sold out by Secret San Francisco, Dec 30 still available, Jan 1 added show not yet found on a ticketing page; RÜFÜS DU SOL Pier 80 confirmed Sun Jan 3 2027 4 PM 21+ on Ticketmaster ($193-$604), with AXS oddly listing Sat Jan 2 9 PM and Edmtrain/SeatGeek a second Jan 4 night (no stock),  unresolved; Kodak Black resolved to 'Bigger Than Life: DaBaby & Kodak Black' at Oakland Arena Sat Feb 27 2027 8 PM, rescheduled from 9/12/26 and 11/7/26. No Bay Area dates through mid-May 2027 surfaced in this pass for Sam Gellaitry, Kanye West, Tyler The Creator, Drake, Kid Cudi, J. Cole, Kendrick Lamar, Jack Harlow, Post Malone, BigXthaPlug, Kota the Friend, Travis Scott, Future, Chance the Rapper, Aminé, Daniel Caesar, Leon Bridges, ABBA, Tyler Childers, Mt. Joy, nimino, oskar med k, ODESZA, RL Grime, Louis The Child, Ganja White Night, Flume, Conrad., eric404, Hippie Sabotage, Childish Gambino, Khalid, TroyBoi, Wiley from Atlanta, Chris Stapleton, Big Sean, Wiz Khalifa, Russ, Frank Ocean, Felly, Milky Chance, Masego, Surfaces, Aer or Big Wild (Ticketmaster shows no upcoming US dates for Kid Cudi or J. Cole; Jack Harlow has no 2027 dates announced); absence in search snippets is not proof of absence. Similar-artist sweep (Excision, Subtronics, Zeds Dead, Said The Sky, Dabin, Lane 8, Disclosure, Fred again.., Noah Kahan, Zach Bryan, JID, Denzel Curry) found no confirmed Bay Area dates; Seven Lions is confirmed on the same Give Thanks bill as Slander.",
+  "note": "Re-checked Nov 17: Slander still on the Give Thanks bill (Fri/Sat Nov 27-28 at San Jose McEnery; resale listings also show a Wed Nov 25 date and placeholder start times); Illenium's Dec 30 and Dec 31 (sold out) nights at Bill Graham stand and the Jan 1 added show is still only reported by Secret SF, not yet seen on the venue page; RÜFÜS DU SOL's Pier 80 listings are confusing: SeatGeek now shows the Jan 3 4 PM show as the live set with Dixon, Jimi Jules and Julya Karma and a separate 21+ DJ set Mon Jan 4 at 5 PM, so confirm which ticket you hold; Kodak Black/DaBaby at Oakland Arena Feb 27, 2027 carried over from the previous check and not re-verified this pass. New similar-artist finds: Noah Kahan at Levi's Stadium May 19, 2027 (general on-sale was Nov 12) and Calvin Harris at Oakland Arena May 7, 2027. No Bay Area dates found through mid-May 2027 for Sam Gellaitry, Kanye West, Tyler, The Creator, Drake, Kid Cudi, J. Cole, Kendrick Lamar, Jack Harlow, Post Malone, BigXthaPlug, Kota the Friend, Travis Scott, Future, Chance the Rapper, Aminé, Daniel Caesar, Leon Bridges, ABBA, Tyler Childers, Mt. Joy, nimino, oskar med k, ODESZA, RL Grime, Louis The Child, Ganja White Night, Flume, Conrad., eric404, Hippie Sabotage, Childish Gambino, Khalid, TroyBoi, Wiley from Atlanta, Chris Stapleton (his Shoreline date was Jul 8, 2026), Big Sean, Wiz Khalifa, Russ, Frank Ocean, Felly, Milky Chance, Masego, Surfaces, Aer or Big Wild; also none for Excision, Subtronics, Zeds Dead, Said The Sky, Dabin, Lane 8, Disclosure, Fred again.., JID, Denzel Curry, Sammy Virji, Dom Dolla or John Summit. Zach Bryan plays SoFi Jul 20, 2027 and GoldenSky in Sacramento, no Bay Area date. Outside Lands 2027 is Aug 6-8 with no lineup yet. Absence in search results is not proof of absence.",
   "items": [
    {
     "artist": "Slander",
@@ -1498,19 +1473,19 @@
      "Slander",
      "Seven Lions"
     ],
-    "title": "Give Thanks Festival 2026 (Fri/Sat 2-day pass)",
+    "title": "Give Thanks Festival 2026 (Fri/Sat)",
     "date": "2026-11-27",
     "time": "",
     "venue": "San Jose McEnery Convention Center",
     "city": "San Jose, CA",
-    "price": "2-day pass from ~$116 on resale (TickPick); GA/VIP 3-day, 2-day and Wednesday passes sold via Frontgate",
+    "price": "Resale from about $116 GA; 2-day passes from $275-342 on resale. Face value via Frontgate.",
     "soldOut": false,
-    "url": "https://songkick.com/venues/9517-san-jose-mcenery-convention-center",
+    "url": "https://www.technoairlines.com/festival/give-thanks-festival-san-jose-ca-united-states-2026",
     "cal": {
      "start": "2026-11-27T18:00",
      "end": "2026-11-29T01:00",
      "location": "San Jose McEnery Convention Center, 150 W San Carlos St, San Jose, CA 95113",
-     "tips": "18+ event. VTA light rail Convention Center stop is at the door; Caltrain to Diridon is about a 15-minute walk. Festival runs Wed Nov 25 plus Fri Nov 27 and Sat Nov 28,  Slander's night is not pinned down in the listings, so check the day split on the official schedule before buying a single-day pass; set times were not published in the sources retrieved."
+     "tips": "Fri-Sat Nov 27-28, 18+. Set times not published yet; official site is givethanksfestival.com. Caltrain or VTA to Diridon is a 10-minute walk; the convention center garage fills early on festival nights. Resale sites show it near sold out, so buy face value if available."
     }
    },
    {
@@ -1518,19 +1493,19 @@
     "artists": [
      "Illenium"
     ],
-    "title": "ILLENIUM,  New Year's run at Bill Graham Civic (Dec 30, Dec 31, Jan 1)",
-    "date": "2026-12-31",
-    "time": "20:00",
+    "title": "Illenium, three nights (Dec 30, Dec 31 sold out, Jan 1 added)",
+    "date": "2026-12-30",
+    "time": "",
     "venue": "Bill Graham Civic Auditorium",
     "city": "San Francisco, CA",
-    "price": "Dec 31 reported sold out (resale only); Dec 30 tickets still available via Live Nation; Jan 1 added show,  price not shown in sources",
-    "soldOut": true,
+    "price": "Resale from about $202 (Dec 30). Dec 31 sold out; Jan 1 added.",
+    "soldOut": false,
     "url": "https://www.livenation.com/event/G5vYZ_KjPaQe2/illenium-18",
     "cal": {
-     "start": "2026-12-31T20:00",
-     "end": "2027-01-01T01:00",
+     "start": "2026-12-30T20:00",
+     "end": "2026-12-31T00:00",
      "location": "Bill Graham Civic Auditorium, 99 Grove St, San Francisco, CA 94102",
-     "tips": "Civic Center BART/Muni is one block away; expect NYE street closures and surge pricing on rideshare. The Live Nation listing is titled 'ILLENIUM (18+)',  bring ID. Three nights: Dec 30 (available), Dec 31 (sold out per Secret SF, 8 PM), Jan 1 2027 (added after the NYE sellout; not yet seen on a ticketing page, so verify)."
+     "tips": "18+, physical ID required. Civic Center BART is across the plaza; from Mountain View take Caltrain to Millbrae then BART, but the Dec 31 night will run past the last train. Show times not confirmed; 8 PM is a placeholder."
     }
    },
    {
@@ -1539,48 +1514,113 @@
      "RÜFÜS DU SOL",
      "Dixon",
      "Jimi Jules",
-     "Julya Karma",
-     "RICHE"
+     "Julya Karma"
     ],
-    "title": "RÜFÜS DU SOL (DJ set) with Dixon B2B Jimi Jules",
+    "title": "RÜFÜS DU SOL at Pier 80 with Dixon and Jimi Jules",
     "date": "2027-01-03",
     "time": "16:00",
     "venue": "Pier 80 Warehouse",
     "city": "San Francisco, CA",
-    "price": "Ticketmaster $193-$604; JamBase shows from $99.50; SeatGeek resale from $187",
+    "price": "Ticketmaster $193-$604; resale from about $161-168; the Jan 4 DJ set from about $71 on SeatGeek.",
     "soldOut": false,
     "url": "https://www.ticketmaster.com/event/Z7r9jZ1AAe3qg",
     "cal": {
      "start": "2027-01-03T16:00",
      "end": "2027-01-03T23:00",
-     "location": "Pier 80, Cesar Chavez St at Illinois St, San Francisco, CA 94124",
-     "tips": "21+ only. Sunday daytime start (4 PM) in an industrial pier warehouse,  dress warm. Muni T Third (Marin St stop) is the easiest transit; parking is limited. Listing quirks: AXS shows the same bill as Sat Jan 2 9 PM and Edmtrain/SeatGeek show a second night Jan 4,  the Ticketmaster Jan 3 4 PM listing is the one to trust until Goldenvoice/NPU Live clarify."
+     "location": "Pier 80, 2001 Cesar Chavez St, San Francisco, CA 94124",
+     "tips": "Sunday 4 PM start, first SF show since 2019. SeatGeek lists a separate 21+ DJ set Mon Jan 4 at 5 PM, so confirm which ticket you hold. Pier 80 is remote; rideshare from 22nd St Caltrain or drive and expect lot parking. Dress for a cold warehouse."
     }
    },
    {
     "artist": "Kodak Black",
     "artists": [
-     "DaBaby",
-     "Kodak Black"
+     "Kodak Black",
+     "DaBaby"
     ],
     "title": "Bigger Than Life: DaBaby & Kodak Black",
     "date": "2027-02-27",
     "time": "20:00",
     "venue": "Oakland Arena",
     "city": "Oakland, CA",
-    "price": "From ~$43 before fees (aggregator); average resale ~$181; suites on SuiteHop",
+    "price": "",
     "soldOut": false,
     "url": "https://www.theoaklandarena.com/events/index/60",
     "cal": {
      "start": "2027-02-27T20:00",
-     "end": "2027-02-27T23:30",
+     "end": "2027-02-27T23:00",
      "location": "Oakland Arena, 7000 Coliseum Way, Oakland, CA 94621",
-     "tips": "BART Coliseum station connects by the pedestrian bridge; from Mountain View take Caltrain to Millbrae then BART, or drive 880 (lot parking is paid). Rescheduled twice (from Sep 12 and Nov 7, 2026),  original tickets should be honored but confirm with your seller; performers listed as subject to change, no refunds/exchanges."
+     "tips": "Rescheduled from 9/12/26 and 11/7/26; not re-verified this pass, so confirm on the Oakland Arena calendar. Coliseum BART stops at the arena; from Mountain View take Caltrain to Millbrae then BART."
+    }
+   },
+   {
+    "artist": "Noah Kahan",
+    "artists": [
+     "Noah Kahan"
+    ],
+    "title": "Noah Kahan: The Last of the Bugs World Tour",
+    "date": "2027-05-19",
+    "time": "",
+    "venue": "Levi's Stadium",
+    "city": "Santa Clara, CA",
+    "price": "General on-sale was Nov 12, 2026 at noon; price not shown.",
+    "soldOut": false,
+    "url": "https://riffmagazine.com/news/noah-kahan-the-last-of-the-bugs-tour-2027/",
+    "cal": {
+     "start": "2027-05-19T19:00",
+     "end": "2027-05-19T23:00",
+     "location": "Levi's Stadium, 4900 Marie P DeBartolo Way, Santa Clara, CA 95054",
+     "tips": "Similar-artist pick (Mt. Joy, Tyler Childers lane). Stadium show, 31-date tour; set time not published. From Mountain View it is 15 minutes by car or VTA light rail to Great America station; stadium parking is pricey, so pre-book."
+    }
+   },
+   {
+    "artist": "Calvin Harris",
+    "artists": [
+     "Calvin Harris"
+    ],
+    "title": "Calvin Harris, first North American headline tour",
+    "date": "2027-05-07",
+    "time": "",
+    "venue": "Oakland Arena",
+    "city": "Oakland, CA",
+    "price": "Not shown; artist presale was Oct 20, 2026.",
+    "soldOut": false,
+    "url": "https://secretsanfrancisco.com/calvin-harris-oakland-concert-tickets/",
+    "cal": {
+     "start": "2027-05-07T20:00",
+     "end": "2027-05-07T23:00",
+     "location": "Oakland Arena, 7000 Coliseum Way, Oakland, CA 94621",
+     "tips": "Similar pick for the dance side of the list (Chris Lake, Flume lane); one of 18 US stops. Coliseum BART is attached to the arena by a walkway. Set time is a placeholder until the venue posts it."
     }
    }
   ]
  },
  "vocab": [
+  {
+   "date": "2026-11-17",
+   "word": "Kludge",
+   "pron": "klooj",
+   "pos": "noun (also verb)",
+   "def": "A clumsy, inelegant fix that works anyway: a solution bolted together from mismatched parts because it had to ship today.",
+   "cards": [
+    {
+     "f": "Root",
+     "b": "Engineering slang popularized by Jackson Granholm's 1962 Datamation essay 'How to Design a Kludge'; often traced to German klug ('clever') or Scots cludgie, though the origin is disputed"
+    },
+    {
+     "f": "Synonym",
+     "b": "hack, workaround, bodge, duct-tape fix, Rube Goldberg machine; the opposite of an elegant design"
+    },
+    {
+     "f": "Use it for",
+     "b": "a zip-tied cable harness that shipped, the regex that parses a log file nobody will ever touch again, a hotfix with a TODO from 2023 still in it"
+    }
+   ],
+   "examples": [
+    "The gripper timing was a kludge, a 40-millisecond sleep nobody could explain, and it held through the whole demo.",
+    "Every lab has one kludge it is secretly proud of, and it is usually load-bearing."
+   ],
+   "ex": "The gripper timing was a kludge, a 40-millisecond sleep nobody could explain, and it held through the whole demo."
+  },
   {
    "date": "2026-11-16",
    "word": "Sprezzatura",
@@ -1736,35 +1776,84 @@
     "Robot logs invite apophenia: every glitch looks like a pattern until you count."
    ],
    "ex": "Three green days in a row isn't a signal; that's apophenia talking."
-  },
-  {
-   "date": "2026-11-10",
-   "word": "Aplomb",
-   "pron": "uh-PLOM",
-   "pos": "noun",
-   "def": "Calm self-confidence, especially in a tense or difficult situation.",
-   "cards": [
-    {
-     "f": "Root",
-     "b": "French 'à plomb', 'according to the plumb line', meaning upright and steady"
-    },
-    {
-     "f": "Synonym",
-     "b": "poise, composure, assurance"
-    },
-    {
-     "f": "Use it for",
-     "b": "handling pressure gracefully: a demo gone wrong, a hard question, a surprise"
-    }
-   ],
-   "examples": [
-    "She fielded the hostile question with perfect aplomb.",
-    "The robot demo failed, but he recovered with aplomb."
-   ],
-   "ex": "She fielded the hostile question with perfect aplomb."
   }
  ],
  "spanish": [
+  {
+   "date": "2026-11-17",
+   "phrase": "Me voy a echar un coyotito",
+   "pron": "meh voy ah eh-CHAR oon ko-yo-TEE-toh",
+   "reg": "Mexico · casual",
+   "meaning": "I'm going to take a quick nap",
+   "note": "Literally 'I'm going to throw myself a little coyote'. In Mexico, echarse un coyotito is the everyday way to say you are grabbing a short nap, usually after lunch or before going out. Warm and a bit playful, fine with coworkers and family alike, and it makes the nap sound like a plan instead of a lapse. The reflexive echarse ('to throw oneself') shows up all over casual Mexican Spanish for doing something quickly: echarse un taco, echarse una pestañita.",
+   "cards": [
+    {
+     "es": "Me voy a echar un coyotito, ¿me despiertas en veinte?",
+     "en": "I'm going to take a quick nap, wake me in twenty?"
+    },
+    {
+     "es": "Me eché una pestañita en el tren",
+     "en": "I dozed off for a bit on the train (literally 'a little eyelash')"
+    },
+    {
+     "es": "Ando que me caigo de sueño",
+     "en": "I'm so tired I could fall over"
+    }
+   ],
+   "parts": [
+    {
+     "es": "Me voy",
+     "en": "I'm off, I'm going (irse, to leave)"
+    },
+    {
+     "es": "a echar",
+     "en": "to throw; here 'to have' or 'to take', as in echarse algo"
+    },
+    {
+     "es": "un",
+     "en": "a"
+    },
+    {
+     "es": "coyotito",
+     "en": "little coyote (diminutive of coyote), slang for a short nap"
+    },
+    {
+     "es": "echarse un coyotito",
+     "en": "to take a quick nap"
+    },
+    {
+     "es": "¿me despiertas?",
+     "en": "will you wake me?"
+    }
+   ],
+   "dialog": [
+    {
+     "es": "¿Vienes al café o qué?",
+     "en": "Are you coming for coffee or what?"
+    },
+    {
+     "es": "Dame veinte minutos, me voy a echar un coyotito.",
+     "en": "Give me twenty minutes, I'm going to take a quick nap."
+    },
+    {
+     "es": "¿Otra vez? Anoche no dormiste, ¿verdad?",
+     "en": "Again? You didn't sleep last night, did you?"
+    },
+    {
+     "es": "Casi nada. Al rato te alcanzo.",
+     "en": "Barely. I'll catch up with you in a bit."
+    }
+   ],
+   "use": "Say it after lunch today when you feel yourself fading; it names the nap, gets a smile, and nobody argues with a coyotito.",
+   "quiz": {
+    "options": [
+     "I'm going to take a quick nap",
+     "I'm going to walk the dog",
+     "I'm going to grab a quick bite"
+    ],
+    "answer": 0
+   }
+  },
   {
    "date": "2026-11-16",
    "phrase": "Se me fue el avión",
@@ -2198,69 +2287,6 @@
     ],
     "answer": 0
    }
-  },
-  {
-   "date": "2026-11-10",
-   "phrase": "Está de pelos",
-   "pron": "ehs-TAH deh PEH-lohs",
-   "reg": "Mexico · casual",
-   "meaning": "It's awesome",
-   "note": "Literally 'it's of hairs', but in Mexican slang 'de pelos' means excellent or really good. Use it for food, plans, music, anything you like.",
-   "cards": [
-    {
-     "es": "¡Qué padre!",
-     "en": "How cool!"
-    },
-    {
-     "es": "Está muy chido",
-     "en": "It's really cool"
-    },
-    {
-     "es": "Está increíble",
-     "en": "It's incredible"
-    }
-   ],
-   "parts": [
-    {
-     "es": "Está",
-     "en": "it is"
-    },
-    {
-     "es": "de",
-     "en": "of / from"
-    },
-    {
-     "es": "pelos",
-     "en": "hairs (slang: top quality)"
-    }
-   ],
-   "dialog": [
-    {
-     "es": "¿Probaste los tacos nuevos?",
-     "en": "Did you try the new tacos?"
-    },
-    {
-     "es": "Sí, ¡están de pelos!",
-     "en": "Yes, they're awesome!"
-    },
-    {
-     "es": "¿Vamos otra vez mañana?",
-     "en": "Shall we go again tomorrow?"
-    },
-    {
-     "es": "Va, mañana vamos.",
-     "en": "Deal, we'll go tomorrow."
-    }
-   ],
-   "use": "Say it when something is better than you expected.",
-   "quiz": {
-    "options": [
-     "It's awesome",
-     "It's too expensive",
-     "It's closed"
-    ],
-    "answer": 0
-   }
   }
  ],
  "learnLog": {
@@ -2296,7 +2322,8 @@
    "Riparian",
    "Palimpsest",
    "Sprezzatura",
-   "Sprezzatura"
+   "Sprezzatura",
+   "Kludge"
   ],
   "phrases": [
    "¡Aguas!",
@@ -2330,7 +2357,8 @@
    "¡Qué hueva!",
    "Ya me cayó el veinte",
    "Se me fue el avión",
-   "Se me fue el avión"
+   "Se me fue el avión",
+   "Me voy a echar un coyotito"
   ]
  },
  "coach": {
@@ -2584,7 +2612,7 @@
     "type": "album",
     "date": "2026-11-13",
     "url": "https://open.spotify.com/album/62vOhQo4OJwUNlEVPQ1owK",
-    "note": "New album, out release-day Friday Nov 13 (also listed on HotNewHipHop's November 2026 albums roundup)."
+    "note": "New album, out Friday Nov 13; still his newest release on Spotify."
    },
    {
     "artist": "Tyler Childers",
@@ -2608,7 +2636,7 @@
     "type": "EP",
     "date": "2026-11-06",
     "url": "https://open.spotify.com/album/37s3KcWi2HUuBOsfhRBXh4",
-    "note": "Still his newest release per Spotify."
+    "note": "Still his newest release on Spotify."
    },
    {
     "artist": "Slander",
@@ -2616,7 +2644,8 @@
     "type": "single",
     "date": "2026-11-06",
     "url": "https://open.spotify.com/album/1wNw1N3oGXnGZt0pbUEaJS",
-    "note": "SLANDER x Excision x Blanke; still SLANDER's newest release."
+    "tracks": 1,
+    "note": "SLANDER x Excision x Blanke, 2:55; still SLANDER's newest release."
    },
    {
     "artist": "Future",
@@ -2627,62 +2656,34 @@
     "note": "Also the newest Spotify release credited to Drake and Travis Scott."
    },
    {
-    "artist": "Hippie Sabotage",
-    "title": "MAYDAY",
-    "type": "single",
-    "date": "2026-11-06",
-    "url": "https://open.spotify.com/album/3RGePv1gGg746At5lLR86R",
-    "note": "New single (date per Apple Music / Last.fm); a new album is reportedly in the works."
-   },
-   {
-    "artist": "Khalid",
-    "title": "FADED EYES : REFRESHED",
-    "type": "single",
-    "date": "2026-11-06",
-    "url": "https://open.spotify.com/album/146FOLcIdDJxQ0aAN7RJK0",
-    "note": "ZERB & Khalid remix package of their Aug 2026 single 'Faded Eyes' (with Sid Koans, Moonphazes)."
-   },
-   {
-    "artist": "Big Wild",
-    "title": "Runaway",
-    "type": "single",
+    "artist": "BigXthaPlug",
+    "title": "BETTER OVER TIME",
+    "type": "album",
     "date": "2026-10-30",
-    "url": "https://open.spotify.com/album/74TUzqWCRpGQxyya0ouSg4",
-    "note": "Date from a single source (Apple Music listing)."
+    "url": "https://open.spotify.com/album/6mk3WjnTzQ7MB8EpMU62ee",
+    "tracks": 18,
+    "note": "Fourth studio album, 18 tracks, with GloRilla and Lil Yachty."
    }
   ]
  },
  "live": [
   {
    "kind": "game",
-   "title": "76ers at Nets",
-   "sub": "NBA · Philadelphia (11-3, won 2 straight) at Brooklyn (3-9)",
-   "when": "2026-11-16T16:30:00-08:00",
-   "end": "2026-11-16T19:00:00-08:00",
-   "where": "Barclays Center, Brooklyn, NY",
-   "tv": [
-    "NBC Sports Philadelphia (local TV listed TBA in national guides)"
-   ],
-   "url": "https://legionreport.com/76ers-schedule-this-week/",
-   "note": "Tonight, 7:30 PM ET. Sixers coming off a 131-124 home win over the Pacers on Sun Nov 15; Joel Embiid listed day-to-day, Barlow/Bona/Hukporti out (Yardbarker). 9-0 in clutch games so far."
-  },
-  {
-   "kind": "game",
    "title": "76ers at Magic",
-   "sub": "NBA · Philadelphia (11-3) at Orlando (5-7)",
+   "sub": "NBA · Philadelphia (12-3, won 3 straight) at Orlando",
    "when": "2026-11-18T16:00:00-08:00",
    "end": "2026-11-18T18:30:00-08:00",
    "where": "Kia Center, Orlando, FL",
    "tv": [
-    "NBC Sports Philadelphia (local TV listed TBA in national guides)"
+    "NBC Sports Philadelphia"
    ],
-   "url": "https://legionreport.com/76ers-schedule-this-week/",
-   "note": "7:00 PM ET tip. Second of a two-game road trip; Magic records per NBA.com snippet."
+   "url": "https://www.nba.com/team/1610612755/sixers/schedule",
+   "note": "7 PM ET tip. Embiid scored a season-high 37 in Monday's 135-123 win in Brooklyn; Jaylen Brown (31 points) left late with a cut on his head after a collision with Julius Randle, so watch his status. The Sixers are 4-0 without LeBron James, who sat Monday."
   },
   {
    "kind": "game",
    "title": "Bucks at 76ers",
-   "sub": "NBA · Milwaukee at Philadelphia (11-3) · Saturday matinee",
+   "sub": "NBA · Milwaukee at Philadelphia (12-3) · Saturday matinee",
    "when": "2026-11-21T10:00:00-08:00",
    "end": "2026-11-21T12:30:00-08:00",
    "where": "Xfinity Mobile Arena, Philadelphia, PA",
@@ -2690,47 +2691,47 @@
     "NBC Sports Philadelphia",
     "Peacock"
    ],
-   "url": "https://www.sportsmediawatch.com/tv-schedules/nba-tv-schedule/philadelphia-76ers/",
-   "note": "Start-time quirk: 1:00 PM ET / 10:00 AM PT Saturday, not a night game. Tip time confirmed by Sports Media Watch and Hoopsnightly; conflicts with the UFC Qatar main card at the same hour."
-  },
-  {
-   "kind": "game",
-   "title": "Ohio State at Nebraska",
-   "sub": "CFB Week 12 · Buckeyes (three losses, lost 2 straight: 18-30 at USC, 28-41 vs Oregon) at Huskers (6-4, 3-4 B1G)",
-   "when": "2026-11-21T09:00:00-08:00",
-   "end": "2026-11-21T12:30:00-08:00",
-   "where": "Memorial Stadium, Lincoln, NE",
-   "tv": [
-    "FOX (Big Noon Kickoff)"
-   ],
-   "url": "https://www.nbc4i.com/sports/buckeyes/when-ohio-state-plays-nebraska-kickoff-time-for-nov-21-2026-announced/",
-   "note": "Noon ET / 11 AM CT / 9 AM PT, announced by the Big Ten Sat night Nov 14. Ohio State opened as a 3.5-point favorite (Eleven Warriors/FanDuel). Nebraska is coming off a 31-0 win at Rutgers; billed as the last game at Memorial Stadium in its current configuration. The Game vs Michigan follows Nov 28, noon ET on FOX."
+   "url": "https://www.nba.com/team/1610612755/sixers/schedule",
+   "note": "Start-time quirk: 1 PM ET, so a 10 AM Pacific tip, overlapping the Ohio State game and the UFC main card. Watch the Brown injury update and whether Embiid plays both ends of back-to-backs."
   },
   {
    "kind": "fight",
-   "title": "UFC Fight Night Qatar: Procházka vs Stirling",
-   "sub": "Light heavyweight main event · Jiří Procházka (32-6-1) vs Navajo Stirling (11-0)",
+   "title": "UFC Fight Night Doha: Procházka vs. Stirling",
+   "sub": "Light heavyweight main event, five rounds · former champ Jiří Procházka vs. unbeaten (11-0) Navajo Stirling",
    "when": "2026-11-21T10:00:00-08:00",
    "end": "2026-11-21T13:00:00-08:00",
    "where": "ABHA Arena, Doha, Qatar",
    "tv": [
-    "Paramount+ (prelims and main card)"
+    "Paramount+"
    ],
    "url": "https://www.ufc.com/event/ufc-fight-night-november-21-2026",
-   "note": "Main card starts 1 PM ET / 10 AM PT; prelims 10 AM ET / 7 AM PT per UFC.com, mmamodel.ai and MMA Official. One Paramount+ schedule page shows 5 PM ET / 2 PM PT instead, and UFCalendar's 6 PM / 9 PM are Doha local (GMT+3),  treat 10 AM PT as the working time and re-check Saturday morning."
+   "note": "Main card starts 1 PM ET / 10 AM Pacific; prelims earlier in the morning (one listing says 9 AM ET, not confirmed). Also on the card: Aljamain Sterling vs. Kevin Vallejos and Dan Hooker vs. Brian Ortega."
   },
   {
-   "kind": "launch",
-   "title": "Falcon 9 · USSF-317 (Vandenberg)",
-   "sub": "Classified US Space Force mission · SLC-4E, Vandenberg SFB · booster lands on droneship OCISLY",
-   "when": "2026-11-18T19:00:00-08:00",
-   "end": "2026-11-18T19:30:00-08:00",
-   "where": "SLC-4E, Vandenberg SFB, CA",
+   "kind": "game",
+   "title": "Ohio State at Nebraska",
+   "sub": "Big Ten football · Buckeyes (7-3) at Huskers after beating Northwestern 28-19 on Nov 14 to snap a two-game skid",
+   "when": "2026-11-21T09:00:00-08:00",
+   "end": "2026-11-21T12:30:00-08:00",
+   "where": "Memorial Stadium, Lincoln, NE",
    "tv": [
-    "SpaceX webcast (X / spacex.com)"
+    "FOX"
    ],
-   "url": "https://www.flightatlas.org/trackers/spacex",
-   "note": "Date conflict resolved toward Wed Nov 18 ~7:00 PM PT (Thu Nov 19 03:00 UTC), per the two freshest sources (NewsBytes Nov 16; Flight Atlas, 0 days old). The Nov 17 7:14 PM PT listing is rocketlaunch.org's 25-day-old entry (18 Nov 03:14 UTC); its 'Nov 23 16:04 UTC' update note refers to a different Vandenberg mission (USSF-266 is listed Nov 23). Evening Vandenberg launches are often visible low in the southern sky from the Bay in clear weather; droneship landing means no RTLS sonic boom."
+   "url": "https://www.wowt.com/2026/11/15/kickoff-time-tv-information-set-nebraska-ohio-state-game/",
+   "note": "Noon ET / 11 AM CT kickoff, 9 AM Pacific, in FOX's Big Noon window. Overlaps the UFC main card and the Bucks-76ers tip an hour later."
+  },
+  {
+   "kind": "game",
+   "title": "Michigan at Ohio State (The Game)",
+   "sub": "Big Ten football · Saturday after Thanksgiving · Ohio State 7-3 going into Nebraska week",
+   "when": "2026-11-28T09:00:00-08:00",
+   "end": "2026-11-28T12:30:00-08:00",
+   "where": "Ohio Stadium, Columbus, OH",
+   "tv": [
+    "FOX"
+   ],
+   "url": "https://ohiostatebuckeyes.com/news/2026/5/11/football-the-game-set-to-air-on-fox-at-noon",
+   "note": "Noon ET kickoff set back in May; FOX's Big Noon Kickoff pregame runs from Columbus starting 9 AM ET (6 AM Pacific)."
   }
  ],
  "coachHistory": [
@@ -2771,25 +2772,25 @@
   }
  ],
  "dare": {
-  "date": "2026-11-16",
-  "kind": "Give",
-  "title": "Mail a real thank-you letter",
-  "why": "It is a rainy Monday and your evening is open, so this one is built for the couch. Pick one person who changed your path and never heard it from you: a teacher, an old boss, the friend who talked you into the move. Write one page by hand, three specifics they will recognize, no apology for the delay, then walk it to the Hope Street post office or any blue collection box before the last pickup. The rule: paper and a stamp, not a text.",
+  "date": "2026-11-17",
+  "kind": "Create",
+  "title": "Blind-draw your coffee cup",
+  "why": "Your evening is spoken for and the rain holds off until late tonight, so this one lives in your lunch break. Walk to Red Rock Coffee on Castro Street, order whatever you like, open a notebook, put the pen on the page and lock your eyes on the cup and the hand around it. Draw the outline for five full minutes without looking down once, then do it a second time. The rule: eyes on the subject, never on the paper, and no erasing. The drawing will be wrong and alive, and that is the point.",
   "mins": 30,
-  "cost": "$1",
+  "cost": "$",
   "place": {
-   "name": "Mountain View Main Post Office",
-   "sub": "211 Hope St, downtown Mountain View",
-   "url": "https://www.google.com/maps/search/?api=1&query=Mountain+View+Main+Post+Office+211+Hope+St+Mountain+View+CA+94041"
+   "name": "Red Rock Coffee",
+   "sub": "201 Castro St, downtown Mountain View",
+   "url": "https://www.google.com/maps/search/?api=1&query=Red+Rock+Coffee+201+Castro+St+Mountain+View+CA+94041"
   },
-  "worth": "People who write gratitude letters consistently guess the recipient will feel awkward and underwhelmed, and they are consistently wrong: the letters land as warm and surprising. A real envelope in a stack of bills is the rarest thing most people get all year.",
-  "src": "Kumar and Epley · Undervaluing gratitude, Psychological Science 2018",
+  "worth": "Blind contour drawing is the oldest trick in art school for switching off the part of you that draws the symbol of a cup and switching on the part that sees the actual edges, and it works in one sitting. You walk back to work noticing shadows and curves you have skipped over for years.",
+  "src": "Kimon Nicolaides · The Natural Way to Draw (1941)",
   "swap": {
    "kind": "Learn",
-   "title": "Learn to whistle with two fingers",
-   "why": "Fifteen minutes in the kitchen: wet your lips, tuck them over your teeth, push the tongue tip back with two fingertips in a V, and blow down past the fingers, not out. Expect nothing but air for ten minutes, then one note that scares the cat.",
+   "title": "Learn the NATO alphabet today",
+   "why": "Fifteen minutes at your desk: Alfa, Bravo, Charlie through Zulu, in groups of five, said out loud twice. Then spell your full name and your street with it, and test yourself cold at 3 pm.",
    "mins": 15,
-   "worth": "A loud whistle is a party trick you keep for life, and you will use it at the next trailhead, concert and taxi rank."
+   "worth": "You will use it on every support call and every time someone mishears your email address. Pilots and sailors settled on these 26 words because they survive a bad line, and so will you."
   }
  },
  "dareHistory": [
@@ -2937,42 +2938,14 @@
    "date": "2026-11-16",
    "kind": "Give",
    "title": "Mail a real thank-you letter"
+  },
+  {
+   "date": "2026-11-17",
+   "kind": "Create",
+   "title": "Blind-draw your coffee cup"
   }
  ],
  "briefLog": [
-  {
-   "date": "2026-11-02",
-   "story": "Intel fell about 29% on Oct. 30 on its outlook; Nasdaq lost 5.3% in October, worst month since March 2025",
-   "urls": [
-    "https://www.cnn.com/2026/10/30/investing/us-stocks-ai-investment",
-    "https://www.cnbc.com/2026/10/31/intel-not-a-buy-after-drop.html",
-    "https://www.fool.com/earnings/call-transcripts/2026/10/30/intel-intc-q3-2026-earnings-call-transcript/",
-    "https://finance.yahoo.com/markets/stocks/articles/p-says-meta-t-money-173602682.html"
-   ]
-  },
-  {
-   "date": "2026-11-02",
-   "story": "S&P revised Meta's outlook to negative on Oct. 30, projecting 2027 capex above $225B",
-   "urls": [
-    "https://www.cnn.com/2026/10/30/investing/us-stocks-ai-investment",
-    "https://www.cnbc.com/2026/10/31/intel-not-a-buy-after-drop.html",
-    "https://www.fool.com/earnings/call-transcripts/2026/10/30/intel-intc-q3-2026-earnings-call-transcript/",
-    "https://finance.yahoo.com/markets/stocks/articles/p-says-meta-t-money-173602682.html"
-   ]
-  },
-  {
-   "date": "2026-11-03",
-   "story": "Agility/Churchill XI shareholders approved the SPAC on Nov. 2, trading set for Nov. 5; about $465M gross proceeds, $2.5B pre-money; Digit customers GXO and Schaeffler, 30+ prospects",
-   "urls": [
-    "https://www.therobotreport.com/agility-robotics-shareholders-approve-25b-humanoid-spac/",
-    "https://www.sec.gov/Archives/edgar/data/0002074973/000121390026115038/ea0310517-8k425_church11.htm",
-    "https://www.unite.ai/agility-robotics-expects-465m-gross-capital-raise-ahead-of-spac-closing/",
-    "https://techstartups.com/2026/11/02/startup-funding-news-today-november-2-2026-northwood-space-hypersonica-roboscience-more/",
-    "https://www.agilityrobotics.com/content/agility-robotics-and-churchill-capital-corp-xi-announce-expected-gross-capital-raise-of-approximately-465-million-and-anticipated-closing-of-business-combination",
-    "https://roboticsandautomationnews.com/2026/11/02/agility-robotics-says-more-than-30-companies-considering-digit-humanoid-robot/106595/",
-    "https://www.agilityrobotics.com/content/agility-robotics-highlights-commercial-momentum-and-growing-enterprise-demand-for-digit-humanoid-robot"
-   ]
-  },
   {
    "date": "2026-11-03",
    "story": "RoboScience financing and its REX G1 wheeled platform",
@@ -4273,35 +4246,42 @@
    "urls": [
     "https://www.sciencedaily.com/releases/2026/11/261112230452.htm"
    ]
+  },
+  {
+   "date": "2026-11-17",
+   "story": "GSA report 'Unit of Health: The Currency of Longevity' on wearables/EHR data as longevity indicators; warns personal forecasts could mislead and deepen inequities (EurekAlert ~Nov 16)",
+   "urls": [
+    "https://www.eurekalert.org/news-releases/1152108"
+   ]
   }
  ],
  "kwSuggest": {
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "items": [
-   "KIRIA",
-   "LG CLOiD",
-   "Sankaet Pathak",
-   "Praxis-1",
-   "RoboLab-120",
-   "SuperMimic",
-   "Ship 43",
-   "Pad 39A",
-   "Kevin Warsh",
-   "Taiex",
-   "Orchestra Bio",
-   "Cyclin T1",
-   "TranslAGE",
-   "NOVOS Core",
-   "Huang comeback",
-   "Humanoid certification",
-   "Strive Bitcoin",
-   "Glassnode",
-   "Heart regeneration",
-   "Motion tracking",
-   "IPO lockup",
-   "Flight 16",
-   "Semaglutide",
-   "Boardwalk Robotics"
+   "XPeng IRON",
+   "ROBOTERA",
+   "Humanoid ETF",
+   "Giga Berlin",
+   "Robotaxi crashes",
+   "BIS chip rule",
+   "Qwen4-Max",
+   "Fed task force",
+   "Ramon.Space",
+   "CFTC nominees",
+   "Rentosertib",
+   "Proteomic clocks",
+   "LeRobot",
+   "Skild AI",
+   "Dyna Robotics",
+   "Tendon-driven hands",
+   "Humanoid batteries",
+   "Starship V3",
+   "Artemis III",
+   "AI capex",
+   "Nuclear for AI",
+   "Bitcoin options",
+   "Altos Labs",
+   "VO2 max"
   ]
  },
  "kwSuggestLog": [
@@ -4680,6 +4660,35 @@
     "Flight 16",
     "Semaglutide",
     "Boardwalk Robotics"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "items": [
+    "XPeng IRON",
+    "ROBOTERA",
+    "Humanoid ETF",
+    "Giga Berlin",
+    "Robotaxi crashes",
+    "BIS chip rule",
+    "Qwen4-Max",
+    "Fed task force",
+    "Ramon.Space",
+    "CFTC nominees",
+    "Rentosertib",
+    "Proteomic clocks",
+    "LeRobot",
+    "Skild AI",
+    "Dyna Robotics",
+    "Tendon-driven hands",
+    "Humanoid batteries",
+    "Starship V3",
+    "Artemis III",
+    "AI capex",
+    "Nuclear for AI",
+    "Bitcoin options",
+    "Altos Labs",
+    "VO2 max"
    ]
   }
  ]
